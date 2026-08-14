@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background-color: #FFFFFF;
+    color: #111111;
+    letter-spacing: -0.015em;
+  }
+}
+
+.font-editorial-sans {
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-serif-journal {
+  font-family: 'Newsreader', 'Pretendard', Georgia, serif;
+}
+
+/* Custom editorial scrollbars in minimal white monochrome */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #DADAD6;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A8A85;
+}
+
+/* Editorial rule lines */
+.editorial-rule-dark {
+  border-color: #111111;
+}
+
+.editorial-rule-light {
+  border-color: #DADAD6;
+}
+
