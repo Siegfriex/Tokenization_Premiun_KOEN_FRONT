@@ -17,7 +17,7 @@ interface ImpactSectionProps {
 
 export const ImpactSection: React.FC<ImpactSectionProps> = ({ uiLang }) => {
   const isKo = uiLang === 'ko';
-  const articleData = ARTICLE_CONTENT.impact;
+  const articleData = ARTICLE_CONTENT.socioeconomicScale;
 
   return (
     <section id="impact" className="py-20 sm:py-28 bg-[#F1F2F2] text-[#111111] border-b border-[#DADAD6] scroll-mt-12">
