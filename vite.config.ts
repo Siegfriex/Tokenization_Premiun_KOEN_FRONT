@@ -5,6 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/dsja_5_front/',
+    
     plugins: [react(), tailwindcss()],
     build: {
       rollupOptions: {
