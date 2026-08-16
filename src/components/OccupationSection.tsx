@@ -246,7 +246,8 @@ export const OccupationSection: React.FC<OccupationSectionProps> = ({ uiLang }) 
                             {isKo ? occ.name.ko : occ.name.en}
                           </span>
                           <span className="text-[10px] font-mono px-2 py-0.5 bg-[#F1F2F2] text-[#4A4A47] rounded-xs border border-[#DADAD6]">
-                            완충 효과군
+                            {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
+
                           </span>
                         </div>
                       ))}
@@ -270,7 +271,8 @@ export const OccupationSection: React.FC<OccupationSectionProps> = ({ uiLang }) 
                       </h3>
                     </div>
                     <span className="text-[10px] font-mono px-2 py-0.5 bg-[#111111] text-[#FFFFFF] rounded-xs font-bold uppercase">
-                      HIGH BURDEN POTENTIAL
+                     {isKo ? '높은 누적 부담 가능성' : 'HIGH BURDEN POTENTIAL'}
+                     
                     </span>
                   </div>
 
@@ -304,7 +306,8 @@ export const OccupationSection: React.FC<OccupationSectionProps> = ({ uiLang }) 
                             {isKo ? occ.name.ko : occ.name.en}
                           </span>
                           <span className="text-[10px] font-mono px-2 py-0.5 bg-[#111111] text-[#FFFFFF] rounded-xs font-bold">
-                            고부담 잠재군
+                            {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
+
                           </span>
                         </div>
                       ))}

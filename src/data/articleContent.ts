@@ -400,23 +400,24 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'What About Other World Languages?',
     },
     lead: {
-      ko: '그런데 이런 차이는 한국어와 영어만의 문제일까? 같은 정보를 표현해도 AI가 읽는 길이는 언어의 표기 체계와 어휘집 배분에 따라 극적으로 달라진다.',
+      ko:  '이러한 토큰 효율의 차이는 한국어와 영어에만 국한되지 않는다. 같은 정보를 표현하더라도 언어의 문자 체계와 토크나이저의 어휘집 구성에 따라 AI가 처리하는 토큰의 양은 크게 달라질 수 있다.',
       en: 'Is this disparity unique to Korean and English? Even when communicating identical information, the sequence length processed by AI varies dramatically across world writing systems.',
     },
     subheading: {
       ko: '표준 병렬 코퍼스(Flores-200)로 전수 측정한 12개 언어 효율성',
       en: '12-Language Efficiency Benchmark Measured via Flores-200 Parallel Corpus',
     },
+
     preFigureParagraphs: {
-      ko: [
-        '전 세계 12개 주요 언어 체계를 표준 코퍼스(Flores-200)로 전수 비교한 결과, 라틴 알파벳을 사용하는 영어(1.00×), 스페인어(1.18×)는 높은 압축 효율을 기록했습니다.',
-        '반면, 한글(1.78×), 아랍어(2.05×), 힌디어(2.30×) 등 비라틴계 고유 문자 체계는 서브워드 사전에 충분히 수록되지 못해 심각한 토큰 팽창을 겪고 있습니다.',
-      ],
-      en: [
-        'Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression.',
-        'Conversely, non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.',
-      ],
-    },
+  ko: [
+    'Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 영어의 토큰 소비량을 1.00으로 정규화했을 때 스페인어는 1.18배 수준으로 나타났다.',
+    '반면 한글은 1.78배, 아랍어는 2.05배, 힌디어는 2.30배 수준으로 나타났다. 이는 동일한 정보를 처리하더라도 언어의 문자 체계와 토크나이저의 어휘 구성에 따라 필요한 토큰 수가 달라질 수 있음을 보여준다.',
+  ],
+  en: [
+    'Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression.',
+    'Conversely, non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.',
+  ],
+},
     figureNumber: 'FIG. 06',
     figureCaption: {
       ko: 'Flores-200 병렬 코퍼스 기반 전 세계 12개 언어 토큰 분절 효율성 랭킹',

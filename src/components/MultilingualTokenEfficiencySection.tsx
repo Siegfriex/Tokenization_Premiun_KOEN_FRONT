@@ -64,10 +64,13 @@ export const MultilingualTokenEfficiencySection: React.FC<MultilingualTokenEffic
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#111111] leading-tight">
             {isKo ? (
               <>
-                한국어만의
+                언어에 따라
+
                 <br />
                 <span className="text-[#111111] underline decoration-[#8A8A85] underline-offset-8 decoration-2">
-                  문제가 아니다
+                  달라지는 토큰 효율
+
+              
                 </span>
               </>
             ) : (
