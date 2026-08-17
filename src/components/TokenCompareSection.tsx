@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { UILanguage } from '../types';
-import { CURATED_PAIRED_SENTENCES } from '../data/storyData';
-import { ARTICLE_CONTENT } from '../data/articleContent';
+import { useUILanguage } from '../features/change-language';
+import { CURATED_PAIRED_SENTENCES } from '../entities/sentence-pair';
+import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Hash } from 'lucide-react';
 import {
   ArticleReadingColumn,
@@ -12,12 +12,9 @@ import {
   ArticleFullWidthBreak,
 } from './ArticleElements';
 
-interface TokenCompareSectionProps {
-  uiLang: UILanguage;
-}
-
-export const TokenCompareSection: React.FC<TokenCompareSectionProps> = ({ uiLang }) => {
-  const isKo = uiLang === 'ko';
+export const TokenCompareSection: React.FC = () => {
+  const { language } = useUILanguage();
+  const isKo = language === 'ko';
   const articleData = ARTICLE_CONTENT.realSentences;
   const [selectedPairId, setSelectedPairId] = useState<string>(CURATED_PAIRED_SENTENCES[0].id);
 

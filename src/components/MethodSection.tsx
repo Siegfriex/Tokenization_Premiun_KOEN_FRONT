@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { UILanguage } from '../types';
-import { METHODOLOGY_ITEMS, WHAT_WE_DO_NOT_CLAIM } from '../data/storyData';
-import { ARTICLE_CONTENT } from '../data/articleContent';
+import { useUILanguage } from '../features/change-language';
+import { METHODOLOGY_ITEMS, WHAT_WE_DO_NOT_CLAIM } from '../entities/methodology';
+import { ARTICLE_CONTENT } from '../entities/article-content';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -10,12 +10,9 @@ import {
 } from './ArticleElements';
 import { ChevronDown, XCircle } from 'lucide-react';
 
-interface MethodSectionProps {
-  uiLang: UILanguage;
-}
-
-export const MethodSection: React.FC<MethodSectionProps> = ({ uiLang }) => {
-  const isKo = uiLang === 'ko';
+export const MethodSection: React.FC = () => {
+  const { language } = useUILanguage();
+  const isKo = language === 'ko';
   const articleData = ARTICLE_CONTENT.methodologyBoundaries;
   const [openItemIds, setOpenItemIds] = useState<string[]>([
     METHODOLOGY_ITEMS[0].id,

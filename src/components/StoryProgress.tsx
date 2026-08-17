@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { UILanguage } from '../types';
+import { useUILanguage } from '../features/change-language';
+import { LanguageSwitch } from '../features/change-language';
+import { NAV_SECTIONS } from '../entities/navigation';
+import { getLocalizedText } from '../shared/i18n';
 
-interface StoryProgressProps {
-  uiLang: UILanguage;
-  setUiLang: (lang: UILanguage) => void;
-}
-
-const SECTIONS = [
-  { id: 'hero', labelKo: 'S0. 커버', labelEn: 'S0. Cover' },
-  { id: 'compare', labelKo: 'S1. 분절 비교', labelEn: 'S1. Compare' },
-  { id: 'pipeline', labelKo: 'S2. 파이프라인', labelEn: 'S2. Pipeline' },
-  { id: 'patterns', labelKo: 'S3. Token Premium', labelEn: 'S3. Premium' },
-  { id: 'burden', labelKo: 'S4. 누적 부담', labelEn: 'S4. Burden' },
-  { id: 'languages', labelKo: 'S4.5. 글로벌 다국어', labelEn: 'S4.5. Global' },
-  { id: 'impact', labelKo: 'S5. 사회적 확장', labelEn: 'S5. Society' },
-  { id: 'method', labelKo: 'S6. 방법론·한계', labelEn: 'S6. Method' },
-  { id: 'result', labelKo: '결론', labelEn: 'Result' },
-];
-
-export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang }) => {
+export const StoryProgress: React.FC = () => {
+  const { language } = useUILanguage();
   const [scrollPercent, setScrollPercent] = useState<number>(0);
   const [activeSection, setActiveSection] = useState<string>('hero');
 
@@ -30,12 +17,12 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
       setScrollPercent(Math.min(100, Math.max(0, scrolled)));
 
       // Detect active section
-      for (let i = SECTIONS.length - 1; i >= 0; i--) {
-        const el = document.getElementById(SECTIONS[i].id);
+      for (let i = NAV_SECTIONS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(NAV_SECTIONS[i].id);
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= 240) {
-            setActiveSection(SECTIONS[i].id);
+            setActiveSection(NAV_SECTIONS[i].id);
             break;
           }
         }
@@ -46,7 +33,7 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isKo = uiLang === 'ko';
+  const isKo = language === 'ko';
 
   return (
     <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-rule text-ink transition-all">
@@ -68,7 +55,7 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
 
         {/* Desktop Quick Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 text-[11px] font-mono">
-          {SECTIONS.map((sec) => {
+          {NAV_SECTIONS.map((sec) => {
             const isActive = activeSection === sec.id;
             return (
               <a
@@ -80,7 +67,7 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
                     : 'text-ink-muted hover:text-ink hover:bg-surface-alt'
                 }`}
               >
-                {isKo ? sec.labelKo : sec.labelEn}
+                {getLocalizedText(sec.label, language)}
               </a>
             );
           })}
@@ -88,26 +75,7 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
 
         {/* Right Controls: KO/EN Language Switch */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="inline-flex items-center bg-surface-alt rounded-xs p-0.5 border border-rule text-xs font-mono">
-            <button
-              type="button"
-              onClick={() => setUiLang('ko')}
-              className={`px-2.5 py-0.5 rounded-xs transition-all cursor-pointer ${
-                isKo ? 'bg-surface-inverse text-ink-inverse font-bold' : 'text-ink-muted hover:text-ink'
-              }`}
-            >
-              KO
-            </button>
-            <button
-              type="button"
-              onClick={() => setUiLang('en')}
-              className={`px-2.5 py-0.5 rounded-xs transition-all cursor-pointer ${
-                !isKo ? 'bg-surface-inverse text-ink-inverse font-bold' : 'text-ink-muted hover:text-ink'
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <LanguageSwitch />
         </div>
       </div>
 

@@ -1,43 +1,24 @@
-import { UILanguage } from '../types';
-
-export interface SectionArticleContent {
-  status?: 'verified' | 'draft' | 'pending';
-  eyebrow?: { ko: string; en: string };
-  headline?: { ko: string; en: string };
-  subtitle?: { ko: string; en: string };
-  deck?: { ko: string; en: string };
-  lead?: { ko: string; en: string };
-  preFigureParagraphs?: { ko: string[]; en: string[] };
-  figureNumber?: string;
-  figureCaption?: { ko: string; en: string };
-  figureSource?: { ko: string; en: string };
-  subheading?: { ko: string; en: string };
-  postFigureParagraphs?: { ko: string[]; en: string[] };
-  pullQuote?: { ko: string; en: string };
-  keyFinding?: {
-    label?: { ko: string; en: string };
-    statement: { ko: string; en: string };
-    bigNumber?: string;
-  };
-  footnotes?: { ko: string[]; en: string[] };
-  sourcePlaceholder?: { ko: string; en: string };
-}
-
-export interface ArticleContentRegistry {
-  hero: SectionArticleContent;
-  introTheQuestion: SectionArticleContent;
-  tokenUnit: SectionArticleContent;
-  mechanism: SectionArticleContent;
-  beyondKoreanPreview: SectionArticleContent;
-  corpusAnalysis: SectionArticleContent;
-  realSentences: SectionArticleContent;
-  accumulatedBurden: SectionArticleContent;
-  multilingualBenchmark: SectionArticleContent;
-  koreaInfrastructure: SectionArticleContent;
-  socioeconomicScale: SectionArticleContent;
-  methodologyBoundaries: SectionArticleContent;
-  conclusionSynthesis: SectionArticleContent;
-}
+/**
+ * Moved unchanged from src/data/articleContent.ts. This is the single
+ * highest-volume protected-research-copy file in the project (13
+ * sections' lead/body/finding/footnote prose); it is relocated as one
+ * file rather than split into 13 per-section files to eliminate any risk
+ * of transcription error while moving protected wording/values (see
+ * docs/CONTENT_AUDIT.md "Protected research copy").
+ *
+ * KNOWN FINDING (Phase 3): every section's `headline` field below is
+ * currently unused by any widget except `hero.headline`, which
+ * NewsHeroSection now consumes directly (see entities/article-content
+ * PR notes). The other 12 `headline` values were compared against each
+ * widget's actual rendered inline headline and found to DIFFER in
+ * wording (not byte-identical duplicates) — they appear to be earlier
+ * drafts that were never wired up. They are therefore left untouched
+ * and unconsumed here rather than either (a) silently overwriting a
+ * widget's real rendered headline with different text, or (b) deleting
+ * research-adjacent drafted content without an editorial decision. See
+ * the Phase 3 PR description for the full comparison table.
+ */
+import { ArticleContentRegistry } from '../model/types';
 
 export const ARTICLE_CONTENT: ArticleContentRegistry = {
   // S0: Hero Section (Cover Spread)
