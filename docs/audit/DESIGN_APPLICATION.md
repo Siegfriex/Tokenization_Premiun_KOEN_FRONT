@@ -93,8 +93,8 @@ type scale.
 | `text-ink-muted` | 62 |
 | `border-b` | 38 |
 | `text-ink-body` | 24 |
-| `bg-surface` | 18 |
-| `bg-surface-alt` | 15 |
+| `bg-surface` | 17 |
+| `bg-surface-alt` | 16 |
 | `text-ink-subtle` | 13 |
 | `border-t` | 12 |
 | `text-on-accent` | 12 |

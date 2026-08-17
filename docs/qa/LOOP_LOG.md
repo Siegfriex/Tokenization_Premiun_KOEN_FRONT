@@ -179,3 +179,42 @@ break.
 **Next slide:** `S02-pipeline` (`PipelineSection`) — not started.
 
 ---
+
+## 2026-08-17 21:xx — Iteration 5 (Director-directed, out-of-band)
+
+**Trigger:** Director design critique — the C1–C18 measurement layer was
+never going to catch "which panel is the point," "why is the nav this
+loud," or "why do all cards look equally important." Four priorities
+given, ranked: (1) nav decompression, (2) per-slide single focal point,
+(3) three-tier card system, (4) typography law. Interrupted the slide-by-
+slide sequence to do the cross-cutting groundwork first — `docs/qa/DESIGN_LAW.md`
+authored (card tiers + typography scale, formalizing what already existed
+ad hoc rather than inventing new tokens).
+
+**Priority 1 — nav decompression, applied globally (not slide-scoped):**
+`NAV_SECTIONS`' `label` split into `code` (S0–S7, always visible,
+`text-ink-subtle`) and `name` (full descriptive text, shown only inside
+the active pill). Resting items now read as location markers, not a table
+of contents competing with slide content. Screenshotted before/after —
+dramatic reduction in header noise. `aria-label` preserves the full name
+for screen readers regardless of active state, so nothing was lost for
+accessibility despite the code-only resting display.
+
+**Priority 3 — worked example, S03-patterns:** applied the 3-tier system
+to the Director's own cited case. See `docs/qa/SHOT_SPECS.md` S03-patterns.
+
+**Priority 2/4 — not done this iteration:** per-slide focal-point
+declarations exist for S00/S01/S03 (filled Shot Specs) but not yet for
+S02/S04–S07. Typography law is documented but not yet audited against the
+51 measured signatures in `docs/audit/DESIGN_APPLICATION.md` for
+convergence — logged as explicit follow-up, not silently deferred.
+
+tsc clean, build passes, audit pipeline diff-reproducible (only line-number
+shifts in `NUMERIC_CLAIMS.md` from an added comment — all 22 claim IDs/
+statuses/values diffed and confirmed unchanged).
+
+**Next slide:** resume sequence at `S02-pipeline`, now informed by
+`docs/qa/DESIGN_LAW.md` (declare tier + focal point in its Shot Spec before
+touching it).
+
+---

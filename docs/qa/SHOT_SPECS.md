@@ -29,6 +29,32 @@ Slide IDs follow the section `id` used in the DOM and in
 
 ---
 
+## S03-patterns
+
+| Field | Content |
+|---|---|
+| Intent | Prove the core `1.29×–1.83×` Token Premium range empirically, then let the reader explore *where* it comes from by domain. |
+| Primary focal point | The tier-1 left panel's `1.29×~1.83×` headline number — this is the slide's one central claim. |
+| Secondary focal points | The tier-2 right panel (6-row interactive domain-distribution list) — supports/explores the claim, does not restate it. |
+| Forbidden competition | Before this pass: the two panels used identical `border border-rule shadow-xs` treatment and genuinely competed for first look (Director's cited example) — see `docs/qa/DESIGN_LAW.md`. |
+| Layout skeleton | Two-column breakout: tier-1 metric card + tier-3 formula box (left, 5/12), tier-2 domain list (right, 7/12). |
+| Risk zones | The Director-frozen `PREM-*` numeric claims (D1) live in this exact panel — tier styling (border/shadow) only, no text/value touched. |
+| Required states | default (no interactive element in the left panel itself; the right panel's `SelectableCard` rows have their own default/selected states, already covered in earlier iterations' domain-list check). |
+| Required screenshots | 1440×KO (tiered). |
+| Accept/reject rule | Reject if both panels still read as equal weight, or if the tier-1 border/shadow bleeds into overflow/misalignment on the frozen numeric content. |
+
+**Findings:** applied `docs/qa/DESIGN_LAW.md`'s 3-tier card system — left
+panel → tier 1 (`border-2 border-rule-strong shadow-sm`, was identical to
+right panel), right panel → tier 2 (unchanged, already correct), formula
+box → tier 3 (`bg-surface-alt`, no shadow, was tier-2 treatment).
+Screenshot confirms clear first-look precedence: left panel's border
+weight and shadow depth now unambiguously outrank the right panel and the
+formula note. 0 overflow (all `bg-surface*` panels checked). `NUMERIC_CLAIMS.md`
+line numbers shifted (+1, a new comment line) but all 22 claims'
+Trace IDs, statuses, and values unchanged — verified via diff.
+
+---
+
 ## S01-compare
 
 | Field | Content |
