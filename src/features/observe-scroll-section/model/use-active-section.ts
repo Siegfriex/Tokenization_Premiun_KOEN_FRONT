@@ -35,10 +35,38 @@ import { buildTriggerLineRootMargin } from '../lib/observer-options';
  *   are silently skipped — never observed, never selectable as active.
  * - Cleanup: the observer is disconnected and the intersecting-set ref is
  *   cleared on unmount or whenever `sectionIds` changes.
+ * - Viewport resize: `rootMargin` is computed from the current viewport
+ *   height, which is tracked in state and updated (rAF-throttled) on
+ *   `resize`. The observer effect depends on that height, so resizing
+ *   the window (or rotating a device) recreates the observer with a
+ *   fresh trigger-line position instead of keeping a stale one from
+ *   mount time.
  */
 export function useActiveSection(sectionIds: readonly string[]): string {
   const [activeId, setActiveId] = useState<string>(sectionIds[0] ?? '');
+  const [viewportHeight, setViewportHeight] = useState<number>(() =>
+    typeof window === 'undefined' ? 0 : window.innerHeight
+  );
   const intersectingRef = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    let frame: number | null = null;
+    const handleResize = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = null;
+        setViewportHeight(window.innerHeight);
+      });
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined' || sectionIds.length === 0) {
@@ -79,7 +107,7 @@ export function useActiveSection(sectionIds: readonly string[]): string {
       },
       {
         root: null,
-        rootMargin: buildTriggerLineRootMargin(window.innerHeight),
+        rootMargin: buildTriggerLineRootMargin(viewportHeight),
         threshold: 0,
       }
     );
@@ -90,7 +118,7 @@ export function useActiveSection(sectionIds: readonly string[]): string {
       observer.disconnect();
       intersectingRef.current.clear();
     };
-  }, [sectionIds]);
+  }, [sectionIds, viewportHeight]);
 
   return activeId;
 }

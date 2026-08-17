@@ -16,8 +16,16 @@ export const TRIGGER_LINE_PX = 240;
  * Builds a `rootMargin` that collapses the viewport to a 1px-tall
  * horizontal band positioned `TRIGGER_LINE_PX` down from the top —
  * an element "intersects" exactly when it visually spans that line.
+ *
+ * `topInset` is clamped to `viewportHeight - 1` so a viewport shorter
+ * than `TRIGGER_LINE_PX` (e.g. a landscape-orientation phone) still gets
+ * a valid single-pixel line near its bottom edge, instead of a degenerate
+ * zero-height bottom inset that would turn the whole 240px-to-bottom
+ * region into the observed area (every visible section would then
+ * "intersect" at once).
  */
 export function buildTriggerLineRootMargin(viewportHeight: number): string {
-  const bottomInset = Math.max(viewportHeight - TRIGGER_LINE_PX - 1, 0);
-  return `-${TRIGGER_LINE_PX}px 0px -${bottomInset}px 0px`;
+  const topInset = Math.min(TRIGGER_LINE_PX, Math.max(viewportHeight - 1, 0));
+  const bottomInset = Math.max(viewportHeight - topInset - 1, 0);
+  return `-${topInset}px 0px -${bottomInset}px 0px`;
 }
