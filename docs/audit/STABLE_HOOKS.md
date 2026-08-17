@@ -181,7 +181,7 @@ the styling, and every design change silently invalidates it.
 | `HERO-007` | NewsHeroSection | 44 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold` | `data-role="…"` |
 | `HERO-008` | NewsHeroSection | 47 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `HERO-009` | NewsHeroSection | 56 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `HERO-010` | NewsHeroSection | 61-69 | `h1` | STABLE (data-*) | `h1.text-4xl.sm\:text-6xl.lg\:text-7xl.font-bold.tracking-ti…` | `data-role="section-heading"` |
+| `HERO-010` | NewsHeroSection | 61-69 | `h1` | STABLE (data-*) | `h1.text-4xl.sm\:text-6xl.lg\:text-7xl.font-extrabold.tracki…` | `data-role="section-heading"` |
 | `HERO-012` | NewsHeroSection | 87 | `dt` | STABLE (data-*) | `dt.text-ink-subtle.block.text-\[10px\].uppercase` | `data-role="…"` |
 | `HERO-013` | NewsHeroSection | 88 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold` | `data-role="…"` |
 | `HERO-015` | NewsHeroSection | 91 | `dt` | STABLE (data-*) | `dt.text-ink-subtle.block.text-\[10px\].uppercase` | `data-role="…"` |

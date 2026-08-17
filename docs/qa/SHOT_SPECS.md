@@ -27,6 +27,22 @@ Slide IDs follow the section `id` used in the DOM and in
 | Required screenshots | 1440×KO, 1440×EN, 390×KO, 390×EN. |
 | Accept/reject rule | Reject if the exhibit card's numbers visually out-weigh the H1 (font-size/color proximity), or if `headlineLine2`'s underline decoration collides with descenders/next-line content in either language, or if the stat ribbon wraps awkwardly at 390px. |
 
+**Findings (redline pass, 2026-08-17):** Director redline applied — 3
+concrete changes. (1) H1 `font-bold`→`font-extrabold`, `leading-[1.15]`→
+`leading-[1.1]` (cover-only exception, documented in `docs/qa/DESIGN_LAW.md`
+so it doesn't propagate to other slides' `SectionHeading`) — "heavier"
+left title block via weight, not size, staying inside the typography law.
+(2) Right FIG.01 exhibit card: removed `border border-rule`, kept
+`bg-surface-alt` — reads as a soft supporting zone, not a competing
+bordered panel. (3) `introTheQuestion.preFigureParagraphs` (`ko`/`en`):
+merged former paragraphs 1+2 into one (identical sentences, zero wording
+change), paragraph 3 stands alone as the second — 3→2 paragraphs.
+Screenshotted 1440×KO/EN: title reads heavier, evidence box recedes,
+"제목→부제→첫 증거" order reads immediately in both languages. tsc clean,
+build passes, audit pipeline diff-reproducible, director queue still 16
+(no frozen claim touched — only container chrome + paragraph grouping of
+already-approved sentences).
+
 ---
 
 ## S03-patterns

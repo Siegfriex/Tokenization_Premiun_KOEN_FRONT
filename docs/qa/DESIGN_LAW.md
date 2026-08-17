@@ -40,7 +40,7 @@ is a C4/C10 violation.
 
 | Role | Treatment | Where defined |
 |---|---|---|
-| Hero headline (site-level, once) | `text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15]` | `NewsHeroSection` H1 |
+| Hero headline (site-level, once) | `text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]` | `NewsHeroSection` H1 — `font-extrabold`/`leading-[1.1]` is a deliberate cover-only exception (Director redline, 2026-08-17: "논지 선고처럼," heavier than every other section's `font-bold`) — do not propagate to `SectionHeading`, which stays `font-bold` for all 10 in-body slides |
 | Section lead (`SectionHeading` h2, once per slide) | `text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight` (display variant: `text-4xl sm:text-6xl lg:text-7xl`, closing slide only) | `shared/ui/SectionHeading.tsx` |
 | Body lead (`ArticleLead`) | `text-xl sm:text-2xl font-medium leading-[1.6]` | `ArticleElements.tsx` |
 | Body paragraph (`ArticleParagraph`) | `text-[17px] sm:text-[18px] font-normal leading-[1.85]` | `ArticleElements.tsx` |

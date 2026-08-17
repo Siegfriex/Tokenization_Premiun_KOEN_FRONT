@@ -58,7 +58,7 @@ export const NewsHeroSection: React.FC = () => {
             </div>
 
             <div className="space-y-3">
-              <h1 data-role="heading" data-semantic-target="heading" className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-[1.15]">
+              <h1 data-role="heading" data-semantic-target="heading" className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.1]">
                 {headlineLine1}
                 {headlineLine2 && (
                   <>
@@ -98,10 +98,10 @@ export const NewsHeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right 40% (5 cols on lg): Minimal Editorial Data Exhibit */}
+          {/* Right 40% (5 cols on lg): Minimal Editorial Data Exhibit — deliberately quiet (docs/qa/DESIGN_LAW.md): supports the H1's claim, must not compete with it */}
           <div className="lg:col-span-5 space-y-6 lg:pl-4">
             {/* Minimal Token Contrast Visual */}
-            <div className="bg-surface-alt border border-rule rounded-xs p-6 space-y-6">
+            <div className="bg-surface-alt rounded-xs p-6 space-y-6">
               <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                 <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                   FIG. 01 / REAL TOKEN SPLIT EXHIBIT

@@ -137,15 +137,15 @@
   "verified": [
    "src/entities/article-content/content/article-content.ts:26",
    "src/entities/article-content/content/article-content.ts:47",
-   "src/entities/article-content/content/article-content.ts:88",
-   "src/entities/article-content/content/article-content.ts:195",
-   "src/entities/article-content/content/article-content.ts:222",
-   "src/entities/article-content/content/article-content.ts:275",
-   "src/entities/article-content/content/article-content.ts:319",
-   "src/entities/article-content/content/article-content.ts:374",
-   "src/entities/article-content/content/article-content.ts:432",
-   "src/entities/article-content/content/article-content.ts:476",
-   "src/entities/article-content/content/article-content.ts:531",
+   "src/entities/article-content/content/article-content.ts:90",
+   "src/entities/article-content/content/article-content.ts:197",
+   "src/entities/article-content/content/article-content.ts:224",
+   "src/entities/article-content/content/article-content.ts:277",
+   "src/entities/article-content/content/article-content.ts:321",
+   "src/entities/article-content/content/article-content.ts:376",
+   "src/entities/article-content/content/article-content.ts:434",
+   "src/entities/article-content/content/article-content.ts:478",
+   "src/entities/article-content/content/article-content.ts:533",
    "src/entities/article-content/model/types.ts:3"
   ],
   "TOKEN PREMIUM · AI × LANGUAGE / 2026": [
@@ -188,694 +188,688 @@
   "We posed the exact same question to a large language model in Korean and English. While the questions conveyed identical intent, the subword token count required to process them varied substantially.": [
    "src/entities/article-content/content/article-content.ts:58"
   ],
-  "사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다.": [
-   "src/entities/article-content/content/article-content.ts:62"
-  ],
-  "같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.": [
-   "src/entities/article-content/content/article-content.ts:63"
+  "사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다. 같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.": [
+   "src/entities/article-content/content/article-content.ts:66"
   ],
   "토큰화(Tokenization)는 인공지능이 인간의 지식을 해석하고 연산하는 가장 기초적인 물리적 단위이자 관문이다. 모델의 연산 시간, 기억할 수 있는 문맥(Context Window)의 한계, 그리고 API 호출량 산정까지 모든 핵심 제약이 바로 이 \"몇 개의 토큰으로 쪼개졌는가\"에서 결정된다.": [
-   "src/entities/article-content/content/article-content.ts:64"
-  ],
-  "An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English.": [
    "src/entities/article-content/content/article-content.ts:67"
   ],
-  "This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.": [
-   "src/entities/article-content/content/article-content.ts:68"
+  "An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English. This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.": [
+   "src/entities/article-content/content/article-content.ts:70"
   ],
   "Tokenization is the foundational computational gateway through which AI processes human knowledge. Sequence latency, context window limits, and API usage calculations are all governed by this single metric: token count.": [
-   "src/entities/article-content/content/article-content.ts:69"
+   "src/entities/article-content/content/article-content.ts:71"
   ],
   "약 1.2× ~ 1.8×": [
-   "src/entities/article-content/content/article-content.ts:73"
+   "src/entities/article-content/content/article-content.ts:75"
   ],
   "~1.2× – 1.8×": [
-   "src/entities/article-content/content/article-content.ts:73"
+   "src/entities/article-content/content/article-content.ts:75"
   ],
   "핵심 실측 관측치": [
-   "src/entities/article-content/content/article-content.ts:74"
-  ],
-  "Core Empirical Finding": [
-   "src/entities/article-content/content/article-content.ts:74"
-  ],
-  "한·영 대응 문장 분석에서 한국어가 영어보다 더 많은 token을 사용하는 경향이 일관되게 나타났다.": [
    "src/entities/article-content/content/article-content.ts:76"
   ],
+  "Core Empirical Finding": [
+   "src/entities/article-content/content/article-content.ts:76"
+  ],
+  "한·영 대응 문장 분석에서 한국어가 영어보다 더 많은 token을 사용하는 경향이 일관되게 나타났다.": [
+   "src/entities/article-content/content/article-content.ts:78"
+  ],
   "Across parallel Korean-English sentence benchmarks, Korean consistently consumed more subword tokens than English.": [
-   "src/entities/article-content/content/article-content.ts:77"
+   "src/entities/article-content/content/article-content.ts:79"
   ],
   "“동일한 의미를 전달하는데, 왜 한국어 문장은 AI 신경망 안에서 더 잘게 쪼개져야 하는가?”": [
-   "src/entities/article-content/content/article-content.ts:81"
+   "src/entities/article-content/content/article-content.ts:83"
   ],
   "“Why does expressing the exact same meaning require Hangul text to be fragmented into more subword tokens?”": [
-   "src/entities/article-content/content/article-content.ts:82"
+   "src/entities/article-content/content/article-content.ts:84"
   ],
   "02 / TOKEN · AI 시대의 새로운 계량 단위": [
-   "src/entities/article-content/content/article-content.ts:90"
+   "src/entities/article-content/content/article-content.ts:92"
   ],
   "02 / TOKEN · THE COMPUTATIONAL CURRENCY OF AI": [
-   "src/entities/article-content/content/article-content.ts:91"
+   "src/entities/article-content/content/article-content.ts:93"
   ],
   "토큰, AI 시대의 새로운 계량 단위": [
-   "src/entities/article-content/content/article-content.ts:94"
+   "src/entities/article-content/content/article-content.ts:96"
   ],
   "Tokens: The New Unit of Measurement in the AI Era": [
-   "src/entities/article-content/content/article-content.ts:95"
+   "src/entities/article-content/content/article-content.ts:97"
   ],
   "생성형 AI 서비스는 문장을 글자 단위가 아니라 token이라는 작은 조각으로 처리한다. 문장을 더 많은 token으로 분절할수록 모델이 처리해야 하는 입력 시퀀스 역시 길어진다.": [
-   "src/entities/article-content/content/article-content.ts:98"
+   "src/entities/article-content/content/article-content.ts:100"
   ],
   "Generative AI processes natural language not character-by-character, but in subword fragments called tokens. Slicing sentences into more tokens lengthens the input sequence the neural network must compute.": [
-   "src/entities/article-content/content/article-content.ts:99"
+   "src/entities/article-content/content/article-content.ts:101"
   ],
   "문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계": [
-   "src/entities/article-content/content/article-content.ts:102"
+   "src/entities/article-content/content/article-content.ts:104"
   ],
   "From Text to Token Vector: The 4-Stage Input Pipeline": [
-   "src/entities/article-content/content/article-content.ts:103"
+   "src/entities/article-content/content/article-content.ts:105"
   ],
   "문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다.": [
-   "src/entities/article-content/content/article-content.ts:107"
+   "src/entities/article-content/content/article-content.ts:109"
   ],
   "그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.": [
-   "src/entities/article-content/content/article-content.ts:108"
+   "src/entities/article-content/content/article-content.ts:110"
   ],
   "The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption.": [
-   "src/entities/article-content/content/article-content.ts:111"
+   "src/entities/article-content/content/article-content.ts:113"
   ],
   "This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.": [
-   "src/entities/article-content/content/article-content.ts:112"
+   "src/entities/article-content/content/article-content.ts:114"
   ],
   "FIG. 02": [
-   "src/entities/article-content/content/article-content.ts:115"
-  ],
-  "생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환": [
    "src/entities/article-content/content/article-content.ts:117"
   ],
+  "생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환": [
+   "src/entities/article-content/content/article-content.ts:119"
+  ],
   "Generative AI Input Pipeline: Text to UTF-8 Bytes, Subword Segmentation, and Token Vectors": [
-   "src/entities/article-content/content/article-content.ts:118"
+   "src/entities/article-content/content/article-content.ts:120"
   ],
   "출처: BPE (Byte-Pair Encoding) 표준 아키텍처 및 LLM 입력 전처리 명세": [
-   "src/entities/article-content/content/article-content.ts:121"
+   "src/entities/article-content/content/article-content.ts:123"
   ],
   "Source: Byte-Pair Encoding Standard Architecture & LLM Preprocessing Specifications": [
-   "src/entities/article-content/content/article-content.ts:122"
+   "src/entities/article-content/content/article-content.ts:124"
   ],
   "LLM의 입력 전처리는 [원본 문자열 입력] → [유니코드 UTF-8 바이트 인코딩] → [BPE 어휘집 대조] → [최종 토큰 ID 벡터 생성]의 과정을 거칩니다.": [
-   "src/entities/article-content/content/article-content.ts:126"
+   "src/entities/article-content/content/article-content.ts:128"
   ],
   "이러한 분절 구조는 단순히 숫자가 늘어나는 데 그치지 않습니다. 트랜스포머 모델의 자기주의(Self-Attention) 연산량은 토큰 시퀀스 길이에 비례해 급증하므로, 한국어 문장의 토큰 수가 많다는 것은 모델이 같은 문장을 이해하기 위해 더 긴 거리의 상관관계를 연산해야 함을 뜻합니다.": [
-   "src/entities/article-content/content/article-content.ts:127"
+   "src/entities/article-content/content/article-content.ts:129"
   ],
   "LLM input preprocessing follows [Raw Text Input] → [UTF-8 Byte Encoding] → [BPE Vocabulary Lookup] → [Token ID Vector Generation].": [
-   "src/entities/article-content/content/article-content.ts:130"
+   "src/entities/article-content/content/article-content.ts:132"
   ],
   "This fragmentation overhead does not merely inflate an integer counter. Transformer self-attention complexity scales with sequence length, meaning the neural network must compute pairwise attention matrices across a longer sequence to understand the same thought.": [
-   "src/entities/article-content/content/article-content.ts:131"
+   "src/entities/article-content/content/article-content.ts:133"
   ],
   "아키텍처 인과 관계": [
-   "src/entities/article-content/content/article-content.ts:135"
-  ],
-  "Architectural Implication": [
-   "src/entities/article-content/content/article-content.ts:135"
-  ],
-  "토큰 분절이 늘어날수록 입력 시퀀스가 길어져, 어텐션 연산량과 컨텍스트 윈도우 점유율이 동시에 증가합니다.": [
    "src/entities/article-content/content/article-content.ts:137"
   ],
+  "Architectural Implication": [
+   "src/entities/article-content/content/article-content.ts:137"
+  ],
+  "토큰 분절이 늘어날수록 입력 시퀀스가 길어져, 어텐션 연산량과 컨텍스트 윈도우 점유율이 동시에 증가합니다.": [
+   "src/entities/article-content/content/article-content.ts:139"
+  ],
   "Increased token segmentation lengthens the sequence, simultaneously driving up attention compute overhead and context window consumption.": [
-   "src/entities/article-content/content/article-content.ts:138"
+   "src/entities/article-content/content/article-content.ts:140"
   ],
   "draft": [
-   "src/entities/article-content/content/article-content.ts:145",
-   "src/entities/article-content/content/article-content.ts:578",
+   "src/entities/article-content/content/article-content.ts:147",
+   "src/entities/article-content/content/article-content.ts:580",
    "src/entities/article-content/model/types.ts:3"
   ],
   "03 / MECHANISM · 왜 한국어는 더 잘게 쪼개질까": [
-   "src/entities/article-content/content/article-content.ts:147"
+   "src/entities/article-content/content/article-content.ts:149"
   ],
   "03 / MECHANISM · WHY HANGUL FRAGMENTS DEEPER": [
-   "src/entities/article-content/content/article-content.ts:148"
+   "src/entities/article-content/content/article-content.ts:150"
   ],
   "왜 한국어는 더 잘게 쪼개질까": [
-   "src/entities/article-content/content/article-content.ts:151"
+   "src/entities/article-content/content/article-content.ts:153"
   ],
   "Why Does Hangul Fragment into Finer Subwords?": [
-   "src/entities/article-content/content/article-content.ts:152"
+   "src/entities/article-content/content/article-content.ts:154"
   ],
   "영문 알파벳은 글자당 1바이트를 차지하며 단어 전체가 하나의 토큰으로 병합되는 반면, 한글은 3바이트 유니코드 구조와 형태소 결합 특성으로 인해 더 잘게 쪼개진다.": [
-   "src/entities/article-content/content/article-content.ts:155"
+   "src/entities/article-content/content/article-content.ts:157"
   ],
   "While English characters occupy 1 byte in ASCII and frequently merge into single-word tokens, Hangul syllables require 3 bytes in UTF-8 and diverse morphological affixes, causing deeper subword fragmentation.": [
-   "src/entities/article-content/content/article-content.ts:156"
+   "src/entities/article-content/content/article-content.ts:158"
   ],
   "BPE 사전 내 빈도 편향과 바이트 단위 폴백": [
-   "src/entities/article-content/content/article-content.ts:159"
+   "src/entities/article-content/content/article-content.ts:161"
   ],
   "BPE Vocabulary Allocation Bias & Byte-Level Fallback": [
-   "src/entities/article-content/content/article-content.ts:160"
+   "src/entities/article-content/content/article-content.ts:162"
   ],
   "최신 상용 토크나이저(o200k_base 등)는 약 10만~20만 개의 서브워드 사전을 보유하고 있습니다. 영어의 경우 빈번히 사용되는 대부분의 복합 단어와 관용구가 단 1개의 토큰으로 온전히 등록되어 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:164"
-  ],
-  "반면, 한국어는 11,172개의 완성형 음절과 다양한 조사·어미 결합 구조(교착어적 특성)로 인해 사전 내 단일 토큰으로 수록되지 못하고 2~4개의 작은 바이트 조각으로 파편화됩니다.": [
-   "src/entities/article-content/content/article-content.ts:165"
-  ],
-  "이는 특정 언어의 결함이 아니라, 웹 크롤링 기반 학습 데이터에서 영문 텍스트가 절대 다수를 차지하여 BPE 알고리즘이 영문 서브워드에 압도적으로 많은 어휘 번호를 배정했기 때문입니다.": [
    "src/entities/article-content/content/article-content.ts:166"
   ],
+  "반면, 한국어는 11,172개의 완성형 음절과 다양한 조사·어미 결합 구조(교착어적 특성)로 인해 사전 내 단일 토큰으로 수록되지 못하고 2~4개의 작은 바이트 조각으로 파편화됩니다.": [
+   "src/entities/article-content/content/article-content.ts:167"
+  ],
+  "이는 특정 언어의 결함이 아니라, 웹 크롤링 기반 학습 데이터에서 영문 텍스트가 절대 다수를 차지하여 BPE 알고리즘이 영문 서브워드에 압도적으로 많은 어휘 번호를 배정했기 때문입니다.": [
+   "src/entities/article-content/content/article-content.ts:168"
+  ],
   "Modern commercial tokenizers maintain dictionaries of 100,000 to 200,000 subword entries. In English, common compound words and idiomatic phrases are assigned single, dedicated token IDs.": [
-   "src/entities/article-content/content/article-content.ts:169"
-  ],
-  "In contrast, Korean—with 11,172 potential syllabic blocks and agglutinative particles—is frequently decomposed into multiple sub-syllabic byte fragments.": [
-   "src/entities/article-content/content/article-content.ts:170"
-  ],
-  "This is not a defect in the language, but the mathematical outcome of BPE algorithms prioritizing high-frequency Latin strings present in predominantly English web crawl data.": [
    "src/entities/article-content/content/article-content.ts:171"
   ],
-  "FIG. 03": [
-   "src/entities/article-content/content/article-content.ts:174"
+  "In contrast, Korean—with 11,172 potential syllabic blocks and agglutinative particles—is frequently decomposed into multiple sub-syllabic byte fragments.": [
+   "src/entities/article-content/content/article-content.ts:172"
   ],
-  "한글 음절 및 영문 단어의 바이트 분할과 서브워드 토큰 매핑 구조": [
+  "This is not a defect in the language, but the mathematical outcome of BPE algorithms prioritizing high-frequency Latin strings present in predominantly English web crawl data.": [
+   "src/entities/article-content/content/article-content.ts:173"
+  ],
+  "FIG. 03": [
    "src/entities/article-content/content/article-content.ts:176"
   ],
+  "한글 음절 및 영문 단어의 바이트 분할과 서브워드 토큰 매핑 구조": [
+   "src/entities/article-content/content/article-content.ts:178"
+  ],
   "Hangul Syllable & English Word Byte Slicing and Subword Token Mapping": [
-   "src/entities/article-content/content/article-content.ts:177"
+   "src/entities/article-content/content/article-content.ts:179"
   ],
   "자료: OpenAI Tiktoken o200k_base 및 유니코드 표준 컨소시엄 UTF-8 사양": [
-   "src/entities/article-content/content/article-content.ts:180"
+   "src/entities/article-content/content/article-content.ts:182"
   ],
   "Source: OpenAI Tiktoken o200k_base & Unicode Consortium UTF-8 Specifications": [
-   "src/entities/article-content/content/article-content.ts:181"
+   "src/entities/article-content/content/article-content.ts:183"
   ],
   "결과적으로 동일한 개념을 서술하더라도 한국어는 토크나이저 사전에 등록된 완성형 토큰을 찾지 못해 1~2바이트 단위의 잉여 조각으로 쪼개지는 \"Byte Fallback\" 현상이 더 자주 발생합니다.": [
-   "src/entities/article-content/content/article-content.ts:185"
+   "src/entities/article-content/content/article-content.ts:187"
   ],
   "Consequently, Hangul text more frequently encounters \"Byte Fallback,\" where unseen syllable combinations are broken down into raw 1-to-2-byte sub-slices.": [
-   "src/entities/article-content/content/article-content.ts:188"
+   "src/entities/article-content/content/article-content.ts:190"
   ],
   "04 / BEYOND KOREAN · 한국어만의 이야기는 아니다": [
-   "src/entities/article-content/content/article-content.ts:197"
+   "src/entities/article-content/content/article-content.ts:199"
   ],
   "04 / BEYOND KOREAN · A GLOBAL LINGUISTIC CHALLENGE": [
-   "src/entities/article-content/content/article-content.ts:198"
+   "src/entities/article-content/content/article-content.ts:200"
   ],
   "한국어만의 이야기는 아니다": [
-   "src/entities/article-content/content/article-content.ts:201"
+   "src/entities/article-content/content/article-content.ts:203"
   ],
   "It Is Not Just a Korean Phenomenon": [
-   "src/entities/article-content/content/article-content.ts:202"
+   "src/entities/article-content/content/article-content.ts:204"
   ],
   "한국어와 영어 사이의 차이는 더 넓은 다언어 token efficiency 문제의 한 사례일 수 있습니다. 뒤에서 전 세계 12개 주요 언어의 토큰 효율성을 함께 비교합니다.": [
-   "src/entities/article-content/content/article-content.ts:205"
+   "src/entities/article-content/content/article-content.ts:207"
   ],
   "The disparity between Korean and English is a single case study within a broader global token efficiency landscape across world languages.": [
-   "src/entities/article-content/content/article-content.ts:206"
+   "src/entities/article-content/content/article-content.ts:208"
   ],
   "토큰화 불균형은 비라틴계 문자 체계를 사용하는 전 세계 모든 언어 공동체가 마주하고 있는 구조적 과제입니다.": [
-   "src/entities/article-content/content/article-content.ts:210"
+   "src/entities/article-content/content/article-content.ts:212"
   ],
   "한자 표의문자를 사용하는 중국어·일본어, 아랍 문자, 데바나가리 문자를 사용하는 힌디어 등 각 문자 체계마다 AI 토크나이저 어휘집 배분에 따른 고유한 분절 패턴이 나타납니다.": [
-   "src/entities/article-content/content/article-content.ts:211"
+   "src/entities/article-content/content/article-content.ts:213"
   ],
   "Tokenization disparity is a structural phenomenon shared across non-Latin writing systems globally.": [
-   "src/entities/article-content/content/article-content.ts:214"
+   "src/entities/article-content/content/article-content.ts:216"
   ],
   "From Chinese and Japanese Hanzi to Arabic abjads and Hindi Devanagari, distinct segmentation overheads emerge based on vocabulary allocation.": [
-   "src/entities/article-content/content/article-content.ts:215"
+   "src/entities/article-content/content/article-content.ts:217"
   ],
   "05 / CORPUS ANALYSIS · 한/영 말뭉치 69,432건 분석": [
-   "src/entities/article-content/content/article-content.ts:224"
+   "src/entities/article-content/content/article-content.ts:226"
   ],
   "05 / CORPUS ANALYSIS · 69,432 SENTENCE PAIR BENCHMARK": [
-   "src/entities/article-content/content/article-content.ts:225"
+   "src/entities/article-content/content/article-content.ts:227"
   ],
   "한/영 말뭉치 69,432건 분석": [
-   "src/entities/article-content/content/article-content.ts:228"
+   "src/entities/article-content/content/article-content.ts:230"
   ],
   "Corpus Analysis: 69,432 Verified KO-EN Sentence Pairs": [
-   "src/entities/article-content/content/article-content.ts:229"
+   "src/entities/article-content/content/article-content.ts:231"
   ],
   "사람이 검수한 대규모 한·영 병렬 코퍼스 69,432건 및 1,012개 심층 벤치마크 문장쌍(o200k_base 기준)을 전수 분석하여 문체와 도메인별 Token Premium의 실증적 분포를 도출했습니다.": [
-   "src/entities/article-content/content/article-content.ts:232"
+   "src/entities/article-content/content/article-content.ts:234"
   ],
   "Analyzing a large-scale corpus of 69,432 human-reviewed KO-EN parallel sentences alongside a 1,012-pair deep benchmark under o200k_base to map empirical distributions across writing domains.": [
-   "src/entities/article-content/content/article-content.ts:233"
+   "src/entities/article-content/content/article-content.ts:235"
   ],
   "분석 결과, 한국어와 영어의 token 차이는 문장 유형에 따라 동일하게 나타나지 않았다.": [
-   "src/entities/article-content/content/article-content.ts:237"
-  ],
-  "일상적인 표현이나 구어체에서는 상대적 차이가 더 크게 나타났고(1.38×~1.83×), 영문 전문 용어가 빈번하거나 표준화된 법률·행정 문서에서는 상대적 편차가 완화되는 경향을 보였다.": [
-   "src/entities/article-content/content/article-content.ts:238"
-  ],
-  "즉 Token Premium은 단일 고정 숫자로 설명되는 현상이라기보다, 문체와 어휘 구성 방식에 따라 1.29×에서 1.83×의 고유한 분포를 형성하는 현상이다.": [
    "src/entities/article-content/content/article-content.ts:239"
   ],
+  "일상적인 표현이나 구어체에서는 상대적 차이가 더 크게 나타났고(1.38×~1.83×), 영문 전문 용어가 빈번하거나 표준화된 법률·행정 문서에서는 상대적 편차가 완화되는 경향을 보였다.": [
+   "src/entities/article-content/content/article-content.ts:240"
+  ],
+  "즉 Token Premium은 단일 고정 숫자로 설명되는 현상이라기보다, 문체와 어휘 구성 방식에 따라 1.29×에서 1.83×의 고유한 분포를 형성하는 현상이다.": [
+   "src/entities/article-content/content/article-content.ts:241"
+  ],
   "The empirical results demonstrate that token disparity varies substantially across writing styles and domains.": [
-   "src/entities/article-content/content/article-content.ts:242"
-  ],
-  "Colloquial speech and narrative dialogue exhibited higher relative gaps (1.38×–1.83×), whereas standardized legal or technical texts with borrowed terminology showed tempered ratios.": [
-   "src/entities/article-content/content/article-content.ts:243"
-  ],
-  "Thus, Token Premium is not a monolithic single scalar, but an empirical distribution spanning from 1.29× to 1.83× depending on syntax and vocabulary.": [
    "src/entities/article-content/content/article-content.ts:244"
   ],
-  "FIG. 04": [
-   "src/entities/article-content/content/article-content.ts:247"
+  "Colloquial speech and narrative dialogue exhibited higher relative gaps (1.38×–1.83×), whereas standardized legal or technical texts with borrowed terminology showed tempered ratios.": [
+   "src/entities/article-content/content/article-content.ts:245"
   ],
-  "문장 유형 및 도메인별 Token Premium 분포 (Strip Distribution & IQR)": [
+  "Thus, Token Premium is not a monolithic single scalar, but an empirical distribution spanning from 1.29× to 1.83× depending on syntax and vocabulary.": [
+   "src/entities/article-content/content/article-content.ts:246"
+  ],
+  "FIG. 04": [
    "src/entities/article-content/content/article-content.ts:249"
   ],
+  "문장 유형 및 도메인별 Token Premium 분포 (Strip Distribution & IQR)": [
+   "src/entities/article-content/content/article-content.ts:251"
+  ],
   "Domain Token Premium Ratio Distribution across Curated Benchmark Pairs": [
-   "src/entities/article-content/content/article-content.ts:250"
+   "src/entities/article-content/content/article-content.ts:252"
   ],
   "출처: 병렬 벤치마크 코퍼스 1,012개 문장쌍 실측 (o200k_base 기준, 2026)": [
-   "src/entities/article-content/content/article-content.ts:253"
+   "src/entities/article-content/content/article-content.ts:255"
   ],
   "Source: Curated 1,012 parallel sentence benchmark pairs measured under o200k_base (2026)": [
-   "src/entities/article-content/content/article-content.ts:254"
+   "src/entities/article-content/content/article-content.ts:256"
   ],
   "특히 장문의 고유명사와 정형화된 서식 비중이 높은 지식집약적 도메인일수록, 토큰 수의 절대적 격차가 누적되어 컨텍스트 윈도우 점유율에 실질적인 제약을 가져옵니다.": [
-   "src/entities/article-content/content/article-content.ts:258"
+   "src/entities/article-content/content/article-content.ts:260"
   ],
   "In knowledge-intensive domains requiring long-form reasoning, cumulative absolute token gaps place tangible constraints on usable context window capacity.": [
-   "src/entities/article-content/content/article-content.ts:261"
+   "src/entities/article-content/content/article-content.ts:263"
   ],
   "도메인 분석 결론": [
-   "src/entities/article-content/content/article-content.ts:265"
-  ],
-  "Category Analysis Finding": [
-   "src/entities/article-content/content/article-content.ts:265"
-  ],
-  "같은 한국어라도 문장의 유형과 도메인에 따라 Token Premium은 1.29×에서 1.83×까지 다양하게 나타납니다.": [
    "src/entities/article-content/content/article-content.ts:267"
   ],
+  "Category Analysis Finding": [
+   "src/entities/article-content/content/article-content.ts:267"
+  ],
+  "같은 한국어라도 문장의 유형과 도메인에 따라 Token Premium은 1.29×에서 1.83×까지 다양하게 나타납니다.": [
+   "src/entities/article-content/content/article-content.ts:269"
+  ],
   "Even within Korean, Token Premium ranges dynamically from 1.29× to 1.83× depending on stylistic domain and vocabulary composition.": [
-   "src/entities/article-content/content/article-content.ts:268"
+   "src/entities/article-content/content/article-content.ts:270"
   ],
   "06 / REAL SENTENCES · 실제 문장으로 알아보자": [
-   "src/entities/article-content/content/article-content.ts:277"
+   "src/entities/article-content/content/article-content.ts:279"
   ],
   "06 / REAL SENTENCES · CURATED SENTENCE LAB": [
-   "src/entities/article-content/content/article-content.ts:278"
+   "src/entities/article-content/content/article-content.ts:280"
   ],
   "실제 문장으로 알아보자": [
-   "src/entities/article-content/content/article-content.ts:281"
+   "src/entities/article-content/content/article-content.ts:283"
   ],
   "Examining Real Sentence Pairs": [
-   "src/entities/article-content/content/article-content.ts:282"
+   "src/entities/article-content/content/article-content.ts:284"
   ],
   "통계보다 직관적인 것은 실제 문장이다. 같은 의미를 담은 한국어와 영어 문장을 나란히 놓고 보면, AI가 두 문장을 어떤 token으로 나누는지 직접 확인할 수 있다.": [
-   "src/entities/article-content/content/article-content.ts:285"
+   "src/entities/article-content/content/article-content.ts:287"
   ],
   "More intuitive than abstract statistics is examining real sentences side-by-side. Observe how the tokenizer dissects semantically equivalent Korean and English expressions.": [
-   "src/entities/article-content/content/article-content.ts:286"
+   "src/entities/article-content/content/article-content.ts:288"
   ],
   "검증된 한국어-영어 대응 문장을 선택하면, 실제 tokenizer가 두 문장을 어떻게 나누는지 확인할 수 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:290"
+   "src/entities/article-content/content/article-content.ts:292"
   ],
   "아래 대화형 실험실에서 일상 대화, 비즈니스 보고서, 학술 논문, 공공 조례 등 4가지 대표적 문장쌍을 직접 비교해보십시오.": [
-   "src/entities/article-content/content/article-content.ts:291"
+   "src/entities/article-content/content/article-content.ts:293"
   ],
   "By selecting curated, cross-verified sentence pairs, you can inspect the exact subword boundaries applied by frontier tokenizers.": [
-   "src/entities/article-content/content/article-content.ts:294"
+   "src/entities/article-content/content/article-content.ts:296"
   ],
   "Explore the interactive lab below across everyday conversation, corporate reporting, scientific research, and municipal bylaws.": [
-   "src/entities/article-content/content/article-content.ts:295"
+   "src/entities/article-content/content/article-content.ts:297"
   ],
   "FIG. 01": [
-   "src/entities/article-content/content/article-content.ts:298"
-  ],
-  "교차 검증된 동일 의미 문장쌍의 토큰 분절 조각 및 상대 비율 비교": [
    "src/entities/article-content/content/article-content.ts:300"
   ],
+  "교차 검증된 동일 의미 문장쌍의 토큰 분절 조각 및 상대 비율 비교": [
+   "src/entities/article-content/content/article-content.ts:302"
+  ],
   "Verified Semantic Sentence Pairs: Subword Token Fragmentation & Relative Count Comparison": [
-   "src/entities/article-content/content/article-content.ts:301"
+   "src/entities/article-content/content/article-content.ts:303"
   ],
   "출처: OpenAI o200k_base Tokenizer 및 큐레이션된 한·영 병렬 코퍼스 벤치마크 (2026)": [
-   "src/entities/article-content/content/article-content.ts:304"
+   "src/entities/article-content/content/article-content.ts:306"
   ],
   "Source: OpenAI o200k_base Tokenizer & Curated Parallel Corpus Benchmark (2026)": [
-   "src/entities/article-content/content/article-content.ts:305"
+   "src/entities/article-content/content/article-content.ts:307"
   ],
   "같은 의미를 전달하더라도 두 문장이 반드시 같은 수의 token으로 표현되는 것은 아닙니다. 한글 문장은 평균 1.44배에서 1.83배에 이르는 토큰 조각으로 분절되어 모델에 입력됩니다.": [
-   "src/entities/article-content/content/article-content.ts:309"
+   "src/entities/article-content/content/article-content.ts:311"
   ],
   "Even when expressing equivalent information, sentences do not yield equal token counts. Korean sentences are segmented into 1.44× to 1.83× more subword fragments.": [
-   "src/entities/article-content/content/article-content.ts:312"
+   "src/entities/article-content/content/article-content.ts:314"
   ],
   "07 / ACCUMULATED BURDEN · 이 차이는 얼마나 누적될까": [
-   "src/entities/article-content/content/article-content.ts:321"
+   "src/entities/article-content/content/article-content.ts:323"
   ],
   "07 / ACCUMULATED BURDEN · WORKPLACE COMPOUNDING": [
-   "src/entities/article-content/content/article-content.ts:322"
+   "src/entities/article-content/content/article-content.ts:324"
   ],
   "그래서 이 차이는 얼마나 누적될까": [
-   "src/entities/article-content/content/article-content.ts:325"
+   "src/entities/article-content/content/article-content.ts:327"
   ],
   "How Does This Discrepancy Compound Over Time?": [
-   "src/entities/article-content/content/article-content.ts:326"
+   "src/entities/article-content/content/article-content.ts:328"
   ],
   "한 문장에서의 token 차이는 작아 보일 수 있다. 하지만 같은 종류의 AI 사용이 반복될수록 절대 token gap은 누적된다.": [
-   "src/entities/article-content/content/article-content.ts:329"
+   "src/entities/article-content/content/article-content.ts:331"
   ],
   "A token discrepancy in a single prompt may seem minor. However, as high-frequency AI workflows repeat, the absolute token gap compounds systematically.": [
-   "src/entities/article-content/content/article-content.ts:330"
+   "src/entities/article-content/content/article-content.ts:332"
   ],
   "반복 횟수와 직무 특성에 따른 누적 토큰 청구서(Token Receipt)": [
-   "src/entities/article-content/content/article-content.ts:333"
+   "src/entities/article-content/content/article-content.ts:335"
   ],
   "Cumulative Token Receipt: Workflow Repetitions & Occupational Exposure": [
-   "src/entities/article-content/content/article-content.ts:334"
+   "src/entities/article-content/content/article-content.ts:336"
   ],
   "개인이 일상에서 몇 번 질문을 던질 때의 수십 개 토큰 차이는 체감하기 어려울 수 있습니다. 하지만 하루 수백 건의 고객 문의를 처리하는 기업의 AI 상담 봇, 수만 페이지의 공공 보고서를 요약하는 지식 노동자 환경에서는 이 격차가 수백만 토큰의 누적 연산 부담으로 전환됩니다.": [
-   "src/entities/article-content/content/article-content.ts:338"
+   "src/entities/article-content/content/article-content.ts:340"
   ],
   "슬라이더를 움직여 동일한 질문 세트를 1회에서 100회까지 반복했을 때 한국어와 영어 간에 발생하는 절대 토큰 격차(Absolute Gap)의 누적 추이를 확인해보십시오.": [
-   "src/entities/article-content/content/article-content.ts:339"
+   "src/entities/article-content/content/article-content.ts:341"
   ],
   "For an individual asking a few questions, a delta of tens of tokens is negligible. But in enterprise customer support agents handling thousands of tickets daily, or policy analysts digesting massive reports, this gap scales into millions of cumulative tokens.": [
-   "src/entities/article-content/content/article-content.ts:342"
+   "src/entities/article-content/content/article-content.ts:344"
   ],
   "Adjust the repetition slider below to observe how the absolute token gap compounds from 1 to 100 workflow cycles.": [
-   "src/entities/article-content/content/article-content.ts:343"
+   "src/entities/article-content/content/article-content.ts:345"
   ],
   "FIG. 05": [
-   "src/entities/article-content/content/article-content.ts:346"
-  ],
-  "반복 사용 횟수에 따른 한·영 누적 토큰 청구서 (Monochrome Token Receipt)": [
    "src/entities/article-content/content/article-content.ts:348"
   ],
+  "반복 사용 횟수에 따른 한·영 누적 토큰 청구서 (Monochrome Token Receipt)": [
+   "src/entities/article-content/content/article-content.ts:350"
+  ],
   "Cumulative Token Receipt by Workflow Repetition Count (Korean vs. English)": [
-   "src/entities/article-content/content/article-content.ts:349"
+   "src/entities/article-content/content/article-content.ts:351"
   ],
   "자료: 큐레이션된 병렬 문장쌍 기준 누적 연산 시뮬레이션 모델 (2026)": [
-   "src/entities/article-content/content/article-content.ts:352"
+   "src/entities/article-content/content/article-content.ts:354"
   ],
   "Source: Cumulative Token Burden Analytical Simulation Model (2026)": [
-   "src/entities/article-content/content/article-content.ts:353"
+   "src/entities/article-content/content/article-content.ts:355"
   ],
   "단 100회의 반복만으로도 700~1,500개 이상의 절대 토큰 차이가 발생합니다. 이는 고정된 컨텍스트 윈도우 환경에서 참조할 수 있는 문서의 길이를 줄이고, 모델의 처리 지연 시간(Latency)을 가중시킵니다.": [
-   "src/entities/article-content/content/article-content.ts:357"
+   "src/entities/article-content/content/article-content.ts:359"
   ],
   "In just 100 iterations, an absolute gap of 700 to 1,500+ tokens accumulates. In fixed context window environments, this reduces available reference capacity and increases inference latency.": [
-   "src/entities/article-content/content/article-content.ts:360"
+   "src/entities/article-content/content/article-content.ts:362"
   ],
   "누적 분석 시사점": [
-   "src/entities/article-content/content/article-content.ts:364"
-  ],
-  "Compounding Insight": [
-   "src/entities/article-content/content/article-content.ts:364"
-  ],
-  "단일 프롬프트의 미세한 토큰 차이는 워크플로우가 반복될수록 기하급수적으로 누적되어 실질적인 연산 부담으로 전환됩니다.": [
    "src/entities/article-content/content/article-content.ts:366"
   ],
+  "Compounding Insight": [
+   "src/entities/article-content/content/article-content.ts:366"
+  ],
+  "단일 프롬프트의 미세한 토큰 차이는 워크플로우가 반복될수록 기하급수적으로 누적되어 실질적인 연산 부담으로 전환됩니다.": [
+   "src/entities/article-content/content/article-content.ts:368"
+  ],
   "Minor prompt-level token discrepancies compound into substantial absolute computational loads as workflows repeat.": [
-   "src/entities/article-content/content/article-content.ts:367"
+   "src/entities/article-content/content/article-content.ts:369"
   ],
   "04.5 / GLOBAL TOKEN EFFICIENCY · 다른 언어는 어떨까?": [
-   "src/entities/article-content/content/article-content.ts:376"
+   "src/entities/article-content/content/article-content.ts:378"
   ],
   "04.5 / GLOBAL TOKEN EFFICIENCY · WORLD LANGUAGES BENCHMARK": [
-   "src/entities/article-content/content/article-content.ts:377"
+   "src/entities/article-content/content/article-content.ts:379"
   ],
   "그렇다면, 다른 언어는 어떨까?": [
-   "src/entities/article-content/content/article-content.ts:380"
+   "src/entities/article-content/content/article-content.ts:382"
   ],
   "What About Other World Languages?": [
-   "src/entities/article-content/content/article-content.ts:381"
+   "src/entities/article-content/content/article-content.ts:383"
   ],
   "이러한 토큰 효율의 차이는 한국어와 영어에만 국한되지 않는다. 같은 정보를 표현하더라도 언어의 문자 체계와 토크나이저의 어휘집 구성에 따라 AI가 처리하는 토큰의 양은 크게 달라질 수 있다.": [
-   "src/entities/article-content/content/article-content.ts:384"
+   "src/entities/article-content/content/article-content.ts:386"
   ],
   "Is this disparity unique to Korean and English? Even when communicating identical information, the sequence length processed by AI varies dramatically across world writing systems.": [
-   "src/entities/article-content/content/article-content.ts:385"
+   "src/entities/article-content/content/article-content.ts:387"
   ],
   "표준 병렬 코퍼스(Flores-200)로 전수 측정한 12개 언어 효율성": [
-   "src/entities/article-content/content/article-content.ts:388"
+   "src/entities/article-content/content/article-content.ts:390"
   ],
   "12-Language Efficiency Benchmark Measured via Flores-200 Parallel Corpus": [
-   "src/entities/article-content/content/article-content.ts:389"
+   "src/entities/article-content/content/article-content.ts:391"
   ],
   "Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 영어의 토큰 소비량을 1.00으로 정규화했을 때 스페인어는 1.18배 수준으로 나타났다.": [
-   "src/entities/article-content/content/article-content.ts:394"
+   "src/entities/article-content/content/article-content.ts:396"
   ],
   "반면 한글은 1.78배, 아랍어는 2.05배, 힌디어는 2.30배 수준으로 나타났다. 이는 동일한 정보를 처리하더라도 언어의 문자 체계와 토크나이저의 어휘 구성에 따라 필요한 토큰 수가 달라질 수 있음을 보여준다.": [
-   "src/entities/article-content/content/article-content.ts:395"
+   "src/entities/article-content/content/article-content.ts:397"
   ],
   "Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression.": [
-   "src/entities/article-content/content/article-content.ts:398"
+   "src/entities/article-content/content/article-content.ts:400"
   ],
   "Conversely, non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.": [
-   "src/entities/article-content/content/article-content.ts:399"
+   "src/entities/article-content/content/article-content.ts:401"
   ],
   "FIG. 06": [
-   "src/entities/article-content/content/article-content.ts:402"
-  ],
-  "Flores-200 병렬 코퍼스 기반 전 세계 12개 언어 토큰 분절 효율성 랭킹": [
    "src/entities/article-content/content/article-content.ts:404"
   ],
+  "Flores-200 병렬 코퍼스 기반 전 세계 12개 언어 토큰 분절 효율성 랭킹": [
+   "src/entities/article-content/content/article-content.ts:406"
+  ],
   "Flores-200 Parallel Corpus: Global 12-Language Token Efficiency Ranking & Relative Ratios": [
-   "src/entities/article-content/content/article-content.ts:405"
+   "src/entities/article-content/content/article-content.ts:407"
   ],
   "출처: Meta Flores-200 Multilingual Benchmark Evaluation (o200k_base Tokenizer, N=1,012)": [
-   "src/entities/article-content/content/article-content.ts:408"
+   "src/entities/article-content/content/article-content.ts:410"
   ],
   "Source: Meta Flores-200 Multilingual Benchmark Evaluation (o200k_base, N=1,012 Parallel Sentences)": [
-   "src/entities/article-content/content/article-content.ts:409"
+   "src/entities/article-content/content/article-content.ts:411"
   ],
   "언어별 token representation efficiency의 차이는 한글만의 특수한 사례가 아니라, 다언어 AI 시스템 전체에서 살펴봐야 할 문제다.": [
-   "src/entities/article-content/content/article-content.ts:413"
+   "src/entities/article-content/content/article-content.ts:415"
   ],
   "향후 다국어 AI 거버넌스와 소버린 파운데이션 모델 개발 시, 독자적인 고효율 어휘집(Custom Tokenizer) 구축이 왜 핵심 인프라 과제인지를 명확히 보여줍니다.": [
-   "src/entities/article-content/content/article-content.ts:414"
+   "src/entities/article-content/content/article-content.ts:416"
   ],
   "Token efficiency disparity is not a unique Korean edge case, but a systemic structural challenge across the entire multilingual AI ecosystem.": [
-   "src/entities/article-content/content/article-content.ts:417"
+   "src/entities/article-content/content/article-content.ts:419"
   ],
   "It demonstrates why developing dedicated, linguistically balanced tokenizers is a strategic priority for sovereign AI and regional foundation models.": [
-   "src/entities/article-content/content/article-content.ts:418"
+   "src/entities/article-content/content/article-content.ts:420"
   ],
   "글로벌 벤치마크 결론": [
-   "src/entities/article-content/content/article-content.ts:422"
-  ],
-  "Global Benchmark Takeaway": [
-   "src/entities/article-content/content/article-content.ts:422"
-  ],
-  "비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측되며, 이는 다국어 AI 거버넌스의 구조적 과제입니다.": [
    "src/entities/article-content/content/article-content.ts:424"
   ],
+  "Global Benchmark Takeaway": [
+   "src/entities/article-content/content/article-content.ts:424"
+  ],
+  "비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측되며, 이는 다국어 AI 거버넌스의 구조적 과제입니다.": [
+   "src/entities/article-content/content/article-content.ts:426"
+  ],
   "Token inflation of 1.5× to 2.3× is universally observed across non-Latin scripts, representing a structural challenge in global AI infrastructure.": [
-   "src/entities/article-content/content/article-content.ts:425"
+   "src/entities/article-content/content/article-content.ts:427"
   ],
   "08 / INFRASTRUCTURE SCALE · 한국 AI 생태계의 스케일업": [
-   "src/entities/article-content/content/article-content.ts:434"
+   "src/entities/article-content/content/article-content.ts:436"
   ],
   "08 / INFRASTRUCTURE SCALE · KOREA'S EXPANDING AI ECOSYSTEM": [
-   "src/entities/article-content/content/article-content.ts:435"
+   "src/entities/article-content/content/article-content.ts:437"
   ],
   "국가 AI 인프라 확장이 낳는 거시적 파급력": [
-   "src/entities/article-content/content/article-content.ts:438"
+   "src/entities/article-content/content/article-content.ts:440"
   ],
   "Macro Implications of Expanding National AI Infrastructure": [
-   "src/entities/article-content/content/article-content.ts:439"
+   "src/entities/article-content/content/article-content.ts:441"
   ],
   "국가 AI 컴퓨팅 센터 구축, 첨단 HBM 반도체 투자, 기업의 전사적 에이전트 도입. AI가 사회의 기간 인프라가 될 때, 토큰 분절 효율성은 거시적 영역으로 확대됩니다.": [
-   "src/entities/article-content/content/article-content.ts:442"
+   "src/entities/article-content/content/article-content.ts:444"
   ],
   "As national AI compute hubs, sovereign AI, and enterprise-wide rollouts expand, linguistic token efficiency scales into a systemic consideration.": [
-   "src/entities/article-content/content/article-content.ts:443"
+   "src/entities/article-content/content/article-content.ts:445"
   ],
   "한국은 국가 차원의 대규모 AI 인프라 투자와 초거대 데이터센터 확충을 적극적으로 추진하고 있습니다. 정부의 AI 컴퓨팅 지원 사업과 민간 대기업의 차세대 반도체 투자는 향후 수년간 사회 전반의 AI 트래픽을 기하급수적으로 끌어올릴 것입니다.": [
-   "src/entities/article-content/content/article-content.ts:447"
+   "src/entities/article-content/content/article-content.ts:449"
   ],
   "기존에 존재하던 언어별 분절 효율 격차가 사회 전체의 처리량 스케일과 결합하면서 경제적·운영적 중요성이 증폭된다는 사실이 중요합니다.": [
-   "src/entities/article-content/content/article-content.ts:448"
+   "src/entities/article-content/content/article-content.ts:450"
   ],
   "South Korea is accelerating national compute hubs and hyperscale AI data centers. National policies and private investments will drive exponential surges in daily AI token throughput.": [
-   "src/entities/article-content/content/article-content.ts:451"
+   "src/entities/article-content/content/article-content.ts:453"
   ],
   "Crucially, when massive societal adoption meets pre-existing linguistic tokenization inefficiencies, the aggregate operational impact scales drastically.": [
-   "src/entities/article-content/content/article-content.ts:452"
+   "src/entities/article-content/content/article-content.ts:454"
   ],
   "FIG. 07": [
-   "src/entities/article-content/content/article-content.ts:455"
-  ],
-  "매크로 AI 도입 인과 사슬 및 검증된 정책·투자 데이터 슬롯 (Strict Data Verification)": [
    "src/entities/article-content/content/article-content.ts:457"
   ],
+  "매크로 AI 도입 인과 사슬 및 검증된 정책·투자 데이터 슬롯 (Strict Data Verification)": [
+   "src/entities/article-content/content/article-content.ts:459"
+  ],
   "Macro AI Adoption Causal Chain & Verified Policy/Investment Slots": [
-   "src/entities/article-content/content/article-content.ts:458"
+   "src/entities/article-content/content/article-content.ts:460"
   ],
   "자료: 과학기술정보통신부 정책 공시 및 주요 AI 인프라 투자 공시 (2024–2026)": [
-   "src/entities/article-content/content/article-content.ts:461"
+   "src/entities/article-content/content/article-content.ts:463"
   ],
   "Source: Ministry of Science and ICT Official Releases & Major Investment Disclosures (2024–2026)": [
-   "src/entities/article-content/content/article-content.ts:462"
+   "src/entities/article-content/content/article-content.ts:464"
   ],
   "공공 행정, 금융 거래, 대국민 복지 서비스 등 사회 전 영역에 AI 파이프라인이 직결되는 미래에는, 토큰 1개당 처리 단가의 미세한 차이가 국가 전체 컴퓨팅 전력 소모와 데이터센터 대역폭에 측정 가능한 영향을 미치게 됩니다.": [
-   "src/entities/article-content/content/article-content.ts:466"
+   "src/entities/article-content/content/article-content.ts:468"
   ],
   "As AI pipelines integrate directly into public administration and citizen services, minor per-token efficiency differentials translate into measurable differences in national compute power consumption.": [
-   "src/entities/article-content/content/article-content.ts:469"
+   "src/entities/article-content/content/article-content.ts:471"
   ],
   "08 / IMPACT · 비용을 넘어선 문제 (3단계 확장 경로)": [
-   "src/entities/article-content/content/article-content.ts:478"
+   "src/entities/article-content/content/article-content.ts:480"
   ],
   "08 / IMPACT · BEYOND COST: SOCIOECONOMIC SCALE-UP": [
-   "src/entities/article-content/content/article-content.ts:479"
+   "src/entities/article-content/content/article-content.ts:481"
   ],
   "비용을 넘어선 문제": [
-   "src/entities/article-content/content/article-content.ts:482"
+   "src/entities/article-content/content/article-content.ts:484"
   ],
   "A Challenge Beyond API Billing": [
-   "src/entities/article-content/content/article-content.ts:483"
+   "src/entities/article-content/content/article-content.ts:485"
   ],
   "Token Premium이 존재하고, 서비스의 사용량·한도·비용이 token 단위와 연결되는 환경에서는 언어별 token efficiency 차이가 실제 이용 경험과 디지털 형평성의 차이로 이어질 가능성이 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:486"
+   "src/entities/article-content/content/article-content.ts:488"
   ],
   "Where service limits, context ceilings, and compute costs are tied to token volume, linguistic token efficiency differentials can translate into tangible variations in user experience and digital equity.": [
-   "src/entities/article-content/content/article-content.ts:487"
+   "src/entities/article-content/content/article-content.ts:489"
   ],
   "01 개인 → 02 조직/기업 → 03 사회: 3단계 누적 확장 프레임워크": [
-   "src/entities/article-content/content/article-content.ts:490"
+   "src/entities/article-content/content/article-content.ts:492"
   ],
   "01 Personal → 02 Work / Organization → 03 Society: 3-Stage Progression": [
-   "src/entities/article-content/content/article-content.ts:491"
+   "src/entities/article-content/content/article-content.ts:493"
   ],
   "서비스가 token 기반의 사용량 제한을 두는 경우, 동일한 의미를 더 많은 token으로 표현하는 사용자는 같은 양의 대화를 하더라도 한도에 더 빨리 접근할 가능성이 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:495"
+   "src/entities/article-content/content/article-content.ts:497"
   ],
   "토큰 프리미엄의 영향은 개인의 프롬프트 분할(01단계)에서 시작하여, 조직의 장문 문맥 분석과 고빈도 에이전트 루프(02단계)를 거쳐, 국가의 기간 인프라와 공공 데이터센터 대역폭(03단계)으로 점차 확장됩니다.": [
-   "src/entities/article-content/content/article-content.ts:496"
+   "src/entities/article-content/content/article-content.ts:498"
   ],
   "When platforms impose token-based rate limits or context caps, users expressing thoughts in higher-token scripts may reach usage ceilings faster for equivalent conversational depth.": [
-   "src/entities/article-content/content/article-content.ts:499"
+   "src/entities/article-content/content/article-content.ts:501"
   ],
   "The impact compounds across three distinct tiers: Level 01 (Personal) subword prompt splits, Level 02 (Work/Organization) long-context agent loops, and Level 03 (Society) essential public infrastructure.": [
-   "src/entities/article-content/content/article-content.ts:500"
+   "src/entities/article-content/content/article-content.ts:502"
   ],
   "FIG. 08": [
-   "src/entities/article-content/content/article-content.ts:503"
-  ],
-  "언어 구조에서 사회적 파급 효과까지의 3단계 인과 사슬 (Complete Causal Chain)": [
    "src/entities/article-content/content/article-content.ts:505"
   ],
+  "언어 구조에서 사회적 파급 효과까지의 3단계 인과 사슬 (Complete Causal Chain)": [
+   "src/entities/article-content/content/article-content.ts:507"
+  ],
   "Complete Causal Pathway: Language Structure → Tokenization → Token Premium → Workplace Burden → Digital Friction": [
-   "src/entities/article-content/content/article-content.ts:506"
+   "src/entities/article-content/content/article-content.ts:508"
   ],
   "출처: 토큰 프리미엄 데이터 저널리즘 연구팀 개념 모델링 (2026)": [
-   "src/entities/article-content/content/article-content.ts:509"
+   "src/entities/article-content/content/article-content.ts:511"
   ],
   "Source: Token Premium Research Conceptual Framework (2026)": [
-   "src/entities/article-content/content/article-content.ts:510"
+   "src/entities/article-content/content/article-content.ts:512"
   ],
   "이를 극복하기 위해서는 글로벌 모델에 대한 수동적 의존을 넘어, 한국어 음절과 형태소 결합 특성을 반영하는 고효율 토크나이저 연구, 다국어 어휘집 확장 표준 제정, 그리고 국가 차원의 소버린 AI 생태계 조성이 긴요합니다.": [
-   "src/entities/article-content/content/article-content.ts:514"
+   "src/entities/article-content/content/article-content.ts:516"
   ],
   "Overcoming this friction requires investing in dedicated Hangul-optimized tokenizers, expanding multilingual vocabulary allocations in foundation models, and nurturing sovereign compute ecosystems designed for linguistic equity.": [
-   "src/entities/article-content/content/article-content.ts:517"
+   "src/entities/article-content/content/article-content.ts:519"
   ],
   "사회적 시사점": [
-   "src/entities/article-content/content/article-content.ts:521"
-  ],
-  "Societal Implication": [
-   "src/entities/article-content/content/article-content.ts:521"
-  ],
-  "AI가 일상적 인프라가 될수록 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성의 핵심 과제가 됩니다.": [
    "src/entities/article-content/content/article-content.ts:523"
   ],
+  "Societal Implication": [
+   "src/entities/article-content/content/article-content.ts:523"
+  ],
+  "AI가 일상적 인프라가 될수록 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성의 핵심 과제가 됩니다.": [
+   "src/entities/article-content/content/article-content.ts:525"
+  ],
   "As generative AI becomes societal infrastructure, measuring and optimizing linguistic representation efficiency becomes a fundamental digital equity priority.": [
-   "src/entities/article-content/content/article-content.ts:524"
+   "src/entities/article-content/content/article-content.ts:526"
   ],
   "09 / METHODOLOGY · 연구 방법론 및 과학적 경계": [
-   "src/entities/article-content/content/article-content.ts:533"
+   "src/entities/article-content/content/article-content.ts:535"
   ],
   "09 / METHODOLOGY · SCIENTIFIC BOUNDARIES & LIMITATIONS": [
-   "src/entities/article-content/content/article-content.ts:534"
+   "src/entities/article-content/content/article-content.ts:536"
   ],
   "연구 방법론 및 6대 경계 원칙": [
-   "src/entities/article-content/content/article-content.ts:537"
+   "src/entities/article-content/content/article-content.ts:539"
   ],
   "Methodology & 6 Core Boundary Principles": [
-   "src/entities/article-content/content/article-content.ts:538"
+   "src/entities/article-content/content/article-content.ts:540"
   ],
   "데이터 저널리즘의 투명성과 학술적 엄밀성을 위해, 본 인터랙티브 스토리의 분석 기준, 토크나이저 의존성, 표본 한계 및 6대 \"주장하지 않는 원칙\"을 투명하게 공개합니다.": [
-   "src/entities/article-content/content/article-content.ts:541"
+   "src/entities/article-content/content/article-content.ts:543"
   ],
   "For scientific rigor and transparency, we disclose benchmark premises, tokenizer dependencies, sampling scope, and 6 core \"What We Do NOT Claim\" boundary principles.": [
-   "src/entities/article-content/content/article-content.ts:542"
+   "src/entities/article-content/content/article-content.ts:544"
   ],
   "본 프로젝트의 목적은 특정 언어의 우열을 가리거나 특정 AI 서비스를 비판하는 데 있지 않습니다. 오히려 표준화된 BPE 토큰화 알고리즘이 비라틴계 문자 체계에 미치는 물리적 영향력을 정량적으로 측정하고, 이를 독자들에게 명료하게 전달하는 데 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:546"
+   "src/entities/article-content/content/article-content.ts:548"
   ],
   "과도한 비약이나 오해를 방지하기 위해, 본 연구가 명시적으로 \"주장하지 않는\" 6가지 경계 원칙을 명시합니다.": [
-   "src/entities/article-content/content/article-content.ts:547"
+   "src/entities/article-content/content/article-content.ts:549"
   ],
   "The objective of this investigation is neither to rank languages nor critique specific AI vendors. Rather, it quantitatively measures how standard BPE tokenization algorithms interact with non-Latin scripts.": [
-   "src/entities/article-content/content/article-content.ts:550"
+   "src/entities/article-content/content/article-content.ts:552"
   ],
   "To prevent misinterpretation, we establish 6 explicit scientific boundary principles outlining what our empirical analysis does not claim.": [
-   "src/entities/article-content/content/article-content.ts:551"
+   "src/entities/article-content/content/article-content.ts:553"
   ],
   "모든 실측 데이터는 OpenAI o200k_base 토크나이저 및 Meta Flores-200 병렬 코퍼스를 기준으로 산출되었으며, 향후 모델 개발사의 어휘집 업데이트나 새로운 토크나이저 아키텍처 도입에 따라 수치가 변동될 수 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:556"
+   "src/entities/article-content/content/article-content.ts:558"
   ],
   "All empirical metrics were evaluated under the OpenAI o200k_base tokenizer and Meta Flores-200 parallel corpus, and may evolve with future tokenizer vocabulary updates.": [
-   "src/entities/article-content/content/article-content.ts:559"
+   "src/entities/article-content/content/article-content.ts:561"
   ],
   "1. 토큰 수는 사용된 토크나이저 아키텍처 및 어휘집(Vocabulary) 크기에 따라 달라질 수 있습니다.": [
-   "src/entities/article-content/content/article-content.ts:564"
-  ],
-  "2. 본 분석의 직무별 누적 연산 모델은 대표적 워크플로우를 가정한 개념적 시뮬레이션입니다.": [
-   "src/entities/article-content/content/article-content.ts:565"
-  ],
-  "3. Flores-200 벤치마크는 위키피디아 기반의 번역 코퍼스로, 일상 구어체와 일부 차이가 있을 수 있습니다.": [
    "src/entities/article-content/content/article-content.ts:566"
   ],
+  "2. 본 분석의 직무별 누적 연산 모델은 대표적 워크플로우를 가정한 개념적 시뮬레이션입니다.": [
+   "src/entities/article-content/content/article-content.ts:567"
+  ],
+  "3. Flores-200 벤치마크는 위키피디아 기반의 번역 코퍼스로, 일상 구어체와 일부 차이가 있을 수 있습니다.": [
+   "src/entities/article-content/content/article-content.ts:568"
+  ],
   "1. Token counts depend strictly on tokenizer vocabulary allocation and versioning.": [
-   "src/entities/article-content/content/article-content.ts:569"
-  ],
-  "2. Occupational burden modeling is an analytical simulation based on typical knowledge workflows.": [
-   "src/entities/article-content/content/article-content.ts:570"
-  ],
-  "3. Flores-200 parallel benchmark is derived from formal articles and may differ slightly from colloquial speech.": [
    "src/entities/article-content/content/article-content.ts:571"
   ],
+  "2. Occupational burden modeling is an analytical simulation based on typical knowledge workflows.": [
+   "src/entities/article-content/content/article-content.ts:572"
+  ],
+  "3. Flores-200 parallel benchmark is derived from formal articles and may differ slightly from colloquial speech.": [
+   "src/entities/article-content/content/article-content.ts:573"
+  ],
   "10 / RESULT · 결언 (EDITORIAL CONCLUSION)": [
-   "src/entities/article-content/content/article-content.ts:580"
+   "src/entities/article-content/content/article-content.ts:582"
   ],
   "10 / RESULT · SYNTHESIS (EDITORIAL CONCLUSION)": [
-   "src/entities/article-content/content/article-content.ts:581"
+   "src/entities/article-content/content/article-content.ts:583"
   ],
   "같은 의미는,\n같은 길이가 아니었다": [
-   "src/entities/article-content/content/article-content.ts:584"
+   "src/entities/article-content/content/article-content.ts:586"
   ],
   "Same Meaning Was Not,\nEqual in Length": [
-   "src/entities/article-content/content/article-content.ts:585"
+   "src/entities/article-content/content/article-content.ts:587"
   ],
   "“우리는 같은 의미를, 같은 비용으로 표현하고 있는가?”": [
-   "src/entities/article-content/content/article-content.ts:588"
+   "src/entities/article-content/content/article-content.ts:590"
   ],
   "“Are We Expressing the Same Meaning, At the Same Computational Cost?”": [
-   "src/entities/article-content/content/article-content.ts:589"
+   "src/entities/article-content/content/article-content.ts:591"
   ],
   "인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다.": [
-   "src/entities/article-content/content/article-content.ts:593"
-  ],
-  "토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.": [
-   "src/entities/article-content/content/article-content.ts:594"
-  ],
-  "AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.": [
    "src/entities/article-content/content/article-content.ts:595"
   ],
+  "토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.": [
+   "src/entities/article-content/content/article-content.ts:596"
+  ],
+  "AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.": [
+   "src/entities/article-content/content/article-content.ts:597"
+  ],
   "In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations.": [
-   "src/entities/article-content/content/article-content.ts:598"
+   "src/entities/article-content/content/article-content.ts:600"
   ],
   "The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.": [
-   "src/entities/article-content/content/article-content.ts:599"
+   "src/entities/article-content/content/article-content.ts:601"
   ],
   "As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.": [
-   "src/entities/article-content/content/article-content.ts:600"
+   "src/entities/article-content/content/article-content.ts:602"
   ],
   "../../../types": [
    "src/entities/article-content/content/impact-scale-levels.ts:5",

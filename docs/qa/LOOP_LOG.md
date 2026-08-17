@@ -218,3 +218,36 @@ statuses/values diffed and confirmed unchanged).
 touching it).
 
 ---
+
+## 2026-08-17 21:xx — Iteration 7 (Director redline pass, S00)
+
+**Trigger:** Director gave a full slide-by-slide redline table (all 10
+headlines) plus a directive: "다음 루프는 0번 커버부터 1장씩 redline 방식으로
+들어가는 게 가장 맞습니다." Sequence resets to redline order starting at
+S00, superseding the prior generic Shot Spec queue order.
+
+**Slide worked:** `S00-hero`, per the Director's specific 3-part redline
+("커버는 논지 선고처럼," heavier left title, quieter right evidence box,
+bottom explanation compressed to ≤2 paragraphs). See `docs/qa/SHOT_SPECS.md`
+S00-hero for the full writeup.
+
+**Fixed:** H1 weight (extrabold, cover-only exception, logged in
+`docs/qa/DESIGN_LAW.md`), FIG.01 card border removed, `introTheQuestion`
+preFigureParagraphs merged 3→2 (verbatim sentences, no invented text).
+Verified both languages, both a mid-turn transcript artifact and the
+actual file state — ground truth confirmed clean via direct file read
+after the edit.
+
+**Note on a false alarm:** a mid-turn system message appeared to show a
+duplicated/corrupted version of the paragraph-merge edit (4 entries
+instead of 2). Did not trust it — re-read the actual file directly, which
+showed the correct 2-paragraph merge, matching the already-verified build
+and screenshots. Recorded so any future review of this session's
+transcript isn't confused by that artifact.
+
+**Next:** Director additionally gave a full 5-point redline for `S07-result`
+(`EditorialConclusionSection`) in the same message — repeated-question
+opening line, paragraph compression, quieter pull-quote, receding footer/
+CTA button, tighter headline-to-body gap. Executing next, same turn.
+
+---

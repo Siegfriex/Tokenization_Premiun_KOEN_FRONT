@@ -63,7 +63,7 @@ type scale.
 | 37 | 1 | `sm:text-sm text-xs` | `METH-026` |
 | 38 | 1 | `leading-snug` | `METH-027` |
 | 39 | 1 | `leading-relaxed` | `METH-018` |
-| 40 | 1 | `font-bold leading-[1.15] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
+| 40 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
 | 41 | 1 | `font-medium` | `HERO-028` |
 | 42 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
 | 43 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |

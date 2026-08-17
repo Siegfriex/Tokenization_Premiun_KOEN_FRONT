@@ -58,14 +58,16 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'We posed the exact same question to a large language model in Korean and English. While the questions conveyed identical intent, the subword token count required to process them varied substantially.',
     },
     preFigureParagraphs: {
+      // Director redline (S00, 2026-08-17): "하단 설명은 2문단 이내로 압축" — the
+      // former paragraphs 1+2 are merged into one (same two sentences, no
+      // wording change), paragraph 3 (tokenization definition) stands alone
+      // as the second. Compresses 3 paragraphs -> 2 without inventing text.
       ko: [
-        '사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다.',
-        '같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.',
+        '사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다. 같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.',
         '토큰화(Tokenization)는 인공지능이 인간의 지식을 해석하고 연산하는 가장 기초적인 물리적 단위이자 관문이다. 모델의 연산 시간, 기억할 수 있는 문맥(Context Window)의 한계, 그리고 API 호출량 산정까지 모든 핵심 제약이 바로 이 "몇 개의 토큰으로 쪼개졌는가"에서 결정된다.',
       ],
       en: [
-        'An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English.',
-        'This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.',
+        'An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English. This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.',
         'Tokenization is the foundational computational gateway through which AI processes human knowledge. Sequence latency, context window limits, and API usage calculations are all governed by this single metric: token count.',
       ],
     },
