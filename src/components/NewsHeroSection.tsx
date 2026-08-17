@@ -188,7 +188,7 @@ export const NewsHeroSection: React.FC = () => {
             </ArticlePullQuote>
 
             <ArticleBigFinding
-              bigNumber={introData.keyFinding?.bigNumber || '약 1.2× ~ 1.8×'}
+              bigNumber={(isKo ? introData.keyFinding?.bigNumber?.ko : introData.keyFinding?.bigNumber?.en) || '약 1.2× ~ 1.8×'}
               label={isKo ? introData.keyFinding?.label?.ko : introData.keyFinding?.label?.en}
               statement={isKo ? introData.keyFinding?.statement.ko : introData.keyFinding?.statement.en}
             />

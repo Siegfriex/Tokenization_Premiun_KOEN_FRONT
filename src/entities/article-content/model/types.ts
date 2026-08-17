@@ -16,7 +16,7 @@ export interface SectionArticleContent {
   keyFinding?: {
     label?: { ko: string; en: string };
     statement: { ko: string; en: string };
-    bigNumber?: string;
+    bigNumber?: { ko: string; en: string };
   };
   footnotes?: { ko: string[]; en: string[] };
   sourcePlaceholder?: { ko: string; en: string };

@@ -209,6 +209,9 @@
   "약 1.2× ~ 1.8×": [
    "src/entities/article-content/content/article-content.ts:73"
   ],
+  "~1.2× – 1.8×": [
+   "src/entities/article-content/content/article-content.ts:73"
+  ],
   "핵심 실측 관측치": [
    "src/entities/article-content/content/article-content.ts:74"
   ],

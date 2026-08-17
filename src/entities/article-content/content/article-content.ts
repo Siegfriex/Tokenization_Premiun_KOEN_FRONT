@@ -70,7 +70,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       ],
     },
     keyFinding: {
-      bigNumber: '약 1.2× ~ 1.8×',
+      bigNumber: { ko: '약 1.2× ~ 1.8×', en: '~1.2× – 1.8×' },
       label: { ko: '핵심 실측 관측치', en: 'Core Empirical Finding' },
       statement: {
         ko: '한·영 대응 문장 분석에서 한국어가 영어보다 더 많은 token을 사용하는 경향이 일관되게 나타났다.',
