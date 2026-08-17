@@ -374,3 +374,58 @@ shadow, both burden-comparison footers compute identical `font-weight:
 the compiled CSS.
 
 ---
+
+## 2026-08-17 22:xx — Iteration 10 (orchestrated screening + fix, S05.2-impact — work order complete)
+
+**Trigger:** between Iteration 9 landing and PR #16 merging, checked which
+slides in the Director's full redline work order (S00-S09, nav order:
+hero, compare, pipeline, patterns, burden, languages, infrastructure,
+impact, method, result) had not yet received a dedicated pass —
+`#impact` (S05.2) was the one gap. Ran a single-agent `Workflow`
+(`screen:impact`) against it, then fixed directly.
+
+**Interleaved event:** PR #16 (Iterations 8+9) merged to main mid-way
+through this screening pass. Verified production immediately: built a
+fresh `dist/` from a `git worktree` at the merge commit (`f191445`) and
+diffed its asset hashes against what `https://tokenization-premiun-koen-
+front.vercel.app/` was actually serving — exact match
+(`index-03amukyS.css`, `index-M5uIaL3-.js`). Also found and stopped a
+duplicate `main`-watching Monitor (`beiul3ycv`) that had survived from
+before a context compaction earlier in the session, alongside the
+freshly-armed one (`bqf7eza15`) — both fired for the same merge; kept
+the latter as the sole watcher going forward.
+
+**Slide worked:** `S05.2-impact` (`ImpactSection.tsx`). Full findings and
+fixes are written up in `docs/qa/SHOT_SPECS.md`.
+
+**Fixed:** the same `bg-accent`-as-tiering anti-pattern already caught on
+S05-infrastructure's Phase 04 (3 concurrent accent elements here — a
+highlighted level card plus 2 causal-chain chips), leaving the slide with
+no actual Tier-1 panel even though its own copy names a clear conclusion
+(the causal-chain box, eyebrow "FINAL CONCEPTUAL CAUSAL CHAIN"). Removed
+the color-fill highlight from the 3-level grid (now uniformly Tier-2, since
+it's a 3-stage build-up, not one-vs-two), promoted the causal-chain box to
+Tier-1, and re-expressed the 2 emphasis chips via border-weight/text-weight
+instead of color. Deleted a hardcoded Korean-only h3 duplicating an
+already-bilingual figure caption rendered right below it (fixed the
+bilingual gap by removing redundant content rather than inventing a new
+entity field). Fixed a shared-component bug (`ArticleFigureCaption`'s
+`figNum` span had no `shrink-0`/`whitespace-nowrap`, so "FIG. 08" itself
+broke mid-token at 390px) — a site-wide, low-risk fix.
+
+**Work order status:** with this slide done, every section in the
+Director's redline work order (S00-hero through S07-result) has now
+received a dedicated pass this session. Remaining open items are D3/D4
+Director-decision questions (not visual QA) and the flagged Hindi/
+"12-language" content-integrity mismatch from Iteration 8 — both logged,
+neither silently resolved.
+
+**Verified:** tsc clean, `npm run build` clean, audit pipeline diff-
+reproducible (director queue unchanged at 16, no ID churn — the h3
+deletion removed a literal node rather than changing one), live
+Playwright DOM measurement confirmed 0 remaining `bg-accent` in `#impact`,
+the causal-chain box computing a real 2px border + shadow, the EN chain
+header showing no residual Korean text, and the figNum span rendering as
+one unbroken block at 390px.
+
+---

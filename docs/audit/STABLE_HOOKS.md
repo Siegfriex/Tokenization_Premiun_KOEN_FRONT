@@ -18,7 +18,7 @@ the styling, and every design change silently invalidates it.
 | STYLE_SIGNATURE | 34 | selector breaks when the design changes |
 | NTH_CHILD_ONLY | 5 | selector breaks when content is added or reordered |
 | STABLE (id) | 11 | the ten section anchors, and nothing below them |
-| STABLE (data-*) | 397 | — |
+| STABLE (data-*) | 396 | — |
 
 **Zero `data-*` attributes exist in the codebase today.**
 
@@ -28,7 +28,7 @@ the styling, and every design change silently invalidates it.
 |---|---|---|
 | `data-role="…"` | CONTENT nodes | 146 |
 | `data-metric="…"` | NUMERIC_CLAIM nodes | 21 |
-| `data-role="section-heading"` | DOM_STRUCTURE nodes | 20 |
+| `data-role="section-heading"` | DOM_STRUCTURE nodes | 19 |
 | `data-collection="verified_policy_slots"` | DESIGN_APPLICATION nodes | 10 |
 | `data-collection="articledata-prefigureparagraphs-ko"` | DESIGN_APPLICATION nodes | 9 |
 | `data-collection="articledata-prefigureparagraphs-en"` | DESIGN_APPLICATION nodes | 9 |
@@ -64,7 +64,7 @@ the styling, and every design change silently invalidates it.
 | `ART-002` | ArticleElements | 90-92 | `div` | STYLE_SIGNATURE | `div.text-xs.font-mono.text-ink-muted.uppercase.tracking-wid…` | `data-role="…"` |
 | `ART-003` | ArticleElements | 111 | `div` | STABLE (data-*) | `div` | `data-role="eyebrow"` |
 | `ART-004` | ArticleElements | 137 | `div` | STABLE (data-*) | `div` | `data-role="eyebrow"` |
-| `ART-005` | ArticleElements | 162 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold` | `data-role="…"` |
+| `ART-005` | ArticleElements | 162 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold.shrink-0.whitespace-nowrap` | `data-role="…"` |
 | `ART-006` | ArticleElements | 194-196 | `div` | STABLE (data-*) | `div.text-\[11px\].font-bold.text-ink.uppercase.tracking-wid…` | `data-role="…"` |
 | `CONC-010` | EditorialConclusionSection | 29-46 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `CONC-002` | EditorialConclusionSection | 37 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
@@ -94,17 +94,16 @@ the styling, and every design change silently invalidates it.
 | `IMPACT-004` | ImpactSection | 47-49 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
 | `IMPACT-005` | ImpactSection | 53 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `IMPACT-006` | ImpactSection | 56 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `IMPACT-025` | ImpactSection | 65-96 | `li` | STABLE (data-*) | `li.rounded-xs.p-6.sm\:p-8.space-y-6.flex.flex-col.justify-b…` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
-| `IMPACT-026` | ImpactSection | 75-82 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.border-b.pb-3.border-r…` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
-| `IMPACT-009` | ImpactSection | 84-86 | `h3` | STABLE (data-*) | `h3.text-xl.font-bold.text-on-accent.text-ink` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
-| `IMPACT-011` | ImpactSection | 103 | `div` | STABLE (data-*) | `div` | `data-role="eyebrow"` |
-| `IMPACT-012` | ImpactSection | 104-106 | `h3` | STABLE (data-*) | `h3.text-lg.sm\:text-xl.font-bold.text-ink` | `data-role="section-heading"` |
-| `IMPACT-013` | ImpactSection | 109-128 | `ol` | STABLE (data-*) | `ol.flex.flex-wrap.items-center.gap-2.sm\:gap-3.text-xs.font…` | `data-role="…"` |
-| `IMPACT-015` | ImpactSection | 114 | `span` | STYLE_SIGNATURE | `span.text-ink-muted` | `data-collection="impact_causal_chain" data-item-id="{item.id}"` |
-| `IMPACT-027` | ImpactSection | 115-124 | `li` | STABLE (data-*) | `li.p-3.rounded-xs.border.bg-accent.border-accent.text-on-ac…` | `data-collection="impact_causal_chain" data-item-id="{item.id}"` |
-| `IMPACT-016` | ImpactSection | 132-136 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `IMPACT-017` | ImpactSection | 143 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `IMPACT-018` | ImpactSection | 146 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `IMPACT-025` | ImpactSection | 65-92 | `li` | STABLE (data-*) | `li.rounded-xs.p-6.sm\:p-8.space-y-6.flex.flex-col.justify-b…` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
+| `IMPACT-026` | ImpactSection | 71-78 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.border-b.pb-3.border-r…` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
+| `IMPACT-009` | ImpactSection | 80-82 | `h3` | STABLE (data-*) | `h3.text-xl.font-bold.text-ink` | `data-collection="impact_scale_levels" data-item-id="{item.id}"` |
+| `IMPACT-011` | ImpactSection | 100 | `div` | STABLE (data-*) | `div` | `data-role="eyebrow"` |
+| `IMPACT-013` | ImpactSection | 103-122 | `ol` | STABLE (data-*) | `ol.flex.flex-wrap.items-center.gap-2.sm\:gap-3.text-xs.font…` | `data-role="…"` |
+| `IMPACT-015` | ImpactSection | 108 | `span` | STYLE_SIGNATURE | `span.text-ink-muted` | `data-collection="impact_causal_chain" data-item-id="{item.id}"` |
+| `IMPACT-027` | ImpactSection | 109-118 | `li` | STABLE (data-*) | `li.p-3.rounded-xs.border.bg-surface.border-2.border-rule-st…` | `data-collection="impact_causal_chain" data-item-id="{item.id}"` |
+| `IMPACT-016` | ImpactSection | 126-130 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `IMPACT-017` | ImpactSection | 137 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `IMPACT-018` | ImpactSection | 140 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `INFRA-029` | KoreaAIContextSection | 25-39 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `INFRA-002` | KoreaAIContextSection | 30 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `INFRA-003` | KoreaAIContextSection | 36 | `span` | STABLE (data-*) | `span` | `data-role="…"` |

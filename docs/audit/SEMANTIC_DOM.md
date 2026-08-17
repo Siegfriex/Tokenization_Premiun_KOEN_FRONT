@@ -12,11 +12,11 @@ None of this is changed in this phase. This ledger defines batch **B3**.
 
 | Gap | Count |
 |---|---|
-| HEADING_LEVEL | 13 |
+| HEADING_LEVEL | 12 |
 | LABEL_ORPHAN | 9 |
-| DL_PAIR | 33 |
+| DL_PAIR | 32 |
 
-## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (13)
+## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (12)
 
 _heading level is set per widget with no document-wide outline check_
 
@@ -27,8 +27,7 @@ _heading level is set per widget with no document-wide outline check_
 | `FOOT-019` | Footer | 52-55 | `h2` |  | verify level continuity within its section |
 | `FOOT-020` | Footer | 62-65 | `h2` |  | verify level continuity within its section |
 | `IMPACT-004` | ImpactSection | 47-49 | `h3` |  | verify level continuity within its section |
-| `IMPACT-009` | ImpactSection | 84-86 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
-| `IMPACT-012` | ImpactSection | 104-106 | `h3` | 언어 구조에서 사회적 파급 효과까지의 인과 사슬 | verify level continuity within its section |
+| `IMPACT-009` | ImpactSection | 80-82 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
 | `INFRA-027` | KoreaAIContextSection | 129-131 | `h3` | VERIFIED_POLICY_SLOTS | verify level continuity within its section |
 | `HERO-010` | NewsHeroSection | 61-69 | `h1` |  | verify level continuity within its section |
 | `BURD-043` | OccupationSection | 195-197 | `h3` |  | verify level continuity within its section |
@@ -44,7 +43,7 @@ _a label with no programmatic relationship to the content it labels_
 |---|---|---|---|---|---|
 | `ART-003` | ArticleElements | 111 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 | `ART-004` | ArticleElements | 137 | `div` |  | id + aria-labelledby, or move inside the labelled region |
-| `IMPACT-011` | ImpactSection | 103 | `div` | FINAL CONCEPTUAL CAUSAL CHAIN | id + aria-labelledby, or move inside the labelled region |
+| `IMPACT-011` | ImpactSection | 100 | `div` | FINAL CONCEPTUAL CAUSAL CHAIN | id + aria-labelledby, or move inside the labelled region |
 | `HERO-036` | NewsHeroSection | 170-172 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 | `NAV-003` | StoryProgress | 24-26 | `span` | DATA JOURNALISM | id + aria-labelledby, or move inside the labelled region |
 | `CMP-016` | TokenCompareSection | 125-127 | `span` | INPUT SENTENCE | id + aria-labelledby, or move inside the labelled region |
@@ -52,7 +51,7 @@ _a label with no programmatic relationship to the content it labels_
 | `PREM-025` | TokenPremiumSection | 100-102 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
 | `UI-002` | SectionHeading | 80 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 
-## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (33)
+## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (32)
 
 _a term/value row whose halves are nested wrappers — no node in the chain carries an address_
 
@@ -61,7 +60,6 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `CONC-006` | EditorialConclusionSection | 78-91 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `FOOT-001` | Footer | 14-37 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `FOOT-015` | Footer | 73-80 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `IMPACT-010` | ImpactSection | 102-107 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `METH-014` | MethodSection | 107-125 | `button` | METHODOLOGY_ITEMS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-007` | MultilingualTokenEfficiencySection | 172-184 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-010` | MultilingualTokenEfficiencySection | 272-290 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
