@@ -22,7 +22,9 @@ the `baseline/legacy-freeze` branch. Ongoing refactor work (design tokens,
 layout primitives, content-contract migration, shared UI consolidation)
 proceeds on dedicated branches and merges into `main` via reviewed PRs.
 
-See `docs/BASELINE.md` for the canonical baseline record once published.
+See `docs/BASELINE.md` for the canonical baseline record, and
+**`docs/HANDOFF.md` for a session-to-session handoff summary** — read
+that first when resuming this work in a new session.
 
 ## Research content notice
 
