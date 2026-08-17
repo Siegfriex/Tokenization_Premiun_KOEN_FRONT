@@ -251,3 +251,126 @@ opening line, paragraph compression, quieter pull-quote, receding footer/
 CTA button, tighter headline-to-body gap. Executing next, same turn.
 
 ---
+
+## 2026-08-17 22:xx — Iteration 8 (orchestrated screening + fix, S04.5+S04)
+
+**Numbering note:** `S03-patterns`' redline pass 2 (69,432/1.29×~1.83×
+evidence-lineage work, domain-list tabular-nums restyle) and `S07-result`'s
+full 5-point redline (both promised in Iteration 7's "Next") were completed
+and documented in `docs/qa/SHOT_SPECS.md` but not separately logged here.
+This entry resumes the rollback-log sequence at the next fresh batch of work.
+
+**Trigger:** Director's explicit process directive — stop fixed 10-minute
+polling, react to actual preview/production trigger events instead; use an
+orchestrator with role-divided read-only subagents to screen slides against
+the Director's brief, then synthesize and apply the actual fixes directly.
+Followed immediately by a direct challenge when the screening-only phase
+completed: "근데 스크리닝을 하는데, 너가 수정을 안하고 디버깅을 안하면 뭐
+어떻게하니" — i.e. screening without fixing is worthless; this iteration is
+the fix phase in direct response to that challenge.
+
+**Method:** ran a `Workflow` with two parallel read-only diagnostic
+subagents (`screen:languages` for `S04.5-languages`, `screen:burden` for
+`S04-burden`), each given the Director's per-slide brief, the global
+redline rules, and explicit frozen-value guard instructions. Read both
+full structured reports, then performed all fixes myself — no subagent
+was given edit access.
+
+**Slides worked:** `S04.5-languages` (`MultilingualTokenEfficiencySection`)
+and `S04-burden` (`OccupationSection`). Full findings and fixes for both
+are written up in `docs/qa/SHOT_SPECS.md`.
+
+**Fixed:** a real chart color-encoding bug (selected language's bar no
+longer stays permanently pinned to Korean's dark fill), a hardcoded-Korean
+legend now reading live from the selected entity item, multiple bilingual-
+completeness gaps across both sections, a Korean word-break bug in the
+shared `ArticleSubheading` component, Design Law tier corrections (Tier-1/
+Tier-3 promotions/demotions on 3 panels), an accent-color-protagonist
+violation (5 concurrent `bg-accent` elements in `#burden` down to 1), a
+547px headline-to-widget gap (redundant subheading removed on both
+slides), and a mobile scale-legend crowding issue (layout-only, frozen
+strings untouched).
+
+**Trace-ledger consequence (expected, resolved):** the i18n/rendering
+fixes changed 3 nodes' literal text, which changed their identity keys and
+issued new Trace IDs (`LANG-019`→`LANG-051`, `LANG-031`→`LANG-053`;
+`LANG-032` retired — resolved to a live entity read, not reassigned).
+`docs/audit/DIRECTOR_DECISIONS.md` and `docs/audit/README.md` updated to
+cite the current IDs/lines; `check-citations.mjs` clean on re-run. No
+research figure, estimand, or frozen numeric claim was touched — only
+ownership/rendering of already-correct values.
+
+**Deliberately NOT fixed:** a content-integrity mismatch in
+`multilingualBenchmark` copy (mentions "12개 언어"/Hindi; the entity backing
+the chart, `MULTILINGUAL_COMPARISON_DATA`, has only 5 entries and no
+Hindi row). This is a copy-accuracy question for the content owner, not a
+visual QA fix — flagged, not silently corrected.
+
+Verified: tsc clean, `npm run build` clean, `node docs/audit/tools/
+run-pipeline.mjs` diff-reproducible after the ID/line resync (director
+queue unchanged at 16), Playwright real-interaction checks (nav click +
+chip click, not just static screenshots) confirmed the color-encoding fix,
+the dynamic legend, EN translations, and the mobile legend's `flex-col`
+stacking all work as intended.
+
+---
+
+## 2026-08-17 22:xx — Iteration 9 (orchestrated screening + fix, S04-detail+S05+S06)
+
+**Trigger:** continuation of the same event-driven directive as Iteration 8.
+After S04.5-languages and S04-burden landed (pushed to PR #16), the
+Director's 3차 루프 (items 6→7→8: burden-comparison detail card dominance,
+S05-infrastructure system-diagram feel, S06-method boundary-panel-as-hero)
+was next in the work order. Ran a second `Workflow` with 3 parallel
+read-only subagents (`screen:burden-detail`, `screen:infrastructure`,
+`screen:method`), read all 3 full structured reports, then performed every
+fix myself — same synthesize-then-fix discipline as Iteration 8.
+
+**Slides worked:** `#burden` (follow-up pass, `OccupationSection.tsx`),
+`S05-infrastructure` (`KoreaAIContextSection.tsx`), `S06-method`
+(`MethodSection.tsx`). Full findings and fixes for all three are written
+up in `docs/qa/SHOT_SPECS.md`.
+
+**Fixed:**
+- **Burden follow-up:** the slide-level dominance fix from Iteration 8 held
+  (simulator still wins first glance), but the two occupational-comparison
+  cards had an internal rank inversion — Engineering read as a footnote,
+  Social Science as the real finding, via 4 compounding asymmetries (card
+  tier, footer weight, data-field ink tone, an exclusive "HIGH BURDEN
+  POTENTIAL" badge). Unified both cards to the same Tier-2 signature and
+  weight; removed the exclusive badge rather than inventing a new label
+  for its counterpart (redundant editorializing, and inventing copy isn't
+  this pass's call).
+- **S05-infrastructure:** the core brief — added actual diagrammatic
+  connective tissue (CSS arrow pseudo-elements between the 4 phase cards,
+  a downward bridge into the policy-slot grid) so the slide reads as a
+  causal chain rather than 4 unrelated cards; removed a `bg-accent` color
+  fill that was being used as an ad-hoc tiering signal on Phase 04 (Design
+  Law violation — accent is reserved for selection/nav, tiering is
+  border/shadow only) and replaced it with a proper Tier-1 border/shadow
+  treatment; fixed a mobile header-wrap interleaving bug; removed a dead
+  empty `ArticleSubheading` node (entity has no `subheading` field for
+  this section).
+- **S06-method:** promoted the "what we do NOT claim" boundary panel from
+  an ad-hoc Tier-3-plus-shadow hybrid to genuine Tier-1 and bumped its
+  title scale, so it reads as the slide's hero rather than a footnote
+  under the methodology accordion; removed 6 decorative `bg-accent`
+  bullet dots (down to the H2 underline as the slide's sole accent
+  element, from 7 concurrent accent marks); fixed a mobile alignment bug
+  where the "6 Key Principles" count floated mid-wrap against the panel's
+  title. `METH-008` (hardcoded principle count) flagged per D4, not
+  changed — only its ink tone was nudged one step darker as a pure color
+  change now that the panel around it carries more weight.
+
+**Verified:** tsc clean, `npm run build` clean, `node docs/audit/tools/
+run-pipeline.mjs` diff-reproducible with no ID churn this time (all
+changes were element removal/tier/color, not literal-text changes —
+director queue unchanged at 16), and a second live Playwright verification
+pass confirmed every fix by DOM measurement (not just source reading):
+0 remaining `bg-accent` elements in `#infrastructure`/`#method`, Phase 04
+and the boundary panel both compute `border-width: 2px` + a real box-
+shadow, both burden-comparison footers compute identical `font-weight:
+400`, the arrow pseudo-element's `content` actually resolves to `"→"` in
+the compiled CSS.
+
+---

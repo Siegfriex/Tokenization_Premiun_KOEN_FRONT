@@ -7,7 +7,6 @@ import { Container, SectionHeading, HeadingAccent } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
-  ArticleSubheading,
   ArticleParagraph,
   ArticleFigureCaption,
   ArticleFinding,
@@ -45,10 +44,6 @@ export const KoreaAIContextSection: React.FC = () => {
             {isKo ? articleData.lead?.ko : articleData.lead?.en}
           </ArticleLead>
 
-          <ArticleSubheading>
-            {isKo ? articleData.subheading?.ko : articleData.subheading?.en}
-          </ArticleSubheading>
-
           {isKo
             ? articleData.preFigureParagraphs?.ko.map((p, idx) => (
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
@@ -69,34 +64,47 @@ export const KoreaAIContextSection: React.FC = () => {
               <dd data-source="widget" className="text-xs font-mono text-ink-muted">Scale Dynamics</dd>
             </dl>
 
-            <ul data-collection="macro-adoption-phases" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {MACRO_ADOPTION_PHASES.map((phase) => (
+            <ul data-collection="macro-adoption-phases" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+              {MACRO_ADOPTION_PHASES.map((phase, idx) => (
                 <li
                   key={phase.id}
                   data-item-id={phase.id}
-                  className={`rounded-xs p-5 space-y-3 border ${
+                  className={`relative rounded-xs p-5 space-y-3 border ${
                     phase.highlight
-                      ? 'bg-accent text-on-accent border-accent shadow-xs'
+                      ? 'bg-surface border-2 border-rule-strong shadow-sm'
                       : 'bg-surface-alt border-rule'
+                  } ${
+                    idx < MACRO_ADOPTION_PHASES.length - 1
+                      ? "lg:after:content-['→'] lg:after:absolute lg:after:-right-6 lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:text-ink-muted lg:after:text-lg lg:after:font-mono"
+                      : ''
                   }`}
                 >
-                  <div className={`text-xs font-mono font-bold uppercase ${phase.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
+                  <div className="text-xs font-mono font-bold uppercase text-ink-muted">
                     {phase.phaseLabel}
                   </div>
-                  <div className={`text-lg font-bold ${phase.highlight ? 'text-on-accent' : 'text-ink'}`}>
+                  <div className="text-lg font-bold text-ink">
                     {phase.name}
                   </div>
-                  <p className={`text-xs leading-relaxed font-sans ${phase.highlight ? 'text-on-accent-muted' : 'text-ink-body'}`}>
+                  <p className="text-xs leading-relaxed font-sans text-ink-body">
                     {phase.description}
                   </p>
                 </li>
               ))}
             </ul>
+
+            {/* Diagram bridge: the causal chain terminates in, and is meant
+                to be anchored by, the verified data slots below. */}
+            <div className="flex justify-center" aria-hidden="true">
+              <div className="flex flex-col items-center text-ink-muted">
+                <div className="w-px h-6 bg-rule-strong" />
+                <span className="text-lg font-mono leading-none">↓</span>
+              </div>
+            </div>
           </div>
 
           {/* Verified Policy & Investment Slots */}
           <div className="space-y-6">
-            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between">
               <dt data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
                 {isKo ? '검증된 정책 및 대규모 투자 데이터 슬롯 (Data Slots):' : 'Verified Policy & Investment Data Slots:'}
               </dt>

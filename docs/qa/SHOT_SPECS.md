@@ -194,3 +194,341 @@ further step relative to step 02's accent fill, so "the bottleneck" reads
 as a discovery, not merely the loudest of five equals. Screenshotted
 1440×KO: 0 overflow, step 02 unambiguous focal point, others visibly
 quieter. tsc clean, build passes, audit pipeline diff-reproducible.
+
+**Findings (Director redline pass 2, 2026-08-17 — full work-order spec):**
+Director's formal work order gave S03 a sharper, more specific brief than
+the earlier tier-system pass: "69,432와 1.29×~1.83×가 같은 증거 계보로 묶여야
+하고... 아래 카드들은 예쁜 데이터 카드보다 검증 패널처럼." Two decisions:
+
+- **Deliberately NOT done:** duplicating "69,432" into the tier-1 card to
+  visually pair it with "1.29×~1.83×". `69,432` is Director-frozen
+  (`DIRECTOR_DECISIONS.md` D4, `PREM-002`/`PREM-003`, status UNLINKED —
+  "no entity holds this value"). Creating a second on-screen occurrence of
+  a disputed, untracked figure — even without changing its text — expands
+  a frozen claim's footprint in a way this pass isn't authorized to do
+  unilaterally. The H2 headline already carries `69,432건` as an
+  accent-underlined evidence object (pre-existing); left as the sole
+  occurrence pending D1/D4 resolution.
+- **Done:** domain-distribution list restyled toward ledger/audit-panel
+  rigor rather than decorative cards — row rhythm tightened (`space-y-4`
+  → `space-y-3`), token-count and ratio figures set to `tabular-nums` for
+  consistent digit-column alignment (a pure typographic add, zero content
+  change). `font-mono` on the tier-1 stat rows already provides
+  fixed-width digits, so no change needed there.
+
+Screenshotted 1440×KO: 0 overflow, rows read denser/more tabular. tsc
+clean, build passes, audit pipeline diff-reproducible, director queue
+unchanged at 16.
+
+---
+
+## S04.5-languages
+
+| Field | Content |
+|---|---|
+| Intent | One chart, one selectable protagonist — clicking a language should make *that* bar (and its legend/callout copy) the dark evidence, not a permanently-pinned Korean row. |
+| Primary focal point | The right-column horizontal bar chart; the selected language's bar carries `seriesHighlight` fill and the outline ring. |
+| Secondary focal points | Left-column "LANGUAGE FOCUS" stat card (kept Tier-2, unchanged); quick-switch chip row. |
+| Forbidden competition | The Korean-only callout ("★ 한국어는...") must never assert a permanent visual claim independent of the selection state — it is conditional on `selectedItem.isTargetHangul`, not decorative. |
+| Layout skeleton | `ArticleReadingColumn` (lead only) → full-width breakout: left 4-col stat card + chip switcher, right 8-col chart panel. |
+| Risk zones | `LANG-019`/`LANG-032`/`LANG-031` (frozen-adjacent duplicated/unsourced values, `DIRECTOR_DECISIONS.md` D3/D4) — must not change the underlying `1.78×`/`1.00×` figures, only ownership/rendering. |
+| Required states | default (Korean selected) and a non-Korean selection (tested: English). |
+| Required screenshots | 1440×KO (default + English-selected), 1440×EN, 390×KO. |
+| Accept/reject rule | Reject if any non-selected bar renders in the highlight color, if the legend's bold entry doesn't match the current selection, or if any Korean-only string survives untranslated in EN mode. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:languages`
+read-only subagent (via `Workflow`) diagnosed this slide against the
+Director brief and VISUAL_QA_CRITERIA; findings below were synthesized and
+fixed directly (not left as diagnosis-only, per Director's explicit
+challenge: "스크리닝을 하는데 너가 수정을 안하고 디버깅을 안하면 뭐 어떻게하니").
+
+1. **Chart color-encoding bug (real defect).** `Cell` fill was keyed on
+   `entry.isTargetHangul` — Korean's bar was permanently dark regardless of
+   `selectedLangId`; selecting any other language left Korean highlighted
+   and the actual selection nearly invisible (only a thin stroke ring).
+   Fixed: fill now keys on `entry.id === selectedLangId` (falling back to
+   `seriesBaseline`/`seriesOther`). Verified live via Playwright — clicking
+   the English chip now turns the English bar dark (`#161616`) and all
+   others (including Korean) grey (`#C2C2BD`).
+2. **Legend hardcoded to Korean.** The bold legend entry read `한국어 한글
+   (1.78×)` unconditionally. Fixed: now renders `selectedItem.name` /
+   `selectedItem.relativeRatio` — i.e. reads live from
+   `MULTILINGUAL_COMPARISON_DATA` — so it always names whichever language is
+   actually selected. This also resolved `DIRECTOR_DECISIONS.md` D3's
+   `LANG-032` row as a byproduct (no more hardcoded copy at that node); see
+   the D3 update for detail. Not a Director ruling — a rendering-logic fix.
+3. **Bilingual completeness gaps.** The callout, the chip labels (was
+   `item.name.ko.split(' ')[0]` even in EN mode), the chart's sub-label
+   ("기준 영문 100 토큰 대비..."), and all four legend/source strings had no
+   `isKo`/`isEn` branch. All four now translate. `LANG-019`→`LANG-051` and
+   `LANG-031`→`LANG-053` in the trace ledger (new bilingual literal changed
+   their identity keys; `DIRECTOR_DECISIONS.md` updated to the new IDs —
+   the underlying figures and D3/D4 open questions are untouched).
+4. **Korean word-break bug.** `ArticleSubheading` lacked `break-keep`,
+   causing mid-word splits (e.g. `언어` breaking across lines) at narrow
+   widths. Fixed in the shared component (`ArticleElements.tsx`) — applies
+   site-wide, low risk.
+5. **Tier violations.** Callout downgraded Tier-3 proper (`border-rule-
+   strong` → `border-rule`, no shadow — it's an annotation, not primary
+   evidence). Right chart panel upgraded to Tier-1 (`border-2 border-rule-
+   strong shadow-sm`) since it carries the slide's central visual claim.
+6. **Redundant heading weight.** Removed the `ArticleSubheading` render
+   (entity field kept, unused) — was a second bold H3-weight element
+   between the lead and the chart with no distinct information.
+7. **Content-integrity flag, not fixed:** `preFigureParagraphs` mentions
+   "12개 언어"/Hindi, but `MULTILINGUAL_COMPARISON_DATA` has only 5 entries
+   and no Hindi row. Flagged as a candidate new Director-decisions item
+   (content accuracy, not visual QA) — deliberately not silently corrected.
+
+Screenshotted 1440×KO (default + English-selected via real click), 1440×EN,
+390×KO: 0 overflow. tsc clean, build passes. Audit pipeline required a
+documented ID/line resync in `DIRECTOR_DECISIONS.md`/`README.md` (see D3/D4
+updates) — now diff-reproducible again, director queue unchanged at 16.
+
+---
+
+## S04-burden
+
+| Field | Content |
+|---|---|
+| Intent | Escalation — the question ("그래서 이 차이는 얼마나 누적될까?") should land on the repetition simulator within the first viewport, not after a long scroll of restated prose. |
+| Primary focal point | The simulator panel's "ACCUMULATED BURDEN GAP +N tokens" number. |
+| Secondary focal points | The Engineering/Social-Science occupational comparison cards (supporting evidence, one step quieter than the simulator). |
+| Forbidden competition | Only one accent-color element on the slide: the simulator's active preset pill. Status badges and card borders must not compete with it. |
+| Layout skeleton | `SectionHeading` → reading column (lead + paragraphs, no subheading) → full-width breakout: simulator panel, then 2-col occupational comparison. |
+| Risk zones | `BURD-016`/`017`/`018` (Director-frozen scale-legend strings, `DIRECTOR_DECISIONS.md` D4) — layout-only changes permitted, no wording. |
+| Required states | default; simulator with a non-default preset selected. |
+| Required screenshots | 1440×KO (viewport-after-nav-click + full), 1440×EN, 390×KO (full + legend-row crop). |
+| Accept/reject rule | Reject if the simulator's eyebrow is still off-screen immediately after a real nav click, if more than one accent-filled element is visible at once, or if the mobile scale-legend row still wraps into a jumbled block. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:burden`
+read-only subagent diagnosed this slide in the same `Workflow` run as
+S04.5-languages; findings synthesized and fixed directly, same as above.
+
+1. **Headline-to-simulator distance (547px measured).** A real nav click to
+   `#burden` at 1440×1000 left the simulator's eyebrow barely visible at
+   the very bottom edge of the viewport — functionally off-screen on
+   landing, the exact "dangling widget" failure mode the brief forbids.
+   Fixed the highest-leverage contributor: removed the `ArticleSubheading`
+   render (entity field kept) — it was a second bold heading-weight element
+   adding ~90px+ of pure vertical mass with no new information, and its
+   content substantively restated the lead paragraph (flagged to content
+   owner as a copy-consolidation candidate, not edited by this pass).
+2. **Tier mismatch — simulator vs. comparison card.** The simulator panel
+   (holding the slide's actual hero number) used an ad hoc hybrid
+   (`bg-surface-alt border border-rule shadow-xs`) matching neither Tier-1
+   nor clean Tier-3, while the Social Science card below it carried genuine
+   Tier-1 styling despite being supporting/comparative evidence — the
+   comparison card visually outweighed the slide's central number. Fixed:
+   simulator promoted to Tier-1 (`bg-surface border-2 border-rule-strong
+   shadow-sm`); Social Science card stepped down to Tier-2 (`border`,
+   `shadow-xs`), matching the Engineering card's existing Tier-2 treatment.
+3. **Multiple concurrent accent elements.** At 1440×KO, 5 `bg-accent`
+   elements were visible simultaneously: the selected preset pill (the one
+   legitimate accent use) plus the "HIGH BURDEN POTENTIAL" badge and all
+   three Social Science status badges — applied unconditionally regardless
+   of `DATA_AVAILABLE` status, while the structurally identical Engineering
+   badges used neutral styling for the same field. Fixed: both the
+   "HIGH BURDEN POTENTIAL" badge and the status badges now use the same
+   neutral `bg-surface-alt text-ink-body border border-rule` treatment as
+   Engineering's — confirmed 0 remaining `bg-accent` elements in `#burden`
+   outside the preset selector. Class/color-only; no text/value change.
+4. **Mobile scale-legend crowding.** At 390px, the 3-column `flex
+   justify-between` scale-legend row (`BURD-016`/`017`/`018`, frozen
+   strings) wrapped each label into cramped ~76–116px columns — a jumbled
+   block competing with the slider. Fixed: `flex-col sm:flex-row` so the
+   three labels stack vertically on mobile and stay horizontal at `sm+` —
+   layout-only, strings untouched. Verified via computed style:
+   `flexDirection: column` at 390px.
+
+Screenshotted 1440×KO (real-nav-click viewport + full), 1440×EN, 390×KO:
+0 overflow. tsc clean, build passes, audit pipeline diff-reproducible
+(shared resync with S04.5-languages), director queue unchanged at 16.
+
+**Findings (follow-up pass, orchestrated screening + fix, 2026-08-17):** a
+`screen:burden-detail` subagent re-screened the *already-fixed* state above
+specifically for "burden-comparison detail card dominance" — macro
+slide-level dominance passed clean (the prior fix worked), but the two
+comparison cards had an internal rank inversion between each other.
+
+1. **Macro dominance: PASS.** Confirmed via real nav-click + measured rects
+   that the simulator's `+700` hero number remains the unambiguous
+   first-glance winner; the comparison grid begins 110px below it and never
+   approaches the hero number's size or isolation. No action needed.
+2. **Asymmetric card tier (root cause of the rest).** Engineering's wrapper
+   used `bg-surface-alt border border-rule` (mechanically a Tier-3
+   "recede" signature) while Social Science used genuine Tier-2
+   (`bg-surface border border-rule shadow-xs`) — despite both cards playing
+   an identical parallel-comparison role. Fixed: Engineering promoted to
+   the same Tier-2 signature (`bg-surface ... shadow-xs`).
+3. **Asymmetric footer weight.** The "평가: ..." verdict blurb was
+   `bg-surface text-ink-muted` (quiet) on Engineering vs. `bg-surface-alt
+   text-ink font-semibold` (bold, full-ink) on Social Science — same
+   component pattern, two different treatments, reproduced identically in
+   EN. Fixed: unified both to the quieter Engineering treatment (neither
+   card is this slide's Tier-1 point). Verified: both now compute
+   `font-weight: 400`.
+4. **Asymmetric data-field weight.** Social Science's sub-occupation name
+   spans (`text-ink`) and Language Intensity value (`text-ink font-bold`)
+   were a full step darker/bolder than Engineering's (`text-ink-body`) for
+   the same field, with no data-driven justification — AI Exposure Level
+   was already correctly symmetric on both sides, proving the asymmetry
+   was an oversight, not intentional encoding. Fixed: matched Social
+   Science's classes to Engineering's on both fields.
+5. **Exclusive "HIGH BURDEN POTENTIAL" badge.** Existed only on the Social
+   Science card, no Engineering counterpart, stacking a fourth asymmetric
+   emphasis device onto findings 2-4. Its information (exposure/intensity)
+   was already redundantly carried by the two data rows above it.
+   **Decision: removed the badge** rather than inventing a parallel
+   "LOWER BURDEN POTENTIAL" label for Engineering — adding new editorial
+   copy not backed by an entity field would be a content decision this
+   pass isn't authorized to make; removing a redundant, exclusive label is
+   layout-only. Confirmed 0 remaining "HIGH BURDEN" badges after the fix.
+
+Net effect: the two comparison cards now read as one coherent
+secondary-evidence unit (parallel entries) rather than "Engineering =
+footnote, Social Science = the real finding." Verified live via Playwright
+DOM queries (not just source reading): both footers `font-weight: 400`,
+Engineering wrapper now has a shadow, 0 remaining "HIGH BURDEN" badges.
+tsc clean, build passes, audit pipeline diff-reproducible, director queue
+unchanged at 16.
+
+---
+
+## S05-infrastructure
+
+| Field | Content |
+|---|---|
+| Intent | Show AI adoption as one causal chain scaling into national infrastructure — the slide should read as a system diagram the reader can trace, not a row of explanatory cards. |
+| Primary focal point | The 4-phase "Macro Adoption Causal Chain," terminating at Phase 04 (Token Usage), bridging into the verified policy/investment data slots below it. |
+| Secondary focal points | The 3 verified-policy-slot cards (already correctly Tier-2, dashed-border evidence-gap framing). |
+| Forbidden competition | Exactly one accent-color element on the slide; tiering must be border-weight/shadow-depth, never a color fill. |
+| Layout skeleton | `SectionHeading` → reading column (lead + paragraphs, no subheading — entity has none) → full-width breakout: phase-chain grid, diagram bridge, policy-slot grid. |
+| Risk zones | None frozen/numeric in this slide's structural elements — `MACRO_ADOPTION_PHASES`/`VERIFIED_POLICY_SLOTS` entity copy untouched by this pass. |
+| Required states | default only. |
+| Required screenshots | 1440×KO, 1440×EN, 390×KO. |
+| Accept/reject rule | Reject if the phase grid still reads as 4 independently-styled cards with no directional/flow cue, if any card uses `bg-accent` as a tiering signal, or if the mobile data-slots header row still produces an interleaved 2-line wrap. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:infrastructure`
+subagent screened this slide against the Director's short brief ("system-diagram
+feel, not a stacked list of explanatory cards") plus the standing global
+rules; findings synthesized and fixed directly.
+
+1. **No diagrammatic connective tissue (the core brief).** The phase grid
+   was a plain 4-column CSS grid with uniform gaps — zero arrows, lines, or
+   spatial logic connecting the phases; the only per-card directional
+   signal was a `↑` baked into each card's own title text, which reads as
+   a per-card stat icon, not a diagram edge. The phase chain and the
+   policy-slot grid below it were separated only by ordinary section
+   spacing, with no visual bridge showing the chain terminating in (and
+   being anchored by) those data slots. Fixed: added a CSS
+   `content-['→']` pseudo-element between phase cards at the `lg` (single
+   row) breakpoint, widened `lg:gap-8` to make room for it, and added a
+   small `↓` connector between the phase grid and the policy-slot grid —
+   all decorative (`aria-hidden`), no copy/data changed, no existing
+   `ul`/`li` semantic structure altered. Verified the arrow glyph actually
+   compiles into the CSS and renders (confirmed via
+   `getComputedStyle(el, '::after').content`).
+2. **`bg-accent` used as a tiering signal (Design Law violation).** Phase
+   04 used a solid accent-blue fill (`bg-accent text-on-accent
+   border-accent`) purely to mark "this phase is the important one" — an
+   ad hoc fourth treatment matching none of the three defined tiers, and
+   exactly the usage DESIGN_LAW.md forbids ("accent is never used for
+   tiering"). It also meant the slide had no Tier-1 panel at all (Phase
+   01-03 were Tier-3, policy slots were Tier-2). Fixed: Phase 04 now uses
+   the Tier-1 signature (`bg-surface border-2 border-rule-strong
+   shadow-sm`) instead of a color fill — border weight and shadow now
+   carry the "this is the terminus" meaning, not color; text colors
+   simplified to the same ink scale across all 4 cards. Verified live:
+   `bg-accent` count in `#infrastructure` is now 0; Phase 04 computes
+   `border-width: 2px` + a real box-shadow.
+3. **Mobile data-slots header wrap.** The `flex items-center
+   justify-between` dl (Korean label + "Strict Data Verification Rule")
+   wrapped both children into an interleaved two-column mess at 390px.
+   Fixed: `flex-col items-start` below `sm`, `flex-row items-center
+   justify-between` at `sm+` — layout only, strings untouched.
+4. **Empty `ArticleSubheading` node.** `koreaInfrastructure` has no
+   `subheading` field (unlike its sibling entities), so the component was
+   rendering a real but empty `<h3>` (0 height, no text) — a stray
+   semantic node, not visually detectable but dead markup. Fixed:
+   removed the render (consistent with the same fix already applied to
+   the languages and burden sections this session), removed the now-unused
+   `ArticleSubheading` import.
+5. **Editorial framing / card-language parity, global accent-count rule,
+   body-vs-headline hierarchy, no header overlap, no horizontal scroll:**
+   all passed clean independently (confirmed via real-nav-click rect
+   measurements and computed styles, not screenshot-only) — no action
+   needed on those axes. The editorial-framing gap (phase cards read as a
+   generic "How It Works" SaaS block vs. the policy slots' evidence-gap
+   framing) is substantially addressed by fixes 1-2 above (diagram
+   connectors + tier correction); left as-is beyond that rather than
+   redesigning the card component further this pass.
+
+Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
+passes, audit pipeline diff-reproducible, director queue unchanged at 16.
+
+---
+
+## S06-method
+
+| Field | Content |
+|---|---|
+| Intent | The "boundary panel" (what this research does NOT claim) should read as this slide's hero element, not a footnote beneath the methodology accordion. |
+| Primary focal point | The `WHAT_WE_DO_NOT_CLAIM` boundary panel. |
+| Secondary focal points | The Methodology Pillars accordion (6 expandable items) — must read as supporting detail, not co-equal or louder than the boundary panel. |
+| Forbidden competition | Exactly one accent-color element on the slide (the accordion's 6 bullet dots were an out-of-role repeated use). |
+| Layout skeleton | `SectionHeading` → reading column (lead + paragraphs) → full-width breakout: boundary panel, methodology accordion → reading column (post-figure prose + footnotes). |
+| Risk zones | `METH-008` ("6 Key Principles," `DIRECTOR_DECISIONS.md` D4, UNLINKED — coincidentally matches `WHAT_WE_DO_NOT_CLAIM.length` today but is hardcoded, not read) — flag only, never change the number. |
+| Required states | default; at least one accordion item expanded (pre-existing default state). |
+| Required screenshots | 1440×KO, 1440×EN, 390×KO. |
+| Accept/reject rule | Reject if the boundary panel is not visibly the heaviest panel on the slide, or if more than one accent-color element remains. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:method`
+subagent screened this slide against the Director's short brief ("boundary
+panel as hero, not footnote") plus the standing global rules; findings
+synthesized and fixed directly.
+
+1. **Boundary panel was Tier-3, not Tier-1 (the core brief).** The panel
+   holding the slide's actual central claim used `bg-surface-alt border
+   border-rule shadow-xs` — the Tier-3 "must recede, never compete"
+   signature (confirmed against `tokens.css`'s own comment: `--color-
+   surface-alt` is documented as an "alternating section background," a
+   recede role) with an extra shadow bolted on, matching none of the three
+   canonical tiers cleanly. Meanwhile its own title label used the same
+   small `text-xs font-mono` scale as every other secondary widget on the
+   page — nothing about it signalled hero status. Fixed: promoted to the
+   Tier-1 signature (`bg-surface border-2 border-rule-strong shadow-sm`);
+   bumped the title label to `text-sm sm:text-base` (from `text-xs`) so
+   the panel's own heading, not just its border, reads heavier.
+2. **Boundary panel didn't outrank the accordion below it.** The
+   accordion's item titles (`font-bold text-sm sm:text-base`) plus an
+   accent-blue bullet dot per row were visually bolder/more saturated than
+   the boundary panel's uniformly small mono/sans text, and the accordion
+   occupied more on-page height. Substantially addressed by fix 1 (the
+   panel is now the slide's only Tier-1, border-2, shadow-sm element,
+   giving it clear top billing without reordering — it was already first
+   in DOM order).
+3. **7 concurrent accent-color marks (global rule violation).** The H2
+   underline (the Design-Law-sanctioned one legitimate use) plus all 6
+   methodology-accordion bullet dots (`bg-accent`, decorative list
+   markers, not a selection/nav state) meant 7 accent marks contending for
+   "protagonist" on one slide. Fixed: accordion bullets changed from
+   `bg-accent` to `bg-ink-muted` (a neutral, already-tokenized color with
+   existing precedent elsewhere in the codebase) — confirmed 0 remaining
+   `bg-accent` elements in `#method` after the fix.
+4. **Mobile header-row misalignment.** At 390px the boundary panel's own
+   `dt`/`dd` header row used `items-center`, so when the long KO/EN title
+   wrapped to 3 lines, the "6 Key Principles" count floated vertically
+   centered against the wrapped block instead of anchoring to the title's
+   first line. Fixed: `items-center` → `items-start` (with a small `gap-4`
+   added so the two no longer touch when both are short).
+5. **METH-008 flagged, not changed.** "6 Key Principles" is confirmed
+   still present, still hardcoded (UNLINKED per D4), rendered inside the
+   panel's own header — per instruction, no numeric or text change
+   proposed. Per the finding's own recommendation, its ink tone was
+   nudged from `text-ink-muted` to `text-ink-body` (one step more present)
+   now that the panel around it carries more visual weight — a pure color
+   token change, not a wording or number change.
+
+Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
+passes, audit pipeline diff-reproducible, director queue unchanged at 16.

@@ -7,7 +7,6 @@ import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../sha
 import {
   ArticleReadingColumn,
   ArticleLead,
-  ArticleSubheading,
   ArticleParagraph,
   ArticleFigureCaption,
   ArticleFinding,
@@ -69,15 +68,15 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
           )}
         </SectionHeading>
 
-        {/* READING COLUMN: Pre-Figure Journalism Text */}
+        {/* READING COLUMN: Pre-Figure Journalism Text — demoted toward caption
+            weight (Director redline: chart must win first read). Subheading
+            dropped from render (was a second bold heading-weight element
+            competing with the H2; entity field kept, per the site's existing
+            practice of not deleting unused-but-drafted copy). */}
         <ArticleReadingColumn>
           <ArticleLead>
             {isKo ? articleData.lead?.ko : articleData.lead?.en}
           </ArticleLead>
-
-          <ArticleSubheading>
-            {isKo ? articleData.subheading?.ko : articleData.subheading?.en}
-          </ArticleSubheading>
 
           {isKo
             ? articleData.preFigureParagraphs?.ko.map((p, idx) => (
@@ -136,8 +135,10 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 {selectedItem.isTargetHangul && (
-                  <div className="p-3 bg-surface-alt border border-rule-strong rounded-xs text-xs text-ink font-mono">
-                    ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.
+                  <div className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono">
+                    {isKo
+                      ? '★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.'
+                      : '★ Korean consumes 1.78× the tokens of Latin-alphabet languages (English/Spanish).'}
                   </div>
                 )}
               </div>
@@ -157,7 +158,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                       boldWhenFilled
                       className="px-3 py-1 text-xs font-mono"
                     >
-                      {item.name.ko.split(' ')[0]} ({item.relativeRatio.toFixed(2)}×)
+                      {(isKo ? item.name.ko : item.name.en).split(' ')[0]} ({item.relativeRatio.toFixed(2)}×)
                     </SelectableCard>
                     </li>
                   ))}
@@ -167,14 +168,16 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
 
             {/* Right Column (8 cols on lg): Clean Horizontal Bar Chart */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
+              <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
                 <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                   <dl data-role="stat" data-semantic-target="dl">
                     <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                       NORMALIZED TOKEN CONSUMPTION BY LANGUAGE
                     </dt>
                     <dd className="text-[11px] font-mono text-ink-muted">
-                      기준 영문 100 토큰 대비 정규화 소모량
+                      {isKo
+                        ? '기준 영문 100 토큰 대비 정규화 소모량'
+                        : 'Normalized consumption relative to a 100-token English baseline'}
                     </dd>
                   </dl>
                   <span data-source="widget" className="text-xs font-mono text-ink-muted">Flores-200 / o200k_base</span>
@@ -250,7 +253,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                           <Cell
                             key={`cell-${entry.id}`}
                             fill={
-                              entry.isTargetHangul
+                              entry.id === selectedLangId
                                 ? chartTokens.seriesHighlight
                                 : entry.isBaseline
                                 ? chartTokens.seriesBaseline
@@ -270,18 +273,20 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-baseline rounded-xs inline-block"></span>
-                      <span>라틴 알파벳 기준 (1.00×)</span>
+                      <span>{isKo ? '라틴 알파벳 기준 (1.00×)' : 'Latin-alphabet baseline (1.00×)'}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark rounded-xs inline-block border border-rule-strong"></span>
-                      <span className="text-ink font-bold">한국어 한글 (1.78×)</span>
+                      <span className="text-ink font-bold">
+                        {isKo ? selectedItem.name.ko : selectedItem.name.en} ({selectedItem.relativeRatio.toFixed(2)}×)
+                      </span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-other rounded-xs inline-block"></span>
-                      <span data-source="widget">기타 다국어 표기 체계</span>
+                      <span data-source="widget">{isKo ? '기타 다국어 표기 체계' : 'Other scripts'}</span>
                     </span>
                   </div>
-                  <span data-source="widget">데이터: Flores-200</span>
+                  <span data-source="widget">{isKo ? '데이터: Flores-200' : 'Data: Flores-200'}</span>
                 </div>
               </div>
             </div>

@@ -72,21 +72,31 @@ must be labelled as such?
 
 ## D3 — Values that agree today but are copied, not read
 
-**3 items · HIGH · no visible change either way; ownership only**
+**2 items · HIGH · no visible change either way; ownership only**
 
 | Trace ID | Widget | Line | Markup hardcodes | Entity that also holds it |
 |---|---|---|---|---|
 | `HERO-019` | NewsHeroSection | 90 | `+78% Hangul Token Burden` | `MULTILINGUAL_COMPARISON_DATA` `ko.differencePercent = 78` |
-| `LANG-019` | MultilingualTokenEfficiencySection | 139-141 | `…대비 1.78배의 토큰이 소비됩니다.` | `ko.relativeRatio = 1.78` |
-| `LANG-032` | MultilingualTokenEfficiencySection | 275 | `한국어 한글 (1.78×)` | `ko.relativeRatio = 1.78` |
+| `LANG-051` | MultilingualTokenEfficiencySection | 138-142 | `…대비 1.78배의 토큰이 소비됩니다.` (now bilingual — EN sibling literal added) | `ko.relativeRatio = 1.78` |
 
 These are correct **right now**. They are in this queue because the markup owns
-its own copy: if the entity is ever corrected, these three do not move, and the
+its own copy: if the entity is ever corrected, these do not move, and the
 page will contradict itself silently.
 
 **Decision needed:** confirm these may be rewired to read from the entity in
 B4. This is the one queue item that is probably a simple yes — but rewiring
 research figures is not a call this role makes unilaterally.
+
+**Resolved (visual QA loop, 2026-08-17):** the third item, formerly ID
+LANG-032 (legend text hardcoding `한국어 한글 (1.78×)`), was rewired as a
+byproduct of fixing the chart's color-encoding bug (the legend's highlighted
+entry now tracks `selectedLangId` instead of being permanently pinned to
+Korean). Its label and ratio are now read directly from `selectedItem.name` /
+`selectedItem.relativeRatio` — i.e. from `MULTILINGUAL_COMPARISON_DATA` — so
+no literal copy remains at that node (see `LANG-010`, the now-structural
+legend container; the old ID is retired, not reassigned). No entity value or
+research figure was touched; this was a rendering-logic fix, not a Director
+ruling on D3.
 
 ---
 
@@ -98,7 +108,7 @@ research figures is not a call this role makes unilaterally.
 |---|---|---|---|---|
 | `BURD-017` | OccupationSection | 121 | `1,000회 (팀 일간 워크플로우)` | slider tick label; characterises a workload, no entity holds it |
 | `BURD-018` | OccupationSection | 122 | `2,000회 (전사 에이전트 루틴)` | as above; also the slider `max` |
-| `LANG-031` | MultilingualTokenEfficiencySection | 271 | `라틴 알파벳 기준 (1.00×)` | chart legend; no baseline row exists in `MULTILINGUAL_COMPARISON_DATA` |
+| `LANG-053` | MultilingualTokenEfficiencySection | 276 | `라틴 알파벳 기준 (1.00×)` (now bilingual — EN sibling literal added) | chart legend; no baseline row exists in `MULTILINGUAL_COMPARISON_DATA` |
 | `PREM-002` `PREM-003` | TokenPremiumSection | 31, 37 | `69,432` | see D1 |
 | `METH-008` | MethodSection | 72 | `6 Key Principles` | equals `WHAT_WE_DO_NOT_CLAIM.length` (6) **today**, but is hardcoded, not read. Reclassified from COUNT_VERIFIED to UNLINKED: a coincidence is not a link, and it will drift silently the moment the array changes |
 

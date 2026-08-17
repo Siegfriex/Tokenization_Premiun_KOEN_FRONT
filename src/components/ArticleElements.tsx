@@ -65,7 +65,7 @@ export const ArticleSubheading: React.FC<{
   return (
     <h3
       data-role="article-subheading"
-      className={`text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink tracking-tight mt-12 sm:mt-14 mb-6 leading-snug font-sans ${className}`}
+      className={`text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink tracking-tight mt-12 sm:mt-14 mb-6 leading-snug font-sans break-keep ${className}`}
     >
       {children}
     </h3>

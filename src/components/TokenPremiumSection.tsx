@@ -124,8 +124,8 @@ export const TokenPremiumSection: React.FC = () => {
                   <span className="text-xs font-mono text-ink-muted">7 Benchmark Domains</span>
                 </div>
 
-                {/* Minimal Bar & Dot Distribution List */}
-                <ul data-collection="domain-distribution" className="space-y-4 pt-2">
+                {/* Minimal Bar & Dot Distribution List — ledger rhythm, not floating cards (Director redline: 감사 자료 패널) */}
+                <ul data-collection="domain-distribution" className="space-y-3 pt-2">
                   {DOMAIN_DISTRIBUTION_DATA.map((item) => {
                     const isSelected = item.id === selectedDomainId;
                     return (
@@ -152,13 +152,13 @@ export const TokenPremiumSection: React.FC = () => {
                             <span data-source="widget"
                               className={
                                 isSelected
-                                  ? 'text-on-accent-muted text-[11px]'
-                                  : 'text-ink-muted text-[11px]'
+                                  ? 'text-on-accent-muted text-[11px] tabular-nums'
+                                  : 'text-ink-muted text-[11px] tabular-nums'
                               }
                             >
                               {item.enTokens} vs {item.koTokens} tokens
                             </span>
-                            <span className={`font-bold font-mono text-sm ${isSelected ? 'text-on-accent' : 'text-ink'}`}>
+                            <span className={`font-bold font-mono text-sm tabular-nums ${isSelected ? 'text-on-accent' : 'text-ink'}`}>
                               {item.ratio.toFixed(2)}×
                             </span>
                           </span>

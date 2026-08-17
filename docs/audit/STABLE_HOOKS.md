@@ -15,10 +15,10 @@ the styling, and every design change silently invalidates it.
 
 | Addressing today | Count | Consequence |
 |---|---|---|
-| STYLE_SIGNATURE | 33 | selector breaks when the design changes |
+| STYLE_SIGNATURE | 34 | selector breaks when the design changes |
 | NTH_CHILD_ONLY | 5 | selector breaks when content is added or reordered |
 | STABLE (id) | 11 | the ten section anchors, and nothing below them |
-| STABLE (data-*) | 401 | — |
+| STABLE (data-*) | 397 | — |
 
 **Zero `data-*` attributes exist in the codebase today.**
 
@@ -26,9 +26,9 @@ the styling, and every design change silently invalidates it.
 
 | Hook | Applies to | Count |
 |---|---|---|
-| `data-role="…"` | CONTENT nodes | 145 |
-| `data-role="section-heading"` | DOM_STRUCTURE nodes | 23 |
-| `data-metric="…"` | NUMERIC_CLAIM nodes | 22 |
+| `data-role="…"` | CONTENT nodes | 146 |
+| `data-metric="…"` | NUMERIC_CLAIM nodes | 21 |
+| `data-role="section-heading"` | DOM_STRUCTURE nodes | 20 |
 | `data-collection="verified_policy_slots"` | DESIGN_APPLICATION nodes | 10 |
 | `data-collection="articledata-prefigureparagraphs-ko"` | DESIGN_APPLICATION nodes | 9 |
 | `data-collection="articledata-prefigureparagraphs-en"` | DESIGN_APPLICATION nodes | 9 |
@@ -105,37 +105,37 @@ the styling, and every design change silently invalidates it.
 | `IMPACT-016` | ImpactSection | 132-136 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
 | `IMPACT-017` | ImpactSection | 143 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
 | `IMPACT-018` | ImpactSection | 146 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
-| `INFRA-029` | KoreaAIContextSection | 26-40 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
-| `INFRA-002` | KoreaAIContextSection | 31 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `INFRA-003` | KoreaAIContextSection | 37 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `INFRA-004` | KoreaAIContextSection | 48-50 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
-| `INFRA-005` | KoreaAIContextSection | 54 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
-| `INFRA-006` | KoreaAIContextSection | 57 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `INFRA-008` | KoreaAIContextSection | 66-68 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `INFRA-009` | KoreaAIContextSection | 69 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
-| `INFRA-035` | KoreaAIContextSection | 74-92 | `li` | STABLE (data-*) | `li.rounded-xs.p-5.space-y-3.border.bg-accent.text-on-accent…` | `data-collection="macro_adoption_phases" data-item-id="{item.id}"` |
-| `INFRA-012` | KoreaAIContextSection | 100-102 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
-| `INFRA-013` | KoreaAIContextSection | 103 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink.font-bold` | `data-role="…"` |
-| `INFRA-038` | KoreaAIContextSection | 108-145 | `li` | STABLE (data-*) | `li.bg-surface.border.border-rule.rounded-xs.p-6.space-y-4.f…` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-039` | KoreaAIContextSection | 114-119 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-027` | KoreaAIContextSection | 121-123 | `h3` | STABLE (data-*) | `h3.font-bold.text-sm.text-ink.leading-snug` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-017` | KoreaAIContextSection | 130-132 | `p` | STABLE (data-*) | `p.text-\[11px\].text-ink-muted.font-sans` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-040` | KoreaAIContextSection | 136-139 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-019` | KoreaAIContextSection | 137 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-020` | KoreaAIContextSection | 138 | `dd` | STABLE (data-*) | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-041` | KoreaAIContextSection | 140-143 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-022` | KoreaAIContextSection | 141 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-023` | KoreaAIContextSection | 142 | `dd` | STYLE_SIGNATURE | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-024` | KoreaAIContextSection | 151-155 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `INFRA-025` | KoreaAIContextSection | 162 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `INFRA-026` | KoreaAIContextSection | 165 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `INFRA-029` | KoreaAIContextSection | 25-39 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
+| `INFRA-002` | KoreaAIContextSection | 30 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `INFRA-003` | KoreaAIContextSection | 36 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `INFRA-005` | KoreaAIContextSection | 49 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
+| `INFRA-006` | KoreaAIContextSection | 52 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `INFRA-008` | KoreaAIContextSection | 61-63 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `INFRA-009` | KoreaAIContextSection | 64 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `INFRA-035` | KoreaAIContextSection | 69-91 | `li` | STABLE (data-*) | `li.relative.rounded-xs.p-5.space-y-3.border.bg-surface.bord…` | `data-collection="macro_adoption_phases" data-item-id="{item.id}"` |
+| `INFRA-044` | KoreaAIContextSection | 100 | `span` | STYLE_SIGNATURE | `span.text-lg.font-mono.leading-none` | `data-role="…"` |
+| `INFRA-012` | KoreaAIContextSection | 108-110 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
+| `INFRA-013` | KoreaAIContextSection | 111 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink.font-bold` | `data-role="…"` |
+| `INFRA-038` | KoreaAIContextSection | 116-153 | `li` | STABLE (data-*) | `li.bg-surface.border.border-rule.rounded-xs.p-6.space-y-4.f…` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-039` | KoreaAIContextSection | 122-127 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-027` | KoreaAIContextSection | 129-131 | `h3` | STABLE (data-*) | `h3.font-bold.text-sm.text-ink.leading-snug` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-017` | KoreaAIContextSection | 138-140 | `p` | STABLE (data-*) | `p.text-\[11px\].text-ink-muted.font-sans` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-040` | KoreaAIContextSection | 144-147 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-019` | KoreaAIContextSection | 145 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-020` | KoreaAIContextSection | 146 | `dd` | STABLE (data-*) | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-041` | KoreaAIContextSection | 148-151 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-022` | KoreaAIContextSection | 149 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-023` | KoreaAIContextSection | 150 | `dd` | STYLE_SIGNATURE | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-024` | KoreaAIContextSection | 159-163 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `INFRA-025` | KoreaAIContextSection | 170 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `INFRA-026` | KoreaAIContextSection | 173 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `METH-020` | MethodSection | 33-47 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `METH-002` | MethodSection | 38 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `METH-003` | MethodSection | 44 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `METH-004` | MethodSection | 57 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `METH-005` | MethodSection | 60 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `METH-007` | MethodSection | 69-71 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `METH-008` | MethodSection | 72 | `dd` | STYLE_SIGNATURE | `dd.text-xs.font-mono.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `METH-007` | MethodSection | 69-71 | `dt` | STABLE (data-*) | `dt.text-sm.sm\:text-base.font-mono.text-ink.font-bold.upper…` | `data-role="…"` |
+| `METH-008` | MethodSection | 72 | `dd` | STYLE_SIGNATURE | `dd.text-xs.font-mono.text-ink-body.shrink-0` | `data-metric="…"  (+ data-source="entity\|widget")` |
 | `METH-026` | MethodSection | 77-84 | `li` | STABLE (data-*) | `li.p-4.bg-surface.border.border-rule.rounded-xs.flex.items-…` | `data-collection="what_we_do_not_claim" data-item-id="{item.id}"` |
 | `METH-027` | MethodSection | 83 | `span` | STABLE (data-*) | `span.leading-snug.text-ink-body` | `data-collection="what_we_do_not_claim" data-item-id="{item.id}"` |
 | `METH-011` | MethodSection | 92-94 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
@@ -146,35 +146,34 @@ the styling, and every design change silently invalidates it.
 | `METH-016` | MethodSection | 149 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `METH-017` | MethodSection | 155-157 | `div` | STABLE (data-*) | `div.font-bold.text-ink.uppercase.tracking-wider.mb-2` | `data-role="…"` |
 | `METH-018` | MethodSection | 159-161 | `p` | STABLE (data-*) | `p.leading-relaxed` | `data-collection="isko-articledata-footnotes-ko-articledata-footnotes-en" data-item-id="{item.id}"` |
-| `LANG-039` | MultilingualTokenEfficiencySection | 56-70 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
-| `LANG-002` | MultilingualTokenEfficiencySection | 61 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `LANG-003` | MultilingualTokenEfficiencySection | 67 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `LANG-004` | MultilingualTokenEfficiencySection | 78-80 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
-| `LANG-005` | MultilingualTokenEfficiencySection | 84 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
-| `LANG-006` | MultilingualTokenEfficiencySection | 87 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `LANG-008` | MultilingualTokenEfficiencySection | 98-100 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `LANG-009` | MultilingualTokenEfficiencySection | 101 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
-| `LANG-011` | MultilingualTokenEfficiencySection | 115 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `LANG-012` | MultilingualTokenEfficiencySection | 116 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold` | `data-role="…"` |
-| `LANG-014` | MultilingualTokenEfficiencySection | 119 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `LANG-015` | MultilingualTokenEfficiencySection | 120-122 | `dd` | STYLE_SIGNATURE | `dd.text-ink.font-bold.text-sm` | `data-role="…"` |
-| `LANG-017` | MultilingualTokenEfficiencySection | 125 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `LANG-018` | MultilingualTokenEfficiencySection | 126-134 | `dd` | STYLE_SIGNATURE | `dd.font-bold.text-ink.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `LANG-019` | MultilingualTokenEfficiencySection | 139-141 | `div` | STYLE_SIGNATURE | `div.p-3.bg-surface-alt.border.border-rule-strong.rounded-xs…` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `LANG-020` | MultilingualTokenEfficiencySection | 147-149 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
-| `LANG-021` | MultilingualTokenEfficiencySection | 153-161 | `button` | STABLE (data-*) | `button.px-3.py-1.text-xs.font-mono` | `data-collection="multilingual_comparison_data" data-item-id="{item.id}"` |
-| `LANG-024` | MultilingualTokenEfficiencySection | 173-175 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `LANG-025` | MultilingualTokenEfficiencySection | 176-178 | `dd` | STYLE_SIGNATURE | `dd.text-\[11px\].font-mono.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `LANG-026` | MultilingualTokenEfficiencySection | 180 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
-| `LANG-027` | MultilingualTokenEfficiencySection | 218-220 | `div` | STABLE (data-*) | `div.text-ink.font-bold.text-sm` | `data-role="…"` |
-| `LANG-028` | MultilingualTokenEfficiencySection | 221-225 | `div` | STABLE (data-*) | `div.text-ink-body` | `data-role="…"` |
-| `LANG-031` | MultilingualTokenEfficiencySection | 273 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `LANG-032` | MultilingualTokenEfficiencySection | 277 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `LANG-033` | MultilingualTokenEfficiencySection | 281 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `LANG-034` | MultilingualTokenEfficiencySection | 284 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `LANG-035` | MultilingualTokenEfficiencySection | 291-295 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `LANG-036` | MultilingualTokenEfficiencySection | 302 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `LANG-037` | MultilingualTokenEfficiencySection | 305 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `LANG-039` | MultilingualTokenEfficiencySection | 55-69 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
+| `LANG-002` | MultilingualTokenEfficiencySection | 60 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `LANG-003` | MultilingualTokenEfficiencySection | 66 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `LANG-005` | MultilingualTokenEfficiencySection | 83 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
+| `LANG-006` | MultilingualTokenEfficiencySection | 86 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `LANG-008` | MultilingualTokenEfficiencySection | 97-99 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `LANG-009` | MultilingualTokenEfficiencySection | 100 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `LANG-011` | MultilingualTokenEfficiencySection | 114 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `LANG-012` | MultilingualTokenEfficiencySection | 115 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold` | `data-role="…"` |
+| `LANG-014` | MultilingualTokenEfficiencySection | 118 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `LANG-015` | MultilingualTokenEfficiencySection | 119-121 | `dd` | STYLE_SIGNATURE | `dd.text-ink.font-bold.text-sm` | `data-role="…"` |
+| `LANG-017` | MultilingualTokenEfficiencySection | 124 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `LANG-018` | MultilingualTokenEfficiencySection | 125-133 | `dd` | STYLE_SIGNATURE | `dd.font-bold.text-ink.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `LANG-051` | MultilingualTokenEfficiencySection | 138-142 | `div` | STYLE_SIGNATURE | `div.p-3.bg-surface-alt.border.border-rule.rounded-xs.text-x…` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `LANG-020` | MultilingualTokenEfficiencySection | 148-150 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
+| `LANG-021` | MultilingualTokenEfficiencySection | 154-162 | `button` | STABLE (data-*) | `button.px-3.py-1.text-xs.font-mono` | `data-collection="multilingual_comparison_data" data-item-id="{item.id}"` |
+| `LANG-024` | MultilingualTokenEfficiencySection | 174-176 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `LANG-052` | MultilingualTokenEfficiencySection | 177-181 | `dd` | STYLE_SIGNATURE | `dd.text-\[11px\].font-mono.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `LANG-026` | MultilingualTokenEfficiencySection | 183 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `LANG-027` | MultilingualTokenEfficiencySection | 221-223 | `div` | STABLE (data-*) | `div.text-ink.font-bold.text-sm` | `data-role="…"` |
+| `LANG-028` | MultilingualTokenEfficiencySection | 224-228 | `div` | STABLE (data-*) | `div.text-ink-body` | `data-role="…"` |
+| `LANG-053` | MultilingualTokenEfficiencySection | 276 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `LANG-054` | MultilingualTokenEfficiencySection | 280-282 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold` | `data-role="…"` |
+| `LANG-055` | MultilingualTokenEfficiencySection | 286 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `LANG-056` | MultilingualTokenEfficiencySection | 289 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `LANG-035` | MultilingualTokenEfficiencySection | 296-300 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `LANG-036` | MultilingualTokenEfficiencySection | 307 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `LANG-037` | MultilingualTokenEfficiencySection | 310 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `HERO-004` | NewsHeroSection | 41 | `span` | STYLE_SIGNATURE | `span.text-rule-neutral` | `data-role="…"` |
 | `HERO-005` | NewsHeroSection | 42 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `HERO-006` | NewsHeroSection | 43 | `span` | STYLE_SIGNATURE | `span.text-rule-neutral` | `data-role="…"` |
@@ -204,55 +203,53 @@ the styling, and every design change silently invalidates it.
 | `HERO-037` | NewsHeroSection | 180 | `p` | STABLE (data-*) | `p` | `data-collection="introdata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `HERO-038` | NewsHeroSection | 183 | `p` | STABLE (data-*) | `p` | `data-collection="introdata-prefigureparagraphs-en" data-item-id="{item.id}"` |
 | `HERO-039` | NewsHeroSection | 205-207 | `span` | STABLE (data-*) | `span.tracking-wider.uppercase.font-semibold` | `data-role="…"` |
-| `BURD-068` | OccupationSection | 38-52 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
-| `BURD-002` | OccupationSection | 43 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `BURD-003` | OccupationSection | 49 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `BURD-004` | OccupationSection | 60-62 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
-| `BURD-005` | OccupationSection | 66 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
-| `BURD-006` | OccupationSection | 69 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `BURD-009` | OccupationSection | 79-81 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `BURD-010` | OccupationSection | 82-84 | `dd` | STABLE (data-*) | `dd.text-xs.text-ink-muted.font-mono` | `data-role="…"` |
-| `BURD-011` | OccupationSection | 90-98 | `button` | STABLE (data-*) | `button.px-3.py-1.text-xs.font-mono` | `data-collection="10-50-100-500-1000" data-item-id="{item.id}"` |
-| `BURD-013` | OccupationSection | 107 | `dt` | STABLE (data-*) | `dt.text-ink-body.font-semibold` | `data-role="…"` |
-| `BURD-014` | OccupationSection | 108-110 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold.text-sm.font-mono` | `data-role="…"` |
-| `BURD-016` | OccupationSection | 122 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `BURD-017` | OccupationSection | 123 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `BURD-018` | OccupationSection | 124 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `BURD-019` | OccupationSection | 132 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase` | `data-role="…"` |
-| `BURD-020` | OccupationSection | 135 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-subtle.ml-1\.5.font-sans` | `data-role="…"` |
-| `BURD-021` | OccupationSection | 140 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase` | `data-role="…"` |
-| `BURD-022` | OccupationSection | 143 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-muted.ml-1\.5.font-sans` | `data-role="…"` |
-| `BURD-024` | OccupationSection | 148-150 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink.uppercase.font-bold.trackin…` | `data-role="…"` |
-| `BURD-025` | OccupationSection | 151-154 | `div` | STYLE_SIGNATURE | `div.text-4xl.sm\:text-5xl.font-mono.font-black.text-ink` | `data-role="…"` |
-| `BURD-026` | OccupationSection | 153 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-muted.ml-1\.5.font-sans` | `data-role="…"` |
-| `BURD-028` | OccupationSection | 161-163 | `dt` | STABLE (data-*) | `dt.font-bold.text-ink.tracking-wider.uppercase` | `data-role="…"` |
-| `BURD-029` | OccupationSection | 164 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
-| `BURD-031` | OccupationSection | 168 | `dt` | STABLE (data-*) | `dt.text-ink-body` | `data-role="…"` |
-| `BURD-032` | OccupationSection | 169 | `dd` | STABLE (data-*) | `dd.font-bold.text-ink` | `data-role="…"` |
-| `BURD-034` | OccupationSection | 172 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-035` | OccupationSection | 173 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
-| `BURD-037` | OccupationSection | 177 | `dt` | STABLE (data-*) | `dt` | `data-role="…"` |
-| `BURD-038` | OccupationSection | 178 | `dd` | STABLE (data-*) | `dd` | `data-role="…"` |
-| `BURD-040` | OccupationSection | 187-189 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `BURD-041` | OccupationSection | 190 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
-| `BURD-043` | OccupationSection | 200-202 | `h3` | STABLE (data-*) | `h3.font-bold.text-lg.text-ink` | `data-role="section-heading"` |
-| `BURD-045` | OccupationSection | 208 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-047` | OccupationSection | 212 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-048` | OccupationSection | 223-225 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
-| `BURD-083` | OccupationSection | 228-240 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface.rounded-xs.border.border-rule.flex.ite…` | `data-collection="engineeringdata-occupations" data-item-id="{item.id}"` |
-| `BURD-050` | OccupationSection | 237-239 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="engineeringdata-occupations" data-item-id="{item.id}"` |
-| `BURD-051` | OccupationSection | 246-248 | `div` | STABLE (data-*) | `div.p-3.bg-surface.border.border-rule.rounded-xs.text-xs.te…` | `data-role="…"` |
-| `BURD-054` | OccupationSection | 257-259 | `h3` | STABLE (data-*) | `h3.font-bold.text-lg.text-ink` | `data-role="section-heading"` |
-| `BURD-055` | OccupationSection | 261-263 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-accent.text-on…` | `data-role="…"` |
-| `BURD-057` | OccupationSection | 268 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-059` | OccupationSection | 272 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-060` | OccupationSection | 283-285 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
-| `BURD-087` | OccupationSection | 288-300 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface-alt.rounded-xs.border.border-rule.flex…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
-| `BURD-062` | OccupationSection | 297-299 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-accent.text-on…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
-| `BURD-063` | OccupationSection | 306-308 | `div` | STABLE (data-*) | `div.p-3.bg-surface-alt.border.border-rule.rounded-xs.text-x…` | `data-role="…"` |
-| `BURD-064` | OccupationSection | 313-317 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `BURD-065` | OccupationSection | 325 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `BURD-066` | OccupationSection | 328 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `BURD-068` | OccupationSection | 37-51 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
+| `BURD-002` | OccupationSection | 42 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `BURD-003` | OccupationSection | 48 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `BURD-005` | OccupationSection | 61 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
+| `BURD-006` | OccupationSection | 64 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `BURD-009` | OccupationSection | 74-76 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `BURD-010` | OccupationSection | 77-79 | `dd` | STABLE (data-*) | `dd.text-xs.text-ink-muted.font-mono` | `data-role="…"` |
+| `BURD-011` | OccupationSection | 85-93 | `button` | STABLE (data-*) | `button.px-3.py-1.text-xs.font-mono` | `data-collection="10-50-100-500-1000" data-item-id="{item.id}"` |
+| `BURD-013` | OccupationSection | 102 | `dt` | STABLE (data-*) | `dt.text-ink-body.font-semibold` | `data-role="…"` |
+| `BURD-014` | OccupationSection | 103-105 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold.text-sm.font-mono` | `data-role="…"` |
+| `BURD-016` | OccupationSection | 117 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `BURD-017` | OccupationSection | 118 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `BURD-018` | OccupationSection | 119 | `span` | NTH_CHILD_ONLY | `span` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `BURD-019` | OccupationSection | 127 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase` | `data-role="…"` |
+| `BURD-020` | OccupationSection | 130 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-subtle.ml-1\.5.font-sans` | `data-role="…"` |
+| `BURD-021` | OccupationSection | 135 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase` | `data-role="…"` |
+| `BURD-022` | OccupationSection | 138 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-muted.ml-1\.5.font-sans` | `data-role="…"` |
+| `BURD-024` | OccupationSection | 143-145 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink.uppercase.font-bold.trackin…` | `data-role="…"` |
+| `BURD-025` | OccupationSection | 146-149 | `div` | STYLE_SIGNATURE | `div.text-4xl.sm\:text-5xl.font-mono.font-black.text-ink` | `data-role="…"` |
+| `BURD-026` | OccupationSection | 148 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-muted.ml-1\.5.font-sans` | `data-role="…"` |
+| `BURD-028` | OccupationSection | 156-158 | `dt` | STABLE (data-*) | `dt.font-bold.text-ink.tracking-wider.uppercase` | `data-role="…"` |
+| `BURD-029` | OccupationSection | 159 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
+| `BURD-031` | OccupationSection | 163 | `dt` | STABLE (data-*) | `dt.text-ink-body` | `data-role="…"` |
+| `BURD-032` | OccupationSection | 164 | `dd` | STABLE (data-*) | `dd.font-bold.text-ink` | `data-role="…"` |
+| `BURD-034` | OccupationSection | 167 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-035` | OccupationSection | 168 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
+| `BURD-037` | OccupationSection | 172 | `dt` | STABLE (data-*) | `dt` | `data-role="…"` |
+| `BURD-038` | OccupationSection | 173 | `dd` | STABLE (data-*) | `dd` | `data-role="…"` |
+| `BURD-040` | OccupationSection | 182-184 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `BURD-041` | OccupationSection | 185 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `BURD-043` | OccupationSection | 195-197 | `h3` | STABLE (data-*) | `h3.font-bold.text-lg.text-ink` | `data-role="section-heading"` |
+| `BURD-045` | OccupationSection | 203 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-047` | OccupationSection | 207 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-048` | OccupationSection | 218-220 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
+| `BURD-083` | OccupationSection | 223-235 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface.rounded-xs.border.border-rule.flex.ite…` | `data-collection="engineeringdata-occupations" data-item-id="{item.id}"` |
+| `BURD-050` | OccupationSection | 232-234 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="engineeringdata-occupations" data-item-id="{item.id}"` |
+| `BURD-051` | OccupationSection | 241-243 | `div` | STABLE (data-*) | `div.p-3.bg-surface.border.border-rule.rounded-xs.text-xs.te…` | `data-role="…"` |
+| `BURD-054` | OccupationSection | 252-254 | `h3` | STABLE (data-*) | `h3.font-bold.text-lg.text-ink` | `data-role="section-heading"` |
+| `BURD-057` | OccupationSection | 260 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-059` | OccupationSection | 264 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-060` | OccupationSection | 275-277 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
+| `BURD-087` | OccupationSection | 280-292 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface-alt.rounded-xs.border.border-rule.flex…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
+| `BURD-062` | OccupationSection | 289-291 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
+| `BURD-063` | OccupationSection | 298-300 | `div` | STABLE (data-*) | `div.p-3.bg-surface.border.border-rule.rounded-xs.text-xs.te…` | `data-role="…"` |
+| `BURD-064` | OccupationSection | 305-309 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `BURD-065` | OccupationSection | 317 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `BURD-066` | OccupationSection | 320 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `PIPE-017` | PipelineSection | 27-41 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `PIPE-002` | PipelineSection | 32 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `PIPE-003` | PipelineSection | 38 | `span` | STABLE (data-*) | `span` | `data-role="…"` |

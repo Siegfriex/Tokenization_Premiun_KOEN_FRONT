@@ -392,14 +392,15 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: '12-Language Efficiency Benchmark Measured via Flores-200 Parallel Corpus',
     },
 
+    // Director redline (S04.5, 2026-08-17): merged 2 paragraphs into 1
+    // (identical sentences, no wording change) as part of demoting the
+    // pre-chart text toward caption weight ("chart must win first read").
     preFigureParagraphs: {
   ko: [
-    'Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 영어의 토큰 소비량을 1.00으로 정규화했을 때 스페인어는 1.18배 수준으로 나타났다.',
-    '반면 한글은 1.78배, 아랍어는 2.05배, 힌디어는 2.30배 수준으로 나타났다. 이는 동일한 정보를 처리하더라도 언어의 문자 체계와 토크나이저의 어휘 구성에 따라 필요한 토큰 수가 달라질 수 있음을 보여준다.',
+    'Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 영어의 토큰 소비량을 1.00으로 정규화했을 때 스페인어는 1.18배 수준으로 나타났다. 반면 한글은 1.78배, 아랍어는 2.05배, 힌디어는 2.30배 수준으로 나타났다.',
   ],
   en: [
-    'Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression.',
-    'Conversely, non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.',
+    'Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression, while non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.',
   ],
 },
     figureNumber: 'FIG. 06',
