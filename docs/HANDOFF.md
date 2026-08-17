@@ -238,6 +238,12 @@ Director decision, not an engineering judgment call.
 ## 7. Where the detailed history actually lives — read before re-deriving anything
 
 ```text
+docs/audit/                      THE TRACE SYSTEM — read docs/audit/README.md
+                                 first if you are about to change any rendered
+                                 content, DOM structure, or numeric claim. It
+                                 registers every content/structure-bearing node
+                                 with a stable Trace ID and freezes 22 numeric
+                                 claims pending Director decision.
 docs/BASELINE.md                 baseline SHAs, verification results, deployment record
 docs/ARCHITECTURE_AUDIT.md        full source inventory, dead code/deps
 docs/CONTENT_AUDIT.md             every hardcoded content item cataloged, P0/P1/P2 priority
