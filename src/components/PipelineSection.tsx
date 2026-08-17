@@ -81,10 +81,12 @@ export const PipelineSection: React.FC = () => {
               {PIPELINE_STEPS.map((item, idx) => {
                 const isActive = activeStep === idx;
                 return (
-                  <div
+                  <button
+                    type="button"
                     key={item.id}
                     onClick={() => setActiveStep(idx)}
-                    className={`p-5 rounded-xs border transition-all cursor-pointer flex flex-col justify-between space-y-4 ${
+                    aria-pressed={isActive}
+                    className={`p-5 rounded-xs border transition-all cursor-pointer flex flex-col justify-between space-y-4 text-left w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                       item.highlight
                         ? 'bg-surface-inverse text-ink-inverse border-surface-inverse shadow-xs'
                         : isActive
@@ -132,7 +134,7 @@ export const PipelineSection: React.FC = () => {
                     >
                       {getLocalizedText(item.description, language)}
                     </p>
-                  </div>
+                  </button>
                 );
               })}
             </div>
