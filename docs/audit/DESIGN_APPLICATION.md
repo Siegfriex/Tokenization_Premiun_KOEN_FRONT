@@ -11,9 +11,9 @@ The design system names a small set of roles. This ledger measures how many
 *actual* combinations are in use, which is the honest measure of how
 consolidated the system really is.
 
-- distinct typography signatures in use: **50**
-- distinct colour utilities in use: **29**
-- distinct layout/shape utilities in use: **87**
+- distinct typography signatures in use: **48**
+- distinct colour utilities in use: **26**
+- distinct layout/shape utilities in use: **82**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -24,87 +24,82 @@ type scale.
 
 | # | Uses | Signature | Example Trace IDs |
 |---|---|---|---|
-| 1 | 28 | `font-mono text-xs` | `CONC-007` `IMPACT-013` `INFRA-009` `INFRA-014` … |
+| 1 | 22 | `font-mono text-xs` | `CONC-007` `IMPACT-005` `INFRA-009` `METH-008` … |
 | 2 | 19 | `font-bold` | `ART-005` `FOOT-005` `LANG-012` `LANG-018` … |
 | 3 | 9 | `font-bold font-mono text-xs tracking-wider uppercase` | `INFRA-008` `METH-007` `LANG-008` `LANG-023` … |
-| 4 | 7 | `font-mono text-[11px]` | `FOOT-015` `LANG-024` `HERO-022` `BURD-008` … |
-| 5 | 6 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
+| 4 | 6 | `font-mono text-[11px]` | `FOOT-015` `LANG-024` `HERO-022` `BURD-008` … |
+| 5 | 5 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
 | 6 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
 | 7 | 4 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-006` `FOOT-009` `FOOT-012` `HERO-034` |
 | 8 | 4 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` `HERO-035` |
 | 9 | 4 | `font-mono text-xs uppercase` | `BURD-019` `BURD-021` `CMP-021` `CMP-033` |
-| 10 | 3 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PIPE-007` `PREM-010` |
-| 11 | 3 | `text-xs` | `FOOT-003` `BURD-049` `BURD-061` |
-| 12 | 3 | `font-mono font-semibold text-xs tracking-wider uppercase` | `INFRA-011` `METH-010` `CMP-006` |
-| 13 | 3 | `font-semibold` | `INFRA-019` `INFRA-022` `BURD-013` |
-| 14 | 3 | `font-mono text-[11px] tracking-wider uppercase` | `LANG-020` `BURD-048` `BURD-060` |
-| 15 | 3 | `text-[10px] uppercase` | `HERO-012` `HERO-015` `HERO-018` |
-| 16 | 2 | `font-bold font-mono text-xs` | `INFRA-012` `CMP-037` |
-| 17 | 2 | `font-sans text-[11px]` | `INFRA-017` `PREM-027` |
-| 18 | 2 | `font-bold tracking-wider uppercase` | `METH-017` `BURD-023` |
-| 19 | 2 | `font-mono italic text-[11px]` | `HERO-026` `HERO-030` |
-| 20 | 2 | `font-bold font-mono text-sm` | `BURD-014` `PREM-036` |
-| 21 | 2 | `text-[11px]` | `BURD-015` `PREM-035` |
-| 22 | 2 | `font-bold text-lg` | `BURD-043` `BURD-054` |
-| 23 | 2 | `font-bold font-mono text-[10px] uppercase` | `BURD-055` `PIPE-012` |
-| 24 | 2 | `font-mono font-semibold text-xs` | `BURD-063` `CMP-014` |
-| 25 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
-| 26 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
-| 27 | 2 | `font-sans sm:text-4xl text-3xl` | `PREM-012` `PREM-014` |
-| 28 | 1 | `font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-tight` | `ART-001` |
-| 29 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
-| 30 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
-| 31 | 1 | `font-bold text-xl` | `IMPACT-009` |
-| 32 | 1 | `font-bold sm:text-xl text-lg` | `IMPACT-012` |
-| 33 | 1 | `font-bold leading-snug text-sm` | `INFRA-015` |
-| 34 | 1 | `leading-relaxed` | `METH-018` |
-| 35 | 1 | `font-bold leading-[1.15] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
-| 36 | 1 | `font-medium` | `HERO-028` |
-| 37 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
-| 38 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
-| 39 | 1 | `font-mono text-[10px]` | `BURD-050` |
-| 40 | 1 | `font-bold font-mono text-[10px]` | `BURD-062` |
-| 41 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
-| 42 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
-| 43 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
-| 44 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
-| 45 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-006` |
-| 46 | 1 | `font-black font-mono lg:text-8xl sm:text-7xl text-6xl tracking-tight` | `PREM-011` |
-| 47 | 1 | `font-light sm:text-4xl text-3xl` | `PREM-013` |
-| 48 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
-| 49 | 1 | `font-semibold text-sm` | `PREM-026` |
-| 50 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
+| 10 | 3 | `font-mono font-semibold text-xs tracking-wider uppercase` | `INFRA-011` `METH-010` `CMP-006` |
+| 11 | 3 | `font-semibold` | `INFRA-019` `INFRA-022` `BURD-013` |
+| 12 | 3 | `font-mono text-[11px] tracking-wider uppercase` | `LANG-020` `BURD-048` `BURD-060` |
+| 13 | 3 | `text-[10px] uppercase` | `HERO-012` `HERO-015` `HERO-018` |
+| 14 | 2 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PREM-010` |
+| 15 | 2 | `font-bold font-mono text-xs` | `INFRA-012` `CMP-037` |
+| 16 | 2 | `font-sans text-[11px]` | `INFRA-017` `PREM-027` |
+| 17 | 2 | `font-bold tracking-wider uppercase` | `METH-017` `BURD-023` |
+| 18 | 2 | `font-mono italic text-[11px]` | `HERO-026` `HERO-030` |
+| 19 | 2 | `font-bold font-mono text-sm` | `BURD-014` `PREM-036` |
+| 20 | 2 | `font-bold text-lg` | `BURD-043` `BURD-054` |
+| 21 | 2 | `font-bold font-mono text-[10px] uppercase` | `BURD-055` `PIPE-012` |
+| 22 | 2 | `font-mono font-semibold text-xs` | `BURD-063` `CMP-014` |
+| 23 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
+| 24 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
+| 25 | 2 | `font-sans sm:text-4xl text-3xl` | `PREM-012` `PREM-014` |
+| 26 | 1 | `font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-tight` | `ART-001` |
+| 27 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
+| 28 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
+| 29 | 1 | `text-xs` | `FOOT-003` |
+| 30 | 1 | `font-bold text-xl` | `IMPACT-009` |
+| 31 | 1 | `font-bold sm:text-xl text-lg` | `IMPACT-012` |
+| 32 | 1 | `font-bold leading-snug text-sm` | `INFRA-015` |
+| 33 | 1 | `font-bold leading-[1.15] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
+| 34 | 1 | `font-medium` | `HERO-028` |
+| 35 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
+| 36 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
+| 37 | 1 | `font-mono text-[10px]` | `BURD-050` |
+| 38 | 1 | `font-bold font-mono text-[10px]` | `BURD-062` |
+| 39 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
+| 40 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
+| 41 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
+| 42 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
+| 43 | 1 | `font-black font-mono lg:text-8xl sm:text-7xl text-6xl tracking-tight` | `PREM-011` |
+| 44 | 1 | `font-light sm:text-4xl text-3xl` | `PREM-013` |
+| 45 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
+| 46 | 1 | `font-semibold text-sm` | `PREM-026` |
+| 47 | 1 | `text-[11px]` | `PREM-035` |
+| 48 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
 
 ## Colour-role application
 
 | Utility | Uses |
 |---|---|
-| `text-ink` | 70 |
-| `text-ink-muted` | 58 |
-| `border-rule` | 48 |
-| `border-b` | 37 |
+| `text-ink` | 69 |
+| `text-ink-muted` | 55 |
+| `border-rule` | 31 |
 | `text-ink-body` | 21 |
-| `bg-surface` | 13 |
-| `bg-surface-alt` | 12 |
+| `border-b` | 18 |
 | `text-ink-subtle` | 12 |
-| `text-on-accent` | 9 |
-| `border-t` | 8 |
-| `border-rule/60` | 8 |
-| `bg-accent` | 6 |
+| `bg-surface-alt` | 11 |
+| `bg-surface` | 10 |
+| `text-on-accent` | 8 |
+| `border-t` | 5 |
+| `bg-accent` | 5 |
 | `focus-visible:outline-2` | 3 |
 | `focus-visible:outline-offset-2` | 3 |
 | `focus-visible:outline-rule-strong` | 3 |
-| `border-rule-strong` | 3 |
 | `text-rule-neutral` | 3 |
-| `border-accent` | 2 |
 | `text-left` | 2 |
+| `border-rule-strong` | 2 |
 | `text-on-accent-muted` | 2 |
 | `hover:text-ink` | 2 |
-| `border-rule-on-accent` | 1 |
+| `border-accent` | 1 |
 | `hover:bg-surface-alt` | 1 |
 | `md:border-l` | 1 |
 | `md:border-rule` | 1 |
-| `border-dashed` | 1 |
 | `border-2` | 1 |
 | `lg:border-l` | 1 |
 | `lg:border-rule` | 1 |
@@ -113,51 +108,45 @@ type scale.
 
 | Utility | Uses |
 |---|---|
-| `flex` | 71 |
-| `justify-between` | 63 |
-| `items-center` | 42 |
-| `rounded-xs` | 20 |
-| `py-1` | 14 |
-| `border` | 14 |
-| `pb-3` | 14 |
-| `flex-col` | 13 |
+| `flex` | 35 |
+| `justify-between` | 27 |
+| `items-center` | 23 |
+| `rounded-xs` | 16 |
 | `block` | 12 |
+| `flex-col` | 11 |
+| `border` | 10 |
 | `scroll-mt-12` | 9 |
 | `py-20` | 8 |
 | `sm:py-28` | 8 |
 | `py-0.5` | 6 |
-| `space-y-6` | 5 |
-| `space-y-1` | 5 |
+| `pb-3` | 5 |
 | `ml-1.5` | 5 |
 | `px-3` | 4 |
-| `p-6` | 4 |
+| `py-1` | 4 |
+| `space-y-1` | 4 |
 | `gap-2` | 4 |
 | `gap-4` | 4 |
+| `space-y-6` | 4 |
 | `px-2` | 4 |
 | `px-4` | 3 |
 | `sm:px-6` | 3 |
 | `gap-1.5` | 3 |
 | `sm:flex-row` | 3 |
 | `gap-3` | 3 |
-| `sm:p-8` | 3 |
-| `shadow-xs` | 3 |
 | `flex-wrap` | 3 |
 | `cursor-pointer` | 3 |
 | `p-3` | 3 |
-| `hidden` | 3 |
 | `lg:px-12` | 2 |
 | `items-start` | 2 |
 | `gap-6` | 2 |
-| `space-y-4` | 2 |
 | `w-full` | 2 |
 | `p-4` | 2 |
-| `pt-3` | 2 |
 | `pb-4` | 2 |
 | `sm:items-center` | 2 |
-| `pb-2` | 2 |
-| `pt-2` | 2 |
-| `p-2.5` | 2 |
+| `p-6` | 2 |
+| `sm:p-8` | 2 |
 | `p-5` | 2 |
+| `hidden` | 2 |
 | `lg:col-span-6` | 2 |
 | `pt-4` | 2 |
 | `items-baseline` | 2 |
@@ -173,5 +162,11 @@ type scale.
 | `pt-8` | 1 |
 | `md:flex-row` | 1 |
 | `md:items-center` | 1 |
+| `pb-8` | 1 |
+| `max-w-xl` | 1 |
+| `pt-6` | 1 |
+| `sm:gap-3` | 1 |
+| `sm:p-5` | 1 |
+| `transition-colors` | 1 |
 
-_(top 60 of 87; full data in `data/trace-ledger.json`)_
+_(top 60 of 82; full data in `data/trace-ledger.json`)_

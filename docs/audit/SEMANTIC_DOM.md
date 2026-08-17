@@ -14,10 +14,7 @@ None of this is changed in this phase. This ledger defines batch **B3**.
 |---|---|
 | HEADING_LEVEL | 16 |
 | LABEL_ORPHAN | 9 |
-| LIST | 41 |
-| DL_PAIR | 75 |
-| FIGURE | 7 |
-| NAV_LIST | 1 |
+| DL_PAIR | 35 |
 
 ## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (16)
 
@@ -38,7 +35,7 @@ _heading level is set per widget with no document-wide outline check_
 | `HERO-010` | NewsHeroSection | 62-70 | `h1` |  | verify level continuity within its section |
 | `BURD-004` | OccupationSection | 61-63 | `h3` |  | verify level continuity within its section |
 | `BURD-043` | OccupationSection | 201-203 | `h3` |  | verify level continuity within its section |
-| `BURD-054` | OccupationSection | 256-258 | `h3` |  | verify level continuity within its section |
+| `BURD-054` | OccupationSection | 258-260 | `h3` |  | verify level continuity within its section |
 | `PIPE-004` | PipelineSection | 49-51 | `h3` |  | verify level continuity within its section |
 | `UI-003` | SectionHeading | 88-90 | `h2` |  | verify level continuity within its section |
 
@@ -58,55 +55,7 @@ _a label with no programmatic relationship to the content it labels_
 | `PREM-025` | TokenPremiumSection | 101-103 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
 | `UI-002` | SectionHeading | 87 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 
-## LIST — Collections rendered as anonymous siblings — need `<ul>` / `<li>` (41)
-
-_renders one item of a collection (articleData.preFigureParagraphs?.ko) but neither it nor its parent is a list_
-
-| Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
-|---|---|---|---|---|---|
-| `CONC-004` | EditorialConclusionSection | 56 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `CONC-005` | EditorialConclusionSection | 59 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `IMPACT-005` | ImpactSection | 53 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `IMPACT-006` | ImpactSection | 56 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `IMPACT-014` | ImpactSection | 113-124 | `(component)` | IMPACT_CAUSAL_CHAIN | <ul>/<li> (or <ol>) around the IMPACT_CAUSAL_CHAIN collection |
-| `IMPACT-017` | ImpactSection | 142 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `IMPACT-018` | ImpactSection | 145 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `INFRA-005` | KoreaAIContextSection | 54 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `INFRA-006` | KoreaAIContextSection | 57 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `INFRA-025` | KoreaAIContextSection | 162 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `INFRA-026` | KoreaAIContextSection | 165 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `METH-004` | MethodSection | 58 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `METH-005` | MethodSection | 61 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `METH-015` | MethodSection | 147 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `METH-016` | MethodSection | 150 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `METH-018` | MethodSection | 160-162 | `p` | (isKo ? articleData.footnotes.ko : articleData.footno… | <ul>/<li> (or <ol>) around the (isKo ? articleData.footnotes.ko : articleData.footnotes.en) collection |
-| `LANG-005` | MultilingualTokenEfficiencySection | 85 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `LANG-006` | MultilingualTokenEfficiencySection | 88 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `LANG-029` | MultilingualTokenEfficiencySection | 252-263 | `(component)` | chartData | <ul>/<li> (or <ol>) around the chartData collection |
-| `LANG-036` | MultilingualTokenEfficiencySection | 304 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `LANG-037` | MultilingualTokenEfficiencySection | 307 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `HERO-037` | NewsHeroSection | 181 | `p` | introData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the introData.preFigureParagraphs?.ko collection |
-| `HERO-038` | NewsHeroSection | 184 | `p` | introData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the introData.preFigureParagraphs?.en collection |
-| `BURD-005` | OccupationSection | 67 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `BURD-006` | OccupationSection | 70 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `BURD-049` | OccupationSection | 229-239 | `div` | engineeringData.occupations | <ul>/<li> (or <ol>) around the engineeringData.occupations collection |
-| `BURD-061` | OccupationSection | 287-297 | `div` | socialScienceData.occupations | <ul>/<li> (or <ol>) around the socialScienceData.occupations collection |
-| `BURD-065` | OccupationSection | 322 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `BURD-066` | OccupationSection | 325 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `PIPE-005` | PipelineSection | 55 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `PIPE-006` | PipelineSection | 58 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `PIPE-014` | PipelineSection | 144 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `PIPE-015` | PipelineSection | 147 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `CMP-004` | TokenCompareSection | 59 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `CMP-005` | TokenCompareSection | 62 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `CMP-039` | TokenCompareSection | 233 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `CMP-040` | TokenCompareSection | 236 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-| `PREM-004` | TokenPremiumSection | 51 | `p` | articleData.preFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.ko collection |
-| `PREM-005` | TokenPremiumSection | 54 | `p` | articleData.preFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.preFigureParagraphs?.en collection |
-| `PREM-041` | TokenPremiumSection | 203 | `p` | articleData.postFigureParagraphs?.ko | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.ko collection |
-| `PREM-042` | TokenPremiumSection | 206 | `p` | articleData.postFigureParagraphs?.en | <ul>/<li> (or <ol>) around the articleData.postFigureParagraphs?.en collection |
-
-## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (75)
+## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (35)
 
 _a term/value row whose halves are nested wrappers — no node in the chain carries an address_
 
@@ -115,53 +64,19 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `CONC-006` | EditorialConclusionSection | 78-91 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `FOOT-001` | Footer | 14-37 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `FOOT-015` | Footer | 73-80 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `IMPACT-007` | ImpactSection | 65-96 | `li` | IMPACT_SCALE_LEVELS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `IMPACT-008` | ImpactSection | 75-82 | `dl` | IMPACT_SCALE_LEVELS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `IMPACT-010` | ImpactSection | 102-107 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-007` | KoreaAIContextSection | 65-70 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-010` | KoreaAIContextSection | 99-104 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-013` | KoreaAIContextSection | 108-145 | `li` | VERIFIED_POLICY_SLOTS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-014` | KoreaAIContextSection | 114-119 | `dl` | VERIFIED_POLICY_SLOTS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-016` | KoreaAIContextSection | 136-139 | `dl` | VERIFIED_POLICY_SLOTS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `INFRA-020` | KoreaAIContextSection | 140-143 | `dl` | VERIFIED_POLICY_SLOTS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `METH-006` | MethodSection | 69-74 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `METH-009` | MethodSection | 92-97 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `METH-014` | MethodSection | 108-126 | `button` | METHODOLOGY_ITEMS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-007` | MultilingualTokenEfficiencySection | 98-103 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-010` | MultilingualTokenEfficiencySection | 115-118 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-013` | MultilingualTokenEfficiencySection | 119-124 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-016` | MultilingualTokenEfficiencySection | 125-137 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-007` | MultilingualTokenEfficiencySection | 173-183 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-022` | MultilingualTokenEfficiencySection | 174-181 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-010` | MultilingualTokenEfficiencySection | 271-287 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `HERO-001` | NewsHeroSection | 29-212 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `HERO-002` | NewsHeroSection | 37-50 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `HERO-003` | NewsHeroSection | 38-46 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-011` | NewsHeroSection | 87-90 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-014` | NewsHeroSection | 91-94 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-017` | NewsHeroSection | 95-98 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-020` | NewsHeroSection | 106-111 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-023` | NewsHeroSection | 115-121 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-027` | NewsHeroSection | 132-138 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-031` | NewsHeroSection | 148-151 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-007` | OccupationSection | 78-103 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-008` | OccupationSection | 79-86 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-012` | OccupationSection | 107-112 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-008` | OccupationSection | 122-126 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-012` | OccupationSection | 148-156 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-015` | OccupationSection | 161-166 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-028` | OccupationSection | 168-171 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-031` | OccupationSection | 172-175 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-034` | OccupationSection | 177-180 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-037` | OccupationSection | 187-192 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-015` | OccupationSection | 196-248 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-040` | OccupationSection | 208-211 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-042` | OccupationSection | 212-215 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-023` | OccupationSection | 251-306 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-027` | OccupationSection | 253-263 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-045` | OccupationSection | 266-269 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-047` | OccupationSection | 270-273 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PIPE-007` | PipelineSection | 65-68 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `BURD-015` | OccupationSection | 196-250 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `BURD-023` | OccupationSection | 253-310 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `BURD-027` | OccupationSection | 255-265 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-010` | PipelineSection | 76-125 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-011` | PipelineSection | 86-99 | `span` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-001` | StoryProgress | 19-67 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
@@ -176,36 +91,8 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `CMP-027` | TokenCompareSection | 172-179 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-032` | TokenCompareSection | 198-204 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-035` | TokenCompareSection | 209-218 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-006` | TokenPremiumSection | 64-67 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PREM-006` | TokenPremiumSection | 69-81 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-009` | TokenPremiumSection | 84-87 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-017` | TokenPremiumSection | 88-91 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-020` | TokenPremiumSection | 92-95 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PREM-009` | TokenPremiumSection | 100-110 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PREM-015` | TokenPremiumSection | 116-126 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-023` | TokenPremiumSection | 117-124 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PREM-034` | TokenPremiumSection | 141-166 | `span` | DOMAIN_DISTRIBUTION_DATA | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-029` | TokenPremiumSection | 183-186 | `dl` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LSW-001` | LanguageSwitch | 10-33 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-
-## FIGURE — Chart captions with no tie to their chart — need `<figure>` / `<figcaption>` (7)
-
-_a caption is currently a sibling <div>, with no programmatic tie to the chart it describes_
-
-| Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
-|---|---|---|---|---|---|
-| `IMPACT-016` | ImpactSection | 131-135 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `INFRA-024` | KoreaAIContextSection | 151-155 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `LANG-035` | MultilingualTokenEfficiencySection | 293-297 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `BURD-064` | OccupationSection | 310-314 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `PIPE-013` | PipelineSection | 132-136 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `CMP-038` | TokenCompareSection | 221-225 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-| `PREM-040` | TokenPremiumSection | 192-196 | `div` |  | <figure> wrapping the chart + <figcaption> for this caption |
-
-## NAV_LIST — Navigation without an accessible name or list structure (1)
-
-_nav has no accessible name and its links are not marked up as a list_
-
-| Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
-|---|---|---|---|---|---|
-| `NAV-006` | StoryProgress | 35-61 | `nav` |  | <nav aria-label="…"><ul><li><a> |

@@ -136,8 +136,18 @@ function semanticGap(r) {
   const kids = r._children ?? [];
   const litKids = kids.filter((k) => k.literalText);
 
-  // chart / figure caption
-  if (r.jsxTag === 'ArticleFigureCaption')
+  // Already the right element -> no gap. Without these the ledger cannot show
+  // B3 progress: a converted <li> would keep reporting the LIST gap forever.
+  if (['li', 'ul', 'ol', 'dl', 'dt', 'dd', 'figure', 'figcaption', 'table', 'tr', 'th', 'td'].includes(r.domTag)) return null;
+  if (r.domTag === 'nav') {
+    const named = r.ariaAttrs?.includes('aria-label');
+    const hasList = (r._children ?? []).some((k) => k.domTag === 'ul' || k.domTag === 'ol');
+    if (named && hasList) return null;
+  }
+  if (r._parent && ['ul', 'ol', 'dl'].includes(r._parent.domTag)) return null;
+
+  // chart / figure caption — only if it is not already a <figcaption>
+  if (r.jsxTag === 'ArticleFigureCaption' && r.domTag !== 'figcaption')
     return { gap: 'FIGURE', want: '<figure> wrapping the chart + <figcaption> for this caption',
              why: 'a caption is currently a sibling <div>, with no programmatic tie to the chart it describes' };
 
@@ -149,8 +159,18 @@ function semanticGap(r) {
   // repeated collection rendered as anonymous siblings.
   // Only the OUTERMOST node of the .map() callback is the list item; its
   // descendants inherit the problem but are not separately actionable.
+  //
+  // Prose is not a list. A sequence of <p> rendered from a paragraph array is
+  // correct semantics already — wrapping article body copy in <ul>/<li> would
+  // be actively wrong, and an earlier revision of this rule reported 36 such
+  // false positives. Chart primitives are excluded for the same reason: a
+  // Recharts <Cell> is SVG, not a list item.
+  const PROSE = ['ArticleParagraph', 'ArticleLead', 'ArticleSubheading', 'ArticlePullQuote'];
+  const CHART = ['Cell', 'Bar', 'XAxis', 'YAxis', 'ReferenceLine', 'Tooltip'];
+  const isProse = PROSE.includes(r.jsxTag) || r.domTag === 'p';
+  const isChart = CHART.includes(r.jsxTag);
   const isListRoot = r.mapOver && r._parent?.mapOver !== r.mapOver;
-  if (isListRoot && !['li', 'tr', 'option'].includes(r.domTag))
+  if (isListRoot && !isProse && !isChart && !['li', 'tr', 'option'].includes(r.domTag))
     return { gap: 'LIST', want: `<ul>/<li> (or <ol>) around the ${r.mapOver} collection`,
              why: `renders one item of a collection (${r.mapOver}) but neither it nor its parent is a list` };
 

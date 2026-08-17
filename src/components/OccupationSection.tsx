@@ -224,10 +224,12 @@ export const OccupationSection: React.FC = () => {
                     <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
                       대표 세부 직무 (Included Occupations):
                     </span>
-                    <div className="space-y-1.5">
+                    <ul data-collection="engineering-occupations" className="space-y-1.5">
                       {engineeringData.occupations.map((occ, idx) => (
-                        <div data-role="collection-item" data-semantic-target="ul"
+                        <li
                           key={idx}
+                          data-role="collection-item"
+                          data-item-id={idx}
                           className="p-2.5 bg-surface rounded-xs border border-rule flex items-center justify-between text-xs"
                         >
                           <span className="font-medium text-ink-body">
@@ -236,9 +238,9 @@ export const OccupationSection: React.FC = () => {
                           <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule">
                             {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
                           </span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
@@ -282,10 +284,12 @@ export const OccupationSection: React.FC = () => {
                     <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
                       대표 세부 직무 (Included Occupations):
                     </span>
-                    <div className="space-y-1.5">
+                    <ul data-collection="socialscience-occupations" className="space-y-1.5">
                       {socialScienceData.occupations.map((occ, idx) => (
-                        <div data-role="collection-item" data-semantic-target="ul"
+                        <li
                           key={idx}
+                          data-role="collection-item"
+                          data-item-id={idx}
                           className="p-2.5 bg-surface-alt rounded-xs border border-rule flex items-center justify-between text-xs"
                         >
                           <span className="font-medium text-ink">
@@ -294,9 +298,9 @@ export const OccupationSection: React.FC = () => {
                           <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-accent text-on-accent rounded-xs font-bold">
                             {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
                           </span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 

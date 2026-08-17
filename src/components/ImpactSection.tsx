@@ -106,13 +106,14 @@ export const ImpactSection: React.FC = () => {
               </h3>
             </div>
 
-            <div data-collection="impact-causal-chain" data-semantic-target="ul" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
+            <ol data-collection="impact-causal-chain" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               {IMPACT_CAUSAL_CHAIN.map((step, idx) => {
                 const isEmphasis = step === 'Token Premium' || step === 'Potential Digital Friction';
                 return (
                   <React.Fragment key={step}>
-                    {idx > 0 && <span className="text-ink-muted">→</span>}
-                    <div
+                    {idx > 0 && <span aria-hidden="true" className="text-ink-muted">→</span>}
+                    <li
+                      data-item-id={step}
                       className={`p-3 rounded-xs border ${
                         isEmphasis
                           ? 'bg-accent border-accent text-on-accent font-bold'
@@ -120,11 +121,11 @@ export const ImpactSection: React.FC = () => {
                       }`}
                     >
                       {step}
-                    </div>
+                    </li>
                   </React.Fragment>
                 );
               })}
-            </div>
+            </ol>
           </div>
 
           {/* Figure Caption & Source */}
