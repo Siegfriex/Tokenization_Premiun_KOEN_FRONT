@@ -36,3 +36,43 @@ targeted at the user's specific reports, not a full sweep). First loop
 iteration below is the first full C1–C7 sweep.
 
 ---
+
+## 2026-08-17 19:xx — Iteration 1 (loop, full sweep)
+
+**Commit:** (this iteration's commit — see git log)
+**Trigger:** `/loop` dynamic mode, first fire.
+
+**Checked:** C1 (card overflow) + C6 (doc-level horizontal scroll) across
+all 10 sections × 2 viewports (1440/390), mechanically via
+`getBoundingClientRect()` walk — not sampled, every `[data-role="stat"]` /
+`bg-surface*` / `bg-accent*` element in every section. C7 (interaction
+states): clicked one representative control in `#compare`, `#patterns`,
+`#burden`, `#languages`, `#method`, `#pipeline` and re-measured overflow on
+each after the click.
+
+**Found:**
+- C6 FAIL, desktop only — `document.documentElement`: `scrollWidth: 1596`
+  vs `clientWidth: 1440` (156px page-level horizontal overflow). Root
+  cause: my own iteration-0 fix (`whitespace-nowrap` on nav links) removed
+  the wrap but didn't reserve room for it — at the `xl` breakpoint
+  (1280px+, which 1440 falls in) the brand sentence reappeared
+  (`xl:inline` from iteration 0) at the same time as the now-non-wrapping
+  10-item nav, and together with the KO/EN switch they exceeded the header
+  row's width. The switcher was pushed to `right: 1596`, off the 1440px
+  viewport — **the language toggle was inaccessible on desktop.**
+- C1/C7: clean everywhere else — 0 card overflows across all 10 sections ×
+  2 viewports, 0 overflow after any of the 6 tested interactions.
+
+**Fixed:** removed the `xl:inline` re-reveal — brand sentence now stays
+`hidden` from `lg` upward permanently (`hidden md:inline lg:hidden`), only
+ever visible in the narrow md-only band (768–1023px) where nav itself is
+hidden. Re-measured: `find_wide.mjs` (walks every element for
+`right > viewport` or `left < 0`) returns `[]`. Full sweep re-run: doc
+overflow `[]`, card overflow `[]`, both viewports.
+
+**Lesson for next iteration:** a fix for one criterion (C2, no-wrap) can
+create a new violation of another (C6, no-page-overflow) at a *different*
+breakpoint than the one being tested. Every iteration re-runs the full
+sweep, not just the criterion that motivated it.
+
+---

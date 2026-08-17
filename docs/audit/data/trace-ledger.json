@@ -17656,8 +17656,8 @@
    "lines": "28-30",
    "jsxTag": "span",
    "domTag": "span",
-   "locator": "span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden.xl\\:inline",
-   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > div.flex.items-center.gap-3.shrink-0 > div.flex.items-center.gap-2 > span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden.xl\\:inline",
+   "locator": "span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden",
+   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > div.flex.items-center.gap-3.shrink-0 > div.flex.items-center.gap-2 > span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden",
    "addressing": "STABLE (data-*)",
    "unresolvedSpread": null,
    "literal": "Token Premium: 생성형 AI의 언어 표기 효율성 격차 ⏎ Token Premium: Linguistic Efficiency Discrepancies in GenAI",
@@ -17685,8 +17685,7 @@
    "layoutRole": [
     "hidden",
     "md:inline",
-    "lg:hidden",
-    "xl:inline"
+    "lg:hidden"
    ],
    "relatedPrimitive": null,
    "risk": "MEDIUM",

@@ -13,7 +13,7 @@ consolidated the system really is.
 
 - distinct typography signatures in use: **59**
 - distinct colour utilities in use: **36**
-- distinct layout/shape utilities in use: **133**
+- distinct layout/shape utilities in use: **132**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -190,4 +190,4 @@ type scale.
 | `py-16` | 2 |
 | `md:grid-cols-3` | 2 |
 
-_(top 60 of 133; full data in `data/trace-ledger.json`)_
+_(top 60 of 132; full data in `data/trace-ledger.json`)_

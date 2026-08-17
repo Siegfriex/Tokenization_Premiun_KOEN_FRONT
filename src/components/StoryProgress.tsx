@@ -25,7 +25,7 @@ export const StoryProgress: React.FC = () => {
               DATA JOURNALISM
             </span>
             <span className="text-rule-neutral hidden sm:inline">|</span>
-            <span data-source="widget" className="text-sm font-semibold tracking-tight text-ink-body hidden md:inline lg:hidden xl:inline">
+            <span data-source="widget" className="text-sm font-semibold tracking-tight text-ink-body hidden md:inline lg:hidden">
               {isKo ? 'Token Premium: 생성형 AI의 언어 표기 효율성 격차' : 'Token Premium: Linguistic Efficiency Discrepancies in GenAI'}
             </span>
           </div>
