@@ -149,12 +149,12 @@ type scale.
 | `grid-cols-1` | 7 |
 | `space-y-6` | 7 |
 | `flex-wrap` | 7 |
-| `space-y-4` | 6 |
 | `space-y-1` | 6 |
 | `gap-2` | 6 |
 | `gap-4` | 6 |
 | `p-4` | 6 |
 | `py-0.5` | 6 |
+| `space-y-4` | 5 |
 | `pt-2` | 5 |
 | `gap-1.5` | 5 |
 | `transition-all` | 5 |
@@ -170,6 +170,7 @@ type scale.
 | `shadow-xs` | 4 |
 | `p-3` | 4 |
 | `cursor-pointer` | 4 |
+| `space-y-3` | 3 |
 | `pt-3` | 3 |
 | `lg:px-12` | 3 |
 | `items-start` | 3 |
@@ -181,7 +182,6 @@ type scale.
 | `hidden` | 3 |
 | `px-2.5` | 3 |
 | `mb-6` | 2 |
-| `space-y-3` | 2 |
 | `mt-10` | 2 |
 | `mx-auto` | 2 |
 | `my-12` | 2 |
