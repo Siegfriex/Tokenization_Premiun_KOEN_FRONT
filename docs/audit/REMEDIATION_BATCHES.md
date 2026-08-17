@@ -8,11 +8,21 @@ one mechanical, and running them out of order forces re-work.
 | Batch | Items | Visible change | Blocked by |
 |---|---|---|---|
 | **B1** numeric freeze & provenance | 22 | possibly — that is the decision | Director (D1-D4) |
-| **B2** stable hooks | 345 nodes touched | none | nothing |
-| **B3** semantic DOM | 159 | none if done correctly | B2 |
+| **B2a** stable hook foundation | 345 nodes touched | none | nothing |
+| **B2b** hook normalisation & coverage | remaining style-only addresses | none | B2a |
+| **B3** semantic DOM | 159 | none if done correctly | B2b |
 | **B4** content migration to entities | 152 | none | B1 for the 22 numeric nodes |
 | **B5** design-role formalisation | 10 primary, 51 signatures | possibly | B2, B3 |
 | **B6** dead code | 57 | none | Director |
+
+B2 is split into two packages. **B2a** lays the vocabulary and applies it where
+a node already has a name in the design system — section roots, the nav, the
+shared primitives, the collections, and the claim nodes. **B2b** closes the
+long tail: nodes B2a's vocabulary did not reach, inconsistent role names, and
+any node still reachable only by a class signature once the foundation exists.
+Splitting them keeps the first commit reviewable — B2a is a vocabulary
+decision, B2b is coverage work against it, and mixing the two makes it
+impossible to review either.
 
 ---
 
@@ -54,7 +64,7 @@ shipped confidently is worse than a number nobody can trace.
 
 ---
 
-## B2 — Stable hooks
+## B2a — Stable hook foundation
 
 **Every tracked node · no visible change · not blocked by anything**
 
@@ -75,12 +85,30 @@ Proposed vocabulary (per [`STABLE_HOOKS.md`](STABLE_HOOKS.md)):
 count `[data-source="widget"]` in the rendered page and you have the remaining
 B4 backlog, without reading a single file.
 
-**Definition of done:** `STABLE_HOOKS.md` shows 0 `STYLE_SIGNATURE` and 0
-`NTH_CHILD_ONLY` for tracked nodes. Guard test: fail CI if a tracked node loses
-its hook.
+**Definition of done (B2a):** the vocabulary exists and is applied to every
+node that already has a name — section roots, nav, shared primitives,
+collections, claim nodes. `STABLE (data-*)` becomes the majority addressing
+mode.
 
-**Risk:** low. Attributes only; no class, element, or text changes. Verify by
-asset-hash comparison of the CSS bundle (it must not change at all).
+**Risk:** low. Attributes only; no class, element, or text changes. Proof: the
+compiled CSS hash must be **byte-identical** before and after, since no class
+string is touched.
+
+---
+
+## B2b — Hook normalisation and coverage completion
+
+**The long tail · no visible change · after B2a**
+
+What B2a's vocabulary did not reach: nodes with no named role, inconsistent
+role naming introduced while applying it, and any node still addressable only
+by its class signature once the foundation exists.
+
+**Definition of done:** `STABLE_HOOKS.md` shows 0 `STYLE_SIGNATURE` and 0
+`NTH_CHILD_ONLY` for tracked nodes; one role name per concept, no synonyms.
+Guard test: fail CI if a tracked node loses its hook.
+
+**Risk:** low, same proof as B2a — compiled CSS hash must not move.
 
 ---
 
