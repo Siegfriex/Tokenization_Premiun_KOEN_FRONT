@@ -7,16 +7,16 @@
 import { NavSection } from '../model/types';
 
 export const NAV_SECTIONS: NavSection[] = [
-  { id: 'hero', label: { ko: 'S0. 커버', en: 'S0. Cover' } },
-  { id: 'compare', label: { ko: 'S1. 분절 비교', en: 'S1. Compare' } },
-  { id: 'pipeline', label: { ko: 'S2. 파이프라인', en: 'S2. Pipeline' } },
-  { id: 'patterns', label: { ko: 'S3. Token Premium', en: 'S3. Premium' } },
-  { id: 'burden', label: { ko: 'S4. 누적 부담', en: 'S4. Burden' } },
-  { id: 'languages', label: { ko: 'S4.5. 글로벌 다국어', en: 'S4.5. Global' } },
-  { id: 'infrastructure', label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } },
-  { id: 'impact', label: { ko: 'S5.2. 사회적 확장', en: 'S5.2. Society' } },
-  { id: 'method', label: { ko: 'S6. 방법론·한계', en: 'S6. Method' } },
-  { id: 'result', label: { ko: '결론', en: 'Result' } },
+  { id: 'hero', code: { ko: 'S0', en: 'S0' }, name: { ko: '커버', en: 'Cover' } },
+  { id: 'compare', code: { ko: 'S1', en: 'S1' }, name: { ko: '분절 비교', en: 'Compare' } },
+  { id: 'pipeline', code: { ko: 'S2', en: 'S2' }, name: { ko: '파이프라인', en: 'Pipeline' } },
+  { id: 'patterns', code: { ko: 'S3', en: 'S3' }, name: { ko: 'Token Premium', en: 'Premium' } },
+  { id: 'burden', code: { ko: 'S4', en: 'S4' }, name: { ko: '누적 부담', en: 'Burden' } },
+  { id: 'languages', code: { ko: 'S4.5', en: 'S4.5' }, name: { ko: '글로벌 다국어', en: 'Global' } },
+  { id: 'infrastructure', code: { ko: 'S5', en: 'S5' }, name: { ko: 'AI 인프라', en: 'Infra' } },
+  { id: 'impact', code: { ko: 'S5.2', en: 'S5.2' }, name: { ko: '사회적 확장', en: 'Society' } },
+  { id: 'method', code: { ko: 'S6', en: 'S6' }, name: { ko: '방법론·한계', en: 'Method' } },
+  { id: 'result', code: { ko: 'S7', en: 'S7' }, name: { ko: '결론', en: 'Result' } },
 ];
 
 /**

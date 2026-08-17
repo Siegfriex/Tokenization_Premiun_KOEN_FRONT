@@ -30,13 +30,13 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | `HERO-025` | NewsHeroSection | 119 | 31 TOKENS `31 TOKENS` | **observed:** markup renders "31 TOKENS" for the Korean exhibit row<br>**entity:** no CURATED_PAIRED_SENTENCES entry has hangulCount 31; TOKEN_BASELINE_SIMULATION.baseKoPerPrompt is 31 |
 | `HERO-029` | NewsHeroSection | 136 | 18 TOKENS `18 TOKENS` | **observed:** markup renders "18 TOKENS" for the English exhibit row<br>**entity:** no paired-sentence entry pairs 31 with 18; TOKEN_BASELINE_SIMULATION.baseEnPerPrompt is 24 |
 | `HERO-033` | NewsHeroSection | 149 | 1.72× (+72% Difference) `+72%` | **observed:** markup renders "1.72× (+72% Difference)" as the hero exhibit ratio<br>**entity:** derived from the 31/18 pair above, which is itself unlinked |
-| `PREM-011` | TokenPremiumSection | 72-78 | 1.29 ⏎ 1.83 `1.29` `1.83` | **observed:** markup renders the headline range "1.29× ~ 1.83×"<br>**entity:** entity ratio range is 1.13 – 1.75 |
-| `PREM-017` | TokenPremiumSection | 84 | 1.68× (+68%) `+68%` | **observed:** markup renders "Average Token Premium: 1.68× (+68%)"<br>**entity:** arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68 |
-| `PREM-020` | TokenPremiumSection | 88 | 1.00× (Standard) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-023` | TokenPremiumSection | 92 | Business (1.44×) ~ Daily (1.83×) `1.44` `1.83` | **observed:** markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"<br>**entity:** no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38 |
-| `PREM-032` | TokenPremiumSection | 123 | 7 Benchmark Domains `7 Benchmark` | **observed:** markup renders "7 Benchmark Domains"<br>**entity:** DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53) |
-| `PREM-038` | TokenPremiumSection | 182 | Baseline: 1.00× (English) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-039` | TokenPremiumSection | 183 | Max Observed: 1.83× `1.83` | **observed:** markup renders "Max Observed: 1.83×" directly under the chart<br>**entity:** highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web) |
+| `PREM-011` | TokenPremiumSection | 73-79 | 1.29 ⏎ 1.83 `1.29` `1.83` | **observed:** markup renders the headline range "1.29× ~ 1.83×"<br>**entity:** entity ratio range is 1.13 – 1.75 |
+| `PREM-017` | TokenPremiumSection | 85 | 1.68× (+68%) `+68%` | **observed:** markup renders "Average Token Premium: 1.68× (+68%)"<br>**entity:** arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68 |
+| `PREM-020` | TokenPremiumSection | 89 | 1.00× (Standard) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
+| `PREM-023` | TokenPremiumSection | 93 | Business (1.44×) ~ Daily (1.83×) `1.44` `1.83` | **observed:** markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"<br>**entity:** no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38 |
+| `PREM-032` | TokenPremiumSection | 124 | 7 Benchmark Domains `7 Benchmark` | **observed:** markup renders "7 Benchmark Domains"<br>**entity:** DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53) |
+| `PREM-038` | TokenPremiumSection | 183 | Baseline: 1.00× (English) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
+| `PREM-039` | TokenPremiumSection | 184 | Max Observed: 1.83× `1.83` | **observed:** markup renders "Max Observed: 1.83×" directly under the chart<br>**entity:** highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web) |
 
 ## DUPLICATED — value agrees today, but markup owns its own copy (3)
 

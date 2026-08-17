@@ -24,17 +24,17 @@ _Global header · src/components/StoryProgress.tsx · 11 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `NAV-008` | 17-76 | `header` | DESIGN APPLICATION | STABLE (data-*) | _(header)_ | — | LOW | B5-design-roles |
-| `NAV-001` | 19-67 | `div` | DOM STRUCTURE | STABLE (data-*) | _(Container)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `NAV-008` | 17-82 | `header` | DESIGN APPLICATION | STABLE (data-*) | _(header)_ | — | LOW | B5-design-roles |
+| `NAV-001` | 19-73 | `div` | DOM STRUCTURE | STABLE (data-*) | _(Container)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `NAV-002` | 23-31 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `NAV-003` | 24-26 | `span` | CONTENT | STABLE (data-*) | DATA JOURNALISM | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
 | `NAV-004` | 27 | `span` | CONTENT | style | \| | — | MEDIUM | B4-content-migration |
 | `NAV-005` | 28-30 | `span` | CONTENT | STABLE (data-*) | Token Premium: 생성형 AI의 언어 표기 효율성 격차 ⏎ Token Premium: Linguistic Eff… | — | MEDIUM | B4-content-migration |
-| `NAV-006` | 35-61 | `nav` | DESIGN APPLICATION | STABLE (data-*) | _(nav)_ | — | LOW | B2-stable-hooks |
-| `NAV-009` | 40-60 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `NAV-010` | 44-57 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `NAV-007` | 45-56 | `a` | DESIGN APPLICATION | STABLE (data-*) | _(a)_ | — | LOW | B2-stable-hooks |
-| `NAV-011` | 70-75 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `NAV-006` | 35-67 | `nav` | DESIGN APPLICATION | STABLE (data-*) | _(nav)_ | — | LOW | B2-stable-hooks |
+| `NAV-009` | 40-66 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `NAV-010` | 44-63 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `NAV-007` | 45-62 | `a` | DESIGN APPLICATION | STABLE (data-*) | _(a)_ | — | LOW | B2-stable-hooks |
+| `NAV-011` | 76-81 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 
 ## NewsHeroSection
 
@@ -183,8 +183,8 @@ _S3 Token Premium & Domains · src/components/TokenPremiumSection.tsx · 50 trac
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `PREM-001` | 23-213 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `PREM-043` | 24-212 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `PREM-001` | 23-214 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `PREM-043` | 24-213 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `PREM-044` | 26-40 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `PREM-002` | 31 | `span` | NUMERIC CLAIM | STABLE (data-*) | 69,432건 정밀 분석 | — | HIGH | B1-numeric-freeze |
 | `PREM-003` | 37 | `span` | NUMERIC CLAIM | STABLE (data-*) | 69,432 Verified KO-EN Pairs | — | HIGH | B1-numeric-freeze |
@@ -192,47 +192,47 @@ _S3 Token Premium & Domains · src/components/TokenPremiumSection.tsx · 50 trac
 | `PREM-046` | 44-46 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
 | `PREM-004` | 50 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `PREM-005` | 53 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-047` | 58-195 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `PREM-048` | 63-66 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-007` | 64 | `dt` | CONTENT | STABLE (data-*) | CORE EMPIRICAL METRIC | — | MEDIUM | B4-content-migration |
-| `PREM-008` | 65 | `dd` | CONTENT | STABLE (data-*) | o200k_base benchmark | — | MEDIUM | B4-content-migration |
-| `PREM-006` | 68-79 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-010` | 69-71 | `span` | CONTENT | STABLE (data-*) | OBSERVED TOKEN PREMIUM RATIO | — | MEDIUM | B4-content-migration |
-| `PREM-011` | 72-78 | `div` | NUMERIC CLAIM | style | 1.29 ⏎ 1.83 | — | CRITICAL | B1-numeric-freeze |
-| `PREM-012` | 75 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-013` | 76 | `span` | CONTENT | style | ~ | — | MEDIUM | B4-content-migration |
-| `PREM-014` | 77 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-049` | 82-85 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-016` | 83 | `dt` | CONTENT | STABLE (data-*) | Average Token Premium: | — | MEDIUM | B4-content-migration |
-| `PREM-017` | 84 | `dd` | NUMERIC CLAIM | style | 1.68× (+68%) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-050` | 86-89 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-019` | 87 | `dt` | CONTENT | STABLE (data-*) | Baseline (English): | — | MEDIUM | B4-content-migration |
-| `PREM-020` | 88 | `dd` | NUMERIC CLAIM | style | 1.00× (Standard) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-051` | 90-93 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-022` | 91 | `dt` | CONTENT | STABLE (data-*) | Domain Range: | — | MEDIUM | B4-content-migration |
-| `PREM-023` | 92 | `dd` | NUMERIC CLAIM | style | Business (1.44×) ~ Daily (1.83×) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-009` | 98-108 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-025` | 99-101 | `span` | CONTENT | STABLE (data-*) | MATHEMATICAL FORMULA | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
-| `PREM-026` | 102-104 | `p` | CONTENT | STABLE (data-*) | Token Premium = Tokens(Hangul) / Tokens(English) | — | MEDIUM | B4-content-migration |
-| `PREM-027` | 105-107 | `p` | CONTENT | STABLE (data-*) | 동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다. | — | MEDIUM | B4-content-migration |
-| `PREM-015` | 114-124 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-052` | 115-122 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-030` | 116-118 | `dt` | CONTENT | STABLE (data-*) | DOMAIN DISTRIBUTION EXHIBIT | — | MEDIUM | B4-content-migration |
-| `PREM-031` | 119-121 | `dd` | CONTENT | STABLE (data-*) | 분야별 토큰 소비 비율 분포 분석 | — | MEDIUM | B4-content-migration |
-| `PREM-032` | 123 | `span` | NUMERIC CLAIM | style | 7 Benchmark Domains | — | CRITICAL | B1-numeric-freeze |
-| `PREM-053` | 127-179 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `PREM-033` | 132-175 | `button` | DESIGN APPLICATION | STABLE (data-*) | _(SelectableCard)_ | — | LOW | B2-stable-hooks |
-| `PREM-034` | 139-164 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-035` | 151-159 | `span` | CONTENT | STABLE (data-*) | vs ⏎ tokens | — | MEDIUM | B4-content-migration |
-| `PREM-036` | 160-162 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-054` | 181-184 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-038` | 182 | `dt` | NUMERIC CLAIM | nth-child | Baseline: 1.00× (English) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-039` | 183 | `dd` | NUMERIC CLAIM | style | Max Observed: 1.83× | — | CRITICAL | B1-numeric-freeze |
-| `PREM-040` | 190-194 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `PREM-055` | 198-211 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `PREM-041` | 201 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-042` | 204 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-056` | 207-210 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `PREM-047` | 58-196 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `PREM-048` | 64-67 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-007` | 65 | `dt` | CONTENT | STABLE (data-*) | CORE EMPIRICAL METRIC | — | MEDIUM | B4-content-migration |
+| `PREM-008` | 66 | `dd` | CONTENT | STABLE (data-*) | o200k_base benchmark | — | MEDIUM | B4-content-migration |
+| `PREM-006` | 69-80 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-010` | 70-72 | `span` | CONTENT | STABLE (data-*) | OBSERVED TOKEN PREMIUM RATIO | — | MEDIUM | B4-content-migration |
+| `PREM-011` | 73-79 | `div` | NUMERIC CLAIM | style | 1.29 ⏎ 1.83 | — | CRITICAL | B1-numeric-freeze |
+| `PREM-012` | 76 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `PREM-013` | 77 | `span` | CONTENT | style | ~ | — | MEDIUM | B4-content-migration |
+| `PREM-014` | 78 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `PREM-049` | 83-86 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-016` | 84 | `dt` | CONTENT | STABLE (data-*) | Average Token Premium: | — | MEDIUM | B4-content-migration |
+| `PREM-017` | 85 | `dd` | NUMERIC CLAIM | style | 1.68× (+68%) | — | CRITICAL | B1-numeric-freeze |
+| `PREM-050` | 87-90 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-019` | 88 | `dt` | CONTENT | STABLE (data-*) | Baseline (English): | — | MEDIUM | B4-content-migration |
+| `PREM-020` | 89 | `dd` | NUMERIC CLAIM | style | 1.00× (Standard) | — | CRITICAL | B1-numeric-freeze |
+| `PREM-051` | 91-94 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-022` | 92 | `dt` | CONTENT | STABLE (data-*) | Domain Range: | — | MEDIUM | B4-content-migration |
+| `PREM-023` | 93 | `dd` | NUMERIC CLAIM | style | Business (1.44×) ~ Daily (1.83×) | — | CRITICAL | B1-numeric-freeze |
+| `PREM-009` | 99-109 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-025` | 100-102 | `span` | CONTENT | STABLE (data-*) | MATHEMATICAL FORMULA | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `PREM-026` | 103-105 | `p` | CONTENT | STABLE (data-*) | Token Premium = Tokens(Hangul) / Tokens(English) | — | MEDIUM | B4-content-migration |
+| `PREM-027` | 106-108 | `p` | CONTENT | STABLE (data-*) | 동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다. | — | MEDIUM | B4-content-migration |
+| `PREM-015` | 115-125 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-052` | 116-123 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-030` | 117-119 | `dt` | CONTENT | STABLE (data-*) | DOMAIN DISTRIBUTION EXHIBIT | — | MEDIUM | B4-content-migration |
+| `PREM-031` | 120-122 | `dd` | CONTENT | STABLE (data-*) | 분야별 토큰 소비 비율 분포 분석 | — | MEDIUM | B4-content-migration |
+| `PREM-032` | 124 | `span` | NUMERIC CLAIM | style | 7 Benchmark Domains | — | CRITICAL | B1-numeric-freeze |
+| `PREM-053` | 128-180 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `PREM-033` | 133-176 | `button` | DESIGN APPLICATION | STABLE (data-*) | _(SelectableCard)_ | — | LOW | B2-stable-hooks |
+| `PREM-034` | 140-165 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-035` | 152-160 | `span` | CONTENT | STABLE (data-*) | vs ⏎ tokens | — | MEDIUM | B4-content-migration |
+| `PREM-036` | 161-163 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `PREM-054` | 182-185 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-038` | 183 | `dt` | NUMERIC CLAIM | nth-child | Baseline: 1.00× (English) | — | CRITICAL | B1-numeric-freeze |
+| `PREM-039` | 184 | `dd` | NUMERIC CLAIM | style | Max Observed: 1.83× | — | CRITICAL | B1-numeric-freeze |
+| `PREM-040` | 191-195 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `PREM-055` | 199-212 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PREM-041` | 202 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PREM-042` | 205 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PREM-056` | 208-211 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## OccupationSection
 

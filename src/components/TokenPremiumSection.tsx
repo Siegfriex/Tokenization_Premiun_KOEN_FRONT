@@ -59,7 +59,8 @@ export const TokenPremiumSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column (5 cols): Oversized Metric Stat Display */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
+              {/* Tier 1 — primary evidence panel: the slide's one central number (docs/qa/DESIGN_LAW.md) */}
+              <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
                 <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
                   <dt data-source="widget">CORE EMPIRICAL METRIC</dt>
                   <dd data-source="widget" className="text-ink font-bold">o200k_base benchmark</dd>
@@ -94,8 +95,8 @@ export const TokenPremiumSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Formula Notation Box */}
-              <div data-role="stat" data-semantic-target="dl" className="p-4 bg-surface border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
+              {/* Tier 3 — tertiary annotation panel: definitional, not evidentiary (docs/qa/DESIGN_LAW.md) */}
+              <div data-role="stat" data-semantic-target="dl" className="p-4 bg-surface-alt border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
                 <span data-source="widget" className="text-[10px] text-ink uppercase font-bold tracking-widest block">
                   MATHEMATICAL FORMULA
                 </span>

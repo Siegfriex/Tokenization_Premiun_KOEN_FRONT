@@ -966,7 +966,8 @@
    "src/entities/article-content/content/impact-scale-levels.ts:59"
   ],
   "Token Premium": [
-   "src/entities/article-content/content/impact-scale-levels.ts:60"
+   "src/entities/article-content/content/impact-scale-levels.ts:60",
+   "src/entities/navigation/content/navigation.ts:13"
   ],
   "Occupational Burden": [
    "src/entities/article-content/content/impact-scale-levels.ts:61"
@@ -1307,79 +1308,81 @@
   "hero": [
    "src/entities/navigation/content/navigation.ts:10"
   ],
-  "S0. 커버": [
-   "src/entities/navigation/content/navigation.ts:10"
-  ],
-  "S0. Cover": [
+  "Cover": [
    "src/entities/navigation/content/navigation.ts:10"
   ],
   "compare": [
    "src/entities/navigation/content/navigation.ts:11"
   ],
-  "S1. 분절 비교": [
+  "분절 비교": [
    "src/entities/navigation/content/navigation.ts:11"
   ],
-  "S1. Compare": [
+  "Compare": [
    "src/entities/navigation/content/navigation.ts:11"
   ],
   "pipeline": [
    "src/entities/navigation/content/navigation.ts:12"
   ],
-  "S2. 파이프라인": [
+  "파이프라인": [
    "src/entities/navigation/content/navigation.ts:12"
   ],
-  "S2. Pipeline": [
+  "Pipeline": [
    "src/entities/navigation/content/navigation.ts:12"
   ],
   "patterns": [
    "src/entities/navigation/content/navigation.ts:13"
   ],
-  "S3. Token Premium": [
-   "src/entities/navigation/content/navigation.ts:13"
-  ],
-  "S3. Premium": [
+  "Premium": [
    "src/entities/navigation/content/navigation.ts:13"
   ],
   "burden": [
    "src/entities/navigation/content/navigation.ts:14"
   ],
-  "S4. 누적 부담": [
+  "누적 부담": [
    "src/entities/navigation/content/navigation.ts:14"
   ],
-  "S4. Burden": [
+  "Burden": [
    "src/entities/navigation/content/navigation.ts:14"
   ],
   "languages": [
    "src/entities/navigation/content/navigation.ts:15"
   ],
-  "S4.5. 글로벌 다국어": [
+  "S4.5": [
+   "src/entities/navigation/content/navigation.ts:15",
    "src/entities/navigation/content/navigation.ts:15"
   ],
-  "S4.5. Global": [
+  "글로벌 다국어": [
    "src/entities/navigation/content/navigation.ts:15"
   ],
-  "S5. AI 인프라": [
+  "Global": [
+   "src/entities/navigation/content/navigation.ts:15"
+  ],
+  "AI 인프라": [
    "src/entities/navigation/content/navigation.ts:16"
   ],
-  "S5. Infra": [
+  "Infra": [
    "src/entities/navigation/content/navigation.ts:16"
   ],
   "impact": [
    "src/entities/navigation/content/navigation.ts:17"
   ],
-  "S5.2. 사회적 확장": [
+  "S5.2": [
+   "src/entities/navigation/content/navigation.ts:17",
    "src/entities/navigation/content/navigation.ts:17"
   ],
-  "S5.2. Society": [
+  "사회적 확장": [
+   "src/entities/navigation/content/navigation.ts:17"
+  ],
+  "Society": [
    "src/entities/navigation/content/navigation.ts:17"
   ],
   "method": [
    "src/entities/navigation/content/navigation.ts:18"
   ],
-  "S6. 방법론·한계": [
+  "방법론·한계": [
    "src/entities/navigation/content/navigation.ts:18"
   ],
-  "S6. Method": [
+  "Method": [
    "src/entities/navigation/content/navigation.ts:18"
   ],
   "result": [

@@ -52,7 +52,7 @@ _a label with no programmatic relationship to the content it labels_
 | `NAV-003` | StoryProgress | 24-26 | `span` | DATA JOURNALISM | id + aria-labelledby, or move inside the labelled region |
 | `CMP-016` | TokenCompareSection | 125-127 | `span` | INPUT SENTENCE | id + aria-labelledby, or move inside the labelled region |
 | `CMP-028` | TokenCompareSection | 173-175 | `span` | EQUIVALENT SENTENCE | id + aria-labelledby, or move inside the labelled region |
-| `PREM-025` | TokenPremiumSection | 99-101 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
+| `PREM-025` | TokenPremiumSection | 100-102 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
 | `UI-002` | SectionHeading | 80 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 
 ## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (35)
@@ -79,7 +79,7 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `BURD-027` | OccupationSection | 254-264 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-010` | PipelineSection | 76-125 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-011` | PipelineSection | 86-99 | `span` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `NAV-001` | StoryProgress | 19-67 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `NAV-001` | StoryProgress | 19-73 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-002` | StoryProgress | 23-31 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-008` | TokenCompareSection | 86-93 | `span` | CURATED_PAIRED_SENTENCES | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-011` | TokenCompareSection | 112-157 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
@@ -91,8 +91,8 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `CMP-027` | TokenCompareSection | 172-179 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-032` | TokenCompareSection | 198-204 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-035` | TokenCompareSection | 209-218 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-006` | TokenPremiumSection | 68-79 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-009` | TokenPremiumSection | 98-108 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-015` | TokenPremiumSection | 114-124 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-034` | TokenPremiumSection | 139-164 | `span` | DOMAIN_DISTRIBUTION_DATA | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-006` | TokenPremiumSection | 69-80 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-009` | TokenPremiumSection | 99-109 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-015` | TokenPremiumSection | 115-125 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-034` | TokenPremiumSection | 140-165 | `span` | DOMAIN_DISTRIBUTION_DATA | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LSW-001` | LanguageSwitch | 10-33 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |

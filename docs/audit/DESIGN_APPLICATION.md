@@ -89,15 +89,15 @@ type scale.
 | Utility | Uses |
 |---|---|
 | `text-ink` | 73 |
-| `text-ink-muted` | 63 |
 | `border-rule` | 62 |
+| `text-ink-muted` | 62 |
 | `border-b` | 38 |
 | `text-ink-body` | 24 |
-| `bg-surface` | 18 |
-| `bg-surface-alt` | 15 |
+| `bg-surface` | 17 |
+| `bg-surface-alt` | 16 |
+| `text-ink-subtle` | 13 |
 | `border-t` | 12 |
 | `text-on-accent` | 12 |
-| `text-ink-subtle` | 12 |
 | `bg-accent` | 9 |
 | `border-rule/60` | 8 |
 | `text-left` | 6 |
