@@ -9,7 +9,9 @@ fixed tokenizer (`o200k_base`).
 
 - React 19, TypeScript, Vite 6, Tailwind CSS v4
 - Static single-page site — no backend, no API, no router, no database
-- Deployed as a static build to GitHub Pages
+- Deployed as a static build to Vercel (`main` branch), root-served
+  (`vite.config.ts` `base: '/'`). See `docs/BASELINE.md` for deployment
+  status and the retired legacy GitHub Pages setup.
 
 ## Status
 

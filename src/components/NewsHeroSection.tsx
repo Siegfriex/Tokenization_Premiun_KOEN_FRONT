@@ -76,7 +76,7 @@ export const NewsHeroSection: React.FC<NewsHeroSectionProps> = ({ uiLang }) => {
               </p>
             </div>
 
-            <p className="text-base sm:text-lg text-[#4A4A47] leading-relaxed max-w-[620px] font-normal border-l-2 border-[#111111] pl-4">
+            <p className="text-base sm:text-lg text-[#4A4A47] leading-relaxed max-w-[720px] font-normal border-l-2 border-[#111111] pl-4">
               {isKo ? heroData.deck?.ko : heroData.deck?.en}
             </p>
 

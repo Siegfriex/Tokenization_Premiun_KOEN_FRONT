@@ -51,7 +51,7 @@ export const StoryProgress: React.FC<StoryProgressProps> = ({ uiLang, setUiLang 
   return (
     <header className="sticky top-0 z-50 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#DADAD6] text-[#111111] transition-all">
       {/* Top Bar */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between gap-6">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between gap-6">
         {/* Brand / Article Header */}
         <div className="flex items-center gap-3 shrink-0">
           <span className="w-2 h-2 rounded-full bg-[#111111]"></span>
