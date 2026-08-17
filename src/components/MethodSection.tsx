@@ -114,7 +114,9 @@ export const MethodSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => toggleItem(item.id)}
-                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-[#F7F7F5] transition-colors cursor-pointer"
+                      aria-expanded={isOpen}
+                      aria-controls={`method-panel-${item.id}`}
+                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-[#F7F7F5] transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong"
                     >
                       <div className="flex items-center gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#111111]"></span>
@@ -130,7 +132,10 @@ export const MethodSection: React.FC = () => {
                     </button>
 
                     {isOpen && (
-                      <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-[#4A4A47] leading-relaxed font-sans border-t border-[#DADAD6] bg-[#F7F7F5]">
+                      <div
+                        id={`method-panel-${item.id}`}
+                        className="px-5 pb-5 pt-2 text-xs sm:text-sm text-[#4A4A47] leading-relaxed font-sans border-t border-[#DADAD6] bg-[#F7F7F5]"
+                      >
                         {isKo ? item.content.ko : item.content.en}
                       </div>
                     )}

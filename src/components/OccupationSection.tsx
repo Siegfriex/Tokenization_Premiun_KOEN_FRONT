@@ -99,7 +99,8 @@ export const OccupationSection: React.FC = () => {
                     key={preset}
                     type="button"
                     onClick={() => setPromptCount(preset)}
-                    className={`px-3 py-1 text-xs font-mono rounded-xs transition-colors cursor-pointer border ${
+                    aria-pressed={promptCount === preset}
+                    className={`px-3 py-1 text-xs font-mono rounded-xs transition-colors cursor-pointer border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                       promptCount === preset
                         ? 'bg-surface-inverse text-ink-inverse border-surface-inverse font-bold'
                         : 'bg-surface text-ink-body hover:border-ink hover:text-ink border-rule'
