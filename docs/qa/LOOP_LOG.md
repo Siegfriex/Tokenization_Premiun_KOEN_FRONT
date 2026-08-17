@@ -109,3 +109,39 @@ re-verification (ran in iteration 1, not re-run this round since nothing
 touched interactive components).
 
 ---
+
+## 2026-08-17 20:xx — Iteration 3 (loop, protocol upgrade)
+
+**Trigger:** user upgraded the QA methodology mid-loop — added C8–C18,
+the four-layer structure (Render Truth / Geometric Integrity / Typographic
+Hierarchy / Interaction & Narrative), the Shot Spec format, and severity
+tiers (P0–P3). `docs/qa/VISUAL_QA_CRITERIA.md` rewritten in full.
+Operating rule from here: **one loop iteration = one slide, at most one
+problem class.**
+
+**Slide worked:** `S00-hero` (first slide, per `docs/qa/SHOT_SPECS.md`).
+4 required shots captured (1440×KO, 1440×EN, 390×KO, 390×EN) via
+`/tmp/qa-tools/shot_hero.mjs`.
+
+**Found:** P0 — `keyFinding.bigNumber` not localized; EN mode leaked the
+Korean qualifier "약" into the hero's single biggest display number. See
+`docs/qa/SHOT_SPECS.md` S00-hero for full writeup. This is a new finding
+class the earlier DOM-measurement-only sweeps (iterations 1–2) structurally
+could not have caught — it only exists when comparing rendered KO vs EN
+screenshots side by side, which C1/C2/C6's automated overflow checks don't
+do.
+
+**Fixed:** localized `bigNumber` to `{ ko, en }` (type + content + widget
+read-site). Not a numeric-claim change — value identical in both
+languages, only the untranslated word was translated. Re-verified: tsc
+clean, `npm run build` passes, audit pipeline diff-reproducible, director
+queue still 16 (confirms this node isn't one of the 22 frozen claims),
+EN re-screenshot clean at both viewports.
+
+**Queued, not fixed (P2/P3, out of this iteration's one-problem-class
+scope):** none found this round beyond the P0 above — S00-hero otherwise
+passed C1/C6/C8/C9/C13 clean at all 4 shots.
+
+**Next slide:** `S01-compare` (`TokenCompareSection`) — not started.
+
+---
