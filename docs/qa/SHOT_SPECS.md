@@ -179,3 +179,18 @@ no shadow — reads as exit navigation, not a CTA. Footer date-stamp text
 Screenshotted 1440×KO/EN + 390×KO: 0 overflow, all 5 changes visually
 confirmed, PROTECTED numeric range unchanged. tsc clean, build passes,
 audit pipeline diff-reproducible, director queue unchanged at 16.
+
+**Findings (Director redline pass, 2026-08-17):** 2 concrete changes,
+superseding iteration 6's "PASS, no fix" — the earlier pass checked C1/C8/
+C12 (does the highlighted step win, does it break), which it did; the
+redline goes further ("didactic, not editorial" density + relative
+recession of the other 4 steps). (1) `tokenUnit.preFigureParagraphs`
+merged 2→1 (identical sentences, no wording change) — top explanation now
+reads as one instructional block. (2) Non-highlighted steps' title color
+`text-ink` → `text-ink-body` and description color `text-ink-muted` →
+`text-ink-muted` (border-adjacent description already muted; title was
+the one still at full ink strength) — steps 01/03/04/05 now recede one
+further step relative to step 02's accent fill, so "the bottleneck" reads
+as a discovery, not merely the loudest of five equals. Screenshotted
+1440×KO: 0 overflow, step 02 unambiguous focal point, others visibly
+quieter. tsc clean, build passes, audit pipeline diff-reproducible.

@@ -104,14 +104,15 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       ko: '문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계',
       en: 'From Text to Token Vector: The 4-Stage Input Pipeline',
     },
+    // Director redline (S02, 2026-08-17): "상단 설명은 한 단 줄이고" — merged
+    // into one paragraph (identical sentences, no wording change) so the
+    // section reads as didactic/instructional rather than editorial.
     preFigureParagraphs: {
       ko: [
-        '문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다.',
-        '그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.',
+        '문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다. 그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.',
       ],
       en: [
-        'The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption.',
-        'This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.',
+        'The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption. This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.',
       ],
     },
     figureNumber: 'FIG. 02',

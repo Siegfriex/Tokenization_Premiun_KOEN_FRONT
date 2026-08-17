@@ -106,7 +106,7 @@ export const PipelineSection: React.FC = () => {
                       </span>
                       <span
                         className={`block font-bold text-sm ${
-                          item.highlight ? 'text-on-accent' : 'text-ink'
+                          item.highlight ? 'text-on-accent' : 'text-ink-body'
                         }`}
                       >
                         {getLocalizedText(item.title, language)}
@@ -117,7 +117,7 @@ export const PipelineSection: React.FC = () => {
                       className={`block text-xs font-sans leading-relaxed pt-2 border-t ${
                         item.highlight
                           ? 'text-on-accent-muted border-rule-on-accent'
-                          : 'text-ink-body border-rule'
+                          : 'text-ink-muted border-rule'
                       }`}
                     >
                       {getLocalizedText(item.description, language)}
