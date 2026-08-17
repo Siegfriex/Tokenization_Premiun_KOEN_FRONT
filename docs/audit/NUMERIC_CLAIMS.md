@@ -31,28 +31,28 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | `HERO-029` | NewsHeroSection | 137 | 18 TOKENS `18 TOKENS` | **observed:** markup renders "18 TOKENS" for the English exhibit row<br>**entity:** no paired-sentence entry pairs 31 with 18; TOKEN_BASELINE_SIMULATION.baseEnPerPrompt is 24 |
 | `HERO-033` | NewsHeroSection | 150 | 1.72× (+72% Difference) `+72%` | **observed:** markup renders "1.72× (+72% Difference)" as the hero exhibit ratio<br>**entity:** derived from the 31/18 pair above, which is itself unlinked |
 | `PREM-011` | TokenPremiumSection | 73-80 | 1.29 ⏎ 1.83 `1.29` `1.83` | **observed:** markup renders the headline range "1.29× ~ 1.83×"<br>**entity:** entity ratio range is 1.13 – 1.75 |
-| `PREM-017` | TokenPremiumSection | 86 | 1.68× (+68%) `+68%` | **observed:** markup renders "Average Token Premium: 1.68× (+68%)"<br>**entity:** arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68 |
-| `PREM-020` | TokenPremiumSection | 90 | 1.00× (Standard) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-023` | TokenPremiumSection | 94 | Business (1.44×) ~ Daily (1.83×) `1.44` `1.83` | **observed:** markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"<br>**entity:** no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38 |
+| `PREM-016` | TokenPremiumSection | 86 | 1.68× (+68%) `+68%` | **observed:** markup renders "Average Token Premium: 1.68× (+68%)"<br>**entity:** arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68 |
+| `PREM-019` | TokenPremiumSection | 90 | 1.00× (Standard) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
+| `PREM-022` | TokenPremiumSection | 94 | Business (1.44×) ~ Daily (1.83×) `1.44` `1.83` | **observed:** markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"<br>**entity:** no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38 |
 | `PREM-032` | TokenPremiumSection | 125 | 7 Benchmark Domains `7 Benchmark` | **observed:** markup renders "7 Benchmark Domains"<br>**entity:** DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53) |
-| `PREM-038` | TokenPremiumSection | 183 | Baseline: 1.00× (English) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-039` | TokenPremiumSection | 184 | Max Observed: 1.83× `1.83` | **observed:** markup renders "Max Observed: 1.83×" directly under the chart<br>**entity:** highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web) |
+| `PREM-030` | TokenPremiumSection | 184 | Baseline: 1.00× (English) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
+| `PREM-031` | TokenPremiumSection | 185 | Max Observed: 1.83× `1.83` | **observed:** markup renders "Max Observed: 1.83×" directly under the chart<br>**entity:** highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web) |
 
 ## DUPLICATED — value agrees today, but markup owns its own copy (3)
 
 | Trace ID | Widget | Lines | Rendered | Observation |
 |---|---|---|---|---|
 | `LANG-019` | MultilingualTokenEfficiencySection | 141-143 | ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다. `1.78` | **observed:** markup hardcodes "1.78배" and "한국어 한글 (1.78×)"<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not |
-| `LANG-032` | MultilingualTokenEfficiencySection | 278 | 한국어 한글 (1.78×) `1.78` | **observed:** markup hardcodes "1.78배" and "한국어 한글 (1.78×)"<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not |
+| `LANG-032` | MultilingualTokenEfficiencySection | 279 | 한국어 한글 (1.78×) `1.78` | **observed:** markup hardcodes "1.78배" and "한국어 한글 (1.78×)"<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not |
 | `HERO-019` | NewsHeroSection | 97 | +78% Hangul Token Burden `+78%` | **observed:** markup renders "+78% Hangul Token Burden" in the stat ribbon<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.differencePercent is 78 — value agrees, ownership does not |
 
 ## UNLINKED — value exists only in markup (5)
 
 | Trace ID | Widget | Lines | Rendered | Note |
 |---|---|---|---|---|
-| `LANG-031` | MultilingualTokenEfficiencySection | 274 | 라틴 알파벳 기준 (1.00×) `1.00` | _no entity holds this value_ |
-| `BURD-017` | OccupationSection | 123 | 1,000회 (팀 일간 워크플로우) `1,000` | _no entity holds this value_ |
-| `BURD-018` | OccupationSection | 124 | 2,000회 (전사 에이전트 루틴) `2,000` | _no entity holds this value_ |
+| `LANG-031` | MultilingualTokenEfficiencySection | 275 | 라틴 알파벳 기준 (1.00×) `1.00` | _no entity holds this value_ |
+| `BURD-017` | OccupationSection | 124 | 1,000회 (팀 일간 워크플로우) `1,000` | _no entity holds this value_ |
+| `BURD-018` | OccupationSection | 125 | 2,000회 (전사 에이전트 루틴) `2,000` | _no entity holds this value_ |
 | `PREM-002` | TokenPremiumSection | 32 | 69,432건 정밀 분석 `69,432` | _no entity holds this value_ |
 | `PREM-003` | TokenPremiumSection | 38 | 69,432 Verified KO-EN Pairs `69,432` | _no entity holds this value_ |
 
@@ -61,8 +61,8 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | Trace ID | Widget | Lines | Rendered | Entity location |
 |---|---|---|---|---|
 | `LANG-018` | MultilingualTokenEfficiencySection | 127-136 | Baseline (0%) `0%` | 0% also at src/entities/multilingual-token/content/multilingual-token.ts:15 |
-| `LANG-025` | MultilingualTokenEfficiencySection | 177-179 | 기준 영문 100 토큰 대비 정규화 소모량 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
-| `BURD-016` | OccupationSection | 122 | 1회 (단일 프롬프트) `1` | 1 also at src/entities/multilingual-token/content/multilingual-token.ts:14 |
+| `LANG-024` | MultilingualTokenEfficiencySection | 178-180 | 기준 영문 100 토큰 대비 정규화 소모량 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
+| `BURD-016` | OccupationSection | 123 | 1회 (단일 프롬프트) `1` | 1 also at src/entities/multilingual-token/content/multilingual-token.ts:14 |
 
 ## UNLINKED — count coincides with an array length but is not read from it (1)
 

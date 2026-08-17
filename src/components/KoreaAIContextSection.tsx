@@ -59,19 +59,19 @@ export const KoreaAIContextSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Macro Adoption Chain & Verified Policy Slots */}
-        <ArticleFullWidthBreak className="space-y-10 my-8">
+        <ArticleFullWidthBreak figure className="space-y-10 my-8">
           {/* Macro Adoption Chain */}
           <div className="space-y-6">
-            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
-              <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 MACRO ADOPTION CAUSAL CHAIN
-              </span>
-              <span data-source="widget" className="text-xs font-mono text-ink-muted">Scale Dynamics</span>
-            </div>
+              </dt>
+              <dd data-source="widget" className="text-xs font-mono text-ink-muted">Scale Dynamics</dd>
+            </dl>
 
-            <div data-collection="macro-adoption-phases" data-semantic-target="ul" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <ul data-collection="macro-adoption-phases" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {MACRO_ADOPTION_PHASES.map((phase) => (
-                <div
+                <li
                   key={phase.id}
                   data-item-id={phase.id}
                   className={`rounded-xs p-5 space-y-3 border ${
@@ -89,38 +89,38 @@ export const KoreaAIContextSection: React.FC = () => {
                   <p className={`text-xs leading-relaxed font-sans ${phase.highlight ? 'text-on-accent-muted' : 'text-ink-body'}`}>
                     {phase.description}
                   </p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Verified Policy & Investment Slots */}
           <div className="space-y-6">
-            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
-              <span data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
+            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <dt data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
                 {isKo ? '검증된 정책 및 대규모 투자 데이터 슬롯 (Data Slots):' : 'Verified Policy & Investment Data Slots:'}
-              </span>
-              <span data-source="widget" className="text-xs font-mono text-ink font-bold">Strict Data Verification Rule</span>
-            </div>
+              </dt>
+              <dd data-source="widget" className="text-xs font-mono text-ink font-bold">Strict Data Verification Rule</dd>
+            </dl>
 
-            <div data-collection="verified-policy-slots" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <ul data-collection="verified-policy-slots" className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {VERIFIED_POLICY_SLOTS.map((slot) => (
-                <div
+                <li
                   key={slot.id}
                   data-item-id={slot.id}
                   className="bg-surface border border-rule rounded-xs p-6 space-y-4 flex flex-col justify-between shadow-xs"
                 >
                   <div className="space-y-2">
-                    <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-ink-muted">{slot.category}</span>
-                      <span className="px-2 py-0.5 bg-surface-alt text-ink border border-rule rounded-xs text-[10px] font-bold">
+                    <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                      <dt className="text-ink-muted">{slot.category}</dt>
+                      <dd className="px-2 py-0.5 bg-surface-alt text-ink border border-rule rounded-xs text-[10px] font-bold">
                         {slot.status}
-                      </span>
-                    </div>
+                      </dd>
+                    </dl>
 
-                    <h4 data-role="heading" data-semantic-target="heading" className="font-bold text-sm text-ink leading-snug">
+                    <h3 data-role="heading" data-semantic-target="heading" className="font-bold text-sm text-ink leading-snug">
                       {getLocalizedText(slot.title, language)}
-                    </h4>
+                    </h3>
                   </div>
 
                   <div className="p-4 bg-surface-alt rounded-xs border border-dashed border-rule text-center space-y-1.5">
@@ -133,18 +133,18 @@ export const KoreaAIContextSection: React.FC = () => {
                   </div>
 
                   <div className="text-[10px] font-mono text-ink-muted space-y-0.5 border-t border-rule pt-2">
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                      <span data-source="widget">Scope:</span>
-                      <span data-source="widget" className="text-ink-body font-semibold">[NATIONAL COMPUTE INFRA]</span>
-                    </div>
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                      <span data-source="widget">Period:</span>
-                      <span className="text-ink-body font-semibold">[2024–2030]</span>
-                    </div>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                      <dt data-source="widget">Scope:</dt>
+                      <dd data-source="widget" className="text-ink-body font-semibold">[NATIONAL COMPUTE INFRA]</dd>
+                    </dl>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                      <dt data-source="widget">Period:</dt>
+                      <dd className="text-ink-body font-semibold">[2024–2030]</dd>
+                    </dl>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Figure Caption & Source */}

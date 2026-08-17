@@ -64,24 +64,24 @@ export const TokenCompareSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Interactive Token Compare Lab */}
-        <ArticleFullWidthBreak className="space-y-8 my-8">
+        <ArticleFullWidthBreak figure className="space-y-8 my-8">
           {/* Minimal Paired Sentence Selector Bar */}
           <div className="space-y-3">
             <div data-source="widget" className="text-xs font-mono text-ink-muted uppercase tracking-wider font-semibold">
               {isKo ? '검증된 대역 문장쌍 선택:' : 'Select Verified Sentence Pair:'}
             </div>
 
-            <div data-collection="sentence-pairs" data-semantic-target="ul" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <ul data-collection="sentence-pairs" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {CURATED_PAIRED_SENTENCES.map((item, idx) => {
                 const isSelected = item.id === selectedPairId;
                 return (
+                  <li key={item.id} className="h-full">
                   <SelectableCard
-                    key={item.id}
                     selected={isSelected}
                     onSelect={() => setSelectedPairId(item.id)}
                     itemId={item.id}
                     boldWhenFilled
-                    className="p-4 text-left"
+                    className="p-4 text-left w-full h-full"
                   >
                     <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-[11px] font-mono mb-1.5">
                       <span data-source="widget" className={isSelected ? 'text-on-accent font-bold' : 'text-ink-muted'}>
@@ -99,9 +99,10 @@ export const TokenCompareSection: React.FC = () => {
                       {isKo ? item.contextTag.ko : item.contextTag.en}
                     </span>
                   </SelectableCard>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
 
           {/* Clean Split Exhibit: Korean vs English with Thin Divider */}
@@ -135,13 +136,13 @@ export const TokenCompareSection: React.FC = () => {
                       <Hash className="w-3.5 h-3.5 text-ink" />
                       <span data-source="widget">분절된 서브워드 토큰 ({selectedPair.hangulCount}개):</span>
                     </span>
-                    <div data-collection="hangul-tokens" data-semantic-target="ul" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
+                    <ul data-collection="hangul-tokens" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
                       {selectedPair.hangulTokens.map((tok, idx) => (
-                        <TokenChip key={`ko-${idx}`} lang="ko">
-                          {tok}
-                        </TokenChip>
+                        <li key={`ko-${idx}`}>
+                          <TokenChip lang="ko">{tok}</TokenChip>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
@@ -183,11 +184,13 @@ export const TokenCompareSection: React.FC = () => {
                       <Hash className="w-3.5 h-3.5 text-ink-muted" />
                       <span data-source="widget">Segmented Subword Tokens ({selectedPair.alphabetCount} tokens):</span>
                     </span>
-                    <div data-collection="alphabet-tokens" data-semantic-target="ul" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
+                    <ul data-collection="alphabet-tokens" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
                       {selectedPair.alphabetTokens.map((tok, idx) => (
-                        <TokenChip key={`en-${idx}`} lang="en">{tok}</TokenChip>
+                        <li key={`en-${idx}`}>
+                          <TokenChip lang="en">{tok}</TokenChip>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 

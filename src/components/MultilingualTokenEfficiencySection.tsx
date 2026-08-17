@@ -90,17 +90,17 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Asymmetric Layout: Left 35% Narrative & Detail / Right 65% Clean Horizontal Bar Chart */}
-        <ArticleFullWidthBreak className="my-8 space-y-6">
+        <ArticleFullWidthBreak figure className="my-8 space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Column (4 cols on lg): Narrative & Selected Language Card */}
             <div className="lg:col-span-4 space-y-6">
               <div className="bg-surface border border-rule rounded-xs p-6 space-y-6 shadow-xs">
-                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                  <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+                  <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                     LANGUAGE FOCUS
-                  </span>
-                  <span data-source="widget" className="text-xs font-mono text-ink-muted">Selected Metric</span>
-                </div>
+                  </dt>
+                  <dd data-source="widget" className="text-xs font-mono text-ink-muted">Selected Metric</dd>
+                </dl>
 
                 <div className="space-y-1">
                   <div className="text-xs font-mono text-ink-muted">
@@ -112,19 +112,19 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 pt-2 border-t border-rule text-xs font-mono">
-                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <span data-source="widget" className="text-ink-muted">Normalized Tokens:</span>
-                    <span data-source="widget" className="text-ink font-bold">{selectedItem.tokenCount} tokens</span>
-                  </div>
-                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <span data-source="widget" className="text-ink-muted">Relative Ratio:</span>
-                    <span className="text-ink font-bold text-sm">
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                    <dt data-source="widget" className="text-ink-muted">Normalized Tokens:</dt>
+                    <dd data-source="widget" className="text-ink font-bold">{selectedItem.tokenCount} tokens</dd>
+                  </dl>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                    <dt data-source="widget" className="text-ink-muted">Relative Ratio:</dt>
+                    <dd className="text-ink font-bold text-sm">
                       {selectedItem.relativeRatio.toFixed(2)}×
-                    </span>
-                  </div>
-                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
-                    <span data-source="widget" className="text-ink-muted">Difference vs. English:</span>
-                    <span
+                    </dd>
+                  </dl>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
+                    <dt data-source="widget" className="text-ink-muted">Difference vs. English:</dt>
+                    <dd
                       {...claimAttrs('lang.baseline-difference-label')}
                       className={`font-bold ${
                         selectedItem.differencePercent > 0 ? 'text-ink' : 'text-ink-muted'
@@ -133,8 +133,8 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                       {selectedItem.differencePercent > 0
                         ? `+${selectedItem.differencePercent}%`
                         : 'Baseline (0%)'}
-                    </span>
-                  </div>
+                    </dd>
+                  </dl>
                 </div>
 
                 {selectedItem.isTargetHangul && (
@@ -149,10 +149,10 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
                   {isKo ? '언어별 즉시 포커스:' : 'Click to inspect language:'}
                 </span>
-                <div data-collection="multilingual-comparison" data-semantic-target="ul" className="flex flex-wrap gap-2">
+                <ul data-collection="multilingual-comparison" className="flex flex-wrap gap-2">
                   {MULTILINGUAL_COMPARISON_DATA.map((item) => (
+                    <li key={item.id}>
                     <SelectableCard
-                      key={item.id}
                       selected={selectedLangId === item.id}
                       onSelect={() => setSelectedLangId(item.id)}
                       itemId={item.id}
@@ -161,8 +161,9 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                     >
                       {item.name.ko.split(' ')[0]} ({item.relativeRatio.toFixed(2)}×)
                     </SelectableCard>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
 
@@ -170,14 +171,14 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
             <div className="lg:col-span-8 space-y-6">
               <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
                 <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                  <div data-role="stat" data-semantic-target="dl">
-                    <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
+                  <dl data-role="stat" data-semantic-target="dl">
+                    <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                       NORMALIZED TOKEN CONSUMPTION BY LANGUAGE
-                    </span>
-                    <span {...claimAttrs('lang.normalization-base')} className="text-[11px] font-mono text-ink-muted">
+                    </dt>
+                    <dd {...claimAttrs('lang.normalization-base')} className="text-[11px] font-mono text-ink-muted">
                       기준 영문 100 토큰 대비 정규화 소모량
-                    </span>
-                  </div>
+                    </dd>
+                  </dl>
                   <span data-source="widget" className="text-xs font-mono text-ink-muted">Flores-200 / o200k_base</span>
                 </div>
 

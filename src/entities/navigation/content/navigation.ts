@@ -25,3 +25,13 @@ export const NAV_SECTIONS: NavSection[] = [
  * IntersectionObserver whenever this array's identity changes.
  */
 export const NAV_SECTION_IDS: readonly string[] = NAV_SECTIONS.map((s) => s.id);
+
+/**
+ * Accessible name for the section-nav landmark. Introduced when the nav became
+ * `<nav aria-label> > <ul> > <li>` in B3 — a screen reader announces it, so it
+ * is editorial content and belongs here rather than inline in StoryProgress.
+ */
+export const NAV_LANDMARK_LABEL = {
+  ko: '섹션 바로가기',
+  en: 'Story sections',
+} as const;

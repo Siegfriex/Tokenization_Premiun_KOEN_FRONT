@@ -157,13 +157,13 @@ export const ArticleFigureCaption: React.FC<{
   className?: string;
 }> = ({ figNum, caption, source, className = '' }) => {
   return (
-    <div data-role="figure-caption" data-semantic-target="figure" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
+    <figcaption data-role="figure-caption" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
       <div className="text-ink font-semibold flex items-center gap-2">
         {figNum && <span className="text-ink font-bold">{figNum} ·</span>}
         <span className="text-ink-body font-normal">{caption}</span>
       </div>
       {source && <div className="text-ink-subtle text-[11px]">{source}</div>}
-    </div>
+    </figcaption>
   );
 };
 
@@ -209,11 +209,28 @@ export const ArticleFootnotes: React.FC<{
  * Full-Width Data Visualization Breakout
  * Allows large charts or interactive components to stretch across the
  * shared `wide` editorial grid (1360px).
+ *
+ * `figure` makes it a real `<figure>`, which is what lets the
+ * `ArticleFigureCaption` inside it be a `<figcaption>` — that is the pairing
+ * that ties a caption to the chart it describes. Set it wherever the breakout
+ * contains a captioned exhibit; leave it off for breakouts that are purely
+ * interactive and have no caption. The classes are identical either way.
  */
 export const ArticleFullWidthBreak: React.FC<{
+  figure?: boolean;
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = '' }) => {
+}> = ({ figure = false, children, className = '' }) => {
+  if (figure) {
+    return (
+      <figure
+        data-role="figure"
+        className={`w-full mx-auto max-w-wide my-12 sm:my-16 ${className}`}
+      >
+        {children}
+      </figure>
+    );
+  }
   return (
     <Container variant="wide" role="full-width-break" className={`my-12 sm:my-16 ${className}`}>
       {children}

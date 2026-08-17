@@ -84,18 +84,18 @@ export const NewsHeroSection: React.FC = () => {
               data-semantic-target="dl"
               className="pt-4 border-t border-rule flex flex-wrap items-center gap-8 text-xs font-mono text-ink-body"
             >
-              <div data-role="stat" data-stat="analysis-target">
-                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</span>
-                <span data-source="widget" className="text-ink font-bold">o200k_base &amp; Flores-200</span>
-              </div>
-              <div data-role="stat" data-stat="core-metric">
-                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</span>
-                <span data-source="widget" className="text-ink font-bold">Token Premium Ratio</span>
-              </div>
-              <div data-role="stat" data-stat="observed-gap">
-                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</span>
-                <span {...claimAttrs('hero.observed-gap')} className="text-ink font-bold">+78% Hangul Token Burden</span>
-              </div>
+              <dl data-role="stat" data-stat="analysis-target">
+                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</dt>
+                <dd data-source="widget" className="text-ink font-bold">o200k_base &amp; Flores-200</dd>
+              </dl>
+              <dl data-role="stat" data-stat="core-metric">
+                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</dt>
+                <dd data-source="widget" className="text-ink font-bold">Token Premium Ratio</dd>
+              </dl>
+              <dl data-role="stat" data-stat="observed-gap">
+                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</dt>
+                <dd {...claimAttrs('hero.observed-gap')} className="text-ink font-bold">+78% Hangul Token Burden</dd>
+              </dl>
             </div>
           </div>
 
@@ -103,22 +103,22 @@ export const NewsHeroSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6 lg:pl-4">
             {/* Minimal Token Contrast Visual */}
             <div className="bg-surface-alt border border-rule rounded-xs p-6 space-y-6">
-              <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+              <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+                <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                   FIG. 01 / REAL TOKEN SPLIT EXHIBIT
-                </span>
-                <span data-source="widget" className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</span>
-              </div>
+                </dt>
+                <dd data-source="widget" className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</dd>
+              </dl>
 
               {/* Korean Row */}
               <div className="space-y-2">
-                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
-                  <span data-source="widget" className="text-ink font-bold flex items-center gap-2">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                  <dt data-source="widget" className="text-ink font-bold flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
                     Korean (한국어)
-                  </span>
-                  <span {...claimAttrs('hero.exhibit-hangul-tokens')} className="text-ink font-bold text-sm">31 TOKENS</span>
-                </div>
+                  </dt>
+                  <dd {...claimAttrs('hero.exhibit-hangul-tokens')} className="text-ink font-bold text-sm">31 TOKENS</dd>
+                </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
                 </div>
@@ -129,13 +129,13 @@ export const NewsHeroSection: React.FC = () => {
 
               {/* English Row */}
               <div className="space-y-2 pt-2 border-t border-rule">
-                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
-                  <span data-source="widget" className="text-ink-body font-medium flex items-center gap-2">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                  <dt data-source="widget" className="text-ink-body font-medium flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-ink-muted"></span>
                     English (영어)
-                  </span>
-                  <span {...claimAttrs('hero.exhibit-english-tokens')} className="text-ink-body font-bold text-sm">18 TOKENS</span>
-                </div>
+                  </dt>
+                  <dd {...claimAttrs('hero.exhibit-english-tokens')} className="text-ink-body font-bold text-sm">18 TOKENS</dd>
+                </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
                 </div>
@@ -145,10 +145,10 @@ export const NewsHeroSection: React.FC = () => {
               </div>
 
               {/* Takeaway line */}
-              <div data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
-                <span data-source="widget" className="text-ink-subtle">Relative Ratio:</span>
-                <span {...claimAttrs('hero.exhibit-ratio')} className="text-ink font-bold text-sm">1.72× (+72% Difference)</span>
-              </div>
+              <dl data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
+                <dt data-source="widget" className="text-ink-subtle">Relative Ratio:</dt>
+                <dd {...claimAttrs('hero.exhibit-ratio')} className="text-ink font-bold text-sm">1.72× (+72% Difference)</dd>
+              </dl>
             </div>
 
             {/* News Archive Context Note */}

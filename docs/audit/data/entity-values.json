@@ -1378,6 +1378,12 @@
   "Result": [
    "src/entities/navigation/content/navigation.ts:18"
   ],
+  "섹션 바로가기": [
+   "src/entities/navigation/content/navigation.ts:35"
+  ],
+  "Story sections": [
+   "src/entities/navigation/content/navigation.ts:36"
+  ],
   "./content/navigation": [
    "src/entities/navigation/index.ts:1"
   ],

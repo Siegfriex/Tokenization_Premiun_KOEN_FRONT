@@ -66,40 +66,41 @@ export const MethodSection: React.FC = () => {
         <ArticleFullWidthBreak className="space-y-10 my-8">
           {/* Prominent Boundary Box: What We Do NOT Claim */}
           <div className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-10 space-y-6 shadow-xs">
-            <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-              <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+            <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+              <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
-              </span>
-              <span {...claimAttrs('method.principle-count')} className="text-xs font-mono text-ink-muted">6 Key Principles</span>
-            </div>
+              </dt>
+              <dd {...claimAttrs('method.principle-count')} className="text-xs font-mono text-ink-muted">6 Key Principles</dd>
+            </dl>
 
-            <div data-collection="what-we-do-not-claim" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <ul data-collection="what-we-do-not-claim" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               {WHAT_WE_DO_NOT_CLAIM.map((claim, idx) => (
-                <div data-role="collection-item" data-semantic-target="ul"
+                <li
                   key={idx}
+                  data-role="collection-item"
                   className="p-4 bg-surface border border-rule rounded-xs flex items-start gap-3 text-xs sm:text-sm text-ink"
                 >
                   <XCircle className="w-4 h-4 text-ink shrink-0 mt-0.5" />
-                  <span className="leading-snug text-ink-body">{isKo ? claim.ko : claim.en}</span>
-                </div>
+                  <span data-source="widget" className="leading-snug text-ink-body">{isKo ? claim.ko : claim.en}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Methodology Accordion */}
           <div className="space-y-4">
-            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
-              <span data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
+            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <dt data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
                 {isKo ? '세부 분석 방법론 (Methodological Pillars):' : 'Detailed Methodological Pillars:'}
-              </span>
-              <span data-source="widget" className="text-xs font-mono text-ink-muted">Click to expand</span>
-            </div>
+              </dt>
+              <dd data-source="widget" className="text-xs font-mono text-ink-muted">Click to expand</dd>
+            </dl>
 
-            <div data-collection="methodology-items" data-semantic-target="ul" className="grid grid-cols-1 gap-3">
+            <ul data-collection="methodology-items" className="grid grid-cols-1 gap-3">
               {METHODOLOGY_ITEMS.map((item) => {
                 const isOpen = openItemIds.includes(item.id);
                 return (
-                  <div
+                  <li
                     key={item.id}
                     data-item-id={item.id}
                     className="bg-surface border border-rule rounded-xs overflow-hidden transition-all shadow-2xs"
@@ -132,10 +133,10 @@ export const MethodSection: React.FC = () => {
                         {isKo ? item.content.ko : item.content.en}
                       </div>
                     )}
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         </ArticleFullWidthBreak>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useUILanguage } from '../features/change-language';
 import { LanguageSwitch } from '../features/change-language';
 import { useActiveSection, useScrollProgress } from '../features/observe-scroll-section';
-import { NAV_SECTIONS, NAV_SECTION_IDS } from '../entities/navigation';
+import { NAV_SECTIONS, NAV_SECTION_IDS, NAV_LANDMARK_LABEL } from '../entities/navigation';
 import { getLocalizedText } from '../shared/i18n';
 import { Container } from '../shared/ui';
 
@@ -34,18 +34,17 @@ export const StoryProgress: React.FC = () => {
         {/* Desktop Quick Nav Links */}
         <nav
           data-role="section-nav"
-          data-collection="nav-sections"
-          data-semantic-target="nav-list"
+          aria-label={getLocalizedText(NAV_LANDMARK_LABEL, language)}
           className="hidden lg:flex items-center gap-1 text-[11px] font-mono"
         >
+          <ul data-collection="nav-sections" className="flex items-center gap-1">
           {NAV_SECTIONS.map((sec) => {
             const isActive = activeSection === sec.id;
             return (
+              <li key={sec.id} data-item-id={sec.id}>
               <a
-                key={sec.id}
                 href={`#${sec.id}`}
                 aria-current={isActive ? 'location' : undefined}
-                data-item-id={sec.id}
                 data-active={isActive || undefined}
                 className={`px-2.5 py-1 rounded-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                   isActive
@@ -55,8 +54,10 @@ export const StoryProgress: React.FC = () => {
               >
                 {getLocalizedText(sec.label, language)}
               </a>
+              </li>
             );
           })}
+          </ul>
         </nav>
 
         {/* Right Controls: KO/EN Language Switch */}

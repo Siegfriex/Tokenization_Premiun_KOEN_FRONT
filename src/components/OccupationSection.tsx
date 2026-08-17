@@ -72,23 +72,23 @@ export const OccupationSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Interactive Simulator & Occupational Exposure */}
-        <ArticleFullWidthBreak className="space-y-12 my-8">
+        <ArticleFullWidthBreak figure className="space-y-12 my-8">
           {/* Interactive Repetition Multiplier & Oversized Number Display */}
           <div className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-10 space-y-8 shadow-xs">
             <div data-role="stat" data-semantic-target="dl" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-rule pb-4">
-              <div data-role="stat" data-semantic-target="dl" className="space-y-1">
-                <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
+              <dl data-role="stat" data-semantic-target="dl" className="space-y-1">
+                <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                   WORKFLOW REPETITION SIMULATOR
-                </span>
-                <span data-source="widget" className="text-xs text-ink-muted font-mono">
+                </dt>
+                <dd data-source="widget" className="text-xs text-ink-muted font-mono">
                   프롬프트 및 컨텍스트 누적 시뮬레이션
-                </span>
-              </div>
+                </dd>
+              </dl>
               {/* Quick preset buttons */}
-              <div data-collection="iteration-presets" data-semantic-target="ul" className="flex items-center gap-2">
+              <ul data-collection="iteration-presets" className="flex items-center gap-2">
                 {[10, 50, 100, 500, 1000].map((preset) => (
+                  <li key={preset}>
                   <SelectableCard
-                    key={preset}
                     selected={promptCount === preset}
                     onSelect={() => setPromptCount(preset)}
                     itemId={preset}
@@ -97,18 +97,19 @@ export const OccupationSection: React.FC = () => {
                   >
                     {preset.toLocaleString()}×
                   </SelectableCard>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Slider input */}
             <div className="space-y-3">
-              <div data-role="stat" data-semantic-target="dl" className="flex justify-between text-xs font-mono">
-                <span data-source="widget" className="text-ink-body font-semibold">반복 횟수 (Prompt Iterations):</span>
-                <span data-source="widget" className="text-ink font-bold text-sm font-mono">
+              <dl data-role="stat" data-semantic-target="dl" className="flex justify-between text-xs font-mono">
+                <dt data-source="widget" className="text-ink-body font-semibold">반복 횟수 (Prompt Iterations):</dt>
+                <dd data-source="widget" className="text-ink font-bold text-sm font-mono">
                   {promptCount.toLocaleString()} 회 호출
-                </span>
-              </div>
+                </dd>
+              </dl>
               <input
                 type="range"
                 min="1"
@@ -157,38 +158,38 @@ export const OccupationSection: React.FC = () => {
 
               {/* Minimalist Editorial Token Receipt */}
               <div className="p-5 bg-surface border border-rule rounded-xs font-mono text-xs max-w-lg mx-auto md:mx-0 space-y-3">
-                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-dashed border-rule pb-2 text-[11px]">
-                  <span data-source="widget" className="font-bold text-ink tracking-wider uppercase">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-dashed border-rule pb-2 text-[11px]">
+                  <dt data-source="widget" className="font-bold text-ink tracking-wider uppercase">
                     TOKEN RECEIPT (토큰 사용 명세서)
-                  </span>
-                  <span data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()} ITERATIONS</span>
-                </div>
+                  </dt>
+                  <dd data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()} ITERATIONS</dd>
+                </dl>
                 <div className="space-y-1.5 text-xs">
-                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                    <span data-source="widget" className="text-ink-body">KOREAN ({promptCount}회)</span>
-                    <span data-source="widget" className="font-bold text-ink">{totalKo.toLocaleString()} TOKENS</span>
-                  </div>
-                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                    <span data-source="widget" className="text-ink-muted">ENGLISH ({promptCount}회)</span>
-                    <span data-source="widget" className="text-ink-muted">{totalEn.toLocaleString()} TOKENS</span>
-                  </div>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                    <dt data-source="widget" className="text-ink-body">KOREAN ({promptCount}회)</dt>
+                    <dd data-source="widget" className="font-bold text-ink">{totalKo.toLocaleString()} TOKENS</dd>
+                  </dl>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                    <dt data-source="widget" className="text-ink-muted">ENGLISH ({promptCount}회)</dt>
+                    <dd data-source="widget" className="text-ink-muted">{totalEn.toLocaleString()} TOKENS</dd>
+                  </dl>
                 </div>
-                <div data-role="stat" data-semantic-target="dl" className="border-t border-rule-strong pt-2 flex justify-between font-bold text-sm text-ink">
-                  <span data-source="widget">ABSOLUTE GAP (순수 격차)</span>
-                  <span data-source="widget">+{totalGap.toLocaleString()} TOKENS</span>
-                </div>
+                <dl data-role="stat" data-semantic-target="dl" className="border-t border-rule-strong pt-2 flex justify-between font-bold text-sm text-ink">
+                  <dt data-source="widget">ABSOLUTE GAP (순수 격차)</dt>
+                  <dd data-source="widget">+{totalGap.toLocaleString()} TOKENS</dd>
+                </dl>
               </div>
             </div>
           </div>
 
           {/* Occupational Cluster Analysis */}
           <div className="space-y-8">
-            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
-              <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 OCCUPATIONAL SENSITIVITY COMPARISON
-              </span>
-              <span data-source="widget" className="text-xs font-mono text-ink-muted">AI Exposure vs. Language Intensity</span>
-            </div>
+              </dt>
+              <dd data-source="widget" className="text-xs font-mono text-ink-muted">AI Exposure vs. Language Intensity</dd>
+            </dl>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Cluster 1: Engineering / Technical */}
@@ -204,14 +205,14 @@ export const OccupationSection: React.FC = () => {
                   </div>
 
                   <div className="space-y-2 text-xs font-mono">
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <span data-source="widget" className="text-ink-muted">AI Exposure Level:</span>
-                      <span className="font-bold text-ink">{engineeringData.aiExposureLevel}</span>
-                    </div>
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <span data-source="widget" className="text-ink-muted">Language Intensity:</span>
-                      <span className="text-ink-body font-semibold">{engineeringData.languageIntensity}</span>
-                    </div>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                      <dt data-source="widget" className="text-ink-muted">AI Exposure Level:</dt>
+                      <dd className="font-bold text-ink">{engineeringData.aiExposureLevel}</dd>
+                    </dl>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                      <dt data-source="widget" className="text-ink-muted">Language Intensity:</dt>
+                      <dd className="text-ink-body font-semibold">{engineeringData.languageIntensity}</dd>
+                    </dl>
                   </div>
 
                   <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface p-4 rounded-xs border border-rule">
@@ -262,14 +263,14 @@ export const OccupationSection: React.FC = () => {
                   </div>
 
                   <div className="space-y-2 text-xs font-mono">
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <span data-source="widget" className="text-ink-muted">AI Exposure Level:</span>
-                      <span className="font-bold text-ink">{socialScienceData.aiExposureLevel}</span>
-                    </div>
-                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <span data-source="widget" className="text-ink-muted">Language Intensity:</span>
-                      <span className="text-ink font-bold">{socialScienceData.languageIntensity}</span>
-                    </div>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                      <dt data-source="widget" className="text-ink-muted">AI Exposure Level:</dt>
+                      <dd className="font-bold text-ink">{socialScienceData.aiExposureLevel}</dd>
+                    </dl>
+                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                      <dt data-source="widget" className="text-ink-muted">Language Intensity:</dt>
+                      <dd className="text-ink font-bold">{socialScienceData.languageIntensity}</dd>
+                    </dl>
                   </div>
 
                   <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface-alt p-4 rounded-xs border border-rule">

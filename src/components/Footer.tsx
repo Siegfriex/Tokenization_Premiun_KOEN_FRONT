@@ -39,30 +39,30 @@ export const Footer: React.FC = () => {
         {/* 3 Columns Notes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-2">
-            <h4 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+            <h2 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
               <Database className="w-3.5 h-3.5 text-ink" />
               <span data-source="widget">데이터 출처 및 기준</span>
-            </h4>
+            </h2>
             <p data-source="widget" className="text-ink-muted leading-relaxed text-xs">
               OpenAI Tiktoken 및 BPE 어휘집 라이브러리, Flores-200 다국어 벤치마크, 한국노동연구원/고용정보원 AI 직무 노출도 연구 보고서, 과학기술정보통신부 국가 AI 인프라 정책 공시.
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+            <h2 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-ink" />
               <span data-source="widget">연구 윤리 및 중립성</span>
-            </h4>
+            </h2>
             <p data-source="widget" className="text-ink-muted leading-relaxed text-xs">
               본 프로젝트는 특정 모델 벤더 또는 특정 언어의 상업적 이해관계와 무관하며, 데이터 무결성 원칙에 따라 검증되지 않은 수치는 배제하고 분석되었습니다.
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+            <h2 data-role="heading" data-semantic-target="heading" className="font-mono font-bold text-ink uppercase tracking-wider text-[11px] flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-ink" />
               <span data-source="widget">조건부 연구 해석 안내</span>
-            </h4>
+            </h2>
             <p data-source="widget" className="text-ink-muted leading-relaxed text-xs">
               모든 분석 수치는 제시된 토크나이저 및 표본 문장군에 국한되며, 모델 고도화 및 어휘집 개편에 따라 결과는 갱신될 수 있습니다.
             </p>

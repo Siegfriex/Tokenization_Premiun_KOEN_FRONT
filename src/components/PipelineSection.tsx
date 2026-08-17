@@ -60,27 +60,27 @@ export const PipelineSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Pipeline Visualization */}
-        <ArticleFullWidthBreak className="space-y-8 my-8">
+        <ArticleFullWidthBreak figure className="space-y-8 my-8">
           <div className="space-y-8">
-            <div data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
-              <span data-source="widget">TRANSFORMER PIPELINE SEQUENCING</span>
-              <span data-source="widget" className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</span>
-            </div>
+            <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
+              <dt data-source="widget">TRANSFORMER PIPELINE SEQUENCING</dt>
+              <dd data-source="widget" className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</dd>
+            </dl>
 
             {/* Horizontal Steps Grid */}
-            <div data-collection="pipeline-steps" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+            <ul data-collection="pipeline-steps" className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
               {PIPELINE_STEPS.map((item, idx) => {
                 const isActive = activeStep === idx;
                 return (
+                  <li key={item.id} className="h-full">
                   <SelectableCard
-                    key={item.id}
                     selected={isActive}
                     onSelect={() => setActiveStep(idx)}
                     itemId={item.id}
                     surface="surface-alt"
                     variant="outline"
                     emphasized={item.highlight}
-                    className="p-5 flex flex-col justify-between space-y-4 text-left w-full"
+                    className="p-5 flex flex-col justify-between space-y-4 text-left w-full h-full"
                   >
                     <span className="block space-y-2">
                       <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
@@ -123,9 +123,10 @@ export const PipelineSection: React.FC = () => {
                       {getLocalizedText(item.description, language)}
                     </span>
                   </SelectableCard>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
             {/* Figure Caption & Source */}
             <ArticleFigureCaption
