@@ -24,17 +24,17 @@ breaks the next time the design changes and it breaks the next time content is
 added. It is not an address; it is a description of how something currently
 looks and where it currently sits.
 
-The same node in this system is **`HERO-017`**.
+The same node in this system is **`HERO-044`**.
 
 The four selectors that prompted this work all resolve, and each one names a
 different failure:
 
-| Pasted selector | Trace ID | Why it needed a selector that long |
-|---|---|---|
-| `…div.text-xs.font-mono.text-ink-muted.font-bold.uppercase.tracking-widest.mb-4` | `HERO-036` | `LABEL_ORPHAN` — a label with no tie to what it labels |
-| `header > div… > nav` | `NAV-006` | `NAV_LIST` — nav with no accessible name, links not a list |
-| `…gap-8.text-xs.font-mono.text-ink-body > div:nth-child(3)` | `HERO-017` | `DL_PAIR`, `NTH_CHILD_ONLY` — a term/value pair with no class at all |
-| `button:nth-child(4) > span.flex.items-center.justify-between.text-xs.font-mono` | `PREM-034` | `DL_PAIR` — a term/value row whose halves are nested wrappers |
+| Pasted selector | Trace ID | Fault it exposed | State now |
+|---|---|---|---|
+| `…div.text-xs.font-mono.text-ink-muted.font-bold.uppercase.tracking-widest.mb-4` | `HERO-036` | `LABEL_ORPHAN` — a label with no tie to what it labels | hooked; label association still open |
+| `header > div… > nav` | `NAV-006` | nav with no accessible name, links not a list | resolved — `nav[aria-label] > ul > li` |
+| `…gap-8.text-xs.font-mono.text-ink-body > div:nth-child(3)` | `HERO-044` | a term/value pair with no class at all, reachable only by sibling index | resolved — `dl > dt + dd` |
+| `button:nth-child(4) > span.flex.items-center.justify-between.text-xs.font-mono` | `PREM-034` | a term/value row whose halves are nested wrappers | hooked; `dl` conversion still open |
 
 Measured across the rendered frontend:
 
@@ -77,7 +77,7 @@ Machine-readable equivalents live in [`data/`](data/):
 
 ## Trace IDs
 
-`<WIDGET>-<NNN>` — e.g. `PREM-028`, `HERO-011`, `LANG-019`.
+`<WIDGET>-<NNN>` — e.g. `PREM-032`, `HERO-025`, `LANG-019`.
 
 | Code | Rendering unit | Code | Rendering unit |
 |---|---|---|---|
@@ -90,15 +90,22 @@ Machine-readable equivalents live in [`data/`](data/):
 | `LANG` | MultilingualTokenEfficiencySection | `UI` | shared/ui primitives |
 | `APP` | App shell | `DEAD` | MultilingualSection (not rendered) |
 
-**IDs are stable and unique.** `build-ledger.mjs` reuses an existing ID for any
-node that still matches on its identity key —
-`(file, jsxTag, literal, collection, occurrence-ordinal)`. The ordinal matters:
-without it the three `<h4>`s in `Footer` collapse onto one ID, which would
-break the whole premise. Only genuinely new nodes get new IDs.
+**IDs are stable and unique.** The identity key is deliberately
+**element-agnostic** for content nodes: a node that renders text is keyed by
+`(file, literal, collection, occurrence-ordinal)`, and only a node with no text
+is keyed by its tag. An earlier scheme included the tag, and the B3 semantic
+migration — `<span>` to `<dd>` — silently reminted six claim Trace IDs. A
+content node's identity is its text, not the box it sits in.
 
-Verified on every run: 402 items, 402 unique IDs, zero drift on re-run.
-`data/trace-ledger.json` is the registry — commit it and IDs survive
-refactoring even as line numbers move.
+`data/id-registry.json` is the pin: identity to Trace ID, append-only. An id
+that has ever been issued is never handed to a different node, even after the
+original disappears, because a recycled id silently retargets every document
+citing it.
+
+`tools/check-citations.mjs` runs as part of the pipeline and fails on any Trace
+ID cited in prose that no longer exists. It was added after
+`DIRECTOR_DECISIONS.md` was found citing fifteen ids that had never matched the
+committed ledger.
 
 ## Hook values must not collide with Tailwind utilities
 

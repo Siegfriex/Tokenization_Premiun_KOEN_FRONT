@@ -3,7 +3,6 @@ import { useUILanguage } from '../features/change-language';
 import { METHODOLOGY_ITEMS, WHAT_WE_DO_NOT_CLAIM } from '../entities/methodology';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Container, SectionHeading, HeadingAccent } from '../shared/ui';
-import { claimAttrs, claimText } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -70,7 +69,7 @@ export const MethodSection: React.FC = () => {
               <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
               </dt>
-              <dd {...claimAttrs('method.principle-count')} className="text-xs font-mono text-ink-muted">{claimText('method.principle-count')}</dd>
+              <dd className="text-xs font-mono text-ink-muted">6 Key Principles</dd>
             </dl>
 
             <ul data-collection="what-we-do-not-claim" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">

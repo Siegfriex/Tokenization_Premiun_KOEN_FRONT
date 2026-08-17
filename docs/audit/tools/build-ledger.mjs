@@ -239,13 +239,37 @@ function recommendHook(r, claims) {
  * ---------------------------------------------------------------- */
 const prevPath = path.join(DATA, 'trace-ledger.json');
 const prev = fs.existsSync(prevPath) ? JSON.parse(fs.readFileSync(prevPath, 'utf8')) : { items: [] };
-// Identity key must be UNIQUE per node, not just descriptive: three <h4>s in
-// Footer share tag, file and (empty) literal. The occurrence ordinal of an
-// otherwise-identical key disambiguates them and is still stable across edits
-// that do not add or remove a sibling of the same shape.
-const prevById = new Map(prev.items.map((i) => [i.identityKey ?? `${i.file}|${i.jsxTag}|${i.literal}|${i.mapOver ?? ''}|0`, i.traceId]));
+/**
+ * IDENTITY KEY — element-agnostic for content nodes.
+ *
+ * The key used to include jsxTag. That made every semantic refactor remint the
+ * ids of the nodes it touched: B3 changed <span> to <dd> on six claim rows and
+ * six Trace IDs silently moved, which is the opposite of what a trace id is
+ * for. A content node's identity is its text, not the box it sits in.
+ *
+ * So: a node that renders a literal is keyed by that literal. A node that does
+ * not is keyed by its tag, because it has nothing else. The trailing ordinal
+ * disambiguates genuinely identical siblings (Footer's three headings).
+ */
+const identityOf = (r) => {
+  const base = r.literalText
+    ? `${r.file}|LIT|${r.literalText}|${r.mapOver ?? ''}`
+    : `${r.file}|TAG|${r.jsxTag}|${r.mapOver ?? ''}`;
+  return base;
+};
+
+/**
+ * The pinned id registry. docs/audit/data/id-registry.json is authoritative:
+ * it maps identity -> Trace ID and is what keeps ids stable across refactors.
+ * The previous ledger is only a fallback for a fresh checkout.
+ */
+const regPath = path.join(DATA, 'id-registry.json');
+const registry = fs.existsSync(regPath) ? JSON.parse(fs.readFileSync(regPath, 'utf8')) : {};
+const prevById = new Map(Object.entries(registry));
+for (const i of prev.items) if (i.identityKey && !prevById.has(i.identityKey)) prevById.set(i.identityKey, i.traceId);
 const counters = {};
 const keySeen = {};
+const usedIds = new Set(prevById.values());
 
 const items = [];
 for (const r of raw) {
@@ -257,21 +281,31 @@ for (const r of raw) {
   const structural = !!gap;
   const designed = r.roles.typography.length || r.roles.colour.length;
 
-  // only meaningful content-bearing or structure-bearing nodes enter the ledger
-  if (!hasContent && !structural && !claims.length && !(r.hasId && r.domTag === 'section')) continue;
+  // Meaningful content-bearing or structure-bearing nodes enter the ledger —
+  // and so does anything carrying a stable hook, even once its gap is closed.
+  // Without that last clause a node DROPS OUT of the ledger the moment it is
+  // fixed: the nav and the hero stat rows vanished after B3, so there was no
+  // way to confirm from the ledger that they had been repaired rather than
+  // deleted. A control plane must be able to show its own successes.
+  const hooked = r.dataAttrs.length > 0;
+  if (!hasContent && !structural && !claims.length && !hooked && !(r.hasId && r.domTag === 'section')) continue;
 
   const code = codeOf(r.file);
-  const baseKey = `${r.file}|${r.jsxTag}|${r.literalText}|${r.mapOver ?? ''}`;
+  const baseKey = identityOf(r);
   const ord = (keySeen[baseKey] = (keySeen[baseKey] ?? -1) + 1);
   const key = `${baseKey}|${ord}`;
   let traceId = prevById.get(key);
   if (!traceId) {
+    // A new id must never reuse one the registry already pinned, even for a
+    // node that has since disappeared — a recycled Trace ID is worse than a
+    // missing one, because every doc citing it silently retargets.
     counters[code] = (counters[code] ?? 0) + 1;
     traceId = `${code}-${String(counters[code]).padStart(3, '0')}`;
-    while (items.some((i) => i.traceId === traceId)) {
+    while (usedIds.has(traceId) || items.some((i) => i.traceId === traceId)) {
       counters[code]++; traceId = `${code}-${String(counters[code]).padStart(3, '0')}`;
     }
   }
+  usedIds.add(traceId);
 
   // primary category
   let primary = 'DESIGN_APPLICATION';
@@ -317,7 +351,8 @@ for (const r of raw) {
     : null;
 
   let risk = 'LOW';
-  if (mismatch.startsWith('CONTRADICTED')) risk = 'CRITICAL';
+  if (r.unresolvedSpread) risk = 'UNTRUSTED (unresolved spread)';
+  else if (mismatch.startsWith('CONTRADICTED')) risk = 'CRITICAL';
   else if (mismatch.startsWith('DUPLICATED')) risk = 'HIGH';
   else if (mismatch.startsWith('UNLINKED')) risk = 'HIGH';
   else if (claims.length) risk = 'HIGH';
@@ -346,10 +381,15 @@ for (const r of raw) {
     domTag: r.domTag,
     locator: r.locator,
     locatorPath: r.locatorPath,
-    addressing: r.hasId ? 'STABLE (id)'
+    // An unresolvable spread outranks every other signal. The node may or may
+    // not carry hooks; the tool cannot see, and saying "STABLE" here would be
+    // the same guess that caused the incident.
+    addressing: r.unresolvedSpread ? 'UNRESOLVED_SPREAD'
+      : r.hasId ? 'STABLE (id)'
       : r.dataAttrs.length ? 'STABLE (data-*)'
       : r.classTokens.length ? 'STYLE_SIGNATURE'
       : 'NTH_CHILD_ONLY',
+    unresolvedSpread: r.unresolvedSpread ?? null,
     literal: r.literalText,
     mapOver: r.mapOver,
     numericClaims: claims,
@@ -380,6 +420,12 @@ for (const r of raw) {
 const out = { generatedFrom: 'docs/audit/tools/extract-trace.mjs + build-ledger.mjs', itemCount: items.length, items };
 fs.writeFileSync(prevPath, JSON.stringify(out, null, 1));
 
+// Persist the pin. Every id ever issued stays in the registry, including for
+// nodes that no longer exist, so it can never be handed to a different node.
+const nextRegistry = { ...registry };
+for (const i of items) nextRegistry[i.identityKey] = i.traceId;
+fs.writeFileSync(regPath, JSON.stringify(Object.fromEntries(Object.entries(nextRegistry).sort()), null, 1));
+
 const CSV_COLS = ['traceId','primaryCategory','categories','widget','section','file','lines','jsxTag','domTag','addressing','locator','literal','mapOver','numericClaims','mismatchStatus','directorDecisionRequired','semanticGap','recommendedSemantics','recommendedHook','typographyRole','colorRole','layoutRole','relatedPrimitive','risk','batch'];
 const esc = (v) => {
   const s = Array.isArray(v) ? v.map((x) => (typeof x === 'object' ? `${x.kind}:${x.value}` : x)).join(' ') : v == null ? '' : String(v);
@@ -396,3 +442,5 @@ console.log('by batch    :', Object.entries(by((i) => i.batch)).map(([k, v]) => 
 console.log('by addressing:', Object.entries(by((i) => i.addressing)).map(([k, v]) => `${k}=${v.length}`).join('  '));
 console.log('semantic gaps:', Object.entries(by((i) => i.semanticGap ?? '-')).map(([k, v]) => `${k}=${v.length}`).join('  '));
 console.log('director queue:', items.filter((i) => i.directorDecisionRequired && !i.deadFile).length);
+const unresolved = items.filter((i) => i.unresolvedSpread && !i.deadFile);
+console.log('UNRESOLVED_SPREAD:', unresolved.length, unresolved.length ? '<-- ledger cannot be trusted for these nodes' : '(clean)');

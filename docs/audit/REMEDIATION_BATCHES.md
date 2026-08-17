@@ -15,6 +15,60 @@ one mechanical, and running them out of order forces re-work.
 | **B5** design-role formalisation | 10 primary, 51 signatures | possibly | B2, B3 |
 | **B6** dead code | 57 | none | Director |
 
+## Batch status
+
+| Batch | State |
+|---|---|
+| B1 | open — blocked on Director D1-D4 |
+| B2a / B2b | landed, minus the claim-node hooks withdrawn during the incident below |
+| B3 | landed and re-verified against the repaired extraction model |
+| **B4** | **reverted.** See the incident record |
+| B5 / B6 | not started |
+
+## Control-plane integrity incident — B4 phase 1 reverted
+
+B4 phase 1 moved the 22 frozen claim strings out of the widgets and into a
+registry, and attached `data-claim-*` to their nodes through a
+`{...claimAttrs(id)}` spread. Both halves broke the ledger, in ways every
+check I ran was blind to:
+
+1. **The claim detector reads literal text in JSX.** With the literals moved to
+   the registry there was nothing left to read, so all 22 claims disappeared
+   from the ledger. Director queue went 16 -> 0. CRITICAL went 10 -> 0. The
+   commit reported CSS byte-identity and a clean bundle string diff, both true
+   and both irrelevant to the thing that broke.
+2. **The extractor pattern-matched the spread and synthesised the attributes it
+   assumed would result.** It reported what it expected rather than what it
+   could see, which is why the loss stayed invisible.
+
+Two older faults surfaced during the repair:
+
+3. **Trace IDs were not stable across semantic refactoring.** The identity key
+   included the element tag, so B3's `<span>` to `<dd>` conversion reminted six
+   claim ids.
+4. **`DIRECTOR_DECISIONS.md` had been citing fifteen Trace IDs that never
+   matched the committed ledger.** The doc was written from one tool run; the
+   tools were re-run with a corrected rule; the ids moved; nobody re-read the
+   doc. The decision queue — the most safety-critical artifact here — pointed
+   at the wrong rows for several commits.
+
+Repairs, all in `repair/control-plane-integrity`:
+
+- `6e933b7` reverted in full; `claimAttrs` removed from all 22 nodes and the
+  helper deleted so it cannot be reattached without re-approval
+- the extractor no longer guesses: an unresolvable spread is recorded as
+  `UNRESOLVED_SPREAD` and escalates the node to `UNTRUSTED`
+- identity keys are element-agnostic for content nodes; `data/id-registry.json`
+  pins them append-only so an id is never recycled
+- the ledger keeps nodes that carry a hook even after their gap closes — they
+  were dropping out on repair, so the ledger could not show its own successes
+- `check-citations.mjs` fails the pipeline on any dangling Trace ID, and
+  `run-pipeline.mjs` makes the four steps one command
+
+**B4 does not resume from momentum.** Re-attaching claim metadata to nodes, and
+moving display strings into the registry, is a design that needs reviewer
+re-approval *and* a detector that can follow the indirection. Neither exists.
+
 B2 is split into two packages. **B2a** lays the vocabulary and applies it where
 a node already has a name in the design system — section roots, the nav, the
 shared primitives, the collections, and the claim nodes. **B2b** closes the

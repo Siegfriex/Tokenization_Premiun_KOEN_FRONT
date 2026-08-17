@@ -151,14 +151,17 @@ function attrsOf(open) {
   const out = {};
   for (const a of open.attributes?.properties ?? []) {
     if (ts.isJsxSpreadAttribute(a)) {
-      const t = a.expression.getText();
-      const m = /claimAttrs\(\s*['"]([^'"]+)['"]\s*\)/.exec(t);
-      if (m) {
-        out['data-claim-id'] = { dynamic: false, text: m[1] };
-        out['data-claim-status'] = { dynamic: true, text: 'from claim registry' };
-        out['data-trace-id'] = { dynamic: true, text: 'from claim registry' };
-        out['data-source'] = { dynamic: false, text: 'widget' };
-      }
+      // A spread hides its attributes behind a function call. An earlier
+      // revision of this tool pattern-matched `claimAttrs(...)` and SYNTHESISED
+      // the attributes it assumed would result. That guess is what let 22
+      // tracked claims disappear from the ledger while every check stayed
+      // green: the tool reported what it expected rather than what it could
+      // see.
+      //
+      // It no longer guesses. An unresolvable spread is recorded as exactly
+      // that, and downstream must treat the node as UNTRUSTED rather than
+      // assume anything about it.
+      out.__unresolvedSpread = { dynamic: true, text: a.expression.getText().replace(/\s+/g, ' ').slice(0, 160) };
       continue;
     }
     if (!ts.isJsxAttribute(a) || !a.name) continue;
@@ -225,6 +228,7 @@ for (const file of RENDER_FILES) {
       const dom = domFor(tag, attrs);
 
       const hasId = 'id' in attrs;
+      const unresolvedSpread = attrs.__unresolvedSpread ? attrs.__unresolvedSpread.text : null;
       const dataAttrs = Object.keys(attrs).filter((k) => k.startsWith('data-'));
       if (dom.role && !dataAttrs.includes('data-role')) dataAttrs.push('data-role(primitive)');
       if (attrs.claim && !dataAttrs.includes('data-claim-id')) dataAttrs.push('data-claim-id(primitive)');
@@ -291,6 +295,7 @@ for (const file of RENDER_FILES) {
         classTokens: tokens,
         roles,
         hasId,
+        unresolvedSpread,
         idValue: attrs.id && attrs.id.text ? attrs.id.text : null,
         dataAttrs,
         ariaAttrs,

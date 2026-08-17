@@ -25,13 +25,13 @@ from that array:
 
 | Trace ID | Line | Markup renders | Repository holds |
 |---|---|---|---|
-| `PREM-010` | 72-76 | headline `1.29× ~ 1.83×` | ratio range is `1.13 – 1.75` |
-| `PREM-016` | 82 | `Average Token Premium: 1.68× (+68%)` | mean of the 6 ratios is `1.513`; no entity holds `1.68` |
-| `PREM-022` | 90 | `Domain Range: Business (1.44×) ~ Daily (1.83×)` | no domain named "Business" exists; `Colloquial / Daily` has ratio `1.38` |
-| `PREM-028` | 121 | `7 Benchmark Domains` | the array has **6** entries |
-| `PREM-041` | 179 | `Max Observed: 1.83×` | highest ratio is `1.75` (`public-municipal-web`) |
-| `PREM-019` | 86 | `1.00× (Standard)` as an English baseline row | no baseline row exists in the array |
-| `PREM-040` | 178 | `Baseline: 1.00× (English)` | as above |
+| `PREM-011` | 72-76 | headline `1.29× ~ 1.83×` | ratio range is `1.13 – 1.75` |
+| `PREM-017` | 82 | `Average Token Premium: 1.68× (+68%)` | mean of the 6 ratios is `1.513`; no entity holds `1.68` |
+| `PREM-023` | 90 | `Domain Range: Business (1.44×) ~ Daily (1.83×)` | no domain named "Business" exists; `Colloquial / Daily` has ratio `1.38` |
+| `PREM-032` | 121 | `7 Benchmark Domains` | the array has **6** entries |
+| `PREM-039` | 179 | `Max Observed: 1.83×` | highest ratio is `1.75` (`public-municipal-web`) |
+| `PREM-020` | 86 | `1.00× (Standard)` as an English baseline row | no baseline row exists in the array |
+| `PREM-038` | 178 | `Baseline: 1.00× (English)` | as above |
 | `PREM-002` `PREM-003` | 31, 37 | `69,432` pairs, in the section heading | no entity holds a corpus size |
 
 **What is not being claimed here.** These figures may be correct and simply
@@ -57,12 +57,12 @@ with a ratio, presented as a real measurement.
 
 | Trace ID | Line | Markup renders | Repository holds |
 |---|---|---|---|
-| `HERO-020` | 113 | `31 TOKENS` (Korean row) | no `CURATED_PAIRED_SENTENCES` entry has `hangulCount: 31`. `TOKEN_BASELINE_SIMULATION.baseKoPerPrompt` is `31` — a different quantity (per-prompt simulation baseline, not a sentence) |
-| `HERO-024` | 130 | `18 TOKENS` (English row) | no entry pairs 31 with 18. `TOKEN_BASELINE_SIMULATION.baseEnPerPrompt` is `24` |
-| `HERO-028` | 143 | `1.72× (+72% Difference)` | internally consistent with 31/18, but 31/18 is itself unsourced |
+| `HERO-025` | 113 | `31 TOKENS` (Korean row) | no `CURATED_PAIRED_SENTENCES` entry has `hangulCount: 31`. `TOKEN_BASELINE_SIMULATION.baseKoPerPrompt` is `31` — a different quantity (per-prompt simulation baseline, not a sentence) |
+| `HERO-029` | 130 | `18 TOKENS` (English row) | no entry pairs 31 with 18. `TOKEN_BASELINE_SIMULATION.baseEnPerPrompt` is `24` |
+| `HERO-033` | 143 | `1.72× (+72% Difference)` | internally consistent with 31/18, but 31/18 is itself unsourced |
 
 The exhibit also renders two truncated Korean/English sentences
-(`HERO-021`, `HERO-025`) that appear in no entity.
+(`HERO-026`, `HERO-030`) that appear in no entity.
 
 **Decision needed:** is this exhibit a real measured pair that must be added to
 `CURATED_PAIRED_SENTENCES` with its provenance, or an illustrative mock that
@@ -76,9 +76,9 @@ must be labelled as such?
 
 | Trace ID | Widget | Line | Markup hardcodes | Entity that also holds it |
 |---|---|---|---|---|
-| `HERO-014` | NewsHeroSection | 90 | `+78% Hangul Token Burden` | `MULTILINGUAL_COMPARISON_DATA` `ko.differencePercent = 78` |
+| `HERO-019` | NewsHeroSection | 90 | `+78% Hangul Token Burden` | `MULTILINGUAL_COMPARISON_DATA` `ko.differencePercent = 78` |
 | `LANG-019` | MultilingualTokenEfficiencySection | 139-141 | `…대비 1.78배의 토큰이 소비됩니다.` | `ko.relativeRatio = 1.78` |
-| `LANG-029` | MultilingualTokenEfficiencySection | 275 | `한국어 한글 (1.78×)` | `ko.relativeRatio = 1.78` |
+| `LANG-032` | MultilingualTokenEfficiencySection | 275 | `한국어 한글 (1.78×)` | `ko.relativeRatio = 1.78` |
 
 These are correct **right now**. They are in this queue because the markup owns
 its own copy: if the entity is ever corrected, these three do not move, and the
@@ -96,10 +96,10 @@ research figures is not a call this role makes unilaterally.
 
 | Trace ID | Widget | Line | Markup renders | Note |
 |---|---|---|---|---|
-| `BURD-014` | OccupationSection | 121 | `1,000회 (팀 일간 워크플로우)` | slider tick label; characterises a workload, no entity holds it |
-| `BURD-015` | OccupationSection | 122 | `2,000회 (전사 에이전트 루틴)` | as above; also the slider `max` |
-| `LANG-028` | MultilingualTokenEfficiencySection | 271 | `라틴 알파벳 기준 (1.00×)` | chart legend; no baseline row exists in `MULTILINGUAL_COMPARISON_DATA` |
-| `PREM-002/003` | TokenPremiumSection | 31, 37 | `69,432` | see D1 |
+| `BURD-017` | OccupationSection | 121 | `1,000회 (팀 일간 워크플로우)` | slider tick label; characterises a workload, no entity holds it |
+| `BURD-018` | OccupationSection | 122 | `2,000회 (전사 에이전트 루틴)` | as above; also the slider `max` |
+| `LANG-031` | MultilingualTokenEfficiencySection | 271 | `라틴 알파벳 기준 (1.00×)` | chart legend; no baseline row exists in `MULTILINGUAL_COMPARISON_DATA` |
+| `PREM-002` `PREM-003` | TokenPremiumSection | 31, 37 | `69,432` | see D1 |
 | `METH-008` | MethodSection | 72 | `6 Key Principles` | equals `WHAT_WE_DO_NOT_CLAIM.length` (6) **today**, but is hardcoded, not read. Reclassified from COUNT_VERIFIED to UNLINKED: a coincidence is not a link, and it will drift silently the moment the array changes |
 
 **Decision needed:** are these editorial characterisations (fine to keep, but

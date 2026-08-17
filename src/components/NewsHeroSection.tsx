@@ -4,7 +4,6 @@ import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Container, SectionEyebrow, HeadingAccent } from '../shared/ui';
-import { claimAttrs, claimText } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -94,7 +93,7 @@ export const NewsHeroSection: React.FC = () => {
               </dl>
               <dl data-role="stat" data-stat="observed-gap">
                 <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</dt>
-                <dd {...claimAttrs('hero.observed-gap')} className="text-ink font-bold">{claimText('hero.observed-gap')}</dd>
+                <dd className="text-ink font-bold">+78% Hangul Token Burden</dd>
               </dl>
             </div>
           </div>
@@ -117,7 +116,7 @@ export const NewsHeroSection: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
                     Korean (한국어)
                   </dt>
-                  <dd {...claimAttrs('hero.exhibit-hangul-tokens')} className="text-ink font-bold text-sm">{claimText('hero.exhibit-hangul-tokens')}</dd>
+                  <dd className="text-ink font-bold text-sm">31 TOKENS</dd>
                 </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
@@ -134,7 +133,7 @@ export const NewsHeroSection: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-ink-muted"></span>
                     English (영어)
                   </dt>
-                  <dd {...claimAttrs('hero.exhibit-english-tokens')} className="text-ink-body font-bold text-sm">{claimText('hero.exhibit-english-tokens')}</dd>
+                  <dd className="text-ink-body font-bold text-sm">18 TOKENS</dd>
                 </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
@@ -147,7 +146,7 @@ export const NewsHeroSection: React.FC = () => {
               {/* Takeaway line */}
               <dl data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
                 <dt data-source="widget" className="text-ink-subtle">Relative Ratio:</dt>
-                <dd {...claimAttrs('hero.exhibit-ratio')} className="text-ink font-bold text-sm">{claimText('hero.exhibit-ratio')}</dd>
+                <dd className="text-ink font-bold text-sm">1.72× (+72% Difference)</dd>
               </dl>
             </div>
 
