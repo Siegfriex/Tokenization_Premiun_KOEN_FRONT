@@ -194,3 +194,28 @@ further step relative to step 02's accent fill, so "the bottleneck" reads
 as a discovery, not merely the loudest of five equals. Screenshotted
 1440×KO: 0 overflow, step 02 unambiguous focal point, others visibly
 quieter. tsc clean, build passes, audit pipeline diff-reproducible.
+
+**Findings (Director redline pass 2, 2026-08-17 — full work-order spec):**
+Director's formal work order gave S03 a sharper, more specific brief than
+the earlier tier-system pass: "69,432와 1.29×~1.83×가 같은 증거 계보로 묶여야
+하고... 아래 카드들은 예쁜 데이터 카드보다 검증 패널처럼." Two decisions:
+
+- **Deliberately NOT done:** duplicating "69,432" into the tier-1 card to
+  visually pair it with "1.29×~1.83×". `69,432` is Director-frozen
+  (`DIRECTOR_DECISIONS.md` D4, `PREM-002`/`PREM-003`, status UNLINKED —
+  "no entity holds this value"). Creating a second on-screen occurrence of
+  a disputed, untracked figure — even without changing its text — expands
+  a frozen claim's footprint in a way this pass isn't authorized to do
+  unilaterally. The H2 headline already carries `69,432건` as an
+  accent-underlined evidence object (pre-existing); left as the sole
+  occurrence pending D1/D4 resolution.
+- **Done:** domain-distribution list restyled toward ledger/audit-panel
+  rigor rather than decorative cards — row rhythm tightened (`space-y-4`
+  → `space-y-3`), token-count and ratio figures set to `tabular-nums` for
+  consistent digit-column alignment (a pure typographic add, zero content
+  change). `font-mono` on the tier-1 stat rows already provides
+  fixed-width digits, so no change needed there.
+
+Screenshotted 1440×KO: 0 overflow, rows read denser/more tabular. tsc
+clean, build passes, audit pipeline diff-reproducible, director queue
+unchanged at 16.
