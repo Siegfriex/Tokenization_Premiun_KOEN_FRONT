@@ -3658,10 +3658,10 @@
     }
    ],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "COUNT_VERIFIED (WHAT_WE_DO_NOT_CLAIM.length = 6)",
+   "mismatchStatus": "UNLINKED — count coincides with WHAT_WE_DO_NOT_CLAIM.length (6) but is not read from it",
    "contradiction": null,
    "countCheck": "rendered 6 vs WHAT_WE_DO_NOT_CLAIM.length 6",
-   "directorDecisionRequired": false,
+   "directorDecisionRequired": true,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
@@ -3675,7 +3675,7 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "LOW",
+   "risk": "HIGH",
    "batch": "B1-numeric-freeze",
    "deadFile": false
   },

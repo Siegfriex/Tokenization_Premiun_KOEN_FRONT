@@ -100,6 +100,7 @@ research figures is not a call this role makes unilaterally.
 | `BURD-015` | OccupationSection | 122 | `2,000회 (전사 에이전트 루틴)` | as above; also the slider `max` |
 | `LANG-028` | MultilingualTokenEfficiencySection | 271 | `라틴 알파벳 기준 (1.00×)` | chart legend; no baseline row exists in `MULTILINGUAL_COMPARISON_DATA` |
 | `PREM-002/003` | TokenPremiumSection | 31, 37 | `69,432` | see D1 |
+| `METH-008` | MethodSection | 72 | `6 Key Principles` | equals `WHAT_WE_DO_NOT_CLAIM.length` (6) **today**, but is hardcoded, not read. Reclassified from COUNT_VERIFIED to UNLINKED: a coincidence is not a link, and it will drift silently the moment the array changes |
 
 **Decision needed:** are these editorial characterisations (fine to keep, but
 should be entity-owned copy) or research quantities (need provenance)?

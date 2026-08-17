@@ -384,7 +384,7 @@ _S6 Methodology & Limits · src/components/MethodSection.tsx · 18 tracked nodes
 | `METH-005` | 60 | `p` | DOM STRUCTURE | nth-child | _(ArticleParagraph)_ | LIST | MEDIUM | B3-semantic-dom |
 | `METH-006` | 68-73 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `METH-007` | 69-71 | `span` | CONTENT | style | CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim) | — | MEDIUM | B4-content-migration |
-| `METH-008` | 72 | `span` | NUMERIC CLAIM | style | 6 Key Principles | — | LOW | B1-numeric-freeze |
+| `METH-008` | 72 | `span` | NUMERIC CLAIM | style | 6 Key Principles | — | HIGH | B1-numeric-freeze |
 | `METH-009` | 77-83 | `div` | DOM STRUCTURE | style | _(div)_ | LIST | MEDIUM | B3-semantic-dom |
 | `METH-010` | 90-95 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `METH-011` | 91-93 | `span` | CONTENT | style | 세부 분석 방법론 (Methodological Pillars): ⏎ Detailed Methodological Pilla… | — | MEDIUM | B4-content-migration |

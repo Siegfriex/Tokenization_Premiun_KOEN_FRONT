@@ -21,7 +21,7 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | DUPLICATED | 3 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
 | UNLINKED | 5 | no entity anywhere holds this value; the number exists only in markup |
 | VALUE_PRESENT | 3 | an entity does hold this value, but the markup hardcodes it rather than reading it |
-| COUNT_VERIFIED | 1 | a rendered count matches the length of the array it describes |
+| UNLINKED (count coincidence) | 1 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
 
 ## CONTRADICTED — frozen pending Director decision (10)
 
@@ -64,7 +64,7 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | `LANG-025` | MultilingualTokenEfficiencySection | 174-176 | 기준 영문 100 토큰 대비 정규화 소모량 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
 | `BURD-016` | OccupationSection | 120 | 1회 (단일 프롬프트) `1` | 1 also at src/entities/multilingual-token/content/multilingual-token.ts:14 |
 
-## COUNT_VERIFIED (1)
+## UNLINKED — count coincides with an array length but is not read from it (1)
 
 | Trace ID | Widget | Lines | Rendered | Check |
 |---|---|---|---|---|

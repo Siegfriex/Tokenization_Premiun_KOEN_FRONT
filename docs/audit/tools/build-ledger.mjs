@@ -90,7 +90,12 @@ const NOISE_KINDS = new Set(['year', 'identifier', 'label-ordinal']);
 
 /**
  * Rendered counts checked against the length of the entity array they describe.
- * Observation only — a MISMATCH here is recorded, never corrected.
+ *
+ * A MATCH here is NOT verification. The markup still hardcodes the number and
+ * does not read the array, so the two agree today by coincidence and will
+ * diverge silently the moment the array changes. A coincidence is exactly the
+ * failure mode this ledger exists to catch, so a matching count is recorded as
+ * UNLINKED with the coincidence noted — never as "verified".
  */
 const COUNT_CHECKS = [
   { match: '6 Key Principles', file: 'MethodSection', entity: 'WHAT_WE_DO_NOT_CLAIM', length: 6, rendered: 6 },
@@ -277,7 +282,7 @@ for (const r of raw) {
 
   let mismatch = 'N/A';
   if (countCheck && countCheck.rendered === countCheck.length) {
-    mismatch = `COUNT_VERIFIED (${countCheck.entity}.length = ${countCheck.length})`;
+    mismatch = `UNLINKED — count coincides with ${countCheck.entity}.length (${countCheck.length}) but is not read from it`;
   } else if (claims.length) {
     if (contradiction) mismatch = contradiction.severity === 'DUPLICATED'
       ? 'DUPLICATED — value agrees, ownership is widget-side'
@@ -292,8 +297,7 @@ for (const r of raw) {
     : null;
 
   let risk = 'LOW';
-  if (mismatch.startsWith('COUNT_VERIFIED')) risk = 'LOW';
-  else if (mismatch.startsWith('CONTRADICTED')) risk = 'CRITICAL';
+  if (mismatch.startsWith('CONTRADICTED')) risk = 'CRITICAL';
   else if (mismatch.startsWith('DUPLICATED')) risk = 'HIGH';
   else if (mismatch.startsWith('UNLINKED')) risk = 'HIGH';
   else if (claims.length) risk = 'HIGH';

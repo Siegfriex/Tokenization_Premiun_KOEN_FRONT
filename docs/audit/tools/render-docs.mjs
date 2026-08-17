@@ -68,9 +68,9 @@ group this belongs to (see \`REMEDIATION_BATCHES.md\`).`);
   const nc = live.filter((i) => i.numericClaims.length);
   const disputed = nc.filter((i) => i.mismatchStatus.startsWith('CONTRADICTED'));
   const duplicated = nc.filter((i) => i.mismatchStatus.startsWith('DUPLICATED'));
-  const unlinked = nc.filter((i) => i.mismatchStatus.startsWith('UNLINKED'));
+  const unlinked = nc.filter((i) => i.mismatchStatus.startsWith('UNLINKED') && !i.mismatchStatus.includes('coincides'));
   const present = nc.filter((i) => i.mismatchStatus.startsWith('VALUE_PRESENT'));
-  const verified = nc.filter((i) => i.mismatchStatus.startsWith('COUNT_VERIFIED'));
+  const coincident = nc.filter((i) => i.mismatchStatus.includes('coincides'));
 
   let md = HDR('Numeric Claim Ledger',
 `Every number the site renders as a claim about the research: ratios, token
@@ -90,7 +90,7 @@ Tokenizer names (\`o200k_base\`), corpus names (\`Flores-200\`), figure numbers
 | DUPLICATED | ${duplicated.length} | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
 | UNLINKED | ${unlinked.length} | no entity anywhere holds this value; the number exists only in markup |
 | VALUE_PRESENT | ${present.length} | an entity does hold this value, but the markup hardcodes it rather than reading it |
-| COUNT_VERIFIED | ${verified.length} | a rendered count matches the length of the array it describes |`);
+| UNLINKED (count coincidence) | ${coincident.length} | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |`);
 
   const sec = (title, rows, extra) => {
     md += `\n## ${title} (${rows.length})\n\n`;
@@ -111,7 +111,7 @@ Tokenizer names (\`o200k_base\`), corpus names (\`Flores-200\`), figure numbers
   sec('DUPLICATED — value agrees today, but markup owns its own copy', duplicated, 'Observation');
   sec('UNLINKED — value exists only in markup', unlinked, 'Note');
   sec('VALUE_PRESENT in an entity, but hardcoded in markup', present, 'Entity location');
-  sec('COUNT_VERIFIED', verified, 'Check');
+  sec('UNLINKED — count coincides with an array length but is not read from it', coincident, 'Check');
   fs.writeFileSync(path.join(DOCS, 'NUMERIC_CLAIMS.md'), md);
 }
 
