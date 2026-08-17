@@ -1,13 +1,10 @@
 import React from 'react';
-import { UILanguage } from '../types';
+import { useUILanguage } from '../features/change-language';
 import { Database, ShieldCheck, Layers } from 'lucide-react';
 
-interface FooterProps {
-  uiLang: UILanguage;
-}
-
-export const Footer: React.FC<FooterProps> = ({ uiLang }) => {
-  const isKo = uiLang === 'ko';
+export const Footer: React.FC = () => {
+  const { language } = useUILanguage();
+  const isKo = language === 'ko';
 
   return (
     <footer className="bg-[#FFFFFF] text-[#777773] py-16 px-4 sm:px-6 lg:px-12 border-t border-[#DADAD6] font-sans text-xs">

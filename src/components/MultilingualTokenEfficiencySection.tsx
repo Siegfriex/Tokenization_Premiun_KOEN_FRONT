@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { UILanguage } from '../types';
-import { MULTILINGUAL_COMPARISON_DATA } from '../data/storyData';
-import { ARTICLE_CONTENT } from '../data/articleContent';
+import { useUILanguage } from '../features/change-language';
+import { MULTILINGUAL_COMPARISON_DATA } from '../entities/multilingual-token';
+import { ARTICLE_CONTENT } from '../entities/article-content';
+import { chartTokens } from '../shared/config/chart-tokens';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -22,14 +23,9 @@ import {
   ReferenceLine,
 } from 'recharts';
 
-interface MultilingualTokenEfficiencySectionProps {
-  uiLang: UILanguage;
-}
-
-export const MultilingualTokenEfficiencySection: React.FC<MultilingualTokenEfficiencySectionProps> = ({
-  uiLang,
-}) => {
-  const isKo = uiLang === 'ko';
+export const MultilingualTokenEfficiencySection: React.FC = () => {
+  const { language } = useUILanguage();
+  const isKo = language === 'ko';
   const articleData = ARTICLE_CONTENT.multilingualBenchmark;
   const [selectedLangId, setSelectedLangId] = useState<string>('ko');
 
@@ -208,15 +204,15 @@ export const MultilingualTokenEfficiencySection: React.FC<MultilingualTokenEffic
                       <XAxis
                         type="number"
                         domain={[0, 240]}
-                        stroke="#DADAD6"
-                        tick={{ fill: '#777773', fontSize: 11, fontFamily: 'monospace' }}
+                        stroke={chartTokens.rule}
+                        tick={{ fill: chartTokens.ruleMuted, fontSize: 11, fontFamily: 'monospace' }}
                         tickFormatter={(val) => `${val} tok`}
                       />
                       <YAxis
                         type="category"
                         dataKey={isKo ? 'nameKo' : 'nameEn'}
-                        stroke="#DADAD6"
-                        tick={{ fill: '#111111', fontSize: 12, fontWeight: 600 }}
+                        stroke={chartTokens.rule}
+                        tick={{ fill: chartTokens.selectedOutline, fontSize: 12, fontWeight: 600 }}
                         width={70}
                       />
                       <Tooltip
@@ -248,11 +244,11 @@ export const MultilingualTokenEfficiencySection: React.FC<MultilingualTokenEffic
                       />
                       <ReferenceLine
                         x={100}
-                        stroke="#777773"
+                        stroke={chartTokens.ruleMuted}
                         strokeDasharray="3 3"
                         label={{
                           value: 'English Baseline (100 tok)',
-                          fill: '#777773',
+                          fill: chartTokens.ruleMuted,
                           fontSize: 10,
                           position: 'top',
                         }}
@@ -268,12 +264,12 @@ export const MultilingualTokenEfficiencySection: React.FC<MultilingualTokenEffic
                             key={`cell-${entry.id}`}
                             fill={
                               entry.isTargetHangul
-                                ? '#161616'
+                                ? chartTokens.seriesHighlight
                                 : entry.isBaseline
-                                ? '#777773'
-                                : '#C2C2BD'
+                                ? chartTokens.seriesBaseline
+                                : chartTokens.seriesOther
                             }
-                            stroke={entry.id === selectedLangId ? '#111111' : 'transparent'}
+                            stroke={entry.id === selectedLangId ? chartTokens.selectedOutline : 'transparent'}
                             strokeWidth={2}
                           />
                         ))}

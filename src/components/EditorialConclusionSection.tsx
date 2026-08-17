@@ -1,6 +1,6 @@
 import React from 'react';
-import { UILanguage } from '../types';
-import { ARTICLE_CONTENT } from '../data/articleContent';
+import { useUILanguage } from '../features/change-language';
+import { ARTICLE_CONTENT } from '../entities/article-content';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -8,12 +8,9 @@ import {
 } from './ArticleElements';
 import { ArrowUp } from 'lucide-react';
 
-interface EditorialConclusionSectionProps {
-  uiLang: UILanguage;
-}
-
-export const EditorialConclusionSection: React.FC<EditorialConclusionSectionProps> = ({ uiLang }) => {
-  const isKo = uiLang === 'ko';
+export const EditorialConclusionSection: React.FC = () => {
+  const { language } = useUILanguage();
+  const isKo = language === 'ko';
   const articleData = ARTICLE_CONTENT.conclusionSynthesis;
 
   const scrollToTop = () => {

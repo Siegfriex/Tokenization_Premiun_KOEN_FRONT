@@ -18,6 +18,7 @@ export const chartTokens = {
   seriesHighlight: '#161616',
   seriesBaseline: '#777773',
   seriesOther: '#C2C2BD',
+  selectedOutline: '#111111',
 } as const;
 
 export type ChartTokenName = keyof typeof chartTokens;

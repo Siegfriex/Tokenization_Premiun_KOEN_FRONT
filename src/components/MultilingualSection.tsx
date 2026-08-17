@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UILanguage, MultilingualTokenItem } from '../types';
-import { MULTILINGUAL_COMPARISON_DATA } from '../data/storyData';
+import { MULTILINGUAL_COMPARISON_DATA } from '../entities/multilingual-token';
 import { Globe, ArrowRight, ArrowDown, Info, CheckCircle2, Sparkles, HelpCircle } from 'lucide-react';
 
 interface MultilingualSectionProps {
