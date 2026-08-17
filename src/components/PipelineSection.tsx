@@ -21,7 +21,7 @@ export const PipelineSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1); // 0-indexed: Step 02 (TOKENIZATION) default
 
   return (
-    <section id="pipeline" data-widget="PipelineSection" data-section="pipeline" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="pipeline" data-widget="PipelineSection" data-section="pipeline" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>

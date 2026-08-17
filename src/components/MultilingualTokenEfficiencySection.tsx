@@ -50,7 +50,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
     MULTILINGUAL_COMPARISON_DATA[3];
 
   return (
-    <section id="languages" data-widget="MultilingualTokenEfficiencySection" data-section="languages" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="languages" data-widget="MultilingualTokenEfficiencySection" data-section="languages" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>

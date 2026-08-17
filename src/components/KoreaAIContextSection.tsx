@@ -20,7 +20,7 @@ export const KoreaAIContextSection: React.FC = () => {
   const articleData = ARTICLE_CONTENT.koreaInfrastructure;
 
   return (
-    <section id="infrastructure" data-widget="KoreaAIContextSection" data-section="infrastructure" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="infrastructure" data-widget="KoreaAIContextSection" data-section="infrastructure" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
