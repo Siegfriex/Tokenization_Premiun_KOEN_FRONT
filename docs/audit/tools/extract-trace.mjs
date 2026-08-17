@@ -42,27 +42,27 @@ const RENDER_FILES = walkDir(path.join(ROOT, 'src')).sort();
  *    (and anyone pasting a selector from devtools) sees "div.w-full.mx-auto…".
  * ------------------------------------------------------------------ */
 const PRIMITIVE_DOM = {
-  Container: { tag: 'div', base: 'w-full mx-auto max-w-{variant}', note: '+ px-4 sm:px-6 lg:px-12 when gutter' },
+  Container: { role: 'container', tag: 'div', base: 'w-full mx-auto max-w-{variant}', note: '+ px-4 sm:px-6 lg:px-12 when gutter' },
   Section: { tag: 'section', base: 'py-* bg-* border-b border-rule scroll-mt-12' },
   Stack: { tag: 'div', base: 'space-y-*' },
   Cluster: { tag: 'div', base: 'flex flex-wrap items-* gap-*' },
-  Divider: { tag: 'hr', base: 'border-t border-rule' },
-  SelectableCard: { tag: 'button', base: 'rounded-xs border transition-all cursor-pointer focus-visible:*' },
-  TokenChip: { tag: 'span', base: 'inline-flex items-center px-2.5 py-1 rounded-xs bg-surface-alt …' },
-  SectionEyebrow: { tag: 'div', base: 'text-xs font-mono text-ink-muted font-bold uppercase tracking-widest' },
-  SectionHeading: { tag: 'div', base: 'space-y-4 max-w-4xl', note: 'wraps SectionEyebrow div + h2' },
-  HeadingAccent: { tag: 'span', base: 'underline decoration-accent underline-offset-8 decoration-2' },
-  ArticleReadingColumn: { tag: 'div', base: 'w-full mx-auto max-w-reading text-left' },
-  ArticleFullWidthBreak: { tag: 'div', base: 'w-full mx-auto max-w-wide my-12 sm:my-16' },
-  ArticleLead: { tag: 'p', base: 'text-xl sm:text-2xl text-ink font-medium leading-[1.6]' },
-  ArticleParagraph: { tag: 'p', base: 'text-[17px] sm:text-[18px] text-ink-strong leading-[1.85]' },
-  ArticleSubheading: { tag: 'h3', base: 'text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink' },
-  ArticlePullQuote: { tag: 'div', base: 'py-10 border-y border-rule', note: 'wraps blockquote' },
-  ArticleFinding: { tag: 'div', base: 'border-y border-rule py-6', note: 'wraps SectionEyebrow div' },
-  ArticleBigFinding: { tag: 'div', base: 'py-12 border-y border-rule', note: 'wraps SectionEyebrow div' },
-  ArticleFigureCaption: { tag: 'div', base: 'pt-3 space-y-1 text-xs font-mono', note: 'CAPTIONS A CHART — should be <figcaption>' },
-  ArticleSource: { tag: 'div', base: 'text-xs font-mono text-ink-muted pt-2' },
-  ArticleFootnotes: { tag: 'div', base: 'border-t border-rule pt-5', note: 'wraps ul>li' },
+  Divider: { role: 'divider', tag: 'hr', base: 'border-t border-rule' },
+  SelectableCard: { role: 'selectable', tag: 'button', base: 'rounded-xs border transition-all cursor-pointer focus-visible:*' },
+  TokenChip: { role: 'token-chip', tag: 'span', base: 'inline-flex items-center px-2.5 py-1 rounded-xs bg-surface-alt …' },
+  SectionEyebrow: { role: 'eyebrow', tag: 'div', base: 'text-xs font-mono text-ink-muted font-bold uppercase tracking-widest' },
+  SectionHeading: { role: 'section-heading', tag: 'div', base: 'space-y-4 max-w-4xl', note: 'wraps SectionEyebrow div + h2' },
+  HeadingAccent: { role: 'heading-accent', tag: 'span', base: 'underline decoration-accent underline-offset-8 decoration-2' },
+  ArticleReadingColumn: { role: 'reading-column', tag: 'div', base: 'w-full mx-auto max-w-reading text-left' },
+  ArticleFullWidthBreak: { role: 'full-width-break', tag: 'div', base: 'w-full mx-auto max-w-wide my-12 sm:my-16' },
+  ArticleLead: { role: 'article-lead', tag: 'p', base: 'text-xl sm:text-2xl text-ink font-medium leading-[1.6]' },
+  ArticleParagraph: { role: 'article-paragraph', tag: 'p', base: 'text-[17px] sm:text-[18px] text-ink-strong leading-[1.85]' },
+  ArticleSubheading: { role: 'article-subheading', tag: 'h3', base: 'text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink' },
+  ArticlePullQuote: { role: 'article-pullquote', tag: 'div', base: 'py-10 border-y border-rule', note: 'wraps blockquote' },
+  ArticleFinding: { role: 'article-finding', tag: 'div', base: 'border-y border-rule py-6', note: 'wraps SectionEyebrow div' },
+  ArticleBigFinding: { role: 'article-big-finding', tag: 'div', base: 'py-12 border-y border-rule', note: 'wraps SectionEyebrow div' },
+  ArticleFigureCaption: { role: 'figure-caption', tag: 'div', base: 'pt-3 space-y-1 text-xs font-mono', note: 'CAPTIONS A CHART — should be <figcaption>' },
+  ArticleSource: { role: 'article-source', tag: 'div', base: 'text-xs font-mono text-ink-muted pt-2' },
+  ArticleFootnotes: { role: 'article-footnotes', tag: 'div', base: 'border-t border-rule pt-5', note: 'wraps ul>li' },
   LanguageSwitch: { tag: 'div', base: '(feature component)' },
   UILanguageProvider: { tag: null, base: '(context provider, renders no DOM of its own)' },
 };
@@ -150,6 +150,17 @@ function tagNameOf(node) {
 function attrsOf(open) {
   const out = {};
   for (const a of open.attributes?.properties ?? []) {
+    if (ts.isJsxSpreadAttribute(a)) {
+      const t = a.expression.getText();
+      const m = /claimAttrs\(\s*['"]([^'"]+)['"]\s*\)/.exec(t);
+      if (m) {
+        out['data-claim-id'] = { dynamic: false, text: m[1] };
+        out['data-claim-status'] = { dynamic: true, text: 'from claim registry' };
+        out['data-trace-id'] = { dynamic: true, text: 'from claim registry' };
+        out['data-source'] = { dynamic: false, text: 'widget' };
+      }
+      continue;
+    }
     if (!ts.isJsxAttribute(a) || !a.name) continue;
     const k = a.name.getText();
     if (!a.initializer) { out[k] = true; continue; }
@@ -177,8 +188,8 @@ function classTokens(attrs) {
 function domFor(tag, attrs) {
   if (HTML_TAGS.has(tag)) return { tag, kind: 'html', primitiveNote: '' };
   const p = PRIMITIVE_DOM[tag];
-  if (p) return { tag: p.tag ?? '(none)', kind: 'primitive', primitiveNote: [p.base, p.note].filter(Boolean).join(' — ') };
-  return { tag: '(component)', kind: 'component', primitiveNote: '' };
+  if (p) return { tag: p.tag ?? '(none)', kind: 'primitive', role: p.role ?? null, primitiveNote: [p.base, p.note].filter(Boolean).join(' — ') };
+  return { tag: '(component)', kind: 'component', role: null, primitiveNote: '' };
 }
 
 for (const file of RENDER_FILES) {
@@ -215,6 +226,8 @@ for (const file of RENDER_FILES) {
 
       const hasId = 'id' in attrs;
       const dataAttrs = Object.keys(attrs).filter((k) => k.startsWith('data-'));
+      if (dom.role && !dataAttrs.includes('data-role')) dataAttrs.push('data-role(primitive)');
+      if (attrs.claim && !dataAttrs.includes('data-claim-id')) dataAttrs.push('data-claim-id(primitive)');
       const ariaAttrs = Object.keys(attrs).filter((k) => k.startsWith('aria-'));
 
       // direct literal children

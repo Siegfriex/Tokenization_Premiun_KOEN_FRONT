@@ -20,7 +20,7 @@ export const KoreaAIContextSection: React.FC = () => {
   const articleData = ARTICLE_CONTENT.koreaInfrastructure;
 
   return (
-    <section id="infrastructure" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="infrastructure" data-widget="KoreaAIContextSection" data-section="infrastructure" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -69,10 +69,11 @@ export const KoreaAIContextSection: React.FC = () => {
               <span className="text-xs font-mono text-ink-muted">Scale Dynamics</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div data-collection="macro-adoption-phases" data-semantic-target="ul" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {MACRO_ADOPTION_PHASES.map((phase) => (
                 <div
                   key={phase.id}
+                  data-item-id={phase.id}
                   className={`rounded-xs p-5 space-y-3 border ${
                     phase.highlight
                       ? 'bg-accent text-on-accent border-accent shadow-xs'
@@ -102,10 +103,11 @@ export const KoreaAIContextSection: React.FC = () => {
               <span className="text-xs font-mono text-ink font-bold">Strict Data Verification Rule</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div data-collection="verified-policy-slots" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {VERIFIED_POLICY_SLOTS.map((slot) => (
                 <div
                   key={slot.id}
+                  data-item-id={slot.id}
                   className="bg-surface border border-rule rounded-xs p-6 space-y-4 flex flex-col justify-between shadow-xs"
                 >
                   <div className="space-y-2">

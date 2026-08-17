@@ -4,6 +4,7 @@ import { MULTILINGUAL_COMPARISON_DATA } from '../entities/multilingual-token';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { chartTokens } from '../shared/config/chart-tokens';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
+import { claimAttrs } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -50,7 +51,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
     MULTILINGUAL_COMPARISON_DATA[3];
 
   return (
-    <section id="languages" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="languages" data-widget="MultilingualTokenEfficiencySection" data-section="languages" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -111,19 +112,20 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 pt-2 border-t border-rule text-xs font-mono">
-                  <div className="flex justify-between py-1 border-b border-rule/60">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <span className="text-ink-muted">Normalized Tokens:</span>
                     <span className="text-ink font-bold">{selectedItem.tokenCount} tokens</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-rule/60">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <span className="text-ink-muted">Relative Ratio:</span>
                     <span className="text-ink font-bold text-sm">
                       {selectedItem.relativeRatio.toFixed(2)}×
                     </span>
                   </div>
-                  <div className="flex justify-between py-1">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
                     <span className="text-ink-muted">Difference vs. English:</span>
                     <span
+                      {...claimAttrs('lang.baseline-difference-label')}
                       className={`font-bold ${
                         selectedItem.differencePercent > 0 ? 'text-ink' : 'text-ink-muted'
                       }`}
@@ -136,7 +138,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 {selectedItem.isTargetHangul && (
-                  <div className="p-3 bg-surface-alt border border-rule-strong rounded-xs text-xs text-ink font-mono">
+                  <div {...claimAttrs('lang.hangul-ratio-callout')} className="p-3 bg-surface-alt border border-rule-strong rounded-xs text-xs text-ink font-mono">
                     ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.
                   </div>
                 )}
@@ -147,12 +149,13 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 <span className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
                   {isKo ? '언어별 즉시 포커스:' : 'Click to inspect language:'}
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div data-collection="multilingual-comparison" data-semantic-target="ul" className="flex flex-wrap gap-2">
                   {MULTILINGUAL_COMPARISON_DATA.map((item) => (
                     <SelectableCard
                       key={item.id}
                       selected={selectedLangId === item.id}
                       onSelect={() => setSelectedLangId(item.id)}
+                      itemId={item.id}
                       boldWhenFilled
                       className="px-3 py-1 text-xs font-mono"
                     >
@@ -171,7 +174,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                     <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                       NORMALIZED TOKEN CONSUMPTION BY LANGUAGE
                     </span>
-                    <span className="text-[11px] font-mono text-ink-muted">
+                    <span {...claimAttrs('lang.normalization-base')} className="text-[11px] font-mono text-ink-muted">
                       기준 영문 100 토큰 대비 정규화 소모량
                     </span>
                   </div>
@@ -264,15 +267,15 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 {/* Legend & Meta Notes */}
-                <div className="pt-3 border-t border-rule flex flex-wrap items-center justify-between text-xs font-mono text-ink-muted gap-3">
+                <div data-role="legend" className="pt-3 border-t border-rule flex flex-wrap items-center justify-between text-xs font-mono text-ink-muted gap-3">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-baseline rounded-xs inline-block"></span>
-                      <span>라틴 알파벳 기준 (1.00×)</span>
+                      <span {...claimAttrs('lang.legend-latin-baseline')}>라틴 알파벳 기준 (1.00×)</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark rounded-xs inline-block border border-rule-strong"></span>
-                      <span className="text-ink font-bold">한국어 한글 (1.78×)</span>
+                      <span {...claimAttrs('lang.legend-hangul-ratio')} className="text-ink font-bold">한국어 한글 (1.78×)</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-other rounded-xs inline-block"></span>

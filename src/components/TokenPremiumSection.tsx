@@ -4,6 +4,7 @@ import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { DOMAIN_DISTRIBUTION_DATA } from '../entities/domain-distribution';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
+import { claimAttrs } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -20,7 +21,7 @@ export const TokenPremiumSection: React.FC = () => {
   const [selectedDomainId, setSelectedDomainId] = useState<string>(DOMAIN_DISTRIBUTION_DATA[0].id);
 
   return (
-    <section id="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="patterns" data-widget="TokenPremiumSection" data-section="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Eyebrow & Headline */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -28,13 +29,13 @@ export const TokenPremiumSection: React.FC = () => {
             <>
               한/영 말뭉치
               <br />
-              <HeadingAccent>69,432건 정밀 분석</HeadingAccent>
+              <HeadingAccent claim="premium.corpus-size-ko">69,432건 정밀 분석</HeadingAccent>
             </>
           ) : (
             <>
               Corpus Analysis:
               <br />
-              <HeadingAccent>69,432 Verified KO-EN Pairs</HeadingAccent>
+              <HeadingAccent claim="premium.corpus-size-en">69,432 Verified KO-EN Pairs</HeadingAccent>
             </>
           )}
         </SectionHeading>
@@ -69,7 +70,10 @@ export const TokenPremiumSection: React.FC = () => {
                   <span className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
                     OBSERVED TOKEN PREMIUM RATIO
                   </span>
-                  <div className="text-6xl sm:text-7xl lg:text-8xl font-black font-mono tracking-tight text-ink">
+                  <div
+                    {...claimAttrs('premium.headline-range')}
+                    className="text-6xl sm:text-7xl lg:text-8xl font-black font-mono tracking-tight text-ink"
+                  >
                     1.29<span className="text-3xl sm:text-4xl text-ink-muted font-sans">×</span>
                     <span className="text-3xl sm:text-4xl text-ink-muted font-light mx-2">~</span>
                     1.83<span className="text-3xl sm:text-4xl text-ink font-sans">×</span>
@@ -77,17 +81,17 @@ export const TokenPremiumSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 text-xs font-mono text-ink-body pt-3 border-t border-rule">
-                  <div className="flex justify-between py-1 border-b border-rule/60">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <span className="text-ink-muted">Average Token Premium:</span>
-                    <span className="text-ink font-bold">1.68× (+68%)</span>
+                    <span {...claimAttrs('premium.average-ratio')} className="text-ink font-bold">1.68× (+68%)</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-rule/60">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <span className="text-ink-muted">Baseline (English):</span>
-                    <span className="text-ink-body">1.00× (Standard)</span>
+                    <span {...claimAttrs('premium.baseline-standard')} className="text-ink-body">1.00× (Standard)</span>
                   </div>
-                  <div className="flex justify-between py-1">
+                  <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
                     <span className="text-ink-muted">Domain Range:</span>
-                    <span className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</span>
+                    <span {...claimAttrs('premium.domain-range')} className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</span>
                   </div>
                 </div>
               </div>
@@ -118,11 +122,11 @@ export const TokenPremiumSection: React.FC = () => {
                       분야별 토큰 소비 비율 분포 분석
                     </span>
                   </div>
-                  <span className="text-xs font-mono text-ink-muted">7 Benchmark Domains</span>
+                  <span {...claimAttrs('premium.benchmark-domain-count')} className="text-xs font-mono text-ink-muted">7 Benchmark Domains</span>
                 </div>
 
                 {/* Minimal Bar & Dot Distribution List */}
-                <div className="space-y-4 pt-2">
+                <div data-collection="domain-distribution" data-semantic-target="ul" className="space-y-4 pt-2">
                   {DOMAIN_DISTRIBUTION_DATA.map((item) => {
                     const isSelected = item.id === selectedDomainId;
                     return (
@@ -130,6 +134,7 @@ export const TokenPremiumSection: React.FC = () => {
                         key={item.id}
                         selected={isSelected}
                         onSelect={() => setSelectedDomainId(item.id)}
+                        itemId={item.id}
                         surface="surface-alt"
                         className="p-3.5 space-y-2 text-left w-full"
                       >
@@ -175,8 +180,8 @@ export const TokenPremiumSection: React.FC = () => {
                 </div>
 
                 <div className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
-                  <span>Baseline: 1.00× (English)</span>
-                  <span className="text-ink font-bold">Max Observed: 1.83×</span>
+                  <span {...claimAttrs('premium.baseline-english')}>Baseline: 1.00× (English)</span>
+                  <span {...claimAttrs('premium.max-observed')} className="text-ink font-bold">Max Observed: 1.83×</span>
                 </div>
               </div>
             </div>

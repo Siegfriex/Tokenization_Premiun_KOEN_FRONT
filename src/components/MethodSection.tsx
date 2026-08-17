@@ -3,6 +3,7 @@ import { useUILanguage } from '../features/change-language';
 import { METHODOLOGY_ITEMS, WHAT_WE_DO_NOT_CLAIM } from '../entities/methodology';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Container, SectionHeading, HeadingAccent } from '../shared/ui';
+import { claimAttrs } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -27,7 +28,7 @@ export const MethodSection: React.FC = () => {
   };
 
   return (
-    <section id="method" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="method" data-widget="MethodSection" data-section="method" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -69,10 +70,10 @@ export const MethodSection: React.FC = () => {
               <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
               </span>
-              <span className="text-xs font-mono text-ink-muted">6 Key Principles</span>
+              <span {...claimAttrs('method.principle-count')} className="text-xs font-mono text-ink-muted">6 Key Principles</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div data-collection="what-we-do-not-claim" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               {WHAT_WE_DO_NOT_CLAIM.map((claim, idx) => (
                 <div
                   key={idx}
@@ -94,12 +95,13 @@ export const MethodSection: React.FC = () => {
               <span className="text-xs font-mono text-ink-muted">Click to expand</span>
             </div>
 
-            <div className="grid grid-cols-1 gap-3">
+            <div data-collection="methodology-items" data-semantic-target="ul" className="grid grid-cols-1 gap-3">
               {METHODOLOGY_ITEMS.map((item) => {
                 const isOpen = openItemIds.includes(item.id);
                 return (
                   <div
                     key={item.id}
+                    data-item-id={item.id}
                     className="bg-surface border border-rule rounded-xs overflow-hidden transition-all shadow-2xs"
                   >
                     <button

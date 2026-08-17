@@ -65,12 +65,15 @@ export const SelectableCard: React.FC<{
    * this off or their internal hierarchy flattens.
    */
   boldWhenFilled?: boolean;
+  /** Item id within its collection, for `data-item-id`. */
+  itemId?: string | number;
   /** Layout only: padding, width, alignment, internal spacing. */
   className?: string;
   children: React.ReactNode;
 }> = ({
   selected,
   onSelect,
+  itemId,
   surface = 'surface',
   variant = 'fill',
   emphasized = false,
@@ -92,6 +95,10 @@ export const SelectableCard: React.FC<{
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
+      data-role="selectable"
+      data-item-id={itemId}
+      data-selected={selected || undefined}
+      data-emphasized={emphasized || undefined}
       className={`rounded-xs border transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${stateClass} ${className}`}
     >
       {children}

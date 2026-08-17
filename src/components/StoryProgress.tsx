@@ -14,7 +14,7 @@ export const StoryProgress: React.FC = () => {
   const isKo = language === 'ko';
 
   return (
-    <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-rule text-ink transition-all">
+    <header data-widget="StoryProgress" data-role="site-header" className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-rule text-ink transition-all">
       {/* Top Bar */}
       <Container className="px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between gap-6">
         {/* Brand / Article Header */}
@@ -32,7 +32,12 @@ export const StoryProgress: React.FC = () => {
         </div>
 
         {/* Desktop Quick Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1 text-[11px] font-mono">
+        <nav
+          data-role="section-nav"
+          data-collection="nav-sections"
+          data-semantic-target="nav-list"
+          className="hidden lg:flex items-center gap-1 text-[11px] font-mono"
+        >
           {NAV_SECTIONS.map((sec) => {
             const isActive = activeSection === sec.id;
             return (
@@ -40,6 +45,8 @@ export const StoryProgress: React.FC = () => {
                 key={sec.id}
                 href={`#${sec.id}`}
                 aria-current={isActive ? 'location' : undefined}
+                data-item-id={sec.id}
+                data-active={isActive || undefined}
                 className={`px-2.5 py-1 rounded-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                   isActive
                     ? 'text-on-accent bg-accent font-bold'
@@ -59,7 +66,7 @@ export const StoryProgress: React.FC = () => {
       </Container>
 
       {/* Thin Reading Progress Indicator Bar in Editorial Ink */}
-      <div className="w-full h-[2px] bg-mark-track">
+      <div data-role="scroll-progress" className="w-full h-[2px] bg-mark-track">
         <div
           className="h-full bg-accent transition-all duration-150"
           style={{ width: `${scrollPercent}%` }}

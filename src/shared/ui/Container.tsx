@@ -20,12 +20,15 @@ const VARIANT_CLASS: Record<ContainerVariant, string> = {
 export const Container: React.FC<{
   variant?: ContainerVariant;
   gutter?: boolean;
+  /** Overrides `data-role` for composed wrappers that are a named thing in
+   *  their own right (the reading column, the full-width breakout). */
+  role?: string;
   children: React.ReactNode;
   className?: string;
-}> = ({ variant = 'wide', gutter = false, children, className = '' }) => {
+}> = ({ variant = 'wide', gutter = false, role = 'container', children, className = '' }) => {
   const gutterClass = gutter ? 'px-4 sm:px-6 lg:px-12' : '';
   return (
-    <div className={`w-full mx-auto ${VARIANT_CLASS[variant]} ${gutterClass} ${className}`}>
+    <div data-role={role} data-measure={variant} className={`w-full mx-auto ${VARIANT_CLASS[variant]} ${gutterClass} ${className}`}>
       {children}
     </div>
   );

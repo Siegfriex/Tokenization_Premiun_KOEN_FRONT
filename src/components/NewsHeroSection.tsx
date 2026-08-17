@@ -4,6 +4,7 @@ import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Container, SectionEyebrow, HeadingAccent } from '../shared/ui';
+import { claimAttrs } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -27,6 +28,8 @@ export const NewsHeroSection: React.FC = () => {
   return (
     <section
       id="hero"
+      data-widget="NewsHeroSection"
+      data-section="hero"
       className="relative min-h-[92vh] flex flex-col justify-between bg-surface text-ink py-16 sm:py-24 px-4 sm:px-6 lg:px-12 border-b border-rule"
     >
       <Container className="space-y-16 sm:space-y-20 my-auto">
@@ -76,18 +79,22 @@ export const NewsHeroSection: React.FC = () => {
             </p>
 
             {/* Quick Context Stat Ribbon */}
-            <div className="pt-4 border-t border-rule flex flex-wrap items-center gap-8 text-xs font-mono text-ink-body">
-              <div>
+            <div
+              data-role="stat-ribbon"
+              data-semantic-target="dl"
+              className="pt-4 border-t border-rule flex flex-wrap items-center gap-8 text-xs font-mono text-ink-body"
+            >
+              <div data-role="stat" data-stat="analysis-target">
                 <span className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</span>
                 <span className="text-ink font-bold">o200k_base &amp; Flores-200</span>
               </div>
-              <div>
+              <div data-role="stat" data-stat="core-metric">
                 <span className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</span>
                 <span className="text-ink font-bold">Token Premium Ratio</span>
               </div>
-              <div>
+              <div data-role="stat" data-stat="observed-gap">
                 <span className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</span>
-                <span className="text-ink font-bold">+78% Hangul Token Burden</span>
+                <span {...claimAttrs('hero.observed-gap')} className="text-ink font-bold">+78% Hangul Token Burden</span>
               </div>
             </div>
           </div>
@@ -110,7 +117,7 @@ export const NewsHeroSection: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
                     Korean (한국어)
                   </span>
-                  <span className="text-ink font-bold text-sm">31 TOKENS</span>
+                  <span {...claimAttrs('hero.exhibit-hangul-tokens')} className="text-ink font-bold text-sm">31 TOKENS</span>
                 </div>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
@@ -127,7 +134,7 @@ export const NewsHeroSection: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-ink-muted"></span>
                     English (영어)
                   </span>
-                  <span className="text-ink-body font-bold text-sm">18 TOKENS</span>
+                  <span {...claimAttrs('hero.exhibit-english-tokens')} className="text-ink-body font-bold text-sm">18 TOKENS</span>
                 </div>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
@@ -138,9 +145,9 @@ export const NewsHeroSection: React.FC = () => {
               </div>
 
               {/* Takeaway line */}
-              <div className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
+              <div data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
                 <span className="text-ink-subtle">Relative Ratio:</span>
-                <span className="text-ink font-bold text-sm">1.72× (+72% Difference)</span>
+                <span {...claimAttrs('hero.exhibit-ratio')} className="text-ink font-bold text-sm">1.72× (+72% Difference)</span>
               </div>
             </div>
 

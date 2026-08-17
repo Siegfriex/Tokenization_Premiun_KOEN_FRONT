@@ -19,7 +19,7 @@ export const ImpactSection: React.FC = () => {
   const articleData = ARTICLE_CONTENT.socioeconomicScale;
 
   return (
-    <section id="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="impact" data-widget="ImpactSection" data-section="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -60,10 +60,11 @@ export const ImpactSection: React.FC = () => {
         {/* FULL-WIDTH BREAKOUT: 3-Level Scale-Up Grid & Conceptual Causal Chain */}
         <ArticleFullWidthBreak className="space-y-10 my-8">
           {/* 3-Level Scale-Up Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-collection="impact-scale-levels" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {IMPACT_SCALE_LEVELS.map((level) => (
               <div
                 key={level.id}
+                data-item-id={level.id}
                 className={`rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border ${
                   level.highlight
                     ? 'bg-accent text-on-accent border-accent'
@@ -105,7 +106,7 @@ export const ImpactSection: React.FC = () => {
               </h4>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
+            <div data-collection="impact-causal-chain" data-semantic-target="ul" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               {IMPACT_CAUSAL_CHAIN.map((step, idx) => {
                 const isEmphasis = step === 'Token Premium' || step === 'Potential Digital Friction';
                 return (

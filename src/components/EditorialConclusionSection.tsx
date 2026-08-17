@@ -21,6 +21,8 @@ export const EditorialConclusionSection: React.FC = () => {
   return (
     <section
       id="result"
+      data-widget="EditorialConclusionSection"
+      data-section="result"
       className="min-h-[75vh] flex flex-col justify-between bg-surface-alt text-ink py-24 sm:py-32 px-4 sm:px-6 lg:px-12 border-b border-rule"
     >
       <Container className="my-auto space-y-12">

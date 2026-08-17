@@ -29,7 +29,7 @@ export const TokenCompareSection: React.FC = () => {
     CURATED_PAIRED_SENTENCES.find((p) => p.id === selectedPairId) || CURATED_PAIRED_SENTENCES[0];
 
   return (
-    <section id="compare" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="compare" data-widget="TokenCompareSection" data-section="compare" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -71,7 +71,7 @@ export const TokenCompareSection: React.FC = () => {
               {isKo ? '검증된 대역 문장쌍 선택:' : 'Select Verified Sentence Pair:'}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div data-collection="sentence-pairs" data-semantic-target="ul" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {CURATED_PAIRED_SENTENCES.map((item, idx) => {
                 const isSelected = item.id === selectedPairId;
                 return (
@@ -79,6 +79,7 @@ export const TokenCompareSection: React.FC = () => {
                     key={item.id}
                     selected={isSelected}
                     onSelect={() => setSelectedPairId(item.id)}
+                    itemId={item.id}
                     boldWhenFilled
                     className="p-4 text-left"
                   >
@@ -134,9 +135,9 @@ export const TokenCompareSection: React.FC = () => {
                       <Hash className="w-3.5 h-3.5 text-ink" />
                       <span>분절된 서브워드 토큰 ({selectedPair.hangulCount}개):</span>
                     </span>
-                    <div className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
+                    <div data-collection="hangul-tokens" data-semantic-target="ul" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
                       {selectedPair.hangulTokens.map((tok, idx) => (
-                        <TokenChip key={`ko-${idx}`} weight="semibold">
+                        <TokenChip key={`ko-${idx}`} lang="ko">
                           {tok}
                         </TokenChip>
                       ))}
@@ -182,9 +183,9 @@ export const TokenCompareSection: React.FC = () => {
                       <Hash className="w-3.5 h-3.5 text-ink-muted" />
                       <span>Segmented Subword Tokens ({selectedPair.alphabetCount} tokens):</span>
                     </span>
-                    <div className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
+                    <div data-collection="alphabet-tokens" data-semantic-target="ul" className="flex flex-wrap gap-1.5 p-4 bg-surface border border-rule rounded-xs min-h-[90px] items-center">
                       {selectedPair.alphabetTokens.map((tok, idx) => (
-                        <TokenChip key={`en-${idx}`}>{tok}</TokenChip>
+                        <TokenChip key={`en-${idx}`} lang="en">{tok}</TokenChip>
                       ))}
                     </div>
                   </div>

@@ -5,6 +5,7 @@ import { OCCUPATION_COMPARISON_DATA, TOKEN_BASELINE_SIMULATION } from '../entiti
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Code, BookOpen } from 'lucide-react';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
+import { claimAttrs } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -32,7 +33,7 @@ export const OccupationSection: React.FC = () => {
   const socialScienceData = OCCUPATION_COMPARISON_DATA.find((d) => d.id === 'social-science')!;
 
   return (
-    <section id="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="burden" data-widget="OccupationSection" data-section="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -84,12 +85,13 @@ export const OccupationSection: React.FC = () => {
                 </span>
               </div>
               {/* Quick preset buttons */}
-              <div className="flex items-center gap-2">
+              <div data-collection="iteration-presets" data-semantic-target="ul" className="flex items-center gap-2">
                 {[10, 50, 100, 500, 1000].map((preset) => (
                   <SelectableCard
                     key={preset}
                     selected={promptCount === preset}
                     onSelect={() => setPromptCount(preset)}
+                    itemId={preset}
                     boldWhenFilled
                     className="px-3 py-1 text-xs font-mono"
                   >
@@ -116,10 +118,10 @@ export const OccupationSection: React.FC = () => {
                 onChange={(e) => setPromptCount(Number(e.target.value))}
                 className="w-full h-2 bg-rule-neutral rounded-xs appearance-none cursor-pointer accent-accent"
               />
-              <div className="flex justify-between text-[11px] font-mono text-ink-muted">
-                <span>1회 (단일 프롬프트)</span>
-                <span>1,000회 (팀 일간 워크플로우)</span>
-                <span>2,000회 (전사 에이전트 루틴)</span>
+              <div data-role="scale-legend" className="flex justify-between text-[11px] font-mono text-ink-muted">
+                <span {...claimAttrs('burden.preset-min-label')}>1회 (단일 프롬프트)</span>
+                <span {...claimAttrs('burden.preset-team-label')}>1,000회 (팀 일간 워크플로우)</span>
+                <span {...claimAttrs('burden.preset-org-label')}>2,000회 (전사 에이전트 루틴)</span>
               </div>
             </div>
 

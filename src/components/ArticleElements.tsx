@@ -12,7 +12,7 @@ export const ArticleReadingColumn: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <Container variant="reading" className={`text-left ${className}`}>
+    <Container variant="reading" role="reading-column" className={`text-left ${className}`}>
       {children}
     </Container>
   );
@@ -28,6 +28,7 @@ export const ArticleLead: React.FC<{
 }> = ({ children, className = '' }) => {
   return (
     <p
+      data-role="article-lead"
       className={`text-xl sm:text-2xl text-ink font-medium leading-[1.6] tracking-tight mb-8 font-sans ${className}`}
     >
       {children}
@@ -45,6 +46,7 @@ export const ArticleParagraph: React.FC<{
 }> = ({ children, className = '' }) => {
   return (
     <p
+      data-role="article-paragraph"
       className={`text-[17px] sm:text-[18px] text-ink-strong font-normal leading-[1.85] mb-6 font-sans antialiased break-keep ${className}`}
     >
       {children}
@@ -62,6 +64,7 @@ export const ArticleSubheading: React.FC<{
 }> = ({ children, className = '' }) => {
   return (
     <h3
+      data-role="article-subheading"
       className={`text-2xl sm:text-3xl lg:text-[32px] font-bold text-ink tracking-tight mt-12 sm:mt-14 mb-6 leading-snug font-sans ${className}`}
     >
       {children}
@@ -79,7 +82,7 @@ export const ArticlePullQuote: React.FC<{
   className?: string;
 }> = ({ children, citation, className = '' }) => {
   return (
-    <div className={`py-10 sm:py-14 my-8 sm:my-12 border-y border-rule space-y-4 ${className}`}>
+    <div data-role="article-pullquote" className={`py-10 sm:py-14 my-8 sm:my-12 border-y border-rule space-y-4 ${className}`}>
       <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight leading-[1.3] font-sans break-keep">
         {children}
       </blockquote>
@@ -103,7 +106,7 @@ export const ArticleFinding: React.FC<{
   className?: string;
 }> = ({ label = 'KEY FINDING', statement, bigNumber, className = '' }) => {
   return (
-    <div className={`border-y border-rule py-6 sm:py-8 my-8 sm:my-10 space-y-3 ${className}`}>
+    <div data-role="article-finding" className={`border-y border-rule py-6 sm:py-8 my-8 sm:my-10 space-y-3 ${className}`}>
       {label && (
         <SectionEyebrow>{label}</SectionEyebrow>
       )}
@@ -129,7 +132,7 @@ export const ArticleBigFinding: React.FC<{
   className?: string;
 }> = ({ bigNumber, label, statement, className = '' }) => {
   return (
-    <div className={`py-12 sm:py-16 my-10 sm:my-14 border-y border-rule text-left space-y-4 ${className}`}>
+    <div data-role="article-big-finding" className={`py-12 sm:py-16 my-10 sm:my-14 border-y border-rule text-left space-y-4 ${className}`}>
       {label && (
         <SectionEyebrow>{label}</SectionEyebrow>
       )}
@@ -154,7 +157,7 @@ export const ArticleFigureCaption: React.FC<{
   className?: string;
 }> = ({ figNum, caption, source, className = '' }) => {
   return (
-    <div className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
+    <div data-role="figure-caption" data-semantic-target="figure" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
       <div className="text-ink font-semibold flex items-center gap-2">
         {figNum && <span className="text-ink font-bold">{figNum} ·</span>}
         <span className="text-ink-body font-normal">{caption}</span>
@@ -172,7 +175,7 @@ export const ArticleSource: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <div className={`text-xs font-mono text-ink-muted pt-2 ${className}`}>
+    <div data-role="article-source" className={`text-xs font-mono text-ink-muted pt-2 ${className}`}>
       {children}
     </div>
   );
@@ -187,7 +190,7 @@ export const ArticleFootnotes: React.FC<{
 }> = ({ footnotes, className = '' }) => {
   if (!footnotes || footnotes.length === 0) return null;
   return (
-    <div className={`border-t border-rule pt-5 mt-10 space-y-2 text-xs font-mono text-ink-muted ${className}`}>
+    <div data-role="article-footnotes" className={`border-t border-rule pt-5 mt-10 space-y-2 text-xs font-mono text-ink-muted ${className}`}>
       <div className="text-[11px] font-bold text-ink uppercase tracking-wider">
         NOTES &amp; REFERENCES
       </div>
@@ -212,7 +215,7 @@ export const ArticleFullWidthBreak: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <Container variant="wide" className={`my-12 sm:my-16 ${className}`}>
+    <Container variant="wide" role="full-width-break" className={`my-12 sm:my-16 ${className}`}>
       {children}
     </Container>
   );

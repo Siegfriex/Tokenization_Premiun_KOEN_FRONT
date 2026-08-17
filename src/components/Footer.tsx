@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   const isKo = language === 'ko';
 
   return (
-    <footer className="bg-surface text-ink-muted py-16 px-4 sm:px-6 lg:px-12 border-t border-rule font-sans text-xs">
+    <footer data-widget="Footer" data-role="site-footer" className="bg-surface text-ink-muted py-16 px-4 sm:px-6 lg:px-12 border-t border-rule font-sans text-xs">
       <Container className="space-y-12">
         {/* Top Branding & Meta */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-rule pb-8">
