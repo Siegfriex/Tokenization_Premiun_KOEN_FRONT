@@ -7,7 +7,7 @@ const TONE_CLASS: Record<Tone, string> = {
   subtle: 'border-rule/60',
 };
 
-/** Horizontal rule primitive — replaces repeated `border-t border-[#DADAD6]`. */
+/** Horizontal rule primitive — one `border-t` + rule token instead of per-widget hairlines. */
 export const Divider: React.FC<{ tone?: Tone; className?: string }> = ({
   tone = 'default',
   className = '',

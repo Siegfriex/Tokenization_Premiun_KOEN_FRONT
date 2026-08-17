@@ -3,6 +3,7 @@ import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { PIPELINE_STEPS } from '../entities/pipeline-step';
+import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -21,33 +22,23 @@ export const PipelineSection: React.FC = () => {
 
   return (
     <section id="pipeline" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <Container gutter className="space-y-12">
         {/* Section Header */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="text-xs font-mono text-ink-muted font-bold tracking-widest uppercase">
-            {isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            {isKo ? (
-              <>
-                토큰,
-                <br />
-                <span className="underline decoration-emphasis underline-offset-8 decoration-2">
-                  AI 시대의 새로운 계량 단위
-                </span>
-              </>
-            ) : (
-              <>
-                Tokens,
-                <br />
-                <span className="underline decoration-emphasis underline-offset-8 decoration-2">
-                  The New Unit of Measurement in AI
-                </span>
-              </>
-            )}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
+          {isKo ? (
+            <>
+              토큰,
+              <br />
+              <HeadingAccent>AI 시대의 새로운 계량 단위</HeadingAccent>
+            </>
+          ) : (
+            <>
+              Tokens,
+              <br />
+              <HeadingAccent>The New Unit of Measurement in AI</HeadingAccent>
+            </>
+          )}
+        </SectionHeading>
 
         {/* READING COLUMN: Pre-Figure Journalism Text */}
         <ArticleReadingColumn>
@@ -81,24 +72,20 @@ export const PipelineSection: React.FC = () => {
               {PIPELINE_STEPS.map((item, idx) => {
                 const isActive = activeStep === idx;
                 return (
-                  <button
-                    type="button"
+                  <SelectableCard
                     key={item.id}
-                    onClick={() => setActiveStep(idx)}
-                    aria-pressed={isActive}
-                    className={`p-5 rounded-xs border transition-all cursor-pointer flex flex-col justify-between space-y-4 text-left w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
-                      item.highlight
-                        ? 'bg-surface-inverse text-ink-inverse border-surface-inverse shadow-xs'
-                        : isActive
-                        ? 'bg-surface-alt border-ink text-ink'
-                        : 'bg-surface-alt border-rule hover:border-ink text-ink'
-                    }`}
+                    selected={isActive}
+                    onSelect={() => setActiveStep(idx)}
+                    surface="surface-alt"
+                    variant="outline"
+                    emphasized={item.highlight}
+                    className="p-5 flex flex-col justify-between space-y-4 text-left w-full"
                   >
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="block space-y-2">
+                      <span className="flex items-center justify-between text-xs font-mono">
                         <span
                           className={`text-xl font-bold font-mono ${
-                            item.highlight ? 'text-ink-inverse' : 'text-ink-muted'
+                            item.highlight ? 'text-on-accent' : 'text-ink-muted'
                           }`}
                         >
                           {item.step}
@@ -108,33 +95,33 @@ export const PipelineSection: React.FC = () => {
                             GAP ORIGIN
                           </span>
                         )}
-                      </div>
-                      <div
-                        className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                          item.highlight ? 'text-[#DADAD6]' : 'text-ink-muted'
+                      </span>
+                      <span
+                        className={`block font-mono text-xs font-bold uppercase tracking-wider ${
+                          item.highlight ? 'text-on-accent-muted' : 'text-ink-muted'
                         }`}
                       >
                         {item.name}
-                      </div>
-                      <div
-                        className={`font-bold text-sm ${
-                          item.highlight ? 'text-ink-inverse' : 'text-ink'
+                      </span>
+                      <span
+                        className={`block font-bold text-sm ${
+                          item.highlight ? 'text-on-accent' : 'text-ink'
                         }`}
                       >
                         {getLocalizedText(item.title, language)}
-                      </div>
-                    </div>
+                      </span>
+                    </span>
 
-                    <p
-                      className={`text-xs font-sans leading-relaxed pt-2 border-t ${
+                    <span
+                      className={`block text-xs font-sans leading-relaxed pt-2 border-t ${
                         item.highlight
-                          ? 'text-[#DADAD6] border-[#353535]'
+                          ? 'text-on-accent-muted border-rule-on-accent'
                           : 'text-ink-body border-rule'
                       }`}
                     >
                       {getLocalizedText(item.description, language)}
-                    </p>
-                  </button>
+                    </span>
+                  </SelectableCard>
                 );
               })}
             </div>
@@ -163,7 +150,7 @@ export const PipelineSection: React.FC = () => {
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
         </ArticleReadingColumn>
-      </div>
+      </Container>
     </section>
   );
 };

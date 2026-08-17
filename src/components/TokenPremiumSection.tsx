@@ -3,6 +3,7 @@ import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { DOMAIN_DISTRIBUTION_DATA } from '../entities/domain-distribution';
+import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -20,33 +21,23 @@ export const TokenPremiumSection: React.FC = () => {
 
   return (
     <section id="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <Container gutter className="space-y-12">
         {/* Eyebrow & Headline */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="text-xs font-mono text-ink-muted font-bold tracking-widest uppercase">
-            {isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            {isKo ? (
-              <>
-                한/영 말뭉치
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  69,432건 정밀 분석
-                </span>
-              </>
-            ) : (
-              <>
-                Corpus Analysis:
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  69,432 Verified KO-EN Pairs
-                </span>
-              </>
-            )}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
+          {isKo ? (
+            <>
+              한/영 말뭉치
+              <br />
+              <HeadingAccent>69,432건 정밀 분석</HeadingAccent>
+            </>
+          ) : (
+            <>
+              Corpus Analysis:
+              <br />
+              <HeadingAccent>69,432 Verified KO-EN Pairs</HeadingAccent>
+            </>
+          )}
+        </SectionHeading>
 
         {/* READING COLUMN: Pre-Figure Journalism Text */}
         <ArticleReadingColumn>
@@ -135,48 +126,50 @@ export const TokenPremiumSection: React.FC = () => {
                   {DOMAIN_DISTRIBUTION_DATA.map((item) => {
                     const isSelected = item.id === selectedDomainId;
                     return (
-                      <button
-                        type="button"
+                      <SelectableCard
                         key={item.id}
-                        onClick={() => setSelectedDomainId(item.id)}
-                        aria-pressed={isSelected}
-                        className={`p-3.5 rounded-xs border transition-all cursor-pointer space-y-2 text-left w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
-                          isSelected
-                            ? 'bg-surface-inverse border-surface-inverse text-ink-inverse'
-                            : 'bg-surface-alt border-rule hover:border-ink'
-                        }`}
+                        selected={isSelected}
+                        onSelect={() => setSelectedDomainId(item.id)}
+                        surface="surface-alt"
+                        className="p-3.5 space-y-2 text-left w-full"
                       >
-                        <div className="flex items-center justify-between text-xs font-mono">
-                          <div className="flex items-center gap-2">
+                        <span className="flex items-center justify-between text-xs font-mono">
+                          <span className="flex items-center gap-2">
                             <span
                               className={`w-2 h-2 rounded-full ${
-                                isSelected ? 'bg-ink-inverse' : 'bg-surface-inverse'
+                                isSelected ? 'bg-on-accent' : 'bg-accent'
                               }`}
                             ></span>
-                            <span className={`font-bold ${isSelected ? 'text-ink-inverse' : 'text-ink'}`}>
+                            <span className={`font-bold ${isSelected ? 'text-on-accent' : 'text-ink'}`}>
                               {getLocalizedText(item.label, language)}
                             </span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <span className={isSelected ? 'text-[#DADAD6] text-[11px]' : 'text-ink-muted text-[11px]'}>
+                          </span>
+                          <span className="flex items-center gap-3">
+                            <span
+                              className={
+                                isSelected
+                                  ? 'text-on-accent-muted text-[11px]'
+                                  : 'text-ink-muted text-[11px]'
+                              }
+                            >
                               {item.enTokens} vs {item.koTokens} tokens
                             </span>
-                            <span className={`font-bold font-mono text-sm ${isSelected ? 'text-ink-inverse' : 'text-ink'}`}>
+                            <span className={`font-bold font-mono text-sm ${isSelected ? 'text-on-accent' : 'text-ink'}`}>
                               {item.ratio.toFixed(2)}×
                             </span>
-                          </div>
-                        </div>
+                          </span>
+                        </span>
 
                         {/* Visual Proportional Bar */}
-                        <div className="h-2 w-full bg-[#E8E8E4] rounded-xs overflow-hidden flex border border-rule">
-                          <div
+                        <span className="h-2 w-full bg-mark-track rounded-xs overflow-hidden flex border border-rule">
+                          <span
                             className={`h-full rounded-xs transition-all duration-300 ${
-                              isSelected ? 'bg-ink-inverse' : 'bg-[#161616]'
+                              isSelected ? 'bg-on-accent' : 'bg-mark'
                             }`}
                             style={{ width: `${(item.ratio / 2.0) * 100}%` }}
-                          ></div>
-                        </div>
-                      </button>
+                          ></span>
+                        </span>
+                      </SelectableCard>
                     );
                   })}
                 </div>
@@ -212,7 +205,7 @@ export const TokenPremiumSection: React.FC = () => {
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
         </ArticleReadingColumn>
-      </div>
+      </Container>
     </section>
   );
 };

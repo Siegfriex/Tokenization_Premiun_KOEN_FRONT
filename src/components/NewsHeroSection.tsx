@@ -3,6 +3,7 @@ import { ChevronDown, ArrowDownRight } from 'lucide-react';
 import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
+import { Container, SectionEyebrow, HeadingAccent } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -28,16 +29,16 @@ export const NewsHeroSection: React.FC = () => {
       id="hero"
       className="relative min-h-[92vh] flex flex-col justify-between bg-surface text-ink py-16 sm:py-24 px-4 sm:px-6 lg:px-12 border-b border-rule"
     >
-      <div className="max-w-[1360px] mx-auto w-full space-y-16 sm:space-y-20 my-auto">
+      <Container className="space-y-16 sm:space-y-20 my-auto">
         {/* Top Project Metadata Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-rule pb-4 text-xs font-mono text-ink-muted">
           <div className="flex items-center gap-3">
             <span className="text-ink font-bold tracking-widest uppercase">
               {isKo ? heroData.eyebrow?.ko : heroData.eyebrow?.en}
             </span>
-            <span className="text-[#DADAD6]">/</span>
+            <span className="text-rule-neutral">/</span>
             <span>Data Journalism Investigation</span>
-            <span className="text-[#DADAD6]">/</span>
+            <span className="text-rule-neutral">/</span>
             <span className="text-ink font-bold">2026</span>
           </div>
           <div className="text-ink-subtle font-mono text-[11px]">
@@ -60,9 +61,7 @@ export const NewsHeroSection: React.FC = () => {
                 {headlineLine2 && (
                   <>
                     <br />
-                    <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                      {headlineLine2}
-                    </span>
+                    <HeadingAccent>{headlineLine2}</HeadingAccent>
                   </>
                 )}
               </h1>
@@ -108,13 +107,13 @@ export const NewsHeroSection: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-ink font-bold flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-surface-inverse"></span>
+                    <span className="w-2 h-2 rounded-full bg-accent"></span>
                     Korean (한국어)
                   </span>
                   <span className="text-ink font-bold text-sm">31 TOKENS</span>
                 </div>
-                <div className="h-3 w-full bg-[#E8E8E4] rounded-xs overflow-hidden border border-rule">
-                  <div className="h-full bg-[#161616] rounded-xs w-[100%] transition-all"></div>
+                <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
+                  <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
                 </div>
                 <p className="text-[11px] text-ink-body font-mono italic">
                   "인공지능 모델의 다국어 토큰화 처리 효율성..."
@@ -130,7 +129,7 @@ export const NewsHeroSection: React.FC = () => {
                   </span>
                   <span className="text-ink-body font-bold text-sm">18 TOKENS</span>
                 </div>
-                <div className="h-3 w-full bg-[#E8E8E4] rounded-xs overflow-hidden border border-rule">
+                <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
                 </div>
                 <p className="text-[11px] text-ink-subtle font-mono italic">
@@ -162,9 +161,9 @@ export const NewsHeroSection: React.FC = () => {
         {/* LONG-FORM ARTICLE ESSAY / INTRODUCTORY BODY COLUMN */}
         <div className="pt-12 sm:pt-16 border-t border-rule">
           <ArticleReadingColumn>
-            <div className="text-xs font-mono text-ink-muted font-bold uppercase tracking-widest mb-4">
+            <SectionEyebrow className="mb-4">
               {isKo ? introData.eyebrow?.ko : introData.eyebrow?.en}
-            </div>
+            </SectionEyebrow>
 
             <ArticleLead>
               {isKo ? introData.lead?.ko : introData.lead?.en}
@@ -189,10 +188,10 @@ export const NewsHeroSection: React.FC = () => {
             />
           </ArticleReadingColumn>
         </div>
-      </div>
+      </Container>
 
       {/* Minimal Scroll Down Prompt */}
-      <div className="max-w-[1360px] mx-auto w-full pt-12 flex justify-start">
+      <Container className="pt-12 flex justify-start">
         <a
           href="#compare"
           className="inline-flex items-center gap-2 text-xs font-mono text-ink-muted hover:text-ink transition-colors group cursor-pointer"
@@ -202,7 +201,7 @@ export const NewsHeroSection: React.FC = () => {
           </span>
           <ChevronDown className="w-4 h-4 text-ink group-hover:translate-y-1 transition-transform" />
         </a>
-      </div>
+      </Container>
     </section>
   );
 };

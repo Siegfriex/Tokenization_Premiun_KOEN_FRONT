@@ -3,6 +3,7 @@ import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { VERIFIED_POLICY_SLOTS } from '../entities/policy-slot';
 import { ARTICLE_CONTENT, MACRO_ADOPTION_PHASES } from '../entities/article-content';
+import { Container, SectionHeading, HeadingAccent } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -20,33 +21,23 @@ export const KoreaAIContextSection: React.FC = () => {
 
   return (
     <section id="infrastructure" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <Container gutter className="space-y-12">
         {/* Section Header */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="text-xs font-mono text-ink-muted font-bold tracking-widest uppercase">
-            {isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            {isKo ? (
-              <>
-                AI가 인프라가 되는 사회,
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  확장되는 토큰 스케일
-                </span>
-              </>
-            ) : (
-              <>
-                When AI Becomes Infrastructure,
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  Scaling Token Demands
-                </span>
-              </>
-            )}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
+          {isKo ? (
+            <>
+              AI가 인프라가 되는 사회,
+              <br />
+              <HeadingAccent>확장되는 토큰 스케일</HeadingAccent>
+            </>
+          ) : (
+            <>
+              When AI Becomes Infrastructure,
+              <br />
+              <HeadingAccent>Scaling Token Demands</HeadingAccent>
+            </>
+          )}
+        </SectionHeading>
 
         {/* READING COLUMN: Pre-Figure Journalism Text */}
         <ArticleReadingColumn>
@@ -84,17 +75,17 @@ export const KoreaAIContextSection: React.FC = () => {
                   key={phase.id}
                   className={`rounded-xs p-5 space-y-3 border ${
                     phase.highlight
-                      ? 'bg-surface-inverse text-ink-inverse border-surface-inverse shadow-xs'
+                      ? 'bg-accent text-on-accent border-accent shadow-xs'
                       : 'bg-surface-alt border-rule'
                   }`}
                 >
-                  <div className={`text-xs font-mono font-bold uppercase ${phase.highlight ? 'text-[#DADAD6]' : 'text-ink-muted'}`}>
+                  <div className={`text-xs font-mono font-bold uppercase ${phase.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
                     {phase.phaseLabel}
                   </div>
-                  <div className={`text-lg font-bold ${phase.highlight ? 'text-ink-inverse' : 'text-ink'}`}>
+                  <div className={`text-lg font-bold ${phase.highlight ? 'text-on-accent' : 'text-ink'}`}>
                     {phase.name}
                   </div>
-                  <p className={`text-xs leading-relaxed font-sans ${phase.highlight ? 'text-[#DADAD6]' : 'text-ink-body'}`}>
+                  <p className={`text-xs leading-relaxed font-sans ${phase.highlight ? 'text-on-accent-muted' : 'text-ink-body'}`}>
                     {phase.description}
                   </p>
                 </div>
@@ -177,7 +168,7 @@ export const KoreaAIContextSection: React.FC = () => {
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
         </ArticleReadingColumn>
-      </div>
+      </Container>
     </section>
   );
 };

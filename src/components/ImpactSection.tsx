@@ -2,6 +2,7 @@ import React from 'react';
 import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT, IMPACT_SCALE_LEVELS, IMPACT_CAUSAL_CHAIN } from '../entities/article-content';
+import { Container, SectionHeading, SectionEyebrow, HeadingAccent } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -19,33 +20,23 @@ export const ImpactSection: React.FC = () => {
 
   return (
     <section id="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <Container gutter className="space-y-12">
         {/* Section Header */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="text-xs font-mono text-ink-muted font-bold tracking-widest uppercase">
-            {isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            {isKo ? (
-              <>
-                단순한 요금 차이를 넘어,
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  비용의 문제를 넘어
-                </span>
-              </>
-            ) : (
-              <>
-                Beyond Mere Billing:
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  Systemic Architecture Impact
-                </span>
-              </>
-            )}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
+          {isKo ? (
+            <>
+              단순한 요금 차이를 넘어,
+              <br />
+              <HeadingAccent>비용의 문제를 넘어</HeadingAccent>
+            </>
+          ) : (
+            <>
+              Beyond Mere Billing:
+              <br />
+              <HeadingAccent>Systemic Architecture Impact</HeadingAccent>
+            </>
+          )}
+        </SectionHeading>
 
         {/* READING COLUMN: Pre-Figure Journalism Text */}
         <ArticleReadingColumn>
@@ -75,30 +66,30 @@ export const ImpactSection: React.FC = () => {
                 key={level.id}
                 className={`rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border ${
                   level.highlight
-                    ? 'bg-surface-inverse text-ink-inverse border-surface-inverse'
+                    ? 'bg-accent text-on-accent border-accent'
                     : 'bg-surface border-rule'
                 }`}
               >
                 <div className="space-y-4">
-                  <div className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-[#353535]' : 'border-rule'}`}>
-                    <span className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-[#DADAD6]' : 'text-ink-muted'}`}>
+                  <div className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
+                    <span className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
                       {level.levelLabelKo}
                     </span>
-                    <span className={`text-xs font-mono ${level.highlight ? 'text-ink-inverse font-bold' : 'text-ink-muted'}`}>
+                    <span className={`text-xs font-mono ${level.highlight ? 'text-on-accent font-bold' : 'text-ink-muted'}`}>
                       {level.levelBadge}
                     </span>
                   </div>
 
-                  <h3 className={`text-xl font-bold ${level.highlight ? 'text-ink-inverse' : 'text-ink'}`}>
+                  <h3 className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
                     {getLocalizedText(level.title, language)}
                   </h3>
 
-                  <p className={`text-xs sm:text-sm leading-relaxed font-sans ${level.highlight ? 'text-[#DADAD6]' : 'text-ink-body'}`}>
+                  <p className={`text-xs sm:text-sm leading-relaxed font-sans ${level.highlight ? 'text-on-accent-muted' : 'text-ink-body'}`}>
                     {getLocalizedText(level.description, language)}
                   </p>
                 </div>
 
-                <div className={`text-[11px] font-mono border-t pt-3 ${level.highlight ? 'text-[#DADAD6] font-bold border-[#353535]' : 'text-ink-muted border-rule'}`}>
+                <div className={`text-[11px] font-mono border-t pt-3 ${level.highlight ? 'text-on-accent-muted font-bold border-rule-on-accent' : 'text-ink-muted border-rule'}`}>
                   {level.unitNote}
                 </div>
               </div>
@@ -108,9 +99,7 @@ export const ImpactSection: React.FC = () => {
           {/* Complete Conceptual Causal Chain */}
           <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
             <div className="space-y-1">
-              <span className="text-xs font-mono text-ink-muted font-bold uppercase tracking-widest block">
-                FINAL CONCEPTUAL CAUSAL CHAIN
-              </span>
+              <SectionEyebrow>FINAL CONCEPTUAL CAUSAL CHAIN</SectionEyebrow>
               <h4 className="text-lg sm:text-xl font-bold text-ink">
                 언어 구조에서 사회적 파급 효과까지의 인과 사슬
               </h4>
@@ -125,7 +114,7 @@ export const ImpactSection: React.FC = () => {
                     <div
                       className={`p-3 rounded-xs border ${
                         isEmphasis
-                          ? 'bg-surface-inverse border-surface-inverse text-ink-inverse font-bold'
+                          ? 'bg-accent border-accent text-on-accent font-bold'
                           : 'bg-surface-alt border-rule text-ink-body'
                       }`}
                     >
@@ -160,7 +149,7 @@ export const ImpactSection: React.FC = () => {
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
         </ArticleReadingColumn>
-      </div>
+      </Container>
     </section>
   );
 };
