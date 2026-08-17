@@ -79,7 +79,7 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `BURD-027` | OccupationSection | 254-264 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-010` | PipelineSection | 76-125 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-011` | PipelineSection | 86-99 | `span` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `NAV-001` | StoryProgress | 19-67 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `NAV-001` | StoryProgress | 19-73 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-002` | StoryProgress | 23-31 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-008` | TokenCompareSection | 86-93 | `span` | CURATED_PAIRED_SENTENCES | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-011` | TokenCompareSection | 112-157 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |

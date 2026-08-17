@@ -24,17 +24,17 @@ _Global header · src/components/StoryProgress.tsx · 11 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `NAV-008` | 17-76 | `header` | DESIGN APPLICATION | STABLE (data-*) | _(header)_ | — | LOW | B5-design-roles |
-| `NAV-001` | 19-67 | `div` | DOM STRUCTURE | STABLE (data-*) | _(Container)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `NAV-008` | 17-82 | `header` | DESIGN APPLICATION | STABLE (data-*) | _(header)_ | — | LOW | B5-design-roles |
+| `NAV-001` | 19-73 | `div` | DOM STRUCTURE | STABLE (data-*) | _(Container)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `NAV-002` | 23-31 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `NAV-003` | 24-26 | `span` | CONTENT | STABLE (data-*) | DATA JOURNALISM | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
 | `NAV-004` | 27 | `span` | CONTENT | style | \| | — | MEDIUM | B4-content-migration |
 | `NAV-005` | 28-30 | `span` | CONTENT | STABLE (data-*) | Token Premium: 생성형 AI의 언어 표기 효율성 격차 ⏎ Token Premium: Linguistic Eff… | — | MEDIUM | B4-content-migration |
-| `NAV-006` | 35-61 | `nav` | DESIGN APPLICATION | STABLE (data-*) | _(nav)_ | — | LOW | B2-stable-hooks |
-| `NAV-009` | 40-60 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `NAV-010` | 44-57 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `NAV-007` | 45-56 | `a` | DESIGN APPLICATION | STABLE (data-*) | _(a)_ | — | LOW | B2-stable-hooks |
-| `NAV-011` | 70-75 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `NAV-006` | 35-67 | `nav` | DESIGN APPLICATION | STABLE (data-*) | _(nav)_ | — | LOW | B2-stable-hooks |
+| `NAV-009` | 40-66 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `NAV-010` | 44-63 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `NAV-007` | 45-62 | `a` | DESIGN APPLICATION | STABLE (data-*) | _(a)_ | — | LOW | B2-stable-hooks |
+| `NAV-011` | 76-81 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 
 ## NewsHeroSection
 

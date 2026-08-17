@@ -270,9 +270,9 @@ the styling, and every design change silently invalidates it.
 | `NAV-003` | StoryProgress | 24-26 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.tracking-widest.text-ink.upper…` | `data-role="…"` |
 | `NAV-004` | StoryProgress | 27 | `span` | STYLE_SIGNATURE | `span.text-rule-neutral.hidden.sm\:inline` | `data-role="…"` |
 | `NAV-005` | StoryProgress | 28-30 | `span` | STABLE (data-*) | `span.text-sm.font-semibold.tracking-tight.text-ink-body.hid…` | `data-role="…"` |
-| `NAV-006` | StoryProgress | 35-61 | `nav` | STABLE (data-*) | `nav.hidden.lg\:flex.items-center.gap-1.text-\[11px\].font-m…` | `data-role="section-nav"` |
-| `NAV-010` | StoryProgress | 44-57 | `li` | STABLE (data-*) | `li` | `data-collection="nav_sections" data-item-id="{item.id}"` |
-| `NAV-007` | StoryProgress | 45-56 | `a` | STABLE (data-*) | `a.px-2.py-1.rounded-xs.whitespace-nowrap.transition-colors.…` | `data-collection="nav_sections" data-item-id="{item.id}"` |
+| `NAV-006` | StoryProgress | 35-67 | `nav` | STABLE (data-*) | `nav.hidden.lg\:flex.items-center.gap-1.text-\[11px\].font-m…` | `data-role="section-nav"` |
+| `NAV-010` | StoryProgress | 44-63 | `li` | STABLE (data-*) | `li` | `data-collection="nav_sections" data-item-id="{item.id}"` |
+| `NAV-007` | StoryProgress | 45-62 | `a` | STABLE (data-*) | `a.px-2.py-1.rounded-xs.whitespace-nowrap.transition-colors.…` | `data-collection="nav_sections" data-item-id="{item.id}"` |
 | `CMP-042` | TokenCompareSection | 35-49 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `CMP-002` | TokenCompareSection | 40 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `CMP-003` | TokenCompareSection | 46 | `span` | STABLE (data-*) | `span` | `data-role="…"` |

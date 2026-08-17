@@ -45,14 +45,20 @@ export const StoryProgress: React.FC = () => {
               <a
                 href={`#${sec.id}`}
                 aria-current={isActive ? 'location' : undefined}
+                aria-label={`${getLocalizedText(sec.code, language)} — ${getLocalizedText(sec.name, language)}`}
                 data-active={isActive || undefined}
                 className={`px-2 py-1 rounded-xs whitespace-nowrap transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                   isActive
                     ? 'text-on-accent bg-accent font-bold'
-                    : 'text-ink-muted hover:text-ink hover:bg-surface-alt'
+                    : 'text-ink-subtle hover:text-ink hover:bg-surface-alt'
                 }`}
               >
-                {getLocalizedText(sec.label, language)}
+                {getLocalizedText(sec.code, language)}
+                {isActive && (
+                  <span className="ml-1 font-normal opacity-90">
+                    {getLocalizedText(sec.name, language)}
+                  </span>
+                )}
               </a>
               </li>
             );
