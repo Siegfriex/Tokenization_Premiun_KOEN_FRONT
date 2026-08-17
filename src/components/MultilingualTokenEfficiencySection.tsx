@@ -4,7 +4,7 @@ import { MULTILINGUAL_COMPARISON_DATA } from '../entities/multilingual-token';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { chartTokens } from '../shared/config/chart-tokens';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
-import { claimAttrs } from '../shared/trace';
+import { claimAttrs, claimText } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -132,14 +132,14 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                     >
                       {selectedItem.differencePercent > 0
                         ? `+${selectedItem.differencePercent}%`
-                        : 'Baseline (0%)'}
+                        : claimText('lang.baseline-difference-label')}
                     </dd>
                   </dl>
                 </div>
 
                 {selectedItem.isTargetHangul && (
                   <div {...claimAttrs('lang.hangul-ratio-callout')} className="p-3 bg-surface-alt border border-rule-strong rounded-xs text-xs text-ink font-mono">
-                    ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.
+                    {claimText('lang.hangul-ratio-callout')}
                   </div>
                 )}
               </div>
@@ -176,7 +176,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                       NORMALIZED TOKEN CONSUMPTION BY LANGUAGE
                     </dt>
                     <dd {...claimAttrs('lang.normalization-base')} className="text-[11px] font-mono text-ink-muted">
-                      기준 영문 100 토큰 대비 정규화 소모량
+                      {claimText('lang.normalization-base')}
                     </dd>
                   </dl>
                   <span data-source="widget" className="text-xs font-mono text-ink-muted">Flores-200 / o200k_base</span>
@@ -272,11 +272,11 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-baseline rounded-xs inline-block"></span>
-                      <span {...claimAttrs('lang.legend-latin-baseline')}>라틴 알파벳 기준 (1.00×)</span>
+                      <span {...claimAttrs('lang.legend-latin-baseline')}>{claimText('lang.legend-latin-baseline')}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark rounded-xs inline-block border border-rule-strong"></span>
-                      <span {...claimAttrs('lang.legend-hangul-ratio')} className="text-ink font-bold">한국어 한글 (1.78×)</span>
+                      <span {...claimAttrs('lang.legend-hangul-ratio')} className="text-ink font-bold">{claimText('lang.legend-hangul-ratio')}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <span className="w-3 h-3 bg-mark-other rounded-xs inline-block"></span>

@@ -2556,11 +2556,10 @@
    "deadFile": false
   },
   {
-   "traceId": "METH-008",
-   "identityKey": "src/components/MethodSection.tsx|dd|6 Key Principles||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "METH-004",
+   "identityKey": "src/components/MethodSection.tsx|dd|method.principle-count||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -2574,32 +2573,20 @@
    "locator": "dd.text-xs.font-mono.text-ink-muted",
    "locatorPath": "#method > div.space-y-12 > figure|div.space-y-10.my-8 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.sm\\:p-10.space-y-6.shadow-xs > dl.flex.items-center.justify-between.border-b.border-rule.pb-3 > dd.text-xs.font-mono.text-ink-muted",
    "addressing": "STABLE (data-*)",
-   "literal": "6 Key Principles",
+   "literal": "method.principle-count",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "benchmark-count",
-     "value": "6 Key"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "6 Key",
-     "at": [
-      "src/entities/sentence-pair/content/sentence-pair.ts:23"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — count coincides with WHAT_WE_DO_NOT_CLAIM.length (6) but is not read from it",
+   "mismatchStatus": "N/A",
    "contradiction": null,
-   "countCheck": "rendered 6 vs WHAT_WE_DO_NOT_CLAIM.length 6",
-   "directorDecisionRequired": true,
+   "countCheck": null,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "text-xs",
     "font-mono"
@@ -2609,8 +2596,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -5922,11 +5909,10 @@
    "deadFile": false
   },
   {
-   "traceId": "LANG-018",
-   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|dd|Baseline (0%)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "LANG-005",
+   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|dd|lang.baseline-difference-label||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -5940,32 +5926,20 @@
    "locator": "dd.font-bold.text-ink.text-ink-muted",
    "locatorPath": "#languages > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-10.lg\\:gap-14.items-start > div.lg\\:col-span-4.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.space-y-6.shadow-xs > div.space-y-3.pt-2.border-t.border-rule.text-xs.font-mono > dl.flex.justify-between.py-1 > dd.font-bold.text-ink.text-ink-muted",
    "addressing": "STABLE (data-*)",
-   "literal": "Baseline (0%)",
+   "literal": "lang.baseline-difference-label",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "percentage",
-     "value": "0%"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "0%",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:15"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "VALUE_PRESENT_IN_ENTITY (ownership still widget-side)",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -5975,16 +5949,15 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
-   "traceId": "LANG-019",
-   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|div|★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "LANG-006",
+   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|div|lang.hangul-ratio-callout||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -5998,36 +5971,20 @@
    "locator": "div.p-3.bg-surface-alt.border.border-rule-strong.rounded-xs.text-xs.text-ink.font-mono",
    "locatorPath": "#languages > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-10.lg\\:gap-14.items-start > div.lg\\:col-span-4.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.space-y-6.shadow-xs > div.p-3.bg-surface-alt.border.border-rule-strong.rounded-xs.text-xs.text-ink.font-mono",
    "addressing": "STABLE (data-*)",
-   "literal": "★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.",
+   "literal": "lang.hangul-ratio-callout",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.78"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1.78",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:48"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "DUPLICATED — value agrees, ownership is widget-side",
-   "contradiction": {
-    "severity": "DUPLICATED",
-    "observed": "markup hardcodes \"1.78배\" and \"한국어 한글 (1.78×)\"",
-    "entity": "MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "text-xs",
     "font-mono"
@@ -6043,8 +6000,8 @@
     "rounded-xs"
    ],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -6240,11 +6197,10 @@
    "deadFile": false
   },
   {
-   "traceId": "LANG-024",
-   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|dd|기준 영문 100 토큰 대비 정규화 소모량||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "LANG-010",
+   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|dd|lang.normalization-base||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -6258,32 +6214,20 @@
    "locator": "dd.text-\\[11px\\].font-mono.text-ink-muted",
    "locatorPath": "#languages > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-10.lg\\:gap-14.items-start > div.lg\\:col-span-8.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.flex.items-center.justify-between.border-b.border-rule.pb-3 > dl > dd.text-\\[11px\\].font-mono.text-ink-muted",
    "addressing": "STABLE (data-*)",
-   "literal": "기준 영문 100 토큰 대비 정규화 소모량",
+   "literal": "lang.normalization-base",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "100"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "100",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:13"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "VALUE_PRESENT_IN_ENTITY (ownership still widget-side)",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "text-[11px]",
     "font-mono"
@@ -6293,8 +6237,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -6492,11 +6436,10 @@
    "deadFile": false
   },
   {
-   "traceId": "LANG-031",
-   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|span|라틴 알파벳 기준 (1.00×)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "LANG-013",
+   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|span|lang.legend-latin-baseline||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -6509,39 +6452,33 @@
    "locator": "span",
    "locatorPath": "#languages > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-10.lg\\:gap-14.items-start > div.lg\\:col-span-8.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.pt-3.border-t.border-rule.flex.flex-wrap.items-center.justify-between.text-xs.font-mono.text-ink-muted.gap-3 > div.flex.items-center.gap-4 > span.flex.items-center.gap-1\\.5 > span",
    "addressing": "STABLE (data-*)",
-   "literal": "라틴 알파벳 기준 (1.00×)",
+   "literal": "lang.legend-latin-baseline",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.00"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — no entity holds this value",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
-   "traceId": "LANG-032",
-   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|span|한국어 한글 (1.78×)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "LANG-016",
+   "identityKey": "src/components/MultilingualTokenEfficiencySection.tsx|span|lang.legend-hangul-ratio||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -6555,36 +6492,20 @@
    "locator": "span.text-ink.font-bold",
    "locatorPath": "#languages > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-10.lg\\:gap-14.items-start > div.lg\\:col-span-8.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.pt-3.border-t.border-rule.flex.flex-wrap.items-center.justify-between.text-xs.font-mono.text-ink-muted.gap-3 > div.flex.items-center.gap-4 > span.flex.items-center.gap-1\\.5 > span.text-ink.font-bold",
    "addressing": "STABLE (data-*)",
-   "literal": "한국어 한글 (1.78×)",
+   "literal": "lang.legend-hangul-ratio",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.78"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1.78",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:48"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "DUPLICATED — value agrees, ownership is widget-side",
-   "contradiction": {
-    "severity": "DUPLICATED",
-    "observed": "markup hardcodes \"1.78배\" and \"한국어 한글 (1.78×)\"",
-    "entity": "MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -6593,8 +6514,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -7368,11 +7289,10 @@
    "deadFile": false
   },
   {
-   "traceId": "HERO-019",
-   "identityKey": "src/components/NewsHeroSection.tsx|dd|+78% Hangul Token Burden||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "HERO-011",
+   "identityKey": "src/components/NewsHeroSection.tsx|dd|hero.observed-gap||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -7386,36 +7306,20 @@
    "locator": "dd.text-ink.font-bold",
    "locatorPath": "#hero > div.space-y-16.sm\\:space-y-20.my-auto > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-7.space-y-8 > div.pt-4.border-t.border-rule.flex.flex-wrap.items-center.gap-8.text-xs.font-mono.text-ink-body > dl > dd.text-ink.font-bold",
    "addressing": "STABLE (data-*)",
-   "literal": "+78% Hangul Token Burden",
+   "literal": "hero.observed-gap",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "percentage",
-     "value": "+78%"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "+78%",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:49"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "DUPLICATED — value agrees, ownership is widget-side",
-   "contradiction": {
-    "severity": "DUPLICATED",
-    "observed": "markup renders \"+78% Hangul Token Burden\" in the stat ribbon",
-    "entity": "MULTILINGUAL_COMPARISON_DATA ko.differencePercent is 78 — value agrees, ownership does not"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -7424,8 +7328,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -7575,11 +7479,10 @@
    "deadFile": false
   },
   {
-   "traceId": "HERO-025",
-   "identityKey": "src/components/NewsHeroSection.tsx|dd|31 TOKENS||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "HERO-014",
+   "identityKey": "src/components/NewsHeroSection.tsx|dd|hero.exhibit-hangul-tokens||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -7593,36 +7496,20 @@
    "locator": "dd.text-ink.font-bold.text-sm",
    "locatorPath": "#hero > div.space-y-16.sm\\:space-y-20.my-auto > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-6.lg\\:pl-4 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.space-y-6 > div.space-y-2 > dl.flex.items-center.justify-between.text-xs.font-mono > dd.text-ink.font-bold.text-sm",
    "addressing": "STABLE (data-*)",
-   "literal": "31 TOKENS",
+   "literal": "hero.exhibit-hangul-tokens",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "token-count",
-     "value": "31 TOKENS"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "31 TOKENS",
-     "at": [
-      "src/entities/occupation/content/token-baseline-simulation.ts:21"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"31 TOKENS\" for the Korean exhibit row",
-    "entity": "no CURATED_PAIRED_SENTENCES entry has hangulCount 31; TOKEN_BASELINE_SIMULATION.baseKoPerPrompt is 31"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold",
     "text-sm"
@@ -7632,8 +7519,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -7731,11 +7618,10 @@
    "deadFile": false
   },
   {
-   "traceId": "HERO-029",
-   "identityKey": "src/components/NewsHeroSection.tsx|dd|18 TOKENS||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "HERO-017",
+   "identityKey": "src/components/NewsHeroSection.tsx|dd|hero.exhibit-english-tokens||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -7749,37 +7635,20 @@
    "locator": "dd.text-ink-body.font-bold.text-sm",
    "locatorPath": "#hero > div.space-y-16.sm\\:space-y-20.my-auto > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-6.lg\\:pl-4 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.space-y-6 > div.space-y-2.pt-2.border-t.border-rule > dl.flex.items-center.justify-between.text-xs.font-mono > dd.text-ink-body.font-bold.text-sm",
    "addressing": "STABLE (data-*)",
-   "literal": "18 TOKENS",
+   "literal": "hero.exhibit-english-tokens",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "token-count",
-     "value": "18 TOKENS"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "18 TOKENS",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:27",
-      "src/entities/sentence-pair/content/sentence-pair.ts:60"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"18 TOKENS\" for the English exhibit row",
-    "entity": "no paired-sentence entry pairs 31 with 18; TOKEN_BASELINE_SIMULATION.baseEnPerPrompt is 24"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold",
     "text-sm"
@@ -7789,8 +7658,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -7882,11 +7751,10 @@
    "deadFile": false
   },
   {
-   "traceId": "HERO-033",
-   "identityKey": "src/components/NewsHeroSection.tsx|dd|1.72× (+72% Difference)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "HERO-019",
+   "identityKey": "src/components/NewsHeroSection.tsx|dd|hero.exhibit-ratio||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -7900,29 +7768,20 @@
    "locator": "dd.text-ink.font-bold.text-sm",
    "locatorPath": "#hero > div.space-y-16.sm\\:space-y-20.my-auto > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-6.lg\\:pl-4 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.space-y-6 > dl.pt-3.border-t.border-rule.flex.items-center.justify-between.text-xs.font-mono > dd.text-ink.font-bold.text-sm",
    "addressing": "STABLE (data-*)",
-   "literal": "1.72× (+72% Difference)",
+   "literal": "hero.exhibit-ratio",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "percentage",
-     "value": "+72%"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"1.72× (+72% Difference)\" as the hero exhibit ratio",
-    "entity": "derived from the 31/18 pair above, which is itself unlinked"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold",
     "text-sm"
@@ -7932,8 +7791,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -8614,11 +8473,10 @@
    "deadFile": false
   },
   {
-   "traceId": "BURD-016",
-   "identityKey": "src/components/OccupationSection.tsx|span|1회 (단일 프롬프트)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "BURD-005",
+   "identityKey": "src/components/OccupationSection.tsx|span|burden.preset-min-label||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -8631,46 +8489,33 @@
    "locator": "span",
    "locatorPath": "#burden > div.space-y-12 > figure|div.space-y-12.my-8 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.sm\\:p-10.space-y-8.shadow-xs > div.space-y-3 > div.flex.justify-between.text-\\[11px\\].font-mono.text-ink-muted > span",
    "addressing": "STABLE (data-*)",
-   "literal": "1회 (단일 프롬프트)",
+   "literal": "burden.preset-min-label",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1",
-     "at": [
-      "src/entities/multilingual-token/content/multilingual-token.ts:14"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "VALUE_PRESENT_IN_ENTITY (ownership still widget-side)",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
    "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
-   "traceId": "BURD-017",
-   "identityKey": "src/components/OccupationSection.tsx|span|1,000회 (팀 일간 워크플로우)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "BURD-006",
+   "identityKey": "src/components/OccupationSection.tsx|span|burden.preset-team-label||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -8683,39 +8528,33 @@
    "locator": "span",
    "locatorPath": "#burden > div.space-y-12 > figure|div.space-y-12.my-8 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.sm\\:p-10.space-y-8.shadow-xs > div.space-y-3 > div.flex.justify-between.text-\\[11px\\].font-mono.text-ink-muted > span",
    "addressing": "STABLE (data-*)",
-   "literal": "1,000회 (팀 일간 워크플로우)",
+   "literal": "burden.preset-team-label",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "large-count",
-     "value": "1,000"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — no entity holds this value",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
-   "traceId": "BURD-018",
-   "identityKey": "src/components/OccupationSection.tsx|span|2,000회 (전사 에이전트 루틴)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "BURD-012",
+   "identityKey": "src/components/OccupationSection.tsx|span|burden.preset-org-label||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -8728,31 +8567,26 @@
    "locator": "span",
    "locatorPath": "#burden > div.space-y-12 > figure|div.space-y-12.my-8 > div.bg-surface-alt.border.border-rule.rounded-xs.p-6.sm\\:p-10.space-y-8.shadow-xs > div.space-y-3 > div.flex.justify-between.text-\\[11px\\].font-mono.text-ink-muted > span",
    "addressing": "STABLE (data-*)",
-   "literal": "2,000회 (전사 에이전트 루틴)",
+   "literal": "burden.preset-org-label",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "large-count",
-     "value": "2,000"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — no entity holds this value",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -12475,10 +12309,9 @@
   },
   {
    "traceId": "PREM-002",
-   "identityKey": "src/components/TokenPremiumSection.tsx|HeadingAccent|69,432건 정밀 분석||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "identityKey": "src/components/TokenPremiumSection.tsx|HeadingAccent|premium.corpus-size-ko||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -12491,39 +12324,33 @@
    "locator": "span",
    "locatorPath": "#patterns > div.space-y-12 > div > span",
    "addressing": "STABLE (data-*)",
-   "literal": "69,432건 정밀 분석",
+   "literal": "premium.corpus-size-ko",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "large-count",
-     "value": "69,432"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — no entity holds this value",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": "HeadingAccent",
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
    "traceId": "PREM-003",
-   "identityKey": "src/components/TokenPremiumSection.tsx|HeadingAccent|69,432 Verified KO-EN Pairs||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "identityKey": "src/components/TokenPremiumSection.tsx|HeadingAccent|premium.corpus-size-en||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -12536,31 +12363,26 @@
    "locator": "span",
    "locatorPath": "#patterns > div.space-y-12 > div > span",
    "addressing": "STABLE (data-*)",
-   "literal": "69,432 Verified KO-EN Pairs",
+   "literal": "premium.corpus-size-en",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "large-count",
-     "value": "69,432"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "UNLINKED — no entity holds this value",
+   "mismatchStatus": "N/A",
    "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": "HeadingAccent",
-   "risk": "HIGH",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -12741,11 +12563,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-011",
-   "identityKey": "src/components/TokenPremiumSection.tsx|div|1.29 ⏎ 1.83||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-004",
+   "identityKey": "src/components/TokenPremiumSection.tsx|div|premium.headline-range ⏎ premium.headline-range||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -12759,40 +12580,20 @@
    "locator": "div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink",
    "addressing": "STABLE (data-*)",
-   "literal": "1.29 ⏎ 1.83",
+   "literal": "premium.headline-range ⏎ premium.headline-range",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.29"
-    },
-    {
-     "kind": "bare-number",
-     "value": "1.83"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1.83",
-     "at": [
-      "src/entities/sentence-pair/content/sentence-pair.ts:25"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders the headline range \"1.29× ~ 1.83×\"",
-    "entity": "entity ratio range is 1.13 – 1.75"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "text-6xl",
     "sm:text-7xl",
@@ -12806,8 +12607,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -12993,11 +12794,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-016",
-   "identityKey": "src/components/TokenPremiumSection.tsx|dd|1.68× (+68%)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-005",
+   "identityKey": "src/components/TokenPremiumSection.tsx|dd|premium.average-ratio||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -13011,29 +12811,20 @@
    "locator": "dd.text-ink.font-bold",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2.text-xs.font-mono.text-ink-body.pt-3.border-t.border-rule > dl.flex.justify-between.py-1.border-b.border-rule\\/60 > dd.text-ink.font-bold",
    "addressing": "STABLE (data-*)",
-   "literal": "1.68× (+68%)",
+   "literal": "premium.average-ratio",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "percentage",
-     "value": "+68%"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"Average Token Premium: 1.68× (+68%)\"",
-    "entity": "arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -13042,8 +12833,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -13089,11 +12880,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-019",
-   "identityKey": "src/components/TokenPremiumSection.tsx|dd|1.00× (Standard)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-009",
+   "identityKey": "src/components/TokenPremiumSection.tsx|dd|premium.baseline-standard||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -13107,37 +12897,28 @@
    "locator": "dd.text-ink-body",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2.text-xs.font-mono.text-ink-body.pt-3.border-t.border-rule > dl.flex.justify-between.py-1.border-b.border-rule\\/60 > dd.text-ink-body",
    "addressing": "STABLE (data-*)",
-   "literal": "1.00× (Standard)",
+   "literal": "premium.baseline-standard",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.00"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"Baseline: 1.00× (English)\" and \"1.00× (Standard)\"",
-    "entity": "no baseline row exists in DOMAIN_DISTRIBUTION_DATA"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [
     "text-ink-body"
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -13183,11 +12964,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-022",
-   "identityKey": "src/components/TokenPremiumSection.tsx|dd|Business (1.44×) ~ Daily (1.83×)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-011",
+   "identityKey": "src/components/TokenPremiumSection.tsx|dd|premium.domain-range||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -13201,46 +12981,20 @@
    "locator": "dd.text-ink.font-bold",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2.text-xs.font-mono.text-ink-body.pt-3.border-t.border-rule > dl.flex.justify-between.py-1 > dd.text-ink.font-bold",
    "addressing": "STABLE (data-*)",
-   "literal": "Business (1.44×) ~ Daily (1.83×)",
+   "literal": "premium.domain-range",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.44"
-    },
-    {
-     "kind": "bare-number",
-     "value": "1.83"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1.44",
-     "at": [
-      "src/entities/sentence-pair/content/sentence-pair.ts:43"
-     ]
-    },
-    {
-     "value": "1.83",
-     "at": [
-      "src/entities/sentence-pair/content/sentence-pair.ts:25"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"Domain Range: Business (1.44×) ~ Daily (1.83×)\"",
-    "entity": "no domain with id/label \"Business\" exists; \"Colloquial / Daily\" has ratio 1.38"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -13249,8 +13003,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -13587,11 +13341,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-032",
-   "identityKey": "src/components/TokenPremiumSection.tsx|span|7 Benchmark Domains||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-016",
+   "identityKey": "src/components/TokenPremiumSection.tsx|span|premium.benchmark-domain-count||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -13605,29 +13358,20 @@
    "locator": "span.text-xs.font-mono.text-ink-muted",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-7.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.space-y-6.shadow-xs > div.flex.items-center.justify-between.border-b.border-rule.pb-3 > span.text-xs.font-mono.text-ink-muted",
    "addressing": "STABLE (data-*)",
-   "literal": "7 Benchmark Domains",
+   "literal": "premium.benchmark-domain-count",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "benchmark-count",
-     "value": "7 Benchmark"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"7 Benchmark Domains\"",
-    "entity": "DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53)"
-   },
-   "countCheck": "rendered 7 vs DOMAIN_DISTRIBUTION_DATA.length 6",
-   "directorDecisionRequired": true,
+   "mismatchStatus": "N/A",
+   "contradiction": null,
+   "countCheck": null,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "text-xs",
     "font-mono"
@@ -13637,8 +13381,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
@@ -13781,11 +13525,10 @@
    "deadFile": false
   },
   {
-   "traceId": "PREM-030",
-   "identityKey": "src/components/TokenPremiumSection.tsx|dt|Baseline: 1.00× (English)||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-017",
+   "identityKey": "src/components/TokenPremiumSection.tsx|dt|premium.baseline-english||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK"
    ],
@@ -13798,43 +13541,33 @@
    "locator": "dt",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-7.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.space-y-6.shadow-xs > dl.pt-2.text-xs.font-mono.text-ink-muted.flex.items-center.justify-between.border-t.border-rule > dt",
    "addressing": "STABLE (data-*)",
-   "literal": "Baseline: 1.00× (English)",
+   "literal": "premium.baseline-english",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.00"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"Baseline: 1.00× (English)\" and \"1.00× (Standard)\"",
-    "entity": "no baseline row exists in DOMAIN_DISTRIBUTION_DATA"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [],
    "colorRole": [],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {
-   "traceId": "PREM-031",
-   "identityKey": "src/components/TokenPremiumSection.tsx|dd|Max Observed: 1.83×||0",
-   "primaryCategory": "NUMERIC_CLAIM",
+   "traceId": "PREM-019",
+   "identityKey": "src/components/TokenPremiumSection.tsx|dd|premium.max-observed||0",
+   "primaryCategory": "CONTENT",
    "categories": [
-    "NUMERIC_CLAIM",
     "CONTENT",
     "STABLE_HOOK",
     "DESIGN_APPLICATION"
@@ -13848,36 +13581,20 @@
    "locator": "dd.text-ink.font-bold",
    "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-7.space-y-6 > div.bg-surface.border.border-rule.rounded-xs.p-6.space-y-6.shadow-xs > dl.pt-2.text-xs.font-mono.text-ink-muted.flex.items-center.justify-between.border-t.border-rule > dd.text-ink.font-bold",
    "addressing": "STABLE (data-*)",
-   "literal": "Max Observed: 1.83×",
+   "literal": "premium.max-observed",
    "mapOver": null,
-   "numericClaims": [
-    {
-     "kind": "bare-number",
-     "value": "1.83"
-    }
-   ],
+   "numericClaims": [],
    "numericNotes": [],
-   "entityLinkedValues": [
-    {
-     "value": "1.83",
-     "at": [
-      "src/entities/sentence-pair/content/sentence-pair.ts:25"
-     ]
-    }
-   ],
+   "entityLinkedValues": [],
    "entityOwnedLiteral": null,
-   "mismatchStatus": "CONTRADICTED — FROZEN",
-   "contradiction": {
-    "severity": "CONTRADICTS",
-    "observed": "markup renders \"Max Observed: 1.83×\" directly under the chart",
-    "entity": "highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web)"
-   },
+   "mismatchStatus": "N/A",
+   "contradiction": null,
    "countCheck": null,
-   "directorDecisionRequired": true,
+   "directorDecisionRequired": false,
    "semanticGap": null,
    "recommendedSemantics": null,
    "semanticWhy": null,
-   "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
+   "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
     "font-bold"
    ],
@@ -13886,8 +13603,8 @@
    ],
    "layoutRole": [],
    "relatedPrimitive": null,
-   "risk": "CRITICAL",
-   "batch": "B1-numeric-freeze",
+   "risk": "MEDIUM",
+   "batch": "B4-content-migration",
    "deadFile": false
   },
   {

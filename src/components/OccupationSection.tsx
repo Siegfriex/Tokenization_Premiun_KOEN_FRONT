@@ -5,7 +5,7 @@ import { OCCUPATION_COMPARISON_DATA, TOKEN_BASELINE_SIMULATION } from '../entiti
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Code, BookOpen } from 'lucide-react';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
-import { claimAttrs } from '../shared/trace';
+import { claimAttrs, claimText } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -120,9 +120,9 @@ export const OccupationSection: React.FC = () => {
                 className="w-full h-2 bg-rule-neutral rounded-xs appearance-none cursor-pointer accent-accent"
               />
               <div data-role="scale-legend" className="flex justify-between text-[11px] font-mono text-ink-muted">
-                <span {...claimAttrs('burden.preset-min-label')}>1회 (단일 프롬프트)</span>
-                <span {...claimAttrs('burden.preset-team-label')}>1,000회 (팀 일간 워크플로우)</span>
-                <span {...claimAttrs('burden.preset-org-label')}>2,000회 (전사 에이전트 루틴)</span>
+                <span {...claimAttrs('burden.preset-min-label')}>{claimText('burden.preset-min-label')}</span>
+                <span {...claimAttrs('burden.preset-team-label')}>{claimText('burden.preset-team-label')}</span>
+                <span {...claimAttrs('burden.preset-org-label')}>{claimText('burden.preset-org-label')}</span>
               </div>
             </div>
 

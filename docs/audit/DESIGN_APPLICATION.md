@@ -24,11 +24,11 @@ type scale.
 
 | # | Uses | Signature | Example Trace IDs |
 |---|---|---|---|
-| 1 | 22 | `font-mono text-xs` | `CONC-007` `IMPACT-005` `INFRA-009` `METH-008` … |
-| 2 | 19 | `font-bold` | `ART-005` `FOOT-005` `LANG-012` `LANG-018` … |
+| 1 | 22 | `font-mono text-xs` | `CONC-007` `IMPACT-005` `INFRA-009` `METH-004` … |
+| 2 | 19 | `font-bold` | `ART-005` `FOOT-005` `LANG-012` `LANG-005` … |
 | 3 | 9 | `font-bold font-mono text-xs tracking-wider uppercase` | `INFRA-008` `METH-007` `LANG-008` `LANG-023` … |
-| 4 | 6 | `font-mono text-[11px]` | `FOOT-015` `LANG-024` `HERO-022` `BURD-008` … |
-| 5 | 5 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
+| 4 | 6 | `font-mono text-[11px]` | `FOOT-015` `LANG-010` `HERO-022` `BURD-008` … |
+| 5 | 5 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-014` `HERO-017` … |
 | 6 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
 | 7 | 4 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-006` `FOOT-009` `FOOT-012` `HERO-034` |
 | 8 | 4 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` `HERO-035` |
@@ -66,7 +66,7 @@ type scale.
 | 40 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
 | 41 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
 | 42 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
-| 43 | 1 | `font-black font-mono lg:text-8xl sm:text-7xl text-6xl tracking-tight` | `PREM-011` |
+| 43 | 1 | `font-black font-mono lg:text-8xl sm:text-7xl text-6xl tracking-tight` | `PREM-004` |
 | 44 | 1 | `font-light sm:text-4xl text-3xl` | `PREM-013` |
 | 45 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
 | 46 | 1 | `font-semibold text-sm` | `PREM-026` |

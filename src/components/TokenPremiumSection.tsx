@@ -4,7 +4,7 @@ import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { DOMAIN_DISTRIBUTION_DATA } from '../entities/domain-distribution';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
-import { claimAttrs } from '../shared/trace';
+import { claimAttrs, claimText, claimParts } from '../shared/trace';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -29,13 +29,13 @@ export const TokenPremiumSection: React.FC = () => {
             <>
               한/영 말뭉치
               <br />
-              <HeadingAccent claim="premium.corpus-size-ko">69,432건 정밀 분석</HeadingAccent>
+              <HeadingAccent claim="premium.corpus-size-ko">{claimText('premium.corpus-size-ko')}</HeadingAccent>
             </>
           ) : (
             <>
               Corpus Analysis:
               <br />
-              <HeadingAccent claim="premium.corpus-size-en">69,432 Verified KO-EN Pairs</HeadingAccent>
+              <HeadingAccent claim="premium.corpus-size-en">{claimText('premium.corpus-size-en')}</HeadingAccent>
             </>
           )}
         </SectionHeading>
@@ -74,24 +74,24 @@ export const TokenPremiumSection: React.FC = () => {
                     {...claimAttrs('premium.headline-range')}
                     className="text-6xl sm:text-7xl lg:text-8xl font-black font-mono tracking-tight text-ink"
                   >
-                    1.29<span className="text-3xl sm:text-4xl text-ink-muted font-sans">×</span>
+                    {claimParts('premium.headline-range')[0]}<span className="text-3xl sm:text-4xl text-ink-muted font-sans">×</span>
                     <span className="text-3xl sm:text-4xl text-ink-muted font-light mx-2">~</span>
-                    1.83<span className="text-3xl sm:text-4xl text-ink font-sans">×</span>
+                    {claimParts('premium.headline-range')[1]}<span className="text-3xl sm:text-4xl text-ink font-sans">×</span>
                   </div>
                 </div>
 
                 <div className="space-y-2 text-xs font-mono text-ink-body pt-3 border-t border-rule">
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <dt data-source="widget" className="text-ink-muted">Average Token Premium:</dt>
-                    <dd {...claimAttrs('premium.average-ratio')} className="text-ink font-bold">1.68× (+68%)</dd>
+                    <dd {...claimAttrs('premium.average-ratio')} className="text-ink font-bold">{claimText('premium.average-ratio')}</dd>
                   </dl>
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                     <dt data-source="widget" className="text-ink-muted">Baseline (English):</dt>
-                    <dd {...claimAttrs('premium.baseline-standard')} className="text-ink-body">1.00× (Standard)</dd>
+                    <dd {...claimAttrs('premium.baseline-standard')} className="text-ink-body">{claimText('premium.baseline-standard')}</dd>
                   </dl>
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
                     <dt data-source="widget" className="text-ink-muted">Domain Range:</dt>
-                    <dd {...claimAttrs('premium.domain-range')} className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</dd>
+                    <dd {...claimAttrs('premium.domain-range')} className="text-ink font-bold">{claimText('premium.domain-range')}</dd>
                   </dl>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export const TokenPremiumSection: React.FC = () => {
                       분야별 토큰 소비 비율 분포 분석
                     </dd>
                   </dl>
-                  <span {...claimAttrs('premium.benchmark-domain-count')} className="text-xs font-mono text-ink-muted">7 Benchmark Domains</span>
+                  <span {...claimAttrs('premium.benchmark-domain-count')} className="text-xs font-mono text-ink-muted">{claimText('premium.benchmark-domain-count')}</span>
                 </div>
 
                 {/* Minimal Bar & Dot Distribution List */}
@@ -181,8 +181,8 @@ export const TokenPremiumSection: React.FC = () => {
                 </ul>
 
                 <dl data-role="stat" data-semantic-target="dl" className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
-                  <dt {...claimAttrs('premium.baseline-english')}>Baseline: 1.00× (English)</dt>
-                  <dd {...claimAttrs('premium.max-observed')} className="text-ink font-bold">Max Observed: 1.83×</dd>
+                  <dt {...claimAttrs('premium.baseline-english')}>{claimText('premium.baseline-english')}</dt>
+                  <dd {...claimAttrs('premium.max-observed')} className="text-ink font-bold">{claimText('premium.max-observed')}</dd>
                 </dl>
               </div>
             </div>
