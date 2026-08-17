@@ -1,0 +1,6 @@
+{
+  "name": "Tokenization Bottleneck & Token Efficiency Gap",
+  "description": "Interactive data journalism visualization exploring cross-linguistic tokenization efficiency in Generative AI",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

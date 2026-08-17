@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev: vite",
+      "type": "shell",
+      "command": "npm.cmd run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "vite",
+          "endsPattern": "Local:"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "lint: typescript",
+      "type": "shell",
+      "command": "npm.cmd run lint",
+      "problemMatcher": "$tsc",
+      "group": "test"
+    },
+    {
+      "label": "build: vite",
+      "type": "shell",
+      "command": "npm.cmd run build",
+      "problemMatcher": "$tsc",
+      "group": "build"
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "npm.cmd run clean",
+      "problemMatcher": []
+    }
+  ]
+}
