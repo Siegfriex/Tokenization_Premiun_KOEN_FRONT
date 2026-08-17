@@ -5,7 +5,11 @@
 > without re-deriving context from scratch.
 
 **Written:** 2026-08-17, after Phase 4 merge.
-**Current canonical `main` SHA:** `06d9fb0807b49bfdf94583be4ded102a7681eb76`
+**Updated:** 2026-08-17, during `refactor/shared-ui-consolidation` (Phase 5).
+**Current canonical `main` SHA:** `758c791e22d4a9d8214a0dda20eb0fffe5983e6b`
+(PR #8, `fix/active-section-resize`). The `06d9fb0` recorded in the first
+revision of this file was PR #6 and is one merge stale — do not trust a SHA
+in this file without checking `git rev-parse koen-front-origin/main`.
 **Live production URL:** https://tokenization-premiun-koen-front.vercel.app/
 **Repository:** `Siegfriex/Tokenization_Premiun_KOEN_FRONT` (public)
 
@@ -99,6 +103,9 @@ these, always branch from current `main`):
 
 ## 4. PR / merge ledger so far
 
+(PR #7 `docs/phase4-handoff` and PR #8 `fix/active-section-resize` merged
+after the table below was written; #8 is current `main`.)
+
 | # | Branch | Title | Merge SHA |
 |---|---|---|---|
 | 1 | `integration/canonical-baseline` | chore: establish canonical frontend baseline | `148a282f07c86a3dde072d19fcc79e2e3e252d42` |
@@ -118,7 +125,8 @@ src/
 ├── App.tsx              composition root, wraps tree in UILanguageProvider
 ├── main.tsx
 ├── index.css             imports Tailwind + shared/config/tokens.css;
-│                         still contains the legacy recolor hack (§6)
+│                         the legacy recolor hack was REMOVED here during
+│                         Phase 5 — see §6
 ├── types.ts              BilingualText, UILanguage, and per-domain
 │                         interfaces (PairedSentenceItem, etc.)
 ├── components/           the 12 page-section "widgets" (not yet renamed
@@ -144,7 +152,12 @@ conceptually even though it hasn't been physically moved there yet.
 
 ### Widgets and their migration status
 
-| Widget | Content in entities? | Tokenized (Phase 2 colors)? | Accessibility pass (Phase 4)? |
+Phase 5 update: the "Tokenized" column is now ✅ for every widget — zero
+raw hex classes remain in rendered code — and every widget now composes
+`Container` + `SectionHeading`, with the five selectable-card groups on the
+shared `SelectableCard`.
+
+| Widget | Content in entities? | Tokenized? | Accessibility pass |
 |---|---|---|---|
 | `NewsHeroSection` | ✅ full | ✅ | n/a (no selectable cards) |
 | `StoryProgress` | ✅ (`entities/navigation`) | ✅ | ✅ (scroll/observer extracted, `aria-current`) |
@@ -153,48 +166,44 @@ conceptually even though it hasn't been physically moved there yet.
 | `OccupationSection` | ✅ (`entities/occupation`, incl. PROTECTED `TOKEN_BASELINE_SIMULATION`) | ✅ | ✅ (`aria-pressed` on presets) |
 | `KoreaAIContextSection` | ✅ (`entities/article-content/macro-adoption-phases.ts`) | ✅ | not touched (no selectable cards) |
 | `ImpactSection` | ✅ (`entities/article-content/impact-scale-levels.ts`) | ✅ | not touched |
-| `TokenCompareSection` | ✅ (`entities/sentence-pair`) | ❌ still raw hex (deliberately deferred) | ✅ (`aria-pressed` added) |
-| `MethodSection` | ✅ (`entities/methodology`) | ❌ still raw hex | ✅ (`aria-expanded`+`aria-controls` added) |
-| `EditorialConclusionSection` | ✅ (`entities/article-content`) | ❌ still raw hex | not touched |
-| `MultilingualTokenEfficiencySection` | ✅ (`entities/multilingual-token`), Recharts colors via `shared/config/chart-tokens.ts` | ❌ still raw hex (except chart props) | ✅ (`aria-pressed` on language buttons) |
-| `Footer` | n/a (static copy, never had a data array) | ❌ still raw hex | not touched |
+| `TokenCompareSection` | ✅ (`entities/sentence-pair`) | ✅ (Phase 5) | ✅ (`aria-pressed` added) |
+| `MethodSection` | ✅ (`entities/methodology`) | ✅ (Phase 5) | ✅ (`aria-expanded`+`aria-controls` added) |
+| `EditorialConclusionSection` | ✅ (`entities/article-content`) | ✅ (Phase 5) | not touched |
+| `MultilingualTokenEfficiencySection` | ✅ (`entities/multilingual-token`), Recharts colors via `shared/config/chart-tokens.ts` | ✅ (Phase 5) | ✅ (`aria-pressed` on language buttons) |
+| `Footer` | n/a (static copy, never had a data array) | ✅ (Phase 5) | not touched |
 | `MultilingualSection` | **dead file, not imported anywhere, do not delete without explicit instruction** | n/a | n/a |
 
 ## 6. Known, deliberately-unresolved issues (do not silently fix these)
 
-These have all been investigated and written up in detail. Re-read the
-source doc before touching any of them — several require a Director
-decision, not an engineering judgment call.
+Items 1-3 were **resolved during Phase 5**; they are kept, marked, because
+the reasoning matters when reading the older PRs. Items 4-8 are still open.
+Re-read the source doc before touching any of them — several require a
+Director decision, not an engineering judgment call.
 
-1. **The `index.css` recolor hack determines the site's actual live
-   colors.** `src/index.css` has ~9 `[class*="..."]` attribute-selector
-   rules with `!important` that intercept specific raw Tailwind hex
-   classes (e.g. `bg-[#111111]` → `#2563EB`) and are the reason the live
-   site looks blue-accented rather than flat black/white. Coverage is
-   inconsistent (same hex renders differently depending on whether it's
-   a `bg-`/`text-`/`border-`/`decoration-` class). Phase 2 tokens were
-   deliberately defined to match the **current hacked output**, not the
-   pre-hack literal, specifically so migrated and unmigrated widgets look
-   identical during the incremental rollout. **Full detail:
-   `docs/design/COLOR_HACK_FINDING.md`.** Do not remove the hack until
-   every widget it still affects has been retokenized (currently: still
-   needed by `TokenCompareSection`, `MethodSection`,
-   `EditorialConclusionSection`, `MultilingualTokenEfficiencySection`,
-   `Footer`, and `App.tsx` — see next item).
-2. **`App.tsx`'s root background may be rendering wrong.** Static CSS
-   analysis (not visually confirmed — no browser tool available) found
-   that `App.tsx`'s `selection:bg-[#111111]` class is substring-matched
-   by the hack's `bg-[#111111]` selector, likely overriding the intended
-   `bg-[#FFFFFF]`→`#F7F8FA` background with `#2563EB` (blue) for the
-   *entire app root*. `App.tsx` has been deliberately left unmigrated
-   through Phases 2-4 specifically to avoid changing this pending a
-   real decision. **Do not touch `App.tsx`'s root className without
-   explicit authorization** — this is a real user-visible color change,
-   not a mechanical token swap.
-3. **Open Director decision, not yet answered:** should the final design
-   be (a) the blue accent currently live, formalized as the real theme,
-   or (b) reverted to the original flat black/white/gray design once
-   migration completes? Nothing downstream should assume an answer.
+1. ~~The `index.css` recolor hack determines the site's actual live
+   colors.~~ **RESOLVED (Phase 5).** The nine `[class*="…"] !important`
+   rules were deleted once every rendered element had moved onto semantic
+   tokens, at which point they matched nothing (proven: zero occurrences of
+   any matched class string in rendered source). The palette now lives in
+   `src/shared/config/tokens.css` as three explicit layers — reading /
+   accent / data-mark. Do not reintroduce attribute-selector recoloring.
+   Full detail and the value-for-value migration table:
+   `docs/design/COLOR_HACK_FINDING.md` (§RESOLUTION).
+2. ~~`App.tsx`'s root background may be rendering wrong.~~
+   **RESOLVED (Phase 5) — and it was worse than recorded here:**
+   `index.html`'s `<body class="bg-[#111111] …">` was a *second*,
+   independent instance of the same substring collision, so the page canvas
+   itself rendered `#2563EB`. Fixing `App.tsx` alone would not have fixed
+   it. Both are now clean. Never put a colour utility on `<body>` — that
+   element's class attribute is the whole page canvas.
+3. ~~Open Director decision: blue accent vs. flat monochrome?~~
+   **ANSWERED — neither, as originally framed.** The direction is a
+   two-layer split: cobalt is the real accent but owns *state and
+   navigation only* (selected card, active nav, heading underline, progress
+   fill), while reading surfaces and prose stay black/near-black. A third
+   data-mark layer (near-black chart marks, token chips) exists so bars
+   never compete with selection state. Encoded in `tokens.css` and
+   `docs/DESIGN_SYSTEM_CONTRACT.md`.
 4. **13 `headline` fields in `entities/article-content` are mostly dead.**
    Only `hero.headline` was a genuine duplicate of what's rendered (now
    reconnected). The other 12 differ in actual wording from what each
@@ -246,34 +255,51 @@ phase's exact before/after metrics, verification commands and results,
 and content-migration tables. Those are not duplicated here — go read
 the actual PR if you need e.g. exact grep counts for a specific phase.
 
-## 8. What Phase 5 (next authorized work) is expected to cover
+## 8. Phase 5 — what `refactor/shared-ui-consolidation` did, and what is left
 
-Per `docs/REFACTOR_PLAN.md`, **not yet started, not authorized to start
-without the user's explicit go-ahead**:
+### Done on this branch
 
-- Extract `Button`, `SelectableCard`, `TokenChip`, `StatCard`,
-  `SectionEyebrow`/`SectionHeading` into `shared/ui`, consuming semantic
-  tokens only.
-- Migrate the remaining widgets' selectable-card duplication
-  (`TokenCompareSection`, `TokenPremiumSection`, `PipelineSection`,
-  `MultilingualTokenEfficiencySection`'s language buttons all
-  independently implement the same visual pattern today) onto the new
-  primitive.
-- Retokenize the 5 widgets still on raw hex (`TokenCompareSection`,
-  `MethodSection`, `EditorialConclusionSection`,
-  `MultilingualTokenEfficiencySection`, `Footer`) — this is also the
-  point where the color-hack retirement decision (§6.1-6.3) becomes
-  unavoidable, since retiring the hack requires zero remaining raw-class
-  consumers.
-- Physically rename `src/components/` → `src/widgets/` and fold
-  `App.tsx`/`main.tsx` into `src/app/` (the "light FSD" target tree) —
-  deferred until this point specifically because doing it earlier would
-  have caused large, noisy diffs on every single phase.
-- Remove `MultilingualSection.tsx` and the 4 dead dependencies (§6.7-6.8)
-  — likely as a separate `chore/verified-cleanup` PR, per the original
-  plan.
+- `shared/ui` gained `SelectableCard` (replacing five hand-rolled copies of
+  the same state machine), `TokenChip` (two), and `SectionEyebrow` /
+  `SectionHeading` / `HeadingAccent` (nine section headers).
+- `Container` — built in Phase 2 but used by exactly one file — is now
+  adopted by all twelve widgets, removing fourteen hand-written
+  `max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12` strings.
+- Every widget retokenized. **Zero raw hex classes remain in rendered
+  code.** The legacy recolor hack is deleted (§6.1-6.3).
+- The palette is now three named layers in `tokens.css` — reading, accent,
+  data-mark — rather than an emergent property of a string-matching hack.
+- `<div>`/`<p>` inside `<button>` (an HTML content-model violation) fixed
+  everywhere the shared card touched: TokenPremium 5, Pipeline 4,
+  TokenCompare 2.
+- Two real user-visible defects fixed: the app root and the `<body>`
+  canvas were both being painted cobalt by the hack's substring collision.
 
-Do not start any of this without a fresh phase-authorization message —
+Net −78 lines across 21 files while adding three primitives.
+
+### Deliberately NOT done, still open
+
+- **`Button` and `StatCard` were not extracted.** The contract lists them
+  as approved candidates, but the audit does not support them: there is one
+  free-standing button (the conclusion's "back to top") and the "stat"
+  blocks differ enough per widget that a shared component would need more
+  variants than it removes. Extract them when a second real instance
+  appears, not before.
+- **`SectionEyebrow` covers only the section-opener role.** The other
+  uppercase-mono labels differ on three axes (`tracking-wider` vs
+  `-widest`, three weights, three sizes); forcing them into one component
+  would have meant either visual drift or a variant explosion.
+- **`src/components/` → `src/widgets/` and `src/app/` not done.** Still the
+  right move; kept out of this branch so the structural rename is a
+  reviewable diff of its own rather than noise on top of a palette change.
+- **`MultilingualSection.tsx` (dead, 417 lines) and the 4 dead deps still
+  present** (§6.7-6.8). Deleting them is not a consequence of this work and
+  remains a separate `chore/verified-cleanup` decision.
+- **Nothing editorial was touched** (§6.4-6.6): stale `headline` fields,
+  the Macro Adoption EN translation gap, and the missing `infrastructure`
+  nav entry are all untouched and still need a Director decision.
+
+Do not start the remaining items without a fresh authorization message —
 this project has consistently required explicit sign-off before each
 phase, not inferred continuation.
 
