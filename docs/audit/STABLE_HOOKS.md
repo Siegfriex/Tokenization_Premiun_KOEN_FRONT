@@ -71,7 +71,7 @@ the styling, and every design change silently invalidates it.
 | `CONC-003` | EditorialConclusionSection | 43 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `CONC-004` | EditorialConclusionSection | 56 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `CONC-005` | EditorialConclusionSection | 59 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `CONC-007` | EditorialConclusionSection | 79-81 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `CONC-007` | EditorialConclusionSection | 79-81 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-subtle` | `data-role="…"` |
 | `CONC-008` | EditorialConclusionSection | 88 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `FOOT-002` | Footer | 18-20 | `span` | STABLE (data-*) | `span.font-bold.text-lg.text-ink.tracking-tight` | `data-role="…"` |
 | `FOOT-003` | Footer | 22-26 | `p` | STABLE (data-*) | `p.text-ink-body.text-xs.max-w-xl` | `data-role="…"` |

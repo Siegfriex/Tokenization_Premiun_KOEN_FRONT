@@ -847,29 +847,23 @@
   "Same Meaning Was Not,\nEqual in Length": [
    "src/entities/article-content/content/article-content.ts:587"
   ],
-  "“우리는 같은 의미를, 같은 비용으로 표현하고 있는가?”": [
-   "src/entities/article-content/content/article-content.ts:590"
+  "같은 의미는, 같은 길이가 아니었습니다.": [
+   "src/entities/article-content/content/article-content.ts:598"
   ],
-  "“Are We Expressing the Same Meaning, At the Same Computational Cost?”": [
-   "src/entities/article-content/content/article-content.ts:591"
+  "Same meaning was not equal in length.": [
+   "src/entities/article-content/content/article-content.ts:599"
   ],
-  "인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다.": [
-   "src/entities/article-content/content/article-content.ts:595"
-  ],
-  "토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.": [
-   "src/entities/article-content/content/article-content.ts:596"
+  "인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다. 토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.": [
+   "src/entities/article-content/content/article-content.ts:607"
   ],
   "AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.": [
-   "src/entities/article-content/content/article-content.ts:597"
+   "src/entities/article-content/content/article-content.ts:608"
   ],
-  "In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations.": [
-   "src/entities/article-content/content/article-content.ts:600"
-  ],
-  "The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.": [
-   "src/entities/article-content/content/article-content.ts:601"
+  "In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations. The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.": [
+   "src/entities/article-content/content/article-content.ts:611"
   ],
   "As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.": [
-   "src/entities/article-content/content/article-content.ts:602"
+   "src/entities/article-content/content/article-content.ts:612"
   ],
   "../../../types": [
    "src/entities/article-content/content/impact-scale-levels.ts:5",

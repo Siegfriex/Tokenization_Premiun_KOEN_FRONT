@@ -586,19 +586,29 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       ko: '같은 의미는,\n같은 길이가 아니었다',
       en: 'Same Meaning Was Not,\nEqual in Length',
     },
+    // Director redline (S07, 2026-08-17): the H2 (hardcoded in
+    // EditorialConclusionSection.tsx) already carries the question — this
+    // `lead` used to restate it verbatim as a quote directly underneath,
+    // which read as repetition rather than reinforcement ("반복이 아니라
+    // 논지의 정련"). Replaced with the previously-unused `headline` field
+    // above (reformatted from a two-line heading fragment into one
+    // declarative sentence) — reusing an already-drafted, on-topic
+    // editorial line rather than inventing new copy.
     lead: {
-      ko: '“우리는 같은 의미를, 같은 비용으로 표현하고 있는가?”',
-      en: '“Are We Expressing the Same Meaning, At the Same Computational Cost?”',
+      ko: '같은 의미는, 같은 길이가 아니었습니다.',
+      en: 'Same meaning was not equal in length.',
     },
     preFigureParagraphs: {
+      // Director redline (S07): paragraph count/length trimmed for
+      // closing-slide breathing room. Former paragraphs 1+2 merged
+      // (identical sentences, no wording change, PROTECTED 1.29x-1.83x
+      // range preserved verbatim); former paragraph 3 stands alone.
       ko: [
-        '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다.',
-        '토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
+        '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다. 토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
         'AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
       ],
       en: [
-        'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations.',
-        'The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
+        'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations. The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
         'As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.',
       ],
     },
