@@ -1,5 +1,19 @@
 # Interaction Audit
 
+> **SUPERSEDED — historical record only.**
+>
+> This document answered "which interaction patterns are duplicated" for one phase, at one moment. It is no
+> longer maintained and the four selectable-card duplicates it describes were consolidated into shared/ui/SelectableCard.
+>
+> **The live answer is [`docs/audit/`](audit/README.md)** — a generated trace
+> ledger that registers every content-bearing and structure-bearing node with a
+> stable Trace ID, and regenerates from source on demand. Start at
+> [`docs/audit/README.md`](audit/README.md).
+>
+> Kept because the phase PRs reference it and because the reasoning behind
+> decisions already taken lives here. Do not use it to decide anything new, and
+> do not update it — update the ledger instead.
+
 Maps every piece of interactive state before `refactor/interaction-features`.
 
 ## Language state — prop-drilled, single source, 12 consumers
