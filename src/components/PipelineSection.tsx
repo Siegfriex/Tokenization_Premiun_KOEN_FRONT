@@ -21,7 +21,7 @@ export const PipelineSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1); // 0-indexed: Step 02 (TOKENIZATION) default
 
   return (
-    <section id="pipeline" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="pipeline" data-widget="PipelineSection" data-section="pipeline" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -60,29 +60,30 @@ export const PipelineSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Pipeline Visualization */}
-        <ArticleFullWidthBreak className="space-y-8 my-8">
+        <ArticleFullWidthBreak figure className="space-y-8 my-8">
           <div className="space-y-8">
-            <div className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
-              <span>TRANSFORMER PIPELINE SEQUENCING</span>
-              <span className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</span>
-            </div>
+            <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
+              <dt data-source="widget">TRANSFORMER PIPELINE SEQUENCING</dt>
+              <dd data-source="widget" className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</dd>
+            </dl>
 
             {/* Horizontal Steps Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+            <ul data-collection="pipeline-steps" className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
               {PIPELINE_STEPS.map((item, idx) => {
                 const isActive = activeStep === idx;
                 return (
+                  <li key={item.id} className="h-full">
                   <SelectableCard
-                    key={item.id}
                     selected={isActive}
                     onSelect={() => setActiveStep(idx)}
+                    itemId={item.id}
                     surface="surface-alt"
                     variant="outline"
                     emphasized={item.highlight}
-                    className="p-5 flex flex-col justify-between space-y-4 text-left w-full"
+                    className="p-5 flex flex-col justify-between space-y-4 text-left w-full h-full"
                   >
                     <span className="block space-y-2">
-                      <span className="flex items-center justify-between text-xs font-mono">
+                      <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
                         <span
                           className={`text-xl font-bold font-mono ${
                             item.highlight ? 'text-on-accent' : 'text-ink-muted'
@@ -91,7 +92,7 @@ export const PipelineSection: React.FC = () => {
                           {item.step}
                         </span>
                         {item.highlight && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 bg-surface text-ink rounded-xs font-bold uppercase">
+                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface text-ink rounded-xs font-bold uppercase">
                             GAP ORIGIN
                           </span>
                         )}
@@ -122,9 +123,10 @@ export const PipelineSection: React.FC = () => {
                       {getLocalizedText(item.description, language)}
                     </span>
                   </SelectableCard>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
             {/* Figure Caption & Source */}
             <ArticleFigureCaption

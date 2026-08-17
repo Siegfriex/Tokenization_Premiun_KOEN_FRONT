@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "./shared/config/tokens.css";
 
+/* The trace ledgers in docs/audit/ quote class strings verbatim as data.
+   Tailwind's source scanner treats any file it can see as a template, so
+   without this the audit output would generate real utilities and inflate the
+   production bundle. Observation must not change the artefact it observes.
+
+   Scoped to docs/audit deliberately. Excluding all of docs/ shrinks the bundle
+   further, which means the OTHER docs are already contributing utilities that
+   no rendered element uses — a pre-existing defect, logged rather than fixed
+   here so this phase stays provably inert. */
+@source not "../docs/audit";
+
 /**
  * Global base layer.
  *

@@ -11,4 +11,4 @@ const TONE_CLASS: Record<Tone, string> = {
 export const Divider: React.FC<{ tone?: Tone; className?: string }> = ({
   tone = 'default',
   className = '',
-}) => <hr className={`border-t ${TONE_CLASS[tone]} ${className}`} />;
+}) => <hr data-role="divider" className={`border-t ${TONE_CLASS[tone]} ${className}`} />;

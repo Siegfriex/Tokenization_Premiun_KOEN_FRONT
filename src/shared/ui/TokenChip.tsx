@@ -10,20 +10,23 @@ import React from 'react';
  * chip fills it near-black, not cobalt, so that reading a token stream never
  * looks like selecting something.
  *
- * `weight` distinguishes the two token streams that appear side by side.
- * It is a prop rather than a `className` passthrough because two competing
- * `font-*` utilities in one class attribute resolve by stylesheet order, not
- * by the order they are written — which would make the distinction silently
+ * `lang` names the token stream. It drives both the `data-lang` hook and the
+ * weight difference between the two streams shown side by side — the weight is
+ * a prop rather than a `className` passthrough because two competing `font-*`
+ * utilities in one class attribute resolve by stylesheet order, not by the
+ * order they are written, which would make the distinction silently
  * order-dependent.
  */
 export const TokenChip: React.FC<{
-  weight?: 'medium' | 'semibold';
+  lang: 'ko' | 'en';
   children: React.ReactNode;
-}> = ({ weight = 'medium', children }) => {
+}> = ({ lang, children }) => {
   return (
     <span
+      data-role="token-chip"
+      data-lang={lang}
       className={`inline-flex items-center px-2.5 py-1 rounded-xs bg-surface-alt text-ink-strong border border-rule hover:bg-mark hover:text-on-accent transition-colors text-xs font-mono ${
-        weight === 'semibold' ? 'font-semibold' : 'font-medium'
+        lang === 'ko' ? 'font-semibold' : 'font-medium'
       }`}
     >
       {children}

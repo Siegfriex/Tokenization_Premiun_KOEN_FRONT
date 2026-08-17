@@ -1,5 +1,19 @@
 # Architecture Audit
 
+> **SUPERSEDED — historical record only.**
+>
+> This document answered "source inventory, dead code and dead dependencies" for one phase, at one moment. It is no
+> longer maintained and the file/dependency inventory here is a snapshot of the pre-refactor tree.
+>
+> **The live answer is [`docs/audit/`](audit/README.md)** — a generated trace
+> ledger that registers every content-bearing and structure-bearing node with a
+> stable Trace ID, and regenerates from source on demand. Start at
+> [`docs/audit/README.md`](audit/README.md).
+>
+> Kept because the phase PRs reference it and because the reasoning behind
+> decisions already taken lives here. Do not use it to decide anything new, and
+> do not update it — update the ledger instead.
+
 Snapshot taken at canonical baseline `148a282f...` (see `docs/BASELINE.md`).
 
 ## Package manager / scripts

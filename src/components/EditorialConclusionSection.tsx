@@ -21,6 +21,8 @@ export const EditorialConclusionSection: React.FC = () => {
   return (
     <section
       id="result"
+      data-widget="EditorialConclusionSection"
+      data-section="result"
       className="min-h-[75vh] flex flex-col justify-between bg-surface-alt text-ink py-24 sm:py-32 px-4 sm:px-6 lg:px-12 border-b border-rule"
     >
       <Container className="my-auto space-y-12">
@@ -73,8 +75,8 @@ export const EditorialConclusionSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* Action button to review from start */}
-        <div className="pt-8 border-t border-rule flex items-center justify-between">
-          <div className="text-xs font-mono text-ink-muted">
+        <div data-role="stat" data-semantic-target="dl" className="pt-8 border-t border-rule flex items-center justify-between">
+          <div data-source="widget" className="text-xs font-mono text-ink-muted">
             TOKEN PREMIUM INTERACTIVE DATA STORY / 2026
           </div>
 
@@ -83,7 +85,7 @@ export const EditorialConclusionSection: React.FC = () => {
             onClick={scrollToTop}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-surface hover:bg-accent hover:text-on-accent border border-rule hover:border-accent text-ink rounded-xs font-mono text-xs font-bold transition-all cursor-pointer group shadow-2xs"
           >
-            <span>{isKo ? '처음부터 다시 보기' : 'Back to Top'}</span>
+            <span data-source="widget">{isKo ? '처음부터 다시 보기' : 'Back to Top'}</span>
             <ArrowUp className="w-3.5 h-3.5 text-ink-muted group-hover:text-on-accent group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>

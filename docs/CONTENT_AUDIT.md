@@ -1,5 +1,19 @@
 # Content Audit
 
+> **SUPERSEDED — historical record only.**
+>
+> This document answered "which content is hardcoded and where" for one phase, at one moment. It is no
+> longer maintained and its counts predate three migrations and the P0/P1/P2 priorities have been superseded by the batch plan.
+>
+> **The live answer is [`docs/audit/`](audit/README.md)** — a generated trace
+> ledger that registers every content-bearing and structure-bearing node with a
+> stable Trace ID, and regenerates from source on demand. Start at
+> [`docs/audit/README.md`](audit/README.md).
+>
+> Kept because the phase PRs reference it and because the reasoning behind
+> decisions already taken lives here. Do not use it to decide anything new, and
+> do not update it — update the ledger instead.
+
 Goal: locate every user-visible hard-coded text/content source, classify it,
 and assign a migration priority ahead of `refactor/content-contract-i18n`.
 

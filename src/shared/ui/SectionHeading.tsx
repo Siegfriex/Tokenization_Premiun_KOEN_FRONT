@@ -14,6 +14,7 @@ export const SectionEyebrow: React.FC<{
 }> = ({ children, className = '' }) => {
   return (
     <div
+      data-role="eyebrow"
       className={`text-xs font-mono text-ink-muted font-bold uppercase tracking-widest ${className}`}
     >
       {children}
@@ -31,7 +32,10 @@ export const SectionEyebrow: React.FC<{
  */
 export const HeadingAccent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <span className="underline decoration-accent underline-offset-8 decoration-2">
+    <span
+      data-role="heading-accent"
+      className="underline decoration-accent underline-offset-8 decoration-2"
+    >
       {children}
     </span>
   );
@@ -72,9 +76,9 @@ export const SectionHeading: React.FC<{
 }> = ({ eyebrow, scale = 'default', children, className = '' }) => {
   const { wrapper, heading } = SCALE[scale];
   return (
-    <div className={`space-y-4 ${wrapper} ${className}`}>
+    <div data-role="section-heading" className={`space-y-4 ${wrapper} ${className}`}>
       {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
-      <h2 className={`${heading} font-bold tracking-tight text-ink leading-tight`}>
+      <h2 data-role="heading" data-semantic-target="heading" className={`${heading} font-bold tracking-tight text-ink leading-tight`}>
         {children}
       </h2>
     </div>

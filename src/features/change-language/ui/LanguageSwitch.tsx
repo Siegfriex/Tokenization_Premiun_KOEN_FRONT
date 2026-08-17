@@ -7,7 +7,7 @@ export const LanguageSwitch: React.FC<{ className?: string }> = ({ className = '
   const isKo = language === 'ko';
 
   return (
-    <div
+    <div data-role="stat" data-semantic-target="dl"
       className={`inline-flex items-center bg-surface-alt rounded-xs p-0.5 border border-rule text-xs font-mono ${className}`}
     >
       <button

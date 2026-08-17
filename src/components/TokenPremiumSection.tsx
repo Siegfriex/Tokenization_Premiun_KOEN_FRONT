@@ -20,7 +20,7 @@ export const TokenPremiumSection: React.FC = () => {
   const [selectedDomainId, setSelectedDomainId] = useState<string>(DOMAIN_DISTRIBUTION_DATA[0].id);
 
   return (
-    <section id="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="patterns" data-widget="TokenPremiumSection" data-section="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Eyebrow & Headline */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -55,52 +55,54 @@ export const TokenPremiumSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: Big Number Reveal + Asymmetric Distribution Layout */}
-        <ArticleFullWidthBreak className="my-8 space-y-6">
+        <ArticleFullWidthBreak figure className="my-8 space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column (5 cols): Oversized Metric Stat Display */}
             <div className="lg:col-span-5 space-y-8">
               <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
-                <div className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
-                  <span>CORE EMPIRICAL METRIC</span>
-                  <span className="text-ink font-bold">o200k_base benchmark</span>
-                </div>
+                <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
+                  <dt data-source="widget">CORE EMPIRICAL METRIC</dt>
+                  <dd data-source="widget" className="text-ink font-bold">o200k_base benchmark</dd>
+                </dl>
 
-                <div className="space-y-2">
-                  <span className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
+                <div data-role="stat" data-semantic-target="dl" className="space-y-2">
+                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
                     OBSERVED TOKEN PREMIUM RATIO
                   </span>
-                  <div className="text-6xl sm:text-7xl lg:text-8xl font-black font-mono tracking-tight text-ink">
-                    1.29<span className="text-3xl sm:text-4xl text-ink-muted font-sans">×</span>
-                    <span className="text-3xl sm:text-4xl text-ink-muted font-light mx-2">~</span>
-                    1.83<span className="text-3xl sm:text-4xl text-ink font-sans">×</span>
+                  <div
+                    className="text-5xl sm:text-6xl lg:text-7xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
+                  >
+                    1.29<span className="text-2xl sm:text-3xl text-ink-muted font-sans">×</span>
+                    <span className="text-2xl sm:text-3xl text-ink-muted font-light mx-1.5">~</span>
+                    1.83<span className="text-2xl sm:text-3xl text-ink font-sans">×</span>
                   </div>
                 </div>
 
                 <div className="space-y-2 text-xs font-mono text-ink-body pt-3 border-t border-rule">
-                  <div className="flex justify-between py-1 border-b border-rule/60">
-                    <span className="text-ink-muted">Average Token Premium:</span>
-                    <span className="text-ink font-bold">1.68× (+68%)</span>
-                  </div>
-                  <div className="flex justify-between py-1 border-b border-rule/60">
-                    <span className="text-ink-muted">Baseline (English):</span>
-                    <span className="text-ink-body">1.00× (Standard)</span>
-                  </div>
-                  <div className="flex justify-between py-1">
-                    <span className="text-ink-muted">Domain Range:</span>
-                    <span className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</span>
-                  </div>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                    <dt data-source="widget" className="text-ink-muted">Average Token Premium:</dt>
+                    <dd className="text-ink font-bold">1.68× (+68%)</dd>
+                  </dl>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
+                    <dt data-source="widget" className="text-ink-muted">Baseline (English):</dt>
+                    <dd className="text-ink-body">1.00× (Standard)</dd>
+                  </dl>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
+                    <dt data-source="widget" className="text-ink-muted">Domain Range:</dt>
+                    <dd className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</dd>
+                  </dl>
                 </div>
               </div>
 
               {/* Formula Notation Box */}
-              <div className="p-4 bg-surface border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
-                <span className="text-[10px] text-ink uppercase font-bold tracking-widest block">
+              <div data-role="stat" data-semantic-target="dl" className="p-4 bg-surface border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
+                <span data-source="widget" className="text-[10px] text-ink uppercase font-bold tracking-widest block">
                   MATHEMATICAL FORMULA
                 </span>
-                <p className="text-ink font-semibold text-sm">
+                <p data-source="widget" className="text-ink font-semibold text-sm">
                   Token Premium = Tokens(Hangul) / Tokens(English)
                 </p>
-                <p className="text-ink-muted text-[11px] font-sans">
+                <p data-source="widget" className="text-ink-muted text-[11px] font-sans">
                   동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다.
                 </p>
               </div>
@@ -109,31 +111,32 @@ export const TokenPremiumSection: React.FC = () => {
             {/* Right Column (7 cols): Domain Distribution Exhibit */}
             <div className="lg:col-span-7 space-y-6">
               <div className="bg-surface border border-rule rounded-xs p-6 space-y-6 shadow-xs">
-                <div className="flex items-center justify-between border-b border-rule pb-3">
-                  <div>
-                    <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
+                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+                  <dl data-role="stat" data-semantic-target="dl">
+                    <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                       DOMAIN DISTRIBUTION EXHIBIT
-                    </span>
-                    <span className="text-[11px] font-mono text-ink-muted">
+                    </dt>
+                    <dd data-source="widget" className="text-[11px] font-mono text-ink-muted">
                       분야별 토큰 소비 비율 분포 분석
-                    </span>
-                  </div>
+                    </dd>
+                  </dl>
                   <span className="text-xs font-mono text-ink-muted">7 Benchmark Domains</span>
                 </div>
 
                 {/* Minimal Bar & Dot Distribution List */}
-                <div className="space-y-4 pt-2">
+                <ul data-collection="domain-distribution" className="space-y-4 pt-2">
                   {DOMAIN_DISTRIBUTION_DATA.map((item) => {
                     const isSelected = item.id === selectedDomainId;
                     return (
+                      <li key={item.id}>
                       <SelectableCard
-                        key={item.id}
                         selected={isSelected}
                         onSelect={() => setSelectedDomainId(item.id)}
+                        itemId={item.id}
                         surface="surface-alt"
                         className="p-3.5 space-y-2 text-left w-full"
                       >
-                        <span className="flex items-center justify-between text-xs font-mono">
+                        <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
                           <span className="flex items-center gap-2">
                             <span
                               className={`w-2 h-2 rounded-full ${
@@ -145,7 +148,7 @@ export const TokenPremiumSection: React.FC = () => {
                             </span>
                           </span>
                           <span className="flex items-center gap-3">
-                            <span
+                            <span data-source="widget"
                               className={
                                 isSelected
                                   ? 'text-on-accent-muted text-[11px]'
@@ -170,14 +173,15 @@ export const TokenPremiumSection: React.FC = () => {
                           ></span>
                         </span>
                       </SelectableCard>
+                      </li>
                     );
                   })}
-                </div>
+                </ul>
 
-                <div className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
-                  <span>Baseline: 1.00× (English)</span>
-                  <span className="text-ink font-bold">Max Observed: 1.83×</span>
-                </div>
+                <dl data-role="stat" data-semantic-target="dl" className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
+                  <dt>Baseline: 1.00× (English)</dt>
+                  <dd className="text-ink font-bold">Max Observed: 1.83×</dd>
+                </dl>
               </div>
             </div>
           </div>

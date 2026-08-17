@@ -19,7 +19,7 @@ export const ImpactSection: React.FC = () => {
   const articleData = ARTICLE_CONTENT.socioeconomicScale;
 
   return (
-    <section id="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="impact" data-widget="ImpactSection" data-section="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
@@ -58,12 +58,13 @@ export const ImpactSection: React.FC = () => {
         </ArticleReadingColumn>
 
         {/* FULL-WIDTH BREAKOUT: 3-Level Scale-Up Grid & Conceptual Causal Chain */}
-        <ArticleFullWidthBreak className="space-y-10 my-8">
+        <ArticleFullWidthBreak figure className="space-y-10 my-8">
           {/* 3-Level Scale-Up Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul data-collection="impact-scale-levels" className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {IMPACT_SCALE_LEVELS.map((level) => (
-              <div
+              <li
                 key={level.id}
+                data-item-id={level.id}
                 className={`rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border ${
                   level.highlight
                     ? 'bg-accent text-on-accent border-accent'
@@ -71,16 +72,16 @@ export const ImpactSection: React.FC = () => {
                 }`}
               >
                 <div className="space-y-4">
-                  <div className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
-                    <span className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
+                  <dl data-role="stat" data-semantic-target="dl" className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
+                    <dt className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
                       {level.levelLabelKo}
-                    </span>
-                    <span className={`text-xs font-mono ${level.highlight ? 'text-on-accent font-bold' : 'text-ink-muted'}`}>
+                    </dt>
+                    <dd className={`text-xs font-mono ${level.highlight ? 'text-on-accent font-bold' : 'text-ink-muted'}`}>
                       {level.levelBadge}
-                    </span>
-                  </div>
+                    </dd>
+                  </dl>
 
-                  <h3 className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
+                  <h3 data-role="heading" data-semantic-target="heading" className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
                     {getLocalizedText(level.title, language)}
                   </h3>
 
@@ -92,26 +93,27 @@ export const ImpactSection: React.FC = () => {
                 <div className={`text-[11px] font-mono border-t pt-3 ${level.highlight ? 'text-on-accent-muted font-bold border-rule-on-accent' : 'text-ink-muted border-rule'}`}>
                   {level.unitNote}
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Complete Conceptual Causal Chain */}
           <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
-            <div className="space-y-1">
+            <div data-role="stat" data-semantic-target="dl" className="space-y-1">
               <SectionEyebrow>FINAL CONCEPTUAL CAUSAL CHAIN</SectionEyebrow>
-              <h4 className="text-lg sm:text-xl font-bold text-ink">
+              <h3 data-source="widget" className="text-lg sm:text-xl font-bold text-ink">
                 언어 구조에서 사회적 파급 효과까지의 인과 사슬
-              </h4>
+              </h3>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
+            <ol data-collection="impact-causal-chain" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               {IMPACT_CAUSAL_CHAIN.map((step, idx) => {
                 const isEmphasis = step === 'Token Premium' || step === 'Potential Digital Friction';
                 return (
                   <React.Fragment key={step}>
-                    {idx > 0 && <span className="text-ink-muted">→</span>}
-                    <div
+                    {idx > 0 && <span aria-hidden="true" className="text-ink-muted">→</span>}
+                    <li
+                      data-item-id={step}
                       className={`p-3 rounded-xs border ${
                         isEmphasis
                           ? 'bg-accent border-accent text-on-accent font-bold'
@@ -119,11 +121,11 @@ export const ImpactSection: React.FC = () => {
                       }`}
                     >
                       {step}
-                    </div>
+                    </li>
                   </React.Fragment>
                 );
               })}
-            </div>
+            </ol>
           </div>
 
           {/* Figure Caption & Source */}
