@@ -187,7 +187,7 @@ export const OccupationSection: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Cluster 1: Engineering / Technical */}
-              <div data-role="stat" data-semantic-target="dl" className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+              <div data-role="stat" data-semantic-target="dl" className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between border-b border-rule pb-3">
                     <div className="flex items-center gap-2">
@@ -253,9 +253,6 @@ export const OccupationSection: React.FC = () => {
                         {getLocalizedText(socialScienceData.title, language)}
                       </h3>
                     </div>
-                    <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule font-bold uppercase">
-                     {isKo ? '높은 누적 부담 가능성' : 'HIGH BURDEN POTENTIAL'}
-                    </span>
                   </div>
 
                   <div className="space-y-2 text-xs font-mono">
@@ -265,7 +262,7 @@ export const OccupationSection: React.FC = () => {
                     </dl>
                     <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
                       <dt data-source="widget" className="text-ink-muted">Language Intensity:</dt>
-                      <dd className="text-ink font-bold">{socialScienceData.languageIntensity}</dd>
+                      <dd className="text-ink-body font-semibold">{socialScienceData.languageIntensity}</dd>
                     </dl>
                   </div>
 
@@ -286,7 +283,7 @@ export const OccupationSection: React.FC = () => {
                           data-item-id={idx}
                           className="p-2.5 bg-surface-alt rounded-xs border border-rule flex items-center justify-between text-xs"
                         >
-                          <span className="font-medium text-ink">
+                          <span className="font-medium text-ink-body">
                             {getLocalizedText(occ.name, language)}
                           </span>
                           <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule">
@@ -298,7 +295,7 @@ export const OccupationSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div data-source="widget" className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono font-semibold">
+                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono">
                   평가: 장문 한국어 텍스트 문맥 누적으로 실질 Token Burden 집중 가중
                 </div>
               </div>

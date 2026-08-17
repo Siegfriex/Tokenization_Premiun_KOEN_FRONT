@@ -12,11 +12,11 @@ None of this is changed in this phase. This ledger defines batch **B3**.
 
 | Gap | Count |
 |---|---|
-| HEADING_LEVEL | 14 |
+| HEADING_LEVEL | 13 |
 | LABEL_ORPHAN | 9 |
-| DL_PAIR | 34 |
+| DL_PAIR | 33 |
 
-## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (14)
+## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (13)
 
 _heading level is set per widget with no document-wide outline check_
 
@@ -29,8 +29,7 @@ _heading level is set per widget with no document-wide outline check_
 | `IMPACT-004` | ImpactSection | 47-49 | `h3` |  | verify level continuity within its section |
 | `IMPACT-009` | ImpactSection | 84-86 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
 | `IMPACT-012` | ImpactSection | 104-106 | `h3` | 언어 구조에서 사회적 파급 효과까지의 인과 사슬 | verify level continuity within its section |
-| `INFRA-004` | KoreaAIContextSection | 48-50 | `h3` |  | verify level continuity within its section |
-| `INFRA-027` | KoreaAIContextSection | 121-123 | `h3` | VERIFIED_POLICY_SLOTS | verify level continuity within its section |
+| `INFRA-027` | KoreaAIContextSection | 129-131 | `h3` | VERIFIED_POLICY_SLOTS | verify level continuity within its section |
 | `HERO-010` | NewsHeroSection | 61-69 | `h1` |  | verify level continuity within its section |
 | `BURD-043` | OccupationSection | 195-197 | `h3` |  | verify level continuity within its section |
 | `BURD-054` | OccupationSection | 252-254 | `h3` |  | verify level continuity within its section |
@@ -53,7 +52,7 @@ _a label with no programmatic relationship to the content it labels_
 | `PREM-025` | TokenPremiumSection | 100-102 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
 | `UI-002` | SectionHeading | 80 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 
-## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (34)
+## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (33)
 
 _a term/value row whose halves are nested wrappers — no node in the chain carries an address_
 
@@ -72,8 +71,7 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `BURD-007` | OccupationSection | 72-97 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-012` | OccupationSection | 142-150 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-015` | OccupationSection | 190-244 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-023` | OccupationSection | 247-304 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-027` | OccupationSection | 249-259 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `BURD-023` | OccupationSection | 247-301 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-010` | PipelineSection | 76-125 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-011` | PipelineSection | 86-99 | `span` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-001` | StoryProgress | 19-73 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |

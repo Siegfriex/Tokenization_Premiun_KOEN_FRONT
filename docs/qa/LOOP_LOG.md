@@ -314,3 +314,63 @@ the dynamic legend, EN translations, and the mobile legend's `flex-col`
 stacking all work as intended.
 
 ---
+
+## 2026-08-17 22:xx — Iteration 9 (orchestrated screening + fix, S04-detail+S05+S06)
+
+**Trigger:** continuation of the same event-driven directive as Iteration 8.
+After S04.5-languages and S04-burden landed (pushed to PR #16), the
+Director's 3차 루프 (items 6→7→8: burden-comparison detail card dominance,
+S05-infrastructure system-diagram feel, S06-method boundary-panel-as-hero)
+was next in the work order. Ran a second `Workflow` with 3 parallel
+read-only subagents (`screen:burden-detail`, `screen:infrastructure`,
+`screen:method`), read all 3 full structured reports, then performed every
+fix myself — same synthesize-then-fix discipline as Iteration 8.
+
+**Slides worked:** `#burden` (follow-up pass, `OccupationSection.tsx`),
+`S05-infrastructure` (`KoreaAIContextSection.tsx`), `S06-method`
+(`MethodSection.tsx`). Full findings and fixes for all three are written
+up in `docs/qa/SHOT_SPECS.md`.
+
+**Fixed:**
+- **Burden follow-up:** the slide-level dominance fix from Iteration 8 held
+  (simulator still wins first glance), but the two occupational-comparison
+  cards had an internal rank inversion — Engineering read as a footnote,
+  Social Science as the real finding, via 4 compounding asymmetries (card
+  tier, footer weight, data-field ink tone, an exclusive "HIGH BURDEN
+  POTENTIAL" badge). Unified both cards to the same Tier-2 signature and
+  weight; removed the exclusive badge rather than inventing a new label
+  for its counterpart (redundant editorializing, and inventing copy isn't
+  this pass's call).
+- **S05-infrastructure:** the core brief — added actual diagrammatic
+  connective tissue (CSS arrow pseudo-elements between the 4 phase cards,
+  a downward bridge into the policy-slot grid) so the slide reads as a
+  causal chain rather than 4 unrelated cards; removed a `bg-accent` color
+  fill that was being used as an ad-hoc tiering signal on Phase 04 (Design
+  Law violation — accent is reserved for selection/nav, tiering is
+  border/shadow only) and replaced it with a proper Tier-1 border/shadow
+  treatment; fixed a mobile header-wrap interleaving bug; removed a dead
+  empty `ArticleSubheading` node (entity has no `subheading` field for
+  this section).
+- **S06-method:** promoted the "what we do NOT claim" boundary panel from
+  an ad-hoc Tier-3-plus-shadow hybrid to genuine Tier-1 and bumped its
+  title scale, so it reads as the slide's hero rather than a footnote
+  under the methodology accordion; removed 6 decorative `bg-accent`
+  bullet dots (down to the H2 underline as the slide's sole accent
+  element, from 7 concurrent accent marks); fixed a mobile alignment bug
+  where the "6 Key Principles" count floated mid-wrap against the panel's
+  title. `METH-008` (hardcoded principle count) flagged per D4, not
+  changed — only its ink tone was nudged one step darker as a pure color
+  change now that the panel around it carries more weight.
+
+**Verified:** tsc clean, `npm run build` clean, `node docs/audit/tools/
+run-pipeline.mjs` diff-reproducible with no ID churn this time (all
+changes were element removal/tier/color, not literal-text changes —
+director queue unchanged at 16), and a second live Playwright verification
+pass confirmed every fix by DOM measurement (not just source reading):
+0 remaining `bg-accent` elements in `#infrastructure`/`#method`, Phase 04
+and the boundary panel both compute `border-width: 2px` + a real box-
+shadow, both burden-comparison footers compute identical `font-weight:
+400`, the arrow pseudo-element's `content` actually resolves to `"→"` in
+the compiled CSS.
+
+---

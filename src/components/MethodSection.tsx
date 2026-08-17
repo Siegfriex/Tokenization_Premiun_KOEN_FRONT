@@ -64,12 +64,12 @@ export const MethodSection: React.FC = () => {
         {/* FULL-WIDTH BREAKOUT: Prominent Boundary Box & Methodology Accordion */}
         <ArticleFullWidthBreak className="space-y-10 my-8">
           {/* Prominent Boundary Box: What We Do NOT Claim */}
-          <div className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-10 space-y-6 shadow-xs">
-            <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-              <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+          <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-10 space-y-6 shadow-sm">
+            <dl data-role="stat" data-semantic-target="dl" className="flex items-start justify-between border-b border-rule pb-3 gap-4">
+              <dt data-source="widget" className="text-sm sm:text-base font-mono text-ink font-bold uppercase tracking-wider">
                 CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
               </dt>
-              <dd className="text-xs font-mono text-ink-muted">6 Key Principles</dd>
+              <dd className="text-xs font-mono text-ink-body shrink-0">6 Key Principles</dd>
             </dl>
 
             <ul data-collection="what-we-do-not-claim" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -112,7 +112,7 @@ export const MethodSection: React.FC = () => {
                       className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-surface-alt transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-ink-muted"></span>
                         <span className="font-bold text-sm sm:text-base text-ink">
                           {isKo ? item.title.ko : item.title.en}
                         </span>

@@ -15,10 +15,10 @@ the styling, and every design change silently invalidates it.
 
 | Addressing today | Count | Consequence |
 |---|---|---|
-| STYLE_SIGNATURE | 33 | selector breaks when the design changes |
+| STYLE_SIGNATURE | 34 | selector breaks when the design changes |
 | NTH_CHILD_ONLY | 5 | selector breaks when content is added or reordered |
 | STABLE (id) | 11 | the ten section anchors, and nothing below them |
-| STABLE (data-*) | 399 | — |
+| STABLE (data-*) | 397 | — |
 
 **Zero `data-*` attributes exist in the codebase today.**
 
@@ -27,8 +27,8 @@ the styling, and every design change silently invalidates it.
 | Hook | Applies to | Count |
 |---|---|---|
 | `data-role="…"` | CONTENT nodes | 146 |
-| `data-role="section-heading"` | DOM_STRUCTURE nodes | 21 |
 | `data-metric="…"` | NUMERIC_CLAIM nodes | 21 |
+| `data-role="section-heading"` | DOM_STRUCTURE nodes | 20 |
 | `data-collection="verified_policy_slots"` | DESIGN_APPLICATION nodes | 10 |
 | `data-collection="articledata-prefigureparagraphs-ko"` | DESIGN_APPLICATION nodes | 9 |
 | `data-collection="articledata-prefigureparagraphs-en"` | DESIGN_APPLICATION nodes | 9 |
@@ -105,37 +105,37 @@ the styling, and every design change silently invalidates it.
 | `IMPACT-016` | ImpactSection | 132-136 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
 | `IMPACT-017` | ImpactSection | 143 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
 | `IMPACT-018` | ImpactSection | 146 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
-| `INFRA-029` | KoreaAIContextSection | 26-40 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
-| `INFRA-002` | KoreaAIContextSection | 31 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `INFRA-003` | KoreaAIContextSection | 37 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `INFRA-004` | KoreaAIContextSection | 48-50 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
-| `INFRA-005` | KoreaAIContextSection | 54 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
-| `INFRA-006` | KoreaAIContextSection | 57 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `INFRA-008` | KoreaAIContextSection | 66-68 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `INFRA-009` | KoreaAIContextSection | 69 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
-| `INFRA-035` | KoreaAIContextSection | 74-92 | `li` | STABLE (data-*) | `li.rounded-xs.p-5.space-y-3.border.bg-accent.text-on-accent…` | `data-collection="macro_adoption_phases" data-item-id="{item.id}"` |
-| `INFRA-012` | KoreaAIContextSection | 100-102 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
-| `INFRA-013` | KoreaAIContextSection | 103 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink.font-bold` | `data-role="…"` |
-| `INFRA-038` | KoreaAIContextSection | 108-145 | `li` | STABLE (data-*) | `li.bg-surface.border.border-rule.rounded-xs.p-6.space-y-4.f…` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-039` | KoreaAIContextSection | 114-119 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-027` | KoreaAIContextSection | 121-123 | `h3` | STABLE (data-*) | `h3.font-bold.text-sm.text-ink.leading-snug` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-017` | KoreaAIContextSection | 130-132 | `p` | STABLE (data-*) | `p.text-\[11px\].text-ink-muted.font-sans` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-040` | KoreaAIContextSection | 136-139 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-019` | KoreaAIContextSection | 137 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-020` | KoreaAIContextSection | 138 | `dd` | STABLE (data-*) | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-041` | KoreaAIContextSection | 140-143 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-022` | KoreaAIContextSection | 141 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-023` | KoreaAIContextSection | 142 | `dd` | STYLE_SIGNATURE | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
-| `INFRA-024` | KoreaAIContextSection | 151-155 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `INFRA-025` | KoreaAIContextSection | 162 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `INFRA-026` | KoreaAIContextSection | 165 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `INFRA-029` | KoreaAIContextSection | 25-39 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
+| `INFRA-002` | KoreaAIContextSection | 30 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `INFRA-003` | KoreaAIContextSection | 36 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `INFRA-005` | KoreaAIContextSection | 49 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
+| `INFRA-006` | KoreaAIContextSection | 52 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `INFRA-008` | KoreaAIContextSection | 61-63 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `INFRA-009` | KoreaAIContextSection | 64 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `INFRA-035` | KoreaAIContextSection | 69-91 | `li` | STABLE (data-*) | `li.relative.rounded-xs.p-5.space-y-3.border.bg-surface.bord…` | `data-collection="macro_adoption_phases" data-item-id="{item.id}"` |
+| `INFRA-044` | KoreaAIContextSection | 100 | `span` | STYLE_SIGNATURE | `span.text-lg.font-mono.leading-none` | `data-role="…"` |
+| `INFRA-012` | KoreaAIContextSection | 108-110 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
+| `INFRA-013` | KoreaAIContextSection | 111 | `dd` | STABLE (data-*) | `dd.text-xs.font-mono.text-ink.font-bold` | `data-role="…"` |
+| `INFRA-038` | KoreaAIContextSection | 116-153 | `li` | STABLE (data-*) | `li.bg-surface.border.border-rule.rounded-xs.p-6.space-y-4.f…` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-039` | KoreaAIContextSection | 122-127 | `dl` | STABLE (data-*) | `dl.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-027` | KoreaAIContextSection | 129-131 | `h3` | STABLE (data-*) | `h3.font-bold.text-sm.text-ink.leading-snug` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-017` | KoreaAIContextSection | 138-140 | `p` | STABLE (data-*) | `p.text-\[11px\].text-ink-muted.font-sans` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-040` | KoreaAIContextSection | 144-147 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-019` | KoreaAIContextSection | 145 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-020` | KoreaAIContextSection | 146 | `dd` | STABLE (data-*) | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-041` | KoreaAIContextSection | 148-151 | `dl` | STABLE (data-*) | `dl.flex.justify-between` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-022` | KoreaAIContextSection | 149 | `dt` | STABLE (data-*) | `dt` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-023` | KoreaAIContextSection | 150 | `dd` | STYLE_SIGNATURE | `dd.text-ink-body.font-semibold` | `data-collection="verified_policy_slots" data-item-id="{item.id}"` |
+| `INFRA-024` | KoreaAIContextSection | 159-163 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `INFRA-025` | KoreaAIContextSection | 170 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `INFRA-026` | KoreaAIContextSection | 173 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `METH-020` | MethodSection | 33-47 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `METH-002` | MethodSection | 38 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `METH-003` | MethodSection | 44 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `METH-004` | MethodSection | 57 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `METH-005` | MethodSection | 60 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `METH-007` | MethodSection | 69-71 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `METH-008` | MethodSection | 72 | `dd` | STYLE_SIGNATURE | `dd.text-xs.font-mono.text-ink-muted` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `METH-007` | MethodSection | 69-71 | `dt` | STABLE (data-*) | `dt.text-sm.sm\:text-base.font-mono.text-ink.font-bold.upper…` | `data-role="…"` |
+| `METH-008` | MethodSection | 72 | `dd` | STYLE_SIGNATURE | `dd.text-xs.font-mono.text-ink-body.shrink-0` | `data-metric="…"  (+ data-source="entity\|widget")` |
 | `METH-026` | MethodSection | 77-84 | `li` | STABLE (data-*) | `li.p-4.bg-surface.border.border-rule.rounded-xs.flex.items-…` | `data-collection="what_we_do_not_claim" data-item-id="{item.id}"` |
 | `METH-027` | MethodSection | 83 | `span` | STABLE (data-*) | `span.leading-snug.text-ink-body` | `data-collection="what_we_do_not_claim" data-item-id="{item.id}"` |
 | `METH-011` | MethodSection | 92-94 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink-body.uppercase.tracking-wider…` | `data-role="…"` |
@@ -241,16 +241,15 @@ the styling, and every design change silently invalidates it.
 | `BURD-050` | OccupationSection | 232-234 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="engineeringdata-occupations" data-item-id="{item.id}"` |
 | `BURD-051` | OccupationSection | 241-243 | `div` | STABLE (data-*) | `div.p-3.bg-surface.border.border-rule.rounded-xs.text-xs.te…` | `data-role="…"` |
 | `BURD-054` | OccupationSection | 252-254 | `h3` | STABLE (data-*) | `h3.font-bold.text-lg.text-ink` | `data-role="section-heading"` |
-| `BURD-055` | OccupationSection | 256-258 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-role="…"` |
-| `BURD-057` | OccupationSection | 263 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-059` | OccupationSection | 267 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
-| `BURD-060` | OccupationSection | 278-280 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
-| `BURD-087` | OccupationSection | 283-295 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface-alt.rounded-xs.border.border-rule.flex…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
-| `BURD-062` | OccupationSection | 292-294 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
-| `BURD-063` | OccupationSection | 301-303 | `div` | STABLE (data-*) | `div.p-3.bg-surface-alt.border.border-rule.rounded-xs.text-x…` | `data-role="…"` |
-| `BURD-064` | OccupationSection | 308-312 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `BURD-065` | OccupationSection | 320 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `BURD-066` | OccupationSection | 323 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `BURD-057` | OccupationSection | 260 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-059` | OccupationSection | 264 | `dt` | STABLE (data-*) | `dt.text-ink-muted` | `data-role="…"` |
+| `BURD-060` | OccupationSection | 275-277 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink-muted.uppercase.track…` | `data-role="…"` |
+| `BURD-087` | OccupationSection | 280-292 | `li` | STABLE (data-*) | `li.p-2\.5.bg-surface-alt.rounded-xs.border.border-rule.flex…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
+| `BURD-062` | OccupationSection | 289-291 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.px-2.py-0\.5.bg-surface-alt.te…` | `data-collection="socialsciencedata-occupations" data-item-id="{item.id}"` |
+| `BURD-063` | OccupationSection | 298-300 | `div` | STABLE (data-*) | `div.p-3.bg-surface.border.border-rule.rounded-xs.text-xs.te…` | `data-role="…"` |
+| `BURD-064` | OccupationSection | 305-309 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `BURD-065` | OccupationSection | 317 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `BURD-066` | OccupationSection | 320 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `PIPE-017` | PipelineSection | 27-41 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `PIPE-002` | PipelineSection | 32 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `PIPE-003` | PipelineSection | 38 | `span` | STABLE (data-*) | `span` | `data-role="…"` |

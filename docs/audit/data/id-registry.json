@@ -87,6 +87,7 @@
  "src/components/KoreaAIContextSection.tsx|LIT|Strict Data Verification Rule||0": "INFRA-013",
  "src/components/KoreaAIContextSection.tsx|LIT|[2024–2030]|VERIFIED_POLICY_SLOTS|0": "INFRA-023",
  "src/components/KoreaAIContextSection.tsx|LIT|[NATIONAL COMPUTE INFRA]|VERIFIED_POLICY_SLOTS|0": "INFRA-020",
+ "src/components/KoreaAIContextSection.tsx|LIT|↓||0": "INFRA-044",
  "src/components/KoreaAIContextSection.tsx|LIT|검증된 정부 고시 및 기업 공시 데이터 확인 후 정밀 연동 대기 상태|VERIFIED_POLICY_SLOTS|0": "INFRA-017",
  "src/components/KoreaAIContextSection.tsx|LIT|검증된 정책 및 대규모 투자 데이터 슬롯 (Data Slots): ⏎ Verified Policy & Investment Data Slots:||0": "INFRA-012",
  "src/components/KoreaAIContextSection.tsx|LIT|확장되는 토큰 스케일||0": "INFRA-002",
