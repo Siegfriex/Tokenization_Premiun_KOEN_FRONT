@@ -58,14 +58,16 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'We posed the exact same question to a large language model in Korean and English. While the questions conveyed identical intent, the subword token count required to process them varied substantially.',
     },
     preFigureParagraphs: {
+      // Director redline (S00, 2026-08-17): "하단 설명은 2문단 이내로 압축" — the
+      // former paragraphs 1+2 are merged into one (same two sentences, no
+      // wording change), paragraph 3 (tokenization definition) stands alone
+      // as the second. Compresses 3 paragraphs -> 2 without inventing text.
       ko: [
-        '사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다.',
-        '같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.',
+        '사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다. 같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.',
         '토큰화(Tokenization)는 인공지능이 인간의 지식을 해석하고 연산하는 가장 기초적인 물리적 단위이자 관문이다. 모델의 연산 시간, 기억할 수 있는 문맥(Context Window)의 한계, 그리고 API 호출량 산정까지 모든 핵심 제약이 바로 이 "몇 개의 토큰으로 쪼개졌는가"에서 결정된다.',
       ],
       en: [
-        'An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English.',
-        'This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.',
+        'An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English. This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.',
         'Tokenization is the foundational computational gateway through which AI processes human knowledge. Sequence latency, context window limits, and API usage calculations are all governed by this single metric: token count.',
       ],
     },
@@ -102,14 +104,15 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       ko: '문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계',
       en: 'From Text to Token Vector: The 4-Stage Input Pipeline',
     },
+    // Director redline (S02, 2026-08-17): "상단 설명은 한 단 줄이고" — merged
+    // into one paragraph (identical sentences, no wording change) so the
+    // section reads as didactic/instructional rather than editorial.
     preFigureParagraphs: {
       ko: [
-        '문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다.',
-        '그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.',
+        '문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다. 그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.',
       ],
       en: [
-        'The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption.',
-        'This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.',
+        'The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption. This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.',
       ],
     },
     figureNumber: 'FIG. 02',
@@ -584,19 +587,29 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       ko: '같은 의미는,\n같은 길이가 아니었다',
       en: 'Same Meaning Was Not,\nEqual in Length',
     },
+    // Director redline (S07, 2026-08-17): the H2 (hardcoded in
+    // EditorialConclusionSection.tsx) already carries the question — this
+    // `lead` used to restate it verbatim as a quote directly underneath,
+    // which read as repetition rather than reinforcement ("반복이 아니라
+    // 논지의 정련"). Replaced with the previously-unused `headline` field
+    // above (reformatted from a two-line heading fragment into one
+    // declarative sentence) — reusing an already-drafted, on-topic
+    // editorial line rather than inventing new copy.
     lead: {
-      ko: '“우리는 같은 의미를, 같은 비용으로 표현하고 있는가?”',
-      en: '“Are We Expressing the Same Meaning, At the Same Computational Cost?”',
+      ko: '같은 의미는, 같은 길이가 아니었습니다.',
+      en: 'Same meaning was not equal in length.',
     },
     preFigureParagraphs: {
+      // Director redline (S07): paragraph count/length trimmed for
+      // closing-slide breathing room. Former paragraphs 1+2 merged
+      // (identical sentences, no wording change, PROTECTED 1.29x-1.83x
+      // range preserved verbatim); former paragraph 3 stands alone.
       ko: [
-        '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다.',
-        '토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
+        '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다. 토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
         'AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
       ],
       en: [
-        'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations.',
-        'The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
+        'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations. The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
         'As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.',
       ],
     },

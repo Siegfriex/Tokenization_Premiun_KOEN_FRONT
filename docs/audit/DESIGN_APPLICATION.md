@@ -63,7 +63,7 @@ type scale.
 | 37 | 1 | `sm:text-sm text-xs` | `METH-026` |
 | 38 | 1 | `leading-snug` | `METH-027` |
 | 39 | 1 | `leading-relaxed` | `METH-018` |
-| 40 | 1 | `font-bold leading-[1.15] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
+| 40 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
 | 41 | 1 | `font-medium` | `HERO-028` |
 | 42 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
 | 43 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
@@ -90,12 +90,12 @@ type scale.
 |---|---|
 | `text-ink` | 73 |
 | `border-rule` | 62 |
-| `text-ink-muted` | 62 |
+| `text-ink-muted` | 61 |
 | `border-b` | 38 |
 | `text-ink-body` | 24 |
 | `bg-surface` | 17 |
 | `bg-surface-alt` | 16 |
-| `text-ink-subtle` | 13 |
+| `text-ink-subtle` | 14 |
 | `border-t` | 12 |
 | `text-on-accent` | 12 |
 | `bg-accent` | 9 |
@@ -138,8 +138,8 @@ type scale.
 | `pb-3` | 14 |
 | `flex-col` | 13 |
 | `block` | 12 |
-| `space-y-12` | 11 |
 | `my-8` | 10 |
+| `space-y-12` | 10 |
 | `py-20` | 8 |
 | `sm:py-28` | 8 |
 | `scroll-mt-16` | 8 |
@@ -163,6 +163,7 @@ type scale.
 | `space-y-2` | 4 |
 | `px-4` | 4 |
 | `sm:px-6` | 4 |
+| `space-y-10` | 4 |
 | `gap-6` | 4 |
 | `px-3` | 4 |
 | `p-6` | 4 |
@@ -173,7 +174,6 @@ type scale.
 | `lg:px-12` | 3 |
 | `items-start` | 3 |
 | `sm:flex-row` | 3 |
-| `space-y-10` | 3 |
 | `sm:p-8` | 3 |
 | `p-5` | 3 |
 | `transition-colors` | 3 |

@@ -27,6 +27,22 @@ Slide IDs follow the section `id` used in the DOM and in
 | Required screenshots | 1440×KO, 1440×EN, 390×KO, 390×EN. |
 | Accept/reject rule | Reject if the exhibit card's numbers visually out-weigh the H1 (font-size/color proximity), or if `headlineLine2`'s underline decoration collides with descenders/next-line content in either language, or if the stat ribbon wraps awkwardly at 390px. |
 
+**Findings (redline pass, 2026-08-17):** Director redline applied — 3
+concrete changes. (1) H1 `font-bold`→`font-extrabold`, `leading-[1.15]`→
+`leading-[1.1]` (cover-only exception, documented in `docs/qa/DESIGN_LAW.md`
+so it doesn't propagate to other slides' `SectionHeading`) — "heavier"
+left title block via weight, not size, staying inside the typography law.
+(2) Right FIG.01 exhibit card: removed `border border-rule`, kept
+`bg-surface-alt` — reads as a soft supporting zone, not a competing
+bordered panel. (3) `introTheQuestion.preFigureParagraphs` (`ko`/`en`):
+merged former paragraphs 1+2 into one (identical sentences, zero wording
+change), paragraph 3 stands alone as the second — 3→2 paragraphs.
+Screenshotted 1440×KO/EN: title reads heavier, evidence box recedes,
+"제목→부제→첫 증거" order reads immediately in both languages. tsc clean,
+build passes, audit pipeline diff-reproducible, director queue still 16
+(no frozen claim touched — only container chrome + paragraph grouping of
+already-approved sentences).
+
 ---
 
 ## S03-patterns
@@ -129,3 +145,52 @@ Trace IDs, statuses, and values unchanged — verified via diff.
   confirmed still rendering unchanged, not touched by this pass.
 
 ---
+
+## S07-result
+
+| Field | Content |
+|---|---|
+| Intent | Seal the entire research into one closing question — a judgment scene, not a summary slide. |
+| Primary focal point | The `display`-scale H2 question ("우리는 같은 의미를, 같은 비용으로 표현하고 있는가?") — the Director's own read: "이미 전 장면의 감정과 논지를 먹고 있다," keep entirely as-is. |
+| Secondary focal points | The lead line immediately below (was a repeated quote of the H2 — redlined, see Findings); the 2-paragraph synthesis; a quiet pull-quote. |
+| Forbidden competition | The pull-quote box and the "Back to Top" button must read as epilogue devices, not co-equal statements or a CTA rivaling the question. |
+| Layout skeleton | Centered `my-auto` column: display heading → reading column (lead, 2 paragraphs, pull-quote) → bottom rule + footer/exit-button row. |
+| Risk zones | `preFigureParagraphs[0]` carries the PROTECTED `1.29× ~ 1.83×` range verbatim — any paragraph-merge must preserve it byte-for-byte. The pull-quote box duplicates paragraph 2's content almost verbatim (pre-existing, not introduced by this pass) — visual-only fix applied, wording not touched (out of this pass's scope). |
+| Required states | default only — no interactive element besides the exit button (no distinct "active" state to test). |
+| Required screenshots | 1440×KO, 1440×EN, 390×KO. |
+| Accept/reject rule | Reject if the lead line still reads as a repeated question rather than a conclusive statement, if the pull-quote box still visually rivals the body paragraphs, or if the bottom button still reads as a primary CTA (accent fill on hover). |
+
+**Findings (Director redline pass, 2026-08-17):** 5 concrete changes applied.
+(1) `lead` replaced — was a verbatim quote of the H2 question (repetition,
+not reinforcement); now reuses the previously-unused `headline` field
+("같은 의미는, 같은 길이가 아니었다" — reformatted into one declarative
+sentence) rather than inventing new copy, per Director's explicit direction
+to swap the opening line for "결론적 문장." (2) `preFigureParagraphs`
+3→2, former paragraphs 1+2 merged verbatim (PROTECTED `1.29×~1.83×` range
+preserved byte-for-byte — confirmed via diff), paragraph 3 stands alone.
+(3) Pull-quote box: `border-l-2 border-rule-strong` → `border-l
+border-rule`, text color `text-ink` → `text-ink-body` — one visible step
+quieter. (4) Bottom "Back to Top" button: dropped `hover:bg-accent
+hover:text-on-accent hover:border-accent` + `font-bold` + `shadow-2xs`;
+now a neutral `hover:bg-surface-alt hover:border-ink` + `font-semibold`,
+no shadow — reads as exit navigation, not a CTA. Footer date-stamp text
+`text-ink-muted` → `text-ink-subtle`, one step quieter. (5) `Container`
+`space-y-12` → `space-y-10`, tightening the headline-to-body gap.
+Screenshotted 1440×KO/EN + 390×KO: 0 overflow, all 5 changes visually
+confirmed, PROTECTED numeric range unchanged. tsc clean, build passes,
+audit pipeline diff-reproducible, director queue unchanged at 16.
+
+**Findings (Director redline pass, 2026-08-17):** 2 concrete changes,
+superseding iteration 6's "PASS, no fix" — the earlier pass checked C1/C8/
+C12 (does the highlighted step win, does it break), which it did; the
+redline goes further ("didactic, not editorial" density + relative
+recession of the other 4 steps). (1) `tokenUnit.preFigureParagraphs`
+merged 2→1 (identical sentences, no wording change) — top explanation now
+reads as one instructional block. (2) Non-highlighted steps' title color
+`text-ink` → `text-ink-body` and description color `text-ink-muted` →
+`text-ink-muted` (border-adjacent description already muted; title was
+the one still at full ink strength) — steps 01/03/04/05 now recede one
+further step relative to step 02's accent fill, so "the bottleneck" reads
+as a discovery, not merely the loudest of five equals. Screenshotted
+1440×KO: 0 overflow, step 02 unambiguous focal point, others visibly
+quieter. tsc clean, build passes, audit pipeline diff-reproducible.

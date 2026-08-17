@@ -71,7 +71,7 @@ the styling, and every design change silently invalidates it.
 | `CONC-003` | EditorialConclusionSection | 43 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `CONC-004` | EditorialConclusionSection | 56 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `CONC-005` | EditorialConclusionSection | 59 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `CONC-007` | EditorialConclusionSection | 79-81 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-muted` | `data-role="…"` |
+| `CONC-007` | EditorialConclusionSection | 79-81 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-subtle` | `data-role="…"` |
 | `CONC-008` | EditorialConclusionSection | 88 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `FOOT-002` | Footer | 18-20 | `span` | STABLE (data-*) | `span.font-bold.text-lg.text-ink.tracking-tight` | `data-role="…"` |
 | `FOOT-003` | Footer | 22-26 | `p` | STABLE (data-*) | `p.text-ink-body.text-xs.max-w-xl` | `data-role="…"` |
@@ -181,7 +181,7 @@ the styling, and every design change silently invalidates it.
 | `HERO-007` | NewsHeroSection | 44 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold` | `data-role="…"` |
 | `HERO-008` | NewsHeroSection | 47 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `HERO-009` | NewsHeroSection | 56 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `HERO-010` | NewsHeroSection | 61-69 | `h1` | STABLE (data-*) | `h1.text-4xl.sm\:text-6xl.lg\:text-7xl.font-bold.tracking-ti…` | `data-role="section-heading"` |
+| `HERO-010` | NewsHeroSection | 61-69 | `h1` | STABLE (data-*) | `h1.text-4xl.sm\:text-6xl.lg\:text-7xl.font-extrabold.tracki…` | `data-role="section-heading"` |
 | `HERO-012` | NewsHeroSection | 87 | `dt` | STABLE (data-*) | `dt.text-ink-subtle.block.text-\[10px\].uppercase` | `data-role="…"` |
 | `HERO-013` | NewsHeroSection | 88 | `dd` | STABLE (data-*) | `dd.text-ink.font-bold` | `data-role="…"` |
 | `HERO-015` | NewsHeroSection | 91 | `dt` | STABLE (data-*) | `dt.text-ink-subtle.block.text-\[10px\].uppercase` | `data-role="…"` |
