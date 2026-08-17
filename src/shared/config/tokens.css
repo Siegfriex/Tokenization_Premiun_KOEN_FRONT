@@ -1,53 +1,118 @@
 /**
  * Semantic design tokens (Tailwind CSS v4 @theme).
  *
- * Values are chosen to match the CURRENTLY RENDERED appearance of the site
- * (see docs/design/COLOR_HACK_FINDING.md), not the raw literal hex values
- * that appear in component source. This repository's global stylesheet
- * (src/index.css) contains a legacy `!important` / attribute-selector
- * "cobalt blue" recolor pass that intercepts specific arbitrary Tailwind
- * classes (e.g. `bg-[#111111]` -> #2563EB) but only for the classes/props
- * it explicitly lists — coverage is partial and inconsistent (the same
- * hex value renders differently depending on which Tailwind property
- * prefix carries it).
+ * This file is the palette authority for the site. Colour is defined here and
+ * nowhere else; `chart-tokens.ts` holds the same data-mark values as JS
+ * literals only because Recharts needs literals rather than classes.
  *
- * Encoding tokens to match the CURRENT rendered colors means widgets
- * migrated to these tokens render IDENTICALLY to not-yet-migrated widgets
- * that still carry raw arbitrary-hex classes intercepted by the legacy
- * hack. This keeps the migration visually silent (no regression) while it
- * proceeds incrementally across phases. The hack itself is intentionally
- * NOT removed in this phase — see docs/design/COLOR_HACK_FINDING.md for
- * the open decision on whether to keep the blue accent as the permanent
- * design or revert to the original flat monochrome palette once migration
- * is complete.
+ * ---------------------------------------------------------------------------
+ * THE THREE LAYERS
+ * ---------------------------------------------------------------------------
+ * This site is an editorial research document, not an application UI. Its
+ * palette is therefore split by ROLE into three layers that must never
+ * collapse into one tone. A colour's layer is what decides where it may be
+ * used — not how it looks:
+ *
+ *   1. READING LAYER — the surfaces you read *on* and the prose you read.
+ *      Near-black ink on a light, low-chroma canvas. This layer carries the
+ *      article: leads, body paragraphs, headings, findings, captions. It is
+ *      deliberately NOT tinted toward the accent; long-form Korean/English
+ *      prose stays black/near-black so the research reads as a document.
+ *
+ *   2. ACCENT LAYER — cobalt (#2563EB). Reserved for *state and navigation*:
+ *      the selected card, the active nav entry, the emphasis underline in a
+ *      section heading, the scroll progress fill. It marks "you are here" and
+ *      "this one is chosen". It is never a reading surface and never body copy.
+ *
+ *   3. DATA-MARK LAYER — chart bars, proportional bars and their legend
+ *      swatches. These are near-black/gray on purpose: a bar chart whose bars
+ *      were accent-colored would compete with the selection state above, and
+ *      the research's own emphasis (which language, which domain) would stop
+ *      being legible. Mirrors src/shared/config/chart-tokens.ts, which holds
+ *      the same values as JS literals for Recharts props.
+ *
+ * ---------------------------------------------------------------------------
+ * WHY THESE EXACT VALUES
+ * ---------------------------------------------------------------------------
+ * Historical note, because the numbers below look arbitrary otherwise.
+ *
+ * `src/index.css` used to end with a nine-rule `!important` /
+ * attribute-selector recolor pass (`[class*="bg-[#111111]"] { background:
+ * #2563EB }` and eight siblings) that string-matched arbitrary Tailwind
+ * classes in the DOM. That block, not any token file, was the site's real
+ * colour system — it is why production reads cobalt rather than flat
+ * black/white — and its coverage was partial and inconsistent, so the same hex
+ * rendered differently depending on which property prefix carried it.
+ *
+ * The values below were originally chosen to match what that pass RENDERED,
+ * so each widget could migrate onto tokens without any visible change. Once
+ * every rendered element had migrated, the pass matched nothing and was
+ * deleted; `src/index.css` no longer contains it and nothing replaced it.
+ *
+ * So the values are inherited, but the authority is not: this file is now the
+ * only thing deciding what colour anything is. Do not reintroduce
+ * attribute-selector recolouring, and do not put colour utilities on `<body>`
+ * in index.html — that element's class attribute is the whole page canvas, and
+ * a substring collision there is what used to paint it cobalt.
+ *
+ * Full history, the value-for-value migration table, and the five deliberate
+ * visual changes: docs/design/COLOR_HACK_FINDING.md (§RESOLUTION).
+ * Rules for using these layers: docs/DESIGN_SYSTEM_CONTRACT.md.
+ * How this was verified without a browser: docs/QA_ACCEPTANCE.md.
  */
 @theme {
-  /* Surfaces */
-  --color-canvas: #F7F8FA;        /* page background */
-  --color-surface: #F7F8FA;       /* card/box background (currently identical to canvas — pre-existing, see finding doc) */
-  --color-surface-alt: #EFF6FF;   /* alternating section background (was #F7F7F5 / #F1F2F2) */
-  --color-surface-inverse: #2563EB; /* dark/active surface (was #111111 as a background) */
+  /* ==========================================================================
+   * LAYER 1 — READING SURFACE & PROSE (near-black dominant)
+   * ========================================================================== */
 
-  /* Ink (text) */
-  --color-ink: #111827;           /* primary text (was #111111 as text) */
-  --color-ink-strong: #333333;    /* article body copy (ArticleParagraph only, unaffected by the recolor hack) */
-  --color-ink-muted: #64748B;     /* secondary text (was #777773) */
-  --color-ink-body: #475569;      /* body copy gray (was #4A4A47) */
-  --color-ink-subtle: #8A8A85;    /* tertiary text — NOT covered by the recolor hack, unchanged */
-  --color-ink-inverse: #FFFFFF;   /* text on an inverse/dark surface — NOT covered by the recolor hack, unchanged */
+  /* Surfaces you read on */
+  --color-canvas: #F7F8FA;        /* page/app background */
+  --color-surface: #F7F8FA;       /* card & panel background (identical to canvas,
+                                     so a card is not distinguishable from the
+                                     page — inherited from the retired recolor
+                                     pass, still an open design question) */
+  --color-surface-alt: #EFF6FF;   /* alternating section background */
 
-  /* Rules / borders */
-  --color-rule: #DCE7F7;          /* default divider/border (was #DADAD6) */
-  --color-rule-strong: #111111;   /* emphasis border, e.g. active card outline — NOT covered by the recolor hack, unchanged */
+  /* Ink ramp — primary prose stays near-black */
+  --color-ink: #111827;           /* headings, primary text */
+  --color-ink-strong: #333333;    /* article body copy (ArticleParagraph) */
+  --color-ink-body: #475569;      /* supporting body copy, resting card text */
+  --color-ink-muted: #64748B;     /* eyebrows, labels, meta */
+  --color-ink-subtle: #8A8A85;    /* tertiary/figure-source text */
 
-  /* Accent */
-  --color-emphasis: #2563EB;      /* underline/decoration accent (was #8A8A85 via decoration-*, hacked) */
+  /* ==========================================================================
+   * LAYER 2 — ACCENT / STATE / EMPHASIS (cobalt)
+   * ========================================================================== */
+  --color-accent: #2563EB;            /* selected surface, active nav, emphasis rule */
+  --color-on-accent: #FFFFFF;         /* text on an accent-filled surface */
+  --color-on-accent-muted: #DADAD6;   /* secondary text on an accent-filled surface */
+  --color-rule-on-accent: #353535;    /* hairline inside an accent-filled surface */
 
-  /* Layout: container widths (see docs/BASELINE.md / DESIGN_AUDIT.md) */
+  /* ==========================================================================
+   * LAYER 3 — DATA MARKS (deliberately NOT accent)
+   * ========================================================================== */
+  --color-mark: #161616;            /* primary/highlighted data mark (Hangul series) */
+  --color-mark-track: #E8E8E4;      /* empty track behind a proportional bar */
+  --color-mark-baseline: #777773;   /* English-baseline series */
+  --color-mark-other: #C2C2BD;      /* remaining comparison series */
+
+  /* ==========================================================================
+   * RULES / BORDERS
+   * ========================================================================== */
+  --color-rule: #DCE7F7;          /* default divider/border */
+  --color-rule-strong: #111111;   /* focus ring, emphasis outline */
+  --color-rule-neutral: #DADAD6;  /* the untinted hairline gray, kept for the few
+                                     places a rule or track must NOT pick up the
+                                     cobalt tint: separator glyphs between meta
+                                     items, the native range-input track, and the
+                                     chart axes (mirrored as chartTokens.rule) */
+
+  /* ==========================================================================
+   * LAYOUT (see docs/BASELINE.md / DESIGN_AUDIT.md)
+   * ========================================================================== */
   --container-wide: 1360px;
   --container-reading: 720px;
 
-  /* Layout: section vertical rhythm */
   --spacing-section-compact: 4rem;   /* py-16 */
   --spacing-section-default: 5rem;   /* py-20 */
   --spacing-section-spacious: 6rem;  /* py-24 */

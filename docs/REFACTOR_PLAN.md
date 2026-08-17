@@ -104,8 +104,9 @@ policy — avoids the "everyone edits the same files" conflict problem).
 - Remove `MultilingualSection.tsx` (dead file) and the 4 confirmed-unused
   dependencies (`@google/genai`, `express`, `dotenv`, `motion`,
   `@types/express`) — after a repo-wide reference re-scan and a passing
-  build, per `ARCHITECTURE_AUDIT.md`. Resolve the dual-lockfile situation
-  (`package-lock.json` vs `bun.lock`) as part of this cleanup.
+  build, per `ARCHITECTURE_AUDIT.md`. (The dual-lockfile situation this
+  plan originally listed here is already resolved — there is no `bun.lock`
+  in the repository; `package-lock.json` is canonical.)
 
 ## Explicit non-goals across all phases
 

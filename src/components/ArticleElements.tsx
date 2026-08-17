@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '../shared/ui/Container';
+import { SectionEyebrow } from '../shared/ui/SectionHeading';
 
 /**
  * Controlled Reading Column for Article Prose
@@ -104,9 +105,7 @@ export const ArticleFinding: React.FC<{
   return (
     <div className={`border-y border-rule py-6 sm:py-8 my-8 sm:my-10 space-y-3 ${className}`}>
       {label && (
-        <div className="text-xs font-mono text-ink-muted font-bold uppercase tracking-widest">
-          {label}
-        </div>
+        <SectionEyebrow>{label}</SectionEyebrow>
       )}
       {bigNumber && (
         <div className="text-5xl sm:text-7xl lg:text-8xl font-serif font-bold text-ink tracking-tight leading-none my-2">
@@ -132,9 +131,7 @@ export const ArticleBigFinding: React.FC<{
   return (
     <div className={`py-12 sm:py-16 my-10 sm:my-14 border-y border-rule text-left space-y-4 ${className}`}>
       {label && (
-        <div className="text-xs font-mono text-ink-muted font-bold uppercase tracking-widest">
-          {label}
-        </div>
+        <SectionEyebrow>{label}</SectionEyebrow>
       )}
       <div className="text-6xl sm:text-8xl lg:text-9xl font-serif font-bold text-ink tracking-tight leading-none">
         {bigNumber}

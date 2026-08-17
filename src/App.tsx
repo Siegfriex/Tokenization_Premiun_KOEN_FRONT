@@ -16,7 +16,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <UILanguageProvider defaultLanguage="ko">
-      <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col font-sans selection:bg-[#111111] selection:text-[#FFFFFF] scroll-smooth">
+      <div className="min-h-screen bg-canvas text-ink flex flex-col font-sans selection:bg-ink selection:text-on-accent scroll-smooth">
         {/* Sticky Editorial Header */}
         <StoryProgress />
 

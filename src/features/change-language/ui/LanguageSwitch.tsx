@@ -14,7 +14,7 @@ export const LanguageSwitch: React.FC<{ className?: string }> = ({ className = '
         type="button"
         onClick={() => setLanguage('ko')}
         className={`px-2.5 py-0.5 rounded-xs transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
-          isKo ? 'bg-surface-inverse text-ink-inverse font-bold' : 'text-ink-muted hover:text-ink'
+          isKo ? 'bg-accent text-on-accent font-bold' : 'text-ink-muted hover:text-ink'
         }`}
         aria-pressed={isKo}
       >
@@ -24,7 +24,7 @@ export const LanguageSwitch: React.FC<{ className?: string }> = ({ className = '
         type="button"
         onClick={() => setLanguage('en')}
         className={`px-2.5 py-0.5 rounded-xs transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
-          !isKo ? 'bg-surface-inverse text-ink-inverse font-bold' : 'text-ink-muted hover:text-ink'
+          !isKo ? 'bg-accent text-on-accent font-bold' : 'text-ink-muted hover:text-ink'
         }`}
         aria-pressed={!isKo}
       >

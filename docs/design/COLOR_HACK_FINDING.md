@@ -131,3 +131,109 @@ No further design decision is made in this phase beyond preserving current
 appearance. Recommend resolving this before Phase 5 (shared UI
 consolidation), since it determines the final palette committed to
 `shared/ui` components.
+
+---
+
+# RESOLUTION (branch `refactor/shared-ui-consolidation`)
+
+## The direction that resolved it
+
+The Director's answer was neither of the two options as originally framed.
+It was a **two-layer split**:
+
+- **Cobalt (`#2563EB`) is the real accent colour**, formalised — but it is
+  the *state and navigation* layer: selected card, active nav entry, the
+  emphasis underline in a section heading, the scroll-progress fill.
+- **Reading surfaces and prose stay black/near-black on a light canvas.**
+  The accent never becomes body copy and never becomes a reading surface.
+- A third layer was needed once the first two were named: **data marks**
+  (chart bars, proportional bars, their legend swatches, token chips) are
+  near-black/gray on purpose, because accent-coloured bars would compete
+  with the selection state and make the research's own emphasis illegible.
+
+That vocabulary now lives in `src/shared/config/tokens.css`, which is the
+one place the palette is defined.
+
+## What was found in addition, during this branch
+
+`index.html`'s `<body>` carried `class="bg-[#111111] text-[#F5F5F3] …"`.
+The hack's `[class*="bg-[#111111]"]` rule matched it directly, so the
+**page canvas itself rendered `#2563EB`**, overriding the hack's own
+`body { background-color: #F7F8FA !important }` (attribute selector 0,1,0
+beats element selector 0,0,1; both `!important`, so specificity decides).
+The original finding above only identified the `App.tsx` root-div
+collision — the `<body>` element was a second, independent instance of the
+same defect, and fixing `App.tsx` alone would not have resolved it.
+
+Both are fixed: `<body>` now carries no colour utilities at all (its
+colours come from the `body` rule in `src/index.css`, which reads the
+tokens), and `App.tsx`'s root is `bg-canvas text-ink`.
+
+## The hack is retired
+
+The nine `[class*="…"] { … !important }` rules were deleted from
+`src/index.css`. This was safe to do — and provably a no-op for everything
+except the two collisions above — because every rendered element had first
+been migrated off the arbitrary-hex classes the rules matched. Verified
+mechanically before deletion:
+
+- 0 occurrences of any of the nine matched class strings in any rendered
+  source file or in `index.html`.
+- 0 `[class*=` rules in the compiled CSS afterwards.
+- The only remaining `!important` in the compiled CSS is Tailwind
+  Preflight's `[hidden]` rule.
+- All 95 distinct colour/width utility tokens used across `src/` resolve to
+  a real compiled rule (a mistyped token class would otherwise have
+  silently become a no-op, which `tsc` cannot catch).
+
+`src/components/MultilingualSection.tsx` still contains matched class
+strings, but it is dead code — not imported anywhere, never rendered — so
+the hack never applied to it.
+
+## Colour-fidelity map (audit this table to review the visual risk)
+
+Every migration below is value-for-value identical to what production
+rendered before, unless the last column says otherwise.
+
+| Old class | Rendered before | New class | Value now |
+|---|---|---|---|
+| `bg-[#FFFFFF]` | `#F7F8FA` (hacked) | `bg-surface` | `#F7F8FA` |
+| `bg-[#F7F7F5]`, `bg-[#F1F2F2]` | `#EFF6FF` (hacked) | `bg-surface-alt` | `#EFF6FF` |
+| `bg-[#111111]` | `#2563EB` (hacked) | `bg-accent` | `#2563EB` |
+| `text-[#111111]` | `#111827` (hacked) | `text-ink` | `#111827` |
+| `text-[#777773]` | `#64748B` (hacked) | `text-ink-muted` | `#64748B` |
+| `text-[#4A4A47]` | `#475569` (hacked) | `text-ink-body` | `#475569` |
+| `border-[#DADAD6]` | `#DCE7F7` (hacked) | `border-rule` | `#DCE7F7` |
+| `decoration-[#8A8A85]` | `#2563EB` (hacked) | `decoration-accent` | `#2563EB` |
+| `text-[#333333]` | `#333333` | `text-ink-strong` | `#333333` |
+| `text-[#8A8A85]` | `#8A8A85` | `text-ink-subtle` | `#8A8A85` |
+| `text-[#FFFFFF]` | `#FFFFFF` | `text-on-accent` | `#FFFFFF` |
+| `text-[#DADAD6]` on an accent fill | `#DADAD6` | `text-on-accent-muted` | `#DADAD6` |
+| `text-[#DADAD6]` on a light surface | `#DADAD6` | `text-rule-neutral` | `#DADAD6` |
+| `border-[#353535]` | `#353535` | `border-rule-on-accent` | `#353535` |
+| `bg-[#161616]` | `#161616` | `bg-mark` | `#161616` |
+| `bg-[#E8E8E4]` | `#E8E8E4` | `bg-mark-track` | `#E8E8E4` |
+| `bg-[#777773]` | `#777773` | `bg-mark-baseline` | `#777773` |
+| `bg-[#C2C2BD]` | `#C2C2BD` | `bg-mark-other` | `#C2C2BD` |
+| `bg-[#DADAD6]` | `#DADAD6` | `bg-rule-neutral` | `#DADAD6` |
+| `border-[#111111]` outlining a light card | `#111111` | `border-rule-strong` | `#111111` |
+
+### Deliberate visual changes (five, all stated)
+
+| # | Where | Before | After | Why |
+|---|---|---|---|---|
+| 1 | App root `<div>` background | `#2563EB` | `#F7F8FA` | The substring collision documented above. The accent layer was painting the reading canvas. |
+| 2 | `<body>` background | `#2563EB` | `#F7F8FA` | Same defect, second instance. Visible at scroll extremes / overscroll and as the mobile browser chrome tint. |
+| 3 | `border-[#111111]` **outlining an accent fill** (TokenCompare + Multilingual selected cards, Footer status chip, the conclusion button's hover) | black ring on a cobalt fill | `border-accent` → cobalt | An artifact of the hack's partial coverage: it recoloured `bg-` but not `border-`, so a pairing that matched in the original monochrome design was broken. Three other selected-card sites already used a matching border, so this also removes an inconsistency between them. |
+| 4 | Range-input `accent-color` in OccupationSection | `#111111` | `#2563EB` | The slider is the burden simulator's primary state control; every other state control is now cobalt. |
+| 5 | `shadow-xs` on the filled state of `SelectableCard` | present on 2 of 5 sites | present on all 5 | Uniform in the shared primitive. Tailwind `shadow-xs` is `0 1px 2px rgb(0 0 0 / .05)`. Revertible in one line if unwanted. |
+
+Two further deltas are below perceptual threshold and are recorded only for
+completeness: `#111111` → `#111827` on hover borders and the text-selection
+highlight, and `transition-colors` → `transition-all` on the Occupation
+preset chips (no animated property differs).
+
+**Not verified in a browser.** No browser-automation tool is available in
+this environment; everything above is verified against the compiled CSS and
+the source, not against rendered pixels. Items 1-3 in particular deserve a
+human look — see `QA_ACCEPTANCE.md`.

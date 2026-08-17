@@ -4,6 +4,7 @@ import { getLocalizedText } from '../shared/i18n';
 import { OCCUPATION_COMPARISON_DATA, TOKEN_BASELINE_SIMULATION } from '../entities/occupation';
 import { ARTICLE_CONTENT } from '../entities/article-content';
 import { Code, BookOpen } from 'lucide-react';
+import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
 import {
   ArticleReadingColumn,
   ArticleLead,
@@ -32,33 +33,23 @@ export const OccupationSection: React.FC = () => {
 
   return (
     <section id="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12">
+      <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
-        <div className="space-y-4 max-w-4xl">
-          <div className="text-xs font-mono text-ink-muted font-bold tracking-widest uppercase">
-            {isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-tight">
-            {isKo ? (
-              <>
-                그래서 이 차이는
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  얼마나 누적될까?
-                </span>
-              </>
-            ) : (
-              <>
-                How Does This Discrepancy
-                <br />
-                <span className="text-ink underline decoration-emphasis underline-offset-8 decoration-2">
-                  Compound Over Time?
-                </span>
-              </>
-            )}
-          </h2>
-        </div>
+        <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
+          {isKo ? (
+            <>
+              그래서 이 차이는
+              <br />
+              <HeadingAccent>얼마나 누적될까?</HeadingAccent>
+            </>
+          ) : (
+            <>
+              How Does This Discrepancy
+              <br />
+              <HeadingAccent>Compound Over Time?</HeadingAccent>
+            </>
+          )}
+        </SectionHeading>
 
         {/* READING COLUMN: Pre-Figure Journalism Text */}
         <ArticleReadingColumn>
@@ -95,19 +86,15 @@ export const OccupationSection: React.FC = () => {
               {/* Quick preset buttons */}
               <div className="flex items-center gap-2">
                 {[10, 50, 100, 500, 1000].map((preset) => (
-                  <button
+                  <SelectableCard
                     key={preset}
-                    type="button"
-                    onClick={() => setPromptCount(preset)}
-                    aria-pressed={promptCount === preset}
-                    className={`px-3 py-1 text-xs font-mono rounded-xs transition-colors cursor-pointer border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
-                      promptCount === preset
-                        ? 'bg-surface-inverse text-ink-inverse border-surface-inverse font-bold'
-                        : 'bg-surface text-ink-body hover:border-ink hover:text-ink border-rule'
-                    }`}
+                    selected={promptCount === preset}
+                    onSelect={() => setPromptCount(preset)}
+                    boldWhenFilled
+                    className="px-3 py-1 text-xs font-mono"
                   >
                     {preset.toLocaleString()}×
-                  </button>
+                  </SelectableCard>
                 ))}
               </div>
             </div>
@@ -127,7 +114,7 @@ export const OccupationSection: React.FC = () => {
                 step="1"
                 value={promptCount}
                 onChange={(e) => setPromptCount(Number(e.target.value))}
-                className="w-full h-2 bg-[#DADAD6] rounded-xs appearance-none cursor-pointer accent-[#111111]"
+                className="w-full h-2 bg-rule-neutral rounded-xs appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-[11px] font-mono text-ink-muted">
                 <span>1회 (단일 프롬프트)</span>
@@ -267,7 +254,7 @@ export const OccupationSection: React.FC = () => {
                         {getLocalizedText(socialScienceData.title, language)}
                       </h3>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 bg-surface-inverse text-ink-inverse rounded-xs font-bold uppercase">
+                    <span className="text-[10px] font-mono px-2 py-0.5 bg-accent text-on-accent rounded-xs font-bold uppercase">
                      {isKo ? '높은 누적 부담 가능성' : 'HIGH BURDEN POTENTIAL'}
                     </span>
                   </div>
@@ -301,7 +288,7 @@ export const OccupationSection: React.FC = () => {
                           <span className="font-medium text-ink">
                             {getLocalizedText(occ.name, language)}
                           </span>
-                          <span className="text-[10px] font-mono px-2 py-0.5 bg-surface-inverse text-ink-inverse rounded-xs font-bold">
+                          <span className="text-[10px] font-mono px-2 py-0.5 bg-accent text-on-accent rounded-xs font-bold">
                             {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
                           </span>
                         </div>
@@ -340,7 +327,7 @@ export const OccupationSection: React.FC = () => {
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
         </ArticleReadingColumn>
-      </div>
+      </Container>
     </section>
   );
 };
