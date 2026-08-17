@@ -55,7 +55,35 @@ Trace IDs, statuses, and values unchanged — verified via diff.
 
 ---
 
-## S01-compare
+## S02-pipeline
+
+| Field | Content |
+|---|---|
+| Intent | Show token generation as a 5-step pipeline and name exactly one step — Tokenization — as where the KO/EN gap originates. |
+| Primary focal point | Step 2 (`TOKENIZATION`, `item.highlight: true`, permanently accent-filled regardless of click state) — the "★ STEP 02: THE BOTTLENECK" meta-label above the row states this explicitly in words, so the visual must agree with the text. |
+| Secondary focal points | The other 4 steps, outline-variant, equal weight to each other. |
+| Forbidden competition | No second step should carry accent fill or bold weight strong enough to rival step 2. |
+| Layout skeleton | 5-column horizontal row of `SelectableCard` (`variant="outline"`), one row, equal-width. Not a tiered-panel layout (unlike S03) — the hierarchy signal here is emphasis-within-a-collection, not panel-vs-panel. |
+| Risk zones | 5 equal-width columns at 390px will stack — check the stack order still reads step 1→5 top-to-bottom without step 2 visually floating away from its numeric sequence; KO step descriptions vary in length per step. |
+| Required states | default (step 2 pre-emphasized) / clicked (user selects a different step, e.g. step 4) — does clicking step 4 dilute step 2's "this is the bottleneck" claim, or do both signals coexist legibly? |
+| Required screenshots | 1440×KO×default, 1440×KO×step4-clicked, 390×KO×default. |
+| Accept/reject rule | Reject if step 2 doesn't win first look at 1440px default, or if clicking another step leaves two steps both reading as "important" at once (accent-fill + outline-selected both present with no clear rank between them). |
+
+**Findings: PASS, no fix applied.** All 3 required shots clean. Step 2
+("GAP ORIGIN" badge + solid accent fill) unambiguously wins first look at
+1440×default, matching the "★ STEP 02: THE BOTTLENECK" meta-label's claim
+— text and visual agree. Clicked step 4: gains a distinct *outline*
+treatment (border-ink, no fill) that reads as "currently inspecting,"
+categorically different from step 2's permanent accent fill ("this is
+where the finding says the gap originates") — the two signals coexist
+without competing because they use different visual languages
+(`emphasized` content-flag vs. `selected` interaction-flag, per
+`SelectableCard`'s own design rationale). This is the slide's answer to
+the Director's Priority 2 (declare one focal point) already correctly
+implemented before this pass — not every slide needs a fix; this one is
+the counter-example that the tier/focal-point system is a real bar, not
+busywork applied uniformly. 390px stack: order preserved 01→05, step 2
+still reads distinctly. C1/C8/C12 all pass. 0 overflow.
 
 | Field | Content |
 |---|---|
