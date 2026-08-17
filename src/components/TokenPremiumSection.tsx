@@ -135,10 +135,12 @@ export const TokenPremiumSection: React.FC = () => {
                   {DOMAIN_DISTRIBUTION_DATA.map((item) => {
                     const isSelected = item.id === selectedDomainId;
                     return (
-                      <div
+                      <button
+                        type="button"
                         key={item.id}
                         onClick={() => setSelectedDomainId(item.id)}
-                        className={`p-3.5 rounded-xs border transition-all cursor-pointer space-y-2 ${
+                        aria-pressed={isSelected}
+                        className={`p-3.5 rounded-xs border transition-all cursor-pointer space-y-2 text-left w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                           isSelected
                             ? 'bg-surface-inverse border-surface-inverse text-ink-inverse'
                             : 'bg-surface-alt border-rule hover:border-ink'
@@ -174,7 +176,7 @@ export const TokenPremiumSection: React.FC = () => {
                             style={{ width: `${(item.ratio / 2.0) * 100}%` }}
                           ></div>
                         </div>
-                      </div>
+                      </button>
                     );
                   })}
                 </div>

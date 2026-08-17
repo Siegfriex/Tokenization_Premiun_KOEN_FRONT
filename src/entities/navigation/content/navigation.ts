@@ -17,3 +17,11 @@ export const NAV_SECTIONS: NavSection[] = [
   { id: 'method', label: { ko: 'S6. 방법론·한계', en: 'S6. Method' } },
   { id: 'result', label: { ko: '결론', en: 'Result' } },
 ];
+
+/**
+ * Stable id-only array, module-scoped so its reference never changes
+ * across renders — required by `useActiveSection` (see
+ * features/observe-scroll-section), which re-registers its
+ * IntersectionObserver whenever this array's identity changes.
+ */
+export const NAV_SECTION_IDS: readonly string[] = NAV_SECTIONS.map((s) => s.id);

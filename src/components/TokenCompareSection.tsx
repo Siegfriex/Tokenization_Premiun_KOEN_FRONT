@@ -82,7 +82,8 @@ export const TokenCompareSection: React.FC = () => {
                     key={item.id}
                     type="button"
                     onClick={() => setSelectedPairId(item.id)}
-                    className={`p-4 rounded-xs text-left transition-all cursor-pointer border ${
+                    aria-pressed={isSelected}
+                    className={`p-4 rounded-xs text-left transition-all cursor-pointer border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                       isSelected
                         ? 'bg-[#111111] text-[#FFFFFF] border-[#111111] font-bold shadow-xs'
                         : 'bg-[#FFFFFF] text-[#4A4A47] border-[#DADAD6] hover:border-[#111111] hover:text-[#111111]'

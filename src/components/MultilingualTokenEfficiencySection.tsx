@@ -165,7 +165,8 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                       key={item.id}
                       type="button"
                       onClick={() => setSelectedLangId(item.id)}
-                      className={`px-3 py-1 text-xs font-mono rounded-xs transition-all cursor-pointer border ${
+                      aria-pressed={selectedLangId === item.id}
+                      className={`px-3 py-1 text-xs font-mono rounded-xs transition-all cursor-pointer border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                         selectedLangId === item.id
                           ? 'bg-[#111111] text-[#FFFFFF] border-[#111111] font-bold'
                           : 'bg-[#FFFFFF] text-[#4A4A47] border-[#DADAD6] hover:border-[#111111] hover:text-[#111111]'

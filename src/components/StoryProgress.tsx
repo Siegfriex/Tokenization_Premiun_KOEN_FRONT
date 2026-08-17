@@ -1,37 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useUILanguage } from '../features/change-language';
 import { LanguageSwitch } from '../features/change-language';
-import { NAV_SECTIONS } from '../entities/navigation';
+import { useActiveSection, useScrollProgress } from '../features/observe-scroll-section';
+import { NAV_SECTIONS, NAV_SECTION_IDS } from '../entities/navigation';
 import { getLocalizedText } from '../shared/i18n';
 
 export const StoryProgress: React.FC = () => {
   const { language } = useUILanguage();
-  const [scrollPercent, setScrollPercent] = useState<number>(0);
-  const [activeSection, setActiveSection] = useState<string>('hero');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      setScrollPercent(Math.min(100, Math.max(0, scrolled)));
-
-      // Detect active section
-      for (let i = NAV_SECTIONS.length - 1; i >= 0; i--) {
-        const el = document.getElementById(NAV_SECTIONS[i].id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 240) {
-            setActiveSection(NAV_SECTIONS[i].id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scrollPercent = useScrollProgress();
+  const activeSection = useActiveSection(NAV_SECTION_IDS);
 
   const isKo = language === 'ko';
 
@@ -61,7 +38,8 @@ export const StoryProgress: React.FC = () => {
               <a
                 key={sec.id}
                 href={`#${sec.id}`}
-                className={`px-2.5 py-1 rounded-xs transition-colors ${
+                aria-current={isActive ? 'location' : undefined}
+                className={`px-2.5 py-1 rounded-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                   isActive
                     ? 'text-ink-inverse bg-surface-inverse font-bold'
                     : 'text-ink-muted hover:text-ink hover:bg-surface-alt'
