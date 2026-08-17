@@ -76,3 +76,36 @@ breakpoint than the one being tested. Every iteration re-runs the full
 sweep, not just the criterion that motivated it.
 
 ---
+
+## 2026-08-17 19:xx — Iteration 2 (loop)
+
+**Trigger:** merged PR #10 in the meantime (user, `56882d3`) — verified
+production (`tokenization-premiun-koen-front.vercel.app`) serves that exact
+commit by comparing its live asset hashes (`index-BC_KrqaL.js`,
+`index-73z017_0.css`) against a fresh local `npm run build` from the same
+commit: identical. Continued on a new branch (`qa/loop-iteration-2`) off
+the now-current `main`.
+
+**Checked:** C3 (active/selected element content-containment) across all 9
+live `aria-pressed`/`data-active`/`aria-current`/`aria-expanded` elements at
+1440px and 390px. C2, first pass with a naive "any element, any computed
+height" heuristic — 11 elements flagged, all leaf text nodes with 3–6px of
+scrollHeight over computed height. Investigated rather than trusting the
+flag: this is ordinary line-height/glyph-metric rounding on large type
+(`text-6xl`–`text-9xl`), not a container being violated — none of the
+flagged elements declare an explicit fixed-height utility. Re-ran with a
+heuristic restricted to elements matching `/(^|\s)h-\d/` (excludes
+`h-full`/`min-h-*`/`max-h-*`/no height class): **0 findings.**
+
+**Found:** nothing new. C3: 0/9 bad. C2 (refined): 0 findings.
+
+**Fixed:** nothing — no real defect this iteration. Refined the C2
+detection method in `docs/qa/VISUAL_QA_CRITERIA.md` itself so the false-
+positive chase doesn't repeat next time.
+
+**Not checked this iteration:** C4/C5 (design-signature consolidation — a
+B5 scope, not a per-iteration visual-bug sweep) and full C7 interaction
+re-verification (ran in iteration 1, not re-run this round since nothing
+touched interactive components).
+
+---

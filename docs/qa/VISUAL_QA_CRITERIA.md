@@ -51,6 +51,16 @@ KO vs EN), test both languages.
 
 *Caught by this rule: the nav's 10-item wrap inside `header`'s `h-14`.*
 
+**Detection note (learned iteration 2):** check only elements whose class
+list matches an *explicit* Tailwind fixed-height utility (`/(^|\s)h-\d/` —
+`h-14`, `h-2`, not `h-full`/`min-h-*`/`max-h-*`/no height class at all).
+`getComputedStyle(el).height` on a plain text leaf equals its natural
+content height almost by definition, so comparing that against
+`scrollHeight` flags 3–6px of ordinary line-height/glyph-metric rounding as
+"overflow" on nearly every large-type element (`text-6xl`, `text-8xl`,
+etc.) — eleven false positives on the first pass, zero real bugs. Only a
+*declared* fixed height is a real constraint the content can violate.
+
 ## C3 — An active/selected visual state must fully cover its content
 
 Wherever a `bg-accent`/`bg-on-accent`-class "selected" background exists
