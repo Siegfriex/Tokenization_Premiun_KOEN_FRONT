@@ -65,45 +65,39 @@ export const ImpactSection: React.FC = () => {
               <li
                 key={level.id}
                 data-item-id={level.id}
-                className={`rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border ${
-                  level.highlight
-                    ? 'bg-accent text-on-accent border-accent'
-                    : 'bg-surface border-rule'
-                }`}
+                className="rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border bg-surface border-rule"
               >
                 <div className="space-y-4">
-                  <dl data-role="stat" data-semantic-target="dl" className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
-                    <dt className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
+                  <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b pb-3 border-rule">
+                    <dt className="text-xs font-mono font-bold uppercase tracking-wider text-ink-muted">
                       {level.levelLabelKo}
                     </dt>
-                    <dd className={`text-xs font-mono ${level.highlight ? 'text-on-accent font-bold' : 'text-ink-muted'}`}>
+                    <dd className="text-xs font-mono text-ink-muted">
                       {level.levelBadge}
                     </dd>
                   </dl>
 
-                  <h3 data-role="heading" data-semantic-target="heading" className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
+                  <h3 data-role="heading" data-semantic-target="heading" className="text-xl font-bold text-ink">
                     {getLocalizedText(level.title, language)}
                   </h3>
 
-                  <p className={`text-xs sm:text-sm leading-relaxed font-sans ${level.highlight ? 'text-on-accent-muted' : 'text-ink-body'}`}>
+                  <p className="text-xs sm:text-sm leading-relaxed font-sans text-ink-body">
                     {getLocalizedText(level.description, language)}
                   </p>
                 </div>
 
-                <div className={`text-[11px] font-mono border-t pt-3 ${level.highlight ? 'text-on-accent-muted font-bold border-rule-on-accent' : 'text-ink-muted border-rule'}`}>
+                <div className="text-[11px] font-mono border-t pt-3 text-ink-muted border-rule">
                   {level.unitNote}
                 </div>
               </li>
             ))}
           </ul>
 
-          {/* Complete Conceptual Causal Chain */}
-          <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
+          {/* Complete Conceptual Causal Chain — the slide's Tier-1 point:
+              the 3-level grid above is the build-up, this is the synthesis. */}
+          <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
             <div data-role="stat" data-semantic-target="dl" className="space-y-1">
               <SectionEyebrow>FINAL CONCEPTUAL CAUSAL CHAIN</SectionEyebrow>
-              <h3 data-source="widget" className="text-lg sm:text-xl font-bold text-ink">
-                언어 구조에서 사회적 파급 효과까지의 인과 사슬
-              </h3>
             </div>
 
             <ol data-collection="impact-causal-chain" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
@@ -116,7 +110,7 @@ export const ImpactSection: React.FC = () => {
                       data-item-id={step}
                       className={`p-3 rounded-xs border ${
                         isEmphasis
-                          ? 'bg-accent border-accent text-on-accent font-bold'
+                          ? 'bg-surface border-2 border-rule-strong text-ink font-bold'
                           : 'bg-surface-alt border-rule text-ink-body'
                       }`}
                     >

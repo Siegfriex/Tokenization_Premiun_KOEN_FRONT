@@ -158,8 +158,8 @@ export const ArticleFigureCaption: React.FC<{
 }> = ({ figNum, caption, source, className = '' }) => {
   return (
     <figcaption data-role="figure-caption" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
-      <div className="text-ink font-semibold flex items-center gap-2">
-        {figNum && <span className="text-ink font-bold">{figNum} ·</span>}
+      <div className="text-ink font-semibold flex items-start gap-2">
+        {figNum && <span className="text-ink font-bold shrink-0 whitespace-nowrap">{figNum} ·</span>}
         <span className="text-ink-body font-normal">{caption}</span>
       </div>
       {source && <div className="text-ink-subtle text-[11px]">{source}</div>}

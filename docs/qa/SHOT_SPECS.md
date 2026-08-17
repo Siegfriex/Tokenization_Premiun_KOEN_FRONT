@@ -532,3 +532,80 @@ synthesized and fixed directly.
 
 Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
 passes, audit pipeline diff-reproducible, director queue unchanged at 16.
+
+---
+
+## S05.2-impact
+
+| Field | Content |
+|---|---|
+| Intent | Build a 3-level (personal → organization → society) scale-up argument, then land on one causal-chain synthesis. |
+| Primary focal point | The "FINAL CONCEPTUAL CAUSAL CHAIN" box — the slide's actual synthesis, per its own eyebrow. |
+| Secondary focal points | The 3-level scale-up grid (uniform build-up, not individually competing). |
+| Forbidden competition | Exactly one accent-color element per slide; card tiers must reflect evidentiary role, not DOM position. |
+| Layout skeleton | `SectionHeading` → reading column (lead, subheading, paragraphs) → full-width breakout: 3-level grid, causal-chain box → reading column (post-figure prose + key finding). |
+| Risk zones | None frozen/numeric in the elements touched by this pass. |
+| Required states | default only. |
+| Required screenshots | 1440×KO, 1440×EN, 390×KO (+ figure-caption crop). |
+| Accept/reject rule | Reject if more than one `bg-accent` element remains, if no single panel reads as this slide's Tier-1 point, if any Korean-only string survives untranslated in EN mode, or if the figure-number label still breaks mid-token at 390px. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** this was the one
+slide in the Director's full work order with no dedicated redline pass yet
+this session — a `screen:impact` subagent screened it against the same
+ruleset every sibling slide was held to; findings synthesized and fixed
+directly.
+
+1. **3 concurrent `bg-accent` elements (the core violation).** The
+   highlighted Level-03 card, plus 2 causal-chain chips ("Token Premium,"
+   "Potential Digital Friction") — 3 disconnected, fully-saturated blue
+   blocks competing with the H2 for first glance, and none of them was
+   actually this slide's Tier-1 point (see next finding). The identical
+   anti-pattern already found and fixed in S05-infrastructure's Phase 04
+   card, present here too and not yet applied. Fixed: Level-03 card's
+   highlight conditional removed entirely — all 3 level cards now render
+   identically (uniform Tier-2, `bg-surface border-rule shadow-xs`), since
+   they're a 3-stage build-up, not one-vs-two. The 2 causal-chain chips
+   keep their distinctness but via border-weight/text-weight instead of
+   color: `border-2 border-rule-strong text-ink font-bold` vs. the other
+   4 steps' `bg-surface-alt border-rule text-ink-body`. Verified 0
+   remaining `bg-accent` elements in `#impact`.
+2. **No Tier-1 panel on the slide.** Neither the level grid nor the
+   causal-chain box used the Tier-1 signature — the causal-chain box
+   (arguably the slide's actual conclusion, per its own "FINAL CONCEPTUAL
+   CAUSAL CHAIN" eyebrow) sat at the same Tier-2 rank as the merely-
+   explanatory level cards, while the Level-03 card won first-glance
+   purely by color, not evidentiary role. Fixed: causal-chain box promoted
+   to Tier-1 (`border-2 border-rule-strong shadow-sm`); level grid stays
+   uniformly Tier-2 — the "3-stage build-up, then synthesis" structure the
+   copy already implies now has a matching visual structure. Verified
+   live: chain box computes `border-width: 2px` + a real box-shadow.
+3. **Hardcoded Korean-only h3 inside the causal-chain box.** A raw string
+   ("언어 구조에서 사회적 파급 효과까지의 인과 사슬") rendered with no
+   `isKo`/`isEn` branch — confirmed identical text at both KO and EN.
+   The entity already carries a fuller, properly bilingual near-duplicate
+   of this exact sentence one field over (`figureCaption.ko/en`, rendered
+   immediately below via `ArticleFigureCaption`). **Fixed by deletion**
+   rather than adding a new bilingual field: the h3 was redundant with the
+   caption already on screen, so removing it fixes the bilingual gap
+   without inventing new entity copy. Verified: EN render's chain-box
+   header now reads only "FINAL CONCEPTUAL CAUSAL CHAIN," no residual
+   Korean text.
+4. **Figure-number label breaking mid-token at 390px.** `ArticleFigureCaption`
+   (a shared component used by every section with a captioned figure) had
+   no `shrink-0`/`whitespace-nowrap` on its `figNum` span, so "FIG. 08"
+   itself wrapped across two lines at narrow widths — a rendering defect,
+   not an authored break. Fixed in the shared component (low risk, only
+   removes an unwanted break point) — applies site-wide. Verified: the
+   figNum span now measures as one unbroken 62.7px-wide block at 390px.
+5. **Dead-node check, typographic hierarchy, C1/C6/C14: all passed clean.**
+   Unlike 3 other sections this session, `socioeconomicScale`'s
+   `subheading` field has real bilingual content, so no empty
+   `ArticleSubheading` bug here. Body-vs-headline hierarchy, horizontal
+   scroll, sticky-header clearance, and box/child overflow all confirmed
+   clean via live DOM measurement — no action needed on those axes.
+
+Screenshotted 1440×KO, 1440×EN, 390×KO (+ figcaption crop): 0 overflow.
+tsc clean, build passes, audit pipeline diff-reproducible, director queue
+unchanged at 16. With this slide done, every section in the Director's
+full redline work order (S00 through S07, in nav order) has now received
+a dedicated pass this session.

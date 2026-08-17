@@ -8,7 +8,7 @@ Every content-bearing or structure-bearing node in the rendered frontend.
 A node enters this ledger if it renders a literal, asserts a number, has a
 semantic-structure gap, or is a section root.
 
-**447** live items across **20** rendering units, plus
+**446** live items across **20** rendering units, plus
 **57** items in `MultilingualSection.tsx` (dead file, listed
 separately at the end so it never inflates a count).
 
@@ -409,12 +409,12 @@ _S5 Korea AI Infrastructure · src/components/KoreaAIContextSection.tsx · 35 tr
 
 ## ImpactSection
 
-_S5.2 Socioeconomic Implications · src/components/ImpactSection.tsx · 26 tracked nodes_
+_S5.2 Socioeconomic Implications · src/components/ImpactSection.tsx · 25 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `IMPACT-001` | 22-155 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `IMPACT-019` | 23-154 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `IMPACT-001` | 22-149 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `IMPACT-019` | 23-148 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `IMPACT-020` | 25-39 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `IMPACT-002` | 30 | `span` | CONTENT | STABLE (data-*) | 비용의 문제를 넘어 | — | MEDIUM | B4-content-migration |
 | `IMPACT-003` | 36 | `span` | CONTENT | STABLE (data-*) | Systemic Architecture Impact | — | MEDIUM | B4-content-migration |
@@ -423,22 +423,21 @@ _S5.2 Socioeconomic Implications · src/components/ImpactSection.tsx · 26 track
 | `IMPACT-004` | 47-49 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(ArticleSubheading)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
 | `IMPACT-005` | 53 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `IMPACT-006` | 56 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-023` | 61-137 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `IMPACT-024` | 63-98 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `IMPACT-025` | 65-96 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-026` | 75-82 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-009` | 84-86 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `IMPACT-010` | 102-107 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `IMPACT-011` | 103 | `div` | CONTENT | STABLE (data-*) | FINAL CONCEPTUAL CAUSAL CHAIN | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
-| `IMPACT-012` | 104-106 | `h3` | CONTENT | STABLE (data-*) | 언어 구조에서 사회적 파급 효과까지의 인과 사슬 | HEADING_LEVEL | MEDIUM | B3-semantic-dom |
-| `IMPACT-013` | 109-128 | `ol` | CONTENT | STABLE (data-*) | Token Premium ⏎ Potential Digital Friction | — | MEDIUM | B4-content-migration |
-| `IMPACT-015` | 114 | `span` | CONTENT | style | → | — | MEDIUM | B4-content-migration |
-| `IMPACT-027` | 115-124 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-016` | 132-136 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-028` | 140-153 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `IMPACT-017` | 143 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-018` | 146 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-029` | 149-152 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `IMPACT-023` | 61-131 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `IMPACT-024` | 63-94 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `IMPACT-025` | 65-92 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-026` | 71-78 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-009` | 80-82 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
+| `IMPACT-010` | 99-101 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `IMPACT-011` | 100 | `div` | CONTENT | STABLE (data-*) | FINAL CONCEPTUAL CAUSAL CHAIN | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `IMPACT-013` | 103-122 | `ol` | CONTENT | STABLE (data-*) | Token Premium ⏎ Potential Digital Friction | — | MEDIUM | B4-content-migration |
+| `IMPACT-015` | 108 | `span` | CONTENT | style | → | — | MEDIUM | B4-content-migration |
+| `IMPACT-027` | 109-118 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-016` | 126-130 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-028` | 134-147 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `IMPACT-017` | 137 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-018` | 140 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-029` | 143-146 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## MethodSection
 
