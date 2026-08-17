@@ -77,7 +77,7 @@ Machine-readable equivalents live in [`data/`](data/):
 
 ## Trace IDs
 
-`<WIDGET>-<NNN>` — e.g. `PREM-032`, `HERO-025`, `LANG-019`.
+`<WIDGET>-<NNN>` — e.g. `PREM-032`, `HERO-025`, `LANG-051`.
 
 | Code | Rendering unit | Code | Rendering unit |
 |---|---|---|---|

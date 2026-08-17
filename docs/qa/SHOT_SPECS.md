@@ -219,3 +219,128 @@ the earlier tier-system pass: "69,432와 1.29×~1.83×가 같은 증거 계보�
 Screenshotted 1440×KO: 0 overflow, rows read denser/more tabular. tsc
 clean, build passes, audit pipeline diff-reproducible, director queue
 unchanged at 16.
+
+---
+
+## S04.5-languages
+
+| Field | Content |
+|---|---|
+| Intent | One chart, one selectable protagonist — clicking a language should make *that* bar (and its legend/callout copy) the dark evidence, not a permanently-pinned Korean row. |
+| Primary focal point | The right-column horizontal bar chart; the selected language's bar carries `seriesHighlight` fill and the outline ring. |
+| Secondary focal points | Left-column "LANGUAGE FOCUS" stat card (kept Tier-2, unchanged); quick-switch chip row. |
+| Forbidden competition | The Korean-only callout ("★ 한국어는...") must never assert a permanent visual claim independent of the selection state — it is conditional on `selectedItem.isTargetHangul`, not decorative. |
+| Layout skeleton | `ArticleReadingColumn` (lead only) → full-width breakout: left 4-col stat card + chip switcher, right 8-col chart panel. |
+| Risk zones | `LANG-019`/`LANG-032`/`LANG-031` (frozen-adjacent duplicated/unsourced values, `DIRECTOR_DECISIONS.md` D3/D4) — must not change the underlying `1.78×`/`1.00×` figures, only ownership/rendering. |
+| Required states | default (Korean selected) and a non-Korean selection (tested: English). |
+| Required screenshots | 1440×KO (default + English-selected), 1440×EN, 390×KO. |
+| Accept/reject rule | Reject if any non-selected bar renders in the highlight color, if the legend's bold entry doesn't match the current selection, or if any Korean-only string survives untranslated in EN mode. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:languages`
+read-only subagent (via `Workflow`) diagnosed this slide against the
+Director brief and VISUAL_QA_CRITERIA; findings below were synthesized and
+fixed directly (not left as diagnosis-only, per Director's explicit
+challenge: "스크리닝을 하는데 너가 수정을 안하고 디버깅을 안하면 뭐 어떻게하니").
+
+1. **Chart color-encoding bug (real defect).** `Cell` fill was keyed on
+   `entry.isTargetHangul` — Korean's bar was permanently dark regardless of
+   `selectedLangId`; selecting any other language left Korean highlighted
+   and the actual selection nearly invisible (only a thin stroke ring).
+   Fixed: fill now keys on `entry.id === selectedLangId` (falling back to
+   `seriesBaseline`/`seriesOther`). Verified live via Playwright — clicking
+   the English chip now turns the English bar dark (`#161616`) and all
+   others (including Korean) grey (`#C2C2BD`).
+2. **Legend hardcoded to Korean.** The bold legend entry read `한국어 한글
+   (1.78×)` unconditionally. Fixed: now renders `selectedItem.name` /
+   `selectedItem.relativeRatio` — i.e. reads live from
+   `MULTILINGUAL_COMPARISON_DATA` — so it always names whichever language is
+   actually selected. This also resolved `DIRECTOR_DECISIONS.md` D3's
+   `LANG-032` row as a byproduct (no more hardcoded copy at that node); see
+   the D3 update for detail. Not a Director ruling — a rendering-logic fix.
+3. **Bilingual completeness gaps.** The callout, the chip labels (was
+   `item.name.ko.split(' ')[0]` even in EN mode), the chart's sub-label
+   ("기준 영문 100 토큰 대비..."), and all four legend/source strings had no
+   `isKo`/`isEn` branch. All four now translate. `LANG-019`→`LANG-051` and
+   `LANG-031`→`LANG-053` in the trace ledger (new bilingual literal changed
+   their identity keys; `DIRECTOR_DECISIONS.md` updated to the new IDs —
+   the underlying figures and D3/D4 open questions are untouched).
+4. **Korean word-break bug.** `ArticleSubheading` lacked `break-keep`,
+   causing mid-word splits (e.g. `언어` breaking across lines) at narrow
+   widths. Fixed in the shared component (`ArticleElements.tsx`) — applies
+   site-wide, low risk.
+5. **Tier violations.** Callout downgraded Tier-3 proper (`border-rule-
+   strong` → `border-rule`, no shadow — it's an annotation, not primary
+   evidence). Right chart panel upgraded to Tier-1 (`border-2 border-rule-
+   strong shadow-sm`) since it carries the slide's central visual claim.
+6. **Redundant heading weight.** Removed the `ArticleSubheading` render
+   (entity field kept, unused) — was a second bold H3-weight element
+   between the lead and the chart with no distinct information.
+7. **Content-integrity flag, not fixed:** `preFigureParagraphs` mentions
+   "12개 언어"/Hindi, but `MULTILINGUAL_COMPARISON_DATA` has only 5 entries
+   and no Hindi row. Flagged as a candidate new Director-decisions item
+   (content accuracy, not visual QA) — deliberately not silently corrected.
+
+Screenshotted 1440×KO (default + English-selected via real click), 1440×EN,
+390×KO: 0 overflow. tsc clean, build passes. Audit pipeline required a
+documented ID/line resync in `DIRECTOR_DECISIONS.md`/`README.md` (see D3/D4
+updates) — now diff-reproducible again, director queue unchanged at 16.
+
+---
+
+## S04-burden
+
+| Field | Content |
+|---|---|
+| Intent | Escalation — the question ("그래서 이 차이는 얼마나 누적될까?") should land on the repetition simulator within the first viewport, not after a long scroll of restated prose. |
+| Primary focal point | The simulator panel's "ACCUMULATED BURDEN GAP +N tokens" number. |
+| Secondary focal points | The Engineering/Social-Science occupational comparison cards (supporting evidence, one step quieter than the simulator). |
+| Forbidden competition | Only one accent-color element on the slide: the simulator's active preset pill. Status badges and card borders must not compete with it. |
+| Layout skeleton | `SectionHeading` → reading column (lead + paragraphs, no subheading) → full-width breakout: simulator panel, then 2-col occupational comparison. |
+| Risk zones | `BURD-016`/`017`/`018` (Director-frozen scale-legend strings, `DIRECTOR_DECISIONS.md` D4) — layout-only changes permitted, no wording. |
+| Required states | default; simulator with a non-default preset selected. |
+| Required screenshots | 1440×KO (viewport-after-nav-click + full), 1440×EN, 390×KO (full + legend-row crop). |
+| Accept/reject rule | Reject if the simulator's eyebrow is still off-screen immediately after a real nav click, if more than one accent-filled element is visible at once, or if the mobile scale-legend row still wraps into a jumbled block. |
+
+**Findings (orchestrated screening + fix, 2026-08-17):** a `screen:burden`
+read-only subagent diagnosed this slide in the same `Workflow` run as
+S04.5-languages; findings synthesized and fixed directly, same as above.
+
+1. **Headline-to-simulator distance (547px measured).** A real nav click to
+   `#burden` at 1440×1000 left the simulator's eyebrow barely visible at
+   the very bottom edge of the viewport — functionally off-screen on
+   landing, the exact "dangling widget" failure mode the brief forbids.
+   Fixed the highest-leverage contributor: removed the `ArticleSubheading`
+   render (entity field kept) — it was a second bold heading-weight element
+   adding ~90px+ of pure vertical mass with no new information, and its
+   content substantively restated the lead paragraph (flagged to content
+   owner as a copy-consolidation candidate, not edited by this pass).
+2. **Tier mismatch — simulator vs. comparison card.** The simulator panel
+   (holding the slide's actual hero number) used an ad hoc hybrid
+   (`bg-surface-alt border border-rule shadow-xs`) matching neither Tier-1
+   nor clean Tier-3, while the Social Science card below it carried genuine
+   Tier-1 styling despite being supporting/comparative evidence — the
+   comparison card visually outweighed the slide's central number. Fixed:
+   simulator promoted to Tier-1 (`bg-surface border-2 border-rule-strong
+   shadow-sm`); Social Science card stepped down to Tier-2 (`border`,
+   `shadow-xs`), matching the Engineering card's existing Tier-2 treatment.
+3. **Multiple concurrent accent elements.** At 1440×KO, 5 `bg-accent`
+   elements were visible simultaneously: the selected preset pill (the one
+   legitimate accent use) plus the "HIGH BURDEN POTENTIAL" badge and all
+   three Social Science status badges — applied unconditionally regardless
+   of `DATA_AVAILABLE` status, while the structurally identical Engineering
+   badges used neutral styling for the same field. Fixed: both the
+   "HIGH BURDEN POTENTIAL" badge and the status badges now use the same
+   neutral `bg-surface-alt text-ink-body border border-rule` treatment as
+   Engineering's — confirmed 0 remaining `bg-accent` elements in `#burden`
+   outside the preset selector. Class/color-only; no text/value change.
+4. **Mobile scale-legend crowding.** At 390px, the 3-column `flex
+   justify-between` scale-legend row (`BURD-016`/`017`/`018`, frozen
+   strings) wrapped each label into cramped ~76–116px columns — a jumbled
+   block competing with the slider. Fixed: `flex-col sm:flex-row` so the
+   three labels stack vertically on mobile and stay horizontal at `sm+` —
+   layout-only, strings untouched. Verified via computed style:
+   `flexDirection: column` at 390px.
+
+Screenshotted 1440×KO (real-nav-click viewport + full), 1440×EN, 390×KO:
+0 overflow. tsc clean, build passes, audit pipeline diff-reproducible
+(shared resync with S04.5-languages), director queue unchanged at 16.

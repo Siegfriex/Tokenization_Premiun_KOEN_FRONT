@@ -11,9 +11,9 @@ The design system names a small set of roles. This ledger measures how many
 *actual* combinations are in use, which is the honest measure of how
 consolidated the system really is.
 
-- distinct typography signatures in use: **59**
-- distinct colour utilities in use: **36**
-- distinct layout/shape utilities in use: **133**
+- distinct typography signatures in use: **58**
+- distinct colour utilities in use: **35**
+- distinct layout/shape utilities in use: **135**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -27,7 +27,7 @@ type scale.
 | 1 | 32 | `font-mono text-xs` | `ART-013` `ART-014` `ART-015` `CONC-007` … |
 | 2 | 20 | `font-bold` | `ART-005` `FOOT-005` `IMPACT-027` `LANG-012` … |
 | 3 | 9 | `font-bold font-mono text-xs tracking-wider uppercase` | `INFRA-008` `METH-007` `LANG-008` `LANG-024` … |
-| 4 | 7 | `font-mono text-[11px]` | `FOOT-015` `LANG-025` `HERO-022` `BURD-008` … |
+| 4 | 7 | `font-mono text-[11px]` | `FOOT-015` `LANG-052` `HERO-022` `BURD-008` … |
 | 5 | 6 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
 | 6 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
 | 7 | 4 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-018` `FOOT-019` `FOOT-020` `HERO-034` |
@@ -46,67 +46,65 @@ type scale.
 | 20 | 2 | `font-bold font-mono text-sm` | `BURD-014` `PREM-036` |
 | 21 | 2 | `text-[11px]` | `BURD-075` `PREM-035` |
 | 22 | 2 | `font-bold text-lg` | `BURD-043` `BURD-054` |
-| 23 | 2 | `font-bold font-mono text-[10px] uppercase` | `BURD-055` `PIPE-012` |
-| 24 | 2 | `font-mono font-semibold text-xs` | `BURD-063` `CMP-014` |
-| 25 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
-| 26 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
-| 27 | 2 | `font-sans sm:text-3xl text-2xl` | `PREM-012` `PREM-014` |
-| 28 | 1 | `font-medium font-sans leading-[1.6] sm:text-2xl text-xl tracking-tight` | `ART-008` |
-| 29 | 1 | `antialiased break-keep font-normal font-sans leading-[1.85] sm:text-[18px] text-[17px]` | `ART-009` |
-| 30 | 1 | `font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-tight` | `ART-001` |
-| 31 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
-| 32 | 1 | `font-sans text-xs` | `FOOT-021` |
-| 33 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
-| 34 | 1 | `font-bold text-xl` | `IMPACT-009` |
-| 35 | 1 | `font-bold sm:text-xl text-lg` | `IMPACT-012` |
-| 36 | 1 | `font-bold leading-snug text-sm` | `INFRA-027` |
-| 37 | 1 | `sm:text-sm text-xs` | `METH-026` |
-| 38 | 1 | `leading-snug` | `METH-027` |
-| 39 | 1 | `leading-relaxed` | `METH-018` |
-| 40 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
-| 41 | 1 | `font-medium` | `HERO-028` |
-| 42 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
-| 43 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
-| 44 | 1 | `font-mono text-[10px]` | `BURD-050` |
-| 45 | 1 | `font-bold font-mono text-[10px]` | `BURD-062` |
-| 46 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
-| 47 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
-| 48 | 1 | `font-bold whitespace-nowrap` | `NAV-007` |
-| 49 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
-| 50 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
-| 51 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
-| 52 | 1 | `font-black font-mono lg:text-7xl sm:text-6xl text-5xl tracking-tight whitespace-nowrap` | `PREM-011` |
-| 53 | 1 | `font-light sm:text-3xl text-2xl` | `PREM-013` |
-| 54 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
-| 55 | 1 | `font-semibold text-sm` | `PREM-026` |
-| 56 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
-| 57 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
-| 58 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
-| 59 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
+| 23 | 2 | `font-mono text-[10px]` | `BURD-050` `BURD-062` |
+| 24 | 2 | `font-bold font-mono text-[10px] uppercase` | `BURD-055` `PIPE-012` |
+| 25 | 2 | `font-mono font-semibold text-xs` | `BURD-063` `CMP-014` |
+| 26 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
+| 27 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
+| 28 | 2 | `font-sans sm:text-3xl text-2xl` | `PREM-012` `PREM-014` |
+| 29 | 1 | `font-medium font-sans leading-[1.6] sm:text-2xl text-xl tracking-tight` | `ART-008` |
+| 30 | 1 | `antialiased break-keep font-normal font-sans leading-[1.85] sm:text-[18px] text-[17px]` | `ART-009` |
+| 31 | 1 | `break-keep font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-…` | `ART-001` |
+| 32 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
+| 33 | 1 | `font-sans text-xs` | `FOOT-021` |
+| 34 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
+| 35 | 1 | `font-bold text-xl` | `IMPACT-009` |
+| 36 | 1 | `font-bold sm:text-xl text-lg` | `IMPACT-012` |
+| 37 | 1 | `font-bold leading-snug text-sm` | `INFRA-027` |
+| 38 | 1 | `sm:text-sm text-xs` | `METH-026` |
+| 39 | 1 | `leading-snug` | `METH-027` |
+| 40 | 1 | `leading-relaxed` | `METH-018` |
+| 41 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
+| 42 | 1 | `font-medium` | `HERO-028` |
+| 43 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
+| 44 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
+| 45 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
+| 46 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
+| 47 | 1 | `font-bold whitespace-nowrap` | `NAV-007` |
+| 48 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
+| 49 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
+| 50 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
+| 51 | 1 | `font-black font-mono lg:text-7xl sm:text-6xl text-5xl tracking-tight whitespace-nowrap` | `PREM-011` |
+| 52 | 1 | `font-light sm:text-3xl text-2xl` | `PREM-013` |
+| 53 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
+| 54 | 1 | `font-semibold text-sm` | `PREM-026` |
+| 55 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
+| 56 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
+| 57 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
+| 58 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
 
 ## Colour-role application
 
 | Utility | Uses |
 |---|---|
 | `text-ink` | 73 |
-| `border-rule` | 62 |
+| `border-rule` | 66 |
 | `text-ink-muted` | 61 |
 | `border-b` | 38 |
-| `text-ink-body` | 24 |
+| `text-ink-body` | 26 |
+| `bg-surface-alt` | 18 |
 | `bg-surface` | 17 |
-| `bg-surface-alt` | 16 |
 | `text-ink-subtle` | 14 |
 | `border-t` | 12 |
-| `text-on-accent` | 12 |
-| `bg-accent` | 9 |
+| `text-on-accent` | 10 |
 | `border-rule/60` | 8 |
+| `bg-accent` | 7 |
 | `text-left` | 6 |
 | `focus-visible:outline-2` | 5 |
 | `focus-visible:outline-offset-2` | 5 |
 | `focus-visible:outline-rule-strong` | 5 |
 | `border-accent` | 4 |
 | `border-y` | 3 |
-| `border-rule-strong` | 3 |
 | `text-rule-neutral` | 3 |
 | `hover:text-ink` | 3 |
 | `text-ink-strong` | 2 |
@@ -116,7 +114,7 @@ type scale.
 | `md:border-l` | 1 |
 | `md:border-rule` | 1 |
 | `border-dashed` | 1 |
-| `border-2` | 1 |
+| `border-rule-strong` | 1 |
 | `bg-surface/95` | 1 |
 | `bg-mark-track` | 1 |
 | `lg:border-l` | 1 |
@@ -130,13 +128,13 @@ type scale.
 | Utility | Uses |
 |---|---|
 | `flex` | 79 |
-| `justify-between` | 63 |
+| `justify-between` | 62 |
 | `items-center` | 48 |
 | `rounded-xs` | 29 |
-| `border` | 22 |
+| `border` | 25 |
 | `py-1` | 16 |
+| `flex-col` | 14 |
 | `pb-3` | 14 |
-| `flex-col` | 13 |
 | `block` | 12 |
 | `my-8` | 10 |
 | `space-y-12` | 10 |
@@ -166,6 +164,7 @@ type scale.
 | `space-y-10` | 4 |
 | `gap-6` | 4 |
 | `px-3` | 4 |
+| `sm:flex-row` | 4 |
 | `p-6` | 4 |
 | `shadow-xs` | 4 |
 | `p-3` | 4 |
@@ -174,11 +173,11 @@ type scale.
 | `pt-3` | 3 |
 | `lg:px-12` | 3 |
 | `items-start` | 3 |
-| `sm:flex-row` | 3 |
 | `sm:p-8` | 3 |
 | `p-5` | 3 |
 | `transition-colors` | 3 |
 | `pt-4` | 3 |
+| `gap-1` | 3 |
 | `hidden` | 3 |
 | `px-2.5` | 3 |
 | `mb-6` | 2 |
@@ -188,6 +187,5 @@ type scale.
 | `sm:my-16` | 2 |
 | `my-auto` | 2 |
 | `py-16` | 2 |
-| `md:grid-cols-3` | 2 |
 
-_(top 60 of 133; full data in `data/trace-ledger.json`)_
+_(top 60 of 135; full data in `data/trace-ledger.json`)_

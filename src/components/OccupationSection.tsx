@@ -8,7 +8,6 @@ import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../sha
 import {
   ArticleReadingColumn,
   ArticleLead,
-  ArticleSubheading,
   ArticleParagraph,
   ArticleFigureCaption,
   ArticleFinding,
@@ -57,10 +56,6 @@ export const OccupationSection: React.FC = () => {
             {isKo ? articleData.lead?.ko : articleData.lead?.en}
           </ArticleLead>
 
-          <ArticleSubheading>
-            {isKo ? articleData.subheading?.ko : articleData.subheading?.en}
-          </ArticleSubheading>
-
           {isKo
             ? articleData.preFigureParagraphs?.ko.map((p, idx) => (
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
@@ -73,7 +68,7 @@ export const OccupationSection: React.FC = () => {
         {/* FULL-WIDTH BREAKOUT: Interactive Simulator & Occupational Exposure */}
         <ArticleFullWidthBreak figure className="space-y-12 my-8">
           {/* Interactive Repetition Multiplier & Oversized Number Display */}
-          <div className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-10 space-y-8 shadow-xs">
+          <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-10 space-y-8 shadow-sm">
             <div data-role="stat" data-semantic-target="dl" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-rule pb-4">
               <dl data-role="stat" data-semantic-target="dl" className="space-y-1">
                 <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
@@ -118,7 +113,7 @@ export const OccupationSection: React.FC = () => {
                 onChange={(e) => setPromptCount(Number(e.target.value))}
                 className="w-full h-2 bg-rule-neutral rounded-xs appearance-none cursor-pointer accent-accent"
               />
-              <div data-role="scale-legend" className="flex justify-between text-[11px] font-mono text-ink-muted">
+              <div data-role="scale-legend" className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-[11px] font-mono text-ink-muted">
                 <span>1회 (단일 프롬프트)</span>
                 <span>1,000회 (팀 일간 워크플로우)</span>
                 <span>2,000회 (전사 에이전트 루틴)</span>
@@ -249,7 +244,7 @@ export const OccupationSection: React.FC = () => {
               </div>
 
               {/* Cluster 2: Social Science / Knowledge-intensive */}
-              <div data-role="stat" data-semantic-target="dl" className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs">
+              <div data-role="stat" data-semantic-target="dl" className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs">
                 <div className="space-y-4">
                   <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                     <div className="flex items-center gap-2">
@@ -258,7 +253,7 @@ export const OccupationSection: React.FC = () => {
                         {getLocalizedText(socialScienceData.title, language)}
                       </h3>
                     </div>
-                    <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-accent text-on-accent rounded-xs font-bold uppercase">
+                    <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule font-bold uppercase">
                      {isKo ? '높은 누적 부담 가능성' : 'HIGH BURDEN POTENTIAL'}
                     </span>
                   </div>
@@ -294,7 +289,7 @@ export const OccupationSection: React.FC = () => {
                           <span className="font-medium text-ink">
                             {getLocalizedText(occ.name, language)}
                           </span>
-                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-accent text-on-accent rounded-xs font-bold">
+                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule">
                             {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
                           </span>
                         </li>
