@@ -1,0 +1,54 @@
+/**
+ * Semantic design tokens (Tailwind CSS v4 @theme).
+ *
+ * Values are chosen to match the CURRENTLY RENDERED appearance of the site
+ * (see docs/design/COLOR_HACK_FINDING.md), not the raw literal hex values
+ * that appear in component source. This repository's global stylesheet
+ * (src/index.css) contains a legacy `!important` / attribute-selector
+ * "cobalt blue" recolor pass that intercepts specific arbitrary Tailwind
+ * classes (e.g. `bg-[#111111]` -> #2563EB) but only for the classes/props
+ * it explicitly lists — coverage is partial and inconsistent (the same
+ * hex value renders differently depending on which Tailwind property
+ * prefix carries it).
+ *
+ * Encoding tokens to match the CURRENT rendered colors means widgets
+ * migrated to these tokens render IDENTICALLY to not-yet-migrated widgets
+ * that still carry raw arbitrary-hex classes intercepted by the legacy
+ * hack. This keeps the migration visually silent (no regression) while it
+ * proceeds incrementally across phases. The hack itself is intentionally
+ * NOT removed in this phase — see docs/design/COLOR_HACK_FINDING.md for
+ * the open decision on whether to keep the blue accent as the permanent
+ * design or revert to the original flat monochrome palette once migration
+ * is complete.
+ */
+@theme {
+  /* Surfaces */
+  --color-canvas: #F7F8FA;        /* page background */
+  --color-surface: #F7F8FA;       /* card/box background (currently identical to canvas — pre-existing, see finding doc) */
+  --color-surface-alt: #EFF6FF;   /* alternating section background (was #F7F7F5 / #F1F2F2) */
+  --color-surface-inverse: #2563EB; /* dark/active surface (was #111111 as a background) */
+
+  /* Ink (text) */
+  --color-ink: #111827;           /* primary text (was #111111 as text) */
+  --color-ink-strong: #333333;    /* article body copy (ArticleParagraph only, unaffected by the recolor hack) */
+  --color-ink-muted: #64748B;     /* secondary text (was #777773) */
+  --color-ink-body: #475569;      /* body copy gray (was #4A4A47) */
+  --color-ink-subtle: #8A8A85;    /* tertiary text — NOT covered by the recolor hack, unchanged */
+  --color-ink-inverse: #FFFFFF;   /* text on an inverse/dark surface — NOT covered by the recolor hack, unchanged */
+
+  /* Rules / borders */
+  --color-rule: #DCE7F7;          /* default divider/border (was #DADAD6) */
+  --color-rule-strong: #111111;   /* emphasis border, e.g. active card outline — NOT covered by the recolor hack, unchanged */
+
+  /* Accent */
+  --color-emphasis: #2563EB;      /* underline/decoration accent (was #8A8A85 via decoration-*, hacked) */
+
+  /* Layout: container widths (see docs/BASELINE.md / DESIGN_AUDIT.md) */
+  --container-wide: 1360px;
+  --container-reading: 720px;
+
+  /* Layout: section vertical rhythm */
+  --spacing-section-compact: 4rem;   /* py-16 */
+  --spacing-section-default: 5rem;   /* py-20 */
+  --spacing-section-spacious: 6rem;  /* py-24 */
+}

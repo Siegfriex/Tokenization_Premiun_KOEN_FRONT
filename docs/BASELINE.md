@@ -52,19 +52,31 @@
 | secret scan (tracked files, pattern-based) | CLEAN — no real secrets; `.env.example` holds placeholders only |
 | CI checks on PR #1 | none configured (`.github/workflows/deploy.yml` triggers only on push to `fornt_refine`, which does not exist here) |
 
-### Known pre-existing defect (not fixed at baseline)
+### Known pre-existing defect at baseline — FIXED in Phase 2
 
-`src/index.css` line 33 contains a broken CSS declaration:
+`src/index.css` line 33 contained a broken CSS declaration:
 
 ```css
 background: #DADAD6;#F7F8FA border-radius: 2px;
 ```
 
-Vite's CSS optimizer (`lightningcss`) emits a build warning and silently
-drops the malformed rule. This is carried over unmodified from the legacy
-prototype and will be corrected as part of the design-token migration
-(`refactor/foundation-tokens-layout`), not fixed retroactively on the
-frozen `baseline/legacy-freeze` branch.
+Vite's CSS optimizer (`lightningcss`) emitted a build warning and silently
+dropped the malformed rule. This was carried over unmodified from the
+legacy prototype and was corrected in
+`refactor/foundation-tokens-layout` (Phase 2) — not fixed retroactively on
+the frozen `baseline/legacy-freeze` branch, which remains untouched.
+
+### New finding surfaced during Phase 2 — see `docs/design/COLOR_HACK_FINDING.md`
+
+The legacy `!important`/attribute-selector recolor pass in `src/index.css`
+is confirmed to determine the site's actual current production colors
+(a blue accent, not the flat black/white the component source alone would
+suggest), has partial/inconsistent coverage across Tailwind property
+prefixes, and — per static CSS analysis — likely causes the app root
+(`App.tsx`) to render with an unintended blue background due to a
+selector substring collision with a `selection:` variant class. This is
+documented, not fixed, pending a product/design decision (keep the blue
+accent as the real theme, or revert to flat monochrome).
 
 ## Source inventory at baseline
 
