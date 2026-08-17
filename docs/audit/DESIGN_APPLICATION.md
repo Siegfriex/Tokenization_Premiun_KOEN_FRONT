@@ -11,9 +11,9 @@ The design system names a small set of roles. This ledger measures how many
 *actual* combinations are in use, which is the honest measure of how
 consolidated the system really is.
 
-- distinct typography signatures in use: **58**
+- distinct typography signatures in use: **59**
 - distinct colour utilities in use: **36**
-- distinct layout/shape utilities in use: **131**
+- distinct layout/shape utilities in use: **133**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -25,7 +25,7 @@ type scale.
 | # | Uses | Signature | Example Trace IDs |
 |---|---|---|---|
 | 1 | 32 | `font-mono text-xs` | `ART-013` `ART-014` `ART-015` `CONC-007` … |
-| 2 | 21 | `font-bold` | `ART-005` `FOOT-005` `IMPACT-027` `LANG-012` … |
+| 2 | 20 | `font-bold` | `ART-005` `FOOT-005` `IMPACT-027` `LANG-012` … |
 | 3 | 9 | `font-bold font-mono text-xs tracking-wider uppercase` | `INFRA-008` `METH-007` `LANG-008` `LANG-024` … |
 | 4 | 7 | `font-mono text-[11px]` | `FOOT-015` `LANG-025` `HERO-022` `BURD-008` … |
 | 5 | 6 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
@@ -50,7 +50,7 @@ type scale.
 | 24 | 2 | `font-mono font-semibold text-xs` | `BURD-063` `CMP-014` |
 | 25 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
 | 26 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
-| 27 | 2 | `font-sans sm:text-4xl text-3xl` | `PREM-012` `PREM-014` |
+| 27 | 2 | `font-sans sm:text-3xl text-2xl` | `PREM-012` `PREM-014` |
 | 28 | 1 | `font-medium font-sans leading-[1.6] sm:text-2xl text-xl tracking-tight` | `ART-008` |
 | 29 | 1 | `antialiased break-keep font-normal font-sans leading-[1.85] sm:text-[18px] text-[17px]` | `ART-009` |
 | 30 | 1 | `font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-tight` | `ART-001` |
@@ -71,17 +71,18 @@ type scale.
 | 45 | 1 | `font-bold font-mono text-[10px]` | `BURD-062` |
 | 46 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
 | 47 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
-| 48 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
-| 49 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
-| 50 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
-| 51 | 1 | `font-black font-mono lg:text-8xl sm:text-7xl text-6xl tracking-tight` | `PREM-011` |
-| 52 | 1 | `font-light sm:text-4xl text-3xl` | `PREM-013` |
-| 53 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
-| 54 | 1 | `font-semibold text-sm` | `PREM-026` |
-| 55 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
-| 56 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
-| 57 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
-| 58 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
+| 48 | 1 | `font-bold whitespace-nowrap` | `NAV-007` |
+| 49 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
+| 50 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
+| 51 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
+| 52 | 1 | `font-black font-mono lg:text-7xl sm:text-6xl text-5xl tracking-tight whitespace-nowrap` | `PREM-011` |
+| 53 | 1 | `font-light sm:text-3xl text-2xl` | `PREM-013` |
+| 54 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
+| 55 | 1 | `font-semibold text-sm` | `PREM-026` |
+| 56 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
+| 57 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
+| 58 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
+| 59 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
 
 ## Colour-role application
 
@@ -158,6 +159,7 @@ type scale.
 | `gap-1.5` | 5 |
 | `transition-all` | 5 |
 | `ml-1.5` | 5 |
+| `px-2` | 5 |
 | `space-y-2` | 4 |
 | `px-4` | 4 |
 | `sm:px-6` | 4 |
@@ -167,8 +169,6 @@ type scale.
 | `shadow-xs` | 4 |
 | `p-3` | 4 |
 | `cursor-pointer` | 4 |
-| `px-2` | 4 |
-| `px-2.5` | 4 |
 | `pt-3` | 3 |
 | `lg:px-12` | 3 |
 | `items-start` | 3 |
@@ -179,6 +179,7 @@ type scale.
 | `transition-colors` | 3 |
 | `pt-4` | 3 |
 | `hidden` | 3 |
+| `px-2.5` | 3 |
 | `mb-6` | 2 |
 | `space-y-3` | 2 |
 | `mt-10` | 2 |
@@ -189,4 +190,4 @@ type scale.
 | `py-16` | 2 |
 | `md:grid-cols-3` | 2 |
 
-_(top 60 of 131; full data in `data/trace-ledger.json`)_
+_(top 60 of 133; full data in `data/trace-ledger.json`)_

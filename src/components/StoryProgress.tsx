@@ -25,7 +25,7 @@ export const StoryProgress: React.FC = () => {
               DATA JOURNALISM
             </span>
             <span className="text-rule-neutral hidden sm:inline">|</span>
-            <span data-source="widget" className="text-sm font-semibold tracking-tight text-ink-body hidden md:inline">
+            <span data-source="widget" className="text-sm font-semibold tracking-tight text-ink-body hidden md:inline lg:hidden xl:inline">
               {isKo ? 'Token Premium: 생성형 AI의 언어 표기 효율성 격차' : 'Token Premium: Linguistic Efficiency Discrepancies in GenAI'}
             </span>
           </div>
@@ -46,7 +46,7 @@ export const StoryProgress: React.FC = () => {
                 href={`#${sec.id}`}
                 aria-current={isActive ? 'location' : undefined}
                 data-active={isActive || undefined}
-                className={`px-2.5 py-1 rounded-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
+                className={`px-2 py-1 rounded-xs whitespace-nowrap transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rule-strong ${
                   isActive
                     ? 'text-on-accent bg-accent font-bold'
                     : 'text-ink-muted hover:text-ink hover:bg-surface-alt'

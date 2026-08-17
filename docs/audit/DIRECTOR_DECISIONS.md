@@ -115,8 +115,14 @@ should be entity-owned copy) or research quantities (need provenance)?
 `id="infrastructure"` (S5 Korea AI Infrastructure) has no nav entry and cannot
 be reached from the header.
 
-**Decision needed:** add the entry, or confirm the omission is intentional.
-Not actioned here — it changes what the site tells a reader exists.
+**RULING (2026-08-17):** add the entry. Inserted `{ id: 'infrastructure',
+label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } }` between `languages` and
+`impact` in `NAV_SECTIONS`, and relabeled the existing `impact` entry from
+`S5.` to `S5.2.` to match the section numbering already established in
+`App.tsx`'s own inline comments (`S5. Korea's Expanding AI Infrastructure` /
+`S5.2. Socioeconomic Implications`) — not invented, just made consistent with
+what the codebase already asserted elsewhere. `NAV_SECTION_IDS` (derived) now
+has 10 entries, matching the 10 rendered sections.
 
 ---
 
@@ -129,7 +135,7 @@ Carried forward unchanged so this file is the single queue:
 | 12 stale `headline` fields in `entities/article-content` that differ from what widgets render | `HANDOFF.md` §6.4 |
 | Macro Adoption's 4 cards are not bilingual — `name` hardcoded EN, `description` hardcoded KO | `HANDOFF.md` §6.5 · `INFRA-*` |
 | `MultilingualSection.tsx` — 417 lines, not imported, 57 tracked nodes | `HANDOFF.md` §6.7 · batch B6 |
-| 4 unused dependencies | `HANDOFF.md` §6.8 |
+| ~~4 unused dependencies~~ **RESOLVED (2026-08-17)** — `@google/genai`, `express`, `dotenv`, `motion`, `@types/express` removed from `package.json`; `npm install` re-run, 125 packages removed, 0 vulnerabilities; `npm run build`/`npm run lint` re-verified clean | `HANDOFF.md` §6.8 |
 | `--color-surface` is identical to `--color-canvas`, so cards are indistinguishable from the page | `DESIGN_SYSTEM_CONTRACT.md` |
 | `chartTokens.rule` `#DADAD6` vs `--color-rule` `#DCE7F7` | `chart-tokens.ts` |
 

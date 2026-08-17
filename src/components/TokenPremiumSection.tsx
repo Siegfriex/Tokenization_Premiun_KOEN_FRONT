@@ -70,11 +70,11 @@ export const TokenPremiumSection: React.FC = () => {
                     OBSERVED TOKEN PREMIUM RATIO
                   </span>
                   <div
-                    className="text-6xl sm:text-7xl lg:text-8xl font-black font-mono tracking-tight text-ink"
+                    className="text-5xl sm:text-6xl lg:text-7xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
                   >
-                    1.29<span className="text-3xl sm:text-4xl text-ink-muted font-sans">×</span>
-                    <span className="text-3xl sm:text-4xl text-ink-muted font-light mx-2">~</span>
-                    1.83<span className="text-3xl sm:text-4xl text-ink font-sans">×</span>
+                    1.29<span className="text-2xl sm:text-3xl text-ink-muted font-sans">×</span>
+                    <span className="text-2xl sm:text-3xl text-ink-muted font-light mx-1.5">~</span>
+                    1.83<span className="text-2xl sm:text-3xl text-ink font-sans">×</span>
                   </div>
                 </div>
 

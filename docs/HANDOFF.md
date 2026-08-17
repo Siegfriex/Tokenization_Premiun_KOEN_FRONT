@@ -217,11 +217,12 @@ Director decision, not an engineering judgment call.
    by any refactor phase. English-mode readers currently see raw Korean
    prose here. Documented in `entities/article-content/content/macro-adoption-phases.ts`'s
    header comment. Do not invent new English copy to "fix" this.
-6. **The header nav has no entry for `KoreaAIContextSection`**
-   (`id="infrastructure"`). `entities/navigation`'s `NAV_SECTIONS` has 9
-   entries for what is actually 10 rendered sections. Confirmed
-   pre-existing (same gap existed in the original `SECTIONS` array
-   before any migration). Do not silently add it.
+6. ~~The header nav has no entry for `KoreaAIContextSection`~~
+   **RESOLVED (2026-08-17, `DIRECTOR_DECISIONS.md` D5).** Added
+   `{ id: 'infrastructure', label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } }`
+   to `NAV_SECTIONS`, relabeled the existing `impact` entry `S5.` → `S5.2.`
+   to match `App.tsx`'s own section-numbering comments. `NAV_SECTION_IDS`
+   now has 10 entries, matching the 10 rendered sections.
 7. **`src/components/MultilingualSection.tsx` is dead code** (417 lines,
    not imported anywhere, superseded by `MultilingualTokenEfficiencySection`).
    Its single import was fixed during Phase 3's `src/data/` removal so it
@@ -229,11 +230,10 @@ Director decision, not an engineering judgment call.
    unused. Scheduled for actual deletion in Phase 5 / a cleanup pass —
    **confirm with the user before deleting**, per the standing "no
    false-positive unused-code removal" rule.
-8. **4 unused dependencies remain in `package.json`:** `@google/genai`,
-   `express`, `dotenv`, `motion` (+ `@types/express`). Confirmed zero
-   imports anywhere in `src/`. Scaffold leftovers from the project's
-   original Google AI Studio origin. Not removed yet — planned for the
-   Phase 5 / `chore/verified-cleanup` pass.
+8. ~~4 unused dependencies remain in `package.json`~~ **RESOLVED
+   (2026-08-17).** `@google/genai`, `express`, `dotenv`, `motion` (+
+   `@types/express`) removed. `npm install` re-run — 125 packages removed,
+   0 vulnerabilities. `npm run build`/`npm run lint` re-verified clean.
 
 ## 7. Where the detailed history actually lives — read before re-deriving anything
 

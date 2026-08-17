@@ -17656,8 +17656,8 @@
    "lines": "28-30",
    "jsxTag": "span",
    "domTag": "span",
-   "locator": "span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline",
-   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > div.flex.items-center.gap-3.shrink-0 > div.flex.items-center.gap-2 > span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline",
+   "locator": "span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden.xl\\:inline",
+   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > div.flex.items-center.gap-3.shrink-0 > div.flex.items-center.gap-2 > span.text-sm.font-semibold.tracking-tight.text-ink-body.hidden.md\\:inline.lg\\:hidden.xl\\:inline",
    "addressing": "STABLE (data-*)",
    "unresolvedSpread": null,
    "literal": "Token Premium: 생성형 AI의 언어 표기 효율성 격차 ⏎ Token Premium: Linguistic Efficiency Discrepancies in GenAI",
@@ -17684,7 +17684,9 @@
    ],
    "layoutRole": [
     "hidden",
-    "md:inline"
+    "md:inline",
+    "lg:hidden",
+    "xl:inline"
    ],
    "relatedPrimitive": null,
    "risk": "MEDIUM",
@@ -17836,8 +17838,8 @@
    "lines": "45-56",
    "jsxTag": "a",
    "domTag": "a",
-   "locator": "a.px-2\\.5.py-1.rounded-xs.transition-colors.focus-visible\\:outline.focus-visible\\:outline-2.focus-visible\\:outline-offset-2.focus-visible\\:outline-rule-strong.text-on-accent.bg-accent.font-bold.text-ink-muted.hover\\:text-ink.hover\\:bg-surface-alt",
-   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > nav.hidden.lg\\:flex.items-center.gap-1.text-\\[11px\\].font-mono > ul.flex.items-center.gap-1 > li > a.px-2\\.5.py-1.rounded-xs.transition-colors.focus-visible\\:outline.focus-visible\\:outline-2.focus-visible\\:outline-offset-2.focus-visible\\:outline-rule-strong.text-on-accent.bg-accent.font-bold.text-ink-muted.hover\\:text-ink.hover\\:bg-surface-alt",
+   "locator": "a.px-2.py-1.rounded-xs.whitespace-nowrap.transition-colors.focus-visible\\:outline.focus-visible\\:outline-2.focus-visible\\:outline-offset-2.focus-visible\\:outline-rule-strong.text-on-accent.bg-accent.font-bold.text-ink-muted.hover\\:text-ink.hover\\:bg-surface-alt",
+   "locatorPath": "header.sticky.top-0.z-50.bg-surface\\/95.backdrop-blur-md.border-b.border-rule.text-ink.transition-all > div.px-4.sm\\:px-6.lg\\:px-10.h-14.flex.items-center.justify-between.gap-6 > nav.hidden.lg\\:flex.items-center.gap-1.text-\\[11px\\].font-mono > ul.flex.items-center.gap-1 > li > a.px-2.py-1.rounded-xs.whitespace-nowrap.transition-colors.focus-visible\\:outline.focus-visible\\:outline-2.focus-visible\\:outline-offset-2.focus-visible\\:outline-rule-strong.text-on-accent.bg-accent.font-bold.text-ink-muted.hover\\:text-ink.hover\\:bg-surface-alt",
    "addressing": "STABLE (data-*)",
    "unresolvedSpread": null,
    "literal": "",
@@ -17855,6 +17857,7 @@
    "semanticWhy": null,
    "recommendedHook": "data-collection=\"nav_sections\" data-item-id=\"{item.id}\"",
    "typographyRole": [
+    "whitespace-nowrap",
     "font-bold"
    ],
    "colorRole": [
@@ -17868,7 +17871,7 @@
     "hover:bg-surface-alt"
    ],
    "layoutRole": [
-    "px-2.5",
+    "px-2",
     "py-1",
     "rounded-xs",
     "transition-colors"
@@ -20846,8 +20849,8 @@
    "lines": "72-78",
    "jsxTag": "div",
    "domTag": "div",
-   "locator": "div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink",
-   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink",
+   "locator": "div.text-5xl.sm\\:text-6xl.lg\\:text-7xl.font-black.font-mono.tracking-tight.text-ink.whitespace-nowrap",
+   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-5xl.sm\\:text-6xl.lg\\:text-7xl.font-black.font-mono.tracking-tight.text-ink.whitespace-nowrap",
    "addressing": "STYLE_SIGNATURE",
    "unresolvedSpread": null,
    "literal": "1.29 ⏎ 1.83",
@@ -20885,12 +20888,13 @@
    "semanticWhy": null,
    "recommendedHook": "data-metric=\"…\"  (+ data-source=\"entity|widget\")",
    "typographyRole": [
-    "text-6xl",
-    "sm:text-7xl",
-    "lg:text-8xl",
+    "text-5xl",
+    "sm:text-6xl",
+    "lg:text-7xl",
     "font-black",
     "font-mono",
-    "tracking-tight"
+    "tracking-tight",
+    "whitespace-nowrap"
    ],
    "colorRole": [
     "text-ink"
@@ -20916,8 +20920,8 @@
    "lines": "75",
    "jsxTag": "span",
    "domTag": "span",
-   "locator": "span.text-3xl.sm\\:text-4xl.text-ink-muted.font-sans",
-   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink > span.text-3xl.sm\\:text-4xl.text-ink-muted.font-sans",
+   "locator": "span.text-2xl.sm\\:text-3xl.text-ink-muted.font-sans",
+   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-5xl.sm\\:text-6xl.lg\\:text-7xl.font-black.font-mono.tracking-tight.text-ink.whitespace-nowrap > span.text-2xl.sm\\:text-3xl.text-ink-muted.font-sans",
    "addressing": "STYLE_SIGNATURE",
    "unresolvedSpread": null,
    "literal": "×",
@@ -20935,8 +20939,8 @@
    "semanticWhy": null,
    "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
-    "text-3xl",
-    "sm:text-4xl",
+    "text-2xl",
+    "sm:text-3xl",
     "font-sans"
    ],
    "colorRole": [
@@ -20963,8 +20967,8 @@
    "lines": "76",
    "jsxTag": "span",
    "domTag": "span",
-   "locator": "span.text-3xl.sm\\:text-4xl.text-ink-muted.font-light.mx-2",
-   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink > span.text-3xl.sm\\:text-4xl.text-ink-muted.font-light.mx-2",
+   "locator": "span.text-2xl.sm\\:text-3xl.text-ink-muted.font-light.mx-1\\.5",
+   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-5xl.sm\\:text-6xl.lg\\:text-7xl.font-black.font-mono.tracking-tight.text-ink.whitespace-nowrap > span.text-2xl.sm\\:text-3xl.text-ink-muted.font-light.mx-1\\.5",
    "addressing": "STYLE_SIGNATURE",
    "unresolvedSpread": null,
    "literal": "~",
@@ -20982,15 +20986,15 @@
    "semanticWhy": null,
    "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
-    "text-3xl",
-    "sm:text-4xl",
+    "text-2xl",
+    "sm:text-3xl",
     "font-light"
    ],
    "colorRole": [
     "text-ink-muted"
    ],
    "layoutRole": [
-    "mx-2"
+    "mx-1.5"
    ],
    "relatedPrimitive": null,
    "risk": "MEDIUM",
@@ -21012,8 +21016,8 @@
    "lines": "77",
    "jsxTag": "span",
    "domTag": "span",
-   "locator": "span.text-3xl.sm\\:text-4xl.text-ink.font-sans",
-   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-6xl.sm\\:text-7xl.lg\\:text-8xl.font-black.font-mono.tracking-tight.text-ink > span.text-3xl.sm\\:text-4xl.text-ink.font-sans",
+   "locator": "span.text-2xl.sm\\:text-3xl.text-ink.font-sans",
+   "locatorPath": "#patterns > div.space-y-12 > figure|div.my-8.space-y-6 > div.grid.grid-cols-1.lg\\:grid-cols-12.gap-12.lg\\:gap-16.items-start > div.lg\\:col-span-5.space-y-8 > div.bg-surface.border.border-rule.rounded-xs.p-6.sm\\:p-8.space-y-6.shadow-xs > div.space-y-2 > div.text-5xl.sm\\:text-6xl.lg\\:text-7xl.font-black.font-mono.tracking-tight.text-ink.whitespace-nowrap > span.text-2xl.sm\\:text-3xl.text-ink.font-sans",
    "addressing": "STYLE_SIGNATURE",
    "unresolvedSpread": null,
    "literal": "×",
@@ -21031,8 +21035,8 @@
    "semanticWhy": null,
    "recommendedHook": "data-role=\"…\"",
    "typographyRole": [
-    "text-3xl",
-    "sm:text-4xl",
+    "text-2xl",
+    "sm:text-3xl",
     "font-sans"
    ],
    "colorRole": [

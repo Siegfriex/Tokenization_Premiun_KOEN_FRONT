@@ -987,7 +987,8 @@
    "src/entities/article-content/content/macro-adoption-phases.ts:19"
   ],
   "infrastructure": [
-   "src/entities/article-content/content/macro-adoption-phases.ts:23"
+   "src/entities/article-content/content/macro-adoption-phases.ts:23",
+   "src/entities/navigation/content/navigation.ts:16"
   ],
   "PHASE 02": [
    "src/entities/article-content/content/macro-adoption-phases.ts:24"
@@ -1354,35 +1355,41 @@
   "S4.5. Global": [
    "src/entities/navigation/content/navigation.ts:15"
   ],
+  "S5. AI 인프라": [
+   "src/entities/navigation/content/navigation.ts:16"
+  ],
+  "S5. Infra": [
+   "src/entities/navigation/content/navigation.ts:16"
+  ],
   "impact": [
-   "src/entities/navigation/content/navigation.ts:16"
+   "src/entities/navigation/content/navigation.ts:17"
   ],
-  "S5. 사회적 확장": [
-   "src/entities/navigation/content/navigation.ts:16"
+  "S5.2. 사회적 확장": [
+   "src/entities/navigation/content/navigation.ts:17"
   ],
-  "S5. Society": [
-   "src/entities/navigation/content/navigation.ts:16"
+  "S5.2. Society": [
+   "src/entities/navigation/content/navigation.ts:17"
   ],
   "method": [
-   "src/entities/navigation/content/navigation.ts:17"
+   "src/entities/navigation/content/navigation.ts:18"
   ],
   "S6. 방법론·한계": [
-   "src/entities/navigation/content/navigation.ts:17"
+   "src/entities/navigation/content/navigation.ts:18"
   ],
   "S6. Method": [
-   "src/entities/navigation/content/navigation.ts:17"
+   "src/entities/navigation/content/navigation.ts:18"
   ],
   "result": [
-   "src/entities/navigation/content/navigation.ts:18"
+   "src/entities/navigation/content/navigation.ts:19"
   ],
   "Result": [
-   "src/entities/navigation/content/navigation.ts:18"
+   "src/entities/navigation/content/navigation.ts:19"
   ],
   "섹션 바로가기": [
-   "src/entities/navigation/content/navigation.ts:35"
+   "src/entities/navigation/content/navigation.ts:36"
   ],
   "Story sections": [
-   "src/entities/navigation/content/navigation.ts:36"
+   "src/entities/navigation/content/navigation.ts:37"
   ],
   "./content/navigation": [
    "src/entities/navigation/index.ts:1"

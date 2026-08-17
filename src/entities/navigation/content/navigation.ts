@@ -13,7 +13,8 @@ export const NAV_SECTIONS: NavSection[] = [
   { id: 'patterns', label: { ko: 'S3. Token Premium', en: 'S3. Premium' } },
   { id: 'burden', label: { ko: 'S4. 누적 부담', en: 'S4. Burden' } },
   { id: 'languages', label: { ko: 'S4.5. 글로벌 다국어', en: 'S4.5. Global' } },
-  { id: 'impact', label: { ko: 'S5. 사회적 확장', en: 'S5. Society' } },
+  { id: 'infrastructure', label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } },
+  { id: 'impact', label: { ko: 'S5.2. 사회적 확장', en: 'S5.2. Society' } },
   { id: 'method', label: { ko: 'S6. 방법론·한계', en: 'S6. Method' } },
   { id: 'result', label: { ko: '결론', en: 'Result' } },
 ];
