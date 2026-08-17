@@ -19,7 +19,7 @@ export const ImpactSection: React.FC = () => {
   const articleData = ARTICLE_CONTENT.socioeconomicScale;
 
   return (
-    <section id="impact" data-widget="ImpactSection" data-section="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="impact" data-widget="ImpactSection" data-section="impact" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Header */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>

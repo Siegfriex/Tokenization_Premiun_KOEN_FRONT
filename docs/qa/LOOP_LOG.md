@@ -145,3 +145,37 @@ passed C1/C6/C8/C9/C13 clean at all 4 shots.
 **Next slide:** `S01-compare` (`TokenCompareSection`) — not started.
 
 ---
+
+## 2026-08-17 20:xx — Iteration 4 (loop)
+
+**Trigger:** scheduled fallback (10-minute cadence). PR #11 checked, still
+open/unmerged — continued on the same branch.
+
+**Slide worked:** `S01-compare`. 5 shots (1440×KO×pair1, 1440×KO×pair3,
+1440×EN×pair1, 390×KO×pair1, 390×KO×pair3) via `/tmp/qa-tools/shot_compare.mjs`.
+
+**Found:** P1, site-wide (not S01-local) — `scroll-mt-12` on 8/10 sections
+is 10px short of the sticky header's real height. A real anchor-nav click
+clips the first ~1.5 lines of every section's lead paragraph. See
+`docs/qa/SHOT_SPECS.md` S01-compare for the full writeup, including the
+methodology correction: `elementHandle.screenshot()` on an
+oversized section is not a trustworthy header-overlap test — a scripted
+Chromium capture-viewport resize makes the sticky header "stick" at a
+scroll position no real user reaches. Ground truth is a real nav click +
+`getBoundingClientRect()`.
+
+**Fixed:** `scroll-mt-12` → `scroll-mt-16` across `PipelineSection`,
+`MethodSection`, `MultilingualTokenEfficiencySection`, `ImpactSection`,
+`KoreaAIContextSection`, `TokenCompareSection`, `TokenPremiumSection`,
+`OccupationSection`. Verified via real nav-link click: section top lands
+63.6px below viewport top post-click (was computed to land at -10px, i.e.
+under the header, with the old value). tsc clean, build passes, audit
+pipeline diff-reproducible.
+
+**S01-compare's own criteria:** C1/C3/C6/C10/C13 clean at all 5 shots —
+pair-switching grows the token-chip card height with content, no jump/
+break.
+
+**Next slide:** `S02-pipeline` (`PipelineSection`) — not started.
+
+---

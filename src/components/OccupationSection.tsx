@@ -32,7 +32,7 @@ export const OccupationSection: React.FC = () => {
   const socialScienceData = OCCUPATION_COMPARISON_DATA.find((d) => d.id === 'social-science')!;
 
   return (
-    <section id="burden" data-widget="OccupationSection" data-section="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-12">
+    <section id="burden" data-widget="OccupationSection" data-section="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>

@@ -27,6 +27,56 @@ Slide IDs follow the section `id` used in the DOM and in
 | Required screenshots | 1440×KO, 1440×EN, 390×KO, 390×EN. |
 | Accept/reject rule | Reject if the exhibit card's numbers visually out-weigh the H1 (font-size/color proximity), or if `headlineLine2`'s underline decoration collides with descenders/next-line content in either language, or if the stat ribbon wraps awkwardly at 390px. |
 
+---
+
+## S01-compare
+
+| Field | Content |
+|---|---|
+| Intent | Make the abstract "Korean uses more tokens" claim concrete and falsifiable — let the reader pick a real sentence pair and watch it split into subword tokens. |
+| Primary focal point | The selected pair's split-column exhibit (KO token chips vs. EN token chips) — the visual proof, not the selector row that produces it. |
+| Secondary focal points | The 4-card pair selector row (drives the exhibit); the two big token-count numbers under each column. |
+| Forbidden competition | The `SectionHeading` ("통계보다 직관적인, 실제 문장으로 알아보자") must not compete with the exhibit once scrolled to — it's an entry, not a persistent focal point. |
+| Layout skeleton | Section header → reading-column lead/paragraphs → full-width breakout (4-card selector row, then 2-column KO/EN split exhibit with token chips + count banners) → bottom observation strip. |
+| Risk zones | Token-chip `flex-wrap` rows (`min-h-[90px]`, per earlier audit finding) — long tokenized sentences could wrap to many rows; KO sentence display (`selectedPair.hangulText`) at `text-xl sm:text-2xl` could wrap differently per pair; 4-card selector labels are KO/EN context tags of uneven length. |
+| Required states | default (pair 1 selected) / selected (click pair 2, 3, 4 in turn) / focus. |
+| Required screenshots | 1440×KO×pair1, 1440×KO×pair3(clicked), 1440×EN×pair1, 390×KO×pair1, 390×KO×pair3(clicked). |
+| Accept/reject rule | Reject if switching pairs causes any token-chip row or the KO sentence display to overflow/reflow the card height unevenly across pairs (a visibly "jumping" card height on selection is a hierarchy/rhythm defect, C10/C13), or if the 4-card selector's active state fails C3/C12. |
+
+**Findings (iteration 4):**
+
+- **P1 — C14/C18 scroll-anchor deficit, site-wide, not slide-local.** While
+  testing the pair-selector state at S01, found `scroll-mt-12` (48px) on 8
+  of 10 sections' root `<section>` is less than the sticky header's real
+  height (`h-14` 56px + 2px progress bar = 58px) — a 10px deficit. A real
+  anchor-nav click (`href="#compare"`, not a scripted scroll) lands the
+  section's top **10px under the header**, clipping the first ~1.5 lines
+  of the lead paragraph for every reader who clicks a nav link, every
+  section except hero/result. This is edge discipline (C14) failing
+  site-wide, not a single-slide defect, so fixed globally rather than
+  deferred to each section's own iteration. **Fixed:** `scroll-mt-12` →
+  `scroll-mt-16` (64px, 6px clearance) across all 8 sections. Verified with
+  a **real nav-link click** (not a scripted `scrollIntoViewIfNeeded`):
+  section top lands 63.6px from viewport top post-click, clean.
+- **Methodology correction:** `elementHandle.screenshot()` on a section
+  taller than the viewport produced a misleading artifact — Chromium
+  temporarily resizes its capture viewport to fit the whole element, and
+  the `position: sticky` header renders "stuck" mid-capture at a scroll
+  offset that doesn't correspond to any real user scroll position. This
+  looked exactly like a header-overlap bug on first read (both desktop and
+  390px captures) and would have been a false P1 if trusted. Ground truth
+  is a **real nav-link click** + `window.scrollY` / `getBoundingClientRect()`
+  read, not a full-element screenshot of an oversized section. Recorded so
+  the next iteration doesn't re-chase this artifact (same discipline as
+  iteration 2's C2 false-positive note).
+- Pair-switching (C1/C10/C13): clicked pair 1→3, card height/token-chip
+  wrap grows with content (11→18 KO tokens) without any visual jump —
+  acceptable, expected behavior, not a rhythm defect. C3 active-state
+  coverage on the pair-selector: clean.
+- C6/C1: clean at all 5 captured shots.
+
+---
+
 **Findings (iteration 3):**
 
 - **P0 — C11 bilingual hierarchy violation.** `ARTICLE_CONTENT.introTheQuestion.keyFinding.bigNumber` was a flat

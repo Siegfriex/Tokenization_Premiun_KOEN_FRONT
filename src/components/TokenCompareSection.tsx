@@ -29,7 +29,7 @@ export const TokenCompareSection: React.FC = () => {
     CURATED_PAIRED_SENTENCES.find((p) => p.id === selectedPairId) || CURATED_PAIRED_SENTENCES[0];
 
   return (
-    <section id="compare" data-widget="TokenCompareSection" data-section="compare" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="compare" data-widget="TokenCompareSection" data-section="compare" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Section Eyebrow & Large Question */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>

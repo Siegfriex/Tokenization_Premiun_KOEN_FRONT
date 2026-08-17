@@ -20,7 +20,7 @@ export const TokenPremiumSection: React.FC = () => {
   const [selectedDomainId, setSelectedDomainId] = useState<string>(DOMAIN_DISTRIBUTION_DATA[0].id);
 
   return (
-    <section id="patterns" data-widget="TokenPremiumSection" data-section="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-12">
+    <section id="patterns" data-widget="TokenPremiumSection" data-section="patterns" className="py-20 sm:py-28 bg-surface-alt text-ink border-b border-rule scroll-mt-16">
       <Container gutter className="space-y-12">
         {/* Eyebrow & Headline */}
         <SectionHeading eyebrow={isKo ? articleData.eyebrow?.ko : articleData.eyebrow?.en}>
