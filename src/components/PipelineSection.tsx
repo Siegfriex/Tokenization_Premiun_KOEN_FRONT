@@ -62,9 +62,9 @@ export const PipelineSection: React.FC = () => {
         {/* FULL-WIDTH BREAKOUT: Pipeline Visualization */}
         <ArticleFullWidthBreak className="space-y-8 my-8">
           <div className="space-y-8">
-            <div className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
-              <span>TRANSFORMER PIPELINE SEQUENCING</span>
-              <span className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</span>
+            <div data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
+              <span data-source="widget">TRANSFORMER PIPELINE SEQUENCING</span>
+              <span data-source="widget" className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</span>
             </div>
 
             {/* Horizontal Steps Grid */}
@@ -83,7 +83,7 @@ export const PipelineSection: React.FC = () => {
                     className="p-5 flex flex-col justify-between space-y-4 text-left w-full"
                   >
                     <span className="block space-y-2">
-                      <span className="flex items-center justify-between text-xs font-mono">
+                      <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
                         <span
                           className={`text-xl font-bold font-mono ${
                             item.highlight ? 'text-on-accent' : 'text-ink-muted'
@@ -92,7 +92,7 @@ export const PipelineSection: React.FC = () => {
                           {item.step}
                         </span>
                         {item.highlight && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 bg-surface text-ink rounded-xs font-bold uppercase">
+                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface text-ink rounded-xs font-bold uppercase">
                             GAP ORIGIN
                           </span>
                         )}

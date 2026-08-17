@@ -61,13 +61,13 @@ export const TokenPremiumSection: React.FC = () => {
             {/* Left Column (5 cols): Oversized Metric Stat Display */}
             <div className="lg:col-span-5 space-y-8">
               <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
-                <div className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
-                  <span>CORE EMPIRICAL METRIC</span>
-                  <span className="text-ink font-bold">o200k_base benchmark</span>
+                <div data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
+                  <span data-source="widget">CORE EMPIRICAL METRIC</span>
+                  <span data-source="widget" className="text-ink font-bold">o200k_base benchmark</span>
                 </div>
 
-                <div className="space-y-2">
-                  <span className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
+                <div data-role="stat" data-semantic-target="dl" className="space-y-2">
+                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
                     OBSERVED TOKEN PREMIUM RATIO
                   </span>
                   <div
@@ -82,29 +82,29 @@ export const TokenPremiumSection: React.FC = () => {
 
                 <div className="space-y-2 text-xs font-mono text-ink-body pt-3 border-t border-rule">
                   <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <span className="text-ink-muted">Average Token Premium:</span>
+                    <span data-source="widget" className="text-ink-muted">Average Token Premium:</span>
                     <span {...claimAttrs('premium.average-ratio')} className="text-ink font-bold">1.68× (+68%)</span>
                   </div>
                   <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <span className="text-ink-muted">Baseline (English):</span>
+                    <span data-source="widget" className="text-ink-muted">Baseline (English):</span>
                     <span {...claimAttrs('premium.baseline-standard')} className="text-ink-body">1.00× (Standard)</span>
                   </div>
                   <div data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
-                    <span className="text-ink-muted">Domain Range:</span>
+                    <span data-source="widget" className="text-ink-muted">Domain Range:</span>
                     <span {...claimAttrs('premium.domain-range')} className="text-ink font-bold">Business (1.44×) ~ Daily (1.83×)</span>
                   </div>
                 </div>
               </div>
 
               {/* Formula Notation Box */}
-              <div className="p-4 bg-surface border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
-                <span className="text-[10px] text-ink uppercase font-bold tracking-widest block">
+              <div data-role="stat" data-semantic-target="dl" className="p-4 bg-surface border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
+                <span data-source="widget" className="text-[10px] text-ink uppercase font-bold tracking-widest block">
                   MATHEMATICAL FORMULA
                 </span>
-                <p className="text-ink font-semibold text-sm">
+                <p data-source="widget" className="text-ink font-semibold text-sm">
                   Token Premium = Tokens(Hangul) / Tokens(English)
                 </p>
-                <p className="text-ink-muted text-[11px] font-sans">
+                <p data-source="widget" className="text-ink-muted text-[11px] font-sans">
                   동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다.
                 </p>
               </div>
@@ -113,12 +113,12 @@ export const TokenPremiumSection: React.FC = () => {
             {/* Right Column (7 cols): Domain Distribution Exhibit */}
             <div className="lg:col-span-7 space-y-6">
               <div className="bg-surface border border-rule rounded-xs p-6 space-y-6 shadow-xs">
-                <div className="flex items-center justify-between border-b border-rule pb-3">
-                  <div>
-                    <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
+                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+                  <div data-role="stat" data-semantic-target="dl">
+                    <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
                       DOMAIN DISTRIBUTION EXHIBIT
                     </span>
-                    <span className="text-[11px] font-mono text-ink-muted">
+                    <span data-source="widget" className="text-[11px] font-mono text-ink-muted">
                       분야별 토큰 소비 비율 분포 분석
                     </span>
                   </div>
@@ -138,7 +138,7 @@ export const TokenPremiumSection: React.FC = () => {
                         surface="surface-alt"
                         className="p-3.5 space-y-2 text-left w-full"
                       >
-                        <span className="flex items-center justify-between text-xs font-mono">
+                        <span data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
                           <span className="flex items-center gap-2">
                             <span
                               className={`w-2 h-2 rounded-full ${
@@ -150,7 +150,7 @@ export const TokenPremiumSection: React.FC = () => {
                             </span>
                           </span>
                           <span className="flex items-center gap-3">
-                            <span
+                            <span data-source="widget"
                               className={
                                 isSelected
                                   ? 'text-on-accent-muted text-[11px]'
@@ -179,7 +179,7 @@ export const TokenPremiumSection: React.FC = () => {
                   })}
                 </div>
 
-                <div className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
+                <div data-role="stat" data-semantic-target="dl" className="pt-2 text-xs font-mono text-ink-muted flex items-center justify-between border-t border-rule">
                   <span {...claimAttrs('premium.baseline-english')}>Baseline: 1.00× (English)</span>
                   <span {...claimAttrs('premium.max-observed')} className="text-ink font-bold">Max Observed: 1.83×</span>
                 </div>

@@ -34,18 +34,18 @@ export const NewsHeroSection: React.FC = () => {
     >
       <Container className="space-y-16 sm:space-y-20 my-auto">
         {/* Top Project Metadata Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-rule pb-4 text-xs font-mono text-ink-muted">
-          <div className="flex items-center gap-3">
+        <div data-role="stat" data-semantic-target="dl" className="flex flex-wrap items-center justify-between gap-4 border-b border-rule pb-4 text-xs font-mono text-ink-muted">
+          <div data-role="stat" data-semantic-target="dl" className="flex items-center gap-3">
             <span className="text-ink font-bold tracking-widest uppercase">
               {isKo ? heroData.eyebrow?.ko : heroData.eyebrow?.en}
             </span>
             <span className="text-rule-neutral">/</span>
-            <span>Data Journalism Investigation</span>
+            <span data-source="widget">Data Journalism Investigation</span>
             <span className="text-rule-neutral">/</span>
             <span className="text-ink font-bold">2026</span>
           </div>
           <div className="text-ink-subtle font-mono text-[11px]">
-            <span>COVER &amp; CORE THESIS</span>
+            <span data-source="widget">COVER &amp; CORE THESIS</span>
           </div>
         </div>
 
@@ -54,12 +54,12 @@ export const NewsHeroSection: React.FC = () => {
           {/* Left 60% (7 cols on lg): Large Black Korean Typography */}
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-ink-muted uppercase tracking-wider font-semibold">
-              <span>EXPLORING LINGUISTIC EFFICIENCY IN GEN-AI</span>
+              <span data-source="widget">EXPLORING LINGUISTIC EFFICIENCY IN GEN-AI</span>
               <ArrowDownRight className="w-3.5 h-3.5 text-ink" />
             </div>
 
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-[1.15]">
+              <h1 data-role="heading" data-semantic-target="heading" className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-[1.15]">
                 {headlineLine1}
                 {headlineLine2 && (
                   <>
@@ -85,15 +85,15 @@ export const NewsHeroSection: React.FC = () => {
               className="pt-4 border-t border-rule flex flex-wrap items-center gap-8 text-xs font-mono text-ink-body"
             >
               <div data-role="stat" data-stat="analysis-target">
-                <span className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</span>
-                <span className="text-ink font-bold">o200k_base &amp; Flores-200</span>
+                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</span>
+                <span data-source="widget" className="text-ink font-bold">o200k_base &amp; Flores-200</span>
               </div>
               <div data-role="stat" data-stat="core-metric">
-                <span className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</span>
-                <span className="text-ink font-bold">Token Premium Ratio</span>
+                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</span>
+                <span data-source="widget" className="text-ink font-bold">Token Premium Ratio</span>
               </div>
               <div data-role="stat" data-stat="observed-gap">
-                <span className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</span>
+                <span data-source="widget" className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</span>
                 <span {...claimAttrs('hero.observed-gap')} className="text-ink font-bold">+78% Hangul Token Burden</span>
               </div>
             </div>
@@ -103,17 +103,17 @@ export const NewsHeroSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6 lg:pl-4">
             {/* Minimal Token Contrast Visual */}
             <div className="bg-surface-alt border border-rule rounded-xs p-6 space-y-6">
-              <div className="flex items-center justify-between border-b border-rule pb-3">
-                <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+              <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+                <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                   FIG. 01 / REAL TOKEN SPLIT EXHIBIT
                 </span>
-                <span className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</span>
+                <span data-source="widget" className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</span>
               </div>
 
               {/* Korean Row */}
               <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-ink font-bold flex items-center gap-2">
+                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                  <span data-source="widget" className="text-ink font-bold flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
                     Korean (한국어)
                   </span>
@@ -122,15 +122,15 @@ export const NewsHeroSection: React.FC = () => {
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
                 </div>
-                <p className="text-[11px] text-ink-body font-mono italic">
+                <p data-source="widget" className="text-[11px] text-ink-body font-mono italic">
                   "인공지능 모델의 다국어 토큰화 처리 효율성..."
                 </p>
               </div>
 
               {/* English Row */}
               <div className="space-y-2 pt-2 border-t border-rule">
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-ink-body font-medium flex items-center gap-2">
+                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                  <span data-source="widget" className="text-ink-body font-medium flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-ink-muted"></span>
                     English (영어)
                   </span>
@@ -139,24 +139,24 @@ export const NewsHeroSection: React.FC = () => {
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
                   <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
                 </div>
-                <p className="text-[11px] text-ink-subtle font-mono italic">
+                <p data-source="widget" className="text-[11px] text-ink-subtle font-mono italic">
                   "Multilingual tokenization processing efficiency..."
                 </p>
               </div>
 
               {/* Takeaway line */}
               <div data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
-                <span className="text-ink-subtle">Relative Ratio:</span>
+                <span data-source="widget" className="text-ink-subtle">Relative Ratio:</span>
                 <span {...claimAttrs('hero.exhibit-ratio')} className="text-ink font-bold text-sm">1.72× (+72% Difference)</span>
               </div>
             </div>
 
             {/* News Archive Context Note */}
             <div className="border-l-2 border-rule-strong pl-4 py-1 space-y-1">
-              <span className="text-[11px] font-mono text-ink uppercase font-bold tracking-wider block">
+              <span data-source="widget" className="text-[11px] font-mono text-ink uppercase font-bold tracking-wider block">
                 {isKo ? '보도 및 인프라 동향 아카이브' : 'News Evidence & Infrastructure Wave'}
               </span>
-              <p className="text-xs text-ink-body leading-relaxed">
+              <p data-source="widget" className="text-xs text-ink-body leading-relaxed">
                 {isKo
                   ? '국가 AI 인프라 컴퓨팅 센터 구축 및 기업 전사적 AI 도입이 본격화되면서, 토큰 처리 효율성은 개인의 문제를 넘어 시스템의 문제로 확장되고 있습니다.'
                   : 'As national AI infrastructure and enterprise adoption scale rapidly, token efficiency transforms from a prompt issue into a structural computing issue.'}
@@ -203,7 +203,7 @@ export const NewsHeroSection: React.FC = () => {
           href="#compare"
           className="inline-flex items-center gap-2 text-xs font-mono text-ink-muted hover:text-ink transition-colors group cursor-pointer"
         >
-          <span className="tracking-wider uppercase font-semibold">
+          <span data-source="widget" className="tracking-wider uppercase font-semibold">
             {isKo ? 'S1. 토큰 분절 실험실로 스크롤' : 'Scroll to S1. Tokenization Compare Lab'}
           </span>
           <ChevronDown className="w-4 h-4 text-ink group-hover:translate-y-1 transition-transform" />

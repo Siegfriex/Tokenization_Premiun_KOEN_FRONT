@@ -72,7 +72,7 @@ export const ImpactSection: React.FC = () => {
                 }`}
               >
                 <div className="space-y-4">
-                  <div className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
+                  <div data-role="stat" data-semantic-target="dl" className={`flex items-center justify-between border-b pb-3 ${level.highlight ? 'border-rule-on-accent' : 'border-rule'}`}>
                     <span className={`text-xs font-mono font-bold uppercase tracking-wider ${level.highlight ? 'text-on-accent-muted' : 'text-ink-muted'}`}>
                       {level.levelLabelKo}
                     </span>
@@ -81,7 +81,7 @@ export const ImpactSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
+                  <h3 data-role="heading" data-semantic-target="heading" className={`text-xl font-bold ${level.highlight ? 'text-on-accent' : 'text-ink'}`}>
                     {getLocalizedText(level.title, language)}
                   </h3>
 
@@ -99,9 +99,9 @@ export const ImpactSection: React.FC = () => {
 
           {/* Complete Conceptual Causal Chain */}
           <div className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
-            <div className="space-y-1">
+            <div data-role="stat" data-semantic-target="dl" className="space-y-1">
               <SectionEyebrow>FINAL CONCEPTUAL CAUSAL CHAIN</SectionEyebrow>
-              <h4 className="text-lg sm:text-xl font-bold text-ink">
+              <h4 data-source="widget" className="text-lg sm:text-xl font-bold text-ink">
                 언어 구조에서 사회적 파급 효과까지의 인과 사슬
               </h4>
             </div>

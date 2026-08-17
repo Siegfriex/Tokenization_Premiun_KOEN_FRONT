@@ -58,6 +58,24 @@
  * `data-semantic-target` the semantic element this node should become, recorded
  *                      in the DOM while it is still a div/span, so the B3
  *                      backlog is visible in the browser too.
+ *
+ * ---------------------------------------------------------------------------
+ * ONE HARD CONSTRAINT ON HOOK VALUES
+ * ---------------------------------------------------------------------------
+ * A hook value must never be spelled the same as a Tailwind utility.
+ *
+ * Tailwind v4 scans source files as templates and does not care whether a
+ * string sits in a `data-role=` attribute or a `className=` one — or even in a
+ * comment. One of the display-shorthand utility names, used as a role value,
+ * made the compiler emit a real rule for it and moved the production CSS hash,
+ * which silently breaks the only proof these phases rely on: that a hook-only
+ * change cannot alter a single style. That role is now `collection-item`.
+ *
+ * The names to avoid are listed in docs/audit/README.md, which is outside the
+ * scanner's reach. Deliberately not repeated here — writing them in this
+ * comment reintroduced the very collision it was warning about.
+ *
+ * Verify after any vocabulary change: the compiled CSS hash must not move.
  */
 
 /** Whether a visible research claim can be changed yet. */

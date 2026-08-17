@@ -66,8 +66,8 @@ export const MethodSection: React.FC = () => {
         <ArticleFullWidthBreak className="space-y-10 my-8">
           {/* Prominent Boundary Box: What We Do NOT Claim */}
           <div className="bg-surface-alt border border-rule rounded-xs p-6 sm:p-10 space-y-6 shadow-xs">
-            <div className="flex items-center justify-between border-b border-rule pb-3">
-              <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+            <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
+              <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
               </span>
               <span {...claimAttrs('method.principle-count')} className="text-xs font-mono text-ink-muted">6 Key Principles</span>
@@ -75,7 +75,7 @@ export const MethodSection: React.FC = () => {
 
             <div data-collection="what-we-do-not-claim" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               {WHAT_WE_DO_NOT_CLAIM.map((claim, idx) => (
-                <div
+                <div data-role="collection-item" data-semantic-target="ul"
                   key={idx}
                   className="p-4 bg-surface border border-rule rounded-xs flex items-start gap-3 text-xs sm:text-sm text-ink"
                 >
@@ -88,11 +88,11 @@ export const MethodSection: React.FC = () => {
 
           {/* Methodology Accordion */}
           <div className="space-y-4">
-            <div className="border-b border-rule pb-3 flex items-center justify-between">
-              <span className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
+            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <span data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
                 {isKo ? '세부 분석 방법론 (Methodological Pillars):' : 'Detailed Methodological Pillars:'}
               </span>
-              <span className="text-xs font-mono text-ink-muted">Click to expand</span>
+              <span data-source="widget" className="text-xs font-mono text-ink-muted">Click to expand</span>
             </div>
 
             <div data-collection="methodology-items" data-semantic-target="ul" className="grid grid-cols-1 gap-3">
@@ -104,7 +104,7 @@ export const MethodSection: React.FC = () => {
                     data-item-id={item.id}
                     className="bg-surface border border-rule rounded-xs overflow-hidden transition-all shadow-2xs"
                   >
-                    <button
+                    <button data-role="stat" data-semantic-target="dl"
                       type="button"
                       onClick={() => toggleItem(item.id)}
                       aria-expanded={isOpen}
@@ -152,11 +152,11 @@ export const MethodSection: React.FC = () => {
           {/* Footnotes */}
           {articleData.footnotes && (
             <div className="pt-8 border-t border-rule space-y-2 text-xs font-mono text-ink-muted">
-              <div className="font-bold text-ink uppercase tracking-wider mb-2">
+              <div data-source="widget" className="font-bold text-ink uppercase tracking-wider mb-2">
                 {isKo ? '연구 주석 (Research Footnotes):' : 'Research Footnotes:'}
               </div>
               {(isKo ? articleData.footnotes.ko : articleData.footnotes.en).map((fn, idx) => (
-                <p key={idx} className="leading-relaxed">
+                <p data-role="collection-item" data-semantic-target="ul" key={idx} className="leading-relaxed">
                   {fn}
                 </p>
               ))}

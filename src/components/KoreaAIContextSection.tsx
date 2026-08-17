@@ -62,11 +62,11 @@ export const KoreaAIContextSection: React.FC = () => {
         <ArticleFullWidthBreak className="space-y-10 my-8">
           {/* Macro Adoption Chain */}
           <div className="space-y-6">
-            <div className="border-b border-rule pb-3 flex items-center justify-between">
-              <span className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <span data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
                 MACRO ADOPTION CAUSAL CHAIN
               </span>
-              <span className="text-xs font-mono text-ink-muted">Scale Dynamics</span>
+              <span data-source="widget" className="text-xs font-mono text-ink-muted">Scale Dynamics</span>
             </div>
 
             <div data-collection="macro-adoption-phases" data-semantic-target="ul" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -96,11 +96,11 @@ export const KoreaAIContextSection: React.FC = () => {
 
           {/* Verified Policy & Investment Slots */}
           <div className="space-y-6">
-            <div className="border-b border-rule pb-3 flex items-center justify-between">
-              <span className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
+            <div data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
+              <span data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
                 {isKo ? '검증된 정책 및 대규모 투자 데이터 슬롯 (Data Slots):' : 'Verified Policy & Investment Data Slots:'}
               </span>
-              <span className="text-xs font-mono text-ink font-bold">Strict Data Verification Rule</span>
+              <span data-source="widget" className="text-xs font-mono text-ink font-bold">Strict Data Verification Rule</span>
             </div>
 
             <div data-collection="verified-policy-slots" data-semantic-target="ul" className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -111,14 +111,14 @@ export const KoreaAIContextSection: React.FC = () => {
                   className="bg-surface border border-rule rounded-xs p-6 space-y-4 flex flex-col justify-between shadow-xs"
                 >
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs font-mono">
+                    <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
                       <span className="text-ink-muted">{slot.category}</span>
                       <span className="px-2 py-0.5 bg-surface-alt text-ink border border-rule rounded-xs text-[10px] font-bold">
                         {slot.status}
                       </span>
                     </div>
 
-                    <h4 className="font-bold text-sm text-ink leading-snug">
+                    <h4 data-role="heading" data-semantic-target="heading" className="font-bold text-sm text-ink leading-snug">
                       {getLocalizedText(slot.title, language)}
                     </h4>
                   </div>
@@ -127,18 +127,18 @@ export const KoreaAIContextSection: React.FC = () => {
                     <div className="font-mono text-xs font-bold text-ink">
                       {slot.placeholderLabel}
                     </div>
-                    <p className="text-[11px] text-ink-muted font-sans">
+                    <p data-source="widget" className="text-[11px] text-ink-muted font-sans">
                       검증된 정부 고시 및 기업 공시 데이터 확인 후 정밀 연동 대기 상태
                     </p>
                   </div>
 
                   <div className="text-[10px] font-mono text-ink-muted space-y-0.5 border-t border-rule pt-2">
-                    <div className="flex justify-between">
-                      <span>Scope:</span>
-                      <span className="text-ink-body font-semibold">[NATIONAL COMPUTE INFRA]</span>
+                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                      <span data-source="widget">Scope:</span>
+                      <span data-source="widget" className="text-ink-body font-semibold">[NATIONAL COMPUTE INFRA]</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Period:</span>
+                    <div data-role="stat" data-semantic-target="dl" className="flex justify-between">
+                      <span data-source="widget">Period:</span>
                       <span className="text-ink-body font-semibold">[2024–2030]</span>
                     </div>
                   </div>

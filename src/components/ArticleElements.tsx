@@ -191,7 +191,7 @@ export const ArticleFootnotes: React.FC<{
   if (!footnotes || footnotes.length === 0) return null;
   return (
     <div data-role="article-footnotes" className={`border-t border-rule pt-5 mt-10 space-y-2 text-xs font-mono text-ink-muted ${className}`}>
-      <div className="text-[11px] font-bold text-ink uppercase tracking-wider">
+      <div data-source="widget" className="text-[11px] font-bold text-ink uppercase tracking-wider">
         NOTES &amp; REFERENCES
       </div>
       <ul className="space-y-1.5 list-none">

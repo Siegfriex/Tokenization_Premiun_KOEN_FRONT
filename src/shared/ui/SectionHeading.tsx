@@ -85,7 +85,7 @@ export const SectionHeading: React.FC<{
   return (
     <div data-role="section-heading" className={`space-y-4 ${wrapper} ${className}`}>
       {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
-      <h2 className={`${heading} font-bold tracking-tight text-ink leading-tight`}>
+      <h2 data-role="heading" data-semantic-target="heading" className={`${heading} font-bold tracking-tight text-ink leading-tight`}>
         {children}
       </h2>
     </div>

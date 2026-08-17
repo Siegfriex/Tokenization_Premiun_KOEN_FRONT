@@ -100,6 +100,25 @@ Verified on every run: 402 items, 402 unique IDs, zero drift on re-run.
 `data/trace-ledger.json` is the registry — commit it and IDs survive
 refactoring even as line numbers move.
 
+## Hook values must not collide with Tailwind utilities
+
+Tailwind v4 treats every source file as a template, including comments and
+`data-*` attribute values. A hook value spelled like a real utility makes the
+compiler emit a rule for it and moves the production CSS hash — which destroys
+the one proof the hook phases rest on, that an attribute-only change cannot
+alter a style.
+
+Names that must never be used as a `data-role` or `data-semantic-target`
+value (they are all real bare utilities): `list-item`, `block`, `inline`,
+`flex`, `grid`, `table`, `hidden`, `contents`, `flow-root`, `inline-block`,
+`inline-flex`, `inline-grid`, `inline-table`, `table-cell`, `table-row`.
+
+This file is safe to list them in — `src/index.css` excludes `docs/audit` from
+the scanner. A source comment is not safe: writing the list in
+`src/shared/trace/types.ts` reintroduced the collision it was warning about.
+
+After changing the vocabulary, rebuild and confirm the CSS hash is unchanged.
+
 ## Categories
 
 Every item has exactly one **primary** category and may carry several others.
