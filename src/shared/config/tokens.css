@@ -1,12 +1,17 @@
 /**
  * Semantic design tokens (Tailwind CSS v4 @theme).
  *
+ * This file is the palette authority for the site. Colour is defined here and
+ * nowhere else; `chart-tokens.ts` holds the same data-mark values as JS
+ * literals only because Recharts needs literals rather than classes.
+ *
  * ---------------------------------------------------------------------------
- * THE TWO LAYERS
+ * THE THREE LAYERS
  * ---------------------------------------------------------------------------
  * This site is an editorial research document, not an application UI. Its
- * palette is therefore split into two layers that must never collapse into
- * one tone:
+ * palette is therefore split by ROLE into three layers that must never
+ * collapse into one tone. A colour's layer is what decides where it may be
+ * used — not how it looks:
  *
  *   1. READING LAYER — the surfaces you read *on* and the prose you read.
  *      Near-black ink on a light, low-chroma canvas. This layer carries the
@@ -29,19 +34,31 @@
  * ---------------------------------------------------------------------------
  * WHY THESE EXACT VALUES
  * ---------------------------------------------------------------------------
- * Every value below matches the CURRENTLY RENDERED appearance of the deployed
- * site, not the raw literal hex that appears in un-migrated component source.
- * src/index.css still contains a legacy `!important` / attribute-selector
- * recolor pass (`[class*="bg-[#111111]"] { background: #2563EB }` and eight
- * siblings) that intercepts specific arbitrary Tailwind classes. Its coverage
- * is partial and inconsistent — the same hex renders differently depending on
- * which property prefix carries it.
+ * Historical note, because the numbers below look arbitrary otherwise.
  *
- * Encoding tokens to the rendered colors keeps the migration visually silent:
- * a widget moved onto these tokens looks identical to one still carrying the
- * intercepted literals. The hack is still load-bearing for MethodSection,
- * EditorialConclusionSection and Footer and must not be removed until those
- * are migrated too. See docs/design/COLOR_HACK_FINDING.md.
+ * `src/index.css` used to end with a nine-rule `!important` /
+ * attribute-selector recolor pass (`[class*="bg-[#111111]"] { background:
+ * #2563EB }` and eight siblings) that string-matched arbitrary Tailwind
+ * classes in the DOM. That block, not any token file, was the site's real
+ * colour system — it is why production reads cobalt rather than flat
+ * black/white — and its coverage was partial and inconsistent, so the same hex
+ * rendered differently depending on which property prefix carried it.
+ *
+ * The values below were originally chosen to match what that pass RENDERED,
+ * so each widget could migrate onto tokens without any visible change. Once
+ * every rendered element had migrated, the pass matched nothing and was
+ * deleted; `src/index.css` no longer contains it and nothing replaced it.
+ *
+ * So the values are inherited, but the authority is not: this file is now the
+ * only thing deciding what colour anything is. Do not reintroduce
+ * attribute-selector recolouring, and do not put colour utilities on `<body>`
+ * in index.html — that element's class attribute is the whole page canvas, and
+ * a substring collision there is what used to paint it cobalt.
+ *
+ * Full history, the value-for-value migration table, and the five deliberate
+ * visual changes: docs/design/COLOR_HACK_FINDING.md (§RESOLUTION).
+ * Rules for using these layers: docs/DESIGN_SYSTEM_CONTRACT.md.
+ * How this was verified without a browser: docs/QA_ACCEPTANCE.md.
  */
 @theme {
   /* ==========================================================================
@@ -50,9 +67,10 @@
 
   /* Surfaces you read on */
   --color-canvas: #F7F8FA;        /* page/app background */
-  --color-surface: #F7F8FA;       /* card & panel background (currently identical
-                                     to canvas — a pre-existing consequence of the
-                                     recolor hack, see finding doc) */
+  --color-surface: #F7F8FA;       /* card & panel background (identical to canvas,
+                                     so a card is not distinguishable from the
+                                     page — inherited from the retired recolor
+                                     pass, still an open design question) */
   --color-surface-alt: #EFF6FF;   /* alternating section background */
 
   /* Ink ramp — primary prose stays near-black */
