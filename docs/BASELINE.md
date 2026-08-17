@@ -9,7 +9,26 @@
 - Frozen historical branch (identical content to the integration SHA, never modified again): `baseline/legacy-freeze`
 - Frozen date: 2026-08-17
 - Stack: React 19, Vite 6, TypeScript 5.8, Tailwind CSS v4
-- Deployment: static build to GitHub Pages
+- Deployment: static build to Vercel, `main` branch, root-served
+  (`vite.config.ts` `base: '/'`). The legacy GitHub Pages workflow
+  (`.github/workflows/deploy.yml`, triggered on the nonexistent
+  `fornt_refine` branch in this repo) has been removed as part of
+  `chore/deployment-and-tooling-alignment`. Vercel project linking
+  (repo import + first production deploy) requires a one-time action in
+  the Vercel dashboard by the repository owner, or a `VERCEL_TOKEN`
+  provided to the orchestrator — the orchestrator does not have and does
+  not seek Vercel credentials on its own. `vercel.json` (explicit
+  `framework: vite`, `buildCommand`, `outputDirectory: dist`,
+  `installCommand: npm ci`) is committed so the import is zero-decision
+  once connected.
+- Package manager: npm / `package-lock.json` is canonical.
+  `bun.lock` has been removed (`chore/deployment-and-tooling-alignment`)
+  to resolve the dual-lockfile ambiguity noted in `ARCHITECTURE_AUDIT.md`.
+- Reading-column width: consolidated to `720px` everywhere
+  (`ArticleReadingColumn`, `ArticleBigFinding`, `NewsHeroSection` lead
+  paragraph). Wide-container width consolidated to `1360px` everywhere,
+  including the sticky header (`StoryProgress.tsx`), fixing the header/body
+  alignment drift documented in `DESIGN_AUDIT.md`.
 - Routing: none (single-page scrollytelling article)
 - Backend/API: none in scope for this repository
 

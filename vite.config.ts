@@ -5,8 +5,11 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/dsja_5_front/',
-    
+    // Root-served on Vercel (Tokenization_Premiun_KOEN_FRONT). Previously
+    // '/dsja_5_front/' for the legacy GitHub Pages sub-path deployment;
+    // that target is retired in favor of Vercel (see docs/BASELINE.md).
+    base: '/',
+
     plugins: [react(), tailwindcss()],
     build: {
       rollupOptions: {
