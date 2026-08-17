@@ -137,7 +137,7 @@ export const ArticleBigFinding: React.FC<{
       <div className="text-6xl sm:text-8xl lg:text-9xl font-serif font-bold text-[#111111] tracking-tight leading-none">
         {bigNumber}
       </div>
-      <p className="text-lg sm:text-xl lg:text-2xl text-[#111111] font-medium leading-relaxed max-w-[640px] break-keep">
+      <p className="text-lg sm:text-xl lg:text-2xl text-[#111111] font-medium leading-relaxed max-w-[720px] break-keep">
         {statement}
       </p>
     </div>
