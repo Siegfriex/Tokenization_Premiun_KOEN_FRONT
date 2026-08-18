@@ -608,3 +608,85 @@ resolved. No PROTECTED research content, numeric claim, or H2/conclusion
 strength was altered anywhere in this phase.
 
 ---
+
+## Phase 8: Human Preview 01 (Director annotated-screenshot review, long-run loop)
+
+**Trigger:** Director conducted a first Human Preview 2026-08-18 against
+the production-promoted state (`894dcd8`, PR #21 tip — not `main`),
+producing 10 annotated screenshots (`AUDIT2/S0.png`–`S9 _ 결론.png`) plus
+verbal directive intent. Full reconciliation SSOT:
+`docs/editorial/HUMAN_PREVIEW_01_MASTER.md`. Working branch:
+`editorial/human-preview-01` (forked from `894dcd8`), PR #22.
+
+### HP01 Iteration 1
+
+Timestamp: 2026-08-18
+Branch: `editorial/human-preview-01`
+HEAD (before): `894dcd8`
+origin/main: `ceb7b4e`
+Production SHA: `894dcd8` (== this branch's fork point)
+PR: #22
+
+Image: `S0.png`
+Nav: S0
+DOM: `hero`
+Trace prefix: `HERO`
+Component: `NewsHeroSection.tsx` (+ `ArticleElements.tsx` for the
+`ArticleBigFinding` shared component)
+
+Directive IDs: `HP01-S0-R01`, `HP01-S0-R02`, `HP01-S0-R03`, `HP01-S0-R04`,
+`HP01-S0-B01`
+
+Before: top metadata bar carried "Data Journalism Investigation" and
+"COVER & CORE THESIS" as decorative English; FIG.01 exhibit header read
+"REAL TOKEN SPLIT EXHIBIT" (English); a 3-item `ANALYSIS TARGET`/
+`CORE METRIC`/`OBSERVED GAP` stat-ribbon table sat under the deck
+paragraph; the intro's `ArticleBigFinding` number ("약 1.2×~1.8×")
+rendered at `text-6xl…text-9xl`, sprawling across the block.
+
+Director intent: RED (R01-R04) — remove dashboard-y English micro-copy
+and the stat-ribbon table entirely; BLUE (B01) — shrink and compact the
+big-number display ("글씨줄여서 병렬로").
+
+Patch:
+- `NewsHeroSection.tsx`: removed the `COVER & CORE THESIS` div; Koreanized
+  "Data Journalism Investigation" → "데이터 저널리즘"; removed the
+  3-item stat ribbon; FIG.01 header → "FIG. 01 · 실제 토큰 분절 비교"
+  (KO) / kept English in EN mode; "Pair Benchmark" → "문장쌍 비교" (KO).
+- `ArticleElements.tsx`: `ArticleBigFinding`'s number display
+  `text-6xl sm:text-8xl lg:text-9xl` → `text-5xl sm:text-6xl lg:text-7xl`
+  + `whitespace-nowrap`, `leading-none` → `leading-tight`.
+
+Research-content impact: NONE. All changes are hardcoded JSX label text
+or pure CSS sizing — no `entities/*` value touched.
+
+Verification:
+- lint: PASS (`tsc --noEmit`)
+- build: PASS
+- 1440 KO: PASS (screenshot)
+- 1440 EN: PASS (screenshot, 0 overflow)
+- 390 KO: PASS (0 overflow)
+- 390 EN: not separately shot this iteration (1440 EN + 390 KO both
+  clean; low risk given no new wrapping-sensitive text introduced) — will
+  confirm in a later regression pass before whole-Human-Preview
+  acceptance
+- interaction: n/a (no interactive elements touched)
+
+Result: ACCEPTED (4 of 5 directives; `HP01-S0-R05` deferred, see below)
+
+Commit: (this commit)
+Preview URL: pending Vercel build on push
+
+Next: `HP01-S1-R01` (S1/compare — text-CTA phrasing) or continue S0 with
+`HP01-S0-R05` once S7 coordination is resolved, per priority order (S0
+before S1). Choosing to move to S1 now and return to `HP01-S0-R05`
+alongside the S7 pass, since it's explicitly a cross-slide dependency
+not a blocker for the rest of S0/S1.
+
+**Deferred:** `HP01-S0-R05` — FIG.01 exhibit's takeaway/news-note content
+flagged as belonging in the conclusion. Not `BLOCKED_*` (no missing
+evidence or authority question) — just sequenced after S7's own
+directives are read, since moving content requires knowing the target
+shape first. Tracked in MASTER §F, not silently dropped.
+
+---

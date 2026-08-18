@@ -136,7 +136,7 @@ export const ArticleBigFinding: React.FC<{
       {label && (
         <SectionEyebrow>{label}</SectionEyebrow>
       )}
-      <div className="text-6xl sm:text-8xl lg:text-9xl font-serif font-bold text-ink tracking-tight leading-none">
+      <div className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-ink tracking-tight leading-tight whitespace-nowrap">
         {bigNumber}
       </div>
       <p className="text-lg sm:text-xl lg:text-2xl text-ink font-medium leading-relaxed max-w-reading break-keep">

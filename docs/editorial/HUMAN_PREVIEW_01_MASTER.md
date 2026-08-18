@@ -188,12 +188,12 @@ creation pass — not yet patched except where noted).
 
 | ID | Type | Directive (from image) | Status |
 |---|---|---|---|
-| HP01-S0-R01 | R | Remove "AI-ness" from the top metadata bar (`TOKEN PREMIUM · AI × LANGUAGE / 2026` eyebrow) | TODO |
-| HP01-S0-R02 | R | Remove "AI-ness" from the FIG.01 exhibit card header (`FIG. 01 / REAL TOKEN SPLIT EXHIBIT`) | TODO |
-| HP01-S0-R03 | R | Remove the stat-ribbon "table" (`ANALYSIS TARGET` / `CORE METRIC` / `OBSERVED GAP` row) — annotated "표제거요망" | TODO |
-| HP01-S0-R04 | R | English→Korean pass on the area near the stat ribbon ("영어→한글 한글로") | TODO — same element as R03, verify after R03's fix whether anything English remains |
-| HP01-S0-R05 | R | The FIG.01 card's takeaway/news-note content "belongs in the conclusion, remove or rewrite at intro" — annotated directly over the exhibit card's lower content | TODO — cross-check against S7/`EditorialConclusionSection`, where the equivalent idea must land instead |
-| HP01-S0-B01 | B | The `ArticleBigFinding` "약 1.2X ~ 1.8X" display: arrange in parallel/inline layout, reduce font size, adjust text layout | TODO |
+| HP01-S0-R01 | R | Remove "AI-ness" from the top metadata bar (`TOKEN PREMIUM · AI × LANGUAGE / 2026` eyebrow) | **DONE** (HP01 Iter 1) — removed "COVER & CORE THESIS", Koreanized "Data Journalism Investigation"; eyebrow entity value itself left untouched (contains G02-exempt "TOKEN PREMIUM" identifier) |
+| HP01-S0-R02 | R | Remove "AI-ness" from the FIG.01 exhibit card header (`FIG. 01 / REAL TOKEN SPLIT EXHIBIT`) | **DONE** (HP01 Iter 1) — KO: "FIG. 01 · 실제 토큰 분절 비교" / "문장쌍 비교" |
+| HP01-S0-R03 | R | Remove the stat-ribbon "table" (`ANALYSIS TARGET` / `CORE METRIC` / `OBSERVED GAP` row) — annotated "표제거요망" | **DONE** (HP01 Iter 1) — block removed entirely |
+| HP01-S0-R04 | R | English→Korean pass on the area near the stat ribbon ("영어→한글 한글로") | **DONE** (HP01 Iter 1) — same element as R03, resolved by removal |
+| HP01-S0-R05 | R | The FIG.01 card's takeaway/news-note content "belongs in the conclusion, remove or rewrite at intro" — annotated directly over the exhibit card's lower content | TODO — **deferred**, sequenced with S7's own directives (cross-slide dependency, not a blocker) |
+| HP01-S0-B01 | B | The `ArticleBigFinding` "약 1.2X ~ 1.8X" display: arrange in parallel/inline layout, reduce font size, adjust text layout | **DONE** (HP01 Iter 1) — `text-6xl…text-9xl` → `text-5xl…text-7xl` + `whitespace-nowrap`, single-consumer component so safe to resize directly |
 | HP01-S0-R06 | R | (Cluster 3, actually S02 content mis-filed in this image) Explicit explanation of tokenization-related process/concepts is unneeded at 1DEPTH → move to a dropdown/2DEPTH disclosure | **Filed as S2 directive, see HP01-S2-B03 below** |
 | HP01-S0-R07 | R | (Cluster 4, actually S02 content) "이런거 전체 제거" over `TRANSFORMER PIPELINE SEQUENCING` and `★ STEP 02: THE BOTTLENECK` | **Duplicate of HP01-S2-R01/R02 — corroborates, not a new item** |
 
@@ -380,30 +380,29 @@ tracks completion state in §K, not a second copy of the checklist.
 
 ## K. Current Progress
 
-**Phase: MASTER document freeze + full reconciliation pass complete.
-Patch loop not yet started (this document is the mandatory prerequisite
-per the framework's §2/§20 step 7 before step 10's "begin the first RED
-loop").**
+**Phase: patch loop active. HP01 Iteration 1 (S0) closed 4/5 directives.**
 
-Directive count by initial status (this pass, before any patch):
+Directive count by current status:
 
 | Status | Count |
 |---|---|
-| TODO | 47 |
+| DONE | 4 (all S0: R01, R02, R03/R04 combined, B01) |
+| TODO | 43 |
 | BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계", S3 D1) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
-| ALREADY_DONE | 2 (S6 claim-content preservation, S6 accordion pattern) |
+| ALREADY_DONE (pre-existing, not this loop) | 2 (S6 claim-content preservation, S6 accordion pattern) |
+| DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** begin S0 (priority order start), first RED item
-`HP01-S0-R01`.
+**Next action:** S1/compare, starting `HP01-S1-R01`.
 
 ---
 
 ## L. Last Verified Commit / Deployment
 
-- Last commit on `editorial/human-preview-01`: none yet — branch just
-  created from `894dcd8`, this MASTER + the source manifest are the
-  first files staged on it.
+- Last commit on `editorial/human-preview-01`: `00f20bc` (MASTER +
+  source manifest freeze) → HP01 Iteration 1 commit follows (S0 patches).
 - Last verified production deployment: `894dcd8` (visual-devpass tip),
-  confirmed by build-hash comparison, this session (§B).
+  confirmed by build-hash comparison, this session (§B). Not yet
+  re-verified against any Human Preview patch (no merge to `main` has
+  happened yet in this loop).

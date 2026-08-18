@@ -39,12 +39,9 @@ export const NewsHeroSection: React.FC = () => {
               {isKo ? heroData.eyebrow?.ko : heroData.eyebrow?.en}
             </span>
             <span className="text-rule-neutral">/</span>
-            <span data-source="widget">Data Journalism Investigation</span>
+            <span data-source="widget">{isKo ? '데이터 저널리즘' : 'Data Journalism'}</span>
             <span className="text-rule-neutral">/</span>
             <span className="text-ink font-bold">2026</span>
-          </div>
-          <div className="text-ink-subtle font-mono text-[11px]">
-            <span data-source="widget">COVER &amp; CORE THESIS</span>
           </div>
         </div>
 
@@ -77,25 +74,6 @@ export const NewsHeroSection: React.FC = () => {
               {isKo ? heroData.deck?.ko : heroData.deck?.en}
             </p>
 
-            {/* Quick Context Stat Ribbon */}
-            <div
-              data-role="stat-ribbon"
-              data-semantic-target="dl"
-              className="pt-4 border-t border-rule flex flex-wrap items-center gap-8 text-xs font-mono text-ink-body"
-            >
-              <dl data-role="stat" data-stat="analysis-target">
-                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">ANALYSIS TARGET</dt>
-                <dd data-source="widget" className="text-ink font-bold">o200k_base &amp; Flores-200</dd>
-              </dl>
-              <dl data-role="stat" data-stat="core-metric">
-                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">CORE METRIC</dt>
-                <dd data-source="widget" className="text-ink font-bold">Token Premium Ratio</dd>
-              </dl>
-              <dl data-role="stat" data-stat="observed-gap">
-                <dt data-source="widget" className="text-ink-subtle block text-[10px] uppercase">OBSERVED GAP</dt>
-                <dd className="text-ink font-bold">+78% Hangul Token Burden</dd>
-              </dl>
-            </div>
           </div>
 
           {/* Right 40% (5 cols on lg): Minimal Editorial Data Exhibit — deliberately quiet (docs/qa/DESIGN_LAW.md): supports the H1's claim, must not compete with it */}
@@ -104,9 +82,9 @@ export const NewsHeroSection: React.FC = () => {
             <div className="bg-surface-alt rounded-xs p-6 space-y-6">
               <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                 <dt data-source="widget" className="text-xs font-mono text-ink-body font-semibold uppercase tracking-wider">
-                  FIG. 01 / REAL TOKEN SPLIT EXHIBIT
+                  FIG. 01 · {isKo ? '실제 토큰 분절 비교' : 'Real Token Split Exhibit'}
                 </dt>
-                <dd data-source="widget" className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</dd>
+                <dd data-source="widget" className="text-[11px] font-mono text-ink-subtle">{isKo ? '문장쌍 비교' : 'Pair Benchmark'}</dd>
               </dl>
 
               {/* Korean Row */}

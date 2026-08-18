@@ -55,6 +55,27 @@ resolves correctly; H1 bounding box remains larger/higher than the
 exhibit card's at 1440×KO. tsc clean, build clean (CSS hash unchanged —
 no new utility introduced, only reused tokens).
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 1):** Director's
+first Human Preview annotated screenshots (`AUDIT2/S0.png`) against the
+production-promoted state (see `docs/editorial/HUMAN_PREVIEW_01_MASTER.md`
+§B). 4 directives closed: (1) `HP01-S0-R01` — removed "COVER & CORE
+THESIS" all-caps English metadata, Koreanized "Data Journalism
+Investigation" → "데이터 저널리즘". (2) `HP01-S0-R02` — FIG.01 exhibit
+header "REAL TOKEN SPLIT EXHIBIT" → Korean "실제 토큰 분절 비교", "Pair
+Benchmark" → "문장쌍 비교" (KO mode only; EN mode keeps English by
+design, dual-canonical). (3) `HP01-S0-R03`/`R04` — removed the
+`ANALYSIS TARGET`/`CORE METRIC`/`OBSERVED GAP` stat-ribbon table
+entirely (RED "표제거요망"). (4) `HP01-S0-B01` — `ArticleBigFinding`'s
+number display (only consumer: this slide's "약 1.2×~1.8×") reduced
+`text-6xl…text-9xl` → `text-5xl…text-7xl`, added `whitespace-nowrap`,
+so it reads as one compact inline figure instead of a sprawling
+multi-line block. Verified 1440/390 × KO/EN: 0 overflow, all 4 changes
+visually confirmed. tsc clean, build clean.
+**Deferred, not closed:** `HP01-S0-R05` (FIG.01 exhibit's takeaway/
+news-note content "belongs in the conclusion, remove or rewrite at
+intro") — needs coordinated decision against S7's own directives before
+patching; tracked in MASTER, not silently dropped.
+
 ---
 
 ## S02-pipeline
