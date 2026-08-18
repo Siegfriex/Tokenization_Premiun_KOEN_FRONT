@@ -627,6 +627,50 @@ Verified 1440×KO/EN: 0 overflow both languages, chart renders
 correctly, tooltip/reference-line text confirmed via DOM inspection.
 tsc clean, build clean.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 8 — REDESIGN
+CLOSURE for `HP01-S45-R01`, previously logged PARTIAL in Iteration 6):**
+A Director-side acceptance-metrics protocol
+(`AUDIT2/QA/Human Preview 01 — Slide Acceptance Metrics and Crawl QA
+Protocol.md`, `S45-M04`) explicitly warned that label translation alone
+does not close R01 — the composition itself had to stop being two
+competing panels. Verified this by direct metric check against
+production before touching code: `S45-M04` genuinely failed (two
+separately-bordered panels — a stat card and a chart — read as
+competing visuals, confirmed by counting `.border-2.border-rule-strong`
+matches = 2 inside `#languages`).
+
+**Redesign, `MultilingualTokenEfficiencySection.tsx`:** merged the
+"선택된 언어" stat card and the chart panel into **one** bordered
+exhibit. The selected language's stats (name · token count · ratio ·
+%) now render as a single inline line in the panel's own header,
+directly above the chart, instead of a separate side card. Chart,
+language-switcher chips, the conditional Hangul callout, and the
+legend all now live inside that one panel, in that reading order. Zero
+new language, ratio, source, or citation — `MULTILINGUAL_COMPARISON_DATA`
+(5 entries) is read exactly as before, just laid out differently.
+
+Metric re-verification after the redesign (local build):
+- `S45-M01`: root count = 1; **main bordered panel count = 1** (was 2)
+- `S45-M02`: `BLOCKED_CONTENT_AUTHORITY`, unchanged — "12개 언어"/
+  Hindi mentions remain in the pre-figure prose (pre-existing flag,
+  not resolved by this visual pass)
+- `S45-M03`: PASS — governance/sovereign/Custom-Tokenizer conclusion
+  text confirmed absent (closed in Iteration 6, reconfirmed here)
+- `S45-M04`: now genuinely addressable — one visual, Korean's bar
+  (black, labeled `한국어`) immediately legible at first glance, no
+  competing panel
+- `S45-M05`: PASS — clicked English chip then Arabic chip, DOM text
+  changed both times, selection state updates correctly
+- `S45-M06`: PASS (closed in Iteration 6 — sentence-register fix)
+- `S45-M07`: `BLOCKED_EVIDENCE`, unchanged — no Flores paper located
+
+**Slide verdict: `CONDITIONAL PASS`** — all mandatory gates pass; two
+items remain correctly `BLOCKED_*`, not silently resolved.
+
+Verified 1440×KO: 0 document-level overflow. 390×KO: 0 document-level
+overflow, single panel renders cleanly stacked. tsc clean, build clean,
+bundle shrank slightly further (one fewer wrapping `div`).
+
 ---
 
 ## S04-burden

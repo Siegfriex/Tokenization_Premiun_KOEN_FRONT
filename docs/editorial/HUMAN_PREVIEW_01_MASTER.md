@@ -274,7 +274,7 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **PARTIAL** (HP01 Iter 6) — all concrete sub-directives (R02/R04/R05) done; no new visual composition invented (out of editorial-redline authority, no replacement design specified). Flagged for Director follow-up: confirm if this satisfies intent or a real layout redesign is still wanted |
+| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **DONE** (HP01 Iter 8) — Director's Acceptance Metrics doc (`S45-M04`) confirmed the Iter-6 label-only work did not close this (2 competing bordered panels, verified by count). Redesigned: merged the stat card and chart into one bordered panel, selected-language readout folded into the panel's own header line. Same 5 verified language entries, no new data. Verdict: `CONDITIONAL PASS` |
 | HP01-S45-R02 | Remove English-centric labels/unfiltered technical terminology, Korean-article-voice default | **DONE** (HP01 Iter 6) — all panel/chart/tooltip labels Koreanized |
 | HP01-S45-B01 | Restructure so Korean's position relative to other scripts is legible at a glance; only include languages with real verified evidence | **ALREADY_DONE** — the chart already sorts/highlights Korean distinctly (black bar vs gray others); the 5-language set is already the full verified set (no fabricated languages added) |
 | HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | `BLOCKED_EVIDENCE` (unchanged) — paper not identified/located this session |
@@ -405,23 +405,40 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 40 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 3; S5: 4) |
-| PARTIAL | 1 (S4.5-R01 — labels/prose done, no new visual composition) |
+| DONE | 41 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4) |
+| PARTIAL | 0 (S4.5-R01 closed this iteration) |
 | TODO | 9 |
-| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
+| BLOCKED_CONTENT_AUTHORITY | 3 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/B02, S5 source strips/B01) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 5 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Bonus resolution this iteration:** S5's phase-card bilingual gap
+**Bonus resolution (Iteration 7):** S5's phase-card bilingual gap
 (`HANDOFF.md` §6.5 / `DIRECTOR_DECISIONS.md` D6) is now closed as a
-byproduct of HP01-S5-R02 — that pre-existing item can be marked resolved
-in a future `DIRECTOR_DECISIONS.md` sync pass (not done here, out of
-this MASTER's own file scope, but worth flagging to whoever next
-touches that ledger).
+byproduct of HP01-S5-R02 — worth flagging to whoever next syncs
+`DIRECTOR_DECISIONS.md`.
 
-**Next action:** S5.2/impact — `HP01-S52-R01/R02/R03/R04`, `B01`/`B02`.
+**Protocol shift (mid-session):** adopted the Director's Acceptance
+Metrics document (`AUDIT2/QA/...Acceptance Metrics and Crawl QA
+Protocol.md`) as the literal test specification from Iteration 8
+onward, and its "verify before reimplement" priority order for
+already-merged slides. S4 verified `PASS` with zero code changes
+(E4 evidence, see LOOP_LOG). S4.5's Iteration-6 `PARTIAL` closed
+properly this iteration via a real composition redesign (not just
+labels) after the metrics doc's own count-based check
+(`S45-M04`) confirmed the prior state genuinely failed.
+
+**Slide verdicts so far (using the Acceptance doc's PASS/CONDITIONAL
+PASS/FAIL/NOT VERIFIABLE vocabulary):** S0 CONDITIONAL PASS (S0-R05
+deferred to S7), S1 PASS, S2 CONDITIONAL PASS (S2-M06/"4단계" blocked),
+S3 CONDITIONAL PASS (D1 blocked), S4 PASS, S4.5 CONDITIONAL PASS (2
+items blocked), S5 not yet formally re-scored against `S5-M01-M07`
+(next action).
+
+**Next action:** P2 — S5-infrastructure verification against
+`S5-M01-M07` (implemented in Iteration 7; confirm rather than assume).
+Then P3 S5.2/impact — `HP01-S52-R01/R02/R03/R04`, `B01`/`B02`.
 
 ---
 
