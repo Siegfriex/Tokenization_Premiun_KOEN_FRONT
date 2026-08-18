@@ -446,18 +446,18 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     preFigureParagraphs: {
       ko: [
-        '한국은 국가 차원의 대규모 AI 인프라 투자와 초거대 데이터센터 확충을 적극적으로 추진하고 있습니다. 정부의 AI 컴퓨팅 지원 사업과 민간 대기업의 차세대 반도체 투자는 향후 수년간 사회 전반의 AI 트래픽을 기하급수적으로 끌어올릴 것입니다.',
+        '한국은 국가 차원의 대규모 AI 인프라 투자와 초거대 데이터센터 확충을 적극적으로 추진하고 있습니다. 정부의 AI 컴퓨팅 지원 사업과 민간 대기업의 차세대 반도체 투자는 향후 수년간 사회 전반의 AI 트래픽을 지속적으로 끌어올릴 것으로 보입니다.',
         '기존에 존재하던 언어별 분절 효율 격차가 사회 전체의 처리량 스케일과 결합하면서 경제적·운영적 중요성이 증폭된다는 사실이 중요합니다.',
       ],
       en: [
-        'South Korea is accelerating national compute hubs and hyperscale AI data centers. National policies and private investments will drive exponential surges in daily AI token throughput.',
+        'South Korea is accelerating national compute hubs and hyperscale AI data centers. National policies and private investments are expected to keep driving up daily AI token throughput.',
         'Crucially, when massive societal adoption meets pre-existing linguistic tokenization inefficiencies, the aggregate operational impact scales drastically.',
       ],
     },
     figureNumber: 'FIG. 07',
     figureCaption: {
-      ko: '매크로 AI 도입 인과 사슬 및 검증된 정책·투자 데이터 슬롯 (Strict Data Verification)',
-      en: 'Macro AI Adoption Causal Chain & Verified Policy/Investment Slots',
+      ko: '한국 AI 인프라 확산의 4단계 흐름',
+      en: "Korea's AI Infrastructure Adoption Timeline",
     },
     figureSource: {
       ko: '자료: 과학기술정보통신부 정책 공시 및 주요 AI 인프라 투자 공시 (2024–2026)',
@@ -465,10 +465,10 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '공공 행정, 금융 거래, 대국민 복지 서비스 등 사회 전 영역에 AI 파이프라인이 직결되는 미래에는, 토큰 1개당 처리 단가의 미세한 차이가 국가 전체 컴퓨팅 전력 소모와 데이터센터 대역폭에 측정 가능한 영향을 미치게 됩니다.',
+        '공공 행정, 금융 거래, 대국민 복지 서비스 등 사회 전 영역에 AI 파이프라인이 직결되는 미래에는, 토큰 1개당 처리 단가의 미세한 차이도 국가 전체 컴퓨팅 자원 배분에서 함께 고려해야 할 변수가 됩니다.',
       ],
       en: [
-        'As AI pipelines integrate directly into public administration and citizen services, minor per-token efficiency differentials translate into measurable differences in national compute power consumption.',
+        'As AI pipelines integrate directly into public administration and citizen services, even minor per-token efficiency differences become a factor worth weighing in national compute resource planning.',
       ],
     },
   },

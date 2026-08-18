@@ -51,6 +51,31 @@ already covered by commit SHAs, not loose artifacts: `docs/HANDOFF.md`,
 `docs/qa/LOOP_LOG.md`. Their state as of this manifest = their state at
 git commit `894dcd8` (see MASTER §B for baseline SHAs).
 
+## Supplementary directive/audit documents (added 2026-08-18, mid-session)
+
+Location: `AUDIT2/QA/` (repo-root-relative). A parallel/independent audit
+process (external to this orchestrator) produced a DOM-addressing
+execution overlay plus its own runtime crawl and source-hook evidence.
+These do not replace `HUMAN_PREVIEW_01_MASTER.md` as the authority for
+screenshot meaning/status (that authority is explicitly preserved in
+the overlay document's own §0), but they do govern *how* subsequent
+patches should be addressed (selector priority order, when to add a
+`data-hp01-id` instrumentation hook) — see MASTER §A for the
+reconciliation note.
+
+| File | SHA-256 |
+|---|---|
+| `QA/Human Preview 01 — DOM-Targeted Local Agent Master Directive.md` | `7807819b31146e5ab4d59bd3fbb89aea650cb2ce1803761ba53ea15f44f8da78` |
+| `QA/Runtime Crawl Notes — Production Baseline.md` | `86d2d33f02c4236afae576c909571c84ea5b51c4d8d2ad64bb6bbe82d61788ee` |
+| `QA/Current Source Hook Index.md` | `fcf11af573059409b3aed43e3303204c37d43754e1c0692bdfd7e00264f1c959` |
+
+Independent verification value: the Runtime Crawl Notes document
+confirms — via a separate crawl of the live production site — that
+this session's S2 and S3 edits (PR #22/#23) deployed exactly as
+intended (e.g. quotes the live-rendered `핵심 실측 지표`,
+`관측된 토큰 프리미엄 비율` labels verbatim). No contradiction found
+between that independent audit and this MASTER's own record.
+
 ## Acquisition notes
 
 - Screenshots were annotated by hand (red/blue marker over screen

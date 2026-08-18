@@ -888,4 +888,61 @@ follow-up, not silently claimed done)
 Next: S5/infrastructure — `HP01-S5-R01/R02/R03/R04`. `B01` (source
 strips) stays `BLOCKED_EVIDENCE` unless real citable sources surface.
 
+### HP01 Iteration 7
+
+**Mid-iteration:** a parallel/independent audit dropped 3 new documents
+into `AUDIT2/QA/` (DOM-addressing execution overlay, runtime crawl
+notes, source-hook index) — hashed into
+`HUMAN_PREVIEW_01_SOURCE_MANIFEST.md`, reconciliation note added to
+MASTER §A. No contradiction with this session's S0-S6 work; the
+overlay's own independent crawl confirmed S2/S3 deployed correctly.
+Stricter selector-based addressing protocol adopted from this iteration
+onward.
+
+Image: `S6.png` (source filename; = Nav S5) · Nav: S5 · DOM:
+`infrastructure` · Trace: `INFRA` · Component: `KoreaAIContextSection.tsx`
+(+ `entities/article-content`, `entities/article-content/content/macro-adoption-phases.ts`)
+
+Directive IDs: `R01`, `R02`, `R03`, `R04` closed; `B01` stays
+`BLOCKED_EVIDENCE`
+
+**Also resolves a pre-existing bug, not just an HP01 item:**
+`MACRO_ADOPTION_PHASES` was never `isKo`-gated (`name` always English,
+`description` always Korean, regardless of UI language) — flagged since
+`HANDOFF.md` §6.5 / `DIRECTOR_DECISIONS.md` D6 as waiting on an
+editorial decision. HP01-S5-R02's explicit Koreanization directive is
+that decision. Converted to `{ ko, en }`, component updated to read via
+`isKo ?`. English descriptions newly written (factually equivalent to
+existing Korean, no new claims) since none existed before.
+
+Before → After (labels): `MACRO ADOPTION CAUSAL CHAIN` → `AI 확산의
+흐름`; `Scale Dynamics` → `규모 변화`; phase names e.g. `AI Investment
+↑` (shown both languages) → `{ko: 'AI 투자 확대', en: 'AI Investment'}`.
+
+**Removed entirely:** the 3-card "Verified Policy & Investment Slots"
+placeholder block (`[VERIFIED ... REQUIRED]` text), its section header,
+and the now-orphaned bridge arrow. Dead imports cleaned up.
+
+**Causal/exaggeration language removed** (both KO and EN):
+`"기하급수적으로"` → `"지속적으로"`; the sentence directly implying
+token-efficiency differences cause measurable national power-consumption
+impact → reframed as "a factor to weigh together"; figure caption's
+`"인과 사슬"` (causal chain) phrase → removed, caption rewritten to
+match the new content (no more policy slots).
+
+Verification: lint PASS, build PASS. Document-level scroll confirmed
+clean (0) at 1440/390 both languages; a naive per-element overflow scan
+flagged 3 phase-card `LI`s, traced to a pre-existing, unmodified
+decorative connector-arrow pseudo-element — confirmed harmless via
+`git diff` (untouched) and document-level measurement, not a
+regression.
+
+Result: ACCEPTED (5 of 5; B01 correctly stays blocked)
+
+Next: S5.2/impact — `HP01-S52-R01/R02/R03/R04`, `B01`/`B02`. Following
+the new DOM-addressing overlay: add `data-hp01-id="impact-levels"` and
+`data-hp01-id="impact-pathway"` hooks first if the 3-card dashboard and
+causal-chain box need independent targeting beyond their existing
+`data-collection` attributes.
+
 ---

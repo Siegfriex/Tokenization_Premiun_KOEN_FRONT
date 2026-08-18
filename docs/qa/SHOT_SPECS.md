@@ -906,6 +906,74 @@ triggering a break inside a compound word. 0 DOM overflow. Interaction
 count reconfirmed at 0, matching this slide's own "default only"
 required-states spec — no interactivity added.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 7): 5/5
+directives closed** (`R01`–`R04`; `B01` correctly stays
+`BLOCKED_EVIDENCE`). This also **resolves a long-standing pre-existing
+bug**, not just an HP01 item — see below.
+
+Target proof: root `section#infrastructure[data-widget="KoreaAIContextSection"]`
+(1 match), children `[data-collection="macro-adoption-phases"]` (4 items,
+unchanged count) and the now-removed `[data-collection="verified-policy-slots"]`
+(3→0 items).
+
+Exact changes:
+- **`HP01-S5-R01`:** `MACRO ADOPTION CAUSAL CHAIN` → `AI 확산의 흐름`
+  (KO) / `AI ADOPTION TIMELINE` (EN); `Scale Dynamics` → `규모 변화`
+  (KO). Non-causal framing per the annotation's own suggested phrasing.
+- **`HP01-S5-R02`, and independently resolves `HANDOFF.md` §6.5 /
+  `DIRECTOR_DECISIONS.md` D6:** `entities/article-content/content/macro-adoption-phases.ts`
+  — `MACRO_ADOPTION_PHASES[].name`/`.description`/`.phaseLabel` were
+  **not** `isKo`-gated in the legacy source (`name` always English,
+  `description` always Korean, regardless of UI language — a known,
+  deliberately-unresolved gap per the file's own header comment,
+  waiting on an editorial decision). Converted all three fields to
+  proper `{ ko, en }` objects; component now reads them via `isKo ?`.
+  English descriptions were newly written (not present in the legacy
+  source) to complete the bilingual pair — kept factually equivalent to
+  the existing Korean wording, no new claims. Example: `name`:
+  `'AI Investment ↑'` (was shown in both languages) → `{ ko: 'AI 투자
+  확대', en: 'AI Investment' }`.
+- **`HP01-S5-R03`:** removed the entire "Verified Policy & Investment
+  Slots" block — the 3 `[VERIFIED ... REQUIRED]` placeholder cards, the
+  now-orphaned diagram-bridge arrow that pointed at them, and the
+  section header above them. `VERIFIED_POLICY_SLOTS`/`getLocalizedText`
+  imports removed as dead code.
+- **`HP01-S5-R04`:** removed causal/exaggeration language —
+  `preFigureParagraphs[0].ko`: `"...기하급수적으로 끌어올릴
+  것입니다."` → `"...지속적으로 끌어올릴 것으로 보입니다."`;
+  `postFigureParagraphs[0].ko`: `"...국가 전체 컴퓨팅 전력 소모와
+  데이터센터 대역폭에 측정 가능한 영향을 미치게 됩니다."` → `"...국가
+  전체 컴퓨팅 자원 배분에서 함께 고려해야 할 변수가 됩니다."` (drops
+  the direct "measurable impact on power consumption" causal claim per
+  G08/R04, reframes as "a factor to weigh"). `figureCaption.ko`:
+  `"매크로 AI 도입 인과 사슬 및 검증된 정책·투자 데이터 슬롯"` (contains
+  "인과 사슬" — causal chain — directly) → `"한국 AI 인프라 확산의
+  4단계 흐름"`. EN equivalents updated in parallel (`"exponential
+  surges"` → `"keep driving up"`; `"translate into measurable
+  differences"` → `"a factor worth weighing"`).
+- **`HP01-S5-B01`:** `BLOCKED_EVIDENCE`, unchanged — no real citable
+  source strips available to replace the removed placeholders with.
+
+Research-content impact: NONE — `figureSource` (government policy
+disclosure citation) kept untouched (G06); no ratio/number in this
+slide was ever a research value (it has none), only prose framing and
+the previously-hardcoded phase names/descriptions changed.
+
+Behavior proof: 0 interactive controls before, 0 after (unchanged,
+matches "default only" spec). Placeholder text (`REQUIRED`) confirmed
+absent via `innerText` scan.
+
+Verified 1440×KO/EN: 0 document-level horizontal scroll
+(`document.documentElement.scrollWidth === clientWidth` at both 1440
+and 390) — 3 phase-card `LI` elements individually reported
+`scrollWidth > clientWidth` in a naive per-element scan, traced to the
+intentional off-box `lg:after:content-['→']` connector-arrow
+pseudo-element (`-right-6` positioning), confirmed pre-existing via
+`git diff` (this pass never touched that className) and confirmed
+harmless via document-level measurement — not a regression, logged so
+a future pass doesn't re-flag it. tsc clean, build clean, bundle
+shrank further (removed dead policy-slot code).
+
 ---
 
 ## S06-method
