@@ -414,19 +414,17 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '언어별 token representation efficiency의 차이는 한글만의 특수한 사례가 아니라, 다언어 AI 시스템 전체에서 살펴봐야 할 문제다.',
-        '향후 다국어 AI 거버넌스와 소버린 파운데이션 모델 개발 시, 독자적인 고효율 어휘집(Custom Tokenizer) 구축이 왜 핵심 인프라 과제인지를 명확히 보여줍니다.',
+        '언어별 토큰 표현 효율의 차이는 한글만의 특수한 사례가 아니라, 다언어 AI 시스템 전체에서 살펴봐야 할 문제다.',
       ],
       en: [
         'Token efficiency disparity is not a unique Korean edge case, but a systemic structural challenge across the entire multilingual AI ecosystem.',
-        'It demonstrates why developing dedicated, linguistically balanced tokenizers is a strategic priority for sovereign AI and regional foundation models.',
       ],
     },
     keyFinding: {
       label: { ko: '글로벌 벤치마크 결론', en: 'Global Benchmark Takeaway' },
       statement: {
-        ko: '비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측되며, 이는 다국어 AI 거버넌스의 구조적 과제입니다.',
-        en: 'Token inflation of 1.5× to 2.3× is universally observed across non-Latin scripts, representing a structural challenge in global AI infrastructure.',
+        ko: '비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측됩니다.',
+        en: 'Token inflation of 1.5× to 2.3× is universally observed across non-Latin scripts.',
       },
     },
   },

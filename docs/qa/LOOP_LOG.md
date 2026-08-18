@@ -842,4 +842,50 @@ Next: S4.5/languages — `HP01-S45-R01/R02/R04/R05`; `B01`. `B02` (Flores
 paper) stays `BLOCKED_EVIDENCE`; `R03` ("12개 언어"/Hindi) stays a
 pre-existing content-integrity flag, reconfirmed not resolved here.
 
+### HP01 Iteration 6
+
+Image: `S4.5.png` (S5.png in the source filename) · Nav: S4.5 · DOM:
+`languages` · Trace: `LANG` · Component:
+`MultilingualTokenEfficiencySection.tsx` (+ `entities/article-content`)
+
+Directive IDs: `R02`, `R04`, `R05` closed; `R01` **partial** (see note
+— label/prose fixes done, no new visual composition); `R03` correctly
+untouched; `B02` stays `BLOCKED_EVIDENCE`
+
+**`R01` honesty note:** the annotation shows this whole section
+double-X-struck asking for "대규모 재디자인" (major redesign). This
+iteration did the concrete sub-directives (labels, sentence removal,
+register fix) but did NOT invent a new chart/card composition — no
+replacement design was specified to build against, and that's original
+design work beyond this pass's editorial-redline authority. Flagging
+for Director follow-up rather than claiming full closure.
+
+Before → After (labels, `isKo`-gated): `LANGUAGE FOCUS`/`Selected
+Metric` → `선택된 언어` (merged to one label); `Normalized Tokens:` →
+`정규화 토큰 수:`; `NORMALIZED TOKEN CONSUMPTION BY LANGUAGE` → `언어별
+정규화 토큰 소비량`; chart `ReferenceLine`/tooltip text also
+Koreanized — verified via SVG DOM text inspection, not screenshot alone
+(small SVG text can look garbled in a raster capture even when correct).
+
+Entity text: `postFigureParagraphs.ko` — **removed** the "다국어 AI
+거버넌스와 소버린 파운데이션 모델" sentence entirely per the
+annotation's explicit "논지는 안맞으므로 제거". This also fixed the
+`~다`/`~습니다` register mix (R05) as a byproduct — the removed
+sentence was the one in the mismatched register.
+`keyFinding.statement.ko` — dropped the "...다국어 AI 거버넌스의
+구조적 과제입니다" trailing clause ("구조적 과제" is a named item in
+G09's ban list).
+
+Research-content impact: NONE — every ratio (1.00×–2.30×, 1.5×~2.3×)
+confirmed byte-identical. Both text removals are conclusion-framing
+sentences, not measured values.
+
+Verification: lint PASS, build PASS, 1440×KO/EN PASS (0 overflow both).
+
+Result: ACCEPTED (5 of 6 fully; R01 partial, flagged for Director
+follow-up, not silently claimed done)
+
+Next: S5/infrastructure — `HP01-S5-R01/R02/R03/R04`. `B01` (source
+strips) stays `BLOCKED_EVIDENCE` unless real citable sources surface.
+
 ---

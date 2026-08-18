@@ -558,6 +558,75 @@ shared Article components (0 other break issues found). **Did not touch**
 the "12개 언어"/Hindi content-integrity item — still open, still a
 content-owner decision, not re-litigated here.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 6): 5/6
+directives closed at the label/prose level** (`R01` partial — see note
+below, `R02`, `R04`, `R05`); `R03` (12개 언어/Hindi) correctly stays
+untouched (pre-existing content-integrity flag, reconfirmed not
+resolved); `B02` (Flores paper) stays `BLOCKED_EVIDENCE`.
+
+**`HP01-S45-R01` note — this was NOT a full visual redesign.** The
+annotation's own text asks for "대규모 재디자인" and shows the entire
+section double-X-struck, the strongest rejection mark in the whole
+Human Preview. What this pass actually did is the full set of concrete,
+individually-annotated sub-directives (`R02`/`R04`/`R05` below) — label
+Koreanization, removing the front-running conclusion sentence, fixing
+the register mismatch. It did **not** invent a new visual composition
+(new chart type, new card layout) — that would be original design work
+beyond an editorial-redline pass's authority, and no specific
+replacement composition was given to implement against. Marking `R01`
+`TODO` (partial) in the MASTER rather than `DONE`, flagged for Director
+follow-up: confirm whether the concrete sub-fixes satisfy the intent, or
+whether an actual layout redesign is still wanted.
+
+Exact changes, `MultilingualTokenEfficiencySection.tsx` (all
+`isKo`-gated, EN mode unaffected):
+- `LANGUAGE FOCUS` / `Selected Metric` → `선택된 언어` (the redundant
+  second label removed rather than translated — one label carries the
+  same meaning)
+- `Normalized Tokens:` → `정규화 토큰 수:`; `Relative Ratio:` → `상대
+  비율:`; `Difference vs. English:` → `영어 대비 차이:`; `Baseline
+  (0%)` → `기준값 (0%)`
+- `NORMALIZED TOKEN CONSUMPTION BY LANGUAGE` → `언어별 정규화 토큰
+  소비량`
+- Recharts `ReferenceLine` label: `English Baseline (100 tok)` →
+  `영어 기준선 (100)` — verified via SVG DOM text-content inspection
+  (`영어 기준선 (100)`, no transform, positioned identically to the
+  axis tick labels) rather than trusting the screenshot alone, since
+  small SVG text can look garbled in a raster screenshot even when the
+  underlying markup is correct
+- Tooltip content: `"{n} Tokens (x×)"` → `"토큰 {n}개 (x×)"`;
+  `"+{n}% vs English"` → `"영어 대비 +{n}%"`; `"Baseline"` → `"기준값"`
+
+Entity text, `entities/article-content.ts` `multilingualBenchmark`
+(`R02`/`R04`/`R05`):
+- `postFigureParagraphs.ko`: was 2 sentences, now 1. **Removed
+  entirely** (not reworded): `"향후 다국어 AI 거버넌스와 소버린
+  파운데이션 모델 개발 시, 독자적인 고효율 어휘집(Custom Tokenizer)
+  구축이 왜 핵심 인프라 과제인지를 명확히 보여줍니다."` — per the
+  annotation's own words, "논지는 안맞으므로 제거" (the argument
+  doesn't fit, remove it). The remaining sentence also had "token
+  representation efficiency" Koreanized → "토큰 표현 효율".
+  **This also resolves `R05` (sentence-ending register mix)** as a
+  byproduct: the removed sentence was the one ending in `~습니다`
+  against the rest of the paragraph's `~다`; with it gone there's no
+  mixed register left in this paragraph set.
+- `keyFinding.statement.ko`: `"...이는 다국어 AI 거버넌스의 구조적
+  과제입니다."` trailing clause removed (stops at `"...보편적으로
+  관측됩니다."`) — this exact "구조적 과제" phrase is one of G09's own
+  named ban-list items (not a MASTER inference), and it repeated the
+  same front-running-conclusion pattern R04 already flagged elsewhere
+  on this slide.
+
+Research-content impact: NONE on any ratio/percentage (1.00×, 1.18×,
+1.78×, 2.05×, 2.30×, 1.5×~2.3× all byte-identical, confirmed via
+re-read). The two sentence removals are editorial-conclusion framing,
+not measured values — and one of them is the exact sentence the
+Director's own annotation named for removal.
+
+Verified 1440×KO/EN: 0 overflow both languages, chart renders
+correctly, tooltip/reference-line text confirmed via DOM inspection.
+tsc clean, build clean.
+
 ---
 
 ## S04-burden

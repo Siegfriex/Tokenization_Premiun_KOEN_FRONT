@@ -95,9 +95,8 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
               <div className="bg-surface border border-rule rounded-xs p-6 space-y-6 shadow-xs">
                 <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                   <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
-                    LANGUAGE FOCUS
+                    {isKo ? '선택된 언어' : 'LANGUAGE FOCUS'}
                   </dt>
-                  <dd data-source="widget" className="text-xs font-mono text-ink-muted">Selected Metric</dd>
                 </dl>
 
                 <div className="space-y-1">
@@ -111,17 +110,17 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
 
                 <div className="space-y-3 pt-2 border-t border-rule text-xs font-mono">
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <dt data-source="widget" className="text-ink-muted">Normalized Tokens:</dt>
-                    <dd data-source="widget" className="text-ink font-bold">{selectedItem.tokenCount} tokens</dd>
+                    <dt data-source="widget" className="text-ink-muted">{isKo ? '정규화 토큰 수:' : 'Normalized Tokens:'}</dt>
+                    <dd data-source="widget" className="text-ink font-bold">{selectedItem.tokenCount}{isKo ? '개' : ' tokens'}</dd>
                   </dl>
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <dt data-source="widget" className="text-ink-muted">Relative Ratio:</dt>
+                    <dt data-source="widget" className="text-ink-muted">{isKo ? '상대 비율:' : 'Relative Ratio:'}</dt>
                     <dd className="text-ink font-bold text-sm">
                       {selectedItem.relativeRatio.toFixed(2)}×
                     </dd>
                   </dl>
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
-                    <dt data-source="widget" className="text-ink-muted">Difference vs. English:</dt>
+                    <dt data-source="widget" className="text-ink-muted">{isKo ? '영어 대비 차이:' : 'Difference vs. English:'}</dt>
                     <dd
                       className={`font-bold ${
                         selectedItem.differencePercent > 0 ? 'text-ink' : 'text-ink-muted'
@@ -129,7 +128,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                     >
                       {selectedItem.differencePercent > 0
                         ? `+${selectedItem.differencePercent}%`
-                        : 'Baseline (0%)'}
+                        : isKo ? '기준값 (0%)' : 'Baseline (0%)'}
                     </dd>
                   </dl>
                 </div>
@@ -172,7 +171,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                   <dl data-role="stat" data-semantic-target="dl">
                     <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
-                      NORMALIZED TOKEN CONSUMPTION BY LANGUAGE
+                      {isKo ? '언어별 정규화 토큰 소비량' : 'NORMALIZED TOKEN CONSUMPTION BY LANGUAGE'}
                     </dt>
                     <dd className="text-[11px] font-mono text-ink-muted">
                       {isKo
@@ -219,12 +218,14 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                                   {isKo ? data.scriptTypeKo : data.scriptTypeEn}
                                 </div>
                                 <div data-source="widget" className="text-ink font-bold text-sm">
-                                  {data.tokenCount} Tokens ({data.relativeRatio.toFixed(2)}×)
+                                  {isKo
+                                    ? `토큰 ${data.tokenCount}개 (${data.relativeRatio.toFixed(2)}×)`
+                                    : `${data.tokenCount} Tokens (${data.relativeRatio.toFixed(2)}×)`}
                                 </div>
                                 <div data-source="widget" className="text-ink-body">
                                   {data.differencePercent > 0
-                                    ? `+${data.differencePercent}% vs English`
-                                    : 'Baseline'}
+                                    ? isKo ? `영어 대비 +${data.differencePercent}%` : `+${data.differencePercent}% vs English`
+                                    : isKo ? '기준값' : 'Baseline'}
                                 </div>
                               </div>
                             );
@@ -237,7 +238,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                         stroke={chartTokens.ruleMuted}
                         strokeDasharray="3 3"
                         label={{
-                          value: 'English Baseline (100 tok)',
+                          value: isKo ? '영어 기준선 (100)' : 'English Baseline (100 tok)',
                           fill: chartTokens.ruleMuted,
                           fontSize: 10,
                           position: 'top',
