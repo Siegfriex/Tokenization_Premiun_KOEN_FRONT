@@ -1364,3 +1364,109 @@ strips evidence), and `D8` (기사_최종본.docx corpus/ratio discrepancy)
 MASTER doc, none silently resolved.
 
 ---
+
+### Iteration 12 — S4.5 new exhibit: Petrov et al. (2023) prior-research comparison (Director-dictated content, new work beyond the original 8-slide scope)
+
+Director gave live in-chat instruction to add an interactive graph to
+S4.5 (multilingual comparison) resolving the previously
+`BLOCKED_EVIDENCE` item `HP01-S45-B02` ("locate the Flores paper"),
+dictating the exact prose and citation data to use. This is genuinely
+new content, not a redline against an AUDIT2 screenshot — treated with
+the same discipline as the rest of the loop: no fabricated numbers, no
+protected-content overreach, full before/after documentation.
+
+**New files:**
+- `entities/flores-citation/model/types.ts` — `FloresCitationItem` type.
+- `entities/flores-citation/content/flores-citation.ts` —
+  `FLORES_CITATION_DATA` (5 rows: English/Chinese/Korean/Russian/
+  Standard Arabic, `totalTokens` + `ratio` fields, sourced from the
+  Director-provided table) and `FLORES_CITATION_NOTE` (all prose,
+  quoted from the Director's message, translated to EN for the EN
+  locale — not generated).
+- `entities/flores-citation/index.ts` — barrel export.
+
+**Change boundary:** `MultilingualTokenEfficiencySection.tsx` (new
+exhibit appended after the section's existing content, own state hook
+`selectedFloresId`, own `ResponsiveContainer`/`BarChart` reusing
+`chartTokens` — no existing chart/data touched). No other file's
+protected content edited.
+
+**Exact content, as dictated (KO; EN is a faithful translation, not
+generated):**
+- Subheading: `"한국어만의 문제인가? 선행연구는 아니라고 말한다"`
+- `"이 현상이 한글만의 특수한 예외인지 확인하려면 다른 언어를 같이
+  봐야 한다."`
+- `"Petrov·La Malfa·Torr·Bibi 연구진은 NeurIPS 2023에서 FLORES-200의
+  동일 의미 병렬문장 2,000개를 여러 토크나이저로 비교했다. 연구진이
+  공개한 tokenization_lengths.csv의 cl100k_base 열을 영어=1로 다시
+  계산하면 다음과 같다."`
+- Table (English=52,835/1.00×, Chinese Simplified=101,138/1.91×,
+  Korean=125,737/2.38×, Russian=131,496/2.49×, Standard
+  Arabic=160,485/3.04×) — rendered as an interactive horizontal bar
+  chart, ratio on the x-axis, English-baseline reference line at 1.00×,
+  click-to-select bars + language chips (mirrors the section's existing
+  chart's interaction pattern for consistency), tooltip on hover.
+- `"이 수치는 우리 연구의 1.33배와 직접 비교하면 안 된다. 데이터셋도
+  다르고 토크나이저도 다르다. Petrov 연구는 FLORES-200 + cl100k_base,
+  본 연구는 약 384만 한-영 대응쌍 + o200k_base다."` — **flagged
+  separately below.**
+- `"하지만 방향은 중요하다. 높은 tokenization length가 한국어에서만
+  나타난 것이 아니다. 중국어, 러시아어, 아랍어에서도 영어보다 큰
+  격차가 나타났다. 따라서 기사 프레임은 "한글만 유독 비효율적"이
+  아니라 이렇게 잡는 편이 정확하다."`
+- Closing callout (rendered via the existing `ArticleFinding`
+  component, label `"선행연구와의 정합성"`): `"영어 중심으로 보이지
+  않던 '토크나이저의 언어별 격차'가 한국어에서도 다시 관측됐다.
+  토크나이저와 데이터셋이 달라지면 격차의 크기는 달라진다. 다만 같은
+  의미를 세는 길이가 언어에 따라 달라지는 현상은 여러 토크나이저
+  조건에서 반복해서 관찰돼 왔다."`
+- Figure caption: `"영어=1로 본 선행연구 언어별 tokenization length"`,
+  numbered `FIG. 06-1` (a sub-figure of the section's existing FIG. 06,
+  not the literal "그림 3" the Director wrote — the site's numbering is
+  sequential FIG. 01–08 across the whole article, so "그림 3" would
+  misnumber against every other exhibit; used `06-1` to keep global
+  numbering consistent and flagged this substitution explicitly here
+  rather than silently reinterpreting it).
+
+**Director's inline instruction "토크나이저가 다른것을 어필하지말고,
+적절히 은폐" (don't make the tokenizer difference a chart-level
+callout — the prose already discloses it) implemented as:** the chart
+itself carries only a small factual attribution tag
+(`Petrov et al. 2023 / cl100k_base`), no warning badge — the full
+tokenizer/dataset disclosure stays in the `cautionText` paragraph
+directly above and below the chart, which is unabridged and unedited
+from what the Director dictated. Nothing about the methodology
+difference was hidden from the reader; only the chart's own chrome was
+kept clean, consistent with how every other exhibit on the site handles
+caveats (prose, not badges).
+
+**Flagging, not silently resolving (per this session's standing rule):**
+`cautionText` states `"본 연구는 약 384만 한-영 대응쌍 + o200k_base"`
+and `"우리 연구의 1.33배"` — these are the exact `D8`
+(`기사_최종본.docx`) figures, and they now appear live on the site for
+the first time, in the Director's own dictated words. `S3`'s headline
+(`69,432` pairs, `1.29×~1.83×` range) was **not** touched — D1 remains
+frozen exactly as before. Logged as an update to `D8` in
+`DIRECTOR_DECISIONS.md`: the site now visibly shows two different
+corpus sizes in two different places until D1 is explicitly ruled.
+
+**Metric verification** (Playwright, `localhost:3000`, 1440×900,
+KO+EN, plus 390px mobile):
+```
+Headline/citation/caution text all present (KO): PASS
+Caution text "1.33"/"384만" present: PASS (as dictated)
+5 language chips rendered, click-to-select works (tested: Arabic chip
+  click updates header detail line and legend to 3.04×): PASS
+overflow: false at 1440px (KO/EN) and 390px
+EN locale: headline/caution ("3.84 million") render correctly: PASS
+```
+One bug caught and fixed during verification: chip labels used
+`.split(' ')[0]` (copied from the existing chart's pattern) to shorten
+long names, which truncated `"표준 아랍어"` to just `"표준"` — not
+recognizable as Arabic. Fixed to render the full name instead.
+
+**Verdict: implemented as dictated.** `npx tsc --noEmit` and
+`npm run build` both clean. This is new work, not a redline closure —
+not counted toward the "S0–S7 all closed" tally above.
+
+---

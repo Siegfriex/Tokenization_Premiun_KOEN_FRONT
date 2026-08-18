@@ -256,7 +256,130 @@ current corpus, or unrelated to what should ship? Until ruled, D1 stays frozen
 exactly as-is and no code in this loop will be changed to match either set of
 numbers.
 
+**Update (2026-08-18, same day, HP01 Iteration 12):** the Director
+directly dictated new S4.5 copy in chat that names "우리 연구" (our
+study) as "약 384만 한-영 대응쌍" / "1.33배" — i.e., using D8's
+`기사_최종본.docx` figures as fact, in the Director's own words, not
+as a file discovered by the agent. That text was implemented verbatim
+in exactly one new location: `FLORES_CITATION_NOTE.cautionText` in
+`entities/flores-citation/content/flores-citation.ts`, a new
+supplementary exhibit inside `MultilingualTokenEfficiencySection.tsx`
+(S4.5) comparing against the Petrov et al. citation. **This is not
+being treated as a ruling on D1.** `TokenPremiumSection.tsx` (S3),
+`domain-distribution.ts`, and every other place `69,432` /
+`1.29×~1.83×` appear are untouched — D1 remains frozen exactly as
+before. The site now visibly states two different corpus sizes in two
+different places (S3: 69,432 / S4.5's new paragraph: ~3.84M) until D1
+is explicitly ruled one way or the other. Flagged to the Director in
+the same turn this was implemented, not silently smoothed over.
+
 ---
+
+## D9 — `AUDIT2/data_val/WEBAPP.docx`: a full editorial-content contract, self-described as advisory, effectively proposing to resolve D8 by rewriting most of the site's protected copy
+
+**CRITICAL · discovered 2026-08-18, same session as D8 · a proposal, not a ruling · nothing implemented from it**
+
+A second new untracked file appeared (`AUDIT2/data_val/WEBAPP.docx`,
+SHA-256 `e52bc314fb5c792152cbffc163fd6d83c7fabe208370ccb19fb3373d83ca99a5`,
+logged in the source manifest), extracted the same way as the other
+`.docx` files (unzip + regex on `word/document.xml`, 18,538 characters).
+It identifies itself explicitly:
+
+> Document: WEBAPP.md · Status: INDEPENDENT_EDITORIAL_DRAFT /
+> READ-ONLY_RESEARCH_AUDIT · Repository write policy: NO GIT WRITE / NO
+> BRANCH CHECKOUT / NO MERGE / NO VERCEL ACTION · This document is
+> produced outside the working repositories. It is an editorial/content
+> contract only... D8 is a FRONT governance decision, not permission
+> for this independent artifact to write into the repository.
+
+It appears to originate from whoever runs the **research-side repo**
+(`Siegfriex/Tokenization_Premiun_KOEN`, referenced at commit
+`6368687c3def9786ad886d3c4886862403e22dd1`) and explicitly cross-checks
+against this FRONT repo's own state — it names this session's exact
+recent work (the S4.5 redesign, the S5.2 causal-chain reframing, and
+**this file's own D8 discovery**) and cites this repo's `main` at
+`944b8a73b373ee9122af94e0225bbcfd5e55f910` (the commit produced by PR
+#28, before this session's PR #29 merge). It is timestamped the same
+day. **This is a document meant to be read by an implementation agent
+— it is not, on its own, Director authorization to act.**
+
+**What it contains (summary — full text is 18.5k characters, quoted
+selectively):**
+
+1. **A formal evidence-class ledger** distinguishing what can currently
+   be published: `CLOSED_PRIMARY` (RQ1 — N=3,835,988 pairs, median TP
+   = 1.3333×, TP>1 in 87.985%, TP=1 in 5.128%, TP<1 in 6.887%),
+   `PERSISTED_DESCRIPTIVE` (NB07 branch results — exact CR×BDR×CP
+   decomposition, 87.6884% "representation reversal" where Korean has
+   *fewer* codepoints but *more* tokens, KO/EN regex-chunk and
+   token-per-chunk statistics), `EXTERNAL_PRIOR_STUDY` (the Petrov et
+   al. citation — same 5 values already used in this session's
+   Iteration 12 S4.5 exhibit), `ARITHMETIC_SCENARIO`,
+   `BLOCKED_MODEL_RESULT` (NB09/RQ3-RQ5 — explicitly not ready),
+   `BLOCKED_SERVICE_EVIDENCE` (real pricing/limits — explicitly not
+   ready).
+2. **An explicit forbidden-claims list**, regardless of future NB09
+   results: "Korean is intrinsically inefficient for AI", "UTF-8 3
+   bytes means 3x tokens", "Token Premium causes reasoning
+   degradation", "a fixed Token Premium means every API or subscription
+   bill increases by the same percentage" — useful guardrails
+   independent of whether D8/D9 are ever acted on.
+3. **A full slide-by-slide recommended rewrite (§4)** for all of
+   S0–S7 — new headlines, new hero numbers (`3.836M / 1.33x / 87.99% /
+   87.69%`), and explicit instructions to **stop using the numbers this
+   repo currently has frozen**: *"Do not restore old unsourced: 31 / 18
+   / 1.72x hero specimen... 69,432... 1.68 average... 1.29-1.83 global
+   range."* This directly targets D1 and D2, not just D8.
+4. **A claim-replacement table (§8)** mapping specific current-copy
+   phrases to proposed replacements (e.g. `"GPT-5(o200k_base)로 계산"`
+   → `"o200k_base 토크나이저로 측정"`; `"한국어 형태소 구조 때문에"` →
+   `"형태소는 현재 설명 후보이며 NB09 결과 전 원인으로 확정하지
+   않음"`), explicitly headed *"these are editorial change requests
+   only; this document does not modify Git."*
+5. **A comparative evaluation of the two D8 `.docx` files** —
+   recommends using `기사_최종본.docx` for narrative architecture but
+   NOT as the "fact ledger" (flags it still contains unreconciled
+   95th/99th-percentile values and pricing calculations, and says it
+   incorrectly implies "GPT-5" is the research instrument rather than
+   the tokenizer); recommends using the Petrov summary doc as a
+   contextual module only. This is a more granular position than D8's
+   binary framing.
+6. **Publication gates (§9)**: Gate A ("publishable now" — RQ1 numbers,
+   NB07 descriptive results with branch status disclosed, the Petrov
+   comparison, the arithmetic scenario), Gate B ("wait for NB09" — any
+   morphology/regex-mechanism incremental-effect claim), Gate C ("wait
+   for service evidence" — real pricing/limits/latency).
+
+**What was NOT done in response to this file:** no code changed. The
+already-in-progress S4.5 Petrov exhibit (Iteration 12, authorized
+separately by the Director's own live chat instruction) was completed
+and happens to align with what this document independently recommends
+for S4.5 — that is corroboration, not this document's authority being
+exercised. Nothing else in §4's slide-by-slide rewrite, §8's claim
+table, or the hero-number replacement was implemented.
+
+**Why this is not being acted on unilaterally.** The document is
+explicit about its own scope — an advisory contract, not a git-write
+action, with the actual decision left to "FRONT governance." Even
+setting that self-description aside, the scale is the same class of
+decision as D8 itself, just far more specific and far larger:
+implementing §4/§8 in full would rewrite the hero numbers, S3's entire
+primary-result framing, remove/replace the domain-distribution exhibit,
+add new NB07-derived exhibits (representation reversal, CR×BDR×CP
+decomposition, regex-chunk paradox) that do not exist anywhere in this
+repo's current entities, and change the article's central metric from
+a range (`1.29×~1.83×`) to a single median (`1.33×`) throughout. That
+is a full research-content and information-architecture decision, not
+something available to this loop's own authority regardless of how
+well-organized the proposal is.
+
+**Decision needed:** does the Director want this WEBAPP.docx contract
+implemented — in full, in the "Gate A" subset it itself proposes as
+safe, or not at all? If yes, this is large enough to warrant its own
+planned, sequenced pass (likely slide-by-slide, same discipline as the
+Human Preview 01 loop) rather than an ad hoc autonomous rewrite. Until
+ruled, D1 and D2 both stay frozen exactly as-is, and no new NB07/RQ1
+exhibit from this document ships.
 
 ## Answering a row
 
