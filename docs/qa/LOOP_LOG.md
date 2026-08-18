@@ -463,4 +463,15 @@ dominant over the exhibit card's.
 out of scope for this visual-only pass, requires Director ruling per
 `DIRECTOR_DECISIONS.md`.
 
+**Production verified:** PR #18 merged (`9ebe5dd`) mid-iteration;
+worktree-build-and-hash-compare against production confirmed exact
+match (`index-B0LeBmgl.js`, `index-03amukyS.css`).
+
+### Iteration 12 (S01-compare) — PASS, no fix
+
+Tightened re-screening (real per-viewport screenshots, EN 390 DOM
+overflow scan, KO/EN weight-asymmetry check) found no defect. Full
+detail in `docs/qa/SHOT_SPECS.md` S01-compare. A verified clean result,
+not a skipped check.
+
 ---

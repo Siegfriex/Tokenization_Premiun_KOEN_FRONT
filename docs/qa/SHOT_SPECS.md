@@ -158,6 +158,27 @@ Trace IDs, statuses, and values unchanged — verified via diff.
 
 ---
 
+**Findings (visual devpass, 2026-08-18, Iteration 12): PASS, no fix
+applied.** Tightened re-screening per Director instruction (do not accept
+a clean pass at face value). Checked: (1) real per-viewport screenshots
+(not `elementHandle.screenshot()` — confirmed the sticky-header
+mid-capture artifact this file's own iteration-4 note warns about
+reproduces exactly as described when that method is used; avoided this
+time) at 390×KO across 3 scroll positions — header, 4-card selector
+(all 4 pairs render, correctly ordered), KO/EN exhibit. (2) EN 390:
+switched language, DOM-scanned every descendant of `#compare` for
+`scrollWidth > clientWidth` — zero overflow candidates; 4-card context
+tags ("General Description" / "Corporate Operations" / "Scientific
+Literature" / "Public Administration", the risk zone this file already
+flagged as uneven-length) do not wrap awkwardly at either language.
+(3) KO/EN token-count banner weight asymmetry (`font-black` KO vs
+`font-bold` EN) — confirmed intentional, mirrors the `bg-accent` (KO,
+emphasized subject) vs `bg-mark-baseline` (EN, comparison baseline) dot
+distinction already in the accent-dot markup; not a defect. No code
+change this iteration — a real clean state, not an unexamined one.
+
+---
+
 ## S07-result
 
 | Field | Content |
