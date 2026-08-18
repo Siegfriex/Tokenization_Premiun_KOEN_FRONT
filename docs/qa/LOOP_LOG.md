@@ -572,4 +572,16 @@ already-passed slide's figure caption; not individually re-verified
 per slide since the fix is structural. Full detail in
 `docs/qa/SHOT_SPECS.md` S05.2-impact.
 
+### Iteration 19 (S06-method) — 4 fixes, Korean word-break only
+
+Most instances in one pass this session: 3 of the 6 boundary-box claims
+broke mid-word/mid-particle ("떨어진다고", "비용을", "토큰을"), one
+`break-keep` on the shared claim className fixes all 6; the accordion
+panel body ("의도를"); footnote #3 ("일상"). All raw elements outside
+the shared Article components. Zero content change. Full detail in
+`docs/qa/SHOT_SPECS.md` S06-method.
+
+With this iteration, every slide S00–S06 has been screened this phase;
+S07-result remains.
+
 ---

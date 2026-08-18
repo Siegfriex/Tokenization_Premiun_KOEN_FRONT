@@ -690,6 +690,20 @@ synthesized and fixed directly.
 Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
 passes, audit pipeline diff-reproducible, director queue unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 19): 4 fixes, Korean
+word-break only.** Most instances found in one pass this session: (1)
+the 6-claim boundary-box `<span>` — 3 of 6 items broke mid-word/mid-
+particle at 390px ("떨어진다고"→"떨어"/"진다고", "비용을"→"비용"/"을",
+"토큰을"→"토"/"큰을"); one `break-keep` on the shared claim-list
+className fixes all 6. (2) The methodology-accordion panel body
+(`item.content`) — "의도를" was splitting as "의"/"도를". (3) The
+footnotes `<p>` — footnote #3 split "일상" as "일"/"상". All raw
+elements, none routed through the shared Article components. Fixed all
+4 with `break-keep`; re-screenshotted 390×KO through the full boundary-
+box list, one expanded accordion panel, and all 3 footnotes — every
+previously-broken word now intact, 0 overflow, tsc/build clean, zero
+content change.
+
 ---
 
 ## S05.2-impact
