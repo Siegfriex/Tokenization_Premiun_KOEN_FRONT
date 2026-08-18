@@ -230,14 +230,14 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S3-R01 | Koreanize `CORE EMPIRICAL METRIC` / `MATHEMATICAL FORMULA` / `DOMAIN DISTRIBUTION EXHIBIT` labels | TODO — image confirms both with explicit "AI 티 없애기" marks |
-| HP01-S3-R02 | Define "Token Premium" explicitly on first use (example format given: `TOKEN_PREMIUM(~~~)`) | TODO — image top-right BLUE box gives a 4-point structure: (1) 대규모 한영코퍼스, (2) 심층벤치마크, (3) 실증적 분포, (4) 용어설명 예시 |
-| HP01-S3-R03 | Numeric provenance must be traceable on-screen; don't justify unsourced numbers with new prose | TODO |
-| HP01-S3-R04 | D1 numeric mismatch stays a separate open decision — Human Preview does not license auto-replacing `1.29/1.83/1.68`/domain count with research-repo values | `BLOCKED_CONTENT_AUTHORITY` (== existing D1, unchanged) |
-| HP01-S3-B01 | Explain "대규모 한영 코퍼스"/"심층 벤치마크"/"실증적 분포" concisely in plain Korean | TODO |
-| HP01-S3-R05 | Data/comparison must read before English UI terms | TODO |
-| HP01-S3-R06 *(MASTER-derived)* | "OBSERVED TOKEN PREMIUM RATIO" label struck through in the second annotation pass — Koreanize/remove the label (number itself untouched, PROTECTED) | TODO |
-| HP01-S3-R07 *(MASTER-derived)* | Closing paragraph ("특히 장문의 고유명사와…") marked "어렵게 설명" (explained in a hard-to-follow way) — simplify | TODO |
+| HP01-S3-R01 | Koreanize `CORE EMPIRICAL METRIC` / `MATHEMATICAL FORMULA` / `DOMAIN DISTRIBUTION EXHIBIT` labels | **DONE** (HP01 Iter 4) — `핵심 실측 지표` / `산출 공식` / `도메인별 분포` |
+| HP01-S3-R02 | Define "Token Premium" explicitly on first use (example format given: `TOKEN_PREMIUM(~~~)`) | **DONE** (HP01 Iter 4) — satisfied via the existing Tier-3 formula box, translated in place rather than adding new copy |
+| HP01-S3-R03 | Numeric provenance must be traceable on-screen; don't justify unsourced numbers with new prose | **ALREADY_DONE** — verified no new unsourced justification was added; provenance display unchanged |
+| HP01-S3-R04 | D1 numeric mismatch stays a separate open decision | `BLOCKED_CONTENT_AUTHORITY` (unchanged) |
+| HP01-S3-B01 | Explain "대규모 한영 코퍼스"/"심층 벤치마크"/"실증적 분포" concisely in plain Korean | **DONE** (HP01 Iter 4) — same fix as R02, the translated formula box + existing lead paragraph already carry this |
+| HP01-S3-R05 | Data/comparison must read before English UI terms | **DONE** (HP01 Iter 4) — resolved as a byproduct of R01 |
+| HP01-S3-R06 *(MASTER-derived)* | "OBSERVED TOKEN PREMIUM RATIO" label struck through — Koreanize/remove (number PROTECTED) | **DONE** (HP01 Iter 4) — `관측된 토큰 프리미엄 비율`, number untouched (verified via DOM scan) |
+| HP01-S3-R07 *(MASTER-derived)* | Closing paragraph marked "어렵게 설명" — simplify | **DONE** (HP01 Iter 4) — reworded, same meaning, "컨텍스트 윈도우" now glossed inline |
 
 ### S4 — burden (`OccupationSection.tsx`)
 
@@ -386,16 +386,17 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 16 (S0: 4; S1: 5; S2: 7) |
-| TODO | 31 |
-| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1) |
+| DONE | 22 (S0: 4; S1: 5; S2: 7; S3: 6) |
+| TODO | 25 |
+| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
-| ALREADY_DONE (pre-existing or verified-no-change-needed) | 3 (S6 claim-content preservation, S6 accordion pattern, S1-R04) |
+| ALREADY_DONE (pre-existing or verified-no-change-needed) | 4 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S3/patterns, `HP01-S3-R01/R02/R03/R05/R06/R07`, `B01`
-(`R04` stays blocked, D1).
+**Next action:** S4/burden — `HP01-S4-R01/R02/R03/R04`, `B01` (simulator
+promotion), `B03` (typography). `B02` (pricing multiplier) stays
+`BLOCKED_EVIDENCE`.
 
 ---
 

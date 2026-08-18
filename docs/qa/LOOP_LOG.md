@@ -762,4 +762,40 @@ Result: ACCEPTED (6 of 7; R03 correctly stays blocked)
 Next: S3/patterns — apply `HP01-S3-R01/R02/R03/R05/R06/R07`, `B01`;
 `R04` stays blocked (D1).
 
+### HP01 Iteration 4
+
+Image: `S3.png` · Nav: S3 · DOM: `patterns` · Trace: `PREM` ·
+Component: `TokenPremiumSection.tsx` (+ `entities/article-content` for
+one paragraph)
+
+Directive IDs: `R01`, `R02`/`B01`, `R05`, `R06`, `R07` closed; `R04`
+stays `BLOCKED_CONTENT_AUTHORITY` (D1)
+
+Before → After (exact, all `isKo`-gated):
+- `CORE EMPIRICAL METRIC` → `핵심 실측 지표`
+- `OBSERVED TOKEN PREMIUM RATIO` → `관측된 토큰 프리미엄 비율` (number
+  `1.29×~1.83×` untouched)
+- `MATHEMATICAL FORMULA` → `산출 공식`
+- `Token Premium = Tokens(Hangul) / Tokens(English)` → `Token Premium =
+  한국어 토큰 수 ÷ 영어 토큰 수`
+- `DOMAIN DISTRIBUTION EXHIBIT` → `도메인별 분포`
+- `corpusAnalysis.postFigureParagraphs.ko`: "특히 장문의 고유명사와
+  정형화된 서식 비중이 높은 지식집약적 도메인일수록, 토큰 수의 절대적
+  격차가 누적되어 컨텍스트 윈도우 점유율에 실질적인 제약을 가져옵니다."
+  → "특히 전문 용어와 격식체 표현이 많은 지식집약적 문서일수록 토큰 수
+  격차가 쌓여, AI가 한 번에 처리할 수 있는 분량(컨텍스트 윈도우)에
+  실질적인 제약이 생깁니다."
+
+Research-content impact: NONE — every ratio/percentage byte-identical,
+confirmed via DOM text-scan post-edit. D1 (`R04`) untouched.
+
+Verification: lint PASS, build PASS, 1440×KO PASS (0 overflow, all
+protected numbers present and unchanged).
+
+Result: ACCEPTED (6 of 7; R04 correctly stays blocked)
+
+Next: S4/burden — apply `HP01-S4-R01/R02/R03/R04`; `B01` (simulator
+promotion) and `B03` (typography); `B02` (pricing multiplier) stays
+`BLOCKED_EVIDENCE`.
+
 ---

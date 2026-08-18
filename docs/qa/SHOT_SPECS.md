@@ -229,6 +229,50 @@ for the same claim — "일상적인 표현이나 구어체에서는 상대적 �
 (that's the audit pipeline's trace-extraction job, not a visual-pass
 edit); noted here so whoever resolves D1 has this additional data point.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 4):** 6
+directives closed (`R01`, `R02`/`B01` combined, `R05` combined into R01,
+`R06`, `R07`); `R04` stays `BLOCKED_CONTENT_AUTHORITY` (D1, unchanged).
+
+Exact changes, `TokenPremiumSection.tsx` (all `isKo`-gated, EN mode
+unaffected):
+- `CORE EMPIRICAL METRIC` → `핵심 실측 지표`
+- `OBSERVED TOKEN PREMIUM RATIO` → `관측된 토큰 프리미엄 비율` — **the
+  number itself (`1.29×~1.83×`) was not touched**, confirmed via
+  post-edit DOM text-scan (`1.29`/`1.83`/`1.68`/`1.44` all still present,
+  byte-identical)
+- `MATHEMATICAL FORMULA` → `산출 공식`
+- `Token Premium = Tokens(Hangul) / Tokens(English)` →
+  `Token Premium = 한국어 토큰 수 ÷ 영어 토큰 수` (KO mode) — the
+  relationship expressed is unchanged, only the variable names were
+  translated; "Token Premium" itself kept per G02 (established term).
+  This also closes `R02`/`B01` — the Director's requested "term +
+  worked example" format was already the Tier-3 box's own structure,
+  translating it in place satisfies the directive without inventing new
+  copy.
+- `DOMAIN DISTRIBUTION EXHIBIT` → `도메인별 분포`
+- `entities/article-content.ts` `corpusAnalysis.postFigureParagraphs.ko`
+  (`R07`, the "어렵게 설명" flag): `"특히 장문의 고유명사와 정형화된
+  서식 비중이 높은 지식집약적 도메인일수록, 토큰 수의 절대적 격차가
+  누적되어 컨텍스트 윈도우 점유율에 실질적인 제약을 가져옵니다."` →
+  `"특히 전문 용어와 격식체 표현이 많은 지식집약적 문서일수록 토큰 수
+  격차가 쌓여, AI가 한 번에 처리할 수 있는 분량(컨텍스트 윈도우)에
+  실질적인 제약이 생깁니다."` — same meaning, shorter noun clauses,
+  "컨텍스트 윈도우" gets an inline plain-language gloss instead of
+  assuming the reader already knows it (G02/G09).
+- `R05` (data before English UI terms) — resolved as a byproduct of
+  `R01`: the Tier-1 panel's own header label is now Korean, so the
+  headline number no longer sits directly under an English label.
+
+Research-content impact: NONE on any numeric/methodology value — the
+formula's mathematical meaning and every ratio/percentage is
+byte-identical; only label/prose language changed. `R04` (D1) remains
+untouched and blocked.
+
+Verified 1440×KO: 0 overflow; DOM text-scan confirms all protected
+numbers (`1.29`, `1.83`, `1.68`, `1.44`) present and unchanged; `7
+Benchmark Domains` (part of the still-open D1 block) correctly left
+untouched. tsc clean, build clean.
+
 ---
 
 ## S01-compare
