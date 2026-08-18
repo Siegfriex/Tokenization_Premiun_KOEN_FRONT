@@ -1470,3 +1470,124 @@ recognizable as Arabic. Fixed to render the full name instead.
 not counted toward the "S0–S7 all closed" tally above.
 
 ---
+
+### Iteration 13 — S4.5 legacy-exhibit removal + register fix + hooks (external crawl verdict, "Manus AI / Vice Director")
+
+A structured crawl verdict arrived (document ID
+`KOEN-FRONT-HP01-VERDICT-2026-08-18`, reviewer "Manus AI, Main Vice
+Director"), re-verifying the deployed production build
+(`74571e7`/PR #31) against `HUMAN_PREVIEW_01_ACCEPTANCE_METRICS_v1.0.md`
+via direct HTTPS asset retrieval + bundle-string scan (no browser
+channel available to them). Confirmed byte-identical to a local build
+of `74571e7` (only the hashed chunk filename differs). Most of the
+verdict reconfirmed existing PASS states already logged in this file;
+two items were genuine new findings and acted on, two items in the
+verdict were independently re-checked and found to be crawl-methodology
+false positives — corrected here rather than implemented as reported.
+
+**Genuine findings, fixed:**
+
+1. **`S45-M02` FAIL (real):** Iteration 12 added the new Petrov exhibit
+   *alongside* the legacy `MULTILINGUAL_COMPARISON_DATA` chart/card
+   instead of replacing it, so the section rendered two different,
+   differently-sourced Korean ratios (1.78× unsourced-ish legacy vs.
+   2.38× Petrov-cited) on two different axes. This directly
+   contradicts the DOM Master directive's own original S4.5 instruction
+   ("the entire dashboard is rejected"), which this session had not
+   fully carried out. Fixed: removed the entire legacy bordered
+   panel — the `언어별 정규화 토큰 소비량` chart, the
+   `multilingual-comparison` selector, the `★ 한국어는... 1.78배`
+   callout, the `Flores-200 / o200k_base` strip, the
+   `라틴 알파벳 기준 (1.00×)` legend, and its `FIG. 06` figure caption
+   — from `MultilingualTokenEfficiencySection.tsx`. The Petrov exhibit
+   is now the section's single visual. `MULTILINGUAL_COMPARISON_DATA`
+   itself (the entity file) is left unused/unconsumed, not deleted —
+   consistent with this project's established practice for
+   drafted-but-retired content (same pattern as the unused `headline`
+   fields, `MultilingualSection.tsx`, etc.).
+
+   **Follow-on defect caught during my own verification, not in the
+   original verdict:** removing the chart without also editing
+   `multilingualBenchmark.preFigureParagraphs` would have left specific
+   per-language numbers (`스페인어는 1.18배`, `한글은 1.78배`,
+   `아랍어는 2.05배`, `힌디어는 2.30배`) on the page with no supporting
+   visual — an orphaned-claim regression the crawl's bundle-string scan
+   didn't catch (it flagged `1.78` as present but attributed it only to
+   the callout, not this separate paragraph). Fixed:
+   `preFigureParagraphs.ko[0]`/`en[0]` trimmed to the general
+   (unnumbered) trend claim — Latin-script languages use fewer tokens,
+   non-Latin scripts tend to need more — dropping the specific
+   1.18/1.78/2.05/2.30 figures and the "Hindi"/12-language framing
+   already flagged `BLOCKED_CONTENT_AUTHORITY` under `HP01-S4.5-R02`.
+   No new number was introduced to replace them.
+
+2. **`S45-M06` register mismatch (real):** the legacy card's callout
+   used `-습니다` polite-formal endings (`소비됩니다`) while the new
+   Petrov prose uses `-다` plain-declarative endings, and the section's
+   `keyFinding.statement.ko` also read `...관측됩니다.` Removing the
+   legacy card resolved most of this by removing the mismatched text
+   entirely; the one remaining formal-register line,
+   `multilingualBenchmark.keyFinding.statement.ko`:
+   `"비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로
+   관측됩니다."` → `"...관측된다."` (ending only, no number/claim
+   change).
+
+3. **`S45-M01` (hooks added):** `data-hp01-id="language-focus"`
+   (selected-language detail line), `"language-comparison-chart"`
+   (the exhibit's bordered panel), `"language-closing-claim"` (the
+   closing `ArticleFinding` callout) — verified present in the DOM
+   Master directive's own original S4.5 row (`AUDIT2/QA/...Master
+   Directive.md`, "The entire dashboard is rejected, but the future
+   replacement must retain a precise boundary") before adding, per the
+   v2.1 rule against inventing new hook names.
+
+**Findings in the verdict independently re-checked and corrected
+(not implemented as reported) — verified via Playwright, something the
+reviewer's own report notes they could not do this pass:**
+
+4. **`S7-M05` "representation efficiency still rendered inside
+   #result"** — checked directly: `grep` of
+   `EditorialConclusionSection.tsx` finds no such string, and a live
+   KO-mode DOM query of `[data-widget="EditorialConclusionSection"]`
+   confirms it is absent. The string exists in `Footer.tsx`
+   (`data-widget="Footer"`), a sibling of `<main>` in `App.tsx`, not
+   nested inside `#result` — a bundle-string scan without full DOM-tree
+   awareness would miss that these are different sections. **Not
+   fixed, because it is not a bug on a second count either:** the
+   phrase is gated behind `isKo ? ... : 'An interactive data
+   journalism piece investigating the representation efficiency...'`
+   — legitimate native English copy for the EN locale, confirmed absent
+   from the KO-mode render of both `#result` and `Footer` (`false` in
+   both cases, live-checked). Translating or removing legitimate EN-only
+   copy to satisfy a KO-scoped metric would be the wrong fix. Logged
+   here as a correction, not silently ignored.
+
+**Behavioral/visual metrics the reviewer left `NOT VERIFIABLE`
+(no browser channel available to them) — closed this iteration with
+live Playwright evidence, `localhost:3000`, 1440×900:**
+```
+S1-M02 PASS — pair 4 click changes the Hangul-token panel content
+  (11 -> 14 rendered token chips)
+S2-M01 PASS — all 5 pipeline steps individually selectable
+S3-M04 PASS — clicked domain rows 3 and 5, both selected without error
+S4-M02 PASS — one range-type input found (the burden simulator slider)
+S6-M04 PASS — methodology item 3 aria-expanded false -> true -> false
+S7-M04 PASS — back-to-top scrolls window to y=0 (confirmed with a 2s
+  settle wait; the page is now taller after S4.5's new content, so a
+  short wait undercounts the in-flight smooth-scroll — same false-
+  negative shape caught in Iteration 11, not a real regression)
+```
+
+**Re-verification after the fix (Playwright, KO+EN, 1440px + 390px
+mobile):** `S45-M02` PASS (0 legacy strings found, including the
+follow-on `preFigureParagraphs` fix). `S45-M04` PASS (1
+`.recharts-wrapper` — single visual). `S45-M05` PASS (0 legacy
+selector collections, 1 new one). `S45-M01` PASS (all 3 hooks present).
+Register check PASS (`관측됩니다` absent, `관측된다` present). 0
+overflow at all 3 checked widths.
+
+**Verdict: fixed as confirmed, corrected as verified-false.** `npx tsc
+--noEmit` and `npm run build` both clean (bundle shrank ~8KB from the
+removed legacy chart code).
+
+---
