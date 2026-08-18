@@ -12,6 +12,7 @@ import {
   ArticleFigureCaption,
   ArticleFinding,
   ArticleFullWidthBreak,
+  ArticleDisclosure,
 } from './ArticleElements';
 
 export const PipelineSection: React.FC = () => {
@@ -62,11 +63,6 @@ export const PipelineSection: React.FC = () => {
         {/* FULL-WIDTH BREAKOUT: Pipeline Visualization */}
         <ArticleFullWidthBreak figure className="space-y-8 my-8">
           <div className="space-y-8">
-            <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-wider flex items-center justify-between border-b border-rule pb-2">
-              <dt data-source="widget">TRANSFORMER PIPELINE SEQUENCING</dt>
-              <dd data-source="widget" className="text-ink font-bold">★ STEP 02: THE BOTTLENECK</dd>
-            </dl>
-
             {/* Horizontal Steps Grid */}
             <ul data-collection="pipeline-steps" className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
               {PIPELINE_STEPS.map((item, idx) => {
@@ -91,11 +87,6 @@ export const PipelineSection: React.FC = () => {
                         >
                           {item.step}
                         </span>
-                        {item.highlight && (
-                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface text-ink rounded-xs font-bold uppercase">
-                            GAP ORIGIN
-                          </span>
-                        )}
                       </span>
                       <span
                         className={`block font-mono text-xs font-bold uppercase tracking-wider ${
@@ -137,20 +128,22 @@ export const PipelineSection: React.FC = () => {
           </div>
         </ArticleFullWidthBreak>
 
-        {/* READING COLUMN: Post-Figure Analytical Prose & Key Finding */}
+        {/* READING COLUMN: Post-Figure Key Finding (1DEPTH) + Process Detail (2DEPTH) */}
         <ArticleReadingColumn>
-          {isKo
-            ? articleData.postFigureParagraphs?.ko.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))
-            : articleData.postFigureParagraphs?.en.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))}
-
           <ArticleFinding
             label={isKo ? articleData.keyFinding?.label?.ko : articleData.keyFinding?.label?.en}
             statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
           />
+
+          <ArticleDisclosure summary={isKo ? '토큰화 처리 과정 자세히 보기' : 'How tokenization actually works'}>
+            {isKo
+              ? articleData.postFigureParagraphs?.ko.map((p, idx) => (
+                  <ArticleParagraph key={idx}>{p}</ArticleParagraph>
+                ))
+              : articleData.postFigureParagraphs?.en.map((p, idx) => (
+                  <ArticleParagraph key={idx}>{p}</ArticleParagraph>
+                ))}
+          </ArticleDisclosure>
         </ArticleReadingColumn>
       </Container>
     </section>

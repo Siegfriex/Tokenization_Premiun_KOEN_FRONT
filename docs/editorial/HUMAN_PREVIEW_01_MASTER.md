@@ -216,13 +216,13 @@ here:
 
 | ID | Directive (paraphrased) | Status |
 |---|---|---|
-| HP01-S2-R01 | Remove/Koreanize "TRANSFORMER PIPELINE SEQUENCING" decorative label | TODO — confirmed by image (`S2.png`, `S0.png` cluster 4) |
-| HP01-S2-R02 | Remove "★ STEP 02: THE BOTTLENECK" / "GAP ORIGIN" badges | TODO — confirmed by image |
-| HP01-S2-R03 | "4단계" copy vs. actual 5-step visualization conflict — **do not resolve unilaterally** | `BLOCKED_CONTENT_AUTHORITY` (pre-existing — already logged in `docs/qa/LOOP_LOG.md` Iteration 13 as a content-integrity flag; this Human Preview does not add new resolution authority, it just re-confirms the block stands) |
-| HP01-S2-B01 | Plain-Korean explanation of what a token/token ID/input sequence is | TODO |
-| HP01-S2-B02 | Move Transformer/Self-Attention/Context Window detail to 2DEPTH | TODO |
-| HP01-S2-B03 *(MASTER-derived, from `S0.png` cluster 3)* | Explicit process/concept explanation unneeded at 1DEPTH → 2DEPTH dropdown | TODO — same as B02, image confirms twice (once for "token" concepts, once for "token ID vector" concepts) |
-| HP01-S2-R04 | Keep figure source; rewrite the AI-sounding technical caption above it in article Korean | TODO — image confirms exact wording: "출처는 기재해야 하나 그 위의 내용은 AI티가남" |
+| HP01-S2-R01 | Remove/Koreanize "TRANSFORMER PIPELINE SEQUENCING" decorative label | **DONE** (HP01 Iter 3) — removed entirely, not translated |
+| HP01-S2-R02 | Remove "★ STEP 02: THE BOTTLENECK" / "GAP ORIGIN" badges | **DONE** (HP01 Iter 3) — both removed; step 2's `bg-accent` fill (the actual signal) kept |
+| HP01-S2-R03 | "4단계" copy vs. actual 5-step visualization conflict — **do not resolve unilaterally** | `BLOCKED_CONTENT_AUTHORITY` (unchanged) |
+| HP01-S2-B01 | Plain-Korean explanation of what a token/token ID/input sequence is | **DONE** (HP01 Iter 3) — satisfied structurally via B02/B03's disclosure move (the existing plain-Korean lead already covers this at 1DEPTH; the technical detail is now 2DEPTH) |
+| HP01-S2-B02 | Move Transformer/Self-Attention/Context Window detail to 2DEPTH | **DONE** (HP01 Iter 3) — moved into new `ArticleDisclosure` |
+| HP01-S2-B03 *(MASTER-derived, from `S0.png` cluster 3)* | Explicit process/concept explanation unneeded at 1DEPTH → 2DEPTH dropdown | **DONE** (HP01 Iter 3) — same disclosure covers both B02 and B03 |
+| HP01-S2-R04 | Keep figure source; rewrite the AI-sounding technical caption above it in article Korean | **DONE** (HP01 Iter 3) — caption → "문장이 토큰으로 바뀌는 과정", source line untouched |
 
 ### S3 — patterns (`TokenPremiumSection.tsx`)
 
@@ -386,18 +386,16 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 9 (S0: 4; S1: 5) |
-| TODO | 38 |
-| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계", S3 D1) |
+| DONE | 16 (S0: 4; S1: 5; S2: 7) |
+| TODO | 31 |
+| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 3 (S6 claim-content preservation, S6 accordion pattern, S1-R04) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S2/pipeline, applying the original text-prompt
-directives `HP01-S2-R01`–`R04`, `B01`–`B03` directly (already fully
-specified, no image re-derivation needed beyond the corroboration
-already done in §C).
+**Next action:** S3/patterns, `HP01-S3-R01/R02/R03/R05/R06/R07`, `B01`
+(`R04` stays blocked, D1).
 
 ---
 

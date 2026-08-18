@@ -117,7 +117,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     figureNumber: 'FIG. 02',
     figureCaption: {
-      ko: '생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환',
+      ko: '문장이 토큰으로 바뀌는 과정',
       en: 'Generative AI Input Pipeline: Text to UTF-8 Bytes, Subword Segmentation, and Token Vectors',
     },
     figureSource: {

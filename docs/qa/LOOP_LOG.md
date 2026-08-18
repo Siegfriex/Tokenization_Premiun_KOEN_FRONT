@@ -722,4 +722,44 @@ new change)
 Next: S2/pipeline — directives already exist in the original prompt
 text (`HP01-S2-R01`–`R04`, `B01`–`B03`); apply directly.
 
+### HP01 Iteration 3
+
+Image: `S2.png` (+ `S0.png` clusters 3-4, corroborating) · Nav: S2 ·
+DOM: `pipeline` · Trace: `PIPE` · Component: `PipelineSection.tsx`
+(+ `ArticleElements.tsx` new shared component, +
+`entities/article-content` for one figure caption)
+
+Directive IDs: `HP01-S2-R01`, `R02`, `R04`, `B01`, `B02`, `B03` closed;
+`R03` stays `BLOCKED_CONTENT_AUTHORITY`
+
+Before → After (exact):
+- Removed `<dl>` row: `TRANSFORMER PIPELINE SEQUENCING` /
+  `★ STEP 02: THE BOTTLENECK` — deleted, not translated.
+- Removed the `GAP ORIGIN` badge on step 2's card. Step 2's `bg-accent`
+  fill (`item.highlight`-driven) untouched.
+- `tokenUnit.figureCaption.ko`: `"생성형 AI 텍스트 처리 파이프라인:
+  원본 문자열에서 토큰 ID 벡터로의 변환"` → `"문장이 토큰으로 바뀌는
+  과정"`. `figureSource` unchanged (G06 — keep real provenance).
+- Added `ArticleDisclosure` (new shared `<details>`-based 2DEPTH
+  component, `ArticleElements.tsx`) — the project's first reusable
+  2DEPTH primitive.
+- Reordered post-figure column: `ArticleFinding` now renders first
+  (1DEPTH takeaway), `postFigureParagraphs` (BPE-step list +
+  Self-Attention/Context-Window paragraph) moved inside
+  `<ArticleDisclosure summary="토큰화 처리 과정 자세히 보기">` — text
+  itself unchanged, only relocated behind a reveal.
+
+Research-content impact: NONE. `PIPELINE_STEPS` entity data and the
+relocated paragraph text are byte-identical; only the figure caption
+(editorial prose, not a research value) was reworded.
+
+Verification: lint PASS, build PASS, 1440×KO PASS (0 overflow, step 2
+still wins first look, disclosure opens/closes correctly). 390/EN
+regression deferred to the pre-acceptance sweep.
+
+Result: ACCEPTED (6 of 7; R03 correctly stays blocked)
+
+Next: S3/patterns — apply `HP01-S3-R01/R02/R03/R05/R06/R07`, `B01`;
+`R04` stays blocked (D1).
+
 ---

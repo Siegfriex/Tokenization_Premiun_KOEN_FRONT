@@ -147,6 +147,30 @@ export const ArticleBigFinding: React.FC<{
 };
 
 /**
+ * 2DEPTH disclosure — native <details>/<summary>, no JS state.
+ * Human Preview 01 G04: technical/process detail that a general reader
+ * doesn't need at first read goes behind an explicit reveal, not inline
+ * in the 1DEPTH article flow.
+ */
+export const ArticleDisclosure: React.FC<{
+  summary: string;
+  children: React.ReactNode;
+  className?: string;
+}> = ({ summary, children, className = '' }) => {
+  return (
+    <details className={`group mt-4 ${className}`}>
+      <summary className="cursor-pointer text-xs font-mono text-ink-muted hover:text-ink uppercase tracking-wider font-semibold list-none flex items-center gap-1.5 [&::-webkit-details-marker]:hidden">
+        <span className="inline-block transition-transform group-open:rotate-90">▸</span>
+        {summary}
+      </summary>
+      <div className="mt-3 pl-4 border-l-2 border-rule space-y-3 text-ink-body">
+        {children}
+      </div>
+    </details>
+  );
+};
+
+/**
  * Figure Caption with Numbering
  * FIG. 01 · ...
  */

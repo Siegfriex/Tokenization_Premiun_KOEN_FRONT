@@ -138,6 +138,54 @@ for the content owner (same category as the LOOP_LOG Iteration 8
 "12-language"/Hindi flag), not something a visual-only pass should
 silently rename or recount. Logged in `docs/qa/LOOP_LOG.md` Phase 7.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 3):** 7
+directives closed (`HP01-S2-R01`, `R02`, `R04`, `B01`, `B02`, `B03`) —
+`R03` ("4단계" vs 5-step mismatch) stays `BLOCKED_CONTENT_AUTHORITY`,
+untouched, per the pre-existing flag above.
+
+Exact changes, `PipelineSection.tsx`:
+- **Removed entirely** (R01/R02, RED "제거"): the `<dl>` header row
+  reading `TRANSFORMER PIPELINE SEQUENCING` (left) /
+  `★ STEP 02: THE BOTTLENECK` (right) — the whole row is gone, not
+  translated, since the annotation explicitly wants it gone, not
+  Koreanized.
+- **Removed** (R02): the `GAP ORIGIN` pill badge on step 2's card.
+  Step 2's `bg-accent` fill (the actual visual "this is the bottleneck"
+  signal, driven by `item.highlight` — a style property, not a text
+  label) is untouched — only the redundant text badge is gone.
+- **Rewrote** (R04), `entities/article-content.ts` `tokenUnit.figureCaption.ko`:
+  `'생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환'`
+  → `'문장이 토큰으로 바뀌는 과정'`. `figureSource` (`'출처: BPE
+  (Byte-Pair Encoding) 표준 아키텍처 및 LLM 입력 전처리 명세'`) is
+  **unchanged** — G06 requires keeping real provenance, only the caption
+  prose above it was rewritten.
+- **New shared component** (B01/B02/B03), `ArticleElements.tsx`: added
+  `ArticleDisclosure`, a `<details>`/`<summary>`-based 2DEPTH reveal
+  (no JS state, `group-open:rotate-90` chevron, `border-l-2 border-rule`
+  indent for the revealed content) — this is the project's first
+  from-scratch 2DEPTH primitive (S6's accordion is a bespoke
+  `useState`-driven pattern; this one is simpler and reusable for
+  future 2DEPTH needs across other slides).
+- **Restructured** the post-figure reading column: previously
+  `postFigureParagraphs` (the two technical paragraphs, including the
+  Self-Attention/Context Window explanation) rendered directly at
+  1DEPTH, followed by `ArticleFinding`. Now `ArticleFinding` (the short
+  "토큰 분절이 늘어날수록 입력 시퀀스가 길어져…" takeaway) renders
+  first, and `postFigureParagraphs` moved inside
+  `<ArticleDisclosure summary="토큰화 처리 과정 자세히 보기">` — 1DEPTH
+  now shows the visual + one-sentence finding; the two detailed
+  paragraphs (BPE steps, Self-Attention scaling) sit behind the toggle.
+  No paragraph text itself was reworded, only relocated.
+
+Research-content impact: NONE — the figure caption rewrite is editorial
+prose, not a research value; `PIPELINE_STEPS` entity data and the two
+relocated paragraphs are byte-identical to before, just moved in the DOM.
+
+Verified 1440×KO: 0 overflow, step 2 accent-fill still wins first look
+(confirmed via screenshot, not just source reading), disclosure opens/
+closes correctly, FIG.02 caption reads naturally. tsc clean, build
+clean. 390/EN regression pending the pre-acceptance sweep.
+
 ---
 
 ## S03-patterns
