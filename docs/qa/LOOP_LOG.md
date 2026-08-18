@@ -555,4 +555,11 @@ splitting across lines at 390px. Fixed with `break-keep`. The "12개
 언어"/Hindi content-integrity flag (LOOP_LOG Iteration 8, `SHOT_SPECS.md`
 S04.5 finding #7) remains open and untouched — not a visual-pass call.
 
+### Iteration 17 (S05-infrastructure) — PASS, no fix
+
+Specifically screened for the S04/S04.5 word-break bug class (raw
+Korean `<p>`/`<div>` text) — this slide's two candidates both fit their
+container without breaking mid-word. 0 overflow. Interaction count
+reconfirmed at 0 (static, matches spec). A genuine clean result.
+
 ---

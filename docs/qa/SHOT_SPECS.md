@@ -614,6 +614,16 @@ rules; findings synthesized and fixed directly.
 Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
 passes, audit pipeline diff-reproducible, director queue unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 17): PASS, no fix.**
+Specifically checked for the word-break bug class found on S04/S04.5
+(raw `<p>`/`<div>` Korean text not routed through the shared Article
+components — this slide has two candidates, `phase.description` and
+the policy-slot placeholder note). Neither actually breaks mid-word at
+390px — both entity strings happen to fit their container width without
+triggering a break inside a compound word. 0 DOM overflow. Interaction
+count reconfirmed at 0, matching this slide's own "default only"
+required-states spec — no interactivity added.
+
 ---
 
 ## S06-method
