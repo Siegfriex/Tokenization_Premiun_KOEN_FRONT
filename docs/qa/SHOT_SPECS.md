@@ -55,6 +55,27 @@ resolves correctly; H1 bounding box remains larger/higher than the
 exhibit card's at 1440×KO. tsc clean, build clean (CSS hash unchanged —
 no new utility introduced, only reused tokens).
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 1):** Director's
+first Human Preview annotated screenshots (`AUDIT2/S0.png`) against the
+production-promoted state (see `docs/editorial/HUMAN_PREVIEW_01_MASTER.md`
+§B). 4 directives closed: (1) `HP01-S0-R01` — removed "COVER & CORE
+THESIS" all-caps English metadata, Koreanized "Data Journalism
+Investigation" → "데이터 저널리즘". (2) `HP01-S0-R02` — FIG.01 exhibit
+header "REAL TOKEN SPLIT EXHIBIT" → Korean "실제 토큰 분절 비교", "Pair
+Benchmark" → "문장쌍 비교" (KO mode only; EN mode keeps English by
+design, dual-canonical). (3) `HP01-S0-R03`/`R04` — removed the
+`ANALYSIS TARGET`/`CORE METRIC`/`OBSERVED GAP` stat-ribbon table
+entirely (RED "표제거요망"). (4) `HP01-S0-B01` — `ArticleBigFinding`'s
+number display (only consumer: this slide's "약 1.2×~1.8×") reduced
+`text-6xl…text-9xl` → `text-5xl…text-7xl`, added `whitespace-nowrap`,
+so it reads as one compact inline figure instead of a sprawling
+multi-line block. Verified 1440/390 × KO/EN: 0 overflow, all 4 changes
+visually confirmed. tsc clean, build clean.
+**Deferred, not closed:** `HP01-S0-R05` (FIG.01 exhibit's takeaway/
+news-note content "belongs in the conclusion, remove or rewrite at
+intro") — needs coordinated decision against S7's own directives before
+patching; tracked in MASTER, not silently dropped.
+
 ---
 
 ## S02-pipeline
@@ -142,6 +163,23 @@ weight and shadow depth now unambiguously outrank the right panel and the
 formula note. 0 overflow (all `bg-surface*` panels checked). `NUMERIC_CLAIMS.md`
 line numbers shifted (+1, a new comment line) but all 22 claims'
 Trace IDs, statuses, and values unchanged — verified via diff.
+
+**Findings (visual devpass, 2026-08-18, Iteration 14): frozen, no
+change — verified only.** Per the editorial redline directive, this
+slide's Tier-1 headline visual weight is frozen pending
+`docs/audit/DIRECTOR_DECISIONS.md` D1. Checked for any non-D1-adjacent
+layout defect at 390px: zero DOM overflow; the "Domain Range: Business
+(1.44×) ~ Daily (1.83×)" `dl` row wraps to two lines at 390px, but this
+is ordinary label wrap (no clipping, no overlap), not a layout defect —
+left as-is rather than restructured, since restructuring around this
+specific frozen row invites scope creep into D1 territory. **Supplementary
+observation for D1 (not a new separate flag — logged as evidence toward
+the existing row):** the pre-figure prose itself contains a third number
+for the same claim — "일상적인 표현이나 구어체에서는 상대적 차이가 더
+크게 나타났고(**1.38×**~1.83×)" — differing from the Tier-1 headline's
+`1.29×~1.83×` lower bound. Not added as a new `DIRECTOR_DECISIONS.md` row
+(that's the audit pipeline's trace-extraction job, not a visual-pass
+edit); noted here so whoever resolves D1 has this additional data point.
 
 ---
 
@@ -239,6 +277,27 @@ emphasized subject) vs `bg-mark-baseline` (EN, comparison baseline) dot
 distinction already in the accent-dot markup; not a defect. No code
 change this iteration — a real clean state, not an unexamined one.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 2):** 4
+directives closed, 1 already satisfied. (1) `HP01-S1-R01` — CTA sentence
+ending changed from imperative "…직접 비교해보십시오." to declarative
+"…직접 비교한다." (register interpretation of ambiguous handwritten
+annotation "1. "확인" 2. "비교" 명사 종결…" — chosen reading: remove the
+formal-command tone, not necessarily a literal noun-ending; flagged for
+Director re-confirmation if the intent was stricter). Entity-content
+change (`entities/article-content`), not a protected research value —
+editorial microcopy only. (2) `HP01-S1-R02`/`R03` — `한국어 (Hangul
+Script)` / `ENGLISH (Latin Script)` column headers → `한국어` / `영어`
+in KO mode (EN mode keeps the fuller English label, dual-canonical). (3)
+`HP01-S1-R05`/`R06` — bottom "Token Ratio: N× (+M additional tokens)"
+→ Korean "토큰 비율 N× (+M개 토큰)" in KO mode. **`HP01-S1-R04`
+(replace FIG.01 position with "검증된 대역 문장쌍 선택" heading) —
+already satisfied structurally**: the selector's own heading already is
+"검증된 대역 문장쌍 선택:" and `FIG. 01` only appears at the bottom
+`ArticleFigureCaption`, not competing with the top heading — no change
+needed, verified by re-reading the current DOM order. Verified 1440×KO/EN:
+0 overflow, all changes render correctly, EN mode fully unaffected
+(all edits `isKo`-gated). tsc clean, build clean.
+
 ---
 
 ## S07-result
@@ -274,6 +333,19 @@ no shadow — reads as exit navigation, not a CTA. Footer date-stamp text
 Screenshotted 1440×KO/EN + 390×KO: 0 overflow, all 5 changes visually
 confirmed, PROTECTED numeric range unchanged. tsc clean, build passes,
 audit pipeline diff-reproducible, director queue unchanged at 16.
+
+**Findings (visual devpass, 2026-08-18, Iteration 20): 1 fix, Korean
+word-break only — H2/lead/protected range untouched.** The pull-quote
+`<p>` (a raw element, not routed through the shared Article components)
+was breaking two words mid-syllable at 390px: "다국어" (multilingual)
+as "다국"/"어", and "형평성과" as "형평"/"성과". Added `break-keep`.
+Re-verified via screenshot: both words now intact, break points fall at
+real spaces. **Explicitly did not touch:** the display H2 (kept as a
+question, per the Director's own prior ruling — this pass has no
+authority to change that), the lead line, or the protected `1.29×~1.83×`
+range (confirmed byte-identical). This closes out the last slide in the
+S00→S07 work order — every slide has now received a visual devpass this
+phase (2026-08-18).
 
 **Findings (Director redline pass, 2026-08-17):** 2 concrete changes,
 superseding iteration 6's "PASS, no fix" — the earlier pass checked C1/C8/
@@ -379,6 +451,20 @@ Screenshotted 1440×KO (default + English-selected via real click), 1440×EN,
 390×KO: 0 overflow. tsc clean, build passes. Audit pipeline required a
 documented ID/line resync in `DIRECTOR_DECISIONS.md`/`README.md` (see D3/D4
 updates) — now diff-reproducible again, director queue unchanged at 16.
+
+**Findings (visual devpass, 2026-08-18, Iteration 16): 1 fix (Korean
+word-break), content-integrity item #7 above reconfirmed still open.**
+The Hangul-callout box ("★ 한국어는 라틴 알파벳(영어/스페인어) 대비
+1.78배의 토큰이 소비됩니다.") was breaking the number-plus-counter unit
+"1.78배" across two lines at 390px ("1.78" / "배의…") — same root cause
+as S04-burden's fixes, a raw `<div>` not routed through the shared
+`ArticleSubheading`/`ArticleParagraph` components that already carry
+`break-keep`. Added `break-keep`; re-screenshotted 390×KO, "1.78배"
+now stays intact, break now falls at a real word boundary ("대비" /
+"1.78배의"). All other prose on this slide already routes through the
+shared Article components (0 other break issues found). **Did not touch**
+the "12개 언어"/Hindi content-integrity item — still open, still a
+content-owner decision, not re-litigated here.
 
 ---
 
@@ -488,6 +574,27 @@ Engineering wrapper now has a shadow, 0 remaining "HIGH BURDEN" badges.
 tsc clean, build passes, audit pipeline diff-reproducible, director queue
 unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 15): 4 fixes, Korean
+word-break only.** Screened for the interaction-density-reduction
+candidate the editorial redline directive raised (5 presets → 3 +
+custom); found no rendering evidence to justify it — at 390px the 5
+preset pills stay on one row with no overflow, and the 3-stat result
+grid stacks cleanly (`grid-cols-1 md:grid-cols-3`). Left the presets as-is
+rather than cutting functionality without a concrete defect. Instead
+found 4 real instances of the site's known Korean mid-word-break bug
+(the same class already fixed once in the shared `ArticleSubheading`
+component, per `HANDOFF.md` §9 — these 4 are raw `<dt>`/`<p>`/`<div>`
+elements in this widget that never went through that shared component,
+so never inherited the fix): `TOKEN RECEIPT (토큰 사용 명세서)` was
+breaking as "명" / "세서)"; `ABSOLUTE GAP (순수 격차)` as "격" / "차)";
+both occupation-cluster assessment paragraphs mid-word ("반복" → "반"/
+"복" in the Social Science card). Added `break-keep` to all 4 elements
+— zero content change, pure `word-break: keep-all`. Verified: computed
+`word-break: keep-all` on the receipt `dt`; re-screenshotted 390×KO,
+all 4 previously-broken words now stay intact; 0 DOM overflow;
+`build`/`lint` clean, CSS hash unchanged (utility already existed
+site-wide from the earlier `ArticleSubheading` fix).
+
 ---
 
 ## S05-infrastructure
@@ -562,6 +669,16 @@ rules; findings synthesized and fixed directly.
 Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
 passes, audit pipeline diff-reproducible, director queue unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 17): PASS, no fix.**
+Specifically checked for the word-break bug class found on S04/S04.5
+(raw `<p>`/`<div>` Korean text not routed through the shared Article
+components — this slide has two candidates, `phase.description` and
+the policy-slot placeholder note). Neither actually breaks mid-word at
+390px — both entity strings happen to fit their container width without
+triggering a break inside a compound word. 0 DOM overflow. Interaction
+count reconfirmed at 0, matching this slide's own "default only"
+required-states spec — no interactivity added.
+
 ---
 
 ## S06-method
@@ -627,6 +744,20 @@ synthesized and fixed directly.
 
 Screenshotted 1440×KO, 1440×EN, 390×KO: 0 overflow. tsc clean, build
 passes, audit pipeline diff-reproducible, director queue unchanged at 16.
+
+**Findings (visual devpass, 2026-08-18, Iteration 19): 4 fixes, Korean
+word-break only.** Most instances found in one pass this session: (1)
+the 6-claim boundary-box `<span>` — 3 of 6 items broke mid-word/mid-
+particle at 390px ("떨어진다고"→"떨어"/"진다고", "비용을"→"비용"/"을",
+"토큰을"→"토"/"큰을"); one `break-keep` on the shared claim-list
+className fixes all 6. (2) The methodology-accordion panel body
+(`item.content`) — "의도를" was splitting as "의"/"도를". (3) The
+footnotes `<p>` — footnote #3 split "일상" as "일"/"상". All raw
+elements, none routed through the shared Article components. Fixed all
+4 with `break-keep`; re-screenshotted 390×KO through the full boundary-
+box list, one expanded accordion panel, and all 3 footnotes — every
+previously-broken word now intact, 0 overflow, tsc/build clean, zero
+content change.
 
 ---
 
@@ -704,3 +835,22 @@ tsc clean, build passes, audit pipeline diff-reproducible, director queue
 unchanged at 16. With this slide done, every section in the Director's
 full redline work order (S00 through S07, in nav order) has now received
 a dedicated pass this session.
+
+**Findings (visual devpass, 2026-08-18, Iteration 18): 3 fixes — 2
+local, 1 shared-component (site-wide effect).** Found 3 real Korean
+mid-word breaks at 390px: (1) Level 02's description — "장문" (long-form)
+split as "장"/"문"; (2) Level 03's description — "표현" (expression)
+split as "표"/"현"; both fixed with one `break-keep` on the shared `<p>`
+className in the `IMPACT_SCALE_LEVELS.map()` loop (covers all 3 level
+cards, not just the 2 that happened to break at this viewport width).
+(3) **`ArticleFigureCaption`'s own caption/source spans had no
+`break-keep`** — this slide's FIG. 08 caption split "사슬" (chain) as
+"사"/"슬". Since this is the shared component used by `ArticleFigureCaption`
+across **7 widgets** (S01, S02, S03, S04, S04.5, S05, S05.2 — every
+slide with a captioned exhibit), this one fix retroactively protects
+every already-passed slide's figure caption too, not just this one.
+Not re-verified per-slide (the fix is structural, not content-dependent);
+flagged here so a future pass knows why captions weren't individually
+re-screenshotted. All 3 fixes verified: `word-break: keep-all` computed
+correctly, re-screenshot confirms all 3 words intact, 0 overflow, tsc/build
+clean.

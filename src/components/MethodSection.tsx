@@ -80,7 +80,7 @@ export const MethodSection: React.FC = () => {
                   className="p-4 bg-surface border border-rule rounded-xs flex items-start gap-3 text-xs sm:text-sm text-ink"
                 >
                   <XCircle className="w-4 h-4 text-ink shrink-0 mt-0.5" />
-                  <span data-source="widget" className="leading-snug text-ink-body">{isKo ? claim.ko : claim.en}</span>
+                  <span data-source="widget" className="leading-snug text-ink-body break-keep">{isKo ? claim.ko : claim.en}</span>
                 </li>
               ))}
             </ul>
@@ -127,7 +127,7 @@ export const MethodSection: React.FC = () => {
                     {isOpen && (
                       <div
                         id={`method-panel-${item.id}`}
-                        className="px-5 pb-5 pt-2 text-xs sm:text-sm text-ink-body leading-relaxed font-sans border-t border-rule bg-surface-alt"
+                        className="px-5 pb-5 pt-2 text-xs sm:text-sm text-ink-body leading-relaxed font-sans border-t border-rule bg-surface-alt break-keep"
                       >
                         {isKo ? item.content.ko : item.content.en}
                       </div>
@@ -156,7 +156,7 @@ export const MethodSection: React.FC = () => {
                 {isKo ? '연구 주석 (Research Footnotes):' : 'Research Footnotes:'}
               </div>
               {(isKo ? articleData.footnotes.ko : articleData.footnotes.en).map((fn, idx) => (
-                <p data-role="collection-item" data-semantic-target="ul" key={idx} className="leading-relaxed">
+                <p data-role="collection-item" data-semantic-target="ul" key={idx} className="leading-relaxed break-keep">
                   {fn}
                 </p>
               ))}

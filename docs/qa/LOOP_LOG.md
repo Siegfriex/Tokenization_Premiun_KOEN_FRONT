@@ -527,4 +527,199 @@ narrower encoding-only sub-pipeline), possibly a stale count — needs
 content-owner confirmation, not a visual-pass judgment call. Full detail
 in `docs/qa/SHOT_SPECS.md` S02-pipeline.
 
+### Iteration 14 (S03-patterns) — frozen, no change
+
+Per the editorial redline directive, Tier-1 headline visual weight stays
+frozen pending D1. Checked 390px for non-D1-adjacent defects: none (the
+"Domain Range" row's 2-line wrap is ordinary, not a defect). Logged a
+supplementary numeric observation for D1 (prose contains a third figure,
+`1.38×`, for the same claim the headline states as `1.29×~1.83×`) —
+not filed as a new ledger row, just noted for whoever resolves D1. Full
+detail in `docs/qa/SHOT_SPECS.md` S03-patterns.
+
+### Iteration 15 (S04-burden) — 4 fixes, Korean word-break only
+
+Screened the redline directive's "reduce preset count" candidate; no
+rendering evidence found to justify cutting functionality (5 presets fit
+one row cleanly at 390px), left as-is. Instead found and fixed 4 Korean
+mid-word-break instances (`break-keep` missing on elements this widget
+never routed through the shared `ArticleSubheading` fix): the
+token-receipt label, the absolute-gap label, and both occupation-card
+assessment paragraphs. Zero content change. Full detail in
+`docs/qa/SHOT_SPECS.md` S04-burden.
+
+### Iteration 16 (S04.5-languages) — 1 fix, Korean word-break
+
+Same bug class as Iteration 15: the Hangul-callout box's "1.78배" was
+splitting across lines at 390px. Fixed with `break-keep`. The "12개
+언어"/Hindi content-integrity flag (LOOP_LOG Iteration 8, `SHOT_SPECS.md`
+S04.5 finding #7) remains open and untouched — not a visual-pass call.
+
+### Iteration 17 (S05-infrastructure) — PASS, no fix
+
+Specifically screened for the S04/S04.5 word-break bug class (raw
+Korean `<p>`/`<div>` text) — this slide's two candidates both fit their
+container without breaking mid-word. 0 overflow. Interaction count
+reconfirmed at 0 (static, matches spec). A genuine clean result.
+
+### Iteration 18 (S05.2-impact) — 3 fixes, 1 of them shared-component
+
+Two local Korean word-break fixes (Level 02 "장문", Level 03 "표현").
+**Third fix has site-wide reach:** `ArticleFigureCaption` itself (used
+by 7 widgets) had no `break-keep` — its FIG. 08 caption was splitting
+"사슬". Fixing the shared component retroactively protects every
+already-passed slide's figure caption; not individually re-verified
+per slide since the fix is structural. Full detail in
+`docs/qa/SHOT_SPECS.md` S05.2-impact.
+
+### Iteration 19 (S06-method) — 4 fixes, Korean word-break only
+
+Most instances in one pass this session: 3 of the 6 boundary-box claims
+broke mid-word/mid-particle ("떨어진다고", "비용을", "토큰을"), one
+`break-keep` on the shared claim className fixes all 6; the accordion
+panel body ("의도를"); footnote #3 ("일상"). All raw elements outside
+the shared Article components. Zero content change. Full detail in
+`docs/qa/SHOT_SPECS.md` S06-method.
+
+With this iteration, every slide S00–S06 has been screened this phase;
+S07-result remains.
+
+### Iteration 20 (S07-result) — 1 fix, Korean word-break only
+
+The pull-quote `<p>` was splitting "다국어" and "형평성과" mid-word at
+390px. Fixed with `break-keep`. **H2, lead, and the protected
+`1.29×~1.83×` range explicitly untouched** — confirmed byte-identical,
+no authority in this pass to alter them (see `docs/qa/SHOT_SPECS.md`
+S07-result's own note on this). Full detail there.
+
+**Phase 7 status: every slide in the Director's work order (S00-hero
+through S07-result, 10 slides) has now received a visual devpass this
+session (2026-08-18).** Summary across iterations 11-20: 6 slides got
+real fixes (S00, S04, S04.5, S05.2, S06, S07 — mostly the Korean
+`break-keep` bug class, 12 instances total across the site, plus one
+structural fix in the shared `ArticleFigureCaption` component covering
+7 widgets retroactively); 3 slides verified clean with tightened
+re-screening (S01, S05, and S02's re-verification); S03 stays frozen
+pending D1. One git bottleneck resolved (PR #14 recovered and
+superseded by #20). Two content-integrity flags remain open and
+untouched (S02's "4단계"/5-step mismatch, S04.5's "12개 언어"/Hindi
+mismatch) — both logged for the content owner, neither silently
+resolved. No PROTECTED research content, numeric claim, or H2/conclusion
+strength was altered anywhere in this phase.
+
+---
+
+## Phase 8: Human Preview 01 (Director annotated-screenshot review, long-run loop)
+
+**Trigger:** Director conducted a first Human Preview 2026-08-18 against
+the production-promoted state (`894dcd8`, PR #21 tip — not `main`),
+producing 10 annotated screenshots (`AUDIT2/S0.png`–`S9 _ 결론.png`) plus
+verbal directive intent. Full reconciliation SSOT:
+`docs/editorial/HUMAN_PREVIEW_01_MASTER.md`. Working branch:
+`editorial/human-preview-01` (forked from `894dcd8`), PR #22.
+
+### HP01 Iteration 1
+
+Timestamp: 2026-08-18
+Branch: `editorial/human-preview-01`
+HEAD (before): `894dcd8`
+origin/main: `ceb7b4e`
+Production SHA: `894dcd8` (== this branch's fork point)
+PR: #22
+
+Image: `S0.png`
+Nav: S0
+DOM: `hero`
+Trace prefix: `HERO`
+Component: `NewsHeroSection.tsx` (+ `ArticleElements.tsx` for the
+`ArticleBigFinding` shared component)
+
+Directive IDs: `HP01-S0-R01`, `HP01-S0-R02`, `HP01-S0-R03`, `HP01-S0-R04`,
+`HP01-S0-B01`
+
+Before: top metadata bar carried "Data Journalism Investigation" and
+"COVER & CORE THESIS" as decorative English; FIG.01 exhibit header read
+"REAL TOKEN SPLIT EXHIBIT" (English); a 3-item `ANALYSIS TARGET`/
+`CORE METRIC`/`OBSERVED GAP` stat-ribbon table sat under the deck
+paragraph; the intro's `ArticleBigFinding` number ("약 1.2×~1.8×")
+rendered at `text-6xl…text-9xl`, sprawling across the block.
+
+Director intent: RED (R01-R04) — remove dashboard-y English micro-copy
+and the stat-ribbon table entirely; BLUE (B01) — shrink and compact the
+big-number display ("글씨줄여서 병렬로").
+
+Patch:
+- `NewsHeroSection.tsx`: removed the `COVER & CORE THESIS` div; Koreanized
+  "Data Journalism Investigation" → "데이터 저널리즘"; removed the
+  3-item stat ribbon; FIG.01 header → "FIG. 01 · 실제 토큰 분절 비교"
+  (KO) / kept English in EN mode; "Pair Benchmark" → "문장쌍 비교" (KO).
+- `ArticleElements.tsx`: `ArticleBigFinding`'s number display
+  `text-6xl sm:text-8xl lg:text-9xl` → `text-5xl sm:text-6xl lg:text-7xl`
+  + `whitespace-nowrap`, `leading-none` → `leading-tight`.
+
+Research-content impact: NONE. All changes are hardcoded JSX label text
+or pure CSS sizing — no `entities/*` value touched.
+
+Verification:
+- lint: PASS (`tsc --noEmit`)
+- build: PASS
+- 1440 KO: PASS (screenshot)
+- 1440 EN: PASS (screenshot, 0 overflow)
+- 390 KO: PASS (0 overflow)
+- 390 EN: not separately shot this iteration (1440 EN + 390 KO both
+  clean; low risk given no new wrapping-sensitive text introduced) — will
+  confirm in a later regression pass before whole-Human-Preview
+  acceptance
+- interaction: n/a (no interactive elements touched)
+
+Result: ACCEPTED (4 of 5 directives; `HP01-S0-R05` deferred, see below)
+
+Commit: (this commit)
+Preview URL: pending Vercel build on push
+
+Next: `HP01-S1-R01` (S1/compare — text-CTA phrasing) or continue S0 with
+`HP01-S0-R05` once S7 coordination is resolved, per priority order (S0
+before S1). Choosing to move to S1 now and return to `HP01-S0-R05`
+alongside the S7 pass, since it's explicitly a cross-slide dependency
+not a blocker for the rest of S0/S1.
+
+**Deferred:** `HP01-S0-R05` — FIG.01 exhibit's takeaway/news-note content
+flagged as belonging in the conclusion. Not `BLOCKED_*` (no missing
+evidence or authority question) — just sequenced after S7's own
+directives are read, since moving content requires knowing the target
+shape first. Tracked in MASTER §F, not silently dropped.
+
+### HP01 Iteration 2
+
+Image: `S1.png` · Nav: S1 · DOM: `compare` · Trace: `CMP` ·
+Component: `TokenCompareSection.tsx` (+ `entities/article-content` for
+one CTA sentence)
+
+Directive IDs: `HP01-S1-R01`, `HP01-S1-R02`, `HP01-S1-R03`,
+`HP01-S1-R04` (already satisfied), `HP01-S1-R05`, `HP01-S1-R06`
+
+Patch:
+- `entities/article-content/content/article-content.ts` (`realSentences`):
+  CTA sentence ending "…직접 비교해보십시오." → "…직접 비교한다."
+- `TokenCompareSection.tsx`: KO-mode column headers `한국어 (Hangul
+  Script)` → `한국어`, `ENGLISH (Latin Script)` → `영어` (both now
+  `isKo`-gated; previously hardcoded regardless of language). Bottom
+  observation line → Korean "토큰 비율 N× (+M개 토큰)" in KO mode.
+
+Research-content impact: the CTA sentence edit touches
+`entities/article-content`, but is pure editorial microcopy (a CTA verb
+ending), not a numeric/methodology/protected value — logged per the
+project's standing rule that content edits need traceability, not that
+they're forbidden.
+
+Verification: lint PASS, build PASS, 1440×KO PASS (0 overflow), 1440×EN
+PASS (0 overflow, confirmed unaffected by `isKo` gating). 390 not yet
+shot this iteration — will confirm in the pre-acceptance regression pass.
+
+Result: ACCEPTED (5 of 6 directives; R04 was already satisfied, not a
+new change)
+
+Next: S2/pipeline — directives already exist in the original prompt
+text (`HP01-S2-R01`–`R04`, `B01`–`B03`); apply directly.
+
 ---

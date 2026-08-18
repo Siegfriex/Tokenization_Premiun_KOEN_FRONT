@@ -135,7 +135,7 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
                 </div>
 
                 {selectedItem.isTargetHangul && (
-                  <div className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono">
+                  <div className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono break-keep">
                     {isKo
                       ? '★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.'
                       : '★ Korean consumes 1.78× the tokens of Latin-alphabet languages (English/Spanish).'}

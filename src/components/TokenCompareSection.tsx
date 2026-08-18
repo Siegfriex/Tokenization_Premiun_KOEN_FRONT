@@ -115,7 +115,7 @@ export const TokenCompareSection: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-accent"></span>
                       <span data-source="widget" className="font-mono font-bold text-sm uppercase tracking-wider text-ink">
-                        한국어 (Hangul Script)
+                        {isKo ? '한국어' : 'Korean (Hangul Script)'}
                       </span>
                     </div>
                     <span data-source="widget" className="text-xs font-mono text-ink-body font-semibold">음절 및 형태소 단위 분절</span>
@@ -163,7 +163,7 @@ export const TokenCompareSection: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-mark-baseline"></span>
                       <span data-source="widget" className="font-mono font-bold text-sm uppercase tracking-wider text-ink-body">
-                        ENGLISH (Latin Script)
+                        {isKo ? '영어' : 'English (Latin Script)'}
                       </span>
                     </div>
                     <span data-source="widget" className="text-xs font-mono text-ink-subtle">Word / Root Subword Units</span>
@@ -213,7 +213,9 @@ export const TokenCompareSection: React.FC = () => {
                   : 'Hangul consistently segments into more subword tokens for equivalent semantic information.'}
               </div>
               <div data-source="widget" className="text-xs font-mono text-ink font-bold shrink-0">
-                Token Ratio: {selectedPair.tokenPremium.toFixed(2)}× (+{selectedPair.hangulCount - selectedPair.alphabetCount} additional tokens)
+                {isKo
+                  ? `토큰 비율 ${selectedPair.tokenPremium.toFixed(2)}× (+${selectedPair.hangulCount - selectedPair.alphabetCount}개 토큰)`
+                  : `Token Ratio: ${selectedPair.tokenPremium.toFixed(2)}× (+${selectedPair.hangulCount - selectedPair.alphabetCount} additional tokens)`}
               </div>
             </div>
 

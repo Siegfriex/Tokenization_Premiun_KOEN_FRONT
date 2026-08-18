@@ -136,7 +136,7 @@ export const ArticleBigFinding: React.FC<{
       {label && (
         <SectionEyebrow>{label}</SectionEyebrow>
       )}
-      <div className="text-6xl sm:text-8xl lg:text-9xl font-serif font-bold text-ink tracking-tight leading-none">
+      <div className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-ink tracking-tight leading-tight whitespace-nowrap">
         {bigNumber}
       </div>
       <p className="text-lg sm:text-xl lg:text-2xl text-ink font-medium leading-relaxed max-w-reading break-keep">
@@ -160,9 +160,9 @@ export const ArticleFigureCaption: React.FC<{
     <figcaption data-role="figure-caption" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
       <div className="text-ink font-semibold flex items-start gap-2">
         {figNum && <span className="text-ink font-bold shrink-0 whitespace-nowrap">{figNum} ·</span>}
-        <span className="text-ink-body font-normal">{caption}</span>
+        <span className="text-ink-body font-normal break-keep">{caption}</span>
       </div>
-      {source && <div className="text-ink-subtle text-[11px]">{source}</div>}
+      {source && <div className="text-ink-subtle text-[11px] break-keep">{source}</div>}
     </figcaption>
   );
 };
