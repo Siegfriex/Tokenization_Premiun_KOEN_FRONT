@@ -87,209 +87,176 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
               ))}
         </ArticleReadingColumn>
 
-        {/* FULL-WIDTH BREAKOUT: Asymmetric Layout: Left 35% Narrative & Detail / Right 65% Clean Horizontal Bar Chart */}
+        {/* FULL-WIDTH BREAKOUT: Human Preview 01 S4.5 redesign (2026-08-18) —
+            was a two-panel card+chart dashboard (a bordered "language focus"
+            stat card beside a separately-bordered chart panel), which failed
+            S45-M04 (competing panels, no single main visual). Now one bordered
+            exhibit: chart-led, with the selected language's stats folded into
+            the panel's own header line instead of a competing side card.
+            Same 5 verified entries in MULTILINGUAL_COMPARISON_DATA — no new
+            language, ratio, or source added. */}
         <ArticleFullWidthBreak figure className="my-8 space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column (4 cols on lg): Narrative & Selected Language Card */}
-            <div className="lg:col-span-4 space-y-6">
-              <div className="bg-surface border border-rule rounded-xs p-6 space-y-6 shadow-xs">
-                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                  <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
-                    {isKo ? '선택된 언어' : 'LANGUAGE FOCUS'}
-                  </dt>
-                </dl>
-
-                <div className="space-y-1">
-                  <div className="text-xs font-mono text-ink-muted">
-                    {isKo ? selectedItem.scriptType.ko : selectedItem.scriptType.en}
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-ink">
-                    {isKo ? selectedItem.name.ko : selectedItem.name.en}
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-2 border-t border-rule text-xs font-mono">
-                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <dt data-source="widget" className="text-ink-muted">{isKo ? '정규화 토큰 수:' : 'Normalized Tokens:'}</dt>
-                    <dd data-source="widget" className="text-ink font-bold">{selectedItem.tokenCount}{isKo ? '개' : ' tokens'}</dd>
-                  </dl>
-                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                    <dt data-source="widget" className="text-ink-muted">{isKo ? '상대 비율:' : 'Relative Ratio:'}</dt>
-                    <dd className="text-ink font-bold text-sm">
-                      {selectedItem.relativeRatio.toFixed(2)}×
-                    </dd>
-                  </dl>
-                  <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1">
-                    <dt data-source="widget" className="text-ink-muted">{isKo ? '영어 대비 차이:' : 'Difference vs. English:'}</dt>
-                    <dd
-                      className={`font-bold ${
-                        selectedItem.differencePercent > 0 ? 'text-ink' : 'text-ink-muted'
-                      }`}
-                    >
-                      {selectedItem.differencePercent > 0
-                        ? `+${selectedItem.differencePercent}%`
-                        : isKo ? '기준값 (0%)' : 'Baseline (0%)'}
-                    </dd>
-                  </dl>
-                </div>
-
-                {selectedItem.isTargetHangul && (
-                  <div className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono break-keep">
-                    {isKo
-                      ? '★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.'
-                      : '★ Korean consumes 1.78× the tokens of Latin-alphabet languages (English/Spanish).'}
-                  </div>
-                )}
+          <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
+            <div className="space-y-3 border-b border-rule pb-4">
+              <div className="flex items-center justify-between gap-4">
+                <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+                  {isKo ? '언어별 정규화 토큰 소비량' : 'NORMALIZED TOKEN CONSUMPTION BY LANGUAGE'}
+                </dt>
+                <span data-source="widget" className="text-xs font-mono text-ink-muted shrink-0">Flores-200 / o200k_base</span>
               </div>
-
-              {/* Quick Interactive Language Switcher */}
-              <div className="space-y-2">
-                <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
-                  {isKo ? '언어별 즉시 포커스:' : 'Click to inspect language:'}
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <span className="text-[11px] font-mono text-ink-muted">
+                  {isKo
+                    ? '기준 영문 100 토큰 대비 정규화 소모량'
+                    : 'Normalized consumption relative to a 100-token English baseline'}
                 </span>
-                <ul data-collection="multilingual-comparison" className="flex flex-wrap gap-2">
-                  {MULTILINGUAL_COMPARISON_DATA.map((item) => (
-                    <li key={item.id}>
-                    <SelectableCard
-                      selected={selectedLangId === item.id}
-                      onSelect={() => setSelectedLangId(item.id)}
-                      itemId={item.id}
-                      boldWhenFilled
-                      className="px-3 py-1 text-xs font-mono"
-                    >
-                      {(isKo ? item.name.ko : item.name.en).split(' ')[0]} ({item.relativeRatio.toFixed(2)}×)
-                    </SelectableCard>
-                    </li>
-                  ))}
-                </ul>
+                <span data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink">
+                  <span className="font-bold">{isKo ? selectedItem.name.ko : selectedItem.name.en}</span>
+                  {' · '}
+                  {selectedItem.tokenCount}{isKo ? '개 토큰' : ' tokens'}
+                  {' · '}
+                  <span className="font-bold">{selectedItem.relativeRatio.toFixed(2)}×</span>
+                  {selectedItem.differencePercent > 0 && ` (+${selectedItem.differencePercent}%)`}
+                </span>
               </div>
             </div>
 
-            {/* Right Column (8 cols on lg): Clean Horizontal Bar Chart */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
-                <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                  <dl data-role="stat" data-semantic-target="dl">
-                    <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
-                      {isKo ? '언어별 정규화 토큰 소비량' : 'NORMALIZED TOKEN CONSUMPTION BY LANGUAGE'}
-                    </dt>
-                    <dd className="text-[11px] font-mono text-ink-muted">
-                      {isKo
-                        ? '기준 영문 100 토큰 대비 정규화 소모량'
-                        : 'Normalized consumption relative to a 100-token English baseline'}
-                    </dd>
-                  </dl>
-                  <span data-source="widget" className="text-xs font-mono text-ink-muted">Flores-200 / o200k_base</span>
-                </div>
+            {/* Responsive Chart Container — the section's one central visual */}
+            <div className="h-[340px] w-full pt-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={chartData}
+                  layout="vertical"
+                  margin={{ top: 10, right: 40, left: 60, bottom: 20 }}
+                >
+                  <XAxis
+                    type="number"
+                    domain={[0, 240]}
+                    stroke={chartTokens.rule}
+                    tick={{ fill: chartTokens.ruleMuted, fontSize: 11, fontFamily: 'monospace' }}
+                    tickFormatter={(val) => `${val} tok`}
+                  />
+                  <YAxis
+                    type="category"
+                    dataKey={isKo ? 'nameKo' : 'nameEn'}
+                    stroke={chartTokens.rule}
+                    tick={{ fill: chartTokens.selectedOutline, fontSize: 12, fontWeight: 600 }}
+                    width={70}
+                  />
+                  <Tooltip
+                    cursor={{ fill: 'rgba(0, 0, 0, 0.03)' }}
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload;
+                        return (
+                          <div className="bg-surface border border-rule-strong p-3 rounded-xs shadow-md text-xs font-mono space-y-1">
+                            <div className="font-bold text-ink">
+                              {isKo ? data.fullNameKo : data.fullNameEn}
+                            </div>
+                            <div className="text-ink-muted">
+                              {isKo ? data.scriptTypeKo : data.scriptTypeEn}
+                            </div>
+                            <div data-source="widget" className="text-ink font-bold text-sm">
+                              {isKo
+                                ? `토큰 ${data.tokenCount}개 (${data.relativeRatio.toFixed(2)}×)`
+                                : `${data.tokenCount} Tokens (${data.relativeRatio.toFixed(2)}×)`}
+                            </div>
+                            <div data-source="widget" className="text-ink-body">
+                              {data.differencePercent > 0
+                                ? isKo ? `영어 대비 +${data.differencePercent}%` : `+${data.differencePercent}% vs English`
+                                : isKo ? '기준값' : 'Baseline'}
+                            </div>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
+                  <ReferenceLine
+                    x={100}
+                    stroke={chartTokens.ruleMuted}
+                    strokeDasharray="3 3"
+                    label={{
+                      value: isKo ? '영어 기준선 (100)' : 'English Baseline (100 tok)',
+                      fill: chartTokens.ruleMuted,
+                      fontSize: 10,
+                      position: 'top',
+                    }}
+                  />
+                  <Bar
+                    dataKey="tokenCount"
+                    radius={[0, 2, 2, 0]}
+                    onClick={(data) => setSelectedLangId(data.id)}
+                    className="cursor-pointer"
+                  >
+                    {chartData.map((entry) => (
+                      <Cell
+                        key={`cell-${entry.id}`}
+                        fill={
+                          entry.id === selectedLangId
+                            ? chartTokens.seriesHighlight
+                            : entry.isBaseline
+                            ? chartTokens.seriesBaseline
+                            : chartTokens.seriesOther
+                        }
+                        stroke={entry.id === selectedLangId ? chartTokens.selectedOutline : 'transparent'}
+                        strokeWidth={2}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
 
-                {/* Responsive Chart Container */}
-                <div className="h-[340px] w-full pt-4">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={chartData}
-                      layout="vertical"
-                      margin={{ top: 10, right: 40, left: 60, bottom: 20 }}
-                    >
-                      <XAxis
-                        type="number"
-                        domain={[0, 240]}
-                        stroke={chartTokens.rule}
-                        tick={{ fill: chartTokens.ruleMuted, fontSize: 11, fontFamily: 'monospace' }}
-                        tickFormatter={(val) => `${val} tok`}
-                      />
-                      <YAxis
-                        type="category"
-                        dataKey={isKo ? 'nameKo' : 'nameEn'}
-                        stroke={chartTokens.rule}
-                        tick={{ fill: chartTokens.selectedOutline, fontSize: 12, fontWeight: 600 }}
-                        width={70}
-                      />
-                      <Tooltip
-                        cursor={{ fill: 'rgba(0, 0, 0, 0.03)' }}
-                        content={({ active, payload }) => {
-                          if (active && payload && payload.length) {
-                            const data = payload[0].payload;
-                            return (
-                              <div className="bg-surface border border-rule-strong p-3 rounded-xs shadow-md text-xs font-mono space-y-1">
-                                <div className="font-bold text-ink">
-                                  {isKo ? data.fullNameKo : data.fullNameEn}
-                                </div>
-                                <div className="text-ink-muted">
-                                  {isKo ? data.scriptTypeKo : data.scriptTypeEn}
-                                </div>
-                                <div data-source="widget" className="text-ink font-bold text-sm">
-                                  {isKo
-                                    ? `토큰 ${data.tokenCount}개 (${data.relativeRatio.toFixed(2)}×)`
-                                    : `${data.tokenCount} Tokens (${data.relativeRatio.toFixed(2)}×)`}
-                                </div>
-                                <div data-source="widget" className="text-ink-body">
-                                  {data.differencePercent > 0
-                                    ? isKo ? `영어 대비 +${data.differencePercent}%` : `+${data.differencePercent}% vs English`
-                                    : isKo ? '기준값' : 'Baseline'}
-                                </div>
-                              </div>
-                            );
-                          }
-                          return null;
-                        }}
-                      />
-                      <ReferenceLine
-                        x={100}
-                        stroke={chartTokens.ruleMuted}
-                        strokeDasharray="3 3"
-                        label={{
-                          value: isKo ? '영어 기준선 (100)' : 'English Baseline (100 tok)',
-                          fill: chartTokens.ruleMuted,
-                          fontSize: 10,
-                          position: 'top',
-                        }}
-                      />
-                      <Bar
-                        dataKey="tokenCount"
-                        radius={[0, 2, 2, 0]}
-                        onClick={(data) => setSelectedLangId(data.id)}
-                        className="cursor-pointer"
-                      >
-                        {chartData.map((entry) => (
-                          <Cell
-                            key={`cell-${entry.id}`}
-                            fill={
-                              entry.id === selectedLangId
-                                ? chartTokens.seriesHighlight
-                                : entry.isBaseline
-                                ? chartTokens.seriesBaseline
-                                : chartTokens.seriesOther
-                            }
-                            stroke={entry.id === selectedLangId ? chartTokens.selectedOutline : 'transparent'}
-                            strokeWidth={2}
-                          />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
+            {/* Language switcher — the chart's own interactive control, not a separate panel */}
+            <div className="pt-2 border-t border-rule space-y-2">
+              <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
+                {isKo ? '언어별 즉시 포커스:' : 'Click to inspect language:'}
+              </span>
+              <ul data-collection="multilingual-comparison" className="flex flex-wrap gap-2">
+                {MULTILINGUAL_COMPARISON_DATA.map((item) => (
+                  <li key={item.id}>
+                  <SelectableCard
+                    selected={selectedLangId === item.id}
+                    onSelect={() => setSelectedLangId(item.id)}
+                    itemId={item.id}
+                    boldWhenFilled
+                    className="px-3 py-1 text-xs font-mono"
+                  >
+                    {(isKo ? item.name.ko : item.name.en).split(' ')[0]} ({item.relativeRatio.toFixed(2)}×)
+                  </SelectableCard>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                {/* Legend & Meta Notes */}
-                <div data-role="legend" className="pt-3 border-t border-rule flex flex-wrap items-center justify-between text-xs font-mono text-ink-muted gap-3">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-3 h-3 bg-mark-baseline rounded-xs inline-block"></span>
-                      <span>{isKo ? '라틴 알파벳 기준 (1.00×)' : 'Latin-alphabet baseline (1.00×)'}</span>
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-3 h-3 bg-mark rounded-xs inline-block border border-rule-strong"></span>
-                      <span className="text-ink font-bold">
-                        {isKo ? selectedItem.name.ko : selectedItem.name.en} ({selectedItem.relativeRatio.toFixed(2)}×)
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-3 h-3 bg-mark-other rounded-xs inline-block"></span>
-                      <span data-source="widget">{isKo ? '기타 다국어 표기 체계' : 'Other scripts'}</span>
-                    </span>
-                  </div>
-                  <span data-source="widget">{isKo ? '데이터: Flores-200' : 'Data: Flores-200'}</span>
-                </div>
+            {selectedItem.isTargetHangul && (
+              <div className="p-3 bg-surface-alt border border-rule rounded-xs text-xs text-ink font-mono break-keep">
+                {isKo
+                  ? '★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다.'
+                  : '★ Korean consumes 1.78× the tokens of Latin-alphabet languages (English/Spanish).'}
               </div>
+            )}
+
+            {/* Legend & Meta Notes */}
+            <div data-role="legend" className="pt-3 border-t border-rule flex flex-wrap items-center justify-between text-xs font-mono text-ink-muted gap-3">
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 bg-mark-baseline rounded-xs inline-block"></span>
+                  <span>{isKo ? '라틴 알파벳 기준 (1.00×)' : 'Latin-alphabet baseline (1.00×)'}</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 bg-mark rounded-xs inline-block border border-rule-strong"></span>
+                  <span className="text-ink font-bold">
+                    {isKo ? selectedItem.name.ko : selectedItem.name.en} ({selectedItem.relativeRatio.toFixed(2)}×)
+                  </span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 bg-mark-other rounded-xs inline-block"></span>
+                  <span data-source="widget">{isKo ? '기타 다국어 표기 체계' : 'Other scripts'}</span>
+                </span>
+              </div>
+              <span data-source="widget">{isKo ? '데이터: Flores-200' : 'Data: Flores-200'}</span>
             </div>
           </div>
 

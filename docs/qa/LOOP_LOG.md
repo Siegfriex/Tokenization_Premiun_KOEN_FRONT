@@ -945,4 +945,115 @@ the new DOM-addressing overlay: add `data-hp01-id="impact-levels"` and
 causal-chain box need independent targeting beyond their existing
 `data-collection` attributes.
 
+### Mid-loop protocol shift — Director v2.1 directive + Acceptance Metrics document
+
+A second new document, `AUDIT2/QA/Human Preview 01 — Slide Acceptance
+Metrics and Crawl QA Protocol.md`, arrived alongside a live Director
+instruction ("HUMAN PREVIEW 01 — FIXED-MAP EXECUTION & PLAYWRIGHT QA
+LOOP v2.1"). Reprioritized per that instruction: **verify-before-
+reimplement** for already-merged slides using the new `S*-M*` metrics
+as literal test specifications, not just narrative QA. New priority
+order: P0 S4 verification, P1 S4.5 redesign closure, P2 S5
+verification, P3-P6 S5.2/S6/S7/regression sweep.
+
+### P0 — S4-burden Evidence Packet (verification only, no code change)
+
+**Current State:** branch `editorial/human-preview-01`, HEAD = `c556279`
+(== `origin/main`), HP01 IDs `HP01-S4-R01-R04,B01,B03`.
+
+**Target Proof:** `section#burden[data-widget="OccupationSection"]` = 1
+match; `[data-collection="iteration-presets"] button` = 5;
+`input[type="range"]` = 1.
+
+**Metric Results (against live production):**
+```
+S4-M01 PASS  (root=1, presets=5, range=1)
+S4-M02 PASS  (10x and 1000x preset clicks both changed rendered totals)
+S4-M03 PASS  (OCCUPATIONAL SENSITIVITY COMPARISON wrapper absent;
+              engineering-occupations / socialscience-occupations
+              collections absent)
+S4-M04 PASS  (팀 일간 워크플로우 / 전사 에이전트 루틴 both absent)
+S4-M05 PASS  (기하급수 string absent)
+S4-M06 PASS  (TOKEN GAP / ACCUMULATED BURDEN GAP / WORKFLOW REPETITION
+              SIMULATOR all absent; Korean title 반복 사용 시뮬레이터
+              present)
+S4-M07 BLOCKED_EVIDENCE (no price/unit-cost input present — correct,
+              not a failure per the metric's own conditional rule)
+S4-M08 PASS  (visual: simulator is the sole breakout content, already
+              confirmed via screenshot in Iteration 5)
+```
+
+**Verdict: PASS.** No code change made — implementation already
+correct. Evidence level E4 (deployed DOM verification + interaction
+results + this record).
+
+### P1 — S4.5-languages Evidence Packet (redesign closure)
+
+**Current State:** same branch/HEAD. HP01 IDs `HP01-S45-R01` (closing
+the PARTIAL from Iteration 6), `S45-M01-M07`.
+
+**Target Proof (before):** root = 1; `.border-2.border-rule-strong`
+inside `#languages` = **2** (stat card + chart panel — this is the
+concrete evidence the composition was still two competing panels, not
+one visual).
+
+**Metric Results — before redesign (production):**
+```
+S45-M01 PASS (root=1) but composition-count=2 (see above)
+S45-M02 BLOCKED_CONTENT_AUTHORITY (12개 언어/힌디어 mentions present —
+              pre-existing flag, unchanged)
+S45-M03 PASS (governance/sovereign conclusion sentence already absent,
+              closed in Iteration 6)
+S45-M04 FAIL (two competing bordered panels, confirmed by direct count)
+S45-M05 PASS (chip count=5, interaction changes state)
+```
+**→ Per the v2.1 directive's explicit rule, S45-M04 failing on a
+count-based composition check means R01 cannot close on label work
+alone. Proceeded to a real composition redesign, scoped to
+`MultilingualTokenEfficiencySection.tsx` only, using the existing 5
+verified `MULTILINGUAL_COMPARISON_DATA` entries — no new language,
+ratio, or source.**
+
+**Change Boundary:** `MultilingualTokenEfficiencySection.tsx` only
+(merged the 4/8-col two-panel grid into one bordered panel; moved the
+selected-language stat readout into the panel's own header line; moved
+the chart, language chips, conditional callout, and legend inside the
+same panel). No shared component (`ArticleElements.tsx`), no entity
+data, no other section touched.
+
+**Metric Results — after redesign (local build):**
+```
+S45-M01 PASS (root=1, main-panel-count=1)
+S45-M02 BLOCKED_CONTENT_AUTHORITY (unchanged, correctly not resolved)
+S45-M03 PASS (reconfirmed)
+S45-M04 now addressable — one visual, Korean bar immediately legible
+S45-M05 PASS (English chip then Arabic chip both changed state)
+S45-M06 PASS (reconfirmed, closed Iteration 6)
+S45-M07 BLOCKED_EVIDENCE (unchanged, no Flores paper located)
+```
+
+**Behavior Proof:** chip click (English) → header readout + legend +
+highlighted bar all updated to English; chip click (Arabic) → same,
+updated to Arabic. No blank/stale state observed.
+
+**Evidence Safety:** no protected numeric/research value changed; no
+new source/language/citation invented; both open blockers (`S45-M02`,
+`S45-M07`) explicitly named, not silently resolved.
+
+**Commands:** `npm run lint` PASS; `npm run build` PASS (bundle
+297.53KB, down slightly from removing one wrapper `div`); Playwright
+metric checks PASS as listed above.
+
+**Gate: `CONDITIONAL PASS`** (all mandatory gates pass; `S45-M02` and
+`S45-M07` remain correctly `BLOCKED_*`).
+
+**Decision Required:** none for this slide — both blocks require
+external inputs (a content-owner ruling on "12개 언어"/Hindi, and
+locating the Flores paper), not a Director judgment call available
+right now.
+
+Next: P2 — S5-infrastructure verification (already implemented in
+Iteration 7; verify against `S5-M01-M07` before assuming correctness,
+per the same protocol).
+
 ---
