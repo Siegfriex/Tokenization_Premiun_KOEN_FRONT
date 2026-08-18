@@ -103,7 +103,7 @@ export const NewsHeroSection: React.FC = () => {
             {/* Minimal Token Contrast Visual */}
             <div className="bg-surface-alt rounded-xs p-6 space-y-6">
               <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
+                <dt data-source="widget" className="text-xs font-mono text-ink-body font-semibold uppercase tracking-wider">
                   FIG. 01 / REAL TOKEN SPLIT EXHIBIT
                 </dt>
                 <dd data-source="widget" className="text-[11px] font-mono text-ink-subtle">Pair Benchmark</dd>

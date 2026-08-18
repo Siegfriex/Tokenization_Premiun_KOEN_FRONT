@@ -43,6 +43,18 @@ build passes, audit pipeline diff-reproducible, director queue still 16
 (no frozen claim touched — only container chrome + paragraph grouping of
 already-approved sentences).
 
+**Findings (visual devpass, 2026-08-18, Iteration 11):** One change,
+label tone only. FIG.01 exhibit card's `dt` label ("FIG. 01 / REAL TOKEN
+SPLIT EXHIBIT") `text-ink font-bold` → `text-ink-body font-semibold` —
+one register quieter, so the exhibit reads more explicitly as a
+supporting illustration rather than a co-equal headline claim (D2's
+values remain untouched — this is the layout/spacing-only intervention
+the risk-zone note above already scopes this pass to). Verified via
+Playwright: computed `color: rgb(71, 85, 105)` (`--color-ink-body`)
+resolves correctly; H1 bounding box remains larger/higher than the
+exhibit card's at 1440×KO. tsc clean, build clean (CSS hash unchanged —
+no new utility introduced, only reused tokens).
+
 ---
 
 ## S03-patterns
