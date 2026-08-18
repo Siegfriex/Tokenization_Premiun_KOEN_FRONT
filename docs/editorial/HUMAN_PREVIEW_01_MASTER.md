@@ -403,9 +403,15 @@ already done in §C).
 
 ## L. Last Verified Commit / Deployment
 
-- Last commit on `editorial/human-preview-01`: `00f20bc` (MASTER +
-  source manifest freeze) → HP01 Iteration 1 commit follows (S0 patches).
-- Last verified production deployment: `894dcd8` (visual-devpass tip),
-  confirmed by build-hash comparison, this session (§B). Not yet
-  re-verified against any Human Preview patch (no merge to `main` has
-  happened yet in this loop).
+- **PR #22 merged to `main`** (`de058bd`, Director-initiated merge) —
+  contains HP01 Iterations 1-2 (S0 + S1, 9 directives). `main` and
+  production are now in sync: build-hash comparison confirms
+  `index-Bm1hS9NK.js` / `index-DcSxfIQ6.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves.
+  `MAIN_SHA` and `PRODUCTION_SHA` are now both `de058bd` — the
+  `BASELINE_KIND=PRODUCTION_PROMOTED_HEAD` divergence noted in §B is
+  resolved as of this merge.
+- Continuing work: local branch `editorial/human-preview-01`
+  fast-forwarded to `de058bd`; subsequent iterations (S2 onward) commit
+  to the same branch name, opening a fresh PR once ready (the merged
+  PR #22 is closed and cannot receive new commits as an open PR).
