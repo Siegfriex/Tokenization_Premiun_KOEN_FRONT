@@ -178,6 +178,86 @@ to be keeping alive.
 
 ---
 
+---
+
+## D8 — New reference material (`AUDIT2/레퍼런스/`) states corpus/ratio numbers that contradict every PROTECTED value currently frozen by D1
+
+**CRITICAL · discovered 2026-08-18 while hashing Human Preview 01 source material · blocks nothing yet, resolves nothing yet**
+
+Three files appeared, untracked, in `AUDIT2/레퍼런스/` alongside the annotated
+Human Preview screenshots (same acquisition batch per directory mtime).
+Extracted via `unzip` + regex on `word/document.xml` (Read tool cannot open
+`.docx`/`.xlsx` directly):
+
+| File | SHA-256 |
+|---|---|
+| `기사_최종본.docx` | `6f5555656dee93a43932fa3be33f76efa008032b935cfea186b84035a01e705e` |
+| `기사용_언어별_Token_Premium_선행연구_요약.docx` | `3c83050a493ae2e7a8c3f62394624483135d9279ad88eebd2637c7cf2b77d189` |
+| `cl100k_base tokenizer(국가별).xlsx` | `8b08f9552920bcff2358d17ac3b1f6d0f460c74afd9dedc31759ffaa57609d32` |
+
+**`기사_최종본.docx` ("article final draft", 4,493 characters, opens with the
+same headline framing as the live S0 hero — "같은 질문, 다른 청구서" — so this
+reads as a candidate replacement/successor draft of the live article, not an
+unrelated document).** It states, as the analysis's own headline numbers:
+
+| Item | This document states | Repository / live site currently holds (frozen by D1) |
+|---|---|---|
+| Corpus size | **3,835,988** paired sentences ("전수 분석", i.e. full-corpus, not a sample) | `69,432` (S3 heading, `PREM-002`/`PREM-003`) |
+| Central ratio | median **1.33×** | headline range `1.29× ~ 1.83×`; mean `1.68`/`1.513` (disputed, see D1) |
+| Majority-share stat | **87.99%** (~88%) of pairs use more Korean tokens | not present in any entity |
+| Tail percentiles | 95th percentile **1.89×**, 99th percentile **2.25×** | not present in any entity — current site has no percentile framing at all |
+| Tokenizer | **GPT-5 (o200k_base)** | entities/components reference `cl100k_base` in places (see S4.5/D-adjacent material) and no entity names `GPT-5` |
+| Framing device | fixed-budget normalization (English=100 → Korean median≈75, p95≈53, p99≈44) | not present anywhere on the live site |
+
+The document also carries explicit epistemic guardrails in its own prose —
+"이 숫자가 '한국어 사용자가 실제로 25% 더 적게 쓴다'는 뜻은 아니다", "아직
+'한국어 사용자가 사회적으로 AI 접근에서 불이익을 받고 있다'는 결론까지 측정한
+것은 아니다" — i.e. it is careful not to overclaim causally, in the same spirit
+as this project's existing RED/BLUE and non-causal-framing rules
+(`HP01-S52-R02/R03`).
+
+**`기사용_언어별_Token_Premium_선행연구_요약.docx`** was already checked this
+session and found to be the Flores/Petrov citation this project had logged as
+`BLOCKED_EVIDENCE` under `HP01-S45-B02` (Petrov, La Malfa, Torr & Bibi, 2023,
+NeurIPS 2023, cl100k_base, FLORES-200 — English=1.00, Chinese=1.91×,
+Korean=2.38×, Russian=2.49×, Arabic=3.04×; no Hindi, no 12-language claim).
+That finding stands and now has a locatable, hashed source — it resolves the
+sourcing half of `HP01-S45-B02` without changing any number already on the
+site.
+
+**`cl100k_base tokenizer(국가별).xlsx`** — opened only far enough to confirm
+structure (worksheet + embedded images/drawings), not yet read for data
+content.
+
+**What is not being claimed here.** Nothing indicates *which* number is
+correct. `기사_최종본.docx` reads as a later, larger-scale re-run (full corpus
+vs. a 69,432-pair sample; percentile framing vs. domain-range framing;
+GPT-5/o200k_base vs. whatever produced the current site's `1.13–1.75` domain
+array) — but that is a plausible read, not a verified one. It is equally
+possible this document predates the site, targets a different analysis scope,
+or was never meant to ship verbatim.
+
+**Why this is not being acted on unilaterally.** Every protected-content rule
+this project operates under — the D1 freeze above, the Human Preview 01
+"RESEARCH_CHANGE_RELEVANCE=NONE" / no-auto-sync rule, and this whole session's
+standing constraint — exists specifically to stop a newly-appeared document
+from silently overwriting frozen numeric claims. A 3,835,988 vs. 69,432 pair
+count is not a copyedit; treating this file as authoritative would mean
+rewriting the corpus size, the headline ratio, the percentile claims, and
+likely the domain-distribution chart across every slide that touches Token
+Premium (S3, S4, S4.5, S5.2, S7) — that is a research-content decision, not a
+Human Preview visual-redline decision, and it is explicitly out of scope for
+what this loop is authorized to do on its own.
+
+**Decision needed:** is `기사_최종본.docx` the new canonical source text/data
+for this article (superseding the current `entities/article-content.ts`
+figures and unblocking D1 in its favor), a draft to be reconciled with the
+current corpus, or unrelated to what should ship? Until ruled, D1 stays frozen
+exactly as-is and no code in this loop will be changed to match either set of
+numbers.
+
+---
+
 ## Answering a row
 
 Edit this file, replace the **Decision needed** paragraph with the ruling and
