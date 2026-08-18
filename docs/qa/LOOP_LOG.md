@@ -1116,3 +1116,251 @@ phrase edited. No protected numeric value exists on this slide.
 Next: P4 — S6/method, `HP01-S6-R01,R03`, `B02` (`S6-M01-M06`).
 
 ---
+
+### Interlude — D8: `AUDIT2/레퍼런스/` discovered, logged, NOT acted on
+
+While cleaning up post-PR #27 merge, `git status` surfaced an untracked
+`AUDIT2/레퍼런스/` directory (3 files, same acquisition batch as the
+screenshots per mtime). Extracted via `unzip` + regex on
+`word/document.xml` (Read tool cannot open `.docx`/`.xlsx`).
+
+- `기사용_언어별_Token_Premium_선행연구_요약.docx` — located and hashed
+  the Flores/Petrov et al. (2023, NeurIPS) citation already logged
+  `BLOCKED_EVIDENCE` under `HP01-S45-B02`. No number on the site
+  changed; that block's sourcing half is now closed, moved to
+  ALREADY_DONE.
+- `기사_최종본.docx` — states 3,835,988 paired sentences, 1.33× median,
+  87.99% majority, 95th/99th percentile 1.89×/2.25×, GPT-5/o200k_base —
+  all in direct conflict with D1's frozen 69,432 / 1.29×~1.83×. Logged
+  as **D8** in `docs/audit/DIRECTOR_DECISIONS.md` with the full
+  comparison table. No code touched as a result. This is a
+  research-content decision outside this loop's authority to resolve.
+- `cl100k_base tokenizer(국가별).xlsx` — structure confirmed only
+  (1 worksheet + embedded images), data not yet read.
+
+**Decision Required:** is `기사_최종본.docx` the new canonical source
+(supersedes D1's frozen numbers), a draft to reconcile, or unrelated?
+See D8 for detail. Flagging this before S7 (conclusion) work starts,
+since S7 is the slide most likely to be affected if D8 is ruled to
+supersede — S7 work below proceeds strictly within the current
+D1-frozen numbers per `S7-M01`'s explicit preserve gate.
+
+### P4 — S6/method Evidence Packet
+
+**Target Proof:** `section#method[data-widget="MethodSection"]` = 1;
+`[data-collection="what-we-do-not-claim"] li` = 6;
+`[data-collection="methodology-items"] li` = 6.
+
+**Change Boundary:** `MethodSection.tsx` (UI chrome only),
+`entities/article-content/content/article-content.ts` (one inline
+gloss inside `methodologyBoundaries.preFigureParagraphs.ko`). No
+`METHODOLOGY_ITEMS`/`WHAT_WE_DO_NOT_CLAIM` entity content touched —
+that stays PROTECTED per the file's own header comment.
+
+Before → After (exact strings):
+- `<dt>` (boundary box header): `"CRITICAL BOUNDARY / 본 분석이
+  주장하지 않는 것 (What We Do NOT Claim)"` → KO
+  `"이 분석으로 말할 수 없는 것"` / EN `"What This Analysis Does Not
+  Claim"`.
+- `<dd>` next to it: `"6 Key Principles"` (was English-only) → KO
+  `"6가지 경계"` / EN `"6 Key Principles"` (now a real ternary).
+- Accordion header `<dt>`: KO `"세부 분석 방법론 (Methodological
+  Pillars):"` → `"세부 분석 방법론"` (dropped English parenthetical;
+  EN unchanged).
+- Accordion header `<dd>`: `"Click to expand"` (English-only) → KO
+  `"클릭하여 펼치기"` / EN `"Click to expand"`.
+- Footnotes header: KO `"연구 주석 (Research Footnotes):"` →
+  `"연구 주석:"` (EN unchanged).
+- `preFigureParagraphs.ko[0]`: `"...표준화된 BPE 토큰화 알고리즘이..."`
+  → `"...표준화된 BPE(Byte Pair Encoding, 자주 등장하는 글자 조합을
+  하나의 토큰으로 묶어나가는 하위 단어 분절 방식) 토큰화 알고리즘
+  이..."` — inline gloss only, no claim added/removed/changed.
+
+**Metric Results** (Playwright, `localhost:3000`, KO, 1280×900):
+```
+S6-M01 PASS { rootCount: 1, claimItems: 6, methodItems: 6 }
+S6-M02 PASS — found leftover EN labels: [] (checked CRITICAL BOUNDARY,
+  WHAT WE DO NOT CLAIM, 6 KEY PRINCIPLES, case-insensitive)
+S6-M03 PASS — WHAT_WE_DO_NOT_CLAIM untouched, diff confirms 0 changes
+S6-M04 PASS { btnCount: 6, beforeExpanded: 'false', afterExpanded:
+  'true', afterClose: 'false' } — opened/closed methodology item 3
+S6-M05 PASS — BPE gloss text present in rendered DOM
+S6-M06 PASS (visual, screenshot) — boundary box and accordion now read
+  as plain heading/label pairs, no residual <dl>/<dt>/<dd> dashboard
+  stat-row chrome outside the two spots (item titles) that are
+  PROTECTED content and intentionally untouched
+```
+
+**Evidence Safety:** all 6 `WHAT_WE_DO_NOT_CLAIM` claim sentences and
+all 6 `METHODOLOGY_ITEMS` titles/bodies byte-identical to before —
+diffed directly, not assumed. Only label chrome and one jargon gloss
+changed.
+
+**Verdict: PASS.** `npx tsc --noEmit` and `npm run build` both clean.
+
+Next: P5 — S7/conclusion, `HP01-S7-R01-R03`, `B01`, plus the deferred
+`HP01-S0-R05` handoff, staying inside D1's frozen numbers per
+`S7-M01`'s preserve gate (see Interlude above re: D8).
+
+---
+
+### P2b — S5-infrastructure re-verification (Director-requested, live re-check)
+
+Director asked to re-verify S5 before continuing. Re-ran the full
+`S5-M01`–`M07` metric set live against current `localhost:3000` HEAD
+(previous verification in P2 was against production commit `c556279`,
+now several iterations old) rather than trusting the recorded result.
+
+```
+S5-M01 PASS { rootCount: 1, phaseItems: 4 }
+S5-M02/M03/M04/M05 PASS — 0 forbidden strings found (MACRO ADOPTION
+  CAUSAL CHAIN, causal chain, 인과 사슬, AI Investment, Infrastructure,
+  AI Adoption, Token Usage, VERIFIED, REQUIRED, SAMSUNG, SK,
+  기하급수적으로 — all absent from KO root)
+S5-M04 placeholder collection count: 0
+document overflow: false (KO and EN, 1440px)
+S5-M06 BLOCKED_EVIDENCE (unchanged, correct — no real source strips
+  supplied, per HP01-S5-B01)
+S5-M07 PASS (visual) — single 4-phase flow, no policy-dashboard
+  competition, screenshot confirms
+```
+
+**Verdict: PASS**, re-confirmed on current HEAD (no drift since
+Iteration 7). No code change this pass.
+
+### P5 — S7/conclusion + S0-R05 handoff Evidence Packet
+
+**Target Proof:** `section#result[data-widget="EditorialConclusionSection"]`
+= 1; protected `1.29×`–`1.83×` string present verbatim; `blockquote`/
+pull-quote count = 0; footer microcopy string absent; back-to-top
+button count = 1 and functional.
+
+**Change Boundary:** `EditorialConclusionSection.tsx`, one
+`preFigureParagraphs` array in `article-content.ts`
+(`conclusionSynthesis`), and `NewsHeroSection.tsx` (S0-R05 handoff —
+removing, not adding, content). No shared component touched.
+
+Before → After (exact strings):
+- `conclusionSynthesis.preFigureParagraphs.ko[1]`: `"AI가 사회의 보편적
+  인프라가 될수록, 언어별 representation efficiency를 측정하고
+  개선하는 문제는..."` → `"...언어별 표현 효율성을 측정하고 개선하는
+  문제는..."` — Koreanized the embedded English phrase, no meaning
+  change.
+- New `preFigureParagraphs.ko[2]`/`en[2]` (HP01-S7-B01, "not yet
+  claimed" compression): KO `"다만 이는 특정 토크나이저와 표본에서
+  관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나
+  확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다."` /
+  EN `"This reflects a structural gap observed within a specific
+  tokenizer and sample—it does not assert that Korean always costs
+  more, or confirm this as a settled cause of socioeconomic
+  inequality."` — this restates (does not add to) `WHAT_WE_DO_NOT_CLAIM`
+  items 2 and 6 in `methodology.ts`, which are themselves PROTECTED and
+  were only read, not edited.
+- `EditorialConclusionSection.tsx`: removed the italic pull-quote
+  `<div>` (was: `"AI가 사회의 보편적 기간 인프라가 될수록, 언어별
+  Representation Efficiency를 투명하게 측정하고 다국어 토크나이저
+  구조를 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될
+  것입니다."`) — this restated `preFigureParagraphs[1]` near-verbatim
+  and also duplicated S5.2's `keyFinding.statement` almost word-for-word.
+- `EditorialConclusionSection.tsx`: removed the footer `<div>` (was:
+  `"TOKEN PREMIUM INTERACTIVE DATA STORY / 2026"`); exit-row class
+  `justify-between` → `justify-end` so the back-to-top button now sits
+  alone, right-aligned; button's `onClick`/label/icon untouched.
+- `NewsHeroSection.tsx`: removed the "News Archive Context Note" block
+  (`"보도 및 인프라 동향 아카이브"` / `"국가 AI 인프라 컴퓨팅 센터
+  구축 및 기업 전사적 AI 도입이 본격화되면서, 토큰 처리 효율성은
+  개인의 문제를 넘어 시스템의 문제로 확장되고 있습니다."`) —
+  **removed, not rewritten**: its purpose is already fully carried by
+  S5's lead paragraph and now S7's new paragraph 2. The protected
+  `31 / 18 / 1.72×` FIG.01 numbers and the two sample sentences directly
+  above it were not touched.
+
+**Metric Results** (Playwright, `localhost:3000`, 1440×900, KO then EN):
+```
+S7-M01 PASS { rootCount: 1, hasRange: true } — 1.29×/1.83× both present
+S7-M02 PASS { blockquoteCount: 0, italicQuoteCount: 0 }
+S7-M03 PASS — footer microcopy string absent
+S7-M04 PASS — button count 1; click scrolls window to top (scrollY≈3
+  after settle; smooth-scroll needs >400ms to complete, confirmed with
+  a longer wait)
+S7-M05 PASS (KO) — "representation efficiency" absent from KO DOM;
+  present in EN DOM as expected (native English copy, not code-switching)
+overflow: false (KO and EN, 1440px)
+S0 news-note removed: true — confirmed absent from NewsHeroSection DOM
+```
+
+**Evidence Safety:** the protected `1.29×~1.83×` range, the display H2,
+and the lead line are all byte-identical to before (diffed). The S0
+FIG.01 `31/18/1.72×` numbers and its two sample sentences are
+byte-identical to before. No new number introduced anywhere. The new
+closing sentence and the S0 removal were both checked against the DOM
+Master's explicit constraints ("do not broaden conclusion claims",
+"confirm the conclusion already carries the same purpose" before
+touching S0) before implementing.
+
+**Verdict: PASS.** `npx tsc --noEmit` and `npm run build` both clean.
+Screenshot review: conclusion now reads as three clean paragraphs
+(measured → observed/implication → not-yet-claimed) with no competing
+quote box or footer chrome; S0 hero's exhibit card ends cleanly at the
+Relative Ratio line with no layout gap from the removed block.
+
+**S0–S7 (all 8 in-scope slides) now have 0 TODO directives remaining.**
+
+Next: P6 — final regression sweep across S0–S3 (not individually
+re-touched since their own iterations) to confirm no drift, then this
+Human Preview 01 loop is ready to be called complete pending Director
+review of the open PRs and D8.
+
+---
+
+### P6 — Final regression sweep, S0–S3 (verification only, no code change)
+
+Live check against `localhost:3000` (current HEAD, KO, 1440×900) for the
+4 slides not individually re-touched since their own earlier
+iterations, using each slide's own `S*-M*` metrics:
+
+```
+S0-M01 PASS (root=1)
+S0-M02 PASS (ANALYSIS TARGET/CORE METRIC/OBSERVED GAP/COVER & CORE
+  THESIS all still absent)
+S0-M03 PASS (실제 토큰 분절 비교 / 문장쌍 비교 present)
+S0-M06 PASS — D2 protection: 31/18/1.72× all present, untouched
+S1-M01 PASS (root=1, pair selectors=4)
+S1-M02 PASS — clicked pair 4, no exception/blank state
+S1-M03 PASS (HANGUL SCRIPT/LATIN SCRIPT absent; 한국어/영어 present)
+S1-M04 PASS (토큰 비율 present)
+S1-M05 PASS (7 figure captions present site-wide, non-empty)
+S2-M01 PASS (root=1, step count=5)
+S2-M02 PASS (TRANSFORMER PIPELINE SEQUENCING/THE BOTTLENECK/GAP ORIGIN
+  all still absent)
+S2-M03 PASS (1 disclosure, closed at initial render)
+S2-M04 PASS (문장이 토큰으로 바뀌는 과정 present)
+S2-M06 correctly still BLOCKED_CONTENT_AUTHORITY — "4단계" headline
+  text still present alongside 5 actual pipeline steps; this is the
+  known, previously-flagged conflict, unresolved pending Director
+  ruling, not a regression
+S3-M01 PASS (root=1, domain rows=6 — confirmed via `> li` direct child
+  count; a looser selector artifact briefly showed 12 from double-
+  counting nested buttons, not a real DOM issue)
+S3-M02 PASS (핵심 실측 지표 / 관측된 토큰 프리미엄 비율 / 산출 공식 /
+  도메인별 분포 all present)
+S3-M05 PASS — D1 frozen values intact: 1.29, 1.83, and 69,432 all
+  present verbatim, no drift
+document overflow: false (1440px)
+```
+
+**Verdict: PASS, 0 regressions.** No code touched this pass — pure
+verification. Full-page screenshot (S0 through S7) reviewed top to
+bottom: consistent visual rhythm, no oversized competing panels, no
+layout breaks.
+
+**Human Preview 01 patch loop: all 8 in-scope slides (S0–S7) closed,
+0 TODO remaining, 0 regressions found in the final sweep.** Open and
+outstanding, not resolvable by this loop alone: `HP01-S2-R03`
+("4단계"), `D1` (S3 numeric mismatch), `HP01-S4.5-R02` ("12개 언어"),
+`HP01-S4-B02` (pricing multiplier evidence), `HP01-S5-B01` (source
+strips evidence), and `D8` (기사_최종본.docx corpus/ratio discrepancy)
+— all logged with full detail in `DIRECTOR_DECISIONS.md` and this
+MASTER doc, none silently resolved.
+
+---

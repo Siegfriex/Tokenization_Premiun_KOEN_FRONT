@@ -67,9 +67,9 @@ export const MethodSection: React.FC = () => {
           <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-10 space-y-6 shadow-sm">
             <dl data-role="stat" data-semantic-target="dl" className="flex items-start justify-between border-b border-rule pb-3 gap-4">
               <dt data-source="widget" className="text-sm sm:text-base font-mono text-ink font-bold uppercase tracking-wider">
-                CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim)
+                {isKo ? '이 분석으로 말할 수 없는 것' : 'What This Analysis Does Not Claim'}
               </dt>
-              <dd className="text-xs font-mono text-ink-body shrink-0">6 Key Principles</dd>
+              <dd className="text-xs font-mono text-ink-body shrink-0">{isKo ? '6가지 경계' : '6 Key Principles'}</dd>
             </dl>
 
             <ul data-collection="what-we-do-not-claim" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -90,9 +90,9 @@ export const MethodSection: React.FC = () => {
           <div className="space-y-4">
             <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
               <dt data-source="widget" className="text-xs font-mono text-ink-body uppercase tracking-wider font-semibold">
-                {isKo ? '세부 분석 방법론 (Methodological Pillars):' : 'Detailed Methodological Pillars:'}
+                {isKo ? '세부 분석 방법론' : 'Detailed Methodological Pillars:'}
               </dt>
-              <dd data-source="widget" className="text-xs font-mono text-ink-muted">Click to expand</dd>
+              <dd data-source="widget" className="text-xs font-mono text-ink-muted">{isKo ? '클릭하여 펼치기' : 'Click to expand'}</dd>
             </dl>
 
             <ul data-collection="methodology-items" className="grid grid-cols-1 gap-3">
@@ -153,7 +153,7 @@ export const MethodSection: React.FC = () => {
           {articleData.footnotes && (
             <div className="pt-8 border-t border-rule space-y-2 text-xs font-mono text-ink-muted">
               <div data-source="widget" className="font-bold text-ink uppercase tracking-wider mb-2">
-                {isKo ? '연구 주석 (Research Footnotes):' : 'Research Footnotes:'}
+                {isKo ? '연구 주석:' : 'Research Footnotes:'}
               </div>
               {(isKo ? articleData.footnotes.ko : articleData.footnotes.en).map((fn, idx) => (
                 <p data-role="collection-item" data-semantic-target="ul" key={idx} className="leading-relaxed break-keep">

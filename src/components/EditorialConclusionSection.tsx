@@ -58,28 +58,12 @@ export const EditorialConclusionSection: React.FC = () => {
             : articleData.preFigureParagraphs?.en.map((p, idx) => (
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
               ))}
-
-          <div className="pt-4 border-l border-rule pl-6 sm:pl-8 my-6">
-            <p className="text-base sm:text-lg text-ink-body font-serif italic leading-relaxed break-keep">
-              {isKo ? (
-                <>
-                  “AI가 사회의 보편적 기간 인프라가 될수록, 언어별 Representation Efficiency를 투명하게 측정하고 다국어 토크나이저 구조를 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.”
-                </>
-              ) : (
-                <>
-                  “As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.”
-                </>
-              )}
-            </p>
-          </div>
         </ArticleReadingColumn>
 
-        {/* Exit device, not a CTA (Director redline, S07): epilogue navigation, not the slide's protagonist */}
-        <div data-role="stat" data-semantic-target="dl" className="pt-8 border-t border-rule flex items-center justify-between">
-          <div data-source="widget" className="text-xs font-mono text-ink-subtle">
-            TOKEN PREMIUM INTERACTIVE DATA STORY / 2026
-          </div>
-
+        {/* Exit device, not a CTA (Director redline, S07): epilogue navigation, not the slide's protagonist.
+            Human Preview 01 iteration 11 (HP01-S7-R02/R03): removed the pull-quote box above (duplicated
+            preFigureParagraphs[1]'s claim near-verbatim) and the footer microcopy below; button preserved. */}
+        <div data-role="stat" data-semantic-target="dl" className="pt-8 border-t border-rule flex items-center justify-end">
           <button
             type="button"
             onClick={scrollToTop}

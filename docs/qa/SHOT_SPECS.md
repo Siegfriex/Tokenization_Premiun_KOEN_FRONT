@@ -1252,3 +1252,86 @@ no residual 3-card competition, confirmed via screenshot.
 
 Verified 1440×KO/EN: 0 overflow both languages. tsc clean, build
 clean.
+
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 10): `S6-M01`–`M06`
+closed.** `MethodSection.tsx` — UI chrome only, `METHODOLOGY_ITEMS`/
+`WHAT_WE_DO_NOT_CLAIM` entity content (PROTECTED, per the file's own
+header comment) untouched byte-for-byte.
+
+Before → after (exact strings):
+- Boundary-box `<dt>`: `"CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것
+  (What We Do NOT Claim)"` → KO `"이 분석으로 말할 수 없는 것"` / EN
+  `"What This Analysis Does Not Claim"`.
+- Boundary-box `<dd>`: `"6 Key Principles"` (was hardcoded English for
+  both languages) → real ternary, KO `"6가지 경계"` / EN unchanged.
+- Accordion header `<dt>`: `"세부 분석 방법론 (Methodological
+  Pillars):"` → `"세부 분석 방법론"` — dropped the English
+  parenthetical from the Korean string (EN string untouched).
+- Accordion header `<dd>`: `"Click to expand"` (English-only) → KO
+  `"클릭하여 펼치기"` / EN unchanged.
+- Footnotes header: `"연구 주석 (Research Footnotes):"` → `"연구
+  주석:"` (EN untouched).
+- `article-content.ts`, `methodologyBoundaries.preFigureParagraphs.ko[0]`:
+  `"...표준화된 BPE 토큰화 알고리즘이..."` → `"...표준화된 BPE(Byte
+  Pair Encoding, 자주 등장하는 글자 조합을 하나의 토큰으로 묶어나가는
+  하위 단어 분절 방식) 토큰화 알고리즘이..."` — inline gloss inserted
+  at the term's first use; no claim added, removed, or reworded.
+
+Metric verification (Playwright, `localhost:3000`, KO, 1280×900):
+`S6-M01` PASS (root=1, claim items=6, methodology items=6). `S6-M02`
+PASS (0 leftover `CRITICAL BOUNDARY`/`WHAT WE DO NOT CLAIM`/`6 KEY
+PRINCIPLES`, case-insensitive scan). `S6-M03` PASS (diffed all 6
+`WHAT_WE_DO_NOT_CLAIM` strings — byte-identical). `S6-M04` PASS
+(clicked methodology item 3: `aria-expanded` false → true → false,
+content visible while open). `S6-M05` PASS (BPE gloss text present in
+rendered DOM). `S6-M06` (visual rubric) PASS — boundary box and
+accordion header now read as plain label pairs, no residual
+`<dl>`/`<dt>`/`<dd>` research-dashboard chrome outside the two
+PROTECTED accordion item titles (`의미론적 동등성 (Semantic
+Equivalence)` etc.), which are in-scope content, not UI chrome, and
+were intentionally left untouched.
+
+Research-content impact: NONE.
+
+Verified: `npx tsc --noEmit` clean, `npm run build` clean.
+
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 11): `S7-M01`–`M07`
+closed, plus deferred `HP01-S0-R05` handoff resolved.**
+`EditorialConclusionSection.tsx`, one `article-content.ts` paragraph
+array, `NewsHeroSection.tsx`. The protected `1.29×~1.83×` range, H2, and
+lead line are untouched (byte-diffed).
+
+Before → after (exact strings):
+- `preFigureParagraphs.ko[1]`: `"...언어별 representation efficiency를
+  측정하고..."` → `"...언어별 표현 효율성을 측정하고..."`.
+- New third paragraph (KO): `"다만 이는 특정 토크나이저와 표본에서
+  관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나
+  확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다."` —
+  restates `WHAT_WE_DO_NOT_CLAIM` items 2 and 6 verbatim in substance;
+  no new claim, no new number.
+- Pull-quote `<div>` deleted (was near-duplicate of paragraph 2 and of
+  S5.2's `keyFinding.statement`).
+- Footer `<div>` (`"TOKEN PREMIUM INTERACTIVE DATA STORY / 2026"`)
+  deleted; exit row `justify-between` → `justify-end`; back-to-top
+  button's function/label untouched.
+- `NewsHeroSection.tsx`: "News Archive Context Note" block removed
+  (not rewritten) — its purpose is already carried by S5's lead and
+  S7's new paragraph 2; the FIG.01 `31/18/1.72×` numbers and sample
+  sentences above it are untouched.
+
+Metric verification (Playwright, `localhost:3000`, 1440×900, KO+EN):
+`S7-M01` PASS (root=1, protected range present). `S7-M02` PASS
+(blockquote/pull-quote count=0). `S7-M03` PASS (footer string absent).
+`S7-M04` PASS (button scrolls to top; confirmed with a wait long enough
+for the smooth-scroll to settle). `S7-M05` PASS in KO (0 occurrences);
+EN retains the phrase as expected native copy, not a violation.
+`S7-M06` PASS — S0's note removed, no duplicated claim, no raw copy
+transfer. `S7-M07` PASS (visual) — clean 3-paragraph close, no
+competing quote/footer chrome; S0's exhibit card ends cleanly at the
+Relative Ratio line with no layout gap.
+
+Research-content impact: NONE — new sentence restates existing
+PROTECTED boundary claims, adds no number, no source, no causal claim.
+
+Verified: `npx tsc --noEmit` clean, `npm run build` clean. All 8
+in-scope slides (S0–S7) now have 0 TODO directives remaining.
