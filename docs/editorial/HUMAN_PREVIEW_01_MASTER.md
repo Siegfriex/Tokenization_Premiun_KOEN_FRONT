@@ -43,6 +43,25 @@ identifiers, methodology wording) changes without an explicit
 `docs/audit/DIRECTOR_DECISIONS.md` ruling. Human Preview RED/BLUE is
 editorial/presentation authority only (§G).
 
+**Execution-methodology overlay (added mid-session, 2026-08-18):**
+`AUDIT2/QA/Human Preview 01 — DOM-Targeted Local Agent Master
+Directive.md` arrived from a parallel/independent audit process. It
+explicitly preserves this MASTER as the authority for screenshot
+meaning/status and `DIRECTOR_DECISIONS.md` for protected content — it
+adds a stricter *implementation* protocol on top: address DOM nodes via
+`section#id[data-widget=...]` root → `data-collection`/`data-role` →
+unique semantic HTML → new `data-hp01-id` instrumentation (added in its
+own commit, verified as a unique match, before the editorial change) →
+narrow class selector, in that priority order; never OCR/coordinate-only
+addressing. Its own Runtime Crawl Notes independently confirmed this
+session's S2/S3 deployments matched intent. Iterations from HP01
+Iteration 7 (S5.2) onward follow this stricter protocol explicitly;
+Iterations 1-6 (S0-S5) were already addressed via existing
+`data-widget`/`data-role`/`data-collection` hooks and root-scoped
+Playwright DOM queries (e.g. `document.querySelectorAll('#burden *')`),
+which satisfies the overlay's own priority order 1-3 even though it
+predates the overlay document's arrival — no rework needed there.
+
 ---
 
 ## B. Current Git/Vercel Baseline
@@ -267,11 +286,11 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S5-R01 | Don't use "MACRO ADOPTION CAUSAL CHAIN" — reframe non-causally ("AI 확산의 흐름" etc.) | TODO — image confirms with direct oval + rationale note "AI 인프라 ↔ AI지원 ↔ AI 등등" as phrasing candidates |
-| HP01-S5-R02 | Koreanize phase labels (AI Investment / Infrastructure / AI Adoption / Token Usage) | TODO — image shows BLUE ovals on phases 1–3 specifically (phase 4 "Token Usage" boxed separately, not blue-ovaled — possibly different treatment, verify before patching) |
-| HP01-S5-R03 | Remove the 3 `[VERIFIED ... REQUIRED]` placeholder policy/investment cards from 1DEPTH — production must never show a placeholder | TODO — image confirms with a full-card-group oval + "제거" + rationale ("기사 세부 내용이 너무 깊이 들어가는 느낌, 독자 집중을 위해 제거") |
-| HP01-S5-B01 | If real verified sources exist, replace placeholders with 2–3 short source strips (date / outlet / one-line fact) — do not let Samsung/SK/HBM business detail become the section's focus | `BLOCKED_EVIDENCE` unless real citable sources are supplied — otherwise the section simply loses this sub-block per R03 |
-| HP01-S5-R04 | Don't imply AI investment causes Token Premium, or that Token Premium causes national power consumption — this section provides macro context only | TODO |
+| HP01-S5-R01 | Don't use "MACRO ADOPTION CAUSAL CHAIN" — reframe non-causally ("AI 확산의 흐름" etc.) | **DONE** (HP01 Iter 7) — `AI 확산의 흐름` / `AI ADOPTION TIMELINE` |
+| HP01-S5-R02 | Koreanize phase labels (AI Investment / Infrastructure / AI Adoption / Token Usage) | **DONE** (HP01 Iter 7) — also resolves the pre-existing `HANDOFF.md` §6.5/D6 bilingual gap (name/description now proper `{ko,en}`, was never `isKo`-gated before) |
+| HP01-S5-R03 | Remove the 3 `[VERIFIED ... REQUIRED]` placeholder policy/investment cards from 1DEPTH | **DONE** (HP01 Iter 7) — entire block + orphaned bridge arrow removed |
+| HP01-S5-B01 | If real verified sources exist, replace placeholders with source strips | `BLOCKED_EVIDENCE` (unchanged) — no real sources supplied |
+| HP01-S5-R04 | Don't imply AI investment causes Token Premium, or that Token Premium causes national power consumption | **DONE** (HP01 Iter 7) — "기하급수적으로" and the direct power-consumption causal sentence both reframed; figure caption's "인과 사슬" phrase removed |
 
 ### S5.2 — impact (`ImpactSection.tsx`)
 
@@ -386,18 +405,23 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 35 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 3) |
+| DONE | 40 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 3; S5: 4) |
 | PARTIAL | 1 (S4.5-R01 — labels/prose done, no new visual composition) |
-| TODO | 14 |
+| TODO | 9 |
 | BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
-| BLOCKED_EVIDENCE | 2 (S4 pricing multiplier/B02, S4.5 Flores paper/B02) |
+| BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/B02, S5 source strips/B01) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 5 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S5/infrastructure — `HP01-S5-R01/R02/R03/R04`. `B01`
-(source strips) stays `BLOCKED_EVIDENCE` unless real citable sources
-surface.
+**Bonus resolution this iteration:** S5's phase-card bilingual gap
+(`HANDOFF.md` §6.5 / `DIRECTOR_DECISIONS.md` D6) is now closed as a
+byproduct of HP01-S5-R02 — that pre-existing item can be marked resolved
+in a future `DIRECTOR_DECISIONS.md` sync pass (not done here, out of
+this MASTER's own file scope, but worth flagging to whoever next
+touches that ledger).
+
+**Next action:** S5.2/impact — `HP01-S52-R01/R02/R03/R04`, `B01`/`B02`.
 
 ---
 
