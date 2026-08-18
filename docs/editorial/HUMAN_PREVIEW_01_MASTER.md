@@ -515,6 +515,16 @@ new iteration at that point, not reopened speculatively now.
   `editorial/human-preview-01` fast-forwarded to `890ffd3` cleanly (no
   divergence). Iteration 12 (S4.5 Petrov exhibit, Director-dictated)
   continues on the same branch.
+- **PR #30 merged to `main`** (`cab41ab`) — HP01 Iteration 12 (S4.5
+  Petrov exhibit) + D9 discovery log. Build-hash comparison confirms
+  `index-Cd0y7PtT.js` / `index-BrIOYm0n.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves.
+  `editorial/human-preview-01` fast-forwarded to `cab41ab` cleanly (no
+  divergence). No PR comments/reviews beyond the merge itself — no
+  additional Director feedback captured on D8/D9's open questions yet.
+  No further autonomous work queued: the HP01 patch loop is closed
+  (S0–S7, 0 TODO) and D8/D9 both require a Director scope decision
+  before any further protected-content or full-rewrite work proceeds.
 
 ## M. External research-governance documents (D8, D9)
 
