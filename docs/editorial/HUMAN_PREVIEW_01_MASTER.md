@@ -277,7 +277,7 @@ Text-prompt IDs preserved; image adds specificity:
 | HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **DONE** (HP01 Iter 8) — Director's Acceptance Metrics doc (`S45-M04`) confirmed the Iter-6 label-only work did not close this (2 competing bordered panels, verified by count). Redesigned: merged the stat card and chart into one bordered panel, selected-language readout folded into the panel's own header line. Same 5 verified language entries, no new data. Verdict: `CONDITIONAL PASS` |
 | HP01-S45-R02 | Remove English-centric labels/unfiltered technical terminology, Korean-article-voice default | **DONE** (HP01 Iter 6) — all panel/chart/tooltip labels Koreanized |
 | HP01-S45-B01 | Restructure so Korean's position relative to other scripts is legible at a glance; only include languages with real verified evidence | **ALREADY_DONE** — the chart already sorts/highlights Korean distinctly (black bar vs gray others); the 5-language set is already the full verified set (no fabricated languages added) |
-| HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | `BLOCKED_EVIDENCE` (unchanged) — paper not identified/located this session |
+| HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | **DONE** (HP01 Iteration 12) — paper located in `AUDIT2/레퍼런스/기사용_언어별_Token_Premium_선행연구_요약.docx` (D8), identified as Petrov, La Malfa, Torr & Bibi (2023) NeurIPS. Wired into a new standalone exhibit (`FLORES_CITATION_DATA`/`FLORES_CITATION_NOTE`, `FIG. 06-1`) in `MultilingualTokenEfficiencySection.tsx`, with full source provenance (`Petrov et al. (2023), NeurIPS — FLORES-200 / cl100k_base, N=2,000`) |
 | HP01-S45-R03 | Don't present "12개 언어"/Hindi etc. as complete evidence when current entity only has 5 rows | **Correctly untouched** — pre-existing content-integrity flag, reconfirmed not resolved by this pass |
 | HP01-S45-R04 | Don't let "다국어 AI 거버넌스"/"소버린 파운데이션 모델" conclusions front-run the measured comparison | **DONE** (HP01 Iter 6) — the exact flagged sentence removed entirely, plus a second "구조적 과제" instance in keyFinding (named in G09) |
 | HP01-S45-R05 *(MASTER-derived)* | Sentence-ending register inconsistency (~다 vs ~ㅂ니다) — unify (see G11) | **DONE** (HP01 Iter 6) — resolved as a byproduct of R04's removal |
@@ -429,7 +429,7 @@ Directive count by current status:
 | N/A (checked, not applicable) | 1 (S5.2-B02 — no GPT/Transformer terms exist on this slide) |
 | PARTIAL | 0 |
 | TODO | 0 |
-| BLOCKED_CONTENT_AUTHORITY | 4 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02, D8 — see §M) |
+| BLOCKED_CONTENT_AUTHORITY | 4 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02, D8/D9 — see §M) |
 | BLOCKED_EVIDENCE | 2 (S4 pricing multiplier/B02, S5 source strips/B01) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 6 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01, S4.5-B02 [Flores paper now sourced, D8]) |
 | DEFERRED (cross-slide sequencing, not blocked) | 0 (S0-R05 resolved this iteration) |
@@ -508,3 +508,33 @@ new iteration at that point, not reopened speculatively now.
   `https://tokenization-premiun-koen-front.vercel.app/` serves.
   `editorial/human-preview-01` fast-forwarded to `944b8a7` cleanly (no
   divergence). Iteration 10 (S6) continues on the same branch.
+- **PR #29 merged to `main`** (`890ffd3`) — HP01 Iterations 10 (S6) +
+  11 (S7 + S0-R05 handoff) + P6 regression sweep. Build-hash comparison
+  confirms `index-DiwzOlwg.js` / `index-8hnh1o1l.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves.
+  `editorial/human-preview-01` fast-forwarded to `890ffd3` cleanly (no
+  divergence). Iteration 12 (S4.5 Petrov exhibit, Director-dictated)
+  continues on the same branch.
+
+## M. External research-governance documents (D8, D9)
+
+Two documents surfaced in `AUDIT2/` during this loop that neither
+originate from the annotated Human Preview screenshots nor from a
+per-slide redline directive — both concern whether this site's
+PROTECTED numeric content (corpus size, headline ratio) should be
+superseded by newer research findings. Neither has been acted on
+beyond what the Director explicitly dictated live in chat (Iteration
+12's one S4.5 paragraph). Full detail lives in
+`docs/audit/DIRECTOR_DECISIONS.md`:
+
+- **D8** — `AUDIT2/레퍼런스/기사_최종본.docx` states a 3,835,988-pair
+  corpus / 1.33× median, contradicting D1's frozen `69,432` /
+  `1.29×~1.83×`.
+- **D9** — `AUDIT2/data_val/WEBAPP.docx`, a why-far-larger editorial
+  contract proposing a full S0–S7 rewrite around the same NB07/RQ1
+  findings, self-described as advisory ("D8 is a FRONT governance
+  decision, not permission for this independent artifact to write into
+  the repository").
+
+Both are open. This loop's own authority does not extend to resolving
+either — they are surfaced for Director decision, not implemented.

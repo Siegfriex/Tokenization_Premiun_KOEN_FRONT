@@ -102,6 +102,22 @@ and why this is a Director decision, not something this loop resolves alone.
 `cl100k_base tokenizer(국가별).xlsx` structure only confirmed (one worksheet +
 embedded images); data contents not yet read.
 
+## `AUDIT2/data_val/` (discovered 2026-08-18, after PR #29 merged)
+
+| File | SHA-256 |
+|---|---|
+| `data_val/WEBAPP.docx` | `e52bc314fb5c792152cbffc163fd6d83c7fabe208370ccb19fb3373d83ca99a5` |
+
+An 18.5k-character editorial-content contract (self-titled `WEBAPP.md`),
+appearing to originate from the research-side repo, proposing a full
+slide-by-slide rewrite of this site's copy using newer NB07/RQ1 findings
+(N=3,835,988, median TP 1.3333×) plus a formal evidence-class ledger and
+publication gates. Explicitly self-describes as advisory ("this document
+does not modify Git... D8 is a FRONT governance decision"). Logged in
+full as **D9** in `docs/audit/DIRECTOR_DECISIONS.md` — nothing
+implemented from it; requires a Director decision on scope before any
+of it ships.
+
 ## Acquisition notes
 
 - Screenshots were annotated by hand (red/blue marker over screen

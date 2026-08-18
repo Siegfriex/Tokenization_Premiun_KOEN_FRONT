@@ -1335,3 +1335,34 @@ PROTECTED boundary claims, adds no number, no source, no causal claim.
 
 Verified: `npx tsc --noEmit` clean, `npm run build` clean. All 8
 in-scope slides (S0–S7) now have 0 TODO directives remaining.
+
+**Findings (Human Preview 01, 2026-08-18, Iteration 12): new S4.5
+exhibit — Petrov et al. (2023) prior-research comparison.** New work,
+Director-dictated content (not an AUDIT2 redline), resolves
+`HP01-S45-B02` (BLOCKED_EVIDENCE → DONE). New files:
+`entities/flores-citation/{model,content,index}.ts`
+(`FLORES_CITATION_DATA` — 5 rows, English/Chinese/Korean/Russian/
+Standard Arabic, `totalTokens`+`ratio`; `FLORES_CITATION_NOTE` — all
+prose). `MultilingualTokenEfficiencySection.tsx` gets a new appended
+exhibit: subheading, 2 intro paragraphs, an interactive bar chart
+(click-to-select bars/chips, English-baseline reference line, tooltip
+— mirrors the section's existing chart's interaction), figure caption
+`FIG. 06-1`, 2 closing paragraphs, and a callout via the existing
+`ArticleFinding` component. Full text is quoted verbatim from the
+Director's dictation in `docs/qa/LOOP_LOG.md` Iteration 12.
+
+Bug caught in verification: chip labels used the existing chart's
+`.split(' ')[0]` truncation pattern, which cut `"표준 아랍어"` down to
+`"표준"` — fixed to render full names.
+
+Flagged, not silently resolved: the new `cautionText` paragraph states
+`"본 연구는 약 384만 한-영 대응쌍"` / `"우리 연구의 1.33배"` — D8's
+`기사_최종본.docx` figures, now live on-site for the first time, in the
+Director's own words. `TokenPremiumSection.tsx` (S3)'s `69,432` /
+`1.29×~1.83×` was not touched — D1 stays frozen. Logged as a D8 update
+in `DIRECTOR_DECISIONS.md`.
+
+Verified (Playwright, 1440×900 KO/EN + 390px mobile): all new text
+present, chart interaction works (tested Arabic-chip click → header/
+legend update to 3.04×), 0 overflow at all 3 checked widths.
+`npx tsc --noEmit` and `npm run build` clean.
