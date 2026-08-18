@@ -584,4 +584,27 @@ the shared Article components. Zero content change. Full detail in
 With this iteration, every slide S00–S06 has been screened this phase;
 S07-result remains.
 
+### Iteration 20 (S07-result) — 1 fix, Korean word-break only
+
+The pull-quote `<p>` was splitting "다국어" and "형평성과" mid-word at
+390px. Fixed with `break-keep`. **H2, lead, and the protected
+`1.29×~1.83×` range explicitly untouched** — confirmed byte-identical,
+no authority in this pass to alter them (see `docs/qa/SHOT_SPECS.md`
+S07-result's own note on this). Full detail there.
+
+**Phase 7 status: every slide in the Director's work order (S00-hero
+through S07-result, 10 slides) has now received a visual devpass this
+session (2026-08-18).** Summary across iterations 11-20: 6 slides got
+real fixes (S00, S04, S04.5, S05.2, S06, S07 — mostly the Korean
+`break-keep` bug class, 12 instances total across the site, plus one
+structural fix in the shared `ArticleFigureCaption` component covering
+7 widgets retroactively); 3 slides verified clean with tightened
+re-screening (S01, S05, and S02's re-verification); S03 stays frozen
+pending D1. One git bottleneck resolved (PR #14 recovered and
+superseded by #20). Two content-integrity flags remain open and
+untouched (S02's "4단계"/5-step mismatch, S04.5's "12개 언어"/Hindi
+mismatch) — both logged for the content owner, neither silently
+resolved. No PROTECTED research content, numeric claim, or H2/conclusion
+strength was altered anywhere in this phase.
+
 ---

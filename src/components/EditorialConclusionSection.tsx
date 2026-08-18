@@ -60,7 +60,7 @@ export const EditorialConclusionSection: React.FC = () => {
               ))}
 
           <div className="pt-4 border-l border-rule pl-6 sm:pl-8 my-6">
-            <p className="text-base sm:text-lg text-ink-body font-serif italic leading-relaxed">
+            <p className="text-base sm:text-lg text-ink-body font-serif italic leading-relaxed break-keep">
               {isKo ? (
                 <>
                   “AI가 사회의 보편적 기간 인프라가 될수록, 언어별 Representation Efficiency를 투명하게 측정하고 다국어 토크나이저 구조를 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.”

@@ -292,6 +292,19 @@ Screenshotted 1440×KO/EN + 390×KO: 0 overflow, all 5 changes visually
 confirmed, PROTECTED numeric range unchanged. tsc clean, build passes,
 audit pipeline diff-reproducible, director queue unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 20): 1 fix, Korean
+word-break only — H2/lead/protected range untouched.** The pull-quote
+`<p>` (a raw element, not routed through the shared Article components)
+was breaking two words mid-syllable at 390px: "다국어" (multilingual)
+as "다국"/"어", and "형평성과" as "형평"/"성과". Added `break-keep`.
+Re-verified via screenshot: both words now intact, break points fall at
+real spaces. **Explicitly did not touch:** the display H2 (kept as a
+question, per the Director's own prior ruling — this pass has no
+authority to change that), the lead line, or the protected `1.29×~1.83×`
+range (confirmed byte-identical). This closes out the last slide in the
+S00→S07 work order — every slide has now received a visual devpass this
+phase (2026-08-18).
+
 **Findings (Director redline pass, 2026-08-17):** 2 concrete changes,
 superseding iteration 6's "PASS, no fix" — the earlier pass checked C1/C8/
 C12 (does the highlighted step win, does it break), which it did; the
