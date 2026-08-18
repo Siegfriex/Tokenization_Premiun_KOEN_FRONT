@@ -117,7 +117,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     figureNumber: 'FIG. 02',
     figureCaption: {
-      ko: '생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환',
+      ko: '문장이 토큰으로 바뀌는 과정',
       en: 'Generative AI Input Pipeline: Text to UTF-8 Bytes, Subword Segmentation, and Token Vectors',
     },
     figureSource: {
@@ -258,7 +258,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '특히 장문의 고유명사와 정형화된 서식 비중이 높은 지식집약적 도메인일수록, 토큰 수의 절대적 격차가 누적되어 컨텍스트 윈도우 점유율에 실질적인 제약을 가져옵니다.',
+        '특히 전문 용어와 격식체 표현이 많은 지식집약적 문서일수록 토큰 수 격차가 쌓여, AI가 한 번에 처리할 수 있는 분량(컨텍스트 윈도우)에 실질적인 제약이 생깁니다.',
       ],
       en: [
         'In knowledge-intensive domains requiring long-form reasoning, cumulative absolute token gaps place tangible constraints on usable context window capacity.',

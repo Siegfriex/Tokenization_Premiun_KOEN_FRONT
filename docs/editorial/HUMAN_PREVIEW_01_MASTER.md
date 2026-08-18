@@ -216,13 +216,13 @@ here:
 
 | ID | Directive (paraphrased) | Status |
 |---|---|---|
-| HP01-S2-R01 | Remove/Koreanize "TRANSFORMER PIPELINE SEQUENCING" decorative label | TODO — confirmed by image (`S2.png`, `S0.png` cluster 4) |
-| HP01-S2-R02 | Remove "★ STEP 02: THE BOTTLENECK" / "GAP ORIGIN" badges | TODO — confirmed by image |
-| HP01-S2-R03 | "4단계" copy vs. actual 5-step visualization conflict — **do not resolve unilaterally** | `BLOCKED_CONTENT_AUTHORITY` (pre-existing — already logged in `docs/qa/LOOP_LOG.md` Iteration 13 as a content-integrity flag; this Human Preview does not add new resolution authority, it just re-confirms the block stands) |
-| HP01-S2-B01 | Plain-Korean explanation of what a token/token ID/input sequence is | TODO |
-| HP01-S2-B02 | Move Transformer/Self-Attention/Context Window detail to 2DEPTH | TODO |
-| HP01-S2-B03 *(MASTER-derived, from `S0.png` cluster 3)* | Explicit process/concept explanation unneeded at 1DEPTH → 2DEPTH dropdown | TODO — same as B02, image confirms twice (once for "token" concepts, once for "token ID vector" concepts) |
-| HP01-S2-R04 | Keep figure source; rewrite the AI-sounding technical caption above it in article Korean | TODO — image confirms exact wording: "출처는 기재해야 하나 그 위의 내용은 AI티가남" |
+| HP01-S2-R01 | Remove/Koreanize "TRANSFORMER PIPELINE SEQUENCING" decorative label | **DONE** (HP01 Iter 3) — removed entirely, not translated |
+| HP01-S2-R02 | Remove "★ STEP 02: THE BOTTLENECK" / "GAP ORIGIN" badges | **DONE** (HP01 Iter 3) — both removed; step 2's `bg-accent` fill (the actual signal) kept |
+| HP01-S2-R03 | "4단계" copy vs. actual 5-step visualization conflict — **do not resolve unilaterally** | `BLOCKED_CONTENT_AUTHORITY` (unchanged) |
+| HP01-S2-B01 | Plain-Korean explanation of what a token/token ID/input sequence is | **DONE** (HP01 Iter 3) — satisfied structurally via B02/B03's disclosure move (the existing plain-Korean lead already covers this at 1DEPTH; the technical detail is now 2DEPTH) |
+| HP01-S2-B02 | Move Transformer/Self-Attention/Context Window detail to 2DEPTH | **DONE** (HP01 Iter 3) — moved into new `ArticleDisclosure` |
+| HP01-S2-B03 *(MASTER-derived, from `S0.png` cluster 3)* | Explicit process/concept explanation unneeded at 1DEPTH → 2DEPTH dropdown | **DONE** (HP01 Iter 3) — same disclosure covers both B02 and B03 |
+| HP01-S2-R04 | Keep figure source; rewrite the AI-sounding technical caption above it in article Korean | **DONE** (HP01 Iter 3) — caption → "문장이 토큰으로 바뀌는 과정", source line untouched |
 
 ### S3 — patterns (`TokenPremiumSection.tsx`)
 
@@ -230,14 +230,14 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S3-R01 | Koreanize `CORE EMPIRICAL METRIC` / `MATHEMATICAL FORMULA` / `DOMAIN DISTRIBUTION EXHIBIT` labels | TODO — image confirms both with explicit "AI 티 없애기" marks |
-| HP01-S3-R02 | Define "Token Premium" explicitly on first use (example format given: `TOKEN_PREMIUM(~~~)`) | TODO — image top-right BLUE box gives a 4-point structure: (1) 대규모 한영코퍼스, (2) 심층벤치마크, (3) 실증적 분포, (4) 용어설명 예시 |
-| HP01-S3-R03 | Numeric provenance must be traceable on-screen; don't justify unsourced numbers with new prose | TODO |
-| HP01-S3-R04 | D1 numeric mismatch stays a separate open decision — Human Preview does not license auto-replacing `1.29/1.83/1.68`/domain count with research-repo values | `BLOCKED_CONTENT_AUTHORITY` (== existing D1, unchanged) |
-| HP01-S3-B01 | Explain "대규모 한영 코퍼스"/"심층 벤치마크"/"실증적 분포" concisely in plain Korean | TODO |
-| HP01-S3-R05 | Data/comparison must read before English UI terms | TODO |
-| HP01-S3-R06 *(MASTER-derived)* | "OBSERVED TOKEN PREMIUM RATIO" label struck through in the second annotation pass — Koreanize/remove the label (number itself untouched, PROTECTED) | TODO |
-| HP01-S3-R07 *(MASTER-derived)* | Closing paragraph ("특히 장문의 고유명사와…") marked "어렵게 설명" (explained in a hard-to-follow way) — simplify | TODO |
+| HP01-S3-R01 | Koreanize `CORE EMPIRICAL METRIC` / `MATHEMATICAL FORMULA` / `DOMAIN DISTRIBUTION EXHIBIT` labels | **DONE** (HP01 Iter 4) — `핵심 실측 지표` / `산출 공식` / `도메인별 분포` |
+| HP01-S3-R02 | Define "Token Premium" explicitly on first use (example format given: `TOKEN_PREMIUM(~~~)`) | **DONE** (HP01 Iter 4) — satisfied via the existing Tier-3 formula box, translated in place rather than adding new copy |
+| HP01-S3-R03 | Numeric provenance must be traceable on-screen; don't justify unsourced numbers with new prose | **ALREADY_DONE** — verified no new unsourced justification was added; provenance display unchanged |
+| HP01-S3-R04 | D1 numeric mismatch stays a separate open decision | `BLOCKED_CONTENT_AUTHORITY` (unchanged) |
+| HP01-S3-B01 | Explain "대규모 한영 코퍼스"/"심층 벤치마크"/"실증적 분포" concisely in plain Korean | **DONE** (HP01 Iter 4) — same fix as R02, the translated formula box + existing lead paragraph already carry this |
+| HP01-S3-R05 | Data/comparison must read before English UI terms | **DONE** (HP01 Iter 4) — resolved as a byproduct of R01 |
+| HP01-S3-R06 *(MASTER-derived)* | "OBSERVED TOKEN PREMIUM RATIO" label struck through — Koreanize/remove (number PROTECTED) | **DONE** (HP01 Iter 4) — `관측된 토큰 프리미엄 비율`, number untouched (verified via DOM scan) |
+| HP01-S3-R07 *(MASTER-derived)* | Closing paragraph marked "어렵게 설명" — simplify | **DONE** (HP01 Iter 4) — reworded, same meaning, "컨텍스트 윈도우" now glossed inline |
 
 ### S4 — burden (`OccupationSection.tsx`)
 
@@ -386,26 +386,31 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 9 (S0: 4; S1: 5) |
-| TODO | 38 |
-| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계", S3 D1) |
+| DONE | 22 (S0: 4; S1: 5; S2: 7; S3: 6) |
+| TODO | 25 |
+| BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
-| ALREADY_DONE (pre-existing or verified-no-change-needed) | 3 (S6 claim-content preservation, S6 accordion pattern, S1-R04) |
+| ALREADY_DONE (pre-existing or verified-no-change-needed) | 4 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S2/pipeline, applying the original text-prompt
-directives `HP01-S2-R01`–`R04`, `B01`–`B03` directly (already fully
-specified, no image re-derivation needed beyond the corroboration
-already done in §C).
+**Next action:** S4/burden — `HP01-S4-R01/R02/R03/R04`, `B01` (simulator
+promotion), `B03` (typography). `B02` (pricing multiplier) stays
+`BLOCKED_EVIDENCE`.
 
 ---
 
 ## L. Last Verified Commit / Deployment
 
-- Last commit on `editorial/human-preview-01`: `00f20bc` (MASTER +
-  source manifest freeze) → HP01 Iteration 1 commit follows (S0 patches).
-- Last verified production deployment: `894dcd8` (visual-devpass tip),
-  confirmed by build-hash comparison, this session (§B). Not yet
-  re-verified against any Human Preview patch (no merge to `main` has
-  happened yet in this loop).
+- **PR #22 merged to `main`** (`de058bd`, Director-initiated merge) —
+  contains HP01 Iterations 1-2 (S0 + S1, 9 directives). `main` and
+  production are now in sync: build-hash comparison confirms
+  `index-Bm1hS9NK.js` / `index-DcSxfIQ6.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves.
+  `MAIN_SHA` and `PRODUCTION_SHA` are now both `de058bd` — the
+  `BASELINE_KIND=PRODUCTION_PROMOTED_HEAD` divergence noted in §B is
+  resolved as of this merge.
+- Continuing work: local branch `editorial/human-preview-01`
+  fast-forwarded to `de058bd`; subsequent iterations (S2 onward) commit
+  to the same branch name, opening a fresh PR once ready (the merged
+  PR #22 is closed and cannot receive new commits as an open PR).

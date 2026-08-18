@@ -138,6 +138,54 @@ for the content owner (same category as the LOOP_LOG Iteration 8
 "12-language"/Hindi flag), not something a visual-only pass should
 silently rename or recount. Logged in `docs/qa/LOOP_LOG.md` Phase 7.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 3):** 7
+directives closed (`HP01-S2-R01`, `R02`, `R04`, `B01`, `B02`, `B03`) —
+`R03` ("4단계" vs 5-step mismatch) stays `BLOCKED_CONTENT_AUTHORITY`,
+untouched, per the pre-existing flag above.
+
+Exact changes, `PipelineSection.tsx`:
+- **Removed entirely** (R01/R02, RED "제거"): the `<dl>` header row
+  reading `TRANSFORMER PIPELINE SEQUENCING` (left) /
+  `★ STEP 02: THE BOTTLENECK` (right) — the whole row is gone, not
+  translated, since the annotation explicitly wants it gone, not
+  Koreanized.
+- **Removed** (R02): the `GAP ORIGIN` pill badge on step 2's card.
+  Step 2's `bg-accent` fill (the actual visual "this is the bottleneck"
+  signal, driven by `item.highlight` — a style property, not a text
+  label) is untouched — only the redundant text badge is gone.
+- **Rewrote** (R04), `entities/article-content.ts` `tokenUnit.figureCaption.ko`:
+  `'생성형 AI 텍스트 처리 파이프라인: 원본 문자열에서 토큰 ID 벡터로의 변환'`
+  → `'문장이 토큰으로 바뀌는 과정'`. `figureSource` (`'출처: BPE
+  (Byte-Pair Encoding) 표준 아키텍처 및 LLM 입력 전처리 명세'`) is
+  **unchanged** — G06 requires keeping real provenance, only the caption
+  prose above it was rewritten.
+- **New shared component** (B01/B02/B03), `ArticleElements.tsx`: added
+  `ArticleDisclosure`, a `<details>`/`<summary>`-based 2DEPTH reveal
+  (no JS state, `group-open:rotate-90` chevron, `border-l-2 border-rule`
+  indent for the revealed content) — this is the project's first
+  from-scratch 2DEPTH primitive (S6's accordion is a bespoke
+  `useState`-driven pattern; this one is simpler and reusable for
+  future 2DEPTH needs across other slides).
+- **Restructured** the post-figure reading column: previously
+  `postFigureParagraphs` (the two technical paragraphs, including the
+  Self-Attention/Context Window explanation) rendered directly at
+  1DEPTH, followed by `ArticleFinding`. Now `ArticleFinding` (the short
+  "토큰 분절이 늘어날수록 입력 시퀀스가 길어져…" takeaway) renders
+  first, and `postFigureParagraphs` moved inside
+  `<ArticleDisclosure summary="토큰화 처리 과정 자세히 보기">` — 1DEPTH
+  now shows the visual + one-sentence finding; the two detailed
+  paragraphs (BPE steps, Self-Attention scaling) sit behind the toggle.
+  No paragraph text itself was reworded, only relocated.
+
+Research-content impact: NONE — the figure caption rewrite is editorial
+prose, not a research value; `PIPELINE_STEPS` entity data and the two
+relocated paragraphs are byte-identical to before, just moved in the DOM.
+
+Verified 1440×KO: 0 overflow, step 2 accent-fill still wins first look
+(confirmed via screenshot, not just source reading), disclosure opens/
+closes correctly, FIG.02 caption reads naturally. tsc clean, build
+clean. 390/EN regression pending the pre-acceptance sweep.
+
 ---
 
 ## S03-patterns
@@ -180,6 +228,50 @@ for the same claim — "일상적인 표현이나 구어체에서는 상대적 �
 `1.29×~1.83×` lower bound. Not added as a new `DIRECTOR_DECISIONS.md` row
 (that's the audit pipeline's trace-extraction job, not a visual-pass
 edit); noted here so whoever resolves D1 has this additional data point.
+
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 4):** 6
+directives closed (`R01`, `R02`/`B01` combined, `R05` combined into R01,
+`R06`, `R07`); `R04` stays `BLOCKED_CONTENT_AUTHORITY` (D1, unchanged).
+
+Exact changes, `TokenPremiumSection.tsx` (all `isKo`-gated, EN mode
+unaffected):
+- `CORE EMPIRICAL METRIC` → `핵심 실측 지표`
+- `OBSERVED TOKEN PREMIUM RATIO` → `관측된 토큰 프리미엄 비율` — **the
+  number itself (`1.29×~1.83×`) was not touched**, confirmed via
+  post-edit DOM text-scan (`1.29`/`1.83`/`1.68`/`1.44` all still present,
+  byte-identical)
+- `MATHEMATICAL FORMULA` → `산출 공식`
+- `Token Premium = Tokens(Hangul) / Tokens(English)` →
+  `Token Premium = 한국어 토큰 수 ÷ 영어 토큰 수` (KO mode) — the
+  relationship expressed is unchanged, only the variable names were
+  translated; "Token Premium" itself kept per G02 (established term).
+  This also closes `R02`/`B01` — the Director's requested "term +
+  worked example" format was already the Tier-3 box's own structure,
+  translating it in place satisfies the directive without inventing new
+  copy.
+- `DOMAIN DISTRIBUTION EXHIBIT` → `도메인별 분포`
+- `entities/article-content.ts` `corpusAnalysis.postFigureParagraphs.ko`
+  (`R07`, the "어렵게 설명" flag): `"특히 장문의 고유명사와 정형화된
+  서식 비중이 높은 지식집약적 도메인일수록, 토큰 수의 절대적 격차가
+  누적되어 컨텍스트 윈도우 점유율에 실질적인 제약을 가져옵니다."` →
+  `"특히 전문 용어와 격식체 표현이 많은 지식집약적 문서일수록 토큰 수
+  격차가 쌓여, AI가 한 번에 처리할 수 있는 분량(컨텍스트 윈도우)에
+  실질적인 제약이 생깁니다."` — same meaning, shorter noun clauses,
+  "컨텍스트 윈도우" gets an inline plain-language gloss instead of
+  assuming the reader already knows it (G02/G09).
+- `R05` (data before English UI terms) — resolved as a byproduct of
+  `R01`: the Tier-1 panel's own header label is now Korean, so the
+  headline number no longer sits directly under an English label.
+
+Research-content impact: NONE on any numeric/methodology value — the
+formula's mathematical meaning and every ratio/percentage is
+byte-identical; only label/prose language changed. `R04` (D1) remains
+untouched and blocked.
+
+Verified 1440×KO: 0 overflow; DOM text-scan confirms all protected
+numbers (`1.29`, `1.83`, `1.68`, `1.44`) present and unchanged; `7
+Benchmark Domains` (part of the still-open D1 block) correctly left
+untouched. tsc clean, build clean.
 
 ---
 

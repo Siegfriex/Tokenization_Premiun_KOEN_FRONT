@@ -62,13 +62,13 @@ export const TokenPremiumSection: React.FC = () => {
               {/* Tier 1 — primary evidence panel: the slide's one central number (docs/qa/DESIGN_LAW.md) */}
               <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
                 <dl data-role="stat" data-semantic-target="dl" className="text-xs font-mono text-ink-muted uppercase tracking-widest border-b border-rule pb-3 flex items-center justify-between">
-                  <dt data-source="widget">CORE EMPIRICAL METRIC</dt>
+                  <dt data-source="widget">{isKo ? '핵심 실측 지표' : 'CORE EMPIRICAL METRIC'}</dt>
                   <dd data-source="widget" className="text-ink font-bold">o200k_base benchmark</dd>
                 </dl>
 
                 <div data-role="stat" data-semantic-target="dl" className="space-y-2">
                   <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase tracking-wider block">
-                    OBSERVED TOKEN PREMIUM RATIO
+                    {isKo ? '관측된 토큰 프리미엄 비율' : 'OBSERVED TOKEN PREMIUM RATIO'}
                   </span>
                   <div
                     className="text-5xl sm:text-6xl lg:text-7xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
@@ -98,10 +98,10 @@ export const TokenPremiumSection: React.FC = () => {
               {/* Tier 3 — tertiary annotation panel: definitional, not evidentiary (docs/qa/DESIGN_LAW.md) */}
               <div data-role="stat" data-semantic-target="dl" className="p-4 bg-surface-alt border border-rule rounded-xs font-mono text-xs text-ink-body space-y-2">
                 <span data-source="widget" className="text-[10px] text-ink uppercase font-bold tracking-widest block">
-                  MATHEMATICAL FORMULA
+                  {isKo ? '산출 공식' : 'MATHEMATICAL FORMULA'}
                 </span>
                 <p data-source="widget" className="text-ink font-semibold text-sm">
-                  Token Premium = Tokens(Hangul) / Tokens(English)
+                  {isKo ? 'Token Premium = 한국어 토큰 수 ÷ 영어 토큰 수' : 'Token Premium = Tokens(Hangul) / Tokens(English)'}
                 </p>
                 <p data-source="widget" className="text-ink-muted text-[11px] font-sans">
                   동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다.
@@ -115,7 +115,7 @@ export const TokenPremiumSection: React.FC = () => {
                 <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
                   <dl data-role="stat" data-semantic-target="dl">
                     <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
-                      DOMAIN DISTRIBUTION EXHIBIT
+                      {isKo ? '도메인별 분포' : 'DOMAIN DISTRIBUTION EXHIBIT'}
                     </dt>
                     <dd data-source="widget" className="text-[11px] font-mono text-ink-muted">
                       분야별 토큰 소비 비율 분포 분석
