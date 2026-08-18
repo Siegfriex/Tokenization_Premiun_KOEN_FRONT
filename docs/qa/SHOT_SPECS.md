@@ -143,6 +143,23 @@ formula note. 0 overflow (all `bg-surface*` panels checked). `NUMERIC_CLAIMS.md`
 line numbers shifted (+1, a new comment line) but all 22 claims'
 Trace IDs, statuses, and values unchanged — verified via diff.
 
+**Findings (visual devpass, 2026-08-18, Iteration 14): frozen, no
+change — verified only.** Per the editorial redline directive, this
+slide's Tier-1 headline visual weight is frozen pending
+`docs/audit/DIRECTOR_DECISIONS.md` D1. Checked for any non-D1-adjacent
+layout defect at 390px: zero DOM overflow; the "Domain Range: Business
+(1.44×) ~ Daily (1.83×)" `dl` row wraps to two lines at 390px, but this
+is ordinary label wrap (no clipping, no overlap), not a layout defect —
+left as-is rather than restructured, since restructuring around this
+specific frozen row invites scope creep into D1 territory. **Supplementary
+observation for D1 (not a new separate flag — logged as evidence toward
+the existing row):** the pre-figure prose itself contains a third number
+for the same claim — "일상적인 표현이나 구어체에서는 상대적 차이가 더
+크게 나타났고(**1.38×**~1.83×)" — differing from the Tier-1 headline's
+`1.29×~1.83×` lower bound. Not added as a new `DIRECTOR_DECISIONS.md` row
+(that's the audit pipeline's trace-extraction job, not a visual-pass
+edit); noted here so whoever resolves D1 has this additional data point.
+
 ---
 
 ## S01-compare

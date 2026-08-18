@@ -527,4 +527,14 @@ narrower encoding-only sub-pipeline), possibly a stale count — needs
 content-owner confirmation, not a visual-pass judgment call. Full detail
 in `docs/qa/SHOT_SPECS.md` S02-pipeline.
 
+### Iteration 14 (S03-patterns) — frozen, no change
+
+Per the editorial redline directive, Tier-1 headline visual weight stays
+frozen pending D1. Checked 390px for non-D1-adjacent defects: none (the
+"Domain Range" row's 2-line wrap is ordinary, not a defect). Logged a
+supplementary numeric observation for D1 (prose contains a third figure,
+`1.38×`, for the same claim the headline states as `1.29×~1.83×`) —
+not filed as a new ledger row, just noted for whoever resolves D1. Full
+detail in `docs/qa/SHOT_SPECS.md` S03-patterns.
+
 ---
