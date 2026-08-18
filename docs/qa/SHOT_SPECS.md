@@ -505,6 +505,27 @@ Engineering wrapper now has a shadow, 0 remaining "HIGH BURDEN" badges.
 tsc clean, build passes, audit pipeline diff-reproducible, director queue
 unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 15): 4 fixes, Korean
+word-break only.** Screened for the interaction-density-reduction
+candidate the editorial redline directive raised (5 presets → 3 +
+custom); found no rendering evidence to justify it — at 390px the 5
+preset pills stay on one row with no overflow, and the 3-stat result
+grid stacks cleanly (`grid-cols-1 md:grid-cols-3`). Left the presets as-is
+rather than cutting functionality without a concrete defect. Instead
+found 4 real instances of the site's known Korean mid-word-break bug
+(the same class already fixed once in the shared `ArticleSubheading`
+component, per `HANDOFF.md` §9 — these 4 are raw `<dt>`/`<p>`/`<div>`
+elements in this widget that never went through that shared component,
+so never inherited the fix): `TOKEN RECEIPT (토큰 사용 명세서)` was
+breaking as "명" / "세서)"; `ABSOLUTE GAP (순수 격차)` as "격" / "차)";
+both occupation-cluster assessment paragraphs mid-word ("반복" → "반"/
+"복" in the Social Science card). Added `break-keep` to all 4 elements
+— zero content change, pure `word-break: keep-all`. Verified: computed
+`word-break: keep-all` on the receipt `dt`; re-screenshotted 390×KO,
+all 4 previously-broken words now stay intact; 0 DOM overflow;
+`build`/`lint` clean, CSS hash unchanged (utility already existed
+site-wide from the earlier `ArticleSubheading` fix).
+
 ---
 
 ## S05-infrastructure

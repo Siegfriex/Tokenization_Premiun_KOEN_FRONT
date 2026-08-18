@@ -537,4 +537,15 @@ supplementary numeric observation for D1 (prose contains a third figure,
 not filed as a new ledger row, just noted for whoever resolves D1. Full
 detail in `docs/qa/SHOT_SPECS.md` S03-patterns.
 
+### Iteration 15 (S04-burden) — 4 fixes, Korean word-break only
+
+Screened the redline directive's "reduce preset count" candidate; no
+rendering evidence found to justify cutting functionality (5 presets fit
+one row cleanly at 390px), left as-is. Instead found and fixed 4 Korean
+mid-word-break instances (`break-keep` missing on elements this widget
+never routed through the shared `ArticleSubheading` fix): the
+token-receipt label, the absolute-gap label, and both occupation-card
+assessment paragraphs. Zero content change. Full detail in
+`docs/qa/SHOT_SPECS.md` S04-burden.
+
 ---

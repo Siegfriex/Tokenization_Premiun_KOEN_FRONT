@@ -153,7 +153,7 @@ export const OccupationSection: React.FC = () => {
               {/* Minimalist Editorial Token Receipt */}
               <div className="p-5 bg-surface border border-rule rounded-xs font-mono text-xs max-w-lg mx-auto md:mx-0 space-y-3">
                 <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-dashed border-rule pb-2 text-[11px]">
-                  <dt data-source="widget" className="font-bold text-ink tracking-wider uppercase">
+                  <dt data-source="widget" className="font-bold text-ink tracking-wider uppercase break-keep">
                     TOKEN RECEIPT (토큰 사용 명세서)
                   </dt>
                   <dd data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()} ITERATIONS</dd>
@@ -169,7 +169,7 @@ export const OccupationSection: React.FC = () => {
                   </dl>
                 </div>
                 <dl data-role="stat" data-semantic-target="dl" className="border-t border-rule-strong pt-2 flex justify-between font-bold text-sm text-ink">
-                  <dt data-source="widget">ABSOLUTE GAP (순수 격차)</dt>
+                  <dt data-source="widget" className="break-keep">ABSOLUTE GAP (순수 격차)</dt>
                   <dd data-source="widget">+{totalGap.toLocaleString()} TOKENS</dd>
                 </dl>
               </div>
@@ -209,7 +209,7 @@ export const OccupationSection: React.FC = () => {
                     </dl>
                   </div>
 
-                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface p-4 rounded-xs border border-rule">
+                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface p-4 rounded-xs border border-rule break-keep">
                     {getLocalizedText(engineeringData.tokenBurdenAssessment, language)}
                   </p>
 
@@ -238,7 +238,7 @@ export const OccupationSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono">
+                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono break-keep">
                   평가: 코드 및 영문 토큰 비중으로 인해 상대적 토큰 페널티 완충
                 </div>
               </div>
@@ -266,7 +266,7 @@ export const OccupationSection: React.FC = () => {
                     </dl>
                   </div>
 
-                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface-alt p-4 rounded-xs border border-rule">
+                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface-alt p-4 rounded-xs border border-rule break-keep">
                     {getLocalizedText(socialScienceData.tokenBurdenAssessment, language)}
                   </p>
 
@@ -295,7 +295,7 @@ export const OccupationSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono">
+                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono break-keep">
                   평가: 장문 한국어 텍스트 문맥 누적으로 실질 Token Burden 집중 가중
                 </div>
               </div>
