@@ -415,9 +415,11 @@ tracks completion state in §K, not a second copy of the checklist.
 
 ## K. Current Progress
 
-**Phase: patch loop active. HP01 Iteration 11 (S7 + S0-R05 handoff)
-closed 5/5 directives — all 8 in-scope slides (S0–S7) now have 0 TODO
-items remaining.**
+**Phase: patch loop complete. HP01 Iteration 11 (S7 + S0-R05 handoff)
+closed 5/5 directives; P6 final regression sweep found 0 regressions
+across S0–S3. All 8 in-scope slides (S0–S7) have 0 TODO items
+remaining. Awaiting Director merge of PR #29 and rulings on the
+remaining `BLOCKED_*`/`D8` items.**
 
 Directive count by current status:
 
@@ -459,11 +461,18 @@ items blocked), S5 PASS (re-verified live this iteration, `S5-M01`–`M05`
 (HP01 Iter 11, `S7-M01`–`M07` all pass live on `localhost:3000` KO —
 see LOOP_LOG).
 
-**Next action:** P6 — final regression sweep across S0–S3 to confirm no
-drift from this loop's changes (S4–S7 already individually re-verified
-during their own iterations; S0–S3 haven't been re-touched since their
-own iterations but should get one clean pass-through check before
-calling the full loop closed).
+**P6 — final regression sweep across S0–S3: DONE, 0 regressions.**
+Live-verified against each slide's own metrics on current HEAD; full
+detail in LOOP_LOG. `S2-M06` correctly still reports
+`BLOCKED_CONTENT_AUTHORITY` ("4단계" vs. 5 actual steps) — a known,
+previously-flagged, unresolved conflict, not a new regression.
+
+**This closes the active patch-loop phase of Human Preview 01.** All 8
+in-scope slides (S0–S7): 0 TODO, 0 regressions. Remaining work is
+Director-gated, not agent-gated: merge the open PR (#29, currently
+iterations 10+11 combined) and rule on the open `BLOCKED_*` items and
+`D8`. No further autonomous slide work is queued until one of those
+lands.
 
 **Still open, unresolved, does not block regression sweep:** `D8` (see
 `docs/audit/DIRECTOR_DECISIONS.md`) — `AUDIT2/레퍼런스/기사_최종본.docx`

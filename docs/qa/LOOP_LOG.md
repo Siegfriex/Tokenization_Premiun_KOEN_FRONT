@@ -1312,3 +1312,55 @@ Human Preview 01 loop is ready to be called complete pending Director
 review of the open PRs and D8.
 
 ---
+
+### P6 — Final regression sweep, S0–S3 (verification only, no code change)
+
+Live check against `localhost:3000` (current HEAD, KO, 1440×900) for the
+4 slides not individually re-touched since their own earlier
+iterations, using each slide's own `S*-M*` metrics:
+
+```
+S0-M01 PASS (root=1)
+S0-M02 PASS (ANALYSIS TARGET/CORE METRIC/OBSERVED GAP/COVER & CORE
+  THESIS all still absent)
+S0-M03 PASS (실제 토큰 분절 비교 / 문장쌍 비교 present)
+S0-M06 PASS — D2 protection: 31/18/1.72× all present, untouched
+S1-M01 PASS (root=1, pair selectors=4)
+S1-M02 PASS — clicked pair 4, no exception/blank state
+S1-M03 PASS (HANGUL SCRIPT/LATIN SCRIPT absent; 한국어/영어 present)
+S1-M04 PASS (토큰 비율 present)
+S1-M05 PASS (7 figure captions present site-wide, non-empty)
+S2-M01 PASS (root=1, step count=5)
+S2-M02 PASS (TRANSFORMER PIPELINE SEQUENCING/THE BOTTLENECK/GAP ORIGIN
+  all still absent)
+S2-M03 PASS (1 disclosure, closed at initial render)
+S2-M04 PASS (문장이 토큰으로 바뀌는 과정 present)
+S2-M06 correctly still BLOCKED_CONTENT_AUTHORITY — "4단계" headline
+  text still present alongside 5 actual pipeline steps; this is the
+  known, previously-flagged conflict, unresolved pending Director
+  ruling, not a regression
+S3-M01 PASS (root=1, domain rows=6 — confirmed via `> li` direct child
+  count; a looser selector artifact briefly showed 12 from double-
+  counting nested buttons, not a real DOM issue)
+S3-M02 PASS (핵심 실측 지표 / 관측된 토큰 프리미엄 비율 / 산출 공식 /
+  도메인별 분포 all present)
+S3-M05 PASS — D1 frozen values intact: 1.29, 1.83, and 69,432 all
+  present verbatim, no drift
+document overflow: false (1440px)
+```
+
+**Verdict: PASS, 0 regressions.** No code touched this pass — pure
+verification. Full-page screenshot (S0 through S7) reviewed top to
+bottom: consistent visual rhythm, no oversized competing panels, no
+layout breaks.
+
+**Human Preview 01 patch loop: all 8 in-scope slides (S0–S7) closed,
+0 TODO remaining, 0 regressions found in the final sweep.** Open and
+outstanding, not resolvable by this loop alone: `HP01-S2-R03`
+("4단계"), `D1` (S3 numeric mismatch), `HP01-S4.5-R02` ("12개 언어"),
+`HP01-S4-B02` (pricing multiplier evidence), `HP01-S5-B01` (source
+strips evidence), and `D8` (기사_최종본.docx corpus/ratio discrepancy)
+— all logged with full detail in `DIRECTOR_DECISIONS.md` and this
+MASTER doc, none silently resolved.
+
+---
