@@ -570,3 +570,21 @@ beyond what the Director explicitly dictated live in chat (Iteration
 
 Both are open. This loop's own authority does not extend to resolving
 either — they are surfaced for Director decision, not implemented.
+
+## N. Post-close continuation log (PRs #31, #32)
+
+- **PR #31 merged to `main`** (`74571e7`) — trivial docs-only PR
+  #30-verification commit. No code change, no new PR comments beyond
+  the merge action.
+- **PR #32 merged to `main`** (`4828124`) — HP01 Iteration 13, acting
+  on the external crawl verdict (see §M-adjacent Iteration 13 detail in
+  `docs/qa/LOOP_LOG.md`): removed the legacy S4.5 dashboard exhibit,
+  fixed a register mismatch, added the 3 originally-specified
+  `data-hp01-id` hooks, corrected one crawl false positive (`S7-M05`),
+  and closed 6 previously `NOT VERIFIABLE` behavioral metrics with live
+  Playwright evidence. Build-hash comparison confirms
+  `index-CxbCI4jF.js` / `index-BLKCTKgx.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves. No new
+  PR comments/reviews beyond the merge action. `D1`/`D2`/`D8`/`D9` all
+  remain open — no autonomous work queued until one of those lands or
+  new Director/reviewer input arrives.
