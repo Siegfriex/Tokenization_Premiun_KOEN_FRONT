@@ -397,6 +397,20 @@ Screenshotted 1440×KO (default + English-selected via real click), 1440×EN,
 documented ID/line resync in `DIRECTOR_DECISIONS.md`/`README.md` (see D3/D4
 updates) — now diff-reproducible again, director queue unchanged at 16.
 
+**Findings (visual devpass, 2026-08-18, Iteration 16): 1 fix (Korean
+word-break), content-integrity item #7 above reconfirmed still open.**
+The Hangul-callout box ("★ 한국어는 라틴 알파벳(영어/스페인어) 대비
+1.78배의 토큰이 소비됩니다.") was breaking the number-plus-counter unit
+"1.78배" across two lines at 390px ("1.78" / "배의…") — same root cause
+as S04-burden's fixes, a raw `<div>` not routed through the shared
+`ArticleSubheading`/`ArticleParagraph` components that already carry
+`break-keep`. Added `break-keep`; re-screenshotted 390×KO, "1.78배"
+now stays intact, break now falls at a real word boundary ("대비" /
+"1.78배의"). All other prose on this slide already routes through the
+shared Article components (0 other break issues found). **Did not touch**
+the "12개 언어"/Hindi content-integrity item — still open, still a
+content-owner decision, not re-litigated here.
+
 ---
 
 ## S04-burden

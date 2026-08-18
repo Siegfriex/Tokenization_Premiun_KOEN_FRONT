@@ -548,4 +548,11 @@ token-receipt label, the absolute-gap label, and both occupation-card
 assessment paragraphs. Zero content change. Full detail in
 `docs/qa/SHOT_SPECS.md` S04-burden.
 
+### Iteration 16 (S04.5-languages) — 1 fix, Korean word-break
+
+Same bug class as Iteration 15: the Hangul-callout box's "1.78배" was
+splitting across lines at 390px. Fixed with `break-keep`. The "12개
+언어"/Hindi content-integrity flag (LOOP_LOG Iteration 8, `SHOT_SPECS.md`
+S04.5 finding #7) remains open and untouched — not a visual-pass call.
+
 ---
