@@ -1252,3 +1252,45 @@ no residual 3-card competition, confirmed via screenshot.
 
 Verified 1440×KO/EN: 0 overflow both languages. tsc clean, build
 clean.
+
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 10): `S6-M01`–`M06`
+closed.** `MethodSection.tsx` — UI chrome only, `METHODOLOGY_ITEMS`/
+`WHAT_WE_DO_NOT_CLAIM` entity content (PROTECTED, per the file's own
+header comment) untouched byte-for-byte.
+
+Before → after (exact strings):
+- Boundary-box `<dt>`: `"CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것
+  (What We Do NOT Claim)"` → KO `"이 분석으로 말할 수 없는 것"` / EN
+  `"What This Analysis Does Not Claim"`.
+- Boundary-box `<dd>`: `"6 Key Principles"` (was hardcoded English for
+  both languages) → real ternary, KO `"6가지 경계"` / EN unchanged.
+- Accordion header `<dt>`: `"세부 분석 방법론 (Methodological
+  Pillars):"` → `"세부 분석 방법론"` — dropped the English
+  parenthetical from the Korean string (EN string untouched).
+- Accordion header `<dd>`: `"Click to expand"` (English-only) → KO
+  `"클릭하여 펼치기"` / EN unchanged.
+- Footnotes header: `"연구 주석 (Research Footnotes):"` → `"연구
+  주석:"` (EN untouched).
+- `article-content.ts`, `methodologyBoundaries.preFigureParagraphs.ko[0]`:
+  `"...표준화된 BPE 토큰화 알고리즘이..."` → `"...표준화된 BPE(Byte
+  Pair Encoding, 자주 등장하는 글자 조합을 하나의 토큰으로 묶어나가는
+  하위 단어 분절 방식) 토큰화 알고리즘이..."` — inline gloss inserted
+  at the term's first use; no claim added, removed, or reworded.
+
+Metric verification (Playwright, `localhost:3000`, KO, 1280×900):
+`S6-M01` PASS (root=1, claim items=6, methodology items=6). `S6-M02`
+PASS (0 leftover `CRITICAL BOUNDARY`/`WHAT WE DO NOT CLAIM`/`6 KEY
+PRINCIPLES`, case-insensitive scan). `S6-M03` PASS (diffed all 6
+`WHAT_WE_DO_NOT_CLAIM` strings — byte-identical). `S6-M04` PASS
+(clicked methodology item 3: `aria-expanded` false → true → false,
+content visible while open). `S6-M05` PASS (BPE gloss text present in
+rendered DOM). `S6-M06` (visual rubric) PASS — boundary box and
+accordion header now read as plain label pairs, no residual
+`<dl>`/`<dt>`/`<dd>` research-dashboard chrome outside the two
+PROTECTED accordion item titles (`의미론적 동등성 (Semantic
+Equivalence)` etc.), which are in-scope content, not UI chrome, and
+were intentionally left untouched.
+
+Research-content impact: NONE.
+
+Verified: `npx tsc --noEmit` clean, `npm run build` clean.

@@ -307,11 +307,13 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S6-R01 | Remove `CRITICAL BOUNDARY` / `WHAT WE DO NOT CLAIM` / `6 KEY PRINCIPLES` English UI labels; suggested KO: "이 분석으로 말할 수 없는 것", "6가지 경계" | TODO — image directly X-strikes `CRITICAL BOUNDARY` and `(WHAT WE DO NOT CLAIM)` twice ("영어 제거" ×2); `6 Key Principles` not independently marked in the image but is named in the text directive — keep in scope, lower visual-confirmation confidence |
-| HP01-S6-R02 | The 6 claim items' actual content is NOT a deletion target — do not weaken/strengthen wording | `ALREADY_DONE` (content untouched all session; image confirms the 6 claim rows carry no strike marks) |
-| HP01-S6-B01 | Keep/strengthen accordion-based 2DEPTH for detailed methodology | `ALREADY_DONE` (accordion pattern already exists and is the established 2DEPTH reference implementation per `docs/qa/LOOP_LOG.md` Iteration 19 note) — verify labels inside still need G03 label cleanup, that part is TODO |
-| HP01-S6-R03 | Whole slide should read as journalist-to-reader explanation, not a research-report dashboard | TODO (holistic — depends on R01 closing) |
-| HP01-S6-B02 *(MASTER-derived)* | "BPE 토큰화 알고리즘에 대한 설명 필요" — the lead paragraph's technical-algorithm mention needs a plain-Korean gloss | TODO |
+| HP01-S6-R01 | Remove `CRITICAL BOUNDARY` / `WHAT WE DO NOT CLAIM` / `6 KEY PRINCIPLES` English UI labels; suggested KO: "이 분석으로 말할 수 없는 것", "6가지 경계" | **DONE** (HP01 Iter 10) — dt/dd now `이 분석으로 말할 수 없는 것` / `6가지 경계`; verified via `S6-M02` (0 leftover EN labels in KO DOM) |
+| HP01-S6-R02 | The 6 claim items' actual content is NOT a deletion target — do not weaken/strengthen wording | `ALREADY_DONE` (content untouched all session; verified via `S6-M03` — all 6 `WHAT_WE_DO_NOT_CLAIM` strings byte-identical) |
+| HP01-S6-B01 | Keep/strengthen accordion-based 2DEPTH for detailed methodology | `ALREADY_DONE` — verified via `S6-M04` (open/close on item 3 toggles `aria-expanded` false→true→false, content visible) |
+| HP01-S6-R03 | Whole slide should read as journalist-to-reader explanation, not a research-report dashboard | **DONE** (HP01 Iter 10) — resolved together with R01; also Koreanized `Click to expand`→`클릭하여 펼치기`, dropped English parentheticals from `세부 분석 방법론 (Methodological Pillars):`→`세부 분석 방법론` and `연구 주석 (Research Footnotes):`→`연구 주석:` |
+| HP01-S6-B02 *(MASTER-derived)* | "BPE 토큰화 알고리즘에 대한 설명 필요" — the lead paragraph's technical-algorithm mention needs a plain-Korean gloss | **DONE** (HP01 Iter 10) — inline gloss at first use: `BPE(Byte Pair Encoding, 자주 등장하는 글자 조합을 하나의 토큰으로 묶어나가는 하위 단어 분절 방식)`; verified via `S6-M05` |
+
+**S6 closed 5/5.** `METHODOLOGY_ITEMS`/`WHAT_WE_DO_NOT_CLAIM` content (accordion titles/body text, the 6 claim sentences) is PROTECTED and untouched — only UI chrome (labels, headers) was edited. Verified against `S6-M01`–`M05` live via Playwright on `localhost:3000` (KO): root=1, claim items=6, methodology items=6, 0 leftover EN dashboard labels, accordion toggles correctly, BPE gloss present. `S6-M06` (reader-tone, visual/subjective) judged PASS from screenshot — dashboard-style `<dl>` stat rows replaced with plain heading/label pairs throughout.
 
 ### S7 — result (`EditorialConclusionSection.tsx`)
 
@@ -399,19 +401,19 @@ tracks completion state in §K, not a second copy of the checklist.
 
 ## K. Current Progress
 
-**Phase: patch loop active. HP01 Iteration 1 (S0) closed 4/5 directives.**
+**Phase: patch loop active. HP01 Iteration 10 (S6) closed 5/5 directives.**
 
 Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 46 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4; S5.2: 5) |
+| DONE | 49 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4; S5.2: 5; S6: 3; + 4 cross-cutting not broken out per-slide above) |
 | N/A (checked, not applicable) | 1 (S5.2-B02 — no GPT/Transformer terms exist on this slide) |
 | PARTIAL | 0 |
-| TODO | 3 (all S6, not yet started this loop) |
-| BLOCKED_CONTENT_AUTHORITY | 3 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02) |
-| BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/B02, S5 source strips/B01) |
-| ALREADY_DONE (pre-existing or verified-no-change-needed) | 5 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01) |
+| TODO | 4 (all S7, not yet started this loop) |
+| BLOCKED_CONTENT_AUTHORITY | 4 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02, D8 — see §M) |
+| BLOCKED_EVIDENCE | 2 (S4 pricing multiplier/B02, S5 source strips/B01) |
+| ALREADY_DONE (pre-existing or verified-no-change-needed) | 6 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01, S4.5-B02 [Flores paper now sourced, D8]) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
@@ -434,17 +436,27 @@ labels) after the metrics doc's own count-based check
 PASS/FAIL/NOT VERIFIABLE vocabulary):** S0 CONDITIONAL PASS (S0-R05
 deferred to S7), S1 PASS, S2 CONDITIONAL PASS (S2-M06/"4단계" blocked),
 S3 CONDITIONAL PASS (D1 blocked), S4 PASS, S4.5 CONDITIONAL PASS (2
-items blocked), S5 not yet formally re-scored against `S5-M01-M07`
-(next action).
+items blocked), S5.2/impact PASS (HP01 Iter 9), **S6/method PASS**
+(HP01 Iter 10, `S6-M01`–`M06` all pass live on `localhost:3000` KO —
+see LOOP_LOG).
 
-**Next action:** P2 — S5-infrastructure verification against
-`S5-M01-M07` (implemented in Iteration 7; confirm rather than assume).
-P3 S5.2/impact — **DONE** (HP01 Iter 9), all 6 directives closed (5
-DONE + 1 N/A, no GPT/Transformer terms found on this slide). Next: P4
-S6/method — `HP01-S6-R01,R03`, `B02` (`S6-M01-M06`), verify-first per
-protocol since S6 label work was never actually implemented in this
-loop yet (only the pre-existing accordion/claim-preservation items were
-marked ALREADY_DONE).
+**Next action:** P5 — S7/conclusion (`HP01-S7-R01`–`R03`, `B01`,
+metrics `S7-M01`+), together with the deferred cross-slide `HP01-S0-R05`
+handoff (the FIG.01 exhibit's takeaway content that belongs in the
+conclusion per the DOM Master's own instruction). Then P6 — final
+regression sweep across S0–S3 to confirm no drift from this loop's
+changes.
+
+**Open, not blocking S7 work:** `D8` (see
+`docs/audit/DIRECTOR_DECISIONS.md`) — a newly-discovered
+`AUDIT2/레퍼런스/기사_최종본.docx` states corpus/ratio numbers
+(3,835,988 pairs, 1.33× median, 95th/99th percentile 1.89×/2.25×,
+GPT-5/o200k_base) that contradict every value D1 has frozen on the
+live site (69,432 pairs, 1.29×~1.83× range). Not acted on; flagged to
+the Director as a research-content decision. If S7's conclusion
+figures are ruled to change as a result, that supersedes whatever S7
+work is done under the current D1-frozen numbers — noted here so the
+sequencing risk is visible before P5 starts.
 
 ---
 
@@ -462,3 +474,9 @@ marked ALREADY_DONE).
   fast-forwarded to `de058bd`; subsequent iterations (S2 onward) commit
   to the same branch name, opening a fresh PR once ready (the merged
   PR #22 is closed and cannot receive new commits as an open PR).
+- **PR #28 merged to `main`** (`944b8a7`) — HP01 Iteration 9 (S5.2) +
+  D8 discovery log. Build-hash comparison confirms `index-BVRpam2v.js`
+  / `index-C-Oiiyrg.css` match exactly what
+  `https://tokenization-premiun-koen-front.vercel.app/` serves.
+  `editorial/human-preview-01` fast-forwarded to `944b8a7` cleanly (no
+  divergence). Iteration 10 (S6) continues on the same branch.

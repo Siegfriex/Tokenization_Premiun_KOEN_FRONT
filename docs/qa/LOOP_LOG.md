@@ -1116,3 +1116,90 @@ phrase edited. No protected numeric value exists on this slide.
 Next: P4 — S6/method, `HP01-S6-R01,R03`, `B02` (`S6-M01-M06`).
 
 ---
+
+### Interlude — D8: `AUDIT2/레퍼런스/` discovered, logged, NOT acted on
+
+While cleaning up post-PR #27 merge, `git status` surfaced an untracked
+`AUDIT2/레퍼런스/` directory (3 files, same acquisition batch as the
+screenshots per mtime). Extracted via `unzip` + regex on
+`word/document.xml` (Read tool cannot open `.docx`/`.xlsx`).
+
+- `기사용_언어별_Token_Premium_선행연구_요약.docx` — located and hashed
+  the Flores/Petrov et al. (2023, NeurIPS) citation already logged
+  `BLOCKED_EVIDENCE` under `HP01-S45-B02`. No number on the site
+  changed; that block's sourcing half is now closed, moved to
+  ALREADY_DONE.
+- `기사_최종본.docx` — states 3,835,988 paired sentences, 1.33× median,
+  87.99% majority, 95th/99th percentile 1.89×/2.25×, GPT-5/o200k_base —
+  all in direct conflict with D1's frozen 69,432 / 1.29×~1.83×. Logged
+  as **D8** in `docs/audit/DIRECTOR_DECISIONS.md` with the full
+  comparison table. No code touched as a result. This is a
+  research-content decision outside this loop's authority to resolve.
+- `cl100k_base tokenizer(국가별).xlsx` — structure confirmed only
+  (1 worksheet + embedded images), data not yet read.
+
+**Decision Required:** is `기사_최종본.docx` the new canonical source
+(supersedes D1's frozen numbers), a draft to reconcile, or unrelated?
+See D8 for detail. Flagging this before S7 (conclusion) work starts,
+since S7 is the slide most likely to be affected if D8 is ruled to
+supersede — S7 work below proceeds strictly within the current
+D1-frozen numbers per `S7-M01`'s explicit preserve gate.
+
+### P4 — S6/method Evidence Packet
+
+**Target Proof:** `section#method[data-widget="MethodSection"]` = 1;
+`[data-collection="what-we-do-not-claim"] li` = 6;
+`[data-collection="methodology-items"] li` = 6.
+
+**Change Boundary:** `MethodSection.tsx` (UI chrome only),
+`entities/article-content/content/article-content.ts` (one inline
+gloss inside `methodologyBoundaries.preFigureParagraphs.ko`). No
+`METHODOLOGY_ITEMS`/`WHAT_WE_DO_NOT_CLAIM` entity content touched —
+that stays PROTECTED per the file's own header comment.
+
+Before → After (exact strings):
+- `<dt>` (boundary box header): `"CRITICAL BOUNDARY / 본 분석이
+  주장하지 않는 것 (What We Do NOT Claim)"` → KO
+  `"이 분석으로 말할 수 없는 것"` / EN `"What This Analysis Does Not
+  Claim"`.
+- `<dd>` next to it: `"6 Key Principles"` (was English-only) → KO
+  `"6가지 경계"` / EN `"6 Key Principles"` (now a real ternary).
+- Accordion header `<dt>`: KO `"세부 분석 방법론 (Methodological
+  Pillars):"` → `"세부 분석 방법론"` (dropped English parenthetical;
+  EN unchanged).
+- Accordion header `<dd>`: `"Click to expand"` (English-only) → KO
+  `"클릭하여 펼치기"` / EN `"Click to expand"`.
+- Footnotes header: KO `"연구 주석 (Research Footnotes):"` →
+  `"연구 주석:"` (EN unchanged).
+- `preFigureParagraphs.ko[0]`: `"...표준화된 BPE 토큰화 알고리즘이..."`
+  → `"...표준화된 BPE(Byte Pair Encoding, 자주 등장하는 글자 조합을
+  하나의 토큰으로 묶어나가는 하위 단어 분절 방식) 토큰화 알고리즘
+  이..."` — inline gloss only, no claim added/removed/changed.
+
+**Metric Results** (Playwright, `localhost:3000`, KO, 1280×900):
+```
+S6-M01 PASS { rootCount: 1, claimItems: 6, methodItems: 6 }
+S6-M02 PASS — found leftover EN labels: [] (checked CRITICAL BOUNDARY,
+  WHAT WE DO NOT CLAIM, 6 KEY PRINCIPLES, case-insensitive)
+S6-M03 PASS — WHAT_WE_DO_NOT_CLAIM untouched, diff confirms 0 changes
+S6-M04 PASS { btnCount: 6, beforeExpanded: 'false', afterExpanded:
+  'true', afterClose: 'false' } — opened/closed methodology item 3
+S6-M05 PASS — BPE gloss text present in rendered DOM
+S6-M06 PASS (visual, screenshot) — boundary box and accordion now read
+  as plain heading/label pairs, no residual <dl>/<dt>/<dd> dashboard
+  stat-row chrome outside the two spots (item titles) that are
+  PROTECTED content and intentionally untouched
+```
+
+**Evidence Safety:** all 6 `WHAT_WE_DO_NOT_CLAIM` claim sentences and
+all 6 `METHODOLOGY_ITEMS` titles/bodies byte-identical to before —
+diffed directly, not assumed. Only label chrome and one jargon gloss
+changed.
+
+**Verdict: PASS.** `npx tsc --noEmit` and `npm run build` both clean.
+
+Next: P5 — S7/conclusion, `HP01-S7-R01-R03`, `B01`, plus the deferred
+`HP01-S0-R05` handoff, staying inside D1's frozen numbers per
+`S7-M01`'s preserve gate (see Interlude above re: D8).
+
+---
