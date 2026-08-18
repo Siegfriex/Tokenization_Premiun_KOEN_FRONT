@@ -562,4 +562,14 @@ Korean `<p>`/`<div>` text) — this slide's two candidates both fit their
 container without breaking mid-word. 0 overflow. Interaction count
 reconfirmed at 0 (static, matches spec). A genuine clean result.
 
+### Iteration 18 (S05.2-impact) — 3 fixes, 1 of them shared-component
+
+Two local Korean word-break fixes (Level 02 "장문", Level 03 "표현").
+**Third fix has site-wide reach:** `ArticleFigureCaption` itself (used
+by 7 widgets) had no `break-keep` — its FIG. 08 caption was splitting
+"사슬". Fixing the shared component retroactively protects every
+already-passed slide's figure caption; not individually re-verified
+per slide since the fix is structural. Full detail in
+`docs/qa/SHOT_SPECS.md` S05.2-impact.
+
 ---

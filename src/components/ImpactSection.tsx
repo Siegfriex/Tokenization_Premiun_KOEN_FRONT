@@ -81,7 +81,7 @@ export const ImpactSection: React.FC = () => {
                     {getLocalizedText(level.title, language)}
                   </h3>
 
-                  <p className="text-xs sm:text-sm leading-relaxed font-sans text-ink-body">
+                  <p className="text-xs sm:text-sm leading-relaxed font-sans text-ink-body break-keep">
                     {getLocalizedText(level.description, language)}
                   </p>
                 </div>

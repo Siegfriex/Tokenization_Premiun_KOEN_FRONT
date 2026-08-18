@@ -766,3 +766,22 @@ tsc clean, build passes, audit pipeline diff-reproducible, director queue
 unchanged at 16. With this slide done, every section in the Director's
 full redline work order (S00 through S07, in nav order) has now received
 a dedicated pass this session.
+
+**Findings (visual devpass, 2026-08-18, Iteration 18): 3 fixes — 2
+local, 1 shared-component (site-wide effect).** Found 3 real Korean
+mid-word breaks at 390px: (1) Level 02's description — "장문" (long-form)
+split as "장"/"문"; (2) Level 03's description — "표현" (expression)
+split as "표"/"현"; both fixed with one `break-keep` on the shared `<p>`
+className in the `IMPACT_SCALE_LEVELS.map()` loop (covers all 3 level
+cards, not just the 2 that happened to break at this viewport width).
+(3) **`ArticleFigureCaption`'s own caption/source spans had no
+`break-keep`** — this slide's FIG. 08 caption split "사슬" (chain) as
+"사"/"슬". Since this is the shared component used by `ArticleFigureCaption`
+across **7 widgets** (S01, S02, S03, S04, S04.5, S05, S05.2 — every
+slide with a captioned exhibit), this one fix retroactively protects
+every already-passed slide's figure caption too, not just this one.
+Not re-verified per-slide (the fix is structural, not content-dependent);
+flagged here so a future pass knows why captions weren't individually
+re-screenshotted. All 3 fixes verified: `word-break: keep-all` computed
+correctly, re-screenshot confirms all 3 words intact, 0 overflow, tsc/build
+clean.
