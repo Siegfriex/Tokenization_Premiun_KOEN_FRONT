@@ -255,13 +255,13 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | TODO — image shows a full-section X strike, twice, strongest rejection signal in the whole set |
-| HP01-S45-R02 | Remove English-centric labels/unfiltered technical terminology, Korean-article-voice default | TODO |
-| HP01-S45-B01 | Restructure so Korean's position relative to other scripts is legible at a glance; only include languages with real verified evidence | TODO |
-| HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | `BLOCKED_EVIDENCE` — paper not yet identified/located in this session |
-| HP01-S45-R03 | Don't present "12개 언어"/Hindi etc. as complete evidence when current entity only has 5 rows | TODO — pre-existing flag (LOOP_LOG Iteration 16), Human Preview reconfirms it as RED not just a QA note |
-| HP01-S45-R04 | Don't let "다국어 AI 거버넌스"/"소버린 파운데이션 모델" conclusions front-run the measured comparison | TODO — image gives the **exact sentence**: "향후 다국어 AI 거버넌스와 소버린 파운데이션 모델 개발 시, 독자적인 고효율 어휘집(Custom Tokenizer) 구축이 왜 핵심 인프라 과제인지를 명확히 보여줍니다." circled with "논지는 안맞으므로 제거" (the argument doesn't fit, remove it) |
-| HP01-S45-R05 *(MASTER-derived)* | Sentence-ending register inconsistency (~다 vs ~ㅂ니다) in this section's closing paragraphs — unify (see G11) | TODO |
+| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **PARTIAL** (HP01 Iter 6) — all concrete sub-directives (R02/R04/R05) done; no new visual composition invented (out of editorial-redline authority, no replacement design specified). Flagged for Director follow-up: confirm if this satisfies intent or a real layout redesign is still wanted |
+| HP01-S45-R02 | Remove English-centric labels/unfiltered technical terminology, Korean-article-voice default | **DONE** (HP01 Iter 6) — all panel/chart/tooltip labels Koreanized |
+| HP01-S45-B01 | Restructure so Korean's position relative to other scripts is legible at a glance; only include languages with real verified evidence | **ALREADY_DONE** — the chart already sorts/highlights Korean distinctly (black bar vs gray others); the 5-language set is already the full verified set (no fabricated languages added) |
+| HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | `BLOCKED_EVIDENCE` (unchanged) — paper not identified/located this session |
+| HP01-S45-R03 | Don't present "12개 언어"/Hindi etc. as complete evidence when current entity only has 5 rows | **Correctly untouched** — pre-existing content-integrity flag, reconfirmed not resolved by this pass |
+| HP01-S45-R04 | Don't let "다국어 AI 거버넌스"/"소버린 파운데이션 모델" conclusions front-run the measured comparison | **DONE** (HP01 Iter 6) — the exact flagged sentence removed entirely, plus a second "구조적 과제" instance in keyFinding (named in G09) |
+| HP01-S45-R05 *(MASTER-derived)* | Sentence-ending register inconsistency (~다 vs ~ㅂ니다) — unify (see G11) | **DONE** (HP01 Iter 6) — resolved as a byproduct of R04's removal |
 
 ### S5 — infrastructure (`KoreaAIContextSection.tsx`)
 
@@ -386,17 +386,18 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 29 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7) |
-| TODO | 18 |
+| DONE | 35 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 3) |
+| PARTIAL | 1 (S4.5-R01 — labels/prose done, no new visual composition) |
+| TODO | 14 |
 | BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
-| BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/source strips, S5 source strips) |
-| ALREADY_DONE (pre-existing or verified-no-change-needed) | 4 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03) |
+| BLOCKED_EVIDENCE | 2 (S4 pricing multiplier/B02, S4.5 Flores paper/B02) |
+| ALREADY_DONE (pre-existing or verified-no-change-needed) | 5 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S4.5/languages — `HP01-S45-R01/R02/R04/R05`, `B01`.
-`B02` (Flores paper) stays `BLOCKED_EVIDENCE`; `R03` (12개 언어/Hindi)
-stays a pre-existing content-integrity flag.
+**Next action:** S5/infrastructure — `HP01-S5-R01/R02/R03/R04`. `B01`
+(source strips) stays `BLOCKED_EVIDENCE` unless real citable sources
+surface.
 
 ---
 
