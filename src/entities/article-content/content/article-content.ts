@@ -329,7 +329,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'How Does This Discrepancy Compound Over Time?',
     },
     lead: {
-      ko: '한 문장에서의 token 차이는 작아 보일 수 있다. 하지만 같은 종류의 AI 사용이 반복될수록 절대 token gap은 누적된다.',
+      ko: '한 문장에서의 token 차이는 작아 보일 수 있다. 하지만 같은 종류의 AI 사용이 반복될수록 토큰 격차는 그대로 누적된다.',
       en: 'A token discrepancy in a single prompt may seem minor. However, as high-frequency AI workflows repeat, the absolute token gap compounds systematically.',
     },
     subheading: {
@@ -366,7 +366,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     keyFinding: {
       label: { ko: '누적 분석 시사점', en: 'Compounding Insight' },
       statement: {
-        ko: '단일 프롬프트의 미세한 토큰 차이는 워크플로우가 반복될수록 기하급수적으로 누적되어 실질적인 연산 부담으로 전환됩니다.',
+        ko: '단일 프롬프트의 미세한 토큰 차이는 워크플로우가 반복될수록 그대로 누적되어 실질적인 연산 부담으로 전환됩니다.',
         en: 'Minor prompt-level token discrepancies compound into substantial absolute computational loads as workflows repeat.',
       },
     },

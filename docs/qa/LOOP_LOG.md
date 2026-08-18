@@ -798,4 +798,48 @@ Next: S4/burden — apply `HP01-S4-R01/R02/R03/R04`; `B01` (simulator
 promotion) and `B03` (typography); `B02` (pricing multiplier) stays
 `BLOCKED_EVIDENCE`.
 
+### HP01 Iteration 5
+
+Image: `S4.png` · Nav: S4 · DOM: `burden` · Trace: `BURD` ·
+Component: `OccupationSection.tsx` (+ `entities/article-content`)
+
+Directive IDs: `R01`, `R02`, `R03`, `R04`, `B01`, `B03` closed; `B02`
+stays `BLOCKED_EVIDENCE`
+
+Biggest change this iteration: **removed the entire "Occupational
+Cluster Analysis" block** (Engineering + Social Science comparison
+cards, ~120 lines) — not translated, deleted outright per the RED
+"삭제" annotation. `OCCUPATION_COMPARISON_DATA`/`getLocalizedText`/
+icon imports removed as dead code; JS bundle 311.62KB → 302.52KB.
+Simulator is now the breakout's sole content (B01 satisfied as a
+consequence, no separate code change needed).
+
+Before → After (labels, all `isKo`-gated): `WORKFLOW REPETITION
+SIMULATOR`→`반복 사용 시뮬레이터`; `ACCUMULATED BURDEN GAP`→`누적 토큰
+격차`; `TOKEN RECEIPT`→`토큰 사용 명세서`; full list in SHOT_SPECS.
+
+Scale-legend: `1,000회 (팀 일간 워크플로우)` / `2,000회 (전사 에이전트
+루틴)` → plain `1,000회` / `2,000회` (unsourced workload framing
+removed).
+
+Entity text, `accumulatedBurden`: `keyFinding.statement.ko`
+"...기하급수적으로 누적되어..." → "...그대로 누적되어..." — **this
+was a factual correction, not just style**: `totalGap =
+tokenGapPerPrompt × promptCount` is linear, "기하급수적으로"
+(exponentially) mischaracterized the actual math.
+
+Research-content impact: `TOKEN_BASELINE_SIMULATION` untouched — prose
+changes only, and the one entity edit corrects a math mischaracterization
+rather than altering what's measured.
+
+Verification: lint PASS, build PASS (bundle shrank), 1440×KO/EN PASS
+(0 overflow both), occupation section confirmed fully removed via DOM
+query, not just visually hidden.
+
+Result: ACCEPTED (6 of 7; B02 correctly stays blocked)
+
+Next: S4.5/languages — `HP01-S45-R01/R02/R04/R05`; `B01`. `B02` (Flores
+paper) stays `BLOCKED_EVIDENCE`; `R03` ("12개 언어"/Hindi) stays a
+pre-existing content-integrity flag, reconfirmed not resolved here.
+
 ---
