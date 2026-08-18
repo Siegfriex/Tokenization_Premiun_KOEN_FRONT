@@ -603,13 +603,24 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       // closing-slide breathing room. Former paragraphs 1+2 merged
       // (identical sentences, no wording change, PROTECTED 1.29x-1.83x
       // range preserved verbatim); former paragraph 3 stands alone.
+      //
+      // Human Preview 01 iteration 11 (HP01-S7-R01/B01): paragraph 2's
+      // embedded English rhetorical phrase Koreanized (no meaning
+      // change). Added paragraph 3 — compacts the closing to
+      // measured/observed/not-yet-claimed per the DOM Master's own
+      // instruction, restating (not adding to) two boundaries already
+      // approved on-site in WHAT_WE_DO_NOT_CLAIM (methodology.ts,
+      // items 2 and 6: not "always more costly", not "confirmed
+      // socioeconomic inequality cause"). No new claim, no new number.
       ko: [
         '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다. 토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
-        'AI가 사회의 보편적 인프라가 될수록, 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
+        'AI가 사회의 보편적 인프라가 될수록, 언어별 표현 효율성을 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
+        '다만 이는 특정 토크나이저와 표본에서 관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나 확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다.',
       ],
       en: [
         'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations. The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
         'As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.',
+        'This reflects a structural gap observed within a specific tokenizer and sample—it does not assert that Korean always costs more, or confirm this as a settled cause of socioeconomic inequality.',
       ],
     },
   },

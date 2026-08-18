@@ -127,18 +127,15 @@ export const NewsHeroSection: React.FC = () => {
                 <dd className="text-ink font-bold text-sm">1.72× (+72% Difference)</dd>
               </dl>
             </div>
-
-            {/* News Archive Context Note */}
-            <div className="border-l-2 border-rule-strong pl-4 py-1 space-y-1">
-              <span data-source="widget" className="text-[11px] font-mono text-ink uppercase font-bold tracking-wider block">
-                {isKo ? '보도 및 인프라 동향 아카이브' : 'News Evidence & Infrastructure Wave'}
-              </span>
-              <p data-source="widget" className="text-xs text-ink-body leading-relaxed">
-                {isKo
-                  ? '국가 AI 인프라 컴퓨팅 센터 구축 및 기업 전사적 AI 도입이 본격화되면서, 토큰 처리 효율성은 개인의 문제를 넘어 시스템의 문제로 확장되고 있습니다.'
-                  : 'As national AI infrastructure and enterprise adoption scale rapidly, token efficiency transforms from a prompt issue into a structural computing issue.'}
-              </p>
-            </div>
+            {/* Human Preview 01 iteration 11 (HP01-S0-R05): removed the
+                "News Archive Context Note" that stood here — its editorial
+                purpose (national AI infra scaling token efficiency into a
+                systemic issue) is already carried in full by S5's lead
+                paragraph and now the conclusion's paragraph 2; kept in the
+                intro it was a forward-reference with no home yet. Removed
+                rather than rewritten per the DOM Master's instruction to
+                confirm the conclusion already carries the same purpose
+                before touching this block — it does. */}
           </div>
         </div>
 

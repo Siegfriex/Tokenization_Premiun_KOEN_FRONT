@@ -1203,3 +1203,112 @@ Next: P5 — S7/conclusion, `HP01-S7-R01-R03`, `B01`, plus the deferred
 `S7-M01`'s preserve gate (see Interlude above re: D8).
 
 ---
+
+### P2b — S5-infrastructure re-verification (Director-requested, live re-check)
+
+Director asked to re-verify S5 before continuing. Re-ran the full
+`S5-M01`–`M07` metric set live against current `localhost:3000` HEAD
+(previous verification in P2 was against production commit `c556279`,
+now several iterations old) rather than trusting the recorded result.
+
+```
+S5-M01 PASS { rootCount: 1, phaseItems: 4 }
+S5-M02/M03/M04/M05 PASS — 0 forbidden strings found (MACRO ADOPTION
+  CAUSAL CHAIN, causal chain, 인과 사슬, AI Investment, Infrastructure,
+  AI Adoption, Token Usage, VERIFIED, REQUIRED, SAMSUNG, SK,
+  기하급수적으로 — all absent from KO root)
+S5-M04 placeholder collection count: 0
+document overflow: false (KO and EN, 1440px)
+S5-M06 BLOCKED_EVIDENCE (unchanged, correct — no real source strips
+  supplied, per HP01-S5-B01)
+S5-M07 PASS (visual) — single 4-phase flow, no policy-dashboard
+  competition, screenshot confirms
+```
+
+**Verdict: PASS**, re-confirmed on current HEAD (no drift since
+Iteration 7). No code change this pass.
+
+### P5 — S7/conclusion + S0-R05 handoff Evidence Packet
+
+**Target Proof:** `section#result[data-widget="EditorialConclusionSection"]`
+= 1; protected `1.29×`–`1.83×` string present verbatim; `blockquote`/
+pull-quote count = 0; footer microcopy string absent; back-to-top
+button count = 1 and functional.
+
+**Change Boundary:** `EditorialConclusionSection.tsx`, one
+`preFigureParagraphs` array in `article-content.ts`
+(`conclusionSynthesis`), and `NewsHeroSection.tsx` (S0-R05 handoff —
+removing, not adding, content). No shared component touched.
+
+Before → After (exact strings):
+- `conclusionSynthesis.preFigureParagraphs.ko[1]`: `"AI가 사회의 보편적
+  인프라가 될수록, 언어별 representation efficiency를 측정하고
+  개선하는 문제는..."` → `"...언어별 표현 효율성을 측정하고 개선하는
+  문제는..."` — Koreanized the embedded English phrase, no meaning
+  change.
+- New `preFigureParagraphs.ko[2]`/`en[2]` (HP01-S7-B01, "not yet
+  claimed" compression): KO `"다만 이는 특정 토크나이저와 표본에서
+  관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나
+  확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다."` /
+  EN `"This reflects a structural gap observed within a specific
+  tokenizer and sample—it does not assert that Korean always costs
+  more, or confirm this as a settled cause of socioeconomic
+  inequality."` — this restates (does not add to) `WHAT_WE_DO_NOT_CLAIM`
+  items 2 and 6 in `methodology.ts`, which are themselves PROTECTED and
+  were only read, not edited.
+- `EditorialConclusionSection.tsx`: removed the italic pull-quote
+  `<div>` (was: `"AI가 사회의 보편적 기간 인프라가 될수록, 언어별
+  Representation Efficiency를 투명하게 측정하고 다국어 토크나이저
+  구조를 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될
+  것입니다."`) — this restated `preFigureParagraphs[1]` near-verbatim
+  and also duplicated S5.2's `keyFinding.statement` almost word-for-word.
+- `EditorialConclusionSection.tsx`: removed the footer `<div>` (was:
+  `"TOKEN PREMIUM INTERACTIVE DATA STORY / 2026"`); exit-row class
+  `justify-between` → `justify-end` so the back-to-top button now sits
+  alone, right-aligned; button's `onClick`/label/icon untouched.
+- `NewsHeroSection.tsx`: removed the "News Archive Context Note" block
+  (`"보도 및 인프라 동향 아카이브"` / `"국가 AI 인프라 컴퓨팅 센터
+  구축 및 기업 전사적 AI 도입이 본격화되면서, 토큰 처리 효율성은
+  개인의 문제를 넘어 시스템의 문제로 확장되고 있습니다."`) —
+  **removed, not rewritten**: its purpose is already fully carried by
+  S5's lead paragraph and now S7's new paragraph 2. The protected
+  `31 / 18 / 1.72×` FIG.01 numbers and the two sample sentences directly
+  above it were not touched.
+
+**Metric Results** (Playwright, `localhost:3000`, 1440×900, KO then EN):
+```
+S7-M01 PASS { rootCount: 1, hasRange: true } — 1.29×/1.83× both present
+S7-M02 PASS { blockquoteCount: 0, italicQuoteCount: 0 }
+S7-M03 PASS — footer microcopy string absent
+S7-M04 PASS — button count 1; click scrolls window to top (scrollY≈3
+  after settle; smooth-scroll needs >400ms to complete, confirmed with
+  a longer wait)
+S7-M05 PASS (KO) — "representation efficiency" absent from KO DOM;
+  present in EN DOM as expected (native English copy, not code-switching)
+overflow: false (KO and EN, 1440px)
+S0 news-note removed: true — confirmed absent from NewsHeroSection DOM
+```
+
+**Evidence Safety:** the protected `1.29×~1.83×` range, the display H2,
+and the lead line are all byte-identical to before (diffed). The S0
+FIG.01 `31/18/1.72×` numbers and its two sample sentences are
+byte-identical to before. No new number introduced anywhere. The new
+closing sentence and the S0 removal were both checked against the DOM
+Master's explicit constraints ("do not broaden conclusion claims",
+"confirm the conclusion already carries the same purpose" before
+touching S0) before implementing.
+
+**Verdict: PASS.** `npx tsc --noEmit` and `npm run build` both clean.
+Screenshot review: conclusion now reads as three clean paragraphs
+(measured → observed/implication → not-yet-claimed) with no competing
+quote box or footer chrome; S0 hero's exhibit card ends cleanly at the
+Relative Ratio line with no layout gap from the removed block.
+
+**S0–S7 (all 8 in-scope slides) now have 0 TODO directives remaining.**
+
+Next: P6 — final regression sweep across S0–S3 (not individually
+re-touched since their own iterations) to confirm no drift, then this
+Human Preview 01 loop is ready to be called complete pending Director
+review of the open PRs and D8.
+
+---
