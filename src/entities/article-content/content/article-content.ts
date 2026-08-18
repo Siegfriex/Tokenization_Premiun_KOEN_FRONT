@@ -395,12 +395,26 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     // Director redline (S04.5, 2026-08-17): merged 2 paragraphs into 1
     // (identical sentences, no wording change) as part of demoting the
     // pre-chart text toward caption weight ("chart must win first read").
+    //
+    // Human Preview 01 continuation (2026-08-18, Vice Director crawl
+    // verdict S45-M02): the per-language figures this paragraph used to
+    // cite (Spanish 1.18x, Korean 1.78x, Arabic 2.05x, Hindi 2.30x) were
+    // MULTILINGUAL_COMPARISON_DATA's values, rendered by the chart that
+    // used to sit directly below this text. That chart was removed this
+    // iteration (it coexisted with the new Petrov exhibit and rendered a
+    // second, differently-sourced Korean ratio in the same section).
+    // Removing the chart without also editing this paragraph would leave
+    // specific per-language numbers on the page with no supporting
+    // visual, so they are trimmed to the general (unnumbered) trend
+    // claim here. This also incidentally removes the "Hindi"/"12개 언어"
+    // wording already flagged BLOCKED_CONTENT_AUTHORITY under
+    // HP01-S4.5-R02 -- not re-litigated, just no longer restated.
     preFigureParagraphs: {
   ko: [
-    'Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 영어의 토큰 소비량을 1.00으로 정규화했을 때 스페인어는 1.18배 수준으로 나타났다. 반면 한글은 1.78배, 아랍어는 2.05배, 힌디어는 2.30배 수준으로 나타났다.',
+    'Flores-200 병렬 코퍼스를 기준으로 동일한 의미의 문장을 언어별로 비교하면, 언어에 따라 필요한 토큰 수에 차이가 나타난다. 로마자 계열 언어는 상대적으로 적은 토큰을 사용한 반면, 비라틴 문자 체계는 더 많은 토큰을 필요로 하는 경향이 나타났다.',
   ],
   en: [
-    'Benchmarking 12 major world language systems across the Flores-200 parallel corpus shows Latin-script languages like English (1.00×) and Spanish (1.18×) achieve dense compression, while non-Latin scripts such as Korean (1.78×), Arabic (2.05×), and Hindi (2.30×) experience severe token expansion due to underrepresentation in tokenizer vocabularies.',
+    'Benchmarking world language systems across the Flores-200 parallel corpus shows that Latin-script languages tend to use fewer tokens, while non-Latin scripts tend to require more, due to underrepresentation in tokenizer vocabularies.',
   ],
 },
     figureNumber: 'FIG. 06',
@@ -423,7 +437,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     keyFinding: {
       label: { ko: '글로벌 벤치마크 결론', en: 'Global Benchmark Takeaway' },
       statement: {
-        ko: '비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측됩니다.',
+        ko: '비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측된다.',
         en: 'Token inflation of 1.5× to 2.3× is universally observed across non-Latin scripts.',
       },
     },

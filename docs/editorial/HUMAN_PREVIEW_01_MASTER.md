@@ -274,13 +274,14 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **DONE** (HP01 Iter 8) — Director's Acceptance Metrics doc (`S45-M04`) confirmed the Iter-6 label-only work did not close this (2 competing bordered panels, verified by count). Redesigned: merged the stat card and chart into one bordered panel, selected-language readout folded into the panel's own header line. Same 5 verified language entries, no new data. Verdict: `CONDITIONAL PASS` |
+| HP01-S45-R01 | Whole-section redesign candidate — do not preserve current dashboard composition | **DONE** (HP01 Iter 13, superseding the Iter 8 partial fix) — Iter 8 merged the stat card and chart into one bordered panel but kept `MULTILINGUAL_COMPARISON_DATA` rendering; Iter 12 then added a *second*, better-sourced exhibit (Petrov et al.) alongside it rather than replacing it, so two differently-sourced Korean ratios (1.78×/2.38×) rendered at once — flagged `S45-M02` FAIL by an external crawl verdict ("Manus AI / Vice Director", `KOEN-FRONT-HP01-VERDICT-2026-08-18`). Iter 13 removed the legacy dashboard entirely (chart, `multilingual-comparison` selector, `1.78×` callout, `Flores-200/o200k_base` strip, legend, `FIG. 06` caption) — the Petrov exhibit (`FIG. 06-1`) is now the section's single visual, matching this directive's original instruction. Also fixed an orphaned-claim regression the removal would otherwise have caused: `preFigureParagraphs` cited legacy per-language numbers (1.18/1.78/2.05/2.30×) that no longer had a supporting chart — trimmed to a general trend claim, no new number substituted. `MULTILINGUAL_COMPARISON_DATA` entity left unused, not deleted (established site convention for retired-but-drafted content). Verdict: **PASS** |
 | HP01-S45-R02 | Remove English-centric labels/unfiltered technical terminology, Korean-article-voice default | **DONE** (HP01 Iter 6) — all panel/chart/tooltip labels Koreanized |
 | HP01-S45-B01 | Restructure so Korean's position relative to other scripts is legible at a glance; only include languages with real verified evidence | **ALREADY_DONE** — the chart already sorts/highlights Korean distinctly (black bar vs gray others); the 5-language set is already the full verified set (no fabricated languages added) |
 | HP01-S45-B02 | Locate the Flores-related paper mentioned in the meeting ("누나가 가져온 논문") and wire it into figure/source provenance | **DONE** (HP01 Iteration 12) — paper located in `AUDIT2/레퍼런스/기사용_언어별_Token_Premium_선행연구_요약.docx` (D8), identified as Petrov, La Malfa, Torr & Bibi (2023) NeurIPS. Wired into a new standalone exhibit (`FLORES_CITATION_DATA`/`FLORES_CITATION_NOTE`, `FIG. 06-1`) in `MultilingualTokenEfficiencySection.tsx`, with full source provenance (`Petrov et al. (2023), NeurIPS — FLORES-200 / cl100k_base, N=2,000`) |
-| HP01-S45-R03 | Don't present "12개 언어"/Hindi etc. as complete evidence when current entity only has 5 rows | **Correctly untouched** — pre-existing content-integrity flag, reconfirmed not resolved by this pass |
+| HP01-S45-R03 | Don't present "12개 언어"/Hindi etc. as complete evidence when current entity only has 5 rows | **DONE** (HP01 Iter 13, resolved as a byproduct) — the `preFigureParagraphs` sentence naming "힌디어는 2.30배" was removed as part of the orphaned-claim fix (see R01). Live-verified: `12개 언어`/`힌디어`/`Hindi` all absent from the rendered section in both languages. The unrendered `subheading` entity field still contains "12개 언어" text — left as-is, consistent with this site's established practice of not deleting unconsumed drafted copy (it was already dropped from render before this session, per the existing code comment) |
 | HP01-S45-R04 | Don't let "다국어 AI 거버넌스"/"소버린 파운데이션 모델" conclusions front-run the measured comparison | **DONE** (HP01 Iter 6) — the exact flagged sentence removed entirely, plus a second "구조적 과제" instance in keyFinding (named in G09) |
-| HP01-S45-R05 *(MASTER-derived)* | Sentence-ending register inconsistency (~다 vs ~ㅂ니다) — unify (see G11) | **DONE** (HP01 Iter 6) — resolved as a byproduct of R04's removal |
+| HP01-S45-R05 *(MASTER-derived)* | Sentence-ending register inconsistency (~다 vs ~ㅂ니다) — unify (see G11) | **DONE** (HP01 Iter 6) — resolved as a byproduct of R04's removal. **Recurred and re-fixed in Iter 13**: `keyFinding.statement.ko` still read `...관측됩니다.` against the section's otherwise `-다` register; corrected to `...관측된다.` (ending only) |
+| HP01-S45-B03 *(MASTER-derived, from DOM Master §"Child hook authority")* | Add `language-focus`, `language-comparison-chart`, `language-closing-claim` hooks to whatever replaces the rejected dashboard | **DONE** (HP01 Iter 13) — all 3 hooks verified present in the DOM Master directive's original S4.5 row before adding (v2.1 no-new-hooks-without-authority rule); wired onto the Petrov exhibit's detail line, panel container, and closing callout respectively |
 
 ### S5 — infrastructure (`KoreaAIContextSection.tsx`)
 
@@ -415,24 +416,25 @@ tracks completion state in §K, not a second copy of the checklist.
 
 ## K. Current Progress
 
-**Phase: patch loop complete. HP01 Iteration 11 (S7 + S0-R05 handoff)
-closed 5/5 directives; P6 final regression sweep found 0 regressions
-across S0–S3. All 8 in-scope slides (S0–S7) have 0 TODO items
-remaining. Awaiting Director merge of PR #29 and rulings on the
-remaining `BLOCKED_*`/`D8` items.**
+**Phase: patch loop complete, with two post-close continuation
+iterations (12, 13) driven by live Director dictation and an external
+crawl verdict. HP01 Iteration 13 (S4.5 legacy-exhibit removal, register
+fix, hooks) closed the last real regression found by external review.
+All 8 in-scope slides (S0–S7) have 0 TODO items remaining. Awaiting
+Director review of open PRs and rulings on `D1`/`D2`/`D8`/`D9`.**
 
 Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 54 (S0: 5; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4; S5.2: 5; S6: 3; S7: 4; + 4 cross-cutting not broken out per-slide above) |
+| DONE | 57 (S0: 5; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 6; S5: 4; S5.2: 5; S6: 3; S7: 4; + 4 cross-cutting not broken out per-slide above) |
 | N/A (checked, not applicable) | 1 (S5.2-B02 — no GPT/Transformer terms exist on this slide) |
 | PARTIAL | 0 |
 | TODO | 0 |
-| BLOCKED_CONTENT_AUTHORITY | 4 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02, D8/D9 — see §M) |
+| BLOCKED_CONTENT_AUTHORITY | 3 (S2 "4단계"/R03, S3 D1/R04, D8/D9 — see §M) |
 | BLOCKED_EVIDENCE | 2 (S4 pricing multiplier/B02, S5 source strips/B01) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 6 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01, S4.5-B02 [Flores paper now sourced, D8]) |
-| DEFERRED (cross-slide sequencing, not blocked) | 0 (S0-R05 resolved this iteration) |
+| DEFERRED (cross-slide sequencing, not blocked) | 0 (S0-R05 resolved Iteration 11) |
 | CONFLICT | 0 |
 
 **Bonus resolution (Iteration 7):** S5's phase-card bilingual gap
@@ -454,12 +456,32 @@ labels) after the metrics doc's own count-based check
 PASS/FAIL/NOT VERIFIABLE vocabulary):** S0 CONDITIONAL PASS (D2's
 `31/18/1.72×` FIG.01 numbers stay blocked, unrelated to S0-R05 which is
 now resolved), S1 PASS, S2 CONDITIONAL PASS (S2-M06/"4단계" blocked),
-S3 CONDITIONAL PASS (D1 blocked), S4 PASS, S4.5 CONDITIONAL PASS (2
-items blocked), S5 PASS (re-verified live this iteration, `S5-M01`–`M05`
-+ `M07` pass, `M06` correctly `BLOCKED_EVIDENCE`), S5.2/impact PASS
-(HP01 Iter 9), S6/method PASS (HP01 Iter 10), **S7/conclusion PASS**
-(HP01 Iter 11, `S7-M01`–`M07` all pass live on `localhost:3000` KO —
-see LOOP_LOG).
+S3 CONDITIONAL PASS (D1 blocked), S4 PASS, **S4.5 PASS** (HP01 Iter 13
+— was `FAIL` per the external crawl verdict's `S45-M02`/`M06`; legacy
+dashboard removed, register fixed, hooks added; only R03's own
+pre-existing content-authority note applies elsewhere, not to this
+slide), S5 PASS (re-verified live, `S5-M01`–`M05` + `M07` pass, `M06`
+correctly `BLOCKED_EVIDENCE`), S5.2/impact PASS (HP01 Iter 9),
+S6/method PASS (HP01 Iter 10), S7/conclusion PASS (HP01 Iter 11,
+`S7-M01`–`M07` all pass — see LOOP_LOG).
+
+**External crawl verdict (Iteration 13):** a structured re-verification
+of production (`KOEN-FRONT-HP01-VERDICT-2026-08-18`, reviewer
+"Manus AI / Main Vice Director") re-ran the Acceptance Metrics against
+the deployed build (`74571e7`) via direct HTTPS asset + bundle-string
+comparison. Found one real regression (`S45-M02`/`M04`/`M05`/`M06` —
+the Iteration 12 Petrov exhibit had been added *alongside* the legacy
+S4.5 dashboard rather than replacing it) and one missing-hooks item
+(`S45-M01`), both fixed this iteration. Also flagged `S7-M05`
+("representation efficiency" inside `#result`) — re-checked directly
+and found to be a crawl-methodology false positive: the phrase is in
+`Footer.tsx` (a sibling of `<main>`, not `#result`) and only inside
+that file's EN-locale branch, confirmed absent from KO-mode render of
+both sections. Not changed — logged as a correction. Full detail in
+`docs/qa/LOOP_LOG.md` Iteration 13. This session's own Playwright
+tooling additionally closed 6 metrics the reviewer had left
+`NOT VERIFIABLE` for lack of a browser channel (`S1-M02`, `S2-M01`,
+`S3-M04`, `S4-M02`, `S6-M04`, `S7-M04`).
 
 **P6 — final regression sweep across S0–S3: DONE, 0 regressions.**
 Live-verified against each slide's own metrics on current HEAD; full

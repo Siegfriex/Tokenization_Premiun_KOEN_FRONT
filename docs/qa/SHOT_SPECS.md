@@ -1366,3 +1366,43 @@ Verified (Playwright, 1440×900 KO/EN + 390px mobile): all new text
 present, chart interaction works (tested Arabic-chip click → header/
 legend update to 3.04×), 0 overflow at all 3 checked widths.
 `npx tsc --noEmit` and `npm run build` clean.
+
+**Findings (Human Preview 01, 2026-08-18, Iteration 13): S4.5 legacy
+exhibit removed, external crawl verdict acted on.** A structured crawl
+verdict from "Manus AI / Vice Director" (re-verifying deployed
+production against the Acceptance Metrics doc) found `S45-M02` FAIL —
+Iteration 12 had added the Petrov exhibit *next to* the legacy
+`MULTILINGUAL_COMPARISON_DATA` chart rather than replacing it, so two
+differently-sourced Korean ratios (1.78× vs. 2.38×) rendered in one
+section. Fixed: removed the legacy bordered panel entirely (chart,
+`multilingual-comparison` selector, `1.78×` callout, `Flores-200 /
+o200k_base` strip, `라틴 알파벳 기준` legend, `FIG. 06` caption) — the
+Petrov exhibit is now the section's single visual, matching the DOM
+Master directive's original instruction ("the entire dashboard is
+rejected"). Caught during my own verification (not in the original
+verdict): removing the chart without editing
+`preFigureParagraphs.ko[0]` would leave orphaned per-language numbers
+(1.18/1.78/2.05/2.30×) with no supporting visual — trimmed to a general
+trend claim, no new number substituted. Also fixed: register mismatch
+(`multilingualBenchmark.keyFinding.statement.ko` `...관측됩니다.` →
+`...관측된다.`, ending only) and added the 3 `data-hp01-id` hooks
+(`language-focus`, `language-comparison-chart`, `language-closing-claim`)
+the DOM Master had originally specified for this section but were never
+wired up.
+
+Two items in the verdict were re-checked and found to be crawl false
+positives, corrected rather than implemented: `S7-M05` claimed
+"representation efficiency" renders inside `#result` — verified absent
+from `EditorialConclusionSection.tsx` and its live KO DOM; the string
+is in `Footer.tsx` (a sibling of `<main>`, not nested in `#result`), and
+even there only inside the EN-locale ternary branch, confirmed absent
+from KO-mode render of both sections. Not translated/removed — it's
+legitimate EN-only copy, not a KO leak.
+
+Also closed 6 previously `NOT VERIFIABLE` behavioral metrics with live
+Playwright evidence the reviewer's channel couldn't produce: `S1-M02`,
+`S2-M01`, `S3-M04`, `S4-M02`, `S6-M04`, `S7-M04` all PASS.
+
+Re-verified after fix: `S45-M01/M02/M04/M05` all PASS, 0 overflow at
+1440px KO/EN + 390px mobile. `npx tsc --noEmit` and `npm run build`
+clean (bundle ~8KB smaller).
