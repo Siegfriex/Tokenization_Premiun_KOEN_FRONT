@@ -429,3 +429,38 @@ header showing no residual Korean text, and the figNum span rendering as
 one unbroken block at 390px.
 
 ---
+
+## 2026-08-18 — Phase 7: Director-authorized continuous visual devpass (5-min loop, S00→S07 sequential)
+
+**Trigger:** Director authorization (2026-08-18): proceed continuously
+through every slide's remaining visual-only redline items from
+`docs/qa` + the editorial redline directive, tightening scrutiny rather
+than stopping on a clean pass ("검출값이 <3이하일경우, 더 조여서 잡아").
+Content-level (copy/entity) changes are permitted this phase but must be
+logged here with the same rigor as a visual change; anything touching a
+PROTECTED/frozen value or an open `DIRECTOR_DECISIONS.md` row (D1–D4) is
+logged as a **BOTTLENECK** below and skipped, not silently resolved.
+Working branch: `visual-devpass/full-sweep` off `koen-front-origin/main`
+(`5df1777`, PR #17 tip) — separate from any other session's branch to
+avoid collision (multiple concurrent sessions observed on this repo this
+session).
+
+### Iteration 11 (S00-hero)
+
+**Fixed:** FIG.01 exhibit card `dt` label tone: `text-ink font-bold` →
+`text-ink-body font-semibold` — one register quieter, per the editorial
+redline directive's "exhibit must read as illustrative, not co-equal to
+H1" note. Values untouched (D2 remains open/frozen). Full detail in
+`docs/qa/SHOT_SPECS.md` S00-hero.
+
+**Verified:** tsc clean, build clean (CSS hash unchanged, JS hash
+changed as expected), Playwright computed-style check at 1440×KO
+confirms `--color-ink-body` applied correctly, H1 bounding box remains
+dominant over the exhibit card's.
+
+**BOTTLENECK (not fixed, logged only):** D2 (hero exhibit numbers
+`31/18 TOKENS`, `1.72×` match no entity/sentence pair) remains open —
+out of scope for this visual-only pass, requires Director ruling per
+`DIRECTOR_DECISIONS.md`.
+
+---
