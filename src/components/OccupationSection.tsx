@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useUILanguage } from '../features/change-language';
-import { getLocalizedText } from '../shared/i18n';
-import { OCCUPATION_COMPARISON_DATA, TOKEN_BASELINE_SIMULATION } from '../entities/occupation';
+import { TOKEN_BASELINE_SIMULATION } from '../entities/occupation';
 import { ARTICLE_CONTENT } from '../entities/article-content';
-import { Code, BookOpen } from 'lucide-react';
 import { Container, SectionHeading, HeadingAccent, SelectableCard } from '../shared/ui';
 import {
   ArticleReadingColumn,
@@ -26,9 +24,6 @@ export const OccupationSection: React.FC = () => {
   const totalEn = baseEnPerPrompt * promptCount;
   const totalKo = baseKoPerPrompt * promptCount;
   const totalGap = tokenGapPerPrompt * promptCount;
-
-  const engineeringData = OCCUPATION_COMPARISON_DATA.find((d) => d.id === 'engineering')!;
-  const socialScienceData = OCCUPATION_COMPARISON_DATA.find((d) => d.id === 'social-science')!;
 
   return (
     <section id="burden" data-widget="OccupationSection" data-section="burden" className="py-20 sm:py-28 bg-surface text-ink border-b border-rule scroll-mt-16">
@@ -72,7 +67,7 @@ export const OccupationSection: React.FC = () => {
             <div data-role="stat" data-semantic-target="dl" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-rule pb-4">
               <dl data-role="stat" data-semantic-target="dl" className="space-y-1">
                 <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider block">
-                  WORKFLOW REPETITION SIMULATOR
+                  {isKo ? '반복 사용 시뮬레이터' : 'WORKFLOW REPETITION SIMULATOR'}
                 </dt>
                 <dd data-source="widget" className="text-xs text-ink-muted font-mono">
                   프롬프트 및 컨텍스트 누적 시뮬레이션
@@ -114,9 +109,9 @@ export const OccupationSection: React.FC = () => {
                 className="w-full h-2 bg-rule-neutral rounded-xs appearance-none cursor-pointer accent-accent"
               />
               <div data-role="scale-legend" className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-[11px] font-mono text-ink-muted">
-                <span>1회 (단일 프롬프트)</span>
-                <span>1,000회 (팀 일간 워크플로우)</span>
-                <span>2,000회 (전사 에이전트 루틴)</span>
+                <span>1{isKo ? '회' : 'x'}</span>
+                <span>1,000{isKo ? '회' : 'x'}</span>
+                <span>2,000{isKo ? '회' : 'x'}</span>
               </div>
             </div>
 
@@ -124,7 +119,7 @@ export const OccupationSection: React.FC = () => {
             <div className="pt-4 border-t border-rule space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
                 <div className="space-y-1">
-                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase">English Baseline Tokens</span>
+                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase">{isKo ? '영어 기준 토큰' : 'English Baseline Tokens'}</span>
                   <div className="text-3xl sm:text-4xl font-mono font-bold text-ink-muted">
                     {totalEn.toLocaleString()}
                     <span data-source="widget" className="text-xs font-normal text-ink-subtle ml-1.5 font-sans">tok</span>
@@ -132,7 +127,7 @@ export const OccupationSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase">Hangul Cumulative Tokens</span>
+                  <span data-source="widget" className="text-xs font-mono text-ink-muted uppercase">{isKo ? '한글 누적 토큰' : 'Hangul Cumulative Tokens'}</span>
                   <div className="text-3xl sm:text-4xl font-mono font-bold text-ink">
                     {totalKo.toLocaleString()}
                     <span data-source="widget" className="text-xs font-normal text-ink-muted ml-1.5 font-sans">tok</span>
@@ -141,7 +136,7 @@ export const OccupationSection: React.FC = () => {
 
                 <div data-role="stat" data-semantic-target="dl" className="space-y-1 md:border-l md:border-rule md:pl-6">
                   <span data-source="widget" className="text-xs font-mono text-ink uppercase font-bold tracking-wider">
-                    ACCUMULATED BURDEN GAP
+                    {isKo ? '누적 토큰 격차' : 'ACCUMULATED BURDEN GAP'}
                   </span>
                   <div className="text-4xl sm:text-5xl font-mono font-black text-ink">
                     +{totalGap.toLocaleString()}
@@ -154,160 +149,34 @@ export const OccupationSection: React.FC = () => {
               <div className="p-5 bg-surface border border-rule rounded-xs font-mono text-xs max-w-lg mx-auto md:mx-0 space-y-3">
                 <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-dashed border-rule pb-2 text-[11px]">
                   <dt data-source="widget" className="font-bold text-ink tracking-wider uppercase break-keep">
-                    TOKEN RECEIPT (토큰 사용 명세서)
+                    {isKo ? '토큰 사용 명세서' : 'TOKEN RECEIPT'}
                   </dt>
-                  <dd data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()} ITERATIONS</dd>
+                  <dd data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()}{isKo ? '회 반복' : ' ITERATIONS'}</dd>
                 </dl>
                 <div className="space-y-1.5 text-xs">
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                    <dt data-source="widget" className="text-ink-body">KOREAN ({promptCount}회)</dt>
-                    <dd data-source="widget" className="font-bold text-ink">{totalKo.toLocaleString()} TOKENS</dd>
+                    <dt data-source="widget" className="text-ink-body">{isKo ? `한국어 (${promptCount}회)` : `KOREAN (${promptCount}x)`}</dt>
+                    <dd data-source="widget" className="font-bold text-ink">{totalKo.toLocaleString()}{isKo ? '개 토큰' : ' TOKENS'}</dd>
                   </dl>
                   <dl data-role="stat" data-semantic-target="dl" className="flex justify-between">
-                    <dt data-source="widget" className="text-ink-muted">ENGLISH ({promptCount}회)</dt>
-                    <dd data-source="widget" className="text-ink-muted">{totalEn.toLocaleString()} TOKENS</dd>
+                    <dt data-source="widget" className="text-ink-muted">{isKo ? `영어 (${promptCount}회)` : `ENGLISH (${promptCount}x)`}</dt>
+                    <dd data-source="widget" className="text-ink-muted">{totalEn.toLocaleString()}{isKo ? '개 토큰' : ' TOKENS'}</dd>
                   </dl>
                 </div>
                 <dl data-role="stat" data-semantic-target="dl" className="border-t border-rule-strong pt-2 flex justify-between font-bold text-sm text-ink">
-                  <dt data-source="widget" className="break-keep">ABSOLUTE GAP (순수 격차)</dt>
-                  <dd data-source="widget">+{totalGap.toLocaleString()} TOKENS</dd>
+                  <dt data-source="widget" className="break-keep">{isKo ? '순수 격차' : 'ABSOLUTE GAP'}</dt>
+                  <dd data-source="widget">+{totalGap.toLocaleString()}{isKo ? '개 토큰' : ' TOKENS'}</dd>
                 </dl>
               </div>
             </div>
           </div>
 
-          {/* Occupational Cluster Analysis */}
-          <div className="space-y-8">
-            <dl data-role="stat" data-semantic-target="dl" className="border-b border-rule pb-3 flex items-center justify-between">
-              <dt data-source="widget" className="text-xs font-mono text-ink font-bold uppercase tracking-wider">
-                OCCUPATIONAL SENSITIVITY COMPARISON
-              </dt>
-              <dd data-source="widget" className="text-xs font-mono text-ink-muted">AI Exposure vs. Language Intensity</dd>
-            </dl>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Cluster 1: Engineering / Technical */}
-              <div data-role="stat" data-semantic-target="dl" className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-rule pb-3">
-                    <div className="flex items-center gap-2">
-                      <Code className="w-5 h-5 text-ink-body" />
-                      <h3 data-role="heading" data-semantic-target="heading" className="font-bold text-lg text-ink">
-                        {getLocalizedText(engineeringData.title, language)}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 text-xs font-mono">
-                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <dt data-source="widget" className="text-ink-muted">AI Exposure Level:</dt>
-                      <dd className="font-bold text-ink">{engineeringData.aiExposureLevel}</dd>
-                    </dl>
-                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <dt data-source="widget" className="text-ink-muted">Language Intensity:</dt>
-                      <dd className="text-ink-body font-semibold">{engineeringData.languageIntensity}</dd>
-                    </dl>
-                  </div>
-
-                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface p-4 rounded-xs border border-rule break-keep">
-                    {getLocalizedText(engineeringData.tokenBurdenAssessment, language)}
-                  </p>
-
-                  {/* Sub Occupations */}
-                  <div className="space-y-2 pt-2">
-                    <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
-                      대표 세부 직무 (Included Occupations):
-                    </span>
-                    <ul data-collection="engineering-occupations" className="space-y-1.5">
-                      {engineeringData.occupations.map((occ, idx) => (
-                        <li
-                          key={idx}
-                          data-role="collection-item"
-                          data-item-id={idx}
-                          className="p-2.5 bg-surface rounded-xs border border-rule flex items-center justify-between text-xs"
-                        >
-                          <span className="font-medium text-ink-body">
-                            {getLocalizedText(occ.name, language)}
-                          </span>
-                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule">
-                            {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono break-keep">
-                  평가: 코드 및 영문 토큰 비중으로 인해 상대적 토큰 페널티 완충
-                </div>
-              </div>
-
-              {/* Cluster 2: Social Science / Knowledge-intensive */}
-              <div data-role="stat" data-semantic-target="dl" className="bg-surface border border-rule rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs">
-                <div className="space-y-4">
-                  <div data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                    <div className="flex items-center gap-2">
-                      <BookOpen className="w-5 h-5 text-ink" />
-                      <h3 data-role="heading" data-semantic-target="heading" className="font-bold text-lg text-ink">
-                        {getLocalizedText(socialScienceData.title, language)}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 text-xs font-mono">
-                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <dt data-source="widget" className="text-ink-muted">AI Exposure Level:</dt>
-                      <dd className="font-bold text-ink">{socialScienceData.aiExposureLevel}</dd>
-                    </dl>
-                    <dl data-role="stat" data-semantic-target="dl" className="flex justify-between py-1 border-b border-rule/60">
-                      <dt data-source="widget" className="text-ink-muted">Language Intensity:</dt>
-                      <dd className="text-ink-body font-semibold">{socialScienceData.languageIntensity}</dd>
-                    </dl>
-                  </div>
-
-                  <p className="text-xs text-ink-body leading-relaxed font-sans bg-surface-alt p-4 rounded-xs border border-rule break-keep">
-                    {getLocalizedText(socialScienceData.tokenBurdenAssessment, language)}
-                  </p>
-
-                  {/* Sub Occupations */}
-                  <div className="space-y-2 pt-2">
-                    <span data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider block">
-                      대표 세부 직무 (Included Occupations):
-                    </span>
-                    <ul data-collection="socialscience-occupations" className="space-y-1.5">
-                      {socialScienceData.occupations.map((occ, idx) => (
-                        <li
-                          key={idx}
-                          data-role="collection-item"
-                          data-item-id={idx}
-                          className="p-2.5 bg-surface-alt rounded-xs border border-rule flex items-center justify-between text-xs"
-                        >
-                          <span className="font-medium text-ink-body">
-                            {getLocalizedText(occ.name, language)}
-                          </span>
-                          <span data-source="widget" className="text-[10px] font-mono px-2 py-0.5 bg-surface-alt text-ink-body rounded-xs border border-rule">
-                            {occ.status === 'DATA_AVAILABLE' ? '데이터 확인' : '데이터 보강 필요'}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div data-source="widget" className="p-3 bg-surface border border-rule rounded-xs text-xs text-ink-muted font-mono break-keep">
-                  평가: 장문 한국어 텍스트 문맥 누적으로 실질 Token Burden 집중 가중
-                </div>
-              </div>
-            </div>
-
-            {/* Figure Caption & Source */}
-            <ArticleFigureCaption
-              figNum={articleData.figureNumber}
-              caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
-              source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
-            />
-          </div>
+          {/* Figure Caption & Source */}
+          <ArticleFigureCaption
+            figNum={articleData.figureNumber}
+            caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
+            source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
+          />
         </ArticleFullWidthBreak>
 
         {/* READING COLUMN: Post-Figure Analytical Prose & Key Finding */}

@@ -243,13 +243,13 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S4-R01 | Remove the Engineering/Social-Science occupation-comparison lower section entirely | TODO — image confirms with full-card strikethrough + explicit rationale note ("기사 방향성과 동떨어짐, 데이터 미확정, 없어도 됨") |
-| HP01-S4-B01 | Simulator is a DEVELOPMENT target, not deletion — promote to the slide's central interaction | TODO — image shows a BLUE oval around the **entire** simulator panel, confirming preserve+develop |
-| HP01-S4-R02 | Koreanize `TOKEN GAP` / `ACCUMULATED BURDEN GAP` / `WORKFLOW REPETITION SIMULATOR` | TODO — image gives a concrete target phrase: "정의된 프리미엄 토큰에 대한 누적 비용" register |
-| HP01-S4-R03 | Remove unsourced workload characterizations ("팀 일간 워크플로우", "전사 에이전트 루틴") if no real data backs them | TODO |
-| HP01-S4-B02 | Extend interaction architecture toward a pricing/unit-cost input, data-adapter separated from UI scaffold; never fill with invented numbers | `BLOCKED_EVIDENCE` — image confirms concretely: "실증 데이터 디벨롭 예정 ⟹ TP(4Q)*가격정책결정단가로 인터랙션" — the multiplier source (a quarterly TP figure × a pricing-policy unit rate) does not exist in any entity yet |
-| HP01-S4-B03 *(MASTER-derived)* | Typography must handle KO/EN number formatting cleanly in the simulator ("한/영 등등 나타낼 수 있도록 타이포 신경") | TODO |
-| HP01-S4-R04 | Don't use "기하급수적으로" for what is a linear accumulation | TODO — image confirms twice (once generically per G08, once specifically circled here with "이렇게 갈까"/tentative rewrite mark) |
+| HP01-S4-R01 | Remove the Engineering/Social-Science occupation-comparison lower section entirely | **DONE** (HP01 Iter 5) — removed outright (~120 lines), dead imports/data cleaned up, JS bundle -9KB |
+| HP01-S4-B01 | Simulator is a DEVELOPMENT target, not deletion — promote to the slide's central interaction | **DONE** (HP01 Iter 5) — structural consequence of R01, simulator is now the breakout's sole content |
+| HP01-S4-R02 | Koreanize `TOKEN GAP` / `ACCUMULATED BURDEN GAP` / `WORKFLOW REPETITION SIMULATOR` | **DONE** (HP01 Iter 5) — all labels + "token gap" phrase in lead text |
+| HP01-S4-R03 | Remove unsourced workload characterizations ("팀 일간 워크플로우", "전사 에이전트 루틴") if no real data backs them | **DONE** (HP01 Iter 5) — scale-legend reduced to plain numbers |
+| HP01-S4-B02 | Extend interaction architecture toward a pricing/unit-cost input, data-adapter separated from UI scaffold; never fill with invented numbers | `BLOCKED_EVIDENCE` (unchanged) — no entity holds a TP(4Q)/pricing-unit figure |
+| HP01-S4-B03 *(MASTER-derived)* | Typography must handle KO/EN number formatting cleanly in the simulator | **DONE** (HP01 Iter 5) — `toLocaleString()` + `isKo`-gated unit suffixes, no separate fix needed |
+| HP01-S4-R04 | Don't use "기하급수적으로" for what is a linear accumulation | **DONE** (HP01 Iter 5) — corrected to "그대로"; this was a factual math error, not just tone |
 
 ### S4.5 — languages (`MultilingualTokenEfficiencySection.tsx`)
 
@@ -386,17 +386,17 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 22 (S0: 4; S1: 5; S2: 7; S3: 6) |
-| TODO | 25 |
+| DONE | 29 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7) |
+| TODO | 18 |
 | BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계"/R03, S3 D1/R04) |
-| BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
+| BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/source strips, S5 source strips) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 4 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S4/burden — `HP01-S4-R01/R02/R03/R04`, `B01` (simulator
-promotion), `B03` (typography). `B02` (pricing multiplier) stays
-`BLOCKED_EVIDENCE`.
+**Next action:** S4.5/languages — `HP01-S45-R01/R02/R04/R05`, `B01`.
+`B02` (Flores paper) stays `BLOCKED_EVIDENCE`; `R03` (12개 언어/Hindi)
+stays a pre-existing content-integrity flag.
 
 ---
 

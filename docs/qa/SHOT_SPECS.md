@@ -687,6 +687,72 @@ all 4 previously-broken words now stay intact; 0 DOM overflow;
 `build`/`lint` clean, CSS hash unchanged (utility already existed
 site-wide from the earlier `ArticleSubheading` fix).
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 5): 6/7
+directives closed** (`R01`, `R02`, `R03`, `R04`, `B01`, `B03`); `B02`
+(pricing-multiplier interaction) stays `BLOCKED_EVIDENCE`.
+
+Exact changes:
+- **`HP01-S4-R01` (RED, "삭제" — the biggest single removal in this
+  Human Preview so far):** removed the entire "Occupational Cluster
+  Analysis" block from `OccupationSection.tsx` — the
+  `OCCUPATIONAL SENSITIVITY COMPARISON` header, both the Engineering/
+  Technical and Social Science/Knowledge-intensive comparison cards
+  (each with its AI-exposure/language-intensity stat rows, assessment
+  paragraph, and sub-occupation list), gone entirely — not translated,
+  removed, per the annotation's own rationale ("데이터 미확정, 없어도
+  됨"). `OCCUPATION_COMPARISON_DATA`, `getLocalizedText`, and the
+  `Code`/`BookOpen` icon imports removed as now-dead code (JS bundle
+  dropped ~9KB, 311.62KB → 302.52KB). The `ArticleFigureCaption` (FIG.05)
+  that used to sit at the end of this block now sits directly after the
+  simulator, since the simulator is the only remaining exhibit.
+- **`HP01-S4-B01`:** with the comparison section gone, the simulator is
+  now the entire breakout's content — structurally promoted to the
+  slide's sole interaction, as directed (no code change needed beyond
+  the removal above; this was the removal's natural consequence).
+- **`HP01-S4-R02` (label Koreanization, all `isKo`-gated):**
+  `WORKFLOW REPETITION SIMULATOR` → `반복 사용 시뮬레이터`;
+  `English Baseline Tokens` → `영어 기준 토큰`; `Hangul Cumulative
+  Tokens` → `한글 누적 토큰`; `ACCUMULATED BURDEN GAP` → `누적 토큰
+  격차`; `TOKEN RECEIPT` → `토큰 사용 명세서`; `... ITERATIONS` →
+  `...회 반복`; `KOREAN (N회)`/`ENGLISH (N회)` → `한국어 (N회)`/`영어
+  (N회)`; `... TOKENS` → `...개 토큰`; `ABSOLUTE GAP` → `순수 격차`.
+- **`HP01-S4-R03` (remove unsourced workload characterization):**
+  scale-legend `1회 (단일 프롬프트)` / `1,000회 (팀 일간 워크플로우)` /
+  `2,000회 (전사 에이전트 루틴)` → plain `1회` / `1,000회` / `2,000회`
+  — the parenthetical scenario labels ("team daily workflow",
+  "enterprise-wide agent routine") were never backed by any entity
+  value, so removed rather than kept as unsourced framing.
+- **`HP01-S4-R04` (no "기하급수적으로" for linear accumulation),
+  `entities/article-content.ts` `accumulatedBurden`:**
+  `lead.ko`: `"...같은 종류의 AI 사용이 반복될수록 절대 token gap은
+  누적된다."` → `"...같은 종류의 AI 사용이 반복될수록 토큰 격차는
+  그대로 누적된다."` (also resolves the "token gap" English-phrase
+  half of `R02`). `keyFinding.statement.ko`: `"...워크플로우가
+  반복될수록 기하급수적으로 누적되어..."` → `"...워크플로우가
+  반복될수록 그대로 누적되어..."` — the underlying math is `totalGap =
+  tokenGapPerPrompt × promptCount`, i.e. genuinely linear, so
+  "기하급수적으로" (exponentially) was factually wrong, not just
+  stylistically flagged.
+- **`HP01-S4-B02` (pricing/unit-cost multiplier interaction):**
+  `BLOCKED_EVIDENCE`, unchanged — no entity holds a "TP(4Q)" figure or
+  a pricing-policy unit rate to multiply against; not fabricated.
+- **`HP01-S4-B03` (KO/EN number typography):** `toLocaleString()` was
+  already locale-safe for both digit grouping and now for the
+  Korean/English unit suffixes (handled via the same `isKo` ternary
+  pattern as the labels above) — no separate fix needed beyond R02.
+
+Research-content impact: `TOKEN_BASELINE_SIMULATION` (the per-prompt
+token baseline the simulator multiplies) is untouched — only the prose
+around it (lead, keyFinding, labels, scale-legend) changed, and only in
+ways that correct an actual math mismatch (linear vs. "exponential") or
+remove unsourced framing, not to alter what's measured.
+
+Verified 1440×KO/EN: 0 overflow both languages; occupation section
+confirmed fully absent (not just hidden); simulator renders as the
+sole breakout content; FIG.05 caption still present, correctly
+repositioned. tsc clean, build clean, bundle size dropped ~9KB from the
+dead-code removal.
+
 ---
 
 ## S05-infrastructure
