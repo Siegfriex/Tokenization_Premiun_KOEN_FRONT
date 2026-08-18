@@ -277,6 +277,27 @@ emphasized subject) vs `bg-mark-baseline` (EN, comparison baseline) dot
 distinction already in the accent-dot markup; not a defect. No code
 change this iteration — a real clean state, not an unexamined one.
 
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 2):** 4
+directives closed, 1 already satisfied. (1) `HP01-S1-R01` — CTA sentence
+ending changed from imperative "…직접 비교해보십시오." to declarative
+"…직접 비교한다." (register interpretation of ambiguous handwritten
+annotation "1. "확인" 2. "비교" 명사 종결…" — chosen reading: remove the
+formal-command tone, not necessarily a literal noun-ending; flagged for
+Director re-confirmation if the intent was stricter). Entity-content
+change (`entities/article-content`), not a protected research value —
+editorial microcopy only. (2) `HP01-S1-R02`/`R03` — `한국어 (Hangul
+Script)` / `ENGLISH (Latin Script)` column headers → `한국어` / `영어`
+in KO mode (EN mode keeps the fuller English label, dual-canonical). (3)
+`HP01-S1-R05`/`R06` — bottom "Token Ratio: N× (+M additional tokens)"
+→ Korean "토큰 비율 N× (+M개 토큰)" in KO mode. **`HP01-S1-R04`
+(replace FIG.01 position with "검증된 대역 문장쌍 선택" heading) —
+already satisfied structurally**: the selector's own heading already is
+"검증된 대역 문장쌍 선택:" and `FIG. 01` only appears at the bottom
+`ArticleFigureCaption`, not competing with the top heading — no change
+needed, verified by re-reading the current DOM order. Verified 1440×KO/EN:
+0 overflow, all changes render correctly, EN mode fully unaffected
+(all edits `isKo`-gated). tsc clean, build clean.
+
 ---
 
 ## S07-result

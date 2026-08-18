@@ -689,4 +689,37 @@ evidence or authority question) — just sequenced after S7's own
 directives are read, since moving content requires knowing the target
 shape first. Tracked in MASTER §F, not silently dropped.
 
+### HP01 Iteration 2
+
+Image: `S1.png` · Nav: S1 · DOM: `compare` · Trace: `CMP` ·
+Component: `TokenCompareSection.tsx` (+ `entities/article-content` for
+one CTA sentence)
+
+Directive IDs: `HP01-S1-R01`, `HP01-S1-R02`, `HP01-S1-R03`,
+`HP01-S1-R04` (already satisfied), `HP01-S1-R05`, `HP01-S1-R06`
+
+Patch:
+- `entities/article-content/content/article-content.ts` (`realSentences`):
+  CTA sentence ending "…직접 비교해보십시오." → "…직접 비교한다."
+- `TokenCompareSection.tsx`: KO-mode column headers `한국어 (Hangul
+  Script)` → `한국어`, `ENGLISH (Latin Script)` → `영어` (both now
+  `isKo`-gated; previously hardcoded regardless of language). Bottom
+  observation line → Korean "토큰 비율 N× (+M개 토큰)" in KO mode.
+
+Research-content impact: the CTA sentence edit touches
+`entities/article-content`, but is pure editorial microcopy (a CTA verb
+ending), not a numeric/methodology/protected value — logged per the
+project's standing rule that content edits need traceability, not that
+they're forbidden.
+
+Verification: lint PASS, build PASS, 1440×KO PASS (0 overflow), 1440×EN
+PASS (0 overflow, confirmed unaffected by `isKo` gating). 390 not yet
+shot this iteration — will confirm in the pre-acceptance regression pass.
+
+Result: ACCEPTED (5 of 6 directives; R04 was already satisfied, not a
+new change)
+
+Next: S2/pipeline — directives already exist in the original prompt
+text (`HP01-S2-R01`–`R04`, `B01`–`B03`); apply directly.
+
 ---

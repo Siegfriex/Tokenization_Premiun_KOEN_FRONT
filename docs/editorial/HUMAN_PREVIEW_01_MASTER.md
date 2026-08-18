@@ -201,12 +201,12 @@ creation pass — not yet patched except where noted).
 
 | ID | Type | Directive | Status |
 |---|---|---|---|
-| HP01-S1-R01 | R | Header/lead area: two numbered marks "1. "확인"" / "2. "비교" 명사 종결…" near the bottom CTA sentence ("…직접 비교해보십시오") — end the sentence as a noun phrase ("…비교") rather than an imperative, and review the word "확인" nearby | TODO — exact target phrase ambiguous from handwriting alone, re-verify against a fresh 1440×KO screenshot before patching |
-| HP01-S1-R02 | R | Cross out `한국어 (HANGUL SCRIPT)` / `ENGLISH (LATIN SCRIPT)` column headers — remove decorative bracket-script-name English | TODO |
-| HP01-S1-R03 | R | "관련 무분별 용어 사용 제한" near the English headers — limit indiscriminate technical jargon in that area generally | TODO — same locus as R02 |
-| HP01-S1-R04 | R | Replace the `FIG. 01` label positioned above the exhibit with the heading "검증된 대역 문장쌍 선택" (i.e. use the existing selector-label text as the visible heading instead of the FIG number in that position) | TODO — needs care: FIG.01's caption/source must still exist somewhere (G06), likely moves to the actual bottom caption row which already exists |
-| HP01-S1-R05 | R | The bottom "Token Ratio: N× (+M additional tokens)" observation line — circled in red across **both** captured pair states (pair 1 and pair 4), i.e. flagged regardless of which pair is selected → remove or fully rewrite | TODO |
-| HP01-S1-R06 | R | "제거" + "AI 티 없애기 제거 필요" at the bottom, large — same locus as R05, and possibly extends to the italic post-figure paragraph ("같은 의미를 전달하더라도…") | TODO — verify exact boundary against a fresh screenshot |
+| HP01-S1-R01 | R | Header/lead area: two numbered marks "1. "확인"" / "2. "비교" 명사 종결…" near the bottom CTA sentence ("…직접 비교해보십시오") — end the sentence as a noun phrase ("…비교") rather than an imperative, and review the word "확인" nearby | **DONE** (HP01 Iter 2) — reinterpreted as "remove imperative-command tone"; ending changed to declarative "…직접 비교한다." Flagged for Director re-confirmation if a stricter noun-ending was intended |
+| HP01-S1-R02 | R | Cross out `한국어 (HANGUL SCRIPT)` / `ENGLISH (LATIN SCRIPT)` column headers — remove decorative bracket-script-name English | **DONE** (HP01 Iter 2) — KO mode: `한국어` / `영어`; EN mode unchanged |
+| HP01-S1-R03 | R | "관련 무분별 용어 사용 제한" near the English headers — limit indiscriminate technical jargon in that area generally | **DONE** (HP01 Iter 2) — same locus as R02, resolved together |
+| HP01-S1-R04 | R | Replace the `FIG. 01` label positioned above the exhibit with the heading "검증된 대역 문장쌍 선택" | **ALREADY_DONE** (verified, no change needed) — the selector heading already reads "검증된 대역 문장쌍 선택:", FIG.01 only appears at the separate bottom caption, not competing |
+| HP01-S1-R05 | R | The bottom "Token Ratio: N× (+M additional tokens)" observation line — circled in red across **both** captured pair states (pair 1 and pair 4), i.e. flagged regardless of which pair is selected → remove or fully rewrite | **DONE** (HP01 Iter 2) — KO mode: "토큰 비율 N× (+M개 토큰)" |
+| HP01-S1-R06 | R | "제거" + "AI 티 없애기 제거 필요" at the bottom, large — same locus as R05, and possibly extends to the italic post-figure paragraph ("같은 의미를 전달하더라도…") | **DONE** (R05/R06 same element); the post-figure paragraph itself left untouched (not clearly in the annotation's boundary, already in Korean) |
 
 ### S2 — pipeline (`PipelineSection.tsx`)
 
@@ -386,15 +386,18 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 4 (all S0: R01, R02, R03/R04 combined, B01) |
-| TODO | 43 |
+| DONE | 9 (S0: 4; S1: 5) |
+| TODO | 38 |
 | BLOCKED_CONTENT_AUTHORITY | 2 (S2 "4단계", S3 D1) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier, S4.5 Flores paper/source strips, S5 source strips) |
-| ALREADY_DONE (pre-existing, not this loop) | 2 (S6 claim-content preservation, S6 accordion pattern) |
+| ALREADY_DONE (pre-existing or verified-no-change-needed) | 3 (S6 claim-content preservation, S6 accordion pattern, S1-R04) |
 | DEFERRED (cross-slide sequencing, not blocked) | 1 (S0-R05, paired with S7) |
 | CONFLICT | 0 |
 
-**Next action:** S1/compare, starting `HP01-S1-R01`.
+**Next action:** S2/pipeline, applying the original text-prompt
+directives `HP01-S2-R01`–`R04`, `B01`–`B03` directly (already fully
+specified, no image re-derivation needed beyond the corroboration
+already done in §C).
 
 ---
 
