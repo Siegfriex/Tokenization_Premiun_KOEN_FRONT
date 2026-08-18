@@ -219,6 +219,41 @@ touching it).
 
 ---
 
+## 2026-08-17 21:xx — Iteration 6 (loop)
+
+**Recovered 2026-08-18** from `qa/loop-iteration-6` (PR #14, never merged
+— main's `docs/qa/SHOT_SPECS.md`/`LOOP_LOG.md` were missing this entry
+entirely; folded in now as a docs-only recovery so the record is complete,
+content unchanged from the original branch, only this recovery note added).
+
+**Trigger:** scheduled fallback. PR #13 (nav decompression + S03 tiers)
+merged mid-wait — verified production CSS hash matches a fresh local
+build from `main` exactly before starting new work.
+
+**Slide worked:** `S02-pipeline`. 3 shots (1440×default, 1440×step4-
+clicked, 390×default).
+
+**Found:** nothing to fix — first genuine pass in this whole exercise.
+Step 2 already wins first look unambiguously (permanent accent fill +
+"GAP ORIGIN" badge, text label agrees), and the click-vs-content-flag
+dual-signal design (outline for "currently inspecting" vs. fill for
+"this is where the finding says the gap is") already resolves what could
+have been a Priority-2 focal-point conflict. Logged as a positive result,
+not skipped — see `docs/qa/SHOT_SPECS.md` S02-pipeline for the full
+reasoning, including why this is useful evidence that the tier/focal
+system is a real bar (something can pass it) rather than a rule that
+always finds something to change.
+
+**Fixed:** nothing. No commit this iteration — docs-only update
+(Shot Spec + this log entry).
+
+**Next slide:** `S04-burden` (`OccupationSection`) — the section whose
+"Social Science" card was the original precedent for the tier-1 border
+treatment; worth checking whether *its* two-column layout has the same
+dual-focal-point risk S03 had before the tier system existed.
+
+---
+
 ## 2026-08-17 21:xx — Iteration 7 (Director redline pass, S00)
 
 **Trigger:** Director gave a full slide-by-slide redline table (all 10
