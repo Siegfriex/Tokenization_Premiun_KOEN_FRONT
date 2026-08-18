@@ -219,6 +219,41 @@ touching it).
 
 ---
 
+## 2026-08-17 21:xx — Iteration 6 (loop)
+
+**Recovered 2026-08-18** from `qa/loop-iteration-6` (PR #14, never merged
+— main's `docs/qa/SHOT_SPECS.md`/`LOOP_LOG.md` were missing this entry
+entirely; folded in now as a docs-only recovery so the record is complete,
+content unchanged from the original branch, only this recovery note added).
+
+**Trigger:** scheduled fallback. PR #13 (nav decompression + S03 tiers)
+merged mid-wait — verified production CSS hash matches a fresh local
+build from `main` exactly before starting new work.
+
+**Slide worked:** `S02-pipeline`. 3 shots (1440×default, 1440×step4-
+clicked, 390×default).
+
+**Found:** nothing to fix — first genuine pass in this whole exercise.
+Step 2 already wins first look unambiguously (permanent accent fill +
+"GAP ORIGIN" badge, text label agrees), and the click-vs-content-flag
+dual-signal design (outline for "currently inspecting" vs. fill for
+"this is where the finding says the gap is") already resolves what could
+have been a Priority-2 focal-point conflict. Logged as a positive result,
+not skipped — see `docs/qa/SHOT_SPECS.md` S02-pipeline for the full
+reasoning, including why this is useful evidence that the tier/focal
+system is a real bar (something can pass it) rather than a rule that
+always finds something to change.
+
+**Fixed:** nothing. No commit this iteration — docs-only update
+(Shot Spec + this log entry).
+
+**Next slide:** `S04-burden` (`OccupationSection`) — the section whose
+"Social Science" card was the original precedent for the tier-1 border
+treatment; worth checking whether *its* two-column layout has the same
+dual-focal-point risk S03 had before the tier system existed.
+
+---
+
 ## 2026-08-17 21:xx — Iteration 7 (Director redline pass, S00)
 
 **Trigger:** Director gave a full slide-by-slide redline table (all 10
@@ -473,5 +508,23 @@ Tightened re-screening (real per-viewport screenshots, EN 390 DOM
 overflow scan, KO/EN weight-asymmetry check) found no defect. Full
 detail in `docs/qa/SHOT_SPECS.md` S01-compare. A verified clean result,
 not a skipped check.
+
+**BOTTLENECK resolved:** PR #14 (`qa/loop-iteration-6`, the only source
+for S02-pipeline's QA record) closed as superseded by #20 — its content
+recovered and folded into this file + `SHOT_SPECS.md` at the correct
+historical position (see the recovered Iteration 6 entry above).
+
+### Iteration 13 (S02-pipeline) — PASS reconfirmed, no fix
+
+Fresh Playwright re-verification of the 2026-08-17 PASS: `aria-pressed`
++ class inspection confirms the fill(step2)-vs-outline(clicked-step)
+distinction holds exactly as designed. Zero overflow at 390px.
+
+**Content-integrity flag (logged, not fixed):** pre-figure copy says
+"AI 입력 파이프라인의 4단계" and names exactly 4 stages, but the figure
+directly below shows 5 numbered steps. Possibly intentional (4단계 =
+narrower encoding-only sub-pipeline), possibly a stale count — needs
+content-owner confirmation, not a visual-pass judgment call. Full detail
+in `docs/qa/SHOT_SPECS.md` S02-pipeline.
 
 ---

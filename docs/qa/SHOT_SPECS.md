@@ -57,6 +57,68 @@ no new utility introduced, only reused tokens).
 
 ---
 
+## S02-pipeline
+
+**Recovered 2026-08-18** from `qa/loop-iteration-6` (PR #14, never
+merged into `main` — this section was entirely missing from `main`'s
+copy of this file, only the slide-ID list at the top of this document
+mentioned `S02-pipeline` by name). Folded in verbatim, content unchanged
+from the original branch; only this recovery note and the newer
+iteration-13 finding below are new.
+
+| Field | Content |
+|---|---|
+| Intent | Show token generation as a 5-step pipeline and name exactly one step — Tokenization — as where the KO/EN gap originates. |
+| Primary focal point | Step 2 (`TOKENIZATION`, `item.highlight: true`, permanently accent-filled regardless of click state) — the "★ STEP 02: THE BOTTLENECK" meta-label above the row states this explicitly in words, so the visual must agree with the text. |
+| Secondary focal points | The other 4 steps, outline-variant, equal weight to each other. |
+| Forbidden competition | No second step should carry accent fill or bold weight strong enough to rival step 2. |
+| Layout skeleton | 5-column horizontal row of `SelectableCard` (`variant="outline"`), one row, equal-width. Not a tiered-panel layout (unlike S03) — the hierarchy signal here is emphasis-within-a-collection, not panel-vs-panel. |
+| Risk zones | 5 equal-width columns at 390px will stack — check the stack order still reads step 1→5 top-to-bottom without step 2 visually floating away from its numeric sequence; KO step descriptions vary in length per step. |
+| Required states | default (step 2 pre-emphasized) / clicked (user selects a different step, e.g. step 4) — does clicking step 4 dilute step 2's "this is the bottleneck" claim, or do both signals coexist legibly? |
+| Required screenshots | 1440×KO×default, 1440×KO×step4-clicked, 390×KO×default. |
+| Accept/reject rule | Reject if step 2 doesn't win first look at 1440px default, or if clicking another step leaves two steps both reading as "important" at once (accent-fill + outline-selected both present with no clear rank between them). |
+
+**Findings: PASS, no fix applied.** All 3 required shots clean. Step 2
+("GAP ORIGIN" badge + solid accent fill) unambiguously wins first look at
+1440×default, matching the "★ STEP 02: THE BOTTLENECK" meta-label's claim
+— text and visual agree. Clicked step 4: gains a distinct *outline*
+treatment (border-ink, no fill) that reads as "currently inspecting,"
+categorically different from step 2's permanent accent fill ("this is
+where the finding says the gap originates") — the two signals coexist
+without competing because they use different visual languages
+(`emphasized` content-flag vs. `selected` interaction-flag, per
+`SelectableCard`'s own design rationale). This is the slide's answer to
+the Director's Priority 2 (declare one focal point) already correctly
+implemented before this pass — not every slide needs a fix; this one is
+the counter-example that the tier/focal-point system is a real bar, not
+busywork applied uniformly. 390px stack: order preserved 01→05, step 2
+still reads distinctly. C1/C8/C12 all pass. 0 overflow.
+
+**Findings (visual devpass, 2026-08-18, Iteration 13): PASS reconfirmed,
+no visual fix — one content-integrity flag logged, not resolved.**
+Re-verified the 2026-08-17 PASS with fresh Playwright: `aria-pressed`
++ class inspection after clicking step 4 confirms step 2 keeps
+`bg-accent` fill permanently (never `aria-pressed`, never loses fill)
+while step 4 gets `aria-pressed="true"` + outline-only (`border-ink`,
+no `bg-accent`) — the fill-vs-outline distinction holds exactly as
+documented. Zero horizontal overflow at 390px, DOM-scanned.
+**Content-integrity flag (not fixed, not a visual-QA item):** the
+pre-figure subheading reads "AI 입력 파이프라인의 **4단계**" and the
+post-figure paragraph enumerates exactly 4 named stages ([원본 문자열
+입력]→[UTF-8 인코딩]→[BPE 어휘집 대조]→[토큰 ID 벡터 생성]), while the
+figure directly between them visualizes **5** numbered steps (adds
+`03 PAYLOAD` / `04 PROCESSING` / `05 OUTPUT` beyond the 4 named stages).
+This may be intentional — the "4단계" prose could be describing only the
+narrower text→token-ID *encoding* sub-pipeline (steps 1-2 of the 5),
+with steps 3-5 covering separate post-tokenization inference stages — but
+a general-public reader hits "4단계" then a 5-card row immediately below
+it with no bridging sentence. This is a copy/entity-structure question
+for the content owner (same category as the LOOP_LOG Iteration 8
+"12-language"/Hindi flag), not something a visual-only pass should
+silently rename or recount. Logged in `docs/qa/LOOP_LOG.md` Phase 7.
+
+---
+
 ## S03-patterns
 
 | Field | Content |
