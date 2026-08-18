@@ -1056,4 +1056,63 @@ Next: P2 — S5-infrastructure verification (already implemented in
 Iteration 7; verify against `S5-M01-M07` before assuming correctness,
 per the same protocol).
 
+### P2 — S5-infrastructure Evidence Packet (verification only, no code change)
+
+Against production (`c556279`): `S5-M01` PASS (root=1, phase count=4);
+`S5-M02` PASS (no causal-chain wording in any form); `S5-M03` PASS (no
+English phase labels); `S5-M04` PASS (placeholder collection count=0,
+`REQUIRED`/`SAMSUNG`/`SK` all absent); `S5-M05` PASS (no
+investment→TP or TP→power causal phrasing detected). `S5-M06`
+correctly `BLOCKED_EVIDENCE` (zero new source strips, as documented).
+`S5-M07` visual PASS (confirmed via Iteration 7 screenshot — single
+context visual, no competing business detail).
+
+**Verdict: PASS.** No code change. Evidence level E4.
+
+Next: P3 — S5.2/impact, `HP01-S52-R01-R04`, `B01`/`B02` — genuine new
+work, following the same metrics-first discipline (`S52-M01-M06`).
+
+### P3 — S5.2-impact Evidence Packet (structural redesign)
+
+**Target Proof:** `section#impact[data-widget="ImpactSection"]` = 1;
+`[data-collection="impact-scale-levels"] li` = 3;
+`[data-collection="impact-causal-chain"] li` = 6.
+
+**Change Boundary:** `ImpactSection.tsx`,
+`entities/article-content/content/impact-scale-levels.ts`, one
+`figureCaption`/`keyFinding` string pair in `article-content.ts`. No
+shared component touched.
+
+Before → After:
+- `IMPACT_SCALE_LEVELS[].levelBadge` field (`PROMPT LEVEL`/`WORKFLOW
+  LEVEL`/`INFRASTRUCTURE`) removed entirely; `levelLabelKo` `'LEVEL 01
+  / 개인'` → `'1단계 · 개인'` (and 2/3 analogously).
+- `IMPACT_CAUSAL_CHAIN`: flat English strings → `{ ko, en }` bilingual;
+  box label `FINAL CONCEPTUAL CAUSAL CHAIN` → `가능한 확장 경로` +
+  explicit non-causal disclaimer sub-line.
+- `figureCaption.ko`: dropped "인과 사슬"/"Complete Causal Chain" →
+  matches new pathway framing.
+- `keyFinding.statement.ko`: Koreanized embedded "representation
+  efficiency".
+- Level 3 `unitNote`: added a `소버린 AI` one-line gloss on first
+  appearance.
+
+**Metric Results:**
+```
+S52-M01 PASS (root=1, 3-card group present w/o legacy labels)
+S52-M02 PASS (LEVEL 0N/PROMPT LEVEL/WORKFLOW LEVEL/INFRASTRUCTURE absent)
+S52-M03 PASS (causal-chain wording absent in all forms checked)
+S52-M04 PASS (가능한 확장 경로 + explicit non-causal disclaimer present)
+S52-M05 PASS (소버린 AI gloss present at first appearance)
+S52-M06 PASS (visual: one pathway box, no card competition — screenshot)
+```
+
+**Evidence Safety:** 3-level claims and 6-step sequence unchanged in
+substance/order; only labels, causal framing, and one embedded English
+phrase edited. No protected numeric value exists on this slide.
+
+**Verdict: PASS.** tsc/build clean, 1440×KO/EN 0 overflow both.
+
+Next: P4 — S6/method, `HP01-S6-R01,R03`, `B02` (`S6-M01-M06`).
+
 ---

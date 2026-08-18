@@ -1193,3 +1193,62 @@ flagged here so a future pass knows why captions weren't individually
 re-screenshotted. All 3 fixes verified: `word-break: keep-all` computed
 correctly, re-screenshot confirms all 3 words intact, 0 overflow, tsc/build
 clean.
+
+**Findings (Human Preview 01, 2026-08-18, HP01 Iteration 9): `S52-M01`–`M05`
+closed.** Structural redesign, not label-only — this slide's directives
+(`HP01-S52-R01`–`R04`, `B01`, `B02`) required both the 3-card grid and
+the causal-chain box to change.
+
+Exact changes:
+- **`entities/article-content/content/impact-scale-levels.ts`
+  (`IMPACT_SCALE_LEVELS`):** removed the `levelBadge` field entirely
+  (`PROMPT LEVEL` / `WORKFLOW LEVEL` / `INFRASTRUCTURE` — pure
+  decorative English chrome, redundant with the title already on each
+  card). `levelLabelKo` simplified: `'LEVEL 01 / 개인'` → `'1단계 ·
+  개인'` (same for levels 2/3). Card `title`/`description` text
+  unchanged.
+- **`IMPACT_CAUSAL_CHAIN`:** was a flat English-only string array
+  (`'Language Structure'`, `'Tokenization'`, …) rendered under the
+  label `FINAL CONCEPTUAL CAUSAL CHAIN`. Converted to `{ ko, en }`
+  bilingual steps (`'언어 구조'`, `'토큰화'`, `'Token Premium'`
+  kept as the established term, `'업무 부담'`, `'AI 확산 규모'`,
+  `'잠재적 디지털 마찰'`); the enclosing box's eyebrow → `가능한 확장
+  경로` (possible expansion pathway) with a new sub-line explicitly
+  disclaiming causality: `"실증된 인과관계가 아니라, 개념적으로 연결될
+  수 있는 경로입니다."` Same 6 steps, same order — no step added,
+  removed, or reordered.
+- **`figureCaption.ko`** (`socioeconomicScale`): `"언어 구조에서
+  사회적 파급 효과까지의 3단계 인과 사슬 (Complete Causal Chain)"` →
+  `"언어 구조에서 사회적 파급 효과까지, 가능한 확장 경로"` — matches
+  the box's new framing; `figureSource` untouched (G06).
+- **`keyFinding.statement.ko`:** `"...언어별 representation
+  efficiency를 측정하고..."` → `"...언어별 표현 효율성을 측정하고..."`
+  (Koreanized embedded English term).
+- **`소버린 AI` gloss (`S52-M05`):** Level 3's `unitNote` — `'단위:
+  국가 인프라 / 소버린 AI'` → `'단위: 국가 인프라 / 소버린 AI(자국
+  데이터·인프라로 운용되는 자체 AI 체계)'` — this is the term's first
+  appearance in reading order (the card grid renders before the
+  post-figure paragraph's second, unglossed mention), satisfying the
+  "one-line definition on first use" requirement without needing a
+  separate 2DEPTH mechanism for a single short phrase.
+- **`ImpactSection.tsx`:** removed the now-deleted `levelBadge` `dd`
+  render; chain-step rendering reads `isKo ? step.ko : step.en` (was a
+  bare string); `isEmphasis` check updated to compare `step.en` against
+  the two emphasized English keys (data identity unchanged, only the
+  comparison target adjusted for the new object shape).
+
+Research-content impact: NONE — the 3-level cards' actual claims and
+the 6-step sequence are unchanged; only decorative labels, the causal-
+sounding framing, and one embedded English phrase were edited.
+
+Metric verification (local build): `S52-M01` root=1, legacy `LEVEL
+0N`/`PROMPT LEVEL`/`WORKFLOW LEVEL`/`INFRASTRUCTURE` strings all absent
+(DOM text scan). `S52-M02` PASS (same scan). `S52-M03` PASS (`FINAL
+CONCEPTUAL CAUSAL CHAIN`/`Complete Causal Chain`/`causal chain`/`인과
+사슬` all absent). `S52-M04` PASS (`가능한 확장 경로` present with
+explicit non-causal disclaimer line). `S52-M05` PASS (`소버린 AI` gloss
+text present). `S52-M06` (visual rubric) — one bordered pathway box,
+no residual 3-card competition, confirmed via screenshot.
+
+Verified 1440×KO/EN: 0 overflow both languages. tsc clean, build
+clean.

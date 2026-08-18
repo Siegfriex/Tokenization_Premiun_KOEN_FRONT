@@ -76,6 +76,32 @@ intended (e.g. quotes the live-rendered `핵심 실측 지표`,
 `관측된 토큰 프리미엄 비율` labels verbatim). No contradiction found
 between that independent audit and this MASTER's own record.
 
+## Reference material (`AUDIT2/레퍼런스/`, discovered 2026-08-18, same batch)
+
+Untracked directory found alongside the annotated screenshots after PR #27
+merged. Contents extracted via `unzip` + regex on `word/document.xml`/
+`sheet1.xml` (Read tool cannot open `.docx`/`.xlsx` binaries directly).
+
+| File | SHA-256 |
+|---|---|
+| `레퍼런스/기사_최종본.docx` | `6f5555656dee93a43932fa3be33f76efa008032b935cfea186b84035a01e705e` |
+| `레퍼런스/기사용_언어별_Token_Premium_선행연구_요약.docx` | `3c83050a493ae2e7a8c3f62394624483135d9279ad88eebd2637c7cf2b77d189` |
+| `레퍼런스/cl100k_base tokenizer(국가별).xlsx` | `8b08f9552920bcff2358d17ac3b1f6d0f460c74afd9dedc31759ffaa57609d32` |
+
+`기사용_언어별_Token_Premium_선행연구_요약.docx` resolves the sourcing half of
+`HP01-S45-B02` (locates the Flores/Petrov et al. 2023 NeurIPS citation this
+project had flagged as `BLOCKED_EVIDENCE`) without changing any number
+already on the site.
+
+`기사_최종본.docx` states corpus/ratio numbers (3,835,988 pairs, 1.33× median,
+95th/99th percentiles 1.89×/2.25×, GPT-5/o200k_base) that directly contradict
+every value frozen under `docs/audit/DIRECTOR_DECISIONS.md` D1. Logged there
+as **D8**, open, not acted on — see that file for the full comparison table
+and why this is a Director decision, not something this loop resolves alone.
+
+`cl100k_base tokenizer(국가별).xlsx` structure only confirmed (one worksheet +
+embedded images); data contents not yet read.
+
 ## Acquisition notes
 
 - Screenshots were annotated by hand (red/blue marker over screen
