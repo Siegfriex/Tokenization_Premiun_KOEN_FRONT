@@ -504,8 +504,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     figureNumber: 'FIG. 08',
     figureCaption: {
-      ko: '언어 구조에서 사회적 파급 효과까지의 3단계 인과 사슬 (Complete Causal Chain)',
-      en: 'Complete Causal Pathway: Language Structure → Tokenization → Token Premium → Workplace Burden → Digital Friction',
+      ko: '언어 구조에서 사회적 파급 효과까지, 가능한 확장 경로',
+      en: 'From Language Structure to Societal Impact: A Possible Expansion Pathway',
     },
     figureSource: {
       ko: '출처: 토큰 프리미엄 데이터 저널리즘 연구팀 개념 모델링 (2026)',
@@ -522,7 +522,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     keyFinding: {
       label: { ko: '사회적 시사점', en: 'Societal Implication' },
       statement: {
-        ko: 'AI가 일상적 인프라가 될수록 언어별 representation efficiency를 측정하고 개선하는 문제는 디지털 형평성의 핵심 과제가 됩니다.',
+        ko: 'AI가 일상적 인프라가 될수록 언어별 표현 효율성을 측정하고 개선하는 문제는 디지털 형평성의 핵심 과제가 됩니다.',
         en: 'As generative AI becomes societal infrastructure, measuring and optimizing linguistic representation efficiency becomes a fundamental digital equity priority.',
       },
     },

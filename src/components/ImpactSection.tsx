@@ -68,14 +68,11 @@ export const ImpactSection: React.FC = () => {
                 className="rounded-xs p-6 sm:p-8 space-y-6 flex flex-col justify-between shadow-xs border bg-surface border-rule"
               >
                 <div className="space-y-4">
-                  <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b pb-3 border-rule">
-                    <dt className="text-xs font-mono font-bold uppercase tracking-wider text-ink-muted">
+                  <div className="border-b pb-3 border-rule">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-ink-muted">
                       {level.levelLabelKo}
-                    </dt>
-                    <dd className="text-xs font-mono text-ink-muted">
-                      {level.levelBadge}
-                    </dd>
-                  </dl>
+                    </span>
+                  </div>
 
                   <h3 data-role="heading" data-semantic-target="heading" className="text-xl font-bold text-ink">
                     {getLocalizedText(level.title, language)}
@@ -93,28 +90,35 @@ export const ImpactSection: React.FC = () => {
             ))}
           </ul>
 
-          {/* Complete Conceptual Causal Chain — the slide's Tier-1 point:
-              the 3-level grid above is the build-up, this is the synthesis. */}
+          {/* Possible expansion pathway — the slide's Tier-1 point: the
+              3-level grid above is the build-up, this is the synthesis.
+              Explicitly non-causal framing per Human Preview 01
+              (HP01-S52-R02/R03/B01): was "FINAL CONCEPTUAL CAUSAL CHAIN". */}
           <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-6 shadow-sm">
             <div data-role="stat" data-semantic-target="dl" className="space-y-1">
-              <SectionEyebrow>FINAL CONCEPTUAL CAUSAL CHAIN</SectionEyebrow>
+              <SectionEyebrow>{isKo ? '가능한 확장 경로' : 'POSSIBLE EXPANSION PATHWAY'}</SectionEyebrow>
+              <p className="text-[11px] text-ink-subtle font-sans">
+                {isKo
+                  ? '실증된 인과관계가 아니라, 개념적으로 연결될 수 있는 경로입니다.'
+                  : 'A conceptual pathway, not a proven causal relationship.'}
+              </p>
             </div>
 
             <ol data-collection="impact-causal-chain" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               {IMPACT_CAUSAL_CHAIN.map((step, idx) => {
-                const isEmphasis = step === 'Token Premium' || step === 'Potential Digital Friction';
+                const isEmphasis = step.en === 'Token Premium' || step.en === 'Potential Digital Friction';
                 return (
-                  <React.Fragment key={step}>
+                  <React.Fragment key={step.en}>
                     {idx > 0 && <span aria-hidden="true" className="text-ink-muted">→</span>}
                     <li
-                      data-item-id={step}
+                      data-item-id={step.en}
                       className={`p-3 rounded-xs border ${
                         isEmphasis
                           ? 'bg-surface border-2 border-rule-strong text-ink font-bold'
                           : 'bg-surface-alt border-rule text-ink-body'
                       }`}
                     >
-                      {step}
+                      {isKo ? step.ko : step.en}
                     </li>
                   </React.Fragment>
                 );

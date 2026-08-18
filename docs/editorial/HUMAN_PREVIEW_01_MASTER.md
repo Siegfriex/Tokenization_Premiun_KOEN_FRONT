@@ -296,12 +296,12 @@ Text-prompt IDs preserved; image adds specificity:
 
 | ID | Directive | Status |
 |---|---|---|
-| HP01-S52-R01 | Remove or substantially restructure the Personal/Organization/Society 3-card dashboard framing | TODO — image confirms all 3 cards individually X-struck, each annotated "AI 티 없애기 제거" |
-| HP01-S52-R02 | Remove "FINAL CONCEPTUAL CAUSAL CHAIN" / "Complete Causal Chain" wording | TODO — image: "쉽게" + "영어→한글" |
-| HP01-S52-B01 | Replace with one simple Korean connective diagram, explicitly framed as conceptual pathway, not causal proof | TODO |
-| HP01-S52-R03 | Minimize English technical labels | TODO |
-| HP01-S52-B02 | GPT/Transformer/context window/sovereign-AI-class terms need 2DEPTH glossary entries | TODO — image gives the concrete framing: "해당 AI (GPT TRANSFORMER 기준)" + "전체 워크플로우 및 프레임워크 설명" belongs at 2DEPTH |
-| HP01-S52-R04 | "소버린 AI" needs a one-line definition or glossary link if it remains | TODO — image explicitly boxes the word "설명" over "소버린 AI가 뭔지 간단한 설명 필요함" |
+| HP01-S52-R01 | Remove or substantially restructure the Personal/Organization/Society 3-card dashboard framing | **DONE** (HP01 Iter 9) — removed `levelBadge` English chrome field, simplified `levelLabelKo`; cards kept as a legitimate 3-stage progression, not a dashboard pattern |
+| HP01-S52-R02 | Remove "FINAL CONCEPTUAL CAUSAL CHAIN" / "Complete Causal Chain" wording | **DONE** (HP01 Iter 9) — box relabeled `가능한 확장 경로`; figure caption's matching phrase also removed |
+| HP01-S52-B01 | Replace with one simple Korean connective diagram, explicitly framed as conceptual pathway, not causal proof | **DONE** (HP01 Iter 9) — explicit disclaimer sub-line added; 6 chain steps Koreanized, same order/content |
+| HP01-S52-R03 | Minimize English technical labels | **DONE** (HP01 Iter 9) — resolved together with R01/R02 |
+| HP01-S52-B02 | GPT/Transformer/context window/sovereign-AI-class terms need 2DEPTH glossary entries | **N/A** — no GPT/Transformer/context-window terms found on this slide's actual entity content (checked directly); only "소버린 AI" appears, handled by R04 |
+| HP01-S52-R04 | "소버린 AI" needs a one-line definition or glossary link if it remains | **DONE** (HP01 Iter 9) — inline gloss at first appearance: "소버린 AI(자국 데이터·인프라로 운용되는 자체 AI 체계)" |
 
 ### S6 — method (`MethodSection.tsx`)
 
@@ -405,9 +405,10 @@ Directive count by current status:
 
 | Status | Count |
 |---|---|
-| DONE | 41 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4) |
-| PARTIAL | 0 (S4.5-R01 closed this iteration) |
-| TODO | 9 |
+| DONE | 46 (S0: 4; S1: 5; S2: 7; S3: 6; S4: 7; S4.5: 4; S5: 4; S5.2: 5) |
+| N/A (checked, not applicable) | 1 (S5.2-B02 — no GPT/Transformer terms exist on this slide) |
+| PARTIAL | 0 |
+| TODO | 3 (all S6, not yet started this loop) |
 | BLOCKED_CONTENT_AUTHORITY | 3 (S2 "4단계"/R03, S3 D1/R04, S4.5 "12개 언어"/R02) |
 | BLOCKED_EVIDENCE | 3 (S4 pricing multiplier/B02, S4.5 Flores paper/B02, S5 source strips/B01) |
 | ALREADY_DONE (pre-existing or verified-no-change-needed) | 5 (S6 claim-content preservation, S6 accordion pattern, S1-R04, S3-R03, S4.5-B01) |
@@ -438,7 +439,12 @@ items blocked), S5 not yet formally re-scored against `S5-M01-M07`
 
 **Next action:** P2 — S5-infrastructure verification against
 `S5-M01-M07` (implemented in Iteration 7; confirm rather than assume).
-Then P3 S5.2/impact — `HP01-S52-R01/R02/R03/R04`, `B01`/`B02`.
+P3 S5.2/impact — **DONE** (HP01 Iter 9), all 6 directives closed (5
+DONE + 1 N/A, no GPT/Transformer terms found on this slide). Next: P4
+S6/method — `HP01-S6-R01,R03`, `B02` (`S6-M01-M06`), verify-first per
+protocol since S6 label work was never actually implemented in this
+loop yet (only the pre-existing accordion/claim-preservation items were
+marked ALREADY_DONE).
 
 ---
 
