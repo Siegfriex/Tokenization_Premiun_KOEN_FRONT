@@ -94,6 +94,29 @@ the counter-example that the tier/focal-point system is a real bar, not
 busywork applied uniformly. 390px stack: order preserved 01→05, step 2
 still reads distinctly. C1/C8/C12 all pass. 0 overflow.
 
+**Findings (visual devpass, 2026-08-18, Iteration 13): PASS reconfirmed,
+no visual fix — one content-integrity flag logged, not resolved.**
+Re-verified the 2026-08-17 PASS with fresh Playwright: `aria-pressed`
++ class inspection after clicking step 4 confirms step 2 keeps
+`bg-accent` fill permanently (never `aria-pressed`, never loses fill)
+while step 4 gets `aria-pressed="true"` + outline-only (`border-ink`,
+no `bg-accent`) — the fill-vs-outline distinction holds exactly as
+documented. Zero horizontal overflow at 390px, DOM-scanned.
+**Content-integrity flag (not fixed, not a visual-QA item):** the
+pre-figure subheading reads "AI 입력 파이프라인의 **4단계**" and the
+post-figure paragraph enumerates exactly 4 named stages ([원본 문자열
+입력]→[UTF-8 인코딩]→[BPE 어휘집 대조]→[토큰 ID 벡터 생성]), while the
+figure directly between them visualizes **5** numbered steps (adds
+`03 PAYLOAD` / `04 PROCESSING` / `05 OUTPUT` beyond the 4 named stages).
+This may be intentional — the "4단계" prose could be describing only the
+narrower text→token-ID *encoding* sub-pipeline (steps 1-2 of the 5),
+with steps 3-5 covering separate post-tokenization inference stages — but
+a general-public reader hits "4단계" then a 5-card row immediately below
+it with no bridging sentence. This is a copy/entity-structure question
+for the content owner (same category as the LOOP_LOG Iteration 8
+"12-language"/Hindi flag), not something a visual-only pass should
+silently rename or recount. Logged in `docs/qa/LOOP_LOG.md` Phase 7.
+
 ---
 
 ## S03-patterns

@@ -509,4 +509,22 @@ overflow scan, KO/EN weight-asymmetry check) found no defect. Full
 detail in `docs/qa/SHOT_SPECS.md` S01-compare. A verified clean result,
 not a skipped check.
 
+**BOTTLENECK resolved:** PR #14 (`qa/loop-iteration-6`, the only source
+for S02-pipeline's QA record) closed as superseded by #20 — its content
+recovered and folded into this file + `SHOT_SPECS.md` at the correct
+historical position (see the recovered Iteration 6 entry above).
+
+### Iteration 13 (S02-pipeline) — PASS reconfirmed, no fix
+
+Fresh Playwright re-verification of the 2026-08-17 PASS: `aria-pressed`
++ class inspection confirms the fill(step2)-vs-outline(clicked-step)
+distinction holds exactly as designed. Zero overflow at 390px.
+
+**Content-integrity flag (logged, not fixed):** pre-figure copy says
+"AI 입력 파이프라인의 4단계" and names exactly 4 stages, but the figure
+directly below shows 5 numbered steps. Possibly intentional (4단계 =
+narrower encoding-only sub-pipeline), possibly a stale count — needs
+content-owner confirmation, not a visual-pass judgment call. Full detail
+in `docs/qa/SHOT_SPECS.md` S02-pipeline.
+
 ---
