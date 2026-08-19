@@ -316,7 +316,7 @@ the styling, and every design change silently invalidates it.
 | `PREM-085` | TokenPremiumSection | 293 | `dt` | STYLE_SIGNATURE | `dt.sr-only` | `data-role="…"` |
 | `PREM-040` | TokenPremiumSection | 300-303 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
 | `PREM-090` | TokenPremiumSection | 317-322 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase.tracking-wi…` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `PREM-091` | TokenPremiumSection | 323-328 | `div` | STABLE (data-*) | `div.text-3xl.sm\:text-4xl.font-black.font-mono.tracking-tig…` | `data-role="…"` |
+| `PREM-091` | TokenPremiumSection | 323-328 | `div` | STABLE (data-*) | `div.text-2xl.sm\:text-3xl.md\:text-4xl.font-black.font-mono…` | `data-role="…"` |
 | `PREM-092` | TokenPremiumSection | 329-331 | `p` | STABLE (data-*) | `p.text-sm.font-sans.text-ink.font-semibold.break-keep` | `data-metric="…"  (+ data-source="entity\|widget")` |
 | `PREM-093` | TokenPremiumSection | 339 | `dt` | STYLE_SIGNATURE | `dt.text-ink-muted` | `data-role="…"` |
 | `PREM-095` | TokenPremiumSection | 345 | `dt` | STYLE_SIGNATURE | `dt.text-ink-muted` | `data-role="…"` |
@@ -343,7 +343,7 @@ the styling, and every design change silently invalidates it.
 | `PREM-124` | TokenPremiumSection | 526-575 | `li` | STABLE (data-*) | `li.space-y-2` | `data-collection="source_strata" data-item-id="{item.id}"` |
 | `PREM-125` | TokenPremiumSection | 527-538 | `span` | STABLE (data-*) | `span.flex.items-baseline.justify-between.gap-3` | `data-collection="source_strata" data-item-id="{item.id}"` |
 | `PREM-126` | TokenPremiumSection | 535-537 | `span` | STABLE (data-*) | `span.text-lg.font-bold.font-mono.text-ink.tabular-nums` | `data-collection="source_strata" data-item-id="{item.id}"` |
-| `PREM-127` | TokenPremiumSection | 545-574 | `dl` | STABLE (data-*) | `dl.grid.grid-cols-3.gap-2.text-\[10px\].font-mono.pt-0\.5` | `data-collection="source_strata" data-item-id="{item.id}"` |
+| `PREM-127` | TokenPremiumSection | 545-574 | `dl` | STABLE (data-*) | `dl.grid.grid-cols-3.gap-2.text-\[10px\].font-mono.pt-0\.5.m…` | `data-collection="source_strata" data-item-id="{item.id}"` |
 | `PREM-128` | TokenPremiumSection | 551-553 | `dt` | STYLE_SIGNATURE | `dt.text-ink-subtle.uppercase.tracking-wide` | `data-collection="source_strata" data-item-id="{item.id}"` |
 | `PREM-129` | TokenPremiumSection | 554-556 | `dd` | STABLE (data-*) | `dd.text-ink-body.tabular-nums` | `data-collection="source_strata" data-item-id="{item.id}"` |
 | `PREM-130` | TokenPremiumSection | 559-561 | `dt` | STYLE_SIGNATURE | `dt.text-ink-subtle.uppercase.tracking-wide` | `data-collection="source_strata" data-item-id="{item.id}"` |

@@ -466,7 +466,7 @@
   "챗봇에게 똑같은 질문을 한국어와 영어로 각각 던졌다. 질문의 내용은 같았지만, 그 대답을 만드는 데 필요한 token 수는 달랐다.": [
    "src/entities/article-content/content/article-content.ts:57"
   ],
-  "We posed the exact same question to a large language model in Korean and English. While the questions conveyed identical intent, the subword token count required to process them varied substantially.": [
+  "We asked a chatbot the same question in Korean and in English. The question was the same; the number of tokens needed to answer it was not.": [
    "src/entities/article-content/content/article-content.ts:58"
   ],
   "의미가 대응되는 한국어·영어 문장쌍 383만 쌍을 전부 세어보니, 열에 아홉 꼴로 한국어 쪽 토큰이 더 많았다. 같은 뜻을 담은 문장이라도 언어에 따라 AI가 처리하는 단위의 수가 달라진다는 뜻이다.": [
@@ -923,7 +923,7 @@
   "이러한 토큰 효율의 차이는 한국어와 영어에만 국한되지 않는다. 같은 정보를 표현하더라도 언어의 문자 체계와 토크나이저의 어휘집 구성에 따라 AI가 처리하는 토큰의 양은 크게 달라질 수 있다.": [
    "src/entities/article-content/content/article-content.ts:418"
   ],
-  "Is this disparity unique to Korean and English? Even when communicating identical information, the sequence length processed by AI varies dramatically across world writing systems.": [
+  "Is the gap unique to Korean and English? Even for identical information, how much an AI has to read varies with the writing system.": [
    "src/entities/article-content/content/article-content.ts:419"
   ],
   "선행연구가 FLORES-200으로 측정한 언어별 토큰 사용량": [
@@ -1501,7 +1501,7 @@
   "semantic-equivalence": [
    "src/entities/methodology/content/methodology.ts:22"
   ],
-  "의미론적 동등성 (Semantic Equivalence)": [
+  "의미가 대응되는 문장쌍만 비교했다": [
    "src/entities/methodology/content/methodology.ts:24"
   ],
   "Semantic Equivalence": [
@@ -1516,7 +1516,7 @@
   "tokenizer-dependency": [
    "src/entities/methodology/content/methodology.ts:33"
   ],
-  "토크나이저 의존성 (Tokenizer Dependency)": [
+  "토크나이저에 따라 값이 달라진다": [
    "src/entities/methodology/content/methodology.ts:35"
   ],
   "Tokenizer Dependency": [
@@ -1525,13 +1525,13 @@
   "토큰 수는 어떤 토크나이저를 쓰느냐에 달려 있다. 이 기사의 값은 o200k_base 기준이며, 사전 구성이 다르면 값도 달라진다.": [
    "src/entities/methodology/content/methodology.ts:39"
   ],
-  "Token counts directly depend on specific tokenizer architectures, vocabulary allocation, and release versions.": [
+  "Token counts depend on which tokenizer is used. Every figure in this article is o200k_base; a different dictionary produces different numbers.": [
    "src/entities/methodology/content/methodology.ts:40"
   ],
   "model-dependency": [
    "src/entities/methodology/content/methodology.ts:44"
   ],
-  "모델 일반화 한계 (Model Dependency)": [
+  "다른 AI로 넓혀 말할 수 없다": [
    "src/entities/methodology/content/methodology.ts:46"
   ],
   "Model Dependency": [
@@ -1540,13 +1540,13 @@
   "토크나이저 하나에서 나온 결과를 모든 AI로 넓혀 말할 수 없다. 모델 제품군마다 자체 사전을 따로 만들어 쓴다.": [
    "src/entities/methodology/content/methodology.ts:50"
   ],
-  "Results from one tokenizer should not be universally extrapolated to all generative AI systems.": [
+  "A result from one tokenizer cannot be widened to every AI. Each model family builds and maintains its own dictionary.": [
    "src/entities/methodology/content/methodology.ts:51"
   ],
   "dataset-dependency": [
    "src/entities/methodology/content/methodology.ts:55"
   ],
-  "데이터셋 표본 한계 (Dataset Dependency)": [
+  "말뭉치가 결과를 좌우한다": [
    "src/entities/methodology/content/methodology.ts:57"
   ],
   "Dataset Dependency": [
@@ -1561,7 +1561,7 @@
   "occupational-assumptions": [
    "src/entities/methodology/content/methodology.ts:66"
   ],
-  "직무별 사용량 가정의 한계 (Occupational Assumptions)": [
+  "직무 계산은 가정에 기반한 예시다": [
    "src/entities/methodology/content/methodology.ts:68"
   ],
   "Occupational Assumptions": [
@@ -1570,13 +1570,13 @@
   "직무별 누적 계산은 실제 사용 기록이 아니라 대표적인 업무 흐름을 가정한 산술 예시다.": [
    "src/entities/methodology/content/methodology.ts:72"
   ],
-  "Occupational burden is structured as an analytical framework based on typical workflows rather than comprehensive user logs.": [
+  "The occupational tally is arithmetic on an assumed workflow, not a record of anyone’s real usage.": [
    "src/entities/methodology/content/methodology.ts:73"
   ],
   "scope": [
    "src/entities/methodology/content/methodology.ts:77"
   ],
-  "연구 범위 (Scope)": [
+  "다루는 범위": [
    "src/entities/methodology/content/methodology.ts:79"
   ],
   "Scope": [
@@ -1585,7 +1585,7 @@
   "이 기사가 다루는 것은 한국어와 영어 사이의 토큰 수 차이다. 언어들 사이의 우열을 가리려는 것이 아니다.": [
    "src/entities/methodology/content/methodology.ts:83"
   ],
-  "This study focuses specifically on Hangul vs. Alphabet text representation efficiency without claiming universal language hierarchy.": [
+  "This article is about the difference in token counts between Korean and English. It is not an attempt to rank languages.": [
    "src/entities/methodology/content/methodology.ts:84"
   ],
   "한국어가 AI에 본질적으로 비효율적인 언어라고 말하지 않는다.": [

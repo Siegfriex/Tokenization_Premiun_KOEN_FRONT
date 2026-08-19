@@ -55,7 +55,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     lead: {
       ko: '챗봇에게 똑같은 질문을 한국어와 영어로 각각 던졌다. 질문의 내용은 같았지만, 그 대답을 만드는 데 필요한 token 수는 달랐다.',
-      en: 'We posed the exact same question to a large language model in Korean and English. While the questions conveyed identical intent, the subword token count required to process them varied substantially.',
+      en: 'We asked a chatbot the same question in Korean and in English. The question was the same; the number of tokens needed to answer it was not.',
     },
     preFigureParagraphs: {
       // Director redline (S00, 2026-08-17): "하단 설명은 2문단 이내로 압축" — the
@@ -416,7 +416,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     lead: {
       ko:  '이러한 토큰 효율의 차이는 한국어와 영어에만 국한되지 않는다. 같은 정보를 표현하더라도 언어의 문자 체계와 토크나이저의 어휘집 구성에 따라 AI가 처리하는 토큰의 양은 크게 달라질 수 있다.',
-      en: 'Is this disparity unique to Korean and English? Even when communicating identical information, the sequence length processed by AI varies dramatically across world writing systems.',
+      en: 'Is the gap unique to Korean and English? Even for identical information, how much an AI has to read varies with the writing system.',
     },
     subheading: {
       ko: '선행연구가 FLORES-200으로 측정한 언어별 토큰 사용량',

@@ -13,7 +13,7 @@ consolidated the system really is.
 
 - distinct typography signatures in use: **81**
 - distinct colour utilities in use: **33**
-- distinct layout/shape utilities in use: **143**
+- distinct layout/shape utilities in use: **144**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -94,7 +94,7 @@ type scale.
 | 68 | 1 | `break-keep font-semibold text-sm` | `PREM-072` |
 | 69 | 1 | `font-bold font-semibold text-base` | `PREM-080` |
 | 70 | 1 | `break-keep font-sans leading-relaxed text-[10px]` | `PREM-084` |
-| 71 | 1 | `font-black font-mono sm:text-4xl text-3xl tracking-tight whitespace-nowrap` | `PREM-091` |
+| 71 | 1 | `font-black font-mono md:text-4xl sm:text-3xl text-2xl tracking-tight whitespace-nowrap` | `PREM-091` |
 | 72 | 1 | `break-keep font-sans font-semibold text-sm` | `PREM-092` |
 | 73 | 1 | `break-keep font-bold font-mono text-[10px] tracking-widest uppercase` | `PREM-097` |
 | 74 | 1 | `break-keep font-sans text-[11px]` | `PREM-099` |
@@ -209,4 +209,4 @@ type scale.
 | `p-6` | 2 |
 | `sm:p-8` | 2 |
 
-_(top 60 of 143; full data in `data/trace-ledger.json`)_
+_(top 60 of 144; full data in `data/trace-ledger.json`)_

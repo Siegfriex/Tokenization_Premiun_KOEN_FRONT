@@ -21,7 +21,7 @@ export const METHODOLOGY_ITEMS = [
   {
     id: 'semantic-equivalence',
     title: {
-      ko: '의미론적 동등성 (Semantic Equivalence)',
+      ko: '의미가 대응되는 문장쌍만 비교했다',
       en: 'Semantic Equivalence',
     },
     content: {
@@ -32,29 +32,29 @@ export const METHODOLOGY_ITEMS = [
   {
     id: 'tokenizer-dependency',
     title: {
-      ko: '토크나이저 의존성 (Tokenizer Dependency)',
+      ko: '토크나이저에 따라 값이 달라진다',
       en: 'Tokenizer Dependency',
     },
     content: {
       ko: '토큰 수는 어떤 토크나이저를 쓰느냐에 달려 있다. 이 기사의 값은 o200k_base 기준이며, 사전 구성이 다르면 값도 달라진다.',
-      en: 'Token counts directly depend on specific tokenizer architectures, vocabulary allocation, and release versions.',
+      en: 'Token counts depend on which tokenizer is used. Every figure in this article is o200k_base; a different dictionary produces different numbers.',
     },
   },
   {
     id: 'model-dependency',
     title: {
-      ko: '모델 일반화 한계 (Model Dependency)',
+      ko: '다른 AI로 넓혀 말할 수 없다',
       en: 'Model Dependency',
     },
     content: {
       ko: '토크나이저 하나에서 나온 결과를 모든 AI로 넓혀 말할 수 없다. 모델 제품군마다 자체 사전을 따로 만들어 쓴다.',
-      en: 'Results from one tokenizer should not be universally extrapolated to all generative AI systems.',
+      en: 'A result from one tokenizer cannot be widened to every AI. Each model family builds and maintains its own dictionary.',
     },
   },
   {
     id: 'dataset-dependency',
     title: {
-      ko: '데이터셋 표본 한계 (Dataset Dependency)',
+      ko: '말뭉치가 결과를 좌우한다',
       en: 'Dataset Dependency',
     },
     content: {
@@ -65,23 +65,23 @@ export const METHODOLOGY_ITEMS = [
   {
     id: 'occupational-assumptions',
     title: {
-      ko: '직무별 사용량 가정의 한계 (Occupational Assumptions)',
+      ko: '직무 계산은 가정에 기반한 예시다',
       en: 'Occupational Assumptions',
     },
     content: {
       ko: '직무별 누적 계산은 실제 사용 기록이 아니라 대표적인 업무 흐름을 가정한 산술 예시다.',
-      en: 'Occupational burden is structured as an analytical framework based on typical workflows rather than comprehensive user logs.',
+      en: 'The occupational tally is arithmetic on an assumed workflow, not a record of anyone’s real usage.',
     },
   },
   {
     id: 'scope',
     title: {
-      ko: '연구 범위 (Scope)',
+      ko: '다루는 범위',
       en: 'Scope',
     },
     content: {
       ko: '이 기사가 다루는 것은 한국어와 영어 사이의 토큰 수 차이다. 언어들 사이의 우열을 가리려는 것이 아니다.',
-      en: 'This study focuses specifically on Hangul vs. Alphabet text representation efficiency without claiming universal language hierarchy.',
+      en: 'This article is about the difference in token counts between Korean and English. It is not an attempt to rank languages.',
     },
   },
 ];
