@@ -15298,7 +15298,7 @@
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": [
-    "src/entities/article-content/content/article-content.ts:313"
+    "src/entities/article-content/content/article-content.ts:315"
    ],
    "mismatchStatus": "N/A",
    "contradiction": null,
@@ -15341,7 +15341,7 @@
    "numericNotes": [],
    "entityLinkedValues": [],
    "entityOwnedLiteral": [
-    "src/entities/article-content/content/article-content.ts:314"
+    "src/entities/article-content/content/article-content.ts:316"
    ],
    "mismatchStatus": "N/A",
    "contradiction": null,

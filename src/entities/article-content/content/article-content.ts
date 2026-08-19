@@ -33,11 +33,11 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Same Question,\nDifferent Bill',
     },
     subtitle: {
-      ko: '한국어로 물으면 AI 이용료가 더 비싸지는 이유',
-      en: 'Why Querying Generative AI in Korean Costs More Compute',
+      ko: '같은 뜻을 담아도 AI가 읽어야 할 조각은 달랐다',
+      en: 'The same meaning, a different number of pieces for the AI to read',
     },
     deck: {
-      ko: '챗봇에게 같은 질문을 한국어와 영어로 각각 던졌다.\n질문의 내용은 같았지만, 그 답을 만드는 데 필요한 token 수는 달랐다.',
+      ko: '챗봇에게 같은 질문을 한국어와 영어로 각각 던졌다.\n질문의 내용은 같았지만, 그 답을 만드는 데 필요한 토큰 수는 달랐다.',
       en: 'We asked a chatbot the identical question in Korean and English.\nThe underlying semantic meaning was identical, but the number of tokens required to generate the response differed.',
     },
   },
@@ -46,8 +46,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   introTheQuestion: {
     status: 'verified',
     eyebrow: {
-      ko: '01 / THE QUESTION · 문제의 출발점',
-      en: '01 / THE QUESTION · EMPIRICAL ORIGIN',
+      ko: '01 / 질문 · 문제의 출발점',
+      en: '01 / THE QUESTION · WHERE THIS STARTS',
     },
     headline: {
       ko: '같은 뜻을 담아도, AI가 읽는 길이는 다르다',
@@ -80,8 +80,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       },
     },
     pullQuote: {
-      ko: '“동일한 의미를 전달하는데, 왜 한국어 문장은 AI 신경망 안에서 더 잘게 쪼개져야 하는가?”',
-      en: '“Why does expressing the exact same meaning require Hangul text to be fragmented into more subword tokens?”',
+      ko: '“같은 뜻을 담은 문장인데, 왜 한국어 쪽이 더 많은 조각으로 잘려 들어가는가?”',
+      en: '“Same meaning, same sentence — so why does the Korean side get cut into more pieces before the model ever sees it?”',
     },
   },
 
@@ -89,8 +89,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   tokenUnit: {
     status: 'verified',
     eyebrow: {
-      ko: '02 / TOKEN · AI 시대의 새로운 계량 단위',
-      en: '02 / TOKEN · THE COMPUTATIONAL CURRENCY OF AI',
+      ko: '03 / 토큰 · AI가 세는 단위',
+      en: '03 / TOKEN · THE UNIT AI COUNTS IN',
     },
     headline: {
       ko: '토큰, AI 시대의 새로운 계량 단위',
@@ -155,8 +155,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   mechanism: {
     status: 'verified',
     eyebrow: {
-      ko: '03 / 원인 · 왜 비율이 1을 넘는가',
-      en: '03 / MECHANISM · WHY THE RATIO EXCEEDS 1',
+      ko: '04 / 원인 · 왜 비율이 1을 넘는가',
+      en: '04 / MECHANISM · WHY THE RATIO EXCEEDS 1',
     },
     headline: {
       ko: '글자는 더 적은데, 토큰은 더 많다',
@@ -218,8 +218,10 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   beyondKoreanPreview: {
     status: 'verified',
     eyebrow: {
-      ko: '04 / BEYOND KOREAN · 한국어만의 이야기는 아니다',
-      en: '04 / BEYOND KOREAN · A GLOBAL LINGUISTIC CHALLENGE',
+      // NOT CONSUMED by any widget (see the file header). Renumbered with the
+      // rest so it cannot be wired up later carrying a stale section number.
+      ko: '(미사용) / 한국어만의 이야기는 아니다',
+      en: '(unused) / IT IS NOT JUST KOREAN',
     },
     headline: {
       ko: '한국어만의 이야기는 아니다',
@@ -306,8 +308,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   realSentences: {
     status: 'verified',
     eyebrow: {
-      ko: '06 / REAL SENTENCES · 실제 문장으로 알아보자',
-      en: '06 / REAL SENTENCES · CURATED SENTENCE LAB',
+      ko: '02 / 실제 문장 · 직접 확인해보자',
+      en: '02 / REAL SENTENCES · SEE IT YOURSELF',
     },
     headline: {
       ko: '실제 문장으로 알아보자',
@@ -350,8 +352,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   accumulatedBurden: {
     status: 'verified',
     eyebrow: {
-      ko: '07 / ACCUMULATED BURDEN · 이 차이는 얼마나 누적될까',
-      en: '07 / ACCUMULATED BURDEN · WORKPLACE COMPOUNDING',
+      ko: '06 / 누적 · 이 차이는 얼마나 쌓일까',
+      en: '06 / ACCUMULATED BURDEN · HOW IT PILES UP',
     },
     headline: {
       ko: '그래서 이 차이는 얼마나 누적될까',
@@ -405,8 +407,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   multilingualBenchmark: {
     status: 'verified',
     eyebrow: {
-      ko: '04.5 / GLOBAL TOKEN EFFICIENCY · 다른 언어는 어떨까?',
-      en: '04.5 / GLOBAL TOKEN EFFICIENCY · WORLD LANGUAGES BENCHMARK',
+      ko: '07 / 다른 언어 · 한국어만의 문제인가',
+      en: '07 / OTHER LANGUAGES · IS THIS KOREAN-ONLY?',
     },
     headline: {
       ko: '그렇다면, 다른 언어는 어떨까?',
@@ -482,8 +484,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   koreaInfrastructure: {
     status: 'verified',
     eyebrow: {
-      ko: '08 / INFRASTRUCTURE SCALE · 한국 AI 생태계의 스케일업',
-      en: "08 / INFRASTRUCTURE SCALE · KOREA'S EXPANDING AI ECOSYSTEM",
+      ko: '08 / 인프라 · 사회 전체의 처리량',
+      en: "08 / INFRASTRUCTURE · A SOCIETY'S THROUGHPUT",
     },
     headline: {
       ko: '국가 AI 인프라 확장이 낳는 거시적 파급력',
@@ -526,8 +528,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   socioeconomicScale: {
     status: 'verified',
     eyebrow: {
-      ko: '08 / IMPACT · 비용을 넘어선 문제 (3단계 확장 경로)',
-      en: '08 / IMPACT · BEYOND COST: SOCIOECONOMIC SCALE-UP',
+      ko: '09 / 파급 · 비용을 넘어선 문제',
+      en: '09 / IMPACT · BEYOND COST',
     },
     headline: {
       ko: '비용을 넘어선 문제',
@@ -581,8 +583,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   methodologyBoundaries: {
     status: 'verified',
     eyebrow: {
-      ko: '09 / METHODOLOGY · 연구 방법론 및 과학적 경계',
-      en: '09 / METHODOLOGY · SCIENTIFIC BOUNDARIES & LIMITATIONS',
+      ko: '10 / 방법론 · 무엇을 어떻게 쟀나',
+      en: '10 / METHODOLOGY · WHAT WE MEASURED, AND HOW',
     },
     headline: {
       ko: '연구 방법론 및 6대 경계 원칙',
@@ -632,8 +634,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   conclusionSynthesis: {
     status: 'draft',
     eyebrow: {
-      ko: '10 / RESULT · 결언 (EDITORIAL CONCLUSION)',
-      en: '10 / RESULT · SYNTHESIS (EDITORIAL CONCLUSION)',
+      ko: '11 / 결론',
+      en: '11 / CONCLUSION',
     },
     headline: {
       ko: '같은 의미는,\n같은 길이가 아니었다',
@@ -648,7 +650,7 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     // declarative sentence) — reusing an already-drafted, on-topic
     // editorial line rather than inventing new copy.
     lead: {
-      ko: '같은 의미는, 같은 길이가 아니었습니다.',
+      ko: '같은 의미는, 같은 길이가 아니었다.',
       en: 'Same meaning was not equal in length.',
     },
     preFigureParagraphs: {
