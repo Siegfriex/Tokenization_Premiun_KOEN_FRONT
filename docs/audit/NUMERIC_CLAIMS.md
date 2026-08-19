@@ -36,7 +36,7 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | BELOW CANONICAL | 1 | sourced, but not to a canonical artifact — must render with a visible qualifier |
 | CONTRADICTED — FROZEN | 0 | markup and entity data do not agree, or the markup asserts something the data cannot support |
 | DUPLICATED | 0 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
-| UNLINKED | 4 | no entity anywhere holds this value; the number exists only in markup |
+| UNLINKED | 5 | no entity anywhere holds this value; the number exists only in markup |
 | VALUE_PRESENT | 6 | an entity does hold this value, but the markup hardcodes it rather than reading it |
 | UNLINKED (count coincidence) | 0 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
 
@@ -44,10 +44,10 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 
 | Trace ID | Widget | Lines | Rendered | Entity | Artifact @ hash |
 |---|---|---|---|---|---|
-| `DECOMP-012` | DecompositionSection | 118-120 | 영어를 1.00배로 뒀을 때의 한국어 중앙값 ⏎ Korean median, w… | `MEASUREMENT_FRAME` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `DECOMP-022` | DecompositionSection | 189-193 | 위 세 값은 각각 따로 구한 중앙값이다. 서로 곱해서 이 1.33배가 나오는 … | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `DECOMP-023` | DecompositionSection | 201-205 | 분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다.… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `DECOMP-026` | DecompositionSection | 214-219 | 383만 쌍 가운데 ⏎ OUT OF 3.84 MILLION PAIRS | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-012` | DecompositionSection | 119-121 | 영어를 1.00배로 뒀을 때의 한국어 중앙값 ⏎ Korean median, w… | `MEASUREMENT_FRAME` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-022` | DecompositionSection | 190-194 | 위 세 값은 각각 따로 구한 중앙값이다. 서로 곱해서 이 1.33배가 나오는 … | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-023` | DecompositionSection | 202-206 | 분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다.… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-026` | DecompositionSection | 215-220 | 383만 쌍 가운데 ⏎ OUT OF 3.84 MILLION PAIRS | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
 | `PREM-057` | TokenPremiumSection | 82 | 3,835,988쌍 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
 | `PREM-058` | TokenPremiumSection | 88 | 3,835,988 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
 | `PREM-063` | TokenPremiumSection | 131-135 | 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 값이다. 전체 토큰 수… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
@@ -74,10 +74,11 @@ _none_
 
 _none_
 
-## UNLINKED — value exists only in markup (4)
+## UNLINKED — value exists only in markup (5)
 
 | Trace ID | Widget | Lines | Rendered | Note |
 |---|---|---|---|---|
+| `DECOMP-061` | DecompositionSection | 413-420 | 한국어 사용자가 실제로 25%를 덜 쓴다는 뜻은 아니다. 토큰 비율이 그대로 유지된다고 가정했을 때, 정해… `25%` | _no entity holds this value_ |
 | `LANG-067` | MultilingualTokenEfficiencySection | 262 | 영어 기준 (1.00×) ⏎ English baseline (1.00×) `1.00` | _no entity holds this value_ |
 | `HERO-058` | NewsHeroSection | 92-94 | 문장쌍 383만 ⏎ 3.84M pairs `383` `3.84` | _no entity holds this value_ |
 | `BURD-092` | OccupationSection | 113 | 1,000 ⏎ 회 ⏎ x `1,000` | _no entity holds this value_ |
@@ -87,7 +88,7 @@ _none_
 
 | Trace ID | Widget | Lines | Rendered | Entity location |
 |---|---|---|---|---|
-| `DECOMP-035` | DecompositionSection | 263-267 | 0에 가깝다. 두 가지는 사실상 따로 움직이는 별개의 힘이다. ⏎ Close to zero. The two… `0` | 0 also at src/entities/multilingual-token/content/multilingual-token.ts:15, src/entities/rq1-canonical/content/rq1-canonical.ts:260, src/entities/rq1-canonical/content/rq1-canonical.ts:332 |
+| `DECOMP-035` | DecompositionSection | 264-268 | 0에 가깝다. 두 가지는 사실상 따로 움직이는 별개의 힘이다. ⏎ Close to zero. The two… `0` | 0 also at src/entities/multilingual-token/content/multilingual-token.ts:15, src/entities/rq1-canonical/content/rq1-canonical.ts:260, src/entities/rq1-canonical/content/rq1-canonical.ts:332 |
 | `LANG-062` | MultilingualTokenEfficiencySection | 145-147 | 영어=1 기준 정규화 비율 ⏎ Normalized ratio, English = 1 `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |
 | `HERO-062` | NewsHeroSection | 120 | 100 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
 | `BURD-091` | OccupationSection | 112 | 1 ⏎ 회 ⏎ x `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |

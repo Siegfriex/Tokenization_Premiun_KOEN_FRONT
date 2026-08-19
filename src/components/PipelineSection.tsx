@@ -47,6 +47,39 @@ export const PipelineSection: React.FC = () => {
             {isKo ? articleData.lead?.ko : articleData.lead?.en}
           </ArticleLead>
 
+          {/* Worked example. The paragraphs below refer to "이 둘" / "the two",
+              so the pair has to be on the page before them. Two sentences that
+              mean the same thing, shown as a reader would write them — the
+              token counts come later, in S2 and S3. */}
+          <div
+            data-role="worked-example"
+            className="my-8 border-l-2 border-rule-strong pl-5 sm:pl-6 space-y-4"
+          >
+            <p data-source="widget" className="text-sm font-sans text-ink-body break-keep">
+              {isKo
+                ? '의미가 대응되는 두 문장이 있다고 하자.'
+                : 'Take two sentences that mean the same thing.'}
+            </p>
+            <dl data-role="stat" data-semantic-target="dl" className="space-y-3">
+              <div className="space-y-1">
+                <dt data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider">
+                  {isKo ? '한국어' : 'Korean'}
+                </dt>
+                <dd data-source="widget" className="text-base sm:text-lg font-sans text-ink font-medium break-keep">
+                  회의는 내일 오전에 시작합니다.
+                </dd>
+              </div>
+              <div className="space-y-1">
+                <dt data-source="widget" className="text-[11px] font-mono text-ink-muted uppercase tracking-wider">
+                  {isKo ? '영어' : 'English'}
+                </dt>
+                <dd data-source="widget" className="text-base sm:text-lg font-sans text-ink font-medium break-keep">
+                  The meeting starts tomorrow morning.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
           <ArticleSubheading>
             {isKo ? articleData.subheading?.ko : articleData.subheading?.en}
           </ArticleSubheading>

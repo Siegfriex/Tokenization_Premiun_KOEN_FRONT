@@ -31,7 +31,7 @@ _heading level is set per widget with no document-wide outline check_
 | `IMPACT-009` | ImpactSection | 77-79 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
 | `LANG-004` | MultilingualTokenEfficiencySection | 124-126 | `h3` |  | verify level continuity within its section |
 | `HERO-010` | NewsHeroSection | 57-65 | `h1` |  | verify level continuity within its section |
-| `PIPE-004` | PipelineSection | 50-52 | `h3` |  | verify level continuity within its section |
+| `PIPE-004` | PipelineSection | 83-85 | `h3` |  | verify level continuity within its section |
 | `UI-003` | SectionHeading | 81-83 | `h2` |  | verify level continuity within its section |
 
 ## LABEL_ORPHAN — Labels with no programmatic relationship to what they label (11)
@@ -58,10 +58,10 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 
 | Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
 |---|---|---|---|---|---|
-| `DECOMP-015` | DecompositionSection | 128-150 | `span` | stages | <dl><dt>label</dt><dd>value</dd></dl> |
-| `DECOMP-019` | DecompositionSection | 177-188 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `DECOMP-029` | DecompositionSection | 225-236 | `span` | REVERSAL_FACTS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `DECOMP-032` | DecompositionSection | 251-262 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-015` | DecompositionSection | 129-151 | `span` | stages | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-019` | DecompositionSection | 178-189 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-029` | DecompositionSection | 226-237 | `span` | REVERSAL_FACTS | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-032` | DecompositionSection | 252-263 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `FOOT-001` | Footer | 14-34 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `METH-014` | MethodSection | 111-129 | `button` | METHODOLOGY_ITEMS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-010` | MultilingualTokenEfficiencySection | 138-143 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
@@ -70,7 +70,7 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `HERO-001` | NewsHeroSection | 29-209 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `HERO-003` | NewsHeroSection | 38-44 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-007` | OccupationSection | 67-92 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PIPE-010` | PipelineSection | 72-116 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PIPE-010` | PipelineSection | 105-149 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-001` | StoryProgress | 19-73 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-002` | StoryProgress | 23-31 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `CMP-008` | TokenCompareSection | 85-92 | `span` | CURATED_PAIRED_SENTENCES | <dl><dt>label</dt><dd>value</dd></dl> |
@@ -99,4 +99,4 @@ _renders one item of a collection ([ { id: 'chunks', label: isKo ? '① 먼저 �
 
 | Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
 |---|---|---|---|---|---|
-| `DECOMP-046` | DecompositionSection | 332-361 | `div` | [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① … | <ul>/<li> (or <ol>) around the [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① Chunks after the first cut', ko: CHUN collection |
+| `DECOMP-046` | DecompositionSection | 333-362 | `div` | [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① … | <ul>/<li> (or <ol>) around the [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① Chunks after the first cut', ko: CHUN collection |

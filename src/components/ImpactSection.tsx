@@ -147,10 +147,6 @@ export const ImpactSection: React.FC = () => {
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
               ))}
 
-          <ArticleFinding
-            label={isKo ? articleData.keyFinding?.label?.ko : articleData.keyFinding?.label?.en}
-            statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
-          />
         </ArticleReadingColumn>
       </Container>
     </section>

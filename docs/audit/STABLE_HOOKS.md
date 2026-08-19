@@ -18,7 +18,7 @@ the styling, and every design change silently invalidates it.
 | STYLE_SIGNATURE | 35 | selector breaks when the design changes |
 | NTH_CHILD_ONLY | 4 | selector breaks when content is added or reordered |
 | STABLE (id) | 12 | the ten section anchors, and nothing below them |
-| STABLE (data-*) | 426 | — |
+| STABLE (data-*) | 434 | — |
 
 **Zero `data-*` attributes exist in the codebase today.**
 
@@ -26,8 +26,8 @@ the styling, and every design change silently invalidates it.
 
 | Hook | Applies to | Count |
 |---|---|---|
-| `data-role="…"` | CONTENT nodes | 123 |
-| `data-metric="…"` | NUMERIC_CLAIM nodes | 24 |
+| `data-role="…"` | CONTENT nodes | 128 |
+| `data-metric="…"` | NUMERIC_CLAIM nodes | 25 |
 | `data-role="section-heading"` | DOM_STRUCTURE nodes | 19 |
 | `data-role="figure-caption"` | DESIGN_APPLICATION nodes | 11 |
 | `data-collection="source_strata"` | DESIGN_APPLICATION nodes | 10 |
@@ -73,42 +73,43 @@ the styling, and every design change silently invalidates it.
 | `ART-018` | ArticleElements | 163 | `span` | STYLE_SIGNATURE | `span.inline-block.transition-transform.group-open\:rotate-90` | `data-role="…"` |
 | `ART-005` | ArticleElements | 185 | `span` | STYLE_SIGNATURE | `span.text-ink.font-bold.shrink-0.whitespace-nowrap` | `data-role="…"` |
 | `ART-006` | ArticleElements | 216-218 | `div` | STABLE (data-*) | `div.text-\[11px\].font-bold.text-ink.uppercase.tracking-wid…` | `data-role="…"` |
-| `DECOMP-003` | DecompositionSection | 83-97 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
-| `DECOMP-004` | DecompositionSection | 88 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `DECOMP-005` | DecompositionSection | 94 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `DECOMP-008` | DecompositionSection | 102 | `p` | STABLE (data-*) | `p` | `data-collection="isko-articledata-prefigureparagraphs-ko-articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `DECOMP-011` | DecompositionSection | 112-117 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `DECOMP-012` | DecompositionSection | 118-120 | `dd` | STABLE (data-*) | `dd.text-\[11px\].font-mono.text-ink-muted.break-keep` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `DECOMP-014` | DecompositionSection | 127-171 | `li` | STABLE (data-*) | `li.space-y-2` | `data-collection="stages" data-item-id="{item.id}"` |
-| `DECOMP-015` | DecompositionSection | 128-150 | `span` | STABLE (data-*) | `span.flex.items-baseline.justify-between.gap-3` | `data-collection="stages" data-item-id="{item.id}"` |
-| `DECOMP-016` | DecompositionSection | 137-142 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.uppercase.tracking-widest.text…` | `data-collection="stages" data-item-id="{item.id}"` |
-| `DECOMP-017` | DecompositionSection | 143-148 | `span` | STABLE (data-*) | `span.text-xl.font-bold.font-mono.text-ink.tabular-nums` | `data-collection="stages" data-item-id="{item.id}"` |
-| `DECOMP-018` | DecompositionSection | 165-170 | `span` | STABLE (data-*) | `span.text-\[11px\].font-sans.text-ink-body.leading-relaxed.…` | `data-collection="stages" data-item-id="{item.id}"` |
-| `DECOMP-020` | DecompositionSection | 182-184 | `span` | STYLE_SIGNATURE | `span.text-sm.font-bold.text-ink.font-sans.break-keep` | `data-role="…"` |
-| `DECOMP-021` | DecompositionSection | 185-187 | `span` | STABLE (data-*) | `span.text-2xl.font-black.font-mono.text-ink.tabular-nums` | `data-role="…"` |
-| `DECOMP-022` | DecompositionSection | 189-193 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-muted.leading-relaxed.br…` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `DECOMP-023` | DecompositionSection | 201-205 | `p` | STYLE_SIGNATURE | `p.text-\[13px\].font-sans.leading-relaxed.break-keep` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `DECOMP-026` | DecompositionSection | 214-219 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `DECOMP-028` | DecompositionSection | 224-246 | `li` | STABLE (data-*) | `li.space-y-1\.5` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
-| `DECOMP-029` | DecompositionSection | 225-236 | `span` | STABLE (data-*) | `span.flex.items-baseline.justify-between.gap-3` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
-| `DECOMP-030` | DecompositionSection | 233-235 | `span` | STABLE (data-*) | `span.text-lg.font-bold.font-mono.text-ink.tabular-nums.shri…` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
-| `DECOMP-031` | DecompositionSection | 243-245 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.text-ink-subtle.tabular-nums` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
-| `DECOMP-033` | DecompositionSection | 256-258 | `span` | STYLE_SIGNATURE | `span.text-ink-muted.font-sans.break-keep` | `data-role="…"` |
-| `DECOMP-035` | DecompositionSection | 263-267 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-body.leading-relaxed.bre…` | `data-metric="…"  (+ data-source="entity\|widget")` |
-| `DECOMP-037` | DecompositionSection | 277-280 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `DECOMP-043` | DecompositionSection | 292-297 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
-| `DECOMP-044` | DecompositionSection | 298-302 | `dd` | STABLE (data-*) | `dd.text-\[11px\].font-mono.text-ink-muted.break-keep` | `data-role="…"` |
-| `DECOMP-045` | DecompositionSection | 305-363 | `div` | STYLE_SIGNATURE | `div.grid.grid-cols-1.sm\:grid-cols-3.gap-6.sm\:gap-8` | `data-role="…"` |
-| `DECOMP-046` | DecompositionSection | 332-361 | `div` | STABLE (data-*) | `div.space-y-3` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-047` | DecompositionSection | 333-338 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink.font-bold.uppercase.t…` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-048` | DecompositionSection | 339-354 | `dl` | STABLE (data-*) | `dl.space-y-2` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-049` | DecompositionSection | 341 | `dt` | STYLE_SIGNATURE | `dt.text-xs.font-sans.text-ink-body` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-050` | DecompositionSection | 342-345 | `dd` | STABLE (data-*) | `dd.text-2xl.font-bold.font-mono.text-ink.tabular-nums` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-051` | DecompositionSection | 348 | `dt` | STYLE_SIGNATURE | `dt.text-xs.font-sans.text-ink-muted` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-052` | DecompositionSection | 349-352 | `dd` | STABLE (data-*) | `dd.text-2xl.font-bold.font-mono.text-ink-muted.tabular-nums` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-053` | DecompositionSection | 355-360 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.uppercase.tracking-widest.text…` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
-| `DECOMP-054` | DecompositionSection | 365-369 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-body.leading-relaxed.pt-…` | `data-role="…"` |
-| `DECOMP-056` | DecompositionSection | 375-383 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `DECOMP-003` | DecompositionSection | 84-98 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
+| `DECOMP-004` | DecompositionSection | 89 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `DECOMP-005` | DecompositionSection | 95 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
+| `DECOMP-008` | DecompositionSection | 103 | `p` | STABLE (data-*) | `p` | `data-collection="isko-articledata-prefigureparagraphs-ko-articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `DECOMP-011` | DecompositionSection | 113-118 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `DECOMP-012` | DecompositionSection | 119-121 | `dd` | STABLE (data-*) | `dd.text-\[11px\].font-mono.text-ink-muted.break-keep` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `DECOMP-014` | DecompositionSection | 128-172 | `li` | STABLE (data-*) | `li.space-y-2` | `data-collection="stages" data-item-id="{item.id}"` |
+| `DECOMP-015` | DecompositionSection | 129-151 | `span` | STABLE (data-*) | `span.flex.items-baseline.justify-between.gap-3` | `data-collection="stages" data-item-id="{item.id}"` |
+| `DECOMP-016` | DecompositionSection | 138-143 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.uppercase.tracking-widest.text…` | `data-collection="stages" data-item-id="{item.id}"` |
+| `DECOMP-017` | DecompositionSection | 144-149 | `span` | STABLE (data-*) | `span.text-xl.font-bold.font-mono.text-ink.tabular-nums` | `data-collection="stages" data-item-id="{item.id}"` |
+| `DECOMP-018` | DecompositionSection | 166-171 | `span` | STABLE (data-*) | `span.text-\[11px\].font-sans.text-ink-body.leading-relaxed.…` | `data-collection="stages" data-item-id="{item.id}"` |
+| `DECOMP-020` | DecompositionSection | 183-185 | `span` | STYLE_SIGNATURE | `span.text-sm.font-bold.text-ink.font-sans.break-keep` | `data-role="…"` |
+| `DECOMP-021` | DecompositionSection | 186-188 | `span` | STABLE (data-*) | `span.text-2xl.font-black.font-mono.text-ink.tabular-nums` | `data-role="…"` |
+| `DECOMP-022` | DecompositionSection | 190-194 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-muted.leading-relaxed.br…` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `DECOMP-023` | DecompositionSection | 202-206 | `p` | STYLE_SIGNATURE | `p.text-\[13px\].font-sans.leading-relaxed.break-keep` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `DECOMP-026` | DecompositionSection | 215-220 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `DECOMP-028` | DecompositionSection | 225-247 | `li` | STABLE (data-*) | `li.space-y-1\.5` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
+| `DECOMP-029` | DecompositionSection | 226-237 | `span` | STABLE (data-*) | `span.flex.items-baseline.justify-between.gap-3` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
+| `DECOMP-030` | DecompositionSection | 234-236 | `span` | STABLE (data-*) | `span.text-lg.font-bold.font-mono.text-ink.tabular-nums.shri…` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
+| `DECOMP-031` | DecompositionSection | 244-246 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.text-ink-subtle.tabular-nums` | `data-collection="reversal_facts" data-item-id="{item.id}"` |
+| `DECOMP-033` | DecompositionSection | 257-259 | `span` | STYLE_SIGNATURE | `span.text-ink-muted.font-sans.break-keep` | `data-role="…"` |
+| `DECOMP-035` | DecompositionSection | 264-268 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-body.leading-relaxed.bre…` | `data-metric="…"  (+ data-source="entity\|widget")` |
+| `DECOMP-037` | DecompositionSection | 278-281 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `DECOMP-043` | DecompositionSection | 293-298 | `dt` | STABLE (data-*) | `dt.text-xs.font-mono.text-ink.font-bold.uppercase.tracking-…` | `data-role="…"` |
+| `DECOMP-044` | DecompositionSection | 299-303 | `dd` | STABLE (data-*) | `dd.text-\[11px\].font-mono.text-ink-muted.break-keep` | `data-role="…"` |
+| `DECOMP-045` | DecompositionSection | 306-364 | `div` | STYLE_SIGNATURE | `div.grid.grid-cols-1.sm\:grid-cols-3.gap-6.sm\:gap-8` | `data-role="…"` |
+| `DECOMP-046` | DecompositionSection | 333-362 | `div` | STABLE (data-*) | `div.space-y-3` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-047` | DecompositionSection | 334-339 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.text-ink.font-bold.uppercase.t…` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-048` | DecompositionSection | 340-355 | `dl` | STABLE (data-*) | `dl.space-y-2` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-049` | DecompositionSection | 342 | `dt` | STYLE_SIGNATURE | `dt.text-xs.font-sans.text-ink-body` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-050` | DecompositionSection | 343-346 | `dd` | STABLE (data-*) | `dd.text-2xl.font-bold.font-mono.text-ink.tabular-nums` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-051` | DecompositionSection | 349 | `dt` | STYLE_SIGNATURE | `dt.text-xs.font-sans.text-ink-muted` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-052` | DecompositionSection | 350-353 | `dd` | STABLE (data-*) | `dd.text-2xl.font-bold.font-mono.text-ink-muted.tabular-nums` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-053` | DecompositionSection | 356-361 | `span` | STABLE (data-*) | `span.text-\[10px\].font-mono.uppercase.tracking-widest.text…` | `data-collection="id-chunks-label-isko-chunks-after-the-first-cut-ko-chun" data-item-id="{item.id}"` |
+| `DECOMP-054` | DecompositionSection | 366-370 | `p` | STABLE (data-*) | `p.text-\[11px\].font-sans.text-ink-body.leading-relaxed.pt-…` | `data-role="…"` |
+| `DECOMP-056` | DecompositionSection | 376-384 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `DECOMP-061` | DecompositionSection | 413-420 | `p` | STABLE (data-*) | `p.text-\[13px\].font-sans.text-ink-muted.leading-relaxed.br…` | `data-metric="…"  (+ data-source="entity\|widget")` |
 | `CONC-010` | EditorialConclusionSection | 29-46 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `CONC-002` | EditorialConclusionSection | 37 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `CONC-003` | EditorialConclusionSection | 43 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
@@ -236,14 +237,19 @@ the styling, and every design change silently invalidates it.
 | `PIPE-017` | PipelineSection | 28-42 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `PIPE-002` | PipelineSection | 33 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `PIPE-003` | PipelineSection | 39 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
-| `PIPE-004` | PipelineSection | 50-52 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
-| `PIPE-005` | PipelineSection | 56 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
-| `PIPE-006` | PipelineSection | 59 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `PIPE-010` | PipelineSection | 72-116 | `button` | STABLE (data-*) | `button.p-5.flex.flex-col.justify-between.space-y-4.text-lef…` | `data-collection="pipeline_steps" data-item-id="{item.id}"` |
-| `PIPE-011` | PipelineSection | 82-90 | `span` | STABLE (data-*) | `span.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="pipeline_steps" data-item-id="{item.id}"` |
-| `PIPE-013` | PipelineSection | 123-126 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
-| `PIPE-014` | PipelineSection | 140 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
-| `PIPE-015` | PipelineSection | 143 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
+| `PIPE-025` | PipelineSection | 58-62 | `p` | STABLE (data-*) | `p.text-sm.font-sans.text-ink-body.break-keep` | `data-role="…"` |
+| `PIPE-026` | PipelineSection | 65-67 | `dt` | STABLE (data-*) | `dt.text-\[11px\].font-mono.text-ink-muted.uppercase.trackin…` | `data-role="…"` |
+| `PIPE-027` | PipelineSection | 68-70 | `dd` | STABLE (data-*) | `dd.text-base.sm\:text-lg.font-sans.text-ink.font-medium.bre…` | `data-role="…"` |
+| `PIPE-028` | PipelineSection | 73-75 | `dt` | STABLE (data-*) | `dt.text-\[11px\].font-mono.text-ink-muted.uppercase.trackin…` | `data-role="…"` |
+| `PIPE-029` | PipelineSection | 76-78 | `dd` | STABLE (data-*) | `dd.text-base.sm\:text-lg.font-sans.text-ink.font-medium.bre…` | `data-role="…"` |
+| `PIPE-004` | PipelineSection | 83-85 | `h3` | STABLE (data-*) | `h3` | `data-role="section-heading"` |
+| `PIPE-005` | PipelineSection | 89 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
+| `PIPE-006` | PipelineSection | 92 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
+| `PIPE-010` | PipelineSection | 105-149 | `button` | STABLE (data-*) | `button.p-5.flex.flex-col.justify-between.space-y-4.text-lef…` | `data-collection="pipeline_steps" data-item-id="{item.id}"` |
+| `PIPE-011` | PipelineSection | 115-123 | `span` | STABLE (data-*) | `span.flex.items-center.justify-between.text-xs.font-mono` | `data-collection="pipeline_steps" data-item-id="{item.id}"` |
+| `PIPE-013` | PipelineSection | 156-159 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
+| `PIPE-014` | PipelineSection | 173 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
+| `PIPE-015` | PipelineSection | 176 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |
 | `NAV-003` | StoryProgress | 24-26 | `span` | STABLE (data-*) | `span.text-\[11px\].font-mono.tracking-widest.text-ink.upper…` | `data-role="…"` |
 | `NAV-004` | StoryProgress | 27 | `span` | STYLE_SIGNATURE | `span.text-rule-neutral.hidden.sm\:inline` | `data-role="…"` |
 | `NAV-005` | StoryProgress | 28-30 | `span` | STABLE (data-*) | `span.text-sm.font-semibold.tracking-tight.text-ink-body.hid…` | `data-role="…"` |

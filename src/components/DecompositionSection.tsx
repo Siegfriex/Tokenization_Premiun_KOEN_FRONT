@@ -18,6 +18,7 @@ import {
   ArticleParagraph,
   ArticleFigureCaption,
   ArticleFinding,
+  ArticleBigFinding,
   ArticleDisclosure,
   ArticleFullWidthBreak,
 } from './ArticleElements';
@@ -392,6 +393,31 @@ export const DecompositionSection: React.FC = () => {
               isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en
             }
           />
+
+          {/* "So what does a ratio above 1 actually mean?" — the section proves
+              the ratio, then stops. This answers it in the terms a reader
+              already has: a fixed allowance holds less. The number is derived
+              from MEDIAN_TP, not stated separately, and the caveat under it is
+              not optional — WHAT_WE_DO_NOT_CLAIM refuses the reading that
+              Korean users really get 25% less. */}
+          <ArticleBigFinding
+            label={isKo ? '그래서 이 차이가 무엇을 뜻하나' : 'So what does that difference mean?'}
+            bigNumber={`100 → ${Math.round(100 / MEDIAN_TP.value)}`}
+            statement={
+              isKo
+                ? '토큰으로 한도를 정하는 서비스에서, 영어로 100만큼 들어가는 자리에 같은 뜻의 한국어는 약 75만큼 들어간다. 문장 하나로 보면 토큰 몇 개 차이다. 하지만 한 번에 담을 수 있는 분량이 정해진 창 안에서는, 그 몇 개가 곧 들어가지 못한 문장이 된다.'
+                : 'Where a service meters by tokens, a slot that fits 100 in English fits about 75 of the same meaning in Korean. In one sentence that is a handful of tokens. Inside a window that holds only so much at once, those tokens are the sentences that did not fit.'
+            }
+          />
+
+          <p
+            data-source="widget"
+            className="text-[13px] font-sans text-ink-muted leading-relaxed break-keep -mt-4 mb-2"
+          >
+            {isKo
+              ? '한국어 사용자가 실제로 25%를 덜 쓴다는 뜻은 아니다. 토큰 비율이 그대로 유지된다고 가정했을 때, 정해진 한도 안에 얼마나 담기는지를 계산해 본 것이다. 그래도 이 계산에는 의미가 있다. 요금제나 정책이 바뀌어도, 토큰으로 자원을 나누는 방식 자체가 같은 한도를 서로 다른 사용량으로 만든다는 구조는 남기 때문이다.'
+              : 'This does not mean Korean users actually get 25% less. It is what a fixed allowance holds if the token ratio stays as measured. It is still worth calculating: pricing and policy can change, but as long as resources are divided by tokens, the same allowance keeps meaning different amounts of use.'}
+          </p>
         </ArticleReadingColumn>
       </Container>
     </section>
