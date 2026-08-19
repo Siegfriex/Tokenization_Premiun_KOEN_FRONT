@@ -41,10 +41,38 @@ domain rows, and `1.68` could be legitimate for the former. The defect being
 reported is that **nothing in the codebase can tell a reader which**, and one
 row (`7` vs `6`) is falsifiable by counting the cards on screen.
 
-**Decision needed:** for each row — (a) the markup figure is correct and comes
-from a source that must be recorded as an entity with its provenance; (b) the
-markup figure should be derived from `DOMAIN_DISTRIBUTION_DATA`, accepting a
-visible change to the published numbers; or (c) the figure should be removed.
+**RULED 2026-08-19 — option (a) for the primary result, option (c) for the
+rest.** The Director transmitted KOEN-FRONT-S3-CANON-IMPL-v1.0 together with
+KOEN-FRONT-CANON-LEDGER-v1.0 and instructed implementation. The ledger closes
+the gap that made this row unanswerable: every primary-result value is now
+pinned to an artifact path and SHA-256 prefix in the research repo at `925697c`,
+with the arithmetic independently re-derived.
+
+Disposition of the eight rows:
+
+| Trace ID | Ruling |
+|---|---|
+| `PREM-002` `PREM-003` | (a) — `69,432` replaced by `3,835,988`, worded 문장쌍, from `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-011` | (a) — the range `1.29× ~ 1.83×` replaced by the single canonical median `1.33×` = exp(median(log TP)) |
+| `PREM-017` | (c) — `1.68× (+68%)` removed. Canonical mean log TP is `0.28518`, ratio scale `1.33`. No reading of the artifact yields 1.68 |
+| `PREM-020` `PREM-038` | (c) — both English `1.00×` baseline rows removed. The ratio is defined against English, so the rows restated their own denominator |
+| `PREM-023` | (c) — removed. "Business"/"Daily" name no domain in the research cohort, whose domains are dialogue / general / other / technology. Per-domain medians are BLOCKED_NO_ARTIFACT at `925697c` |
+| `PREM-032` | (a) — `7 Benchmark Domains` replaced by the 4 cohort domains, read from `DOMAIN_COMPOSITION` rather than hardcoded |
+| `PREM-039` | (c) — `Max Observed: 1.83×` removed. Canonical max is exp(3.6376) = 38.0, an outlier that misleads as a headline |
+
+`DOMAIN_DISTRIBUTION_DATA` was deleted rather than corrected: its six labels and
+per-sentence token counts have no counterpart in the research cohort, so there
+was nothing to reconcile them against. Option (b) was therefore unavailable.
+
+**Implemented in** `src/entities/rq1-canonical/` (new; every field carries a
+non-optional `provenance`), `src/components/TokenPremiumSection.tsx` (rebuilt),
+and `src/components/DecompositionSection.tsx` (new S2.5).
+
+**Still open after this ruling.** Per-domain median TP and the 99.2%
+technical-document figure remain `BLOCKED_NO_ARTIFACT` — they require a new
+notebook cell and artifact, which is a research request, not a front-end task.
+Absolute token-difference percentiles (+5 / +10 / +20 / +28), which the desk
+manuscript states, are likewise unsourced in both the ledger and the EDA report.
 
 ---
 

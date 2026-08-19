@@ -63,20 +63,20 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       // wording change), paragraph 3 (tokenization definition) stands alone
       // as the second. Compresses 3 paragraphs -> 2 without inventing text.
       ko: [
-        '사람이 검수한 한국어-영어 문장 약 7만 개를 분석한 결과, 한국어는 영어보다 평균적으로 더 많은 token을 사용하는 경향이 나타났다. 같은 뜻을 담은 문장이라도, 언어에 따라 AI가 처리하는 단위의 수가 달라질 수 있다는 뜻이다.',
+        '의미가 대응되는 한국어·영어 문장쌍 383만 쌍을 전부 세어보니, 열에 아홉 꼴로 한국어 쪽 토큰이 더 많았다. 같은 뜻을 담은 문장이라도 언어에 따라 AI가 처리하는 단위의 수가 달라진다는 뜻이다.',
         '토큰화(Tokenization)는 인공지능이 인간의 지식을 해석하고 연산하는 가장 기초적인 물리적 단위이자 관문이다. 모델의 연산 시간, 기억할 수 있는 문맥(Context Window)의 한계, 그리고 API 호출량 산정까지 모든 핵심 제약이 바로 이 "몇 개의 토큰으로 쪼개졌는가"에서 결정된다.',
       ],
       en: [
-        'An empirical analysis of approximately 70,000 human-verified Korean-English parallel sentences reveals that Korean consistently requires more tokens on average than English. This implies that even when expressing identical semantic intent, the physical computational units processed by the model diverge based on the writing system.',
+        'Counting all 3.84 million meaning-matched Korean-English sentence pairs, Korean used more tokens in roughly nine out of ten. Identical meaning, expressed in a different writing system, becomes a different number of units for the model to process.',
         'Tokenization is the foundational computational gateway through which AI processes human knowledge. Sequence latency, context window limits, and API usage calculations are all governed by this single metric: token count.',
       ],
     },
     keyFinding: {
-      bigNumber: { ko: '약 1.2× ~ 1.8×', en: '~1.2× – 1.8×' },
+      bigNumber: { ko: '1.33배', en: '1.33x' },
       label: { ko: '핵심 실측 관측치', en: 'Core Empirical Finding' },
       statement: {
-        ko: '한·영 대응 문장 분석에서 한국어가 영어보다 더 많은 token을 사용하는 경향이 일관되게 나타났다.',
-        en: 'Across parallel Korean-English sentence benchmarks, Korean consistently consumed more subword tokens than English.',
+        ko: '383만 쌍의 한·영 대응 문장에서 토큰 비율의 중앙값은 1.33배였다.',
+        en: 'Across 3.84 million parallel Korean-English pairs, the median token ratio was 1.33x.',
       },
     },
     pullQuote: {
@@ -143,53 +143,74 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
   },
 
-  // S3 / 03: Mechanism - Why Hangul Fragments More
+  // S3 / 03: Mechanism — why the ratio comes out above 1.
+  //
+  // REWRITTEN 2026-08-19 against the exact decomposition (TP = CR x BDR x CP).
+  // The previous copy explained the premium as "Hangul is 3 bytes, so it costs
+  // more tokens." The research report lists that exact sentence under 말할 수
+  // 없음 — it is one of the study's named prohibited claims, and the data
+  // contradicts it: Korean is SHORTER in characters in 99.67% of pairs, and
+  // byte density and tokenizer compression are near-uncorrelated (Spearman
+  // rho about -0.05), so they are two separate forces, not one.
   mechanism: {
-    status: 'draft',
+    status: 'verified',
     eyebrow: {
-      ko: '03 / MECHANISM · 왜 한국어는 더 잘게 쪼개질까',
-      en: '03 / MECHANISM · WHY HANGUL FRAGMENTS DEEPER',
+      ko: '03 / 원인 · 왜 비율이 1을 넘는가',
+      en: '03 / MECHANISM · WHY THE RATIO EXCEEDS 1',
     },
     headline: {
-      ko: '왜 한국어는 더 잘게 쪼개질까',
-      en: 'Why Does Hangul Fragment into Finer Subwords?',
+      ko: '글자는 더 적은데, 토큰은 더 많다',
+      en: 'Fewer Characters, More Tokens',
     },
     lead: {
-      ko: '영문 알파벳은 글자당 1바이트를 차지하며 단어 전체가 하나의 토큰으로 병합되는 반면, 한글은 3바이트 유니코드 구조와 형태소 결합 특성으로 인해 더 잘게 쪼개진다.',
-      en: 'While English characters occupy 1 byte in ASCII and frequently merge into single-word tokens, Hangul syllables require 3 bytes in UTF-8 and diverse morphological affixes, causing deeper subword fragmentation.',
+      ko: '한국어가 영어보다 토큰을 더 쓰는 이유를 흔히 "한글은 한 글자가 3바이트라서"로 설명한다. 전수 데이터는 그 설명이 맞지 않는다고 말한다.',
+      en: 'The usual explanation is that a Hangul character takes three bytes, so Korean costs more tokens. The full-cohort data says that explanation does not hold.',
     },
     subheading: {
-      ko: 'BPE 사전 내 빈도 편향과 바이트 단위 폴백',
-      en: 'BPE Vocabulary Allocation Bias & Byte-Level Fallback',
+      ko: '세 단계로 나눠 보면 어디서 역전이 일어나는지 보인다',
+      en: 'Split into three stages, the reversal becomes visible',
     },
     preFigureParagraphs: {
       ko: [
-        '최신 상용 토크나이저(o200k_base 등)는 약 10만~20만 개의 서브워드 사전을 보유하고 있습니다. 영어의 경우 빈번히 사용되는 대부분의 복합 단어와 관용구가 단 1개의 토큰으로 온전히 등록되어 있습니다.',
-        '반면, 한국어는 11,172개의 완성형 음절과 다양한 조사·어미 결합 구조(교착어적 특성)로 인해 사전 내 단일 토큰으로 수록되지 못하고 2~4개의 작은 바이트 조각으로 파편화됩니다.',
-        '이는 특정 언어의 결함이 아니라, 웹 크롤링 기반 학습 데이터에서 영문 텍스트가 절대 다수를 차지하여 BPE 알고리즘이 영문 서브워드에 압도적으로 많은 어휘 번호를 배정했기 때문입니다.',
+        '같은 뜻을 적을 때 한국어가 쓰는 글자 수는 영어의 0.47배다. 문장쌍의 99.67%에서 한국어 쪽이 더 짧았다. 글자만 세면 한국어가 이긴다.',
+        '그런데 컴퓨터가 실제로 저장하는 용량으로 재면 순서가 뒤집힌다. 한글 한 글자가 영문자보다 무겁기 때문에, 글자 수와 글자당 용량을 함께 계산하면 한국어가 영어의 1.13배가 된다.',
+        '여기서 끝이 아니다. 저장 용량이 같아도 토크나이저가 한국어를 더 잘게 나누는 몫이 중앙값 기준 1.19배 더 남아 있었다. 이 마지막 단계까지 더해져야 최종 토큰 비율 1.33배가 나온다.',
+        '용량 부담과 분절 경향은 같은 힘이 아니다. 두 값의 상관계수는 -0.05로, 사실상 따로 움직였다. 한글이 무거워서 잘게 쪼개지는 것이 아니라, 무거운 것과 잘게 쪼개지는 것이 각각 별개로 작동한다는 뜻이다.',
       ],
       en: [
-        'Modern commercial tokenizers maintain dictionaries of 100,000 to 200,000 subword entries. In English, common compound words and idiomatic phrases are assigned single, dedicated token IDs.',
-        'In contrast, Korean—with 11,172 potential syllabic blocks and agglutinative particles—is frequently decomposed into multiple sub-syllabic byte fragments.',
-        'This is not a defect in the language, but the mathematical outcome of BPE algorithms prioritizing high-frequency Latin strings present in predominantly English web crawl data.',
+        'To write the same meaning, Korean uses 0.47 times as many characters as English. In 99.67% of pairs the Korean side was shorter. Count characters and Korean wins.',
+        'Measure the storage a computer actually uses and the order flips. A Hangul character weighs more than a Latin letter, so once character count and per-character weight are combined, Korean comes to 1.13 times English.',
+        'That is still not the whole gap. Even at equal storage size, the tokenizer split Korean into 1.19 times more pieces at the median. Only with this last stage does the final ratio of 1.33x appear.',
+        'Storage weight and splitting behaviour are not the same force. Their correlation is about -0.05, meaning they moved almost independently. Korean is not fragmented because it is heavy; the weight and the fragmentation are two separate effects that happen to point the same way.',
       ],
     },
     figureNumber: 'FIG. 03',
     figureCaption: {
-      ko: '한글 음절 및 영문 단어의 바이트 분할과 서브워드 토큰 매핑 구조',
-      en: 'Hangul Syllable & English Word Byte Slicing and Subword Token Mapping',
+      ko: '글자 수, 저장 용량, 토큰 분절의 세 단계. 각 값은 서로 다른 중앙값이므로 곱해서 읽는 수치가 아니다.',
+      en: 'Three stages: characters, storage size, and tokenizer splitting. Each figure is a separate median, so they are not meant to be multiplied.',
     },
     figureSource: {
-      ko: '자료: OpenAI Tiktoken o200k_base 및 유니코드 표준 컨소시엄 UTF-8 사양',
-      en: 'Source: OpenAI Tiktoken o200k_base & Unicode Consortium UTF-8 Specifications',
+      ko: '자료: 정확 분해 TP = 글자 수 비율 × 글자당 용량 비율 × 분절 비율 · KOEN EDA·분석 보고서 (2026-08-19)',
+      en: 'Source: exact decomposition TP = code-point ratio x byte-density ratio x compression penalty · KOEN EDA report (2026-08-19)',
     },
     postFigureParagraphs: {
       ko: [
-        '결과적으로 동일한 개념을 서술하더라도 한국어는 토크나이저 사전에 등록된 완성형 토큰을 찾지 못해 1~2바이트 단위의 잉여 조각으로 쪼개지는 "Byte Fallback" 현상이 더 자주 발생합니다.',
+        '토크나이저 안을 한 단계 더 들여다보면 상식과 어긋나는 장면이 하나 더 나온다. 토크나이저는 문장을 먼저 큰 덩어리로 자른 뒤 각 덩어리를 다시 쪼개는데, 첫 단계에서 한국어 문장이 만들어내는 덩어리는 중앙값 11개로 영어의 15개보다 오히려 적다.',
+        '역전은 두 번째 단계에서 일어난다. 한국어 덩어리 하나는 평균 2.02개의 토큰으로 쪼개지고, 영어 덩어리는 1.04개로 거의 쪼개지지 않는다. 그 결과 최종 토큰 수는 한국어 21개, 영어 16개로 뒤집힌다.',
+        '즉 한국어가 처음부터 잘게 부서져 들어가는 것이 아니다. 큰 덩어리로 들어가서 안에서 부서진다.',
       ],
       en: [
-        'Consequently, Hangul text more frequently encounters "Byte Fallback," where unseen syllable combinations are broken down into raw 1-to-2-byte sub-slices.',
+        'Look one level deeper into the tokenizer and a second counter-intuitive scene appears. The tokenizer first cuts a sentence into coarse chunks, then splits each chunk further. At that first stage Korean produces a median of 11 chunks against English’s 15 — fewer, not more.',
+        'The reversal happens at the second stage. Each Korean chunk breaks into about 2.02 tokens, while an English chunk breaks into 1.04 and mostly survives intact. The final counts flip: 21 tokens for Korean, 16 for English.',
+        'Korean does not arrive pre-shredded. It arrives in larger pieces and comes apart inside.',
       ],
+    },
+    keyFinding: {
+      label: { ko: '원인 분석 결론', en: 'Mechanism Finding' },
+      statement: {
+        ko: '한국어는 글자 수로는 더 짧다. 저장 용량과 토크나이저의 분절 방식이 그 이점을 상쇄하고도 남아 최종 비율이 1을 넘는다.',
+        en: 'Korean is shorter in characters. Storage weight and tokenizer splitting more than cancel that advantage, which is why the final ratio exceeds 1.',
+      },
     },
   },
 
@@ -220,55 +241,63 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
   },
 
-  // S5 / 05: Corpus Analysis (69,432 Sentence Pairs & Domain Patterns)
+  // S5 / 05: Corpus Analysis — full-cohort measurement of 3,835,988 KO-EN
+  // sentence pairs. Every figure below resolves to entities/rq1-canonical;
+  // see docs/audit/NUMERIC_CLAIMS.md for the artifact + hash of each one.
   corpusAnalysis: {
     status: 'verified',
     eyebrow: {
-      ko: '05 / CORPUS ANALYSIS · 한/영 말뭉치 69,432건 분석',
-      en: '05 / CORPUS ANALYSIS · 69,432 SENTENCE PAIR BENCHMARK',
+      ko: '05 / 전수 분석 · 한·영 문장쌍 383만 쌍',
+      en: '05 / FULL-COHORT ANALYSIS · 3.84M KO-EN SENTENCE PAIRS',
     },
     headline: {
-      ko: '한/영 말뭉치 69,432건 분석',
-      en: 'Corpus Analysis: 69,432 Verified KO-EN Sentence Pairs',
+      ko: '문장쌍 3,835,988쌍을 전부 세어봤다',
+      en: 'We Counted All 3,835,988 Sentence Pairs',
     },
     lead: {
-      ko: '사람이 검수한 대규모 한·영 병렬 코퍼스 69,432건 및 1,012개 심층 벤치마크 문장쌍(o200k_base 기준)을 전수 분석하여 문체와 도메인별 Token Premium의 실증적 분포를 도출했습니다.',
-      en: 'Analyzing a large-scale corpus of 69,432 human-reviewed KO-EN parallel sentences alongside a 1,012-pair deep benchmark under o200k_base to map empirical distributions across writing domains.',
+      ko: '과학기술정보통신부와 한국지능정보사회진흥원이 운영하는 AI허브에서 의미가 대응되는 한국어·영어 문장쌍 3,835,988쌍을 받아, GPT-5가 쓰는 토크나이저로 하나씩 세어봤다.',
+      en: 'We took 3,835,988 meaning-matched Korean-English sentence pairs from AI Hub, the national AI data platform run by Korea’s science ministry, and counted every one of them with the tokenizer GPT-5 uses.',
     },
     preFigureParagraphs: {
       ko: [
-        '분석 결과, 한국어와 영어의 token 차이는 문장 유형에 따라 동일하게 나타나지 않았다.',
-        '일상적인 표현이나 구어체에서는 상대적 차이가 더 크게 나타났고(1.38×~1.83×), 영문 전문 용어가 빈번하거나 표준화된 법률·행정 문서에서는 상대적 편차가 완화되는 경향을 보였다.',
-        '즉 Token Premium은 단일 고정 숫자로 설명되는 현상이라기보다, 문체와 어휘 구성 방식에 따라 1.29×에서 1.83×의 고유한 분포를 형성하는 현상이다.',
+        '결론부터 말하면, 토큰 프리미엄은 존재했다. 한국어와 영어의 토큰 비율은 중앙값 1.33배였고, 문장쌍 열 개 중 아홉 개꼴인 87.99%에서 한국어 쪽 토큰이 더 많았다.',
+        '다만 1.33배는 한국어가 전체적으로 토큰을 1.33배 쓴다는 뜻이 아니다. 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 문장쌍의 값이다. 실제 격차는 문장마다 달랐다.',
+        '아래쪽 25%가 시작되는 지점은 1.17배, 위쪽 25%가 시작되는 지점은 1.53배였다. 격차가 큰 1%로 넘어가는 경계는 2.25배다. 반대 방향도 있었다. 한국어가 오히려 토큰을 적게 쓴 문장쌍이 6.9%, 두 언어의 토큰 수가 정확히 같은 문장쌍이 5.1%였다.',
       ],
       en: [
-        'The empirical results demonstrate that token disparity varies substantially across writing styles and domains.',
-        'Colloquial speech and narrative dialogue exhibited higher relative gaps (1.38×–1.83×), whereas standardized legal or technical texts with borrowed terminology showed tempered ratios.',
-        'Thus, Token Premium is not a monolithic single scalar, but an empirical distribution spanning from 1.29× to 1.83× depending on syntax and vocabulary.',
+        'The short answer is that the token premium is real. The median Korean-to-English token ratio was 1.33x, and in 87.99% of pairs — roughly nine in ten — Korean used more tokens.',
+        'But 1.33x does not mean Korean uses 1.33 times as many tokens overall. Line up all 3.84 million pairs by ratio and it is the value of the one in the middle. The actual gap varied from sentence to sentence.',
+        'The bottom quarter starts at 1.17x and the top quarter at 1.53x. The boundary into the widest 1% sits at 2.25x. The gap also ran the other way: in 6.9% of pairs Korean used fewer tokens, and in 5.1% the two languages came out exactly even.',
       ],
     },
     figureNumber: 'FIG. 04',
     figureCaption: {
-      ko: '문장 유형 및 도메인별 Token Premium 분포 (Strip Distribution & IQR)',
-      en: 'Domain Token Premium Ratio Distribution across Curated Benchmark Pairs',
+      ko: '383만 쌍의 토큰 비율. 중앙값과 백분위 경계, 그리고 어느 쪽 토큰이 더 많았는지를 함께 놓았다.',
+      en: 'Token ratios across 3.84 million pairs — the median, the percentile boundaries, and which language used more.',
     },
     figureSource: {
-      ko: '출처: 병렬 벤치마크 코퍼스 1,012개 문장쌍 실측 (o200k_base 기준, 2026)',
-      en: 'Source: Curated 1,012 parallel sentence benchmark pairs measured under o200k_base (2026)',
+      ko: '자료: AI허브 한·영 병렬 말뭉치 3,835,988쌍 전수 측정 (o200k_base, 원문 텍스트 기준) · NB08_RQ1_RESULTS_v001',
+      en: 'Source: full-cohort measurement of 3,835,988 AI Hub KO-EN pairs (o200k_base, raw text) · NB08_RQ1_RESULTS_v001',
     },
     postFigureParagraphs: {
       ko: [
-        '특히 전문 용어와 격식체 표현이 많은 지식집약적 문서일수록 토큰 수 격차가 쌓여, AI가 한 번에 처리할 수 있는 분량(컨텍스트 윈도우)에 실질적인 제약이 생깁니다.',
+        '이 중앙값이 얼마나 단단한지 확인하려고 383만 쌍에서 표본을 2,000번 다시 뽑아 계산해봤다. 95% 신뢰구간은 1.3333배에서 1.3333배, 폭이 0으로 나왔다.',
+        '정밀도가 높아서가 아니다. 토큰 수는 정수이므로 두 정수의 비율은 1/1, 5/4, 4/3, 3/2 같은 몇 개의 분수 위에만 놓인다. 383만 쌍이 만들어낸 서로 다른 값은 3,725개뿐이고, 그중 정확히 4/3인 문장쌍만 123,040개다. 중앙값이 이 두꺼운 층 한가운데 박혀 있어서 표본을 다시 뽑아도 값이 움직이지 않는다.',
+        '말뭉치를 출처별로 갈라보면 중앙값도 갈린다. 025 말뭉치는 1.32배, 026 말뭉치는 1.36배였고, 전체 중앙값 1.33배는 그 어느 쪽과도 일치하지 않는다. 다만 출처를 나눠 다시 계산한 신뢰구간도 전체와 같았고, 방향이 뒤집히지는 않았다.',
+        '분야별로도 나눠봤지만 여기서는 비율을 내지 않기로 했다. 대화와 일반은 025에만, 기술은 026에만 들어 있고 두 출처가 함께 가진 분야는 기타 하나뿐이다. 이 상태에서는 기술 문서라서 비율이 높은 것인지 026 말뭉치라서 높은 것인지 갈라낼 방법이 없다. 그래서 분야는 구성 비율만 싣는다.',
       ],
       en: [
-        'In knowledge-intensive domains requiring long-form reasoning, cumulative absolute token gaps place tangible constraints on usable context window capacity.',
+        'To see how firm that median is, we resampled the 3.84 million pairs 2,000 times. The 95% confidence interval came back as 1.3333x to 1.3333x — zero width.',
+        'That is not precision. Token counts are whole numbers, so the ratio of two of them can only land on a handful of fractions: 1/1, 5/4, 4/3, 3/2. Across 3.84 million pairs there are only 3,725 distinct values, and 123,040 pairs sit exactly on 4/3. The median is lodged in the middle of that thick layer, so resampling never moves it.',
+        'Split the corpus by source and the median splits too. The 025 corpus gives 1.32x, the 026 corpus 1.36x, and the pooled 1.33x matches neither. The interval recomputed with sources held separate was identical to the pooled one, and the direction did not reverse.',
+        'We also split by subject area, but we are not publishing ratios for it. Dialogue and general text appear only in 025, technology only in 026, and the one subject both sources share is "other". There is no way to tell apart "the ratio is higher because it is technical writing" from "the ratio is higher because it is the 026 corpus." So the subject breakdown here shows composition only.',
       ],
     },
     keyFinding: {
-      label: { ko: '도메인 분석 결론', en: 'Category Analysis Finding' },
+      label: { ko: '전수 분석 결론', en: 'Full-Cohort Finding' },
       statement: {
-        ko: '같은 한국어라도 문장의 유형과 도메인에 따라 Token Premium은 1.29×에서 1.83×까지 다양하게 나타납니다.',
-        en: 'Even within Korean, Token Premium ranges dynamically from 1.29× to 1.83× depending on stylistic domain and vocabulary composition.',
+        ko: '한국어와 영어의 토큰 비율은 중앙값 1.33배였고, 383만 쌍의 87.99%에서 한국어 쪽 토큰이 더 많았다.',
+        en: 'The median Korean-to-English token ratio was 1.33x, and Korean used more tokens in 87.99% of the 3.84 million pairs.',
       },
     },
   },
@@ -309,10 +338,10 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '같은 의미를 전달하더라도 두 문장이 반드시 같은 수의 token으로 표현되는 것은 아닙니다. 한글 문장은 평균 1.44배에서 1.83배에 이르는 토큰 조각으로 분절되어 모델에 입력됩니다.',
+        '같은 뜻을 담아도 두 문장이 같은 수의 토큰이 되지는 않는다. 아래 문장쌍은 383만 쌍 가운데 유형별로 고른 사례이고, 전체 분포의 중앙값은 1.33배다. 문장마다 값은 달라진다.',
       ],
       en: [
-        'Even when expressing equivalent information, sentences do not yield equal token counts. Korean sentences are segmented into 1.44× to 1.83× more subword fragments.',
+        'Equivalent meaning does not produce equivalent token counts. The pairs below are illustrative examples drawn by type from the 3.84 million; across the full cohort the median ratio is 1.33x, and it varies pair by pair.',
       ],
     },
   },
@@ -388,8 +417,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Is this disparity unique to Korean and English? Even when communicating identical information, the sequence length processed by AI varies dramatically across world writing systems.',
     },
     subheading: {
-      ko: '표준 병렬 코퍼스(Flores-200)로 전수 측정한 12개 언어 효율성',
-      en: '12-Language Efficiency Benchmark Measured via Flores-200 Parallel Corpus',
+      ko: '선행연구가 FLORES-200으로 측정한 언어별 토큰 사용량',
+      en: 'Token use by language, as measured on FLORES-200 by prior research',
     },
 
     // Director redline (S04.5, 2026-08-17): merged 2 paragraphs into 1
@@ -419,12 +448,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
 },
     figureNumber: 'FIG. 06',
     figureCaption: {
-      ko: 'Flores-200 병렬 코퍼스 기반 전 세계 12개 언어 토큰 분절 효율성 랭킹',
-      en: 'Flores-200 Parallel Corpus: Global 12-Language Token Efficiency Ranking & Relative Ratios',
+      ko: '영어를 1.00배로 뒀을 때의 언어별 토큰 사용 비율 (cl100k_base 기준)',
+      en: 'Tokens used per language relative to English at 1.00x (cl100k_base)',
     },
     figureSource: {
-      ko: '출처: Meta Flores-200 Multilingual Benchmark Evaluation (o200k_base Tokenizer, N=1,012)',
-      en: 'Source: Meta Flores-200 Multilingual Benchmark Evaluation (o200k_base, N=1,012 Parallel Sentences)',
+      ko: '출처: Petrov, La Malfa, Torr & Bibi (2023), NeurIPS · FLORES-200 병렬문장 2,000개, cl100k_base',
+      en: 'Source: Petrov, La Malfa, Torr & Bibi (2023), NeurIPS · FLORES-200, 2,000 parallel sentences, cl100k_base',
     },
     postFigureParagraphs: {
       ko: [
@@ -437,8 +466,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     keyFinding: {
       label: { ko: '글로벌 벤치마크 결론', en: 'Global Benchmark Takeaway' },
       statement: {
-        ko: '비라틴계 문자 체계 전반에서 1.5×~2.3×의 토큰 팽창이 보편적으로 관측된다.',
-        en: 'Token inflation of 1.5× to 2.3× is universally observed across non-Latin scripts.',
+        ko: '선행연구에서 한국어보다 격차가 더 큰 언어도 관측됐다. 한글만의 문제가 아니라는 뜻이다.',
+        en: 'The prior study observed languages with a wider gap than Korean — this is not a Hangul-specific problem.',
       },
     },
   },
@@ -615,8 +644,9 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     preFigureParagraphs: {
       // Director redline (S07): paragraph count/length trimmed for
       // closing-slide breathing room. Former paragraphs 1+2 merged
-      // (identical sentences, no wording change, PROTECTED 1.29x-1.83x
-      // range preserved verbatim); former paragraph 3 stands alone.
+      // (identical sentences, no wording change); former paragraph 3
+      // stands alone. The 1.29x-1.83x range that stood here was replaced by
+      // the canonical median 1.33x under the D1 ruling of 2026-08-19.
       //
       // Human Preview 01 iteration 11 (HP01-S7-R01/B01): paragraph 2's
       // embedded English rhetorical phrase Koreanized (no meaning
@@ -627,12 +657,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       // items 2 and 6: not "always more costly", not "confirmed
       // socioeconomic inequality cause"). No new claim, no new number.
       ko: [
-        '인공지능의 시대, 언어는 단지 인간의 소통 도구에 머무르지 않고 기계의 연산 자원을 점유하는 디지털 자산이 되었습니다. 토크나이저 어휘집 속에 숨겨진 1.29× ~ 1.83×의 작은 분절 차이는 개인의 프롬프트 창을 넘어, 기업의 업무 프로세스와 국가 AI 인프라의 미래 효율성으로 이어집니다.',
+        '한국어와 영어의 토큰 비율은 383만 쌍의 중앙값 기준 1.33배였다. 문장 하나로 보면 토큰 몇 개 차이지만, 토큰이 비용과 문맥과 사용 한도를 나누는 단위로 쓰이는 한 이 차이는 개인의 프롬프트 창을 넘어 조직의 업무와 국가 인프라의 처리량까지 따라간다.',
         'AI가 사회의 보편적 인프라가 될수록, 언어별 표현 효율성을 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
         '다만 이는 특정 토크나이저와 표본에서 관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나 확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다.',
       ],
       en: [
-        'In the generative AI era, human language is no longer just a medium of thought—it has become a digital asset governing machine compute allocations. The 1.29× to 1.83× token disparity embedded within tokenizer vocabularies scales from user prompts to enterprise workflows and sovereign infrastructure.',
+        'Across 3.84 million pairs the median Korean-to-English token ratio was 1.33x. In a single sentence that is a handful of tokens. But as long as tokens are the unit that meters cost, context and usage limits, the gap follows the text from a personal prompt window through an organisation’s workflows to national infrastructure throughput.',
         'As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.',
         'This reflects a structural gap observed within a specific tokenizer and sample—it does not assert that Korean always costs more, or confirm this as a settled cause of socioeconomic inequality.',
       ],

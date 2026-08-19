@@ -4,6 +4,7 @@ import { StoryProgress } from './components/StoryProgress';
 import { NewsHeroSection } from './components/NewsHeroSection';
 import { TokenCompareSection } from './components/TokenCompareSection';
 import { PipelineSection } from './components/PipelineSection';
+import { DecompositionSection } from './components/DecompositionSection';
 import { TokenPremiumSection } from './components/TokenPremiumSection';
 import { OccupationSection } from './components/OccupationSection';
 import { MultilingualTokenEfficiencySection } from './components/MultilingualTokenEfficiencySection';
@@ -30,6 +31,9 @@ export default function App() {
 
           {/* S2. Generative AI Processing Pipeline */}
           <PipelineSection />
+
+          {/* S2.5. Why the ratio exceeds 1 — the exact decomposition */}
+          <DecompositionSection />
 
           {/* S3. Token Premium & Domain Patterns */}
           <TokenPremiumSection />

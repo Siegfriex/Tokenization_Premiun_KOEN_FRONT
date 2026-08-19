@@ -73,51 +73,57 @@ export interface VisibleClaim {
 }
 
 export const VISIBLE_CLAIMS = {
-  /* ---- S3 Token Premium — summary panel vs. its own chart (D1) ---- */
+  /* ---- S3 Token Premium — CLOSED by the D1 ruling, 2026-08-19 ----
+
+     All nine rows below rendered figures that no artifact held. The section
+     was rebuilt against entities/rq1-canonical, whose every value pins to an
+     artifact path + SHA-256 prefix in the research repo at 925697c. Rows are
+     kept, not deleted: the register exists to record that a figure was once
+     published, and a deleted row cannot do that.                          */
   'premium.corpus-size-ko': {
-    id: 'premium.corpus-size-ko', traceId: 'PREM-002', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1',
-    note: 'no entity holds a corpus size',
+    id: 'premium.corpus-size-ko', traceId: 'PREM-002', status: 'resolved',
+    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'COHORT_N',
+    note: 'was 69,432 with no entity behind it; now 3,835,988 from NB08_RQ1_RESULTS_v001, worded 문장쌍',
   },
   'premium.corpus-size-en': {
-    id: 'premium.corpus-size-en', traceId: 'PREM-003', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1',
-    note: 'no entity holds a corpus size',
+    id: 'premium.corpus-size-en', traceId: 'PREM-003', status: 'resolved',
+    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'COHORT_N',
+    note: 'was 69,432 with no entity behind it; now 3,835,988 from NB08_RQ1_RESULTS_v001',
   },
   'premium.headline-range': {
-    id: 'premium.headline-range', traceId: 'PREM-011', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders 1.29x ~ 1.83x; entity ratio range is 1.13 - 1.75',
+    id: 'premium.headline-range', traceId: 'PREM-011', status: 'resolved',
+    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'MEDIAN_TP',
+    note: 'was the range 1.29x ~ 1.83x; replaced by the single canonical median 1.33x = exp(median(log TP))',
   },
   'premium.average-ratio': {
-    id: 'premium.average-ratio', traceId: 'PREM-017', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders 1.68x (+68%); mean of the 6 entity ratios is 1.513, and no entity holds 1.68',
+    id: 'premium.average-ratio', traceId: 'PREM-017', status: 'retired',
+    widget: 'TokenPremiumSection', directorRef: 'D1',
+    note: 'rendered 1.68x (+68%); canonical mean log TP is 0.28518, ratio scale 1.33. Node removed, no replacement',
   },
   'premium.baseline-standard': {
-    id: 'premium.baseline-standard', traceId: 'PREM-020', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders an English baseline row; no baseline row exists in the array',
+    id: 'premium.baseline-standard', traceId: 'PREM-020', status: 'retired',
+    widget: 'TokenPremiumSection', directorRef: 'D1',
+    note: 'English 1.00x baseline row; the ratio is already defined against English, so the row restated its own denominator. Node removed',
   },
   'premium.domain-range': {
-    id: 'premium.domain-range', traceId: 'PREM-023', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup names a "Business" domain that does not exist, and gives "Daily" as 1.83x where the entity holds 1.38',
+    id: 'premium.domain-range', traceId: 'PREM-023', status: 'retired',
+    widget: 'TokenPremiumSection', directorRef: 'D1',
+    note: 'named domains Business/Daily that the research cohort does not contain; per-domain medians are BLOCKED_NO_ARTIFACT at 925697c. Node removed',
   },
   'premium.benchmark-domain-count': {
-    id: 'premium.benchmark-domain-count', traceId: 'PREM-032', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders 7 Benchmark Domains; the array has 6 entries, countable on screen',
+    id: 'premium.benchmark-domain-count', traceId: 'PREM-032', status: 'resolved',
+    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_COMPOSITION',
+    note: 'was a hardcoded 7 against a 6-entry array; the exhibit now renders the 4 cohort domains from the entity itself',
   },
   'premium.baseline-english': {
-    id: 'premium.baseline-english', traceId: 'PREM-038', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders an English baseline row; no baseline row exists in the array',
+    id: 'premium.baseline-english', traceId: 'PREM-038', status: 'retired',
+    widget: 'TokenPremiumSection', directorRef: 'D1',
+    note: 'second English 1.00x baseline row under the chart. Node removed',
   },
   'premium.max-observed': {
-    id: 'premium.max-observed', traceId: 'PREM-039', status: 'decision-required',
-    widget: 'TokenPremiumSection', directorRef: 'D1', entityRef: 'DOMAIN_DISTRIBUTION_DATA',
-    note: 'markup renders Max Observed 1.83x directly under the chart; highest entity ratio is 1.75',
+    id: 'premium.max-observed', traceId: 'PREM-039', status: 'retired',
+    widget: 'TokenPremiumSection', directorRef: 'D1',
+    note: 'rendered Max Observed 1.83x; canonical max is exp(3.6376) = 38.0, an outlier that misleads as a headline. Node removed',
   },
 
   /* ---- S0 Hero — exhibit numbers match no sentence pair (D2) ---- */
