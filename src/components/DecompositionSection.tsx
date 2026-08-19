@@ -405,8 +405,8 @@ export const DecompositionSection: React.FC = () => {
             bigNumber={`100 → ${Math.round(100 / MEDIAN_TP.value)}`}
             statement={
               isKo
-                ? '토큰으로 한도를 정하는 서비스에서, 영어로 100만큼 들어가는 자리에 같은 뜻의 한국어는 약 75만큼 들어간다. 문장 하나로 보면 토큰 몇 개 차이다. 하지만 한 번에 담을 수 있는 분량이 정해진 창 안에서는, 그 몇 개가 곧 들어가지 못한 문장이 된다.'
-                : 'Where a service meters by tokens, a slot that fits 100 in English fits about 75 of the same meaning in Korean. In one sentence that is a handful of tokens. Inside a window that holds only so much at once, those tokens are the sentences that did not fit.'
+                ? '토큰으로 한도를 정하는 서비스에서, 영어로 100만큼 들어가는 자리에 같은 뜻의 한국어는 약 75만큼 들어간다. 문장 하나로 보면 토큰 몇 개 차이다.'
+                : 'Where a service meters by tokens, a slot that fits 100 in English fits about 75 of the same meaning in Korean. In one sentence that is a handful of tokens.'
             }
           />
 
