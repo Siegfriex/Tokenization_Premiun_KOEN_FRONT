@@ -145,6 +145,24 @@ should be entity-owned copy) or research quantities (need provenance)?
 
 ---
 
+### METH-008 — closed 2026-08-19 (partial answer to D4)
+
+`MethodSection` rendered a literal "6가지 경계" beside a `WHAT_WE_DO_NOT_CLAIM`
+array that happened to hold six entries. It now reads
+`WHAT_WE_DO_NOT_CLAIM.length`, so the two cannot drift apart.
+
+The array is no longer six. KOEN-FRONT-S3-CANON-IMPL-v1.0 §7 directs that the
+site's boundary section mirror the RQ1 artifact's own prohibited list rather
+than restate it editorially, and three boundaries on that list had no
+counterpart on the site: Korean being intrinsically inefficient, morphology as
+a cause, and any domain-effect claim. The third was not hypothetical — S3
+previously published per-domain ratios, which the cohort's structure cannot
+support. All nine now render.
+
+The remaining D4 rows (`LANG-031`, `BURD-017`, `BURD-018`) are untouched.
+
+---
+
 ## D5 — Structural claim: the header advertises 9 sections, the page has 10
 
 **1 item · MEDIUM · pre-existing, previously logged in `HANDOFF.md` §6.6**

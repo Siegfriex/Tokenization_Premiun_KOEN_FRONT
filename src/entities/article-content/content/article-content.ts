@@ -97,8 +97,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Tokens: The New Unit of Measurement in the AI Era',
     },
     lead: {
-      ko: '생성형 AI 서비스는 문장을 글자 단위가 아니라 token이라는 작은 조각으로 처리한다. 문장을 더 많은 token으로 분절할수록 모델이 처리해야 하는 입력 시퀀스 역시 길어진다.',
-      en: 'Generative AI processes natural language not character-by-character, but in subword fragments called tokens. Slicing sentences into more tokens lengthens the input sequence the neural network must compute.',
+      ko: 'AI는 문장을 글자 하나하나로 읽지 않는다. 토큰이라는 조각으로 잘라서 읽는다. 조각이 많아질수록 모델이 훑어야 하는 줄도 길어진다.',
+      en: 'AI does not read a sentence letter by letter. It cuts the sentence into pieces called tokens and reads those. The more pieces, the longer the sequence the model has to work through.',
     },
     subheading: {
       ko: '문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계',
@@ -109,10 +109,10 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     // section reads as didactic/instructional rather than editorial.
     preFigureParagraphs: {
       ko: [
-        '문제는 동일하거나 유사한 의미를 전달하더라도 언어에 따라 token 수가 달라질 수 있다는 점이다. API 및 일부 생성형 AI 서비스에서는 token 수가 사용량과 비용 산정의 중요한 단위로 활용된다. 그 차이는 모델이 답변을 만들기 전, 텍스트를 잘게 나누는 전처리 과정에서 시작된다.',
+        '같은 뜻을 담아도 언어에 따라 조각 수가 달라진다는 것이 문제다. 개발자용 API를 비롯한 여러 서비스가 이 조각 수를 기준으로 사용량과 요금을 매긴다. 차이는 모델이 답을 만들기 전, 문장을 자르는 단계에서 이미 생긴다.',
       ],
       en: [
-        'The structural dilemma is that even when conveying equivalent semantics, token counts diverge significantly across languages. In APIs and developer platforms, token volume serves as the core metric for billing, rate limits, and compute consumption. This disparity originates before the model ever generates an answer—in the fundamental preprocessing step where raw text is segmented into tokens.',
+        'The problem is that the same meaning yields a different number of pieces depending on the language. Developer APIs and several consumer services meter usage and billing by that count. The gap opens before the model writes a single word of its answer, at the step where the sentence is cut up.',
       ],
     },
     figureNumber: 'FIG. 02',
@@ -126,19 +126,19 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        'LLM의 입력 전처리는 [원본 문자열 입력] → [유니코드 UTF-8 바이트 인코딩] → [BPE 어휘집 대조] → [최종 토큰 ID 벡터 생성]의 과정을 거칩니다.',
-        '이러한 분절 구조는 단순히 숫자가 늘어나는 데 그치지 않습니다. 트랜스포머 모델의 자기주의(Self-Attention) 연산량은 토큰 시퀀스 길이에 비례해 급증하므로, 한국어 문장의 토큰 수가 많다는 것은 모델이 같은 문장을 이해하기 위해 더 긴 거리의 상관관계를 연산해야 함을 뜻합니다.',
+        '문장은 입력된 그대로 저장 형식으로 바뀌고, 토크나이저가 가진 사전과 대조되어 조각으로 나뉜 뒤, 각 조각에 붙은 번호의 목록이 되어 모델에 들어간다.',
+        '조각 수가 늘어나면 숫자만 커지는 것이 아니다. 모델은 문장을 이해할 때 조각끼리 서로 얼마나 관련 있는지를 전부 따져보는데, 이 계산량은 조각 수가 늘어나는 속도보다 훨씬 가파르게 늘어난다. 조각이 두 배가 되면 따져야 할 짝은 네 배에 가까워진다.',
       ],
       en: [
-        'LLM input preprocessing follows [Raw Text Input] → [UTF-8 Byte Encoding] → [BPE Vocabulary Lookup] → [Token ID Vector Generation].',
-        'This fragmentation overhead does not merely inflate an integer counter. Transformer self-attention complexity scales with sequence length, meaning the neural network must compute pairwise attention matrices across a longer sequence to understand the same thought.',
+        'The sentence is converted to its storage form, matched against the tokenizer’s dictionary to be cut into pieces, and handed to the model as a list of the numbers attached to those pieces.',
+        'More pieces is not just a bigger number. To understand a sentence the model weighs how much every piece relates to every other one, and that work grows far faster than the piece count itself. Double the pieces and the pairs to weigh roughly quadruple.',
       ],
     },
     keyFinding: {
       label: { ko: '아키텍처 인과 관계', en: 'Architectural Implication' },
       statement: {
-        ko: '토큰 분절이 늘어날수록 입력 시퀀스가 길어져, 어텐션 연산량과 컨텍스트 윈도우 점유율이 동시에 증가합니다.',
-        en: 'Increased token segmentation lengthens the sequence, simultaneously driving up attention compute overhead and context window consumption.',
+        ko: '조각이 많아질수록 모델이 훑을 줄이 길어지고, 계산량과 한 번에 담을 수 있는 분량이 함께 압박을 받는다.',
+        en: 'More pieces means a longer sequence to work through, squeezing both the computation and how much can be held at once.',
       },
     },
   },
@@ -226,17 +226,17 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'It Is Not Just a Korean Phenomenon',
     },
     lead: {
-      ko: '한국어와 영어 사이의 차이는 더 넓은 다언어 token efficiency 문제의 한 사례일 수 있습니다. 뒤에서 전 세계 12개 주요 언어의 토큰 효율성을 함께 비교합니다.',
-      en: 'The disparity between Korean and English is a single case study within a broader global token efficiency landscape across world languages.',
+      ko: '한국어와 영어 사이의 차이는 더 넓은 문제의 한 사례일 수 있다. 뒤에서 다른 언어들의 사정도 함께 살펴본다.',
+      en: 'The Korean-English gap may be one case of something broader. We look at how other languages fare later on.',
     },
     preFigureParagraphs: {
       ko: [
-        '토큰화 불균형은 비라틴계 문자 체계를 사용하는 전 세계 모든 언어 공동체가 마주하고 있는 구조적 과제입니다.',
-        '한자 표의문자를 사용하는 중국어·일본어, 아랍 문자, 데바나가리 문자를 사용하는 힌디어 등 각 문자 체계마다 AI 토크나이저 어휘집 배분에 따른 고유한 분절 패턴이 나타납니다.',
+        '토큰 수의 불균형은 로마자를 쓰지 않는 언어 공동체가 공통으로 마주한 문제다.',
+        '한자를 쓰는 중국어와 일본어, 아랍 문자, 데바나가리 문자를 쓰는 힌디어까지, 문자 체계마다 토크나이저 사전에 배정된 자리가 다르고 그만큼 잘리는 방식도 달라진다.',
       ],
       en: [
-        'Tokenization disparity is a structural phenomenon shared across non-Latin writing systems globally.',
-        'From Chinese and Japanese Hanzi to Arabic abjads and Hindi Devanagari, distinct segmentation overheads emerge based on vocabulary allocation.',
+        'Uneven token counts are a problem shared by language communities that do not write in the Latin alphabet.',
+        'From Chinese and Japanese characters to the Arabic script and Hindi’s Devanagari, each writing system gets a different share of the tokenizer’s dictionary, and is cut up differently as a result.',
       ],
     },
   },
@@ -319,12 +319,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     preFigureParagraphs: {
       ko: [
-        '검증된 한국어-영어 대응 문장을 선택하면, 실제 tokenizer가 두 문장을 어떻게 나누는지 확인할 수 있습니다.',
-        '아래 대화형 실험실에서 일상 대화, 비즈니스 보고서, 학술 논문, 공공 조례 등 4가지 대표적 문장쌍을 직접 비교한다.',
+        '문장쌍을 하나 고르면 토크나이저가 두 문장을 각각 어디서 잘랐는지 조각 단위로 볼 수 있다.',
+        '일상 대화, 업무 보고, 학술 문장, 공공 문서 네 갈래의 문장쌍을 실었다.',
       ],
       en: [
-        'By selecting curated, cross-verified sentence pairs, you can inspect the exact subword boundaries applied by frontier tokenizers.',
-        'Explore the interactive lab below across everyday conversation, corporate reporting, scientific research, and municipal bylaws.',
+        'Pick a pair and you can see exactly where the tokenizer cut each sentence, piece by piece.',
+        'Four kinds of writing are included: everyday conversation, workplace reporting, academic prose, and public documents.',
       ],
     },
     figureNumber: 'FIG. 01',
@@ -367,12 +367,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     preFigureParagraphs: {
       ko: [
-        '개인이 일상에서 몇 번 질문을 던질 때의 수십 개 토큰 차이는 체감하기 어려울 수 있습니다. 하지만 하루 수백 건의 고객 문의를 처리하는 기업의 AI 상담 봇, 수만 페이지의 공공 보고서를 요약하는 지식 노동자 환경에서는 이 격차가 수백만 토큰의 누적 연산 부담으로 전환됩니다.',
-        '슬라이더를 움직여 동일한 질문 세트를 1회에서 100회까지 반복했을 때 한국어와 영어 간에 발생하는 절대 토큰 격차(Absolute Gap)의 누적 추이를 확인해보십시오.',
+        '질문 몇 번에 토큰 몇 개 차이는 아무도 체감하지 못한다. 하지만 하루에 수백 건의 문의를 받는 상담 봇이나, 긴 보고서를 종일 요약하는 업무라면 같은 차이가 계속 쌓인다.',
+        '아래 슬라이더로 같은 작업을 1회에서 100회까지 반복했을 때 토큰 격차가 어떻게 누적되는지 볼 수 있다. 실제 사용 기록이 아니라, 한 번의 차이를 그대로 곱한 산술 예시다.',
       ],
       en: [
-        'For an individual asking a few questions, a delta of tens of tokens is negligible. But in enterprise customer support agents handling thousands of tickets daily, or policy analysts digesting massive reports, this gap scales into millions of cumulative tokens.',
-        'Adjust the repetition slider below to observe how the absolute token gap compounds from 1 to 100 workflow cycles.',
+        'A few tokens across a few questions is beneath anyone’s notice. But a support bot fielding hundreds of tickets a day, or a job spent summarising long reports, repeats that same difference over and over.',
+        'The slider below runs the same task from 1 to 100 times and shows how the gap accumulates. It is arithmetic on a single measured difference, not a record of real usage.',
       ],
     },
     figureNumber: 'FIG. 05',
@@ -386,17 +386,17 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '단 100회의 반복만으로도 700~1,500개 이상의 절대 토큰 차이가 발생합니다. 이는 고정된 컨텍스트 윈도우 환경에서 참조할 수 있는 문서의 길이를 줄이고, 모델의 처리 지연 시간(Latency)을 가중시킵니다.',
+        '한 번에 7개씩 벌어지는 차이도 100번 반복하면 700개가 된다. 한 번에 담을 수 있는 분량이 정해져 있는 환경에서는, 그만큼 함께 넣을 수 있는 자료가 줄어든다.',
       ],
       en: [
-        'In just 100 iterations, an absolute gap of 700 to 1,500+ tokens accumulates. In fixed context window environments, this reduces available reference capacity and increases inference latency.',
+        'A gap of seven tokens per run becomes 700 across a hundred runs. Where the amount that fits at once is fixed, that is reference material you can no longer include.',
       ],
     },
     keyFinding: {
       label: { ko: '누적 분석 시사점', en: 'Compounding Insight' },
       statement: {
-        ko: '단일 프롬프트의 미세한 토큰 차이는 워크플로우가 반복될수록 그대로 누적되어 실질적인 연산 부담으로 전환됩니다.',
-        en: 'Minor prompt-level token discrepancies compound into substantial absolute computational loads as workflows repeat.',
+        ko: '한 번에는 사소한 차이도, 같은 작업이 반복되면 그대로 쌓인다.',
+        en: 'Trivial once, the same difference simply accumulates when the work repeats.',
       },
     },
   },
@@ -484,17 +484,17 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Macro Implications of Expanding National AI Infrastructure',
     },
     lead: {
-      ko: '국가 AI 컴퓨팅 센터 구축, 첨단 HBM 반도체 투자, 기업의 전사적 에이전트 도입. AI가 사회의 기간 인프라가 될 때, 토큰 분절 효율성은 거시적 영역으로 확대됩니다.',
-      en: "As national AI compute hubs, sovereign AI, and enterprise-wide rollouts expand, linguistic token efficiency scales into a systemic consideration.",
+      ko: 'AI가 몇몇 사람의 도구가 아니라 사회가 함께 쓰는 설비가 되면, 문장 하나에서 생긴 토큰 차이도 사회 전체가 처리하는 양에 실린다.',
+      en: 'Once AI becomes shared infrastructure rather than an individual tool, a token gap measured in single sentences rides on everything a society processes.',
     },
     preFigureParagraphs: {
       ko: [
-        '한국은 국가 차원의 대규모 AI 인프라 투자와 초거대 데이터센터 확충을 적극적으로 추진하고 있습니다. 정부의 AI 컴퓨팅 지원 사업과 민간 대기업의 차세대 반도체 투자는 향후 수년간 사회 전반의 AI 트래픽을 지속적으로 끌어올릴 것으로 보입니다.',
-        '기존에 존재하던 언어별 분절 효율 격차가 사회 전체의 처리량 스케일과 결합하면서 경제적·운영적 중요성이 증폭된다는 사실이 중요합니다.',
+        '한국은 국가 차원의 AI 인프라 투자와 데이터센터 확충을 진행하고 있다. 정부의 컴퓨팅 지원 사업과 민간의 반도체 투자가 이어지면서, 앞으로 몇 년간 사회가 주고받는 AI 처리량은 계속 늘어날 것으로 보인다.',
+        '토큰 차이 자체가 커지는 것은 아니다. 다만 같은 차이가 훨씬 많은 처리량에 곱해진다.',
       ],
       en: [
-        'South Korea is accelerating national compute hubs and hyperscale AI data centers. National policies and private investments are expected to keep driving up daily AI token throughput.',
-        'Crucially, when massive societal adoption meets pre-existing linguistic tokenization inefficiencies, the aggregate operational impact scales drastically.',
+        'Korea is building out national compute capacity and data centres. With public compute programmes and private chip investment both continuing, the volume of AI processing the country does is set to keep rising for years.',
+        'The gap itself does not grow. It is simply multiplied against a far larger volume.',
       ],
     },
     figureNumber: 'FIG. 07',
@@ -508,10 +508,10 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '공공 행정, 금융 거래, 대국민 복지 서비스 등 사회 전 영역에 AI 파이프라인이 직결되는 미래에는, 토큰 1개당 처리 단가의 미세한 차이도 국가 전체 컴퓨팅 자원 배분에서 함께 고려해야 할 변수가 됩니다.',
+        '행정과 금융, 복지 서비스까지 AI가 직접 연결되는 단계에 이르면, 토큰 한 개당 처리 비용의 작은 차이도 자원을 어떻게 나눌지 정할 때 함께 놓고 봐야 할 항목이 된다.',
       ],
       en: [
-        'As AI pipelines integrate directly into public administration and citizen services, even minor per-token efficiency differences become a factor worth weighing in national compute resource planning.',
+        'Once AI is wired directly into administration, finance and public services, even a small per-token difference becomes one of the items to weigh when deciding how compute gets allocated.',
       ],
     },
   },
@@ -528,8 +528,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'A Challenge Beyond API Billing',
     },
     lead: {
-      ko: 'Token Premium이 존재하고, 서비스의 사용량·한도·비용이 token 단위와 연결되는 환경에서는 언어별 token efficiency 차이가 실제 이용 경험과 디지털 형평성의 차이로 이어질 가능성이 있습니다.',
-      en: 'Where service limits, context ceilings, and compute costs are tied to token volume, linguistic token efficiency differentials can translate into tangible variations in user experience and digital equity.',
+      ko: '토큰이 사용량과 한도와 요금을 나누는 단위로 쓰이는 한, 언어에 따른 토큰 차이는 실제로 쓸 수 있는 양의 차이로 옮겨갈 수 있다.',
+      en: 'As long as tokens are the unit that meters usage, limits and cost, a token gap between languages can become a gap in how much you actually get to use.',
     },
     subheading: {
       ko: '01 개인 → 02 조직/기업 → 03 사회: 3단계 누적 확장 프레임워크',
@@ -537,12 +537,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     preFigureParagraphs: {
       ko: [
-        '서비스가 token 기반의 사용량 제한을 두는 경우, 동일한 의미를 더 많은 token으로 표현하는 사용자는 같은 양의 대화를 하더라도 한도에 더 빨리 접근할 가능성이 있습니다.',
-        '토큰 프리미엄의 영향은 개인의 프롬프트 분할(01단계)에서 시작하여, 조직의 장문 문맥 분석과 고빈도 에이전트 루프(02단계)를 거쳐, 국가의 기간 인프라와 공공 데이터센터 대역폭(03단계)으로 점차 확장됩니다.',
+        '토큰으로 사용량을 제한하는 서비스라면, 같은 뜻을 더 많은 토큰으로 표현하는 쪽이 같은 분량의 대화를 하고도 한도에 먼저 닿을 수 있다.',
+        '이 차이는 개인이 쓰는 프롬프트 창에서 시작해, 긴 문서를 다루는 조직의 업무를 거쳐, 국가가 감당하는 처리량까지 같은 방향으로 따라간다.',
       ],
       en: [
-        'When platforms impose token-based rate limits or context caps, users expressing thoughts in higher-token scripts may reach usage ceilings faster for equivalent conversational depth.',
-        'The impact compounds across three distinct tiers: Level 01 (Personal) subword prompt splits, Level 02 (Work/Organization) long-context agent loops, and Level 03 (Society) essential public infrastructure.',
+        'Where a service caps usage by tokens, whoever needs more tokens for the same meaning can hit that cap sooner at the same depth of conversation.',
+        'The difference travels in one direction: from an individual’s prompt window, through the long-document work an organisation does, to the volume a country has to carry.',
       ],
     },
     figureNumber: 'FIG. 08',
@@ -556,17 +556,17 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     postFigureParagraphs: {
       ko: [
-        '이를 극복하기 위해서는 글로벌 모델에 대한 수동적 의존을 넘어, 한국어 음절과 형태소 결합 특성을 반영하는 고효율 토크나이저 연구, 다국어 어휘집 확장 표준 제정, 그리고 국가 차원의 소버린 AI 생태계 조성이 긴요합니다.',
+        '해법의 방향은 대체로 세 갈래로 모인다. 한국어 구조를 반영한 토크나이저를 직접 연구하는 것, 모델 개발사가 다국어에 배정하는 사전 자리를 늘리도록 요구하는 것, 그리고 그 판단을 남에게 맡기지 않을 만큼의 자체 역량을 갖추는 것이다.',
       ],
       en: [
-        'Overcoming this friction requires investing in dedicated Hangul-optimized tokenizers, expanding multilingual vocabulary allocations in foundation models, and nurturing sovereign compute ecosystems designed for linguistic equity.',
+        'Responses tend to converge on three: research tokenizers built around Korean’s own structure, press model developers to widen the dictionary space given to non-English languages, and hold enough capacity domestically that the choice is not made entirely elsewhere.',
       ],
     },
     keyFinding: {
       label: { ko: '사회적 시사점', en: 'Societal Implication' },
       statement: {
-        ko: 'AI가 일상적 인프라가 될수록 언어별 표현 효율성을 측정하고 개선하는 문제는 디지털 형평성의 핵심 과제가 됩니다.',
-        en: 'As generative AI becomes societal infrastructure, measuring and optimizing linguistic representation efficiency becomes a fundamental digital equity priority.',
+        ko: 'AI가 일상의 설비가 될수록, 언어마다 다른 표현 효율을 재고 좁히는 일은 기술 문제에 머무르지 않는다.',
+        en: 'The more AI becomes everyday infrastructure, the less this stays a purely technical question.',
       },
     },
   },
@@ -583,37 +583,41 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Methodology & 6 Core Boundary Principles',
     },
     lead: {
-      ko: '데이터 저널리즘의 투명성과 학술적 엄밀성을 위해, 본 인터랙티브 스토리의 분석 기준, 토크나이저 의존성, 표본 한계 및 6대 "주장하지 않는 원칙"을 투명하게 공개합니다.',
-      en: 'For scientific rigor and transparency, we disclose benchmark premises, tokenizer dependencies, sampling scope, and 6 core "What We Do NOT Claim" boundary principles.',
+      ko: '이 기사가 무엇을 어떻게 쟀는지, 그리고 이 데이터로 말할 수 없는 것이 무엇인지 밝혀둔다.',
+      en: 'What we measured, how we measured it, and what this data cannot be used to say.',
     },
     preFigureParagraphs: {
       ko: [
-        '본 프로젝트의 목적은 특정 언어의 우열을 가리거나 특정 AI 서비스를 비판하는 데 있지 않습니다. 오히려 표준화된 BPE(Byte Pair Encoding, 자주 등장하는 글자 조합을 하나의 토큰으로 묶어나가는 하위 단어 분절 방식) 토큰화 알고리즘이 비라틴계 문자 체계에 미치는 물리적 영향력을 정량적으로 측정하고, 이를 독자들에게 명료하게 전달하는 데 있습니다.',
-        '과도한 비약이나 오해를 방지하기 위해, 본 연구가 명시적으로 "주장하지 않는" 6가지 경계 원칙을 명시합니다.',
+        '이 기사는 어느 언어가 더 나은지를 가리려는 것이 아니고, 특정 서비스를 겨냥한 것도 아니다. 토크나이저가 문장을 자르는 방식이 로마자를 쓰지 않는 언어에 어떤 결과를 남기는지를 재본 것이다.',
+        '자주 붙어 다니는 글자 조합을 하나의 조각으로 묶어나가는 방식을 BPE라고 부른다. 이 기사에서 말하는 조각은 모두 그렇게 만들어진 단위다.',
+        '측정한 것보다 더 많은 것을 말하지 않기 위해, 이 데이터로 주장하지 않는 것들을 아래에 적어둔다.',
       ],
       en: [
-        'The objective of this investigation is neither to rank languages nor critique specific AI vendors. Rather, it quantitatively measures how standard BPE tokenization algorithms interact with non-Latin scripts.',
-        'To prevent misinterpretation, we establish 6 explicit scientific boundary principles outlining what our empirical analysis does not claim.',
+        'This piece is not an attempt to rank languages, nor is it aimed at any particular service. It measures what a tokenizer’s way of cutting sentences leaves behind for languages that are not written in the Latin alphabet.',
+        'The method that repeatedly merges frequently co-occurring character sequences into single pieces is called BPE. Every "piece" in this article is a unit produced that way.',
+        'So that nothing is claimed beyond what was measured, what this data does not support is set out below.',
       ],
     },
     postFigureParagraphs: {
       ko: [
-        '모든 실측 데이터는 OpenAI o200k_base 토크나이저 및 Meta Flores-200 병렬 코퍼스를 기준으로 산출되었으며, 향후 모델 개발사의 어휘집 업데이트나 새로운 토크나이저 아키텍처 도입에 따라 수치가 변동될 수 있습니다.',
+        '이 기사의 측정값은 모두 o200k_base 토크나이저와 AI허브 한·영 병렬 말뭉치를 기준으로 한 것이다. 다른 언어와의 비교에 인용한 수치는 다른 연구가 다른 토크나이저로 잰 것이므로 같은 자에 놓고 볼 수 없다. 모델 개발사가 사전을 손보면 값은 달라진다.',
       ],
       en: [
-        'All empirical metrics were evaluated under the OpenAI o200k_base tokenizer and Meta Flores-200 parallel corpus, and may evolve with future tokenizer vocabulary updates.',
+        'Every measurement in this article was made with the o200k_base tokenizer on the AI Hub Korean-English parallel corpus. The cross-language figures come from separate research using a different tokenizer and cannot be placed on the same scale. If a vendor revises its dictionary, the numbers move.',
       ],
     },
     footnotes: {
       ko: [
-        '1. 토큰 수는 사용된 토크나이저 아키텍처 및 어휘집(Vocabulary) 크기에 따라 달라질 수 있습니다.',
-        '2. 본 분석의 직무별 누적 연산 모델은 대표적 워크플로우를 가정한 개념적 시뮬레이션입니다.',
-        '3. Flores-200 벤치마크는 위키피디아 기반의 번역 코퍼스로, 일상 구어체와 일부 차이가 있을 수 있습니다.',
+        '1. 토큰 수는 어떤 토크나이저를 쓰느냐에 따라 달라진다. 이 기사의 값은 o200k_base 기준이다.',
+        '2. 누적 시뮬레이션은 실제 사용 기록이 아니라, 한 번의 차이를 반복 횟수만큼 곱한 산술 예시다.',
+        '3. 다른 언어와의 비교는 Petrov 외(2023)가 cl100k_base로 측정한 값을 인용한 것이고, 이 기사의 측정과 직접 비교할 수 없다.',
+        '4. 분야별 토큰 비율은 싣지 않았다. 말뭉치에서 분야와 출처가 엇갈려 있어 둘을 갈라낼 수 없기 때문이다.',
       ],
       en: [
-        '1. Token counts depend strictly on tokenizer vocabulary allocation and versioning.',
-        '2. Occupational burden modeling is an analytical simulation based on typical knowledge workflows.',
-        '3. Flores-200 parallel benchmark is derived from formal articles and may differ slightly from colloquial speech.',
+        '1. Token counts depend on which tokenizer is used. Every figure here is o200k_base.',
+        '2. The cumulative simulation is arithmetic on a single measured difference, not a record of real usage.',
+        '3. The cross-language comparison quotes Petrov et al. (2023), measured with cl100k_base, and is not directly comparable to our own measurement.',
+        '4. No per-subject token ratios are published. Subject area and source corpus do not cross cleanly enough to tell the two apart.',
       ],
     },
   },
@@ -658,13 +662,13 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       // socioeconomic inequality cause"). No new claim, no new number.
       ko: [
         '한국어와 영어의 토큰 비율은 383만 쌍의 중앙값 기준 1.33배였다. 문장 하나로 보면 토큰 몇 개 차이지만, 토큰이 비용과 문맥과 사용 한도를 나누는 단위로 쓰이는 한 이 차이는 개인의 프롬프트 창을 넘어 조직의 업무와 국가 인프라의 처리량까지 따라간다.',
-        'AI가 사회의 보편적 인프라가 될수록, 언어별 표현 효율성을 측정하고 개선하는 문제는 디지털 형평성과 직결되는 핵심 과제가 될 것입니다.',
-        '다만 이는 특정 토크나이저와 표본에서 관측된 구조적 격차이며, 모든 상황에서 더 많은 비용이 든다거나 확정적인 사회경제적 불평등의 원인이라고 단정하는 것은 아닙니다.',
+        '실제 청구액, 무료 요금제의 한도, 응답의 품질, 그리고 그것이 사회에 남기는 격차까지는 각각 따로 확인해야 할 문제다. 이 기사가 할 수 있는 일은 그 논의가 시작될 지점을 383만 쌍의 문장으로 짚어두는 데 있다.',
+        '이 격차는 한국어가 본래 비효율적인 언어라는 뜻이 아니다. 특정 토크나이저와 특정 말뭉치에서 관측된 결과이고, 언제나 더 비싸다거나 사회적 불평등의 확인된 원인이라고 말할 수 있는 단계도 아니다.',
       ],
       en: [
         'Across 3.84 million pairs the median Korean-to-English token ratio was 1.33x. In a single sentence that is a handful of tokens. But as long as tokens are the unit that meters cost, context and usage limits, the gap follows the text from a personal prompt window through an organisation’s workflows to national infrastructure throughput.',
-        'As generative AI evolves into universal social infrastructure, measuring and optimizing multilingual representation efficiency becomes critical for digital equity.',
-        'This reflects a structural gap observed within a specific tokenizer and sample—it does not assert that Korean always costs more, or confirm this as a settled cause of socioeconomic inequality.',
+        'Actual bills, free-tier limits, answer quality, and whatever any of it leaves behind socially are each separate questions to settle separately. What this article can do is mark where that conversation starts, using 3.84 million sentence pairs.',
+        'The gap does not mean Korean is an inefficient language. It is what one tokenizer did to one corpus, and it is not yet grounds for saying Korean always costs more, or that this is a confirmed cause of social inequality.',
       ],
     },
   },

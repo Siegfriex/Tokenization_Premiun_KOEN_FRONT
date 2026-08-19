@@ -177,9 +177,9 @@ export const VISIBLE_CLAIMS = {
     note: 'characterises a workload; no entity holds it. Also the slider max',
   },
   'method.principle-count': {
-    id: 'method.principle-count', traceId: 'METH-008', status: 'decision-required',
-    widget: 'MethodSection', directorRef: 'D4', entityRef: 'WHAT_WE_DO_NOT_CLAIM',
-    note: 'equals WHAT_WE_DO_NOT_CLAIM.length (6) today, but is hardcoded rather than read, so the agreement is a coincidence',
+    id: 'method.principle-count', traceId: 'METH-008', status: 'resolved',
+    widget: 'MethodSection', entityRef: 'WHAT_WE_DO_NOT_CLAIM',
+    note: 'was a hardcoded 6 that matched the array length by coincidence; now read from WHAT_WE_DO_NOT_CLAIM.length, which is 9 after the artifact-derived boundaries were added',
   },
 
   /* ---- Values an entity holds, hardcoded anyway ---- */

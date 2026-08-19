@@ -69,7 +69,11 @@ export const MethodSection: React.FC = () => {
               <dt data-source="widget" className="text-sm sm:text-base font-mono text-ink font-bold uppercase tracking-wider">
                 {isKo ? '이 분석으로 말할 수 없는 것' : 'What This Analysis Does Not Claim'}
               </dt>
-              <dd className="text-xs font-mono text-ink-body shrink-0">{isKo ? '6가지 경계' : '6 Key Principles'}</dd>
+              {/* Read from the array, not hardcoded — closes METH-008, where a
+                  literal 6 happened to equal the array length by coincidence. */}
+              <dd data-source="entity" className="text-xs font-mono text-ink-body shrink-0 tabular-nums">
+                {isKo ? `${WHAT_WE_DO_NOT_CLAIM.length}가지 경계` : `${WHAT_WE_DO_NOT_CLAIM.length} Key Principles`}
+              </dd>
             </dl>
 
             <ul data-collection="what-we-do-not-claim" className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
