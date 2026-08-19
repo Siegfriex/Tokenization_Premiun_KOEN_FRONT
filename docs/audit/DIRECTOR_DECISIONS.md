@@ -180,6 +180,19 @@ label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } }` between `languages` and
 what the codebase already asserted elsewhere. `NAV_SECTION_IDS` (derived) now
 has 10 entries, matching the 10 rendered sections.
 
+**Follow-up (2026-08-19).** The count moved again — S2.5 `DecompositionSection`
+was added between S2 and S3, and registered in `NAV_SECTIONS` in the same
+change. Nav and sections are 11/11.
+
+The ruling above fixed one instance; it could not stop the next one. The
+build-ledger rule that watched for this hardcoded "9 nav entries, 10 sections",
+so it went stale the moment either number changed and would have reported a
+contradiction that no longer existed. It now counts both sets at build time and
+names which ids are unpaired, so a section added without a nav entry surfaces
+on the next pipeline run rather than waiting to be noticed:
+
+    nav coverage: 11 nav / 11 sections (match)
+
 ---
 
 ## D6 — Deferred, non-numeric, previously logged

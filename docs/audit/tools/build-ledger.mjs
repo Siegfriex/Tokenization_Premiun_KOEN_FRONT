@@ -72,9 +72,11 @@ const OBSERVED_CONTRADICTIONS = [
   { severity: 'DUPLICATED', match: '1.78', file: 'MultilingualTokenEfficiencySection',
     observed: 'markup hardcodes "1.78배" and "한국어 한글 (1.78×)"',
     entity: 'MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not' },
-  { severity: 'CONTRADICTS', match: 'NAV_SECTIONS', file: 'StoryProgress',
-    observed: 'header nav renders one entry per NAV_SECTIONS item (9)',
-    entity: 'App.tsx mounts 10 anchored sections; id="infrastructure" has no nav entry' },
+  /* The nav-vs-sections row that stood here hardcoded "9 nav entries, 10
+     sections". Both numbers went stale the moment a section was added, and a
+     stale rule reports a contradiction that is not there. It is now counted
+     at build time — see navCoverage below, which also names WHICH ids are
+     unpaired rather than only that the totals differ. */
 ];
 
 /* ---------------------------------------------------------------- *
@@ -156,6 +158,32 @@ const CANONICAL_PROVENANCE = [
     artifact: 'KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL]',
     note: 'same, EN locale' },
 ];
+
+/* ---------------------------------------------------------------- *
+ * Nav coverage, counted rather than asserted.
+ *
+ * Every anchored <section id> must have a NAV_SECTIONS entry and vice versa.
+ * Counting it at build time means adding a section without registering it
+ * surfaces on the next pipeline run, instead of waiting for someone to notice
+ * the header is short by one.
+ * ---------------------------------------------------------------- */
+const navCoverage = (() => {
+  const navFile = path.join(ROOT, 'src/entities/navigation/content/navigation.ts');
+  const nav = new Set([...fs.readFileSync(navFile, 'utf8').matchAll(/\{ id: '([a-z.]+)'/g)].map((m) => m[1]));
+  const sections = new Set();
+  const compDir = path.join(ROOT, 'src/components');
+  for (const f of fs.readdirSync(compDir)) {
+    if (!f.endsWith('.tsx')) continue;
+    const src = fs.readFileSync(path.join(compDir, f), 'utf8');
+    for (const m of src.matchAll(/<section\s+id="([a-z]+)"/g)) sections.add(m[1]);
+  }
+  return {
+    navCount: nav.size,
+    sectionCount: sections.size,
+    navOnly: [...nav].filter((id) => !sections.has(id)),
+    sectionOnly: [...sections].filter((id) => !nav.has(id)),
+  };
+})();
 
 const NOISE_KINDS = new Set(['year', 'identifier', 'label-ordinal']);
 
@@ -527,4 +555,11 @@ console.log('by addressing:', Object.entries(by((i) => i.addressing)).map(([k, v
 console.log('semantic gaps:', Object.entries(by((i) => i.semanticGap ?? '-')).map(([k, v]) => `${k}=${v.length}`).join('  '));
 console.log('director queue:', items.filter((i) => i.directorDecisionRequired && !i.deadFile).length);
 const unresolved = items.filter((i) => i.unresolvedSpread && !i.deadFile);
+{
+  const { navCount, sectionCount, navOnly, sectionOnly } = navCoverage;
+  const ok = !navOnly.length && !sectionOnly.length;
+  console.log(`nav coverage: ${navCount} nav / ${sectionCount} sections`, ok ? '(match)' : '<-- MISMATCH');
+  if (navOnly.length) console.log('  nav entry with no section :', navOnly.join(', '));
+  if (sectionOnly.length) console.log('  section with no nav entry :', sectionOnly.join(', '));
+}
 console.log('UNRESOLVED_SPREAD:', unresolved.length, unresolved.length ? '<-- ledger cannot be trusted for these nodes' : '(clean)');

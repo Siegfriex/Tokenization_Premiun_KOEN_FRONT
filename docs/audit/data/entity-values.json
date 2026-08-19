@@ -424,9 +424,9 @@
    "src/entities/article-content/content/article-content.ts:307",
    "src/entities/article-content/content/article-content.ts:351",
    "src/entities/article-content/content/article-content.ts:406",
-   "src/entities/article-content/content/article-content.ts:477",
-   "src/entities/article-content/content/article-content.ts:521",
-   "src/entities/article-content/content/article-content.ts:576",
+   "src/entities/article-content/content/article-content.ts:483",
+   "src/entities/article-content/content/article-content.ts:527",
+   "src/entities/article-content/content/article-content.ts:582",
    "src/entities/article-content/model/types.ts:3"
   ],
   "TOKEN PREMIUM · AI × LANGUAGE / 2026": [
@@ -939,263 +939,264 @@
    "src/entities/article-content/content/article-content.ts:446"
   ],
   "FIG. 06": [
-   "src/entities/article-content/content/article-content.ts:449"
+   "src/entities/article-content/content/article-content.ts:455",
+   "src/entities/flores-citation/content/flores-citation.ts:117"
   ],
   "영어를 1.00배로 뒀을 때의 언어별 토큰 사용 비율 (cl100k_base 기준)": [
-   "src/entities/article-content/content/article-content.ts:451"
+   "src/entities/article-content/content/article-content.ts:457"
   ],
   "Tokens used per language relative to English at 1.00x (cl100k_base)": [
-   "src/entities/article-content/content/article-content.ts:452"
+   "src/entities/article-content/content/article-content.ts:458"
   ],
   "출처: Petrov, La Malfa, Torr & Bibi (2023), NeurIPS · FLORES-200 병렬문장 2,000개, cl100k_base": [
-   "src/entities/article-content/content/article-content.ts:455"
+   "src/entities/article-content/content/article-content.ts:461"
   ],
   "Source: Petrov, La Malfa, Torr & Bibi (2023), NeurIPS · FLORES-200, 2,000 parallel sentences, cl100k_base": [
-   "src/entities/article-content/content/article-content.ts:456"
+   "src/entities/article-content/content/article-content.ts:462"
   ],
   "언어별 토큰 표현 효율의 차이는 한글만의 특수한 사례가 아니라, 다언어 AI 시스템 전체에서 살펴봐야 할 문제다.": [
-   "src/entities/article-content/content/article-content.ts:460"
+   "src/entities/article-content/content/article-content.ts:466"
   ],
   "Token efficiency disparity is not a unique Korean edge case, but a systemic structural challenge across the entire multilingual AI ecosystem.": [
-   "src/entities/article-content/content/article-content.ts:463"
-  ],
-  "글로벌 벤치마크 결론": [
-   "src/entities/article-content/content/article-content.ts:467"
-  ],
-  "Global Benchmark Takeaway": [
-   "src/entities/article-content/content/article-content.ts:467"
-  ],
-  "선행연구에서 한국어보다 격차가 더 큰 언어도 관측됐다. 한글만의 문제가 아니라는 뜻이다.": [
    "src/entities/article-content/content/article-content.ts:469"
   ],
+  "글로벌 벤치마크 결론": [
+   "src/entities/article-content/content/article-content.ts:473"
+  ],
+  "Global Benchmark Takeaway": [
+   "src/entities/article-content/content/article-content.ts:473"
+  ],
+  "선행연구에서 한국어보다 격차가 더 큰 언어도 관측됐다. 한글만의 문제가 아니라는 뜻이다.": [
+   "src/entities/article-content/content/article-content.ts:475"
+  ],
   "The prior study observed languages with a wider gap than Korean — this is not a Hangul-specific problem.": [
-   "src/entities/article-content/content/article-content.ts:470"
+   "src/entities/article-content/content/article-content.ts:476"
   ],
   "08 / INFRASTRUCTURE SCALE · 한국 AI 생태계의 스케일업": [
-   "src/entities/article-content/content/article-content.ts:479"
+   "src/entities/article-content/content/article-content.ts:485"
   ],
   "08 / INFRASTRUCTURE SCALE · KOREA'S EXPANDING AI ECOSYSTEM": [
-   "src/entities/article-content/content/article-content.ts:480"
+   "src/entities/article-content/content/article-content.ts:486"
   ],
   "국가 AI 인프라 확장이 낳는 거시적 파급력": [
-   "src/entities/article-content/content/article-content.ts:483"
+   "src/entities/article-content/content/article-content.ts:489"
   ],
   "Macro Implications of Expanding National AI Infrastructure": [
-   "src/entities/article-content/content/article-content.ts:484"
+   "src/entities/article-content/content/article-content.ts:490"
   ],
   "AI가 몇몇 사람의 도구가 아니라 사회가 함께 쓰는 설비가 되면, 문장 하나에서 생긴 토큰 차이도 사회 전체가 처리하는 양에 실린다.": [
-   "src/entities/article-content/content/article-content.ts:487"
-  ],
-  "Once AI becomes shared infrastructure rather than an individual tool, a token gap measured in single sentences rides on everything a society processes.": [
-   "src/entities/article-content/content/article-content.ts:488"
-  ],
-  "한국은 국가 차원의 AI 인프라 투자와 데이터센터 확충을 진행하고 있다. 정부의 컴퓨팅 지원 사업과 민간의 반도체 투자가 이어지면서, 앞으로 몇 년간 사회가 주고받는 AI 처리량은 계속 늘어날 것으로 보인다.": [
-   "src/entities/article-content/content/article-content.ts:492"
-  ],
-  "토큰 차이 자체가 커지는 것은 아니다. 다만 같은 차이가 훨씬 많은 처리량에 곱해진다.": [
    "src/entities/article-content/content/article-content.ts:493"
   ],
+  "Once AI becomes shared infrastructure rather than an individual tool, a token gap measured in single sentences rides on everything a society processes.": [
+   "src/entities/article-content/content/article-content.ts:494"
+  ],
+  "한국은 국가 차원의 AI 인프라 투자와 데이터센터 확충을 진행하고 있다. 정부의 컴퓨팅 지원 사업과 민간의 반도체 투자가 이어지면서, 앞으로 몇 년간 사회가 주고받는 AI 처리량은 계속 늘어날 것으로 보인다.": [
+   "src/entities/article-content/content/article-content.ts:498"
+  ],
+  "토큰 차이 자체가 커지는 것은 아니다. 다만 같은 차이가 훨씬 많은 처리량에 곱해진다.": [
+   "src/entities/article-content/content/article-content.ts:499"
+  ],
   "Korea is building out national compute capacity and data centres. With public compute programmes and private chip investment both continuing, the volume of AI processing the country does is set to keep rising for years.": [
-   "src/entities/article-content/content/article-content.ts:496"
-  ],
-  "The gap itself does not grow. It is simply multiplied against a far larger volume.": [
-   "src/entities/article-content/content/article-content.ts:497"
-  ],
-  "FIG. 07": [
-   "src/entities/article-content/content/article-content.ts:500"
-  ],
-  "한국 AI 인프라 확산의 4단계 흐름": [
    "src/entities/article-content/content/article-content.ts:502"
   ],
-  "Korea's AI Infrastructure Adoption Timeline": [
+  "The gap itself does not grow. It is simply multiplied against a far larger volume.": [
    "src/entities/article-content/content/article-content.ts:503"
   ],
-  "자료: 과학기술정보통신부 정책 공시 및 주요 AI 인프라 투자 공시 (2024–2026)": [
+  "FIG. 07": [
    "src/entities/article-content/content/article-content.ts:506"
   ],
+  "한국 AI 인프라 확산의 4단계 흐름": [
+   "src/entities/article-content/content/article-content.ts:508"
+  ],
+  "Korea's AI Infrastructure Adoption Timeline": [
+   "src/entities/article-content/content/article-content.ts:509"
+  ],
+  "자료: 과학기술정보통신부 정책 공시 및 주요 AI 인프라 투자 공시 (2024–2026)": [
+   "src/entities/article-content/content/article-content.ts:512"
+  ],
   "Source: Ministry of Science and ICT Official Releases & Major Investment Disclosures (2024–2026)": [
-   "src/entities/article-content/content/article-content.ts:507"
+   "src/entities/article-content/content/article-content.ts:513"
   ],
   "행정과 금융, 복지 서비스까지 AI가 직접 연결되는 단계에 이르면, 토큰 한 개당 처리 비용의 작은 차이도 자원을 어떻게 나눌지 정할 때 함께 놓고 봐야 할 항목이 된다.": [
-   "src/entities/article-content/content/article-content.ts:511"
+   "src/entities/article-content/content/article-content.ts:517"
   ],
   "Once AI is wired directly into administration, finance and public services, even a small per-token difference becomes one of the items to weigh when deciding how compute gets allocated.": [
-   "src/entities/article-content/content/article-content.ts:514"
+   "src/entities/article-content/content/article-content.ts:520"
   ],
   "08 / IMPACT · 비용을 넘어선 문제 (3단계 확장 경로)": [
-   "src/entities/article-content/content/article-content.ts:523"
+   "src/entities/article-content/content/article-content.ts:529"
   ],
   "08 / IMPACT · BEYOND COST: SOCIOECONOMIC SCALE-UP": [
-   "src/entities/article-content/content/article-content.ts:524"
+   "src/entities/article-content/content/article-content.ts:530"
   ],
   "비용을 넘어선 문제": [
-   "src/entities/article-content/content/article-content.ts:527"
+   "src/entities/article-content/content/article-content.ts:533"
   ],
   "A Challenge Beyond API Billing": [
-   "src/entities/article-content/content/article-content.ts:528"
+   "src/entities/article-content/content/article-content.ts:534"
   ],
   "토큰이 사용량과 한도와 요금을 나누는 단위로 쓰이는 한, 언어에 따른 토큰 차이는 실제로 쓸 수 있는 양의 차이로 옮겨갈 수 있다.": [
-   "src/entities/article-content/content/article-content.ts:531"
+   "src/entities/article-content/content/article-content.ts:537"
   ],
   "As long as tokens are the unit that meters usage, limits and cost, a token gap between languages can become a gap in how much you actually get to use.": [
-   "src/entities/article-content/content/article-content.ts:532"
+   "src/entities/article-content/content/article-content.ts:538"
   ],
   "01 개인 → 02 조직/기업 → 03 사회: 3단계 누적 확장 프레임워크": [
-   "src/entities/article-content/content/article-content.ts:535"
-  ],
-  "01 Personal → 02 Work / Organization → 03 Society: 3-Stage Progression": [
-   "src/entities/article-content/content/article-content.ts:536"
-  ],
-  "토큰으로 사용량을 제한하는 서비스라면, 같은 뜻을 더 많은 토큰으로 표현하는 쪽이 같은 분량의 대화를 하고도 한도에 먼저 닿을 수 있다.": [
-   "src/entities/article-content/content/article-content.ts:540"
-  ],
-  "이 차이는 개인이 쓰는 프롬프트 창에서 시작해, 긴 문서를 다루는 조직의 업무를 거쳐, 국가가 감당하는 처리량까지 같은 방향으로 따라간다.": [
    "src/entities/article-content/content/article-content.ts:541"
   ],
+  "01 Personal → 02 Work / Organization → 03 Society: 3-Stage Progression": [
+   "src/entities/article-content/content/article-content.ts:542"
+  ],
+  "토큰으로 사용량을 제한하는 서비스라면, 같은 뜻을 더 많은 토큰으로 표현하는 쪽이 같은 분량의 대화를 하고도 한도에 먼저 닿을 수 있다.": [
+   "src/entities/article-content/content/article-content.ts:546"
+  ],
+  "이 차이는 개인이 쓰는 프롬프트 창에서 시작해, 긴 문서를 다루는 조직의 업무를 거쳐, 국가가 감당하는 처리량까지 같은 방향으로 따라간다.": [
+   "src/entities/article-content/content/article-content.ts:547"
+  ],
   "Where a service caps usage by tokens, whoever needs more tokens for the same meaning can hit that cap sooner at the same depth of conversation.": [
-   "src/entities/article-content/content/article-content.ts:544"
-  ],
-  "The difference travels in one direction: from an individual’s prompt window, through the long-document work an organisation does, to the volume a country has to carry.": [
-   "src/entities/article-content/content/article-content.ts:545"
-  ],
-  "FIG. 08": [
-   "src/entities/article-content/content/article-content.ts:548"
-  ],
-  "언어 구조에서 사회적 파급 효과까지, 가능한 확장 경로": [
    "src/entities/article-content/content/article-content.ts:550"
   ],
-  "From Language Structure to Societal Impact: A Possible Expansion Pathway": [
+  "The difference travels in one direction: from an individual’s prompt window, through the long-document work an organisation does, to the volume a country has to carry.": [
    "src/entities/article-content/content/article-content.ts:551"
   ],
-  "출처: 토큰 프리미엄 데이터 저널리즘 연구팀 개념 모델링 (2026)": [
+  "FIG. 08": [
    "src/entities/article-content/content/article-content.ts:554"
   ],
+  "언어 구조에서 사회적 파급 효과까지, 가능한 확장 경로": [
+   "src/entities/article-content/content/article-content.ts:556"
+  ],
+  "From Language Structure to Societal Impact: A Possible Expansion Pathway": [
+   "src/entities/article-content/content/article-content.ts:557"
+  ],
+  "출처: 토큰 프리미엄 데이터 저널리즘 연구팀 개념 모델링 (2026)": [
+   "src/entities/article-content/content/article-content.ts:560"
+  ],
   "Source: Token Premium Research Conceptual Framework (2026)": [
-   "src/entities/article-content/content/article-content.ts:555"
+   "src/entities/article-content/content/article-content.ts:561"
   ],
   "해법의 방향은 대체로 세 갈래로 모인다. 한국어 구조를 반영한 토크나이저를 직접 연구하는 것, 모델 개발사가 다국어에 배정하는 사전 자리를 늘리도록 요구하는 것, 그리고 그 판단을 남에게 맡기지 않을 만큼의 자체 역량을 갖추는 것이다.": [
-   "src/entities/article-content/content/article-content.ts:559"
+   "src/entities/article-content/content/article-content.ts:565"
   ],
   "Responses tend to converge on three: research tokenizers built around Korean’s own structure, press model developers to widen the dictionary space given to non-English languages, and hold enough capacity domestically that the choice is not made entirely elsewhere.": [
-   "src/entities/article-content/content/article-content.ts:562"
-  ],
-  "사회적 시사점": [
-   "src/entities/article-content/content/article-content.ts:566"
-  ],
-  "Societal Implication": [
-   "src/entities/article-content/content/article-content.ts:566"
-  ],
-  "AI가 일상의 설비가 될수록, 언어마다 다른 표현 효율을 재고 좁히는 일은 기술 문제에 머무르지 않는다.": [
    "src/entities/article-content/content/article-content.ts:568"
   ],
+  "사회적 시사점": [
+   "src/entities/article-content/content/article-content.ts:572"
+  ],
+  "Societal Implication": [
+   "src/entities/article-content/content/article-content.ts:572"
+  ],
+  "AI가 일상의 설비가 될수록, 언어마다 다른 표현 효율을 재고 좁히는 일은 기술 문제에 머무르지 않는다.": [
+   "src/entities/article-content/content/article-content.ts:574"
+  ],
   "The more AI becomes everyday infrastructure, the less this stays a purely technical question.": [
-   "src/entities/article-content/content/article-content.ts:569"
+   "src/entities/article-content/content/article-content.ts:575"
   ],
   "09 / METHODOLOGY · 연구 방법론 및 과학적 경계": [
-   "src/entities/article-content/content/article-content.ts:578"
+   "src/entities/article-content/content/article-content.ts:584"
   ],
   "09 / METHODOLOGY · SCIENTIFIC BOUNDARIES & LIMITATIONS": [
-   "src/entities/article-content/content/article-content.ts:579"
+   "src/entities/article-content/content/article-content.ts:585"
   ],
   "연구 방법론 및 6대 경계 원칙": [
-   "src/entities/article-content/content/article-content.ts:582"
+   "src/entities/article-content/content/article-content.ts:588"
   ],
   "Methodology & 6 Core Boundary Principles": [
-   "src/entities/article-content/content/article-content.ts:583"
+   "src/entities/article-content/content/article-content.ts:589"
   ],
   "이 기사가 무엇을 어떻게 쟀는지, 그리고 이 데이터로 말할 수 없는 것이 무엇인지 밝혀둔다.": [
-   "src/entities/article-content/content/article-content.ts:586"
-  ],
-  "What we measured, how we measured it, and what this data cannot be used to say.": [
-   "src/entities/article-content/content/article-content.ts:587"
-  ],
-  "이 기사는 어느 언어가 더 나은지를 가리려는 것이 아니고, 특정 서비스를 겨냥한 것도 아니다. 토크나이저가 문장을 자르는 방식이 로마자를 쓰지 않는 언어에 어떤 결과를 남기는지를 재본 것이다.": [
-   "src/entities/article-content/content/article-content.ts:591"
-  ],
-  "자주 붙어 다니는 글자 조합을 하나의 조각으로 묶어나가는 방식을 BPE라고 부른다. 이 기사에서 말하는 조각은 모두 그렇게 만들어진 단위다.": [
    "src/entities/article-content/content/article-content.ts:592"
   ],
-  "측정한 것보다 더 많은 것을 말하지 않기 위해, 이 데이터로 주장하지 않는 것들을 아래에 적어둔다.": [
+  "What we measured, how we measured it, and what this data cannot be used to say.": [
    "src/entities/article-content/content/article-content.ts:593"
   ],
-  "This piece is not an attempt to rank languages, nor is it aimed at any particular service. It measures what a tokenizer’s way of cutting sentences leaves behind for languages that are not written in the Latin alphabet.": [
-   "src/entities/article-content/content/article-content.ts:596"
-  ],
-  "The method that repeatedly merges frequently co-occurring character sequences into single pieces is called BPE. Every \"piece\" in this article is a unit produced that way.": [
+  "이 기사는 어느 언어가 더 나은지를 가리려는 것이 아니고, 특정 서비스를 겨냥한 것도 아니다. 토크나이저가 문장을 자르는 방식이 로마자를 쓰지 않는 언어에 어떤 결과를 남기는지를 재본 것이다.": [
    "src/entities/article-content/content/article-content.ts:597"
   ],
-  "So that nothing is claimed beyond what was measured, what this data does not support is set out below.": [
+  "자주 붙어 다니는 글자 조합을 하나의 조각으로 묶어나가는 방식을 BPE라고 부른다. 이 기사에서 말하는 조각은 모두 그렇게 만들어진 단위다.": [
    "src/entities/article-content/content/article-content.ts:598"
   ],
-  "이 기사의 측정값은 모두 o200k_base 토크나이저와 AI허브 한·영 병렬 말뭉치를 기준으로 한 것이다. 다른 언어와의 비교에 인용한 수치는 다른 연구가 다른 토크나이저로 잰 것이므로 같은 자에 놓고 볼 수 없다. 모델 개발사가 사전을 손보면 값은 달라진다.": [
+  "측정한 것보다 더 많은 것을 말하지 않기 위해, 이 데이터로 주장하지 않는 것들을 아래에 적어둔다.": [
+   "src/entities/article-content/content/article-content.ts:599"
+  ],
+  "This piece is not an attempt to rank languages, nor is it aimed at any particular service. It measures what a tokenizer’s way of cutting sentences leaves behind for languages that are not written in the Latin alphabet.": [
+   "src/entities/article-content/content/article-content.ts:602"
+  ],
+  "The method that repeatedly merges frequently co-occurring character sequences into single pieces is called BPE. Every \"piece\" in this article is a unit produced that way.": [
    "src/entities/article-content/content/article-content.ts:603"
   ],
+  "So that nothing is claimed beyond what was measured, what this data does not support is set out below.": [
+   "src/entities/article-content/content/article-content.ts:604"
+  ],
+  "이 기사의 측정값은 모두 o200k_base 토크나이저와 AI허브 한·영 병렬 말뭉치를 기준으로 한 것이다. 다른 언어와의 비교에 인용한 수치는 다른 연구가 다른 토크나이저로 잰 것이므로 같은 자에 놓고 볼 수 없다. 모델 개발사가 사전을 손보면 값은 달라진다.": [
+   "src/entities/article-content/content/article-content.ts:609"
+  ],
   "Every measurement in this article was made with the o200k_base tokenizer on the AI Hub Korean-English parallel corpus. The cross-language figures come from separate research using a different tokenizer and cannot be placed on the same scale. If a vendor revises its dictionary, the numbers move.": [
-   "src/entities/article-content/content/article-content.ts:606"
-  ],
-  "1. 토큰 수는 어떤 토크나이저를 쓰느냐에 따라 달라진다. 이 기사의 값은 o200k_base 기준이다.": [
-   "src/entities/article-content/content/article-content.ts:611"
-  ],
-  "2. 누적 시뮬레이션은 실제 사용 기록이 아니라, 한 번의 차이를 반복 횟수만큼 곱한 산술 예시다.": [
    "src/entities/article-content/content/article-content.ts:612"
   ],
-  "3. 다른 언어와의 비교는 Petrov 외(2023)가 cl100k_base로 측정한 값을 인용한 것이고, 이 기사의 측정과 직접 비교할 수 없다.": [
-   "src/entities/article-content/content/article-content.ts:613"
-  ],
-  "4. 분야별 토큰 비율은 싣지 않았다. 말뭉치에서 분야와 출처가 엇갈려 있어 둘을 갈라낼 수 없기 때문이다.": [
-   "src/entities/article-content/content/article-content.ts:614"
-  ],
-  "1. Token counts depend on which tokenizer is used. Every figure here is o200k_base.": [
+  "1. 토큰 수는 어떤 토크나이저를 쓰느냐에 따라 달라진다. 이 기사의 값은 o200k_base 기준이다.": [
    "src/entities/article-content/content/article-content.ts:617"
   ],
-  "2. The cumulative simulation is arithmetic on a single measured difference, not a record of real usage.": [
+  "2. 누적 시뮬레이션은 실제 사용 기록이 아니라, 한 번의 차이를 반복 횟수만큼 곱한 산술 예시다.": [
    "src/entities/article-content/content/article-content.ts:618"
   ],
-  "3. The cross-language comparison quotes Petrov et al. (2023), measured with cl100k_base, and is not directly comparable to our own measurement.": [
+  "3. 다른 언어와의 비교는 Petrov 외(2023)가 cl100k_base로 측정한 값을 인용한 것이고, 이 기사의 측정과 직접 비교할 수 없다.": [
    "src/entities/article-content/content/article-content.ts:619"
   ],
-  "4. No per-subject token ratios are published. Subject area and source corpus do not cross cleanly enough to tell the two apart.": [
+  "4. 분야별 토큰 비율은 싣지 않았다. 말뭉치에서 분야와 출처가 엇갈려 있어 둘을 갈라낼 수 없기 때문이다.": [
    "src/entities/article-content/content/article-content.ts:620"
   ],
+  "1. Token counts depend on which tokenizer is used. Every figure here is o200k_base.": [
+   "src/entities/article-content/content/article-content.ts:623"
+  ],
+  "2. The cumulative simulation is arithmetic on a single measured difference, not a record of real usage.": [
+   "src/entities/article-content/content/article-content.ts:624"
+  ],
+  "3. The cross-language comparison quotes Petrov et al. (2023), measured with cl100k_base, and is not directly comparable to our own measurement.": [
+   "src/entities/article-content/content/article-content.ts:625"
+  ],
+  "4. No per-subject token ratios are published. Subject area and source corpus do not cross cleanly enough to tell the two apart.": [
+   "src/entities/article-content/content/article-content.ts:626"
+  ],
   "draft": [
-   "src/entities/article-content/content/article-content.ts:627",
+   "src/entities/article-content/content/article-content.ts:633",
    "src/entities/article-content/model/types.ts:3"
   ],
   "10 / RESULT · 결언 (EDITORIAL CONCLUSION)": [
-   "src/entities/article-content/content/article-content.ts:629"
+   "src/entities/article-content/content/article-content.ts:635"
   ],
   "10 / RESULT · SYNTHESIS (EDITORIAL CONCLUSION)": [
-   "src/entities/article-content/content/article-content.ts:630"
+   "src/entities/article-content/content/article-content.ts:636"
   ],
   "같은 의미는,\n같은 길이가 아니었다": [
-   "src/entities/article-content/content/article-content.ts:633"
+   "src/entities/article-content/content/article-content.ts:639"
   ],
   "Same Meaning Was Not,\nEqual in Length": [
-   "src/entities/article-content/content/article-content.ts:634"
+   "src/entities/article-content/content/article-content.ts:640"
   ],
   "같은 의미는, 같은 길이가 아니었습니다.": [
-   "src/entities/article-content/content/article-content.ts:645"
+   "src/entities/article-content/content/article-content.ts:651"
   ],
   "Same meaning was not equal in length.": [
-   "src/entities/article-content/content/article-content.ts:646"
+   "src/entities/article-content/content/article-content.ts:652"
   ],
   "한국어와 영어의 토큰 비율은 383만 쌍의 중앙값 기준 1.33배였다. 문장 하나로 보면 토큰 몇 개 차이지만, 토큰이 비용과 문맥과 사용 한도를 나누는 단위로 쓰이는 한 이 차이는 개인의 프롬프트 창을 넘어 조직의 업무와 국가 인프라의 처리량까지 따라간다.": [
-   "src/entities/article-content/content/article-content.ts:664"
-  ],
-  "실제 청구액, 무료 요금제의 한도, 응답의 품질, 그리고 그것이 사회에 남기는 격차까지는 각각 따로 확인해야 할 문제다. 이 기사가 할 수 있는 일은 그 논의가 시작될 지점을 383만 쌍의 문장으로 짚어두는 데 있다.": [
-   "src/entities/article-content/content/article-content.ts:665"
-  ],
-  "이 격차는 한국어가 본래 비효율적인 언어라는 뜻이 아니다. 특정 토크나이저와 특정 말뭉치에서 관측된 결과이고, 언제나 더 비싸다거나 사회적 불평등의 확인된 원인이라고 말할 수 있는 단계도 아니다.": [
-   "src/entities/article-content/content/article-content.ts:666"
-  ],
-  "Across 3.84 million pairs the median Korean-to-English token ratio was 1.33x. In a single sentence that is a handful of tokens. But as long as tokens are the unit that meters cost, context and usage limits, the gap follows the text from a personal prompt window through an organisation’s workflows to national infrastructure throughput.": [
-   "src/entities/article-content/content/article-content.ts:669"
-  ],
-  "Actual bills, free-tier limits, answer quality, and whatever any of it leaves behind socially are each separate questions to settle separately. What this article can do is mark where that conversation starts, using 3.84 million sentence pairs.": [
    "src/entities/article-content/content/article-content.ts:670"
   ],
-  "The gap does not mean Korean is an inefficient language. It is what one tokenizer did to one corpus, and it is not yet grounds for saying Korean always costs more, or that this is a confirmed cause of social inequality.": [
+  "실제 청구액, 무료 요금제의 한도, 응답의 품질, 그리고 그것이 사회에 남기는 격차까지는 각각 따로 확인해야 할 문제다. 이 기사가 할 수 있는 일은 그 논의가 시작될 지점을 383만 쌍의 문장으로 짚어두는 데 있다.": [
    "src/entities/article-content/content/article-content.ts:671"
+  ],
+  "이 격차는 한국어가 본래 비효율적인 언어라는 뜻이 아니다. 특정 토크나이저와 특정 말뭉치에서 관측된 결과이고, 언제나 더 비싸다거나 사회적 불평등의 확인된 원인이라고 말할 수 있는 단계도 아니다.": [
+   "src/entities/article-content/content/article-content.ts:672"
+  ],
+  "Across 3.84 million pairs the median Korean-to-English token ratio was 1.33x. In a single sentence that is a handful of tokens. But as long as tokens are the unit that meters cost, context and usage limits, the gap follows the text from a personal prompt window through an organisation’s workflows to national infrastructure throughput.": [
+   "src/entities/article-content/content/article-content.ts:675"
+  ],
+  "Actual bills, free-tier limits, answer quality, and whatever any of it leaves behind socially are each separate questions to settle separately. What this article can do is mark where that conversation starts, using 3.84 million sentence pairs.": [
+   "src/entities/article-content/content/article-content.ts:676"
+  ],
+  "The gap does not mean Korean is an inefficient language. It is what one tokenizer did to one corpus, and it is not yet grounds for saying Korean always costs more, or that this is a confirmed cause of social inequality.": [
+   "src/entities/article-content/content/article-content.ts:677"
   ],
   "../../../types": [
    "src/entities/article-content/content/impact-scale-levels.ts:5",
@@ -1441,61 +1442,58 @@
    "src/entities/flores-citation/content/flores-citation.ts:51"
   ],
   "한국어만의 문제인가? 선행연구는 아니라고 말한다": [
-   "src/entities/flores-citation/content/flores-citation.ts:76"
+   "src/entities/flores-citation/content/flores-citation.ts:82"
   ],
   "Is This a Korean-Only Problem? Prior Research Says No": [
-   "src/entities/flores-citation/content/flores-citation.ts:77"
+   "src/entities/flores-citation/content/flores-citation.ts:83"
   ],
   "이 현상이 한글만의 특수한 예외인지 확인하려면 다른 언어를 같이 봐야 한다.": [
-   "src/entities/flores-citation/content/flores-citation.ts:80"
+   "src/entities/flores-citation/content/flores-citation.ts:86"
   ],
   "To check whether this is a special exception unique to Korean, other languages need to be looked at together.": [
-   "src/entities/flores-citation/content/flores-citation.ts:81"
+   "src/entities/flores-citation/content/flores-citation.ts:87"
   ],
   "Petrov·La Malfa·Torr·Bibi 연구진은 NeurIPS 2023에서 FLORES-200의 동일 의미 병렬문장 2,000개를 여러 토크나이저로 비교했다. 연구진이 공개한 tokenization_lengths.csv의 cl100k_base 열을 영어=1로 다시 계산하면 다음과 같다.": [
-   "src/entities/flores-citation/content/flores-citation.ts:84"
+   "src/entities/flores-citation/content/flores-citation.ts:90"
   ],
   "Petrov, La Malfa, Torr, and Bibi compared 2,000 semantically-equivalent FLORES-200 parallel sentences across multiple tokenizers at NeurIPS 2023. Recalculating the cl100k_base column of their published tokenization_lengths.csv with English normalized to 1 yields the following.": [
-   "src/entities/flores-citation/content/flores-citation.ts:85"
+   "src/entities/flores-citation/content/flores-citation.ts:91"
   ],
   "이 수치는 우리 연구의 1.33배와 직접 비교하면 안 된다. 데이터셋도 다르고 토크나이저도 다르다. Petrov 연구는 FLORES-200 + cl100k_base, 본 연구는 약 384만 한-영 대응쌍 + o200k_base다.": [
-   "src/entities/flores-citation/content/flores-citation.ts:88"
+   "src/entities/flores-citation/content/flores-citation.ts:94"
   ],
   "These figures should not be directly compared to our own study's 1.33× median. Both the dataset and the tokenizer differ: the Petrov study uses FLORES-200 + cl100k_base, while our study uses roughly 3.84 million Korean-English sentence pairs + o200k_base.": [
-   "src/entities/flores-citation/content/flores-citation.ts:89"
+   "src/entities/flores-citation/content/flores-citation.ts:95"
   ],
   "하지만 방향은 중요하다. 높은 tokenization length가 한국어에서만 나타난 것이 아니다. 중국어, 러시아어, 아랍어에서도 영어보다 큰 격차가 나타났다. 따라서 기사 프레임은 \"한글만 유독 비효율적\"이 아니라 이렇게 잡는 편이 정확하다.": [
-   "src/entities/flores-citation/content/flores-citation.ts:92"
-  ],
-  "But the direction matters. Elevated tokenization length is not unique to Korean — Chinese, Russian, and Arabic all showed a larger gap than English as well. The article's frame should therefore not be \"Korean is uniquely inefficient,\" but the following instead.": [
-   "src/entities/flores-citation/content/flores-citation.ts:93"
-  ],
-  "선행연구와의 정합성": [
-   "src/entities/flores-citation/content/flores-citation.ts:96"
-  ],
-  "Consistency With Prior Research": [
-   "src/entities/flores-citation/content/flores-citation.ts:96"
-  ],
-  "영어 중심으로 보이지 않던 '토크나이저의 언어별 격차'가 한국어에서도 다시 관측됐다. 토크나이저와 데이터셋이 달라지면 격차의 크기는 달라진다. 다만 같은 의미를 세는 길이가 언어에 따라 달라지는 현상은 여러 토크나이저 조건에서 반복해서 관찰돼 왔다.": [
    "src/entities/flores-citation/content/flores-citation.ts:98"
   ],
-  "A tokenizer-driven, per-language gap that stays invisible from an English-centric view was observed again in Korean. The size of the gap changes with the tokenizer and dataset. But the phenomenon itself — that the length used to count identical meaning varies by language — has been observed repeatedly, across multiple tokenizer conditions.": [
+  "But the direction matters. Elevated tokenization length is not unique to Korean — Chinese, Russian, and Arabic all showed a larger gap than English as well. The article's frame should therefore not be \"Korean is uniquely inefficient,\" but the following instead.": [
    "src/entities/flores-citation/content/flores-citation.ts:99"
   ],
-  "FIG. 06-1": [
+  "선행연구와의 정합성": [
    "src/entities/flores-citation/content/flores-citation.ts:102"
   ],
-  "영어=1로 본 선행연구 언어별 tokenization length": [
+  "Consistency With Prior Research": [
+   "src/entities/flores-citation/content/flores-citation.ts:102"
+  ],
+  "영어 중심으로 보이지 않던 '토크나이저의 언어별 격차'가 한국어에서도 다시 관측됐다. 토크나이저와 데이터셋이 달라지면 격차의 크기는 달라진다. 다만 같은 의미를 세는 길이가 언어에 따라 달라지는 현상은 여러 토크나이저 조건에서 반복해서 관찰돼 왔다.": [
    "src/entities/flores-citation/content/flores-citation.ts:104"
   ],
-  "Prior-Research Tokenization Length by Language, Normalized to English=1": [
+  "A tokenizer-driven, per-language gap that stays invisible from an English-centric view was observed again in Korean. The size of the gap changes with the tokenizer and dataset. But the phenomenon itself — that the length used to count identical meaning varies by language — has been observed repeatedly, across multiple tokenizer conditions.": [
    "src/entities/flores-citation/content/flores-citation.ts:105"
   ],
+  "영어=1로 본 선행연구 언어별 tokenization length": [
+   "src/entities/flores-citation/content/flores-citation.ts:119"
+  ],
+  "Prior-Research Tokenization Length by Language, Normalized to English=1": [
+   "src/entities/flores-citation/content/flores-citation.ts:120"
+  ],
   "출처: Petrov et al. (2023), NeurIPS — FLORES-200 / cl100k_base, N=2,000 병렬문장": [
-   "src/entities/flores-citation/content/flores-citation.ts:108"
+   "src/entities/flores-citation/content/flores-citation.ts:123"
   ],
   "Source: Petrov et al. (2023), NeurIPS — FLORES-200 / cl100k_base, N=2,000 parallel sentences": [
-   "src/entities/flores-citation/content/flores-citation.ts:109"
+   "src/entities/flores-citation/content/flores-citation.ts:124"
   ],
   "./content/flores-citation": [
    "src/entities/flores-citation/index.ts:1"

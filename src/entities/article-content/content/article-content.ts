@@ -446,6 +446,12 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     'Benchmarking world language systems across the Flores-200 parallel corpus shows that Latin-script languages tend to use fewer tokens, while non-Latin scripts tend to require more, due to underrepresentation in tokenizer vocabularies.',
   ],
 },
+    // NOT CONSUMED. S4.5 renders FLORES_CITATION_NOTE's own figure metadata,
+    // because that exhibit cites a different corpus and tokenizer and is kept
+    // structurally separate. These three fields describe the project's own
+    // 12-language chart, removed in PR #32. Left in place rather than deleted
+    // so the record of what the section used to show survives; corrected in
+    // this pass so they do not read as a live description of the page.
     figureNumber: 'FIG. 06',
     figureCaption: {
       ko: '영어를 1.00배로 뒀을 때의 언어별 토큰 사용 비율 (cl100k_base 기준)',
