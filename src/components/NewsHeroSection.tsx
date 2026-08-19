@@ -163,7 +163,11 @@ export const NewsHeroSection: React.FC = () => {
             </ArticlePullQuote>
 
             <ArticleBigFinding
-              bigNumber={(isKo ? introData.keyFinding?.bigNumber?.ko : introData.keyFinding?.bigNumber?.en) || '약 1.2× ~ 1.8×'}
+              // No literal fallback. The one that stood here was '약 1.2× ~ 1.8×',
+              // a figure retired by the D1 ruling — if the entity ever went
+              // missing, the page would quietly republish a withdrawn number
+              // instead of showing nothing.
+              bigNumber={(isKo ? introData.keyFinding?.bigNumber?.ko : introData.keyFinding?.bigNumber?.en) ?? ''}
               label={isKo ? introData.keyFinding?.label?.ko : introData.keyFinding?.label?.en}
               statement={isKo ? introData.keyFinding?.statement.ko : introData.keyFinding?.statement.en}
             />

@@ -210,7 +210,7 @@ the styling, and every design change silently invalidates it.
 | `HERO-036` | NewsHeroSection | 145-147 | `div` | STABLE (data-*) | `div.mb-4` | `data-role="eyebrow"` |
 | `HERO-037` | NewsHeroSection | 155 | `p` | STABLE (data-*) | `p` | `data-collection="introdata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `HERO-038` | NewsHeroSection | 158 | `p` | STABLE (data-*) | `p` | `data-collection="introdata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `HERO-039` | NewsHeroSection | 180-182 | `span` | STABLE (data-*) | `span.tracking-wider.uppercase.font-semibold` | `data-role="…"` |
+| `HERO-039` | NewsHeroSection | 184-186 | `span` | STABLE (data-*) | `span.tracking-wider.uppercase.font-semibold` | `data-role="…"` |
 | `BURD-068` | OccupationSection | 32-46 | `div` | STABLE (data-*) | `div` | `data-role="section-heading"` |
 | `BURD-002` | OccupationSection | 37 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `BURD-003` | OccupationSection | 43 | `span` | STABLE (data-*) | `span` | `data-role="…"` |

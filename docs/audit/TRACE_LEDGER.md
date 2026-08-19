@@ -42,8 +42,8 @@ _S0 Cover / Thesis · src/components/NewsHeroSection.tsx · 34 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `HERO-001` | 28-186 | `section` | DOM STRUCTURE | id | _(section)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `HERO-040` | 34-172 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `HERO-001` | 28-190 | `section` | DOM STRUCTURE | id | _(section)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `HERO-040` | 34-176 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `HERO-002` | 36-46 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 | `HERO-003` | 37-45 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `HERO-004` | 41 | `span` | CONTENT | style | / | — | MEDIUM | B4-content-migration |
@@ -67,15 +67,15 @@ _S0 Cover / Thesis · src/components/NewsHeroSection.tsx · 34 tracked nodes_
 | `HERO-045` | 125-128 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
 | `HERO-032` | 126 | `dt` | CONTENT | STABLE (data-*) | Relative Ratio: | — | MEDIUM | B4-content-migration |
 | `HERO-033` | 127 | `dd` | NUMERIC CLAIM | style | 1.72× (+72% Difference) | — | CRITICAL | B1-numeric-freeze |
-| `HERO-049` | 144-170 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `HERO-049` | 144-174 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
 | `HERO-036` | 145-147 | `div` | DOM STRUCTURE | STABLE (data-*) | _(SectionEyebrow)_ | LABEL_ORPHAN | LOW | B3-semantic-dom |
 | `HERO-050` | 149-151 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
 | `HERO-037` | 155 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `HERO-038` | 158 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `HERO-051` | 161-163 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticlePullQuote)_ | — | LOW | B5-design-roles |
-| `HERO-052` | 165-169 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleBigFinding)_ | — | LOW | B5-design-roles |
-| `HERO-053` | 175-185 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `HERO-039` | 180-182 | `span` | CONTENT | STABLE (data-*) | S1. 토큰 분절 실험실로 스크롤 ⏎ Scroll to S1. Tokenization Compare Lab | — | MEDIUM | B4-content-migration |
+| `HERO-052` | 165-173 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleBigFinding)_ | — | LOW | B5-design-roles |
+| `HERO-053` | 179-189 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `HERO-039` | 184-186 | `span` | CONTENT | STABLE (data-*) | S1. 토큰 분절 실험실로 스크롤 ⏎ Scroll to S1. Tokenization Compare Lab | — | MEDIUM | B4-content-migration |
 
 ## TokenCompareSection
 

@@ -68,7 +68,7 @@ _a term/value row whose halves are nested wrappers — no node in the chain carr
 | `LANG-010` | MultilingualTokenEfficiencySection | 138-143 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-013` | MultilingualTokenEfficiencySection | 144-155 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LANG-016` | MultilingualTokenEfficiencySection | 258-272 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-001` | NewsHeroSection | 28-186 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `HERO-001` | NewsHeroSection | 28-190 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `HERO-003` | NewsHeroSection | 37-45 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `BURD-007` | OccupationSection | 67-92 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `PIPE-010` | PipelineSection | 72-116 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
