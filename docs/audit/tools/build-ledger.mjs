@@ -27,13 +27,15 @@ const WIDGET_CODE = {
   'PipelineSection': 'PIPE', 'TokenPremiumSection': 'PREM', 'OccupationSection': 'BURD',
   'MultilingualTokenEfficiencySection': 'LANG', 'KoreaAIContextSection': 'INFRA',
   'ImpactSection': 'IMPACT', 'MethodSection': 'METH', 'EditorialConclusionSection': 'CONC',
-  'Footer': 'FOOT', 'ArticleElements': 'ART', 'App': 'APP', 'MultilingualSection': 'DEAD',
+  'DecompositionSection': 'DECOMP',
+  'Footer': 'FOOT', 'ArticleElements': 'ART', 'App': 'APP',
   'SelectableCard': 'UI', 'TokenChip': 'UI', 'SectionHeading': 'UI', 'Container': 'UI',
   'Section': 'UI', 'Stack': 'UI', 'Cluster': 'UI', 'Divider': 'UI', 'LanguageSwitch': 'LSW',
 };
 const SECTION_OF = {
   HERO: 'S0 Cover / Thesis', NAV: 'Global header', CMP: 'S1 Quick Compare Lab',
-  PIPE: 'S2 Processing Pipeline', PREM: 'S3 Token Premium & Domains',
+  PIPE: 'S2 Processing Pipeline', DECOMP: 'S2.5 Why the Ratio Exceeds 1',
+  PREM: 'S3 Token Premium & Cohort Structure',
   BURD: 'S4 Occupations & Accumulated Burden', LANG: 'S4.5 Global Multilingual Efficiency',
   INFRA: 'S5 Korea AI Infrastructure', IMPACT: 'S5.2 Socioeconomic Implications',
   METH: 'S6 Methodology & Limits', CONC: 'RESULT Editorial Conclusion', FOOT: 'Footer',
@@ -48,21 +50,13 @@ const codeOf = (file) => WIDGET_CODE[widgetOf(file)] ?? 'MISC';
  * OBSERVATION ONLY — no value is resolved, explained, or replaced here.
  * ---------------------------------------------------------------- */
 const OBSERVED_CONTRADICTIONS = [
-  { severity: 'CONTRADICTS', match: '7 Benchmark', file: 'TokenPremiumSection',
-    observed: 'markup renders "7 Benchmark Domains"',
-    entity: 'DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53)' },
-  { severity: 'CONTRADICTS', match: 'Max Observed: 1.83', file: 'TokenPremiumSection',
-    observed: 'markup renders "Max Observed: 1.83×" directly under the chart',
-    entity: 'highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web)' },
-  { severity: 'CONTRADICTS', match: 'Business (1.44', file: 'TokenPremiumSection',
-    observed: 'markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"',
-    entity: 'no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38' },
-  { severity: 'CONTRADICTS', match: '1.68', file: 'TokenPremiumSection',
-    observed: 'markup renders "Average Token Premium: 1.68× (+68%)"',
-    entity: 'arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68' },
-  { severity: 'CONTRADICTS', match: '1.29', file: 'TokenPremiumSection',
-    observed: 'markup renders the headline range "1.29× ~ 1.83×"',
-    entity: 'entity ratio range is 1.13 – 1.75' },
+  /* The eight S3 rows that stood here are gone. Their nodes were removed or
+     rebuilt under the D1 ruling of 2026-08-19, and the section now reads from
+     entities/rq1-canonical — see CANONICAL_PROVENANCE below. Their disposition
+     is recorded in DIRECTOR_DECISIONS.md and shared/trace/claims.ts, which is
+     where the record of a withdrawn figure belongs; leaving dead match rules
+     here would make the tool report contradictions against markup that no
+     longer exists. */
   { severity: 'CONTRADICTS', match: '31 TOKENS', file: 'NewsHeroSection',
     observed: 'markup renders "31 TOKENS" for the Korean exhibit row',
     entity: 'no CURATED_PAIRED_SENTENCES entry has hangulCount 31; TOKEN_BASELINE_SIMULATION.baseKoPerPrompt is 31' },
@@ -81,9 +75,86 @@ const OBSERVED_CONTRADICTIONS = [
   { severity: 'CONTRADICTS', match: 'NAV_SECTIONS', file: 'StoryProgress',
     observed: 'header nav renders one entry per NAV_SECTIONS item (9)',
     entity: 'App.tsx mounts 10 anchored sections; id="infrastructure" has no nav entry' },
-  { severity: 'CONTRADICTS', match: '1.00×', file: 'TokenPremiumSection',
-    observed: 'markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"',
-    entity: 'no baseline row exists in DOMAIN_DISTRIBUTION_DATA' },
+];
+
+/* ---------------------------------------------------------------- *
+ * Values whose provenance IS established.
+ *
+ * This is the half the ledger could not express before. Every row names an
+ * artifact path + SHA-256 prefix in the research repo at 925697c, by way of
+ * entities/rq1-canonical, whose `provenance` field is non-optional.
+ *
+ * A row here is NOT "verified by this tool" — the tool cannot open the
+ * research repo. It records that the rendering site resolves to an entity
+ * that names its source, which is the property D1 was blocked on.
+ * ---------------------------------------------------------------- */
+const CANONICAL_PROVENANCE = [
+  /* --- S3: the primary result and its restatements in prose --- */
+  { match: '3,835,988', file: 'TokenPremiumSection', entity: 'COHORT_N', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'cohort size, counted in 문장쌍 (pairs), not sentences' },
+  { match: '383만', file: 'TokenPremiumSection', entity: 'COHORT_N', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'the same cohort size restated in prose, rounded to 383만 / 3.84 million' },
+  { match: '1.33', file: 'TokenPremiumSection', entity: 'MEDIAN_TP', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'exp(median(log TP)) = 4/3. A median-scale quantity; never the aggregate ratio' },
+  { match: '95% 신뢰구간', file: 'TokenPremiumSection', entity: 'BOOTSTRAP_CI', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'zero-width interval; ships only with the degeneracy explanation' },
+  { match: '95% CONFIDENCE INTERVAL', file: 'TokenPremiumSection', entity: 'BOOTSTRAP_CI', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'zero-width interval, EN locale' },
+  { match: '969634713', file: 'TokenPremiumSection', entity: 'BOOTSTRAP_CI.seed', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'bootstrap seed; replicates B = 2000, not the 200만 the manuscripts state' },
+  { match: '76,000', file: 'TokenPremiumSection', entity: 'LATTICE_FACTS', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_CI_DEGENERACY_NOTE @ 6ff51aaa167ad59e',
+    note: 'order-statistic margin on each side of the median point mass' },
+  { match: 'p50', file: 'TokenPremiumSection', entity: 'TP_PERCENTILES', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'percentile ladder item ids; p95 is deliberately absent from this list' },
+  { match: '025에만', file: 'TokenPremiumSection', entity: 'DOMAIN_COMPOSITION', tier: 'CANONICAL',
+    artifact: 'G5_IDENTIFIABILITY_v001 @ 1069b46ed032ed28',
+    note: 'source labels on the domain rows; the tags are why no per-domain ratio ships' },
+  { match: 'COMPOSITE_CELL_CONTROL_ONLY', file: 'TokenPremiumSection', entity: 'IDENTIFIABILITY.verdict', tier: 'CANONICAL',
+    artifact: 'G5_IDENTIFIABILITY_v001 @ 1069b46ed032ed28',
+    note: 'the artifact verdict, rendered on the page' },
+  { match: '768a3bccc7d5d081', file: 'TokenPremiumSection', entity: 'PROVENANCE.rq1', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'the artifact hash rendered on the page itself, under the percentile ladder' },
+
+  /* --- S3: below-canonical tiers must carry a visible qualifier on the page.
+         They are catalogued here so the qualifier is auditable, not assumed. --- */
+  { match: '95백분위 (참고 수치)', file: 'TokenPremiumSection', entity: 'PRE_G5_P95', tier: 'PRE_G5_DESCRIPTIVE',
+    artifact: 'KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL]',
+    note: 'absent from canonical RQ1 descriptive, which holds p01/p25/p75/p99 and no p95. Renders with a qualifier' },
+  { match: '95th pct (reference only)', file: 'TokenPremiumSection', entity: 'PRE_G5_P95', tier: 'PRE_G5_DESCRIPTIVE',
+    artifact: 'KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL]',
+    note: 'same, EN locale' },
+
+  /* --- S2.5 decomposition --- */
+  { match: '383만', file: 'DecompositionSection', entity: 'COHORT_N', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'cohort size restated in the decomposition section' },
+  { match: '3.84 MILLION', file: 'DecompositionSection', entity: 'COHORT_N', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'cohort size, EN locale' },
+  { match: '1.33', file: 'DecompositionSection', entity: 'MEDIAN_TP', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'the final ratio the three stages land on' },
+  { match: '1.00배로', file: 'DecompositionSection', entity: 'MEASUREMENT_FRAME', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'English fixed at 1.00 is the definition of the ratio, not a measured row' },
+  { match: 'English at 1.00x', file: 'DecompositionSection', entity: 'MEASUREMENT_FRAME', tier: 'CANONICAL',
+    artifact: 'NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081',
+    note: 'same, EN locale' },
+  { match: '사전 진단 문서에만', file: 'DecompositionSection', entity: 'DECOMPOSITION', tier: 'PRE_G5_DESCRIPTIVE',
+    artifact: 'KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL]',
+    note: 'the disclosure that names the tier of the three decomposition medians' },
+  { match: 'preliminary diagnostics document', file: 'DecompositionSection', entity: 'DECOMPOSITION', tier: 'PRE_G5_DESCRIPTIVE',
+    artifact: 'KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL]',
+    note: 'same, EN locale' },
 ];
 
 const NOISE_KINDS = new Set(['year', 'identifier', 'label-ordinal']);
@@ -98,8 +169,11 @@ const NOISE_KINDS = new Set(['year', 'identifier', 'label-ordinal']);
  * UNLINKED with the coincidence noted — never as "verified".
  */
 const COUNT_CHECKS = [
-  { match: '6 Key Principles', file: 'MethodSection', entity: 'WHAT_WE_DO_NOT_CLAIM', length: 6, rendered: 6 },
-  { match: '7 Benchmark Domains', file: 'TokenPremiumSection', entity: 'DOMAIN_DISTRIBUTION_DATA', length: 6, rendered: 7 },
+  /* Both entries that lived here are closed. MethodSection's "6 Key
+     Principles" now interpolates WHAT_WE_DO_NOT_CLAIM.length, and
+     TokenPremiumSection's "7 Benchmark Domains" was removed along with the
+     array it miscounted. A hardcoded count that reappears anywhere should be
+     added back here. */
 ];
 
 /* ---------------------------------------------------------------- *
@@ -334,8 +408,16 @@ for (const r of raw) {
 
   const countCheck = COUNT_CHECKS.find((c) => r.file.includes(c.file) && r.literalText.includes(c.match));
 
+  const canonical = CANONICAL_PROVENANCE.find(
+    (c) => r.file.includes(c.file) && r.literalText.includes(c.match)
+  );
+
   let mismatch = 'N/A';
-  if (countCheck && countCheck.rendered === countCheck.length) {
+  if (canonical) {
+    mismatch = canonical.tier === 'CANONICAL'
+      ? `CANONICAL — ${canonical.artifact}`
+      : `${canonical.tier} — ${canonical.artifact}`;
+  } else if (countCheck && countCheck.rendered === countCheck.length) {
     mismatch = `UNLINKED — count coincides with ${countCheck.entity}.length (${countCheck.length}) but is not read from it`;
   } else if (claims.length) {
     if (contradiction) mismatch = contradiction.severity === 'DUPLICATED'
@@ -352,6 +434,7 @@ for (const r of raw) {
 
   let risk = 'LOW';
   if (r.unresolvedSpread) risk = 'UNTRUSTED (unresolved spread)';
+  else if (canonical) risk = canonical.tier === 'CANONICAL' ? 'LOW' : 'MEDIUM';
   else if (mismatch.startsWith('CONTRADICTED')) risk = 'CRITICAL';
   else if (mismatch.startsWith('DUPLICATED')) risk = 'HIGH';
   else if (mismatch.startsWith('UNLINKED')) risk = 'HIGH';
@@ -398,6 +481,7 @@ for (const r of raw) {
     entityOwnedLiteral: literalOwned,
     mismatchStatus: mismatch,
     contradiction: contradiction ? { severity: contradiction.severity, observed: contradiction.observed, entity: contradiction.entity } : null,
+    canonical: canonical ? { entity: canonical.entity, artifact: canonical.artifact, tier: canonical.tier, note: canonical.note } : null,
     countCheck: countNote,
     directorDecisionRequired: decisionRequired,
     semanticGap: gap?.gap ?? null,

@@ -8,8 +8,8 @@ Every content-bearing or structure-bearing node in the rendered frontend.
 A node enters this ledger if it renders a literal, asserts a number, has a
 semantic-structure gap, or is a section root.
 
-**446** live items across **20** rendering units, plus
-**57** items in `MultilingualSection.tsx` (dead file, listed
+**509** live items across **21** rendering units, plus
+**0** items in `MultilingualSection.tsx` (dead file, listed
 separately at the end so it never inflates a count).
 
 Columns: **Addr** = how the node can be targeted today
@@ -38,57 +38,44 @@ _Global header · src/components/StoryProgress.tsx · 11 tracked nodes_
 
 ## NewsHeroSection
 
-_S0 Cover / Thesis · src/components/NewsHeroSection.tsx · 47 tracked nodes_
+_S0 Cover / Thesis · src/components/NewsHeroSection.tsx · 34 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `HERO-001` | 28-211 | `section` | DOM STRUCTURE | id | _(section)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `HERO-040` | 34-197 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `HERO-002` | 36-49 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `HERO-001` | 28-186 | `section` | DOM STRUCTURE | id | _(section)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `HERO-040` | 34-172 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `HERO-002` | 36-46 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 | `HERO-003` | 37-45 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `HERO-004` | 41 | `span` | CONTENT | style | / | — | MEDIUM | B4-content-migration |
-| `HERO-005` | 42 | `span` | CONTENT | STABLE (data-*) | Data Journalism Investigation | — | MEDIUM | B4-content-migration |
+| `HERO-054` | 42 | `span` | CONTENT | STABLE (data-*) | 데이터 저널리즘 ⏎ Data Journalism | — | MEDIUM | B4-content-migration |
 | `HERO-006` | 43 | `span` | CONTENT | style | / | — | MEDIUM | B4-content-migration |
 | `HERO-007` | 44 | `span` | CONTENT | style | 2026 | — | MEDIUM | B4-content-migration |
-| `HERO-008` | 47 | `span` | CONTENT | STABLE (data-*) | COVER &amp; CORE THESIS | — | MEDIUM | B4-content-migration |
-| `HERO-009` | 56 | `span` | CONTENT | STABLE (data-*) | EXPLORING LINGUISTIC EFFICIENCY IN GEN-AI | — | MEDIUM | B4-content-migration |
-| `HERO-010` | 61-69 | `h1` | DOM STRUCTURE | STABLE (data-*) | _(h1)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `HERO-041` | 66 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(HeadingAccent)_ | — | LOW | B5-design-roles |
-| `HERO-011` | 81-98 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `HERO-042` | 86-89 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-012` | 87 | `dt` | CONTENT | STABLE (data-*) | ANALYSIS TARGET | — | MEDIUM | B4-content-migration |
-| `HERO-013` | 88 | `dd` | CONTENT | STABLE (data-*) | o200k_base &amp; Flores-200 | — | MEDIUM | B4-content-migration |
-| `HERO-043` | 90-93 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-015` | 91 | `dt` | CONTENT | STABLE (data-*) | CORE METRIC | — | MEDIUM | B4-content-migration |
-| `HERO-016` | 92 | `dd` | CONTENT | STABLE (data-*) | Token Premium Ratio | — | MEDIUM | B4-content-migration |
-| `HERO-044` | 94-97 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-018` | 95 | `dt` | CONTENT | STABLE (data-*) | OBSERVED GAP | — | MEDIUM | B4-content-migration |
-| `HERO-019` | 96 | `dd` | NUMERIC CLAIM | style | +78% Hangul Token Burden | — | HIGH | B1-numeric-freeze |
-| `HERO-045` | 105-110 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-021` | 106-108 | `dt` | CONTENT | STABLE (data-*) | FIG. 01 / REAL TOKEN SPLIT EXHIBIT | — | MEDIUM | B4-content-migration |
-| `HERO-022` | 109 | `dd` | CONTENT | STABLE (data-*) | Pair Benchmark | — | MEDIUM | B4-content-migration |
-| `HERO-046` | 114-120 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-024` | 115-118 | `dt` | CONTENT | STABLE (data-*) | Korean (한국어) | — | MEDIUM | B4-content-migration |
-| `HERO-025` | 119 | `dd` | NUMERIC CLAIM | style | 31 TOKENS | — | CRITICAL | B1-numeric-freeze |
-| `HERO-026` | 124-126 | `p` | CONTENT | STABLE (data-*) | "인공지능 모델의 다국어 토큰화 처리 효율성..." | — | MEDIUM | B4-content-migration |
-| `HERO-047` | 131-137 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-028` | 132-135 | `dt` | CONTENT | STABLE (data-*) | English (영어) | — | MEDIUM | B4-content-migration |
-| `HERO-029` | 136 | `dd` | NUMERIC CLAIM | style | 18 TOKENS | — | CRITICAL | B1-numeric-freeze |
-| `HERO-030` | 141-143 | `p` | CONTENT | STABLE (data-*) | "Multilingual tokenization processing efficiency..." | — | MEDIUM | B4-content-migration |
-| `HERO-048` | 147-150 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `HERO-032` | 148 | `dt` | CONTENT | STABLE (data-*) | Relative Ratio: | — | MEDIUM | B4-content-migration |
-| `HERO-033` | 149 | `dd` | NUMERIC CLAIM | style | 1.72× (+72% Difference) | — | CRITICAL | B1-numeric-freeze |
-| `HERO-034` | 155-157 | `span` | CONTENT | STABLE (data-*) | 보도 및 인프라 동향 아카이브 ⏎ News Evidence & Infrastructure Wave | — | MEDIUM | B4-content-migration |
-| `HERO-035` | 158-162 | `p` | CONTENT | STABLE (data-*) | 국가 AI 인프라 컴퓨팅 센터 구축 및 기업 전사적 AI 도입이 본격화되면서, 토큰 처리 효율성은 개인의 문제를 넘어 시… | — | MEDIUM | B4-content-migration |
-| `HERO-049` | 169-195 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `HERO-036` | 170-172 | `div` | DOM STRUCTURE | STABLE (data-*) | _(SectionEyebrow)_ | LABEL_ORPHAN | LOW | B3-semantic-dom |
-| `HERO-050` | 174-176 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `HERO-037` | 180 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `HERO-038` | 183 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `HERO-051` | 186-188 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticlePullQuote)_ | — | LOW | B5-design-roles |
-| `HERO-052` | 190-194 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleBigFinding)_ | — | LOW | B5-design-roles |
-| `HERO-053` | 200-210 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `HERO-039` | 205-207 | `span` | CONTENT | STABLE (data-*) | S1. 토큰 분절 실험실로 스크롤 ⏎ Scroll to S1. Tokenization Compare Lab | — | MEDIUM | B4-content-migration |
+| `HERO-009` | 53 | `span` | CONTENT | STABLE (data-*) | EXPLORING LINGUISTIC EFFICIENCY IN GEN-AI | — | MEDIUM | B4-content-migration |
+| `HERO-010` | 58-66 | `h1` | DOM STRUCTURE | STABLE (data-*) | _(h1)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
+| `HERO-041` | 63 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(HeadingAccent)_ | — | LOW | B5-design-roles |
+| `HERO-042` | 83-88 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `HERO-055` | 84-86 | `dt` | CONTENT | STABLE (data-*) | FIG. 01 · ⏎ 실제 토큰 분절 비교 ⏎ Real Token Split Exhibit | — | MEDIUM | B4-content-migration |
+| `HERO-056` | 87 | `dd` | CONTENT | STABLE (data-*) | 문장쌍 비교 ⏎ Pair Benchmark | — | MEDIUM | B4-content-migration |
+| `HERO-043` | 92-98 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `HERO-024` | 93-96 | `dt` | CONTENT | STABLE (data-*) | Korean (한국어) | — | MEDIUM | B4-content-migration |
+| `HERO-025` | 97 | `dd` | NUMERIC CLAIM | style | 31 TOKENS | — | CRITICAL | B1-numeric-freeze |
+| `HERO-026` | 102-104 | `p` | CONTENT | STABLE (data-*) | "인공지능 모델의 다국어 토큰화 처리 효율성..." | — | MEDIUM | B4-content-migration |
+| `HERO-044` | 109-115 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `HERO-028` | 110-113 | `dt` | CONTENT | STABLE (data-*) | English (영어) | — | MEDIUM | B4-content-migration |
+| `HERO-029` | 114 | `dd` | NUMERIC CLAIM | style | 18 TOKENS | — | CRITICAL | B1-numeric-freeze |
+| `HERO-030` | 119-121 | `p` | CONTENT | STABLE (data-*) | "Multilingual tokenization processing efficiency..." | — | MEDIUM | B4-content-migration |
+| `HERO-045` | 125-128 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `HERO-032` | 126 | `dt` | CONTENT | STABLE (data-*) | Relative Ratio: | — | MEDIUM | B4-content-migration |
+| `HERO-033` | 127 | `dd` | NUMERIC CLAIM | style | 1.72× (+72% Difference) | — | CRITICAL | B1-numeric-freeze |
+| `HERO-049` | 144-170 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `HERO-036` | 145-147 | `div` | DOM STRUCTURE | STABLE (data-*) | _(SectionEyebrow)_ | LABEL_ORPHAN | LOW | B3-semantic-dom |
+| `HERO-050` | 149-151 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `HERO-037` | 155 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `HERO-038` | 158 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `HERO-051` | 161-163 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticlePullQuote)_ | — | LOW | B5-design-roles |
+| `HERO-052` | 165-169 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleBigFinding)_ | — | LOW | B5-design-roles |
+| `HERO-053` | 175-185 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `HERO-039` | 180-182 | `span` | CONTENT | STABLE (data-*) | S1. 토큰 분절 실험실로 스크롤 ⏎ Scroll to S1. Tokenization Compare Lab | — | MEDIUM | B4-content-migration |
 
 ## TokenCompareSection
 
@@ -96,8 +83,8 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `CMP-001` | 32-245 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `CMP-041` | 33-244 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `CMP-001` | 32-247 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `CMP-041` | 33-246 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `CMP-042` | 35-49 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `CMP-002` | 40 | `span` | CONTENT | STABLE (data-*) | 실제 문장으로 알아보자 | — | LOW | B2-stable-hooks |
 | `CMP-003` | 46 | `span` | CONTENT | STABLE (data-*) | Examining Real Sentence Pairs | — | LOW | B2-stable-hooks |
@@ -105,7 +92,7 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-044` | 53-55 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
 | `CMP-004` | 59 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `CMP-005` | 62 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `CMP-045` | 67-227 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `CMP-045` | 67-229 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
 | `CMP-006` | 70-72 | `div` | CONTENT | STABLE (data-*) | 검증된 대역 문장쌍 선택: ⏎ Select Verified Sentence Pair: | — | MEDIUM | B4-content-migration |
 | `CMP-046` | 74-105 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
 | `CMP-007` | 79-101 | `button` | DESIGN APPLICATION | STABLE (data-*) | _(SelectableCard)_ | — | LOW | B2-stable-hooks |
@@ -114,7 +101,7 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-010` | 90-92 | `span` | CONTENT | STABLE (data-*) | vs ⏎ tok | — | MEDIUM | B4-content-migration |
 | `CMP-011` | 112-157 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-012` | 114-122 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `CMP-013` | 117-119 | `span` | CONTENT | STABLE (data-*) | 한국어 (Hangul Script) | — | MEDIUM | B4-content-migration |
+| `CMP-051` | 117-119 | `span` | CONTENT | STABLE (data-*) | 한국어 ⏎ Korean (Hangul Script) | — | MEDIUM | B4-content-migration |
 | `CMP-014` | 121 | `span` | CONTENT | STABLE (data-*) | 음절 및 형태소 단위 분절 | — | MEDIUM | B4-content-migration |
 | `CMP-015` | 124-131 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-016` | 125-127 | `span` | CONTENT | STABLE (data-*) | INPUT SENTENCE | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
@@ -127,7 +114,7 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-022` | 154 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
 | `CMP-023` | 160-205 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-024` | 162-170 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `CMP-025` | 165-167 | `span` | CONTENT | STABLE (data-*) | ENGLISH (Latin Script) | — | MEDIUM | B4-content-migration |
+| `CMP-052` | 165-167 | `span` | CONTENT | STABLE (data-*) | 영어 ⏎ English (Latin Script) | — | MEDIUM | B4-content-migration |
 | `CMP-026` | 169 | `span` | CONTENT | STABLE (data-*) | Word / Root Subword Units | — | MEDIUM | B4-content-migration |
 | `CMP-027` | 172-179 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-028` | 173-175 | `span` | CONTENT | STABLE (data-*) | EQUIVALENT SENTENCE | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
@@ -138,274 +125,291 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-032` | 198-204 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-033` | 199 | `span` | CONTENT | STABLE (data-*) | English Token Count | — | MEDIUM | B4-content-migration |
 | `CMP-034` | 202 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
-| `CMP-035` | 209-218 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `CMP-035` | 209-220 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
 | `CMP-036` | 210-214 | `div` | CONTENT | STABLE (data-*) | 동일 의미 표현 시 한글 문장이 더 많은 토큰 조각으로 분절되는 현상이 명확히 관측됩니다. ⏎ Hangul consist… | — | MEDIUM | B4-content-migration |
-| `CMP-037` | 215-217 | `div` | CONTENT | STABLE (data-*) | Token Ratio: ⏎ × (+ ⏎ additional tokens) | — | MEDIUM | B4-content-migration |
-| `CMP-038` | 221-225 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `CMP-049` | 230-243 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `CMP-039` | 233 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `CMP-040` | 236 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `CMP-050` | 239-242 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `CMP-053` | 215-219 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `CMP-038` | 223-227 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `CMP-049` | 232-245 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `CMP-039` | 235 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `CMP-040` | 238 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `CMP-050` | 241-244 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## PipelineSection
 
-_S2 Processing Pipeline · src/components/PipelineSection.tsx · 23 tracked nodes_
+_S2 Processing Pipeline · src/components/PipelineSection.tsx · 19 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `PIPE-001` | 24-156 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `PIPE-016` | 25-155 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `PIPE-017` | 27-41 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
-| `PIPE-002` | 32 | `span` | CONTENT | STABLE (data-*) | AI 시대의 새로운 계량 단위 | — | MEDIUM | B4-content-migration |
-| `PIPE-003` | 38 | `span` | CONTENT | STABLE (data-*) | The New Unit of Measurement in AI | — | MEDIUM | B4-content-migration |
-| `PIPE-018` | 44-60 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `PIPE-019` | 45-47 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `PIPE-004` | 49-51 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(ArticleSubheading)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `PIPE-005` | 55 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PIPE-006` | 58 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PIPE-020` | 63-138 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `PIPE-021` | 65-68 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PIPE-008` | 66 | `dt` | CONTENT | STABLE (data-*) | TRANSFORMER PIPELINE SEQUENCING | — | MEDIUM | B4-content-migration |
-| `PIPE-009` | 67 | `dd` | CONTENT | STABLE (data-*) | ★ STEP 02: THE BOTTLENECK | — | MEDIUM | B4-content-migration |
-| `PIPE-022` | 71-129 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `PIPE-010` | 76-125 | `button` | DOM STRUCTURE | STABLE (data-*) | _(SelectableCard)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PIPE-011` | 86-99 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PIPE-012` | 95-97 | `span` | CONTENT | STABLE (data-*) | GAP ORIGIN | — | MEDIUM | B4-content-migration |
-| `PIPE-013` | 132-136 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `PIPE-023` | 141-154 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `PIPE-014` | 144 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PIPE-015` | 147 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PIPE-024` | 150-153 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `PIPE-001` | 25-149 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `PIPE-016` | 26-148 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `PIPE-017` | 28-42 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `PIPE-002` | 33 | `span` | CONTENT | STABLE (data-*) | AI 시대의 새로운 계량 단위 | — | MEDIUM | B4-content-migration |
+| `PIPE-003` | 39 | `span` | CONTENT | STABLE (data-*) | The New Unit of Measurement in AI | — | MEDIUM | B4-content-migration |
+| `PIPE-018` | 45-61 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PIPE-019` | 46-48 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `PIPE-004` | 50-52 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(ArticleSubheading)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
+| `PIPE-005` | 56 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PIPE-006` | 59 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PIPE-020` | 64-129 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `PIPE-022` | 67-120 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `PIPE-010` | 72-116 | `button` | DOM STRUCTURE | STABLE (data-*) | _(SelectableCard)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PIPE-011` | 82-90 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `PIPE-013` | 123-127 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `PIPE-023` | 132-147 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PIPE-024` | 133-136 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `PIPE-014` | 141 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PIPE-015` | 144 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 
 ## TokenPremiumSection
 
-_S3 Token Premium & Domains · src/components/TokenPremiumSection.tsx · 50 tracked nodes_
+_S3 Token Premium & Cohort Structure · src/components/TokenPremiumSection.tsx · 114 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `PREM-001` | 23-214 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `PREM-043` | 24-213 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `PREM-044` | 26-40 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
-| `PREM-002` | 31 | `span` | NUMERIC CLAIM | STABLE (data-*) | 69,432건 정밀 분석 | — | HIGH | B1-numeric-freeze |
-| `PREM-003` | 37 | `span` | NUMERIC CLAIM | STABLE (data-*) | 69,432 Verified KO-EN Pairs | — | HIGH | B1-numeric-freeze |
-| `PREM-045` | 43-55 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `PREM-046` | 44-46 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `PREM-004` | 50 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-005` | 53 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-047` | 58-196 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `PREM-048` | 64-67 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-007` | 65 | `dt` | CONTENT | STABLE (data-*) | CORE EMPIRICAL METRIC | — | MEDIUM | B4-content-migration |
-| `PREM-008` | 66 | `dd` | CONTENT | STABLE (data-*) | o200k_base benchmark | — | MEDIUM | B4-content-migration |
-| `PREM-006` | 69-80 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-010` | 70-72 | `span` | CONTENT | STABLE (data-*) | OBSERVED TOKEN PREMIUM RATIO | — | MEDIUM | B4-content-migration |
-| `PREM-011` | 73-79 | `div` | NUMERIC CLAIM | style | 1.29 ⏎ 1.83 | — | CRITICAL | B1-numeric-freeze |
-| `PREM-012` | 76 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-013` | 77 | `span` | CONTENT | style | ~ | — | MEDIUM | B4-content-migration |
-| `PREM-014` | 78 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-049` | 83-86 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-016` | 84 | `dt` | CONTENT | STABLE (data-*) | Average Token Premium: | — | MEDIUM | B4-content-migration |
-| `PREM-017` | 85 | `dd` | NUMERIC CLAIM | style | 1.68× (+68%) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-050` | 87-90 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-019` | 88 | `dt` | CONTENT | STABLE (data-*) | Baseline (English): | — | MEDIUM | B4-content-migration |
-| `PREM-020` | 89 | `dd` | NUMERIC CLAIM | style | 1.00× (Standard) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-051` | 91-94 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-022` | 92 | `dt` | CONTENT | STABLE (data-*) | Domain Range: | — | MEDIUM | B4-content-migration |
-| `PREM-023` | 93 | `dd` | NUMERIC CLAIM | style | Business (1.44×) ~ Daily (1.83×) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-009` | 99-109 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-025` | 100-102 | `span` | CONTENT | STABLE (data-*) | MATHEMATICAL FORMULA | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
-| `PREM-026` | 103-105 | `p` | CONTENT | STABLE (data-*) | Token Premium = Tokens(Hangul) / Tokens(English) | — | MEDIUM | B4-content-migration |
-| `PREM-027` | 106-108 | `p` | CONTENT | STABLE (data-*) | 동일 의미 전달 조건하에서 언어별 토큰 소비량의 비율을 산출한 지표입니다. | — | MEDIUM | B4-content-migration |
-| `PREM-015` | 115-125 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-052` | 116-123 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-030` | 117-119 | `dt` | CONTENT | STABLE (data-*) | DOMAIN DISTRIBUTION EXHIBIT | — | MEDIUM | B4-content-migration |
-| `PREM-031` | 120-122 | `dd` | CONTENT | STABLE (data-*) | 분야별 토큰 소비 비율 분포 분석 | — | MEDIUM | B4-content-migration |
-| `PREM-032` | 124 | `span` | NUMERIC CLAIM | style | 7 Benchmark Domains | — | CRITICAL | B1-numeric-freeze |
-| `PREM-053` | 128-180 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `PREM-033` | 133-176 | `button` | DESIGN APPLICATION | STABLE (data-*) | _(SelectableCard)_ | — | LOW | B2-stable-hooks |
-| `PREM-034` | 140-165 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `PREM-035` | 152-160 | `span` | CONTENT | STABLE (data-*) | vs ⏎ tokens | — | MEDIUM | B4-content-migration |
-| `PREM-036` | 161-163 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `PREM-054` | 182-185 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `PREM-038` | 183 | `dt` | NUMERIC CLAIM | nth-child | Baseline: 1.00× (English) | — | CRITICAL | B1-numeric-freeze |
-| `PREM-039` | 184 | `dd` | NUMERIC CLAIM | style | Max Observed: 1.83× | — | CRITICAL | B1-numeric-freeze |
-| `PREM-040` | 191-195 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `PREM-055` | 199-212 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `PREM-041` | 202 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-042` | 205 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `PREM-056` | 208-211 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `PREM-001` | 73-690 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `PREM-043` | 79-689 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `PREM-044` | 80-94 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `PREM-057` | 85 | `span` | NUMERIC CLAIM | STABLE (data-*) | 3,835,988쌍 | — | LOW | B1-numeric-freeze |
+| `PREM-058` | 91 | `span` | NUMERIC CLAIM | STABLE (data-*) | 3,835,988 | — | LOW | B1-numeric-freeze |
+| `PREM-045` | 96-101 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PREM-046` | 97 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `PREM-059` | 99 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `PREM-047` | 104-307 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `PREM-048` | 109-118 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-060` | 114 | `dt` | CONTENT | STABLE (data-*) | 측정 기준 ⏎ MEASURED UNDER | — | MEDIUM | B4-content-migration |
+| `PREM-061` | 115-117 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B5-design-roles |
+| `PREM-006` | 120-148 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `PREM-062` | 121-126 | `span` | CONTENT | STABLE (data-*) | 토큰 비율 중앙값 ⏎ MEDIAN TOKEN RATIO | — | MEDIUM | B4-content-migration |
+| `PREM-009` | 127-133 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `PREM-012` | 132 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `PREM-063` | 134-138 | `p` | NUMERIC CLAIM | STABLE (data-*) | 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 값이다. 전체 토큰 수를 합쳐 나눈 값이 아니다. ⏎ The mi… | — | LOW | B1-numeric-freeze |
+| `PREM-064` | 139-147 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `PREM-065` | 144-146 | `span` | CONTENT | style | 의 문장쌍에서 한국어 토큰이 더 많았다 ⏎ of pairs used more Korean tokens | — | MEDIUM | B4-content-migration |
+| `PREM-066` | 152-157 | `span` | CONTENT | STABLE (data-*) | 어느 쪽 토큰이 더 많았나 ⏎ WHICH SIDE USED MORE | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `PREM-053` | 158-182 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `PREM-067` | 160-180 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-068` | 161-170 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-069` | 167-169 | `span` | CONTENT | style | % | — | MEDIUM | B4-content-migration |
+| `PREM-070` | 177-179 | `span` | CONTENT | STABLE (data-*) | 쌍 ⏎ pairs | — | MEDIUM | B4-content-migration |
+| `PREM-015` | 187-208 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `PREM-071` | 192-197 | `span` | CONTENT | STABLE (data-*) | 계산 방법 ⏎ HOW IT IS CALCULATED | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `PREM-072` | 198-202 | `p` | CONTENT | STABLE (data-*) | 토큰 비율 = 한국어 토큰 수 ÷ 영어 토큰 수 ⏎ Token ratio = Korean tokens / English … | — | MEDIUM | B4-content-migration |
+| `PREM-073` | 203-207 | `p` | NUMERIC CLAIM | STABLE (data-*) | 같은 뜻을 담은 문장쌍 하나마다 이 값을 구한 뒤, 383만 개의 값을 모아 분포를 봤다. ⏎ We computed th… | — | LOW | B1-numeric-freeze |
+| `PREM-018` | 214-231 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-049` | 215-227 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-074` | 216-221 | `dt` | CONTENT | STABLE (data-*) | 분포의 각 지점 ⏎ ACROSS THE DISTRIBUTION | — | MEDIUM | B4-content-migration |
+| `PREM-075` | 222-226 | `dd` | NUMERIC CLAIM | STABLE (data-*) | 383만 쌍을 비율 순으로 줄 세웠을 때의 경계값 ⏎ Boundary values when all pairs are or… | — | LOW | B1-numeric-freeze |
+| `PREM-076` | 228-230 | `span` | CONTENT | STABLE (data-*) | N = | — | MEDIUM | B4-content-migration |
+| `PREM-077` | 233-266 | `ul` | NUMERIC CLAIM | STABLE (data-*) | p50 | — | LOW | B1-numeric-freeze |
+| `PREM-078` | 237-263 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-079` | 238-256 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-080` | 250-255 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `PREM-021` | 269-288 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `PREM-081` | 275-282 | `span` | DOM STRUCTURE | style | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-082` | 276-278 | `span` | NUMERIC CLAIM | style | 95백분위 (참고 수치) ⏎ 95th pct (reference only) | — | MEDIUM | B1-numeric-freeze |
+| `PREM-083` | 279-281 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B5-design-roles |
+| `PREM-084` | 283-287 | `p` | CONTENT | STABLE (data-*) | 이 값은 확정 결과표에 없고 사전 진단 문서에만 있다. 위 다섯 개와 같은 수준의 확정 수치로 읽어서는 안 된다. ⏎ T… | — | MEDIUM | B4-content-migration |
+| `PREM-050` | 290-297 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-085` | 295 | `dt` | CONTENT | style | 자료 출처 ⏎ Provenance | — | MEDIUM | B4-content-migration |
+| `PREM-086` | 296 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B5-design-roles |
+| `PREM-040` | 302-306 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `PREM-055` | 310-313 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PREM-087` | 311 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `PREM-088` | 312 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `PREM-089` | 316-503 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `PREM-090` | 320-325 | `span` | NUMERIC CLAIM | STABLE (data-*) | 중앙값의 95% 신뢰구간 ⏎ 95% CONFIDENCE INTERVAL | — | LOW | B1-numeric-freeze |
+| `PREM-091` | 326-331 | `div` | CONTENT | STABLE (data-*) | [ ⏎ , ⏎ ] | — | MEDIUM | B4-content-migration |
+| `PREM-092` | 332-334 | `p` | NUMERIC CLAIM | STABLE (data-*) | 구간의 폭이 0이다. ⏎ The interval has zero width. | — | HIGH | B1-numeric-freeze |
+| `PREM-051` | 336-353 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-093` | 342 | `dt` | CONTENT | style | 재표본 횟수 ⏎ Resamples | — | MEDIUM | B4-content-migration |
+| `PREM-094` | 343-345 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B5-design-roles |
+| `PREM-095` | 348 | `dt` | CONTENT | style | 난수 시드 ⏎ Seed | — | MEDIUM | B4-content-migration |
+| `PREM-096` | 349-351 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B5-design-roles |
+| `PREM-097` | 356-361 | `span` | CONTENT | STABLE (data-*) | 서로 다른 세 가지 방법이 같은 값에 도달했다 ⏎ THREE INDEPENDENT PROCEDURES AGREE | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `PREM-098` | 362-374 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `PREM-099` | 364-372 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-100` | 370 | `span` | CONTENT | style | · | — | MEDIUM | B4-content-migration |
+| `PREM-101` | 383-387 | `p` | NUMERIC CLAIM | style | 정밀도가 높아서가 아니다. 토큰 수는 정수이므로 두 정수의 비율은 몇 개의 단순한 분수 위에만 놓인다. 383만 쌍이 만… | — | LOW | B1-numeric-freeze |
+| `PREM-102` | 388-392 | `p` | NUMERIC CLAIM | style | 중앙값 양옆의 순서통계량이 모두 이 두꺼운 층 안에 들어 있고, 층의 가장자리까지 양쪽으로 약 76,000개의 여유가 있… | — | LOW | B1-numeric-freeze |
+| `PREM-103` | 393-395 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `PREM-024` | 403-420 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-052` | 404-416 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-104` | 405-410 | `dt` | CONTENT | STABLE (data-*) | 가장 많이 나온 여덟 개의 비율 ⏎ THE EIGHT MOST COMMON RATIOS | — | MEDIUM | B4-content-migration |
+| `PREM-105` | 411-415 | `dd` | CONTENT | STABLE (data-*) | 토큰 비율은 아무 값이나 될 수 없고 분수 위에만 놓인다 ⏎ Ratios cannot take any value — th… | — | MEDIUM | B4-content-migration |
+| `PREM-106` | 417-419 | `span` | CONTENT | STABLE (data-*) | 개 값 ⏎ values | — | MEDIUM | B4-content-migration |
+| `PREM-107` | 422-465 | `ul` | NUMERIC CLAIM | STABLE (data-*) | 4/3 | — | HIGH | B1-numeric-freeze |
+| `PREM-108` | 426-462 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-109` | 427-455 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-110` | 438-442 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `PREM-111` | 444-449 | `span` | CONTENT | STABLE (data-*) | 중앙값 ⏎ median | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `PREM-112` | 452-454 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `PREM-054` | 468-479 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-113` | 473-475 | `dt` | CONTENT | style | 이 여덟 개가 차지하는 문장쌍 ⏎ Pairs held by these eight | — | MEDIUM | B4-content-migration |
+| `PREM-114` | 476-478 | `dd` | CONTENT | STABLE (data-*) | · ⏎ % | — | MEDIUM | B4-content-migration |
+| `PREM-115` | 480-484 | `p` | NUMERIC CLAIM | STABLE (data-*) | 383만 쌍 가운데 다섯 쌍에 한 쌍꼴이다. 나머지 여덟 쌍은 이 여덟 개 바깥의 값에 흩어져 있다. ⏎ About on… | — | LOW | B1-numeric-freeze |
+| `PREM-116` | 490-502 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `PREM-117` | 506-508 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PREM-118` | 507 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `PREM-119` | 511-676 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `PREM-120` | 516-528 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-121` | 517-522 | `dt` | CONTENT | STABLE (data-*) | 출처별로 나눠보면 ⏎ SPLIT BY SOURCE CORPUS | — | MEDIUM | B4-content-migration |
+| `PREM-122` | 523-527 | `dd` | NUMERIC CLAIM | STABLE (data-*) | 전체 중앙값 1.33배는 두 출처 어느 쪽과도 일치하지 않는다 ⏎ The pooled 1.33x median matche… | — | LOW | B1-numeric-freeze |
+| `PREM-123` | 530-583 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `PREM-124` | 532-581 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-125` | 533-544 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-126` | 541-543 | `span` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
+| `PREM-127` | 551-580 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
+| `PREM-128` | 557-559 | `dt` | CONTENT | style | 문장쌍 ⏎ pairs | — | MEDIUM | B4-content-migration |
+| `PREM-129` | 560-562 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B2-stable-hooks |
+| `PREM-130` | 565-567 | `dt` | CONTENT | style | 비중 ⏎ share | — | MEDIUM | B4-content-migration |
+| `PREM-131` | 568-570 | `dd` | CONTENT | STABLE (data-*) | % | — | MEDIUM | B4-content-migration |
+| `PREM-132` | 573-575 | `dt` | CONTENT | style | 한국어가 많음 ⏎ KO more | — | MEDIUM | B4-content-migration |
+| `PREM-133` | 576-578 | `dd` | CONTENT | STABLE (data-*) | % | — | MEDIUM | B4-content-migration |
+| `PREM-134` | 585-592 | `p` | CONTENT | STABLE (data-*) | 두 출처를 따로 두고 다시 계산한 신뢰구간은 전체와 같았고, 결론의 방향은 뒤집히지 않았다. ⏎ Recomputed wi… | — | MEDIUM | B4-content-migration |
+| `PREM-135` | 593-595 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `PREM-136` | 602-612 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `PREM-137` | 603-608 | `dt` | CONTENT | STABLE (data-*) | 분야별 구성 ⏎ SUBJECT-AREA COMPOSITION | — | MEDIUM | B4-content-migration |
+| `PREM-138` | 609-611 | `dd` | CONTENT | STABLE (data-*) | 문장쌍 수만 싣는다 · 분야별 비율은 없다 ⏎ Counts only — no per-subject ratio exists | — | MEDIUM | B4-content-migration |
+| `PREM-139` | 614-654 | `ul` | NUMERIC CLAIM | STABLE (data-*) | 025에만 ⏎ 025 only ⏎ 026에만 ⏎ 026 only ⏎ 두 출처 공통 ⏎ shared | — | LOW | B1-numeric-freeze |
+| `PREM-140` | 624-651 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `PREM-141` | 625-644 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `PREM-142` | 634-639 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `PREM-143` | 641-643 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `PREM-144` | 656-658 | `p` | CONTENT | STABLE (data-*) | · | — | MEDIUM | B4-content-migration |
+| `PREM-145` | 663-675 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `PREM-146` | 679-688 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `PREM-147` | 680 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `PREM-056` | 682-687 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## OccupationSection
 
-_S4 Occupations & Accumulated Burden · src/components/OccupationSection.tsx · 74 tracked nodes_
+_S4 Occupations & Accumulated Burden · src/components/OccupationSection.tsx · 48 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `BURD-001` | 34-329 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `BURD-067` | 35-328 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `BURD-068` | 37-51 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
-| `BURD-002` | 42 | `span` | CONTENT | STABLE (data-*) | 얼마나 누적될까? | — | MEDIUM | B4-content-migration |
-| `BURD-003` | 48 | `span` | CONTENT | STABLE (data-*) | Compound Over Time? | — | MEDIUM | B4-content-migration |
-| `BURD-069` | 54-66 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `BURD-070` | 55-57 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `BURD-005` | 61 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `BURD-006` | 64 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `BURD-071` | 69-311 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `BURD-007` | 72-97 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `BURD-072` | 73-80 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-009` | 74-76 | `dt` | CONTENT | STABLE (data-*) | WORKFLOW REPETITION SIMULATOR | — | MEDIUM | B4-content-migration |
-| `BURD-010` | 77-79 | `dd` | CONTENT | STABLE (data-*) | 프롬프트 및 컨텍스트 누적 시뮬레이션 | — | MEDIUM | B4-content-migration |
-| `BURD-073` | 82-96 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `BURD-011` | 85-93 | `button` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
-| `BURD-074` | 101-106 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-013` | 102 | `dt` | CONTENT | STABLE (data-*) | 반복 횟수 (Prompt Iterations): | — | MEDIUM | B4-content-migration |
-| `BURD-014` | 103-105 | `dd` | CONTENT | STABLE (data-*) | 회 호출 | — | MEDIUM | B4-content-migration |
-| `BURD-008` | 116-120 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `BURD-016` | 117 | `span` | NUMERIC CLAIM | nth-child | 1회 (단일 프롬프트) | — | HIGH | B1-numeric-freeze |
-| `BURD-017` | 118 | `span` | NUMERIC CLAIM | nth-child | 1,000회 (팀 일간 워크플로우) | — | HIGH | B1-numeric-freeze |
-| `BURD-018` | 119 | `span` | NUMERIC CLAIM | nth-child | 2,000회 (전사 에이전트 루틴) | — | HIGH | B1-numeric-freeze |
-| `BURD-019` | 127 | `span` | CONTENT | STABLE (data-*) | English Baseline Tokens | — | MEDIUM | B4-content-migration |
-| `BURD-020` | 130 | `span` | CONTENT | STABLE (data-*) | tok | — | MEDIUM | B4-content-migration |
-| `BURD-021` | 135 | `span` | CONTENT | STABLE (data-*) | Hangul Cumulative Tokens | — | MEDIUM | B4-content-migration |
-| `BURD-022` | 138 | `span` | CONTENT | STABLE (data-*) | tok | — | MEDIUM | B4-content-migration |
-| `BURD-012` | 142-150 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `BURD-024` | 143-145 | `span` | CONTENT | STABLE (data-*) | ACCUMULATED BURDEN GAP | — | MEDIUM | B4-content-migration |
-| `BURD-025` | 146-149 | `div` | CONTENT | style | + | — | MEDIUM | B4-content-migration |
-| `BURD-026` | 148 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
-| `BURD-075` | 155-160 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-028` | 156-158 | `dt` | CONTENT | STABLE (data-*) | TOKEN RECEIPT (토큰 사용 명세서) | — | MEDIUM | B4-content-migration |
-| `BURD-029` | 159 | `dd` | CONTENT | STABLE (data-*) | ITERATIONS | — | MEDIUM | B4-content-migration |
-| `BURD-076` | 162-165 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-031` | 163 | `dt` | CONTENT | STABLE (data-*) | KOREAN ( ⏎ 회) | — | MEDIUM | B4-content-migration |
-| `BURD-032` | 164 | `dd` | CONTENT | STABLE (data-*) | TOKENS | — | MEDIUM | B4-content-migration |
-| `BURD-077` | 166-169 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-034` | 167 | `dt` | CONTENT | STABLE (data-*) | ENGLISH ( ⏎ 회) | — | MEDIUM | B4-content-migration |
-| `BURD-035` | 168 | `dd` | CONTENT | STABLE (data-*) | TOKENS | — | MEDIUM | B4-content-migration |
-| `BURD-078` | 171-174 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-037` | 172 | `dt` | CONTENT | STABLE (data-*) | ABSOLUTE GAP (순수 격차) | — | MEDIUM | B4-content-migration |
-| `BURD-038` | 173 | `dd` | CONTENT | STABLE (data-*) | + ⏎ TOKENS | — | MEDIUM | B4-content-migration |
-| `BURD-079` | 181-186 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-040` | 182-184 | `dt` | CONTENT | STABLE (data-*) | OCCUPATIONAL SENSITIVITY COMPARISON | — | MEDIUM | B4-content-migration |
-| `BURD-041` | 185 | `dd` | CONTENT | STABLE (data-*) | AI Exposure vs. Language Intensity | — | MEDIUM | B4-content-migration |
-| `BURD-015` | 190-244 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `BURD-043` | 195-197 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `BURD-080` | 202-205 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-045` | 203 | `dt` | CONTENT | STABLE (data-*) | AI Exposure Level: | — | MEDIUM | B4-content-migration |
-| `BURD-081` | 206-209 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-047` | 207 | `dt` | CONTENT | STABLE (data-*) | Language Intensity: | — | MEDIUM | B4-content-migration |
-| `BURD-048` | 218-220 | `span` | CONTENT | STABLE (data-*) | 대표 세부 직무 (Included Occupations): | — | MEDIUM | B4-content-migration |
-| `BURD-082` | 221-237 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `BURD-083` | 223-235 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `BURD-050` | 232-234 | `span` | CONTENT | STABLE (data-*) | 데이터 확인 ⏎ 데이터 보강 필요 | — | MEDIUM | B4-content-migration |
-| `BURD-051` | 241-243 | `div` | CONTENT | STABLE (data-*) | 평가: 코드 및 영문 토큰 비중으로 인해 상대적 토큰 페널티 완충 | — | MEDIUM | B4-content-migration |
-| `BURD-023` | 247-301 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `BURD-027` | 249-256 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `BURD-054` | 252-254 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `BURD-084` | 259-262 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-057` | 260 | `dt` | CONTENT | STABLE (data-*) | AI Exposure Level: | — | MEDIUM | B4-content-migration |
-| `BURD-085` | 263-266 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-059` | 264 | `dt` | CONTENT | STABLE (data-*) | Language Intensity: | — | MEDIUM | B4-content-migration |
-| `BURD-060` | 275-277 | `span` | CONTENT | STABLE (data-*) | 대표 세부 직무 (Included Occupations): | — | MEDIUM | B4-content-migration |
-| `BURD-086` | 278-294 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `BURD-087` | 280-292 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `BURD-062` | 289-291 | `span` | CONTENT | STABLE (data-*) | 데이터 확인 ⏎ 데이터 보강 필요 | — | MEDIUM | B4-content-migration |
-| `BURD-063` | 298-300 | `div` | CONTENT | STABLE (data-*) | 평가: 장문 한국어 텍스트 문맥 누적으로 실질 Token Burden 집중 가중 | — | MEDIUM | B4-content-migration |
-| `BURD-064` | 305-309 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `BURD-088` | 314-327 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `BURD-065` | 317 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `BURD-066` | 320 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `BURD-089` | 323-326 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `BURD-001` | 29-198 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `BURD-067` | 30-197 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `BURD-068` | 32-46 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `BURD-002` | 37 | `span` | CONTENT | STABLE (data-*) | 얼마나 누적될까? | — | MEDIUM | B4-content-migration |
+| `BURD-003` | 43 | `span` | CONTENT | STABLE (data-*) | Compound Over Time? | — | MEDIUM | B4-content-migration |
+| `BURD-069` | 49-61 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `BURD-070` | 50-52 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `BURD-005` | 56 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `BURD-006` | 59 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `BURD-071` | 64-180 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `BURD-007` | 67-92 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `BURD-072` | 68-75 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-090` | 69-71 | `dt` | CONTENT | STABLE (data-*) | 반복 사용 시뮬레이터 ⏎ WORKFLOW REPETITION SIMULATOR | — | MEDIUM | B4-content-migration |
+| `BURD-010` | 72-74 | `dd` | CONTENT | STABLE (data-*) | 프롬프트 및 컨텍스트 누적 시뮬레이션 | — | MEDIUM | B4-content-migration |
+| `BURD-073` | 77-91 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `BURD-011` | 80-88 | `button` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
+| `BURD-074` | 96-101 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-013` | 97 | `dt` | CONTENT | STABLE (data-*) | 반복 횟수 (Prompt Iterations): | — | MEDIUM | B4-content-migration |
+| `BURD-014` | 98-100 | `dd` | CONTENT | STABLE (data-*) | 회 호출 | — | MEDIUM | B4-content-migration |
+| `BURD-008` | 111-115 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `BURD-091` | 112 | `span` | NUMERIC CLAIM | nth-child | 1 ⏎ 회 ⏎ x | — | HIGH | B1-numeric-freeze |
+| `BURD-092` | 113 | `span` | NUMERIC CLAIM | nth-child | 1,000 ⏎ 회 ⏎ x | — | HIGH | B1-numeric-freeze |
+| `BURD-093` | 114 | `span` | NUMERIC CLAIM | nth-child | 2,000 ⏎ 회 ⏎ x | — | HIGH | B1-numeric-freeze |
+| `BURD-094` | 122 | `span` | CONTENT | STABLE (data-*) | 영어 기준 토큰 ⏎ English Baseline Tokens | — | MEDIUM | B4-content-migration |
+| `BURD-020` | 125 | `span` | CONTENT | STABLE (data-*) | tok | — | MEDIUM | B4-content-migration |
+| `BURD-095` | 130 | `span` | CONTENT | STABLE (data-*) | 한글 누적 토큰 ⏎ Hangul Cumulative Tokens | — | MEDIUM | B4-content-migration |
+| `BURD-022` | 133 | `span` | CONTENT | STABLE (data-*) | tok | — | MEDIUM | B4-content-migration |
+| `BURD-012` | 137-145 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `BURD-096` | 138-140 | `span` | CONTENT | STABLE (data-*) | 누적 토큰 격차 ⏎ ACCUMULATED BURDEN GAP | — | MEDIUM | B4-content-migration |
+| `BURD-025` | 141-144 | `div` | CONTENT | style | + | — | MEDIUM | B4-content-migration |
+| `BURD-026` | 143 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
+| `BURD-075` | 150-155 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-097` | 151-153 | `dt` | CONTENT | STABLE (data-*) | 토큰 사용 명세서 ⏎ TOKEN RECEIPT | — | MEDIUM | B4-content-migration |
+| `BURD-098` | 154 | `dd` | CONTENT | STABLE (data-*) | 회 반복 ⏎ ITERATIONS | — | MEDIUM | B4-content-migration |
+| `BURD-076` | 157-160 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-099` | 158 | `dt` | DESIGN APPLICATION | STABLE (data-*) | _(dt)_ | — | LOW | B5-design-roles |
+| `BURD-100` | 159 | `dd` | CONTENT | STABLE (data-*) | 개 토큰 ⏎ TOKENS | — | MEDIUM | B4-content-migration |
+| `BURD-077` | 161-164 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-101` | 162 | `dt` | DESIGN APPLICATION | STABLE (data-*) | _(dt)_ | — | LOW | B5-design-roles |
+| `BURD-102` | 163 | `dd` | CONTENT | STABLE (data-*) | 개 토큰 ⏎ TOKENS | — | MEDIUM | B4-content-migration |
+| `BURD-078` | 166-169 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `BURD-103` | 167 | `dt` | CONTENT | STABLE (data-*) | 순수 격차 ⏎ ABSOLUTE GAP | — | MEDIUM | B4-content-migration |
+| `BURD-104` | 168 | `dd` | CONTENT | STABLE (data-*) | + ⏎ 개 토큰 ⏎ TOKENS | — | MEDIUM | B4-content-migration |
+| `BURD-064` | 175-179 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `BURD-088` | 183-196 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `BURD-065` | 186 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `BURD-066` | 189 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `BURD-089` | 192-195 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## MultilingualTokenEfficiencySection
 
-_S4.5 Global Multilingual Efficiency · src/components/MultilingualTokenEfficiencySection.tsx · 43 tracked nodes_
+_S4.5 Global Multilingual Efficiency · src/components/MultilingualTokenEfficiencySection.tsx · 41 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `LANG-001` | 52-319 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `LANG-038` | 53-318 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `LANG-039` | 55-69 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
-| `LANG-002` | 60 | `span` | CONTENT | STABLE (data-*) | 달라지는 토큰 효율 | — | MEDIUM | B4-content-migration |
-| `LANG-003` | 66 | `span` | CONTENT | STABLE (data-*) | Korean Problem | — | MEDIUM | B4-content-migration |
-| `LANG-040` | 76-88 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `LANG-041` | 77-79 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `LANG-005` | 83 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `LANG-006` | 86 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `LANG-042` | 91-301 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `LANG-043` | 96-101 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `LANG-008` | 97-99 | `dt` | CONTENT | STABLE (data-*) | LANGUAGE FOCUS | — | MEDIUM | B4-content-migration |
-| `LANG-009` | 100 | `dd` | CONTENT | STABLE (data-*) | Selected Metric | — | MEDIUM | B4-content-migration |
-| `LANG-044` | 113-116 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `LANG-011` | 114 | `dt` | CONTENT | STABLE (data-*) | Normalized Tokens: | — | MEDIUM | B4-content-migration |
-| `LANG-012` | 115 | `dd` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
-| `LANG-045` | 117-122 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `LANG-014` | 118 | `dt` | CONTENT | STABLE (data-*) | Relative Ratio: | — | MEDIUM | B4-content-migration |
-| `LANG-015` | 119-121 | `dd` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
-| `LANG-046` | 123-134 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `LANG-017` | 124 | `dt` | CONTENT | STABLE (data-*) | Difference vs. English: | — | MEDIUM | B4-content-migration |
-| `LANG-018` | 125-133 | `dd` | NUMERIC CLAIM | style | Baseline (0%) | — | HIGH | B1-numeric-freeze |
-| `LANG-051` | 138-142 | `div` | NUMERIC CLAIM | style | ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다. ⏎ ★ Korean consumes 1.7… | — | HIGH | B1-numeric-freeze |
-| `LANG-020` | 148-150 | `span` | CONTENT | STABLE (data-*) | 언어별 즉시 포커스: ⏎ Click to inspect language: | — | MEDIUM | B4-content-migration |
-| `LANG-047` | 151-165 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `LANG-021` | 154-162 | `button` | CONTENT | STABLE (data-*) | ( ⏎ ×) | — | MEDIUM | B4-content-migration |
-| `LANG-007` | 172-184 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `LANG-048` | 173-182 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `LANG-024` | 174-176 | `dt` | CONTENT | STABLE (data-*) | NORMALIZED TOKEN CONSUMPTION BY LANGUAGE | — | MEDIUM | B4-content-migration |
-| `LANG-052` | 177-181 | `dd` | NUMERIC CLAIM | style | 기준 영문 100 토큰 대비 정규화 소모량 ⏎ Normalized consumption relative to a 100-… | — | HIGH | B1-numeric-freeze |
-| `LANG-026` | 183 | `span` | CONTENT | STABLE (data-*) | Flores-200 / o200k_base | — | MEDIUM | B4-content-migration |
-| `LANG-027` | 221-223 | `div` | CONTENT | STABLE (data-*) | Tokens ( ⏎ ×) | — | MEDIUM | B4-content-migration |
-| `LANG-028` | 224-228 | `div` | CONTENT | STABLE (data-*) | Baseline | — | MEDIUM | B4-content-migration |
-| `LANG-010` | 272-290 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `LANG-053` | 276 | `span` | NUMERIC CLAIM | nth-child | 라틴 알파벳 기준 (1.00×) ⏎ Latin-alphabet baseline (1.00×) | — | HIGH | B1-numeric-freeze |
-| `LANG-054` | 280-282 | `span` | CONTENT | style | ( ⏎ ×) | — | MEDIUM | B4-content-migration |
-| `LANG-055` | 286 | `span` | CONTENT | STABLE (data-*) | 기타 다국어 표기 체계 ⏎ Other scripts | — | MEDIUM | B4-content-migration |
-| `LANG-056` | 289 | `span` | CONTENT | STABLE (data-*) | 데이터: Flores-200 ⏎ Data: Flores-200 | — | MEDIUM | B4-content-migration |
-| `LANG-035` | 296-300 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `LANG-049` | 304-317 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `LANG-036` | 307 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `LANG-037` | 310 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `LANG-050` | 313-316 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `LANG-001` | 47-298 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `LANG-038` | 48-297 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `LANG-039` | 50-64 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `LANG-002` | 55 | `span` | CONTENT | STABLE (data-*) | 달라지는 토큰 효율 | — | MEDIUM | B4-content-migration |
+| `LANG-003` | 61 | `span` | CONTENT | STABLE (data-*) | Korean Problem | — | MEDIUM | B4-content-migration |
+| `LANG-040` | 71-83 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `LANG-041` | 72-74 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `LANG-005` | 78 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `LANG-006` | 81 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `LANG-049` | 100-113 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `LANG-036` | 103 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `LANG-037` | 106 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `LANG-050` | 109-112 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `LANG-057` | 123-133 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `LANG-004` | 124-126 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(ArticleSubheading)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
+| `LANG-058` | 127-129 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `LANG-059` | 130-132 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `LANG-042` | 135-280 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `LANG-007` | 136-273 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `LANG-010` | 138-143 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `LANG-060` | 139-141 | `dt` | CONTENT | STABLE (data-*) | 선행연구 언어별 토큰화 길이 ⏎ PRIOR-RESEARCH TOKENIZATION LENGTH BY LANGUAGE | — | MEDIUM | B4-content-migration |
+| `LANG-061` | 142 | `span` | CONTENT | STABLE (data-*) | Petrov et al. 2023 / cl100k_base | — | MEDIUM | B4-content-migration |
+| `LANG-013` | 144-155 | `div` | DOM STRUCTURE | style | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `LANG-062` | 145-147 | `span` | NUMERIC CLAIM | style | 영어=1 기준 정규화 비율 ⏎ Normalized ratio, English = 1 | — | HIGH | B1-numeric-freeze |
+| `LANG-063` | 148-154 | `span` | CONTENT | STABLE (data-*) | · ⏎ 토큰 ⏎ tokens ⏎ · | — | MEDIUM | B4-content-migration |
+| `LANG-015` | 153 | `span` | CONTENT | style | × | — | MEDIUM | B4-content-migration |
+| `LANG-064` | 189-191 | `div` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
+| `LANG-065` | 192-194 | `div` | CONTENT | STABLE (data-*) | 개 토큰 (전체 코퍼스 합계) ⏎ tokens (corpus total) | — | MEDIUM | B4-content-migration |
+| `LANG-020` | 238-240 | `span` | CONTENT | STABLE (data-*) | 언어별 즉시 포커스: ⏎ Click to inspect language: | — | MEDIUM | B4-content-migration |
+| `LANG-047` | 241-255 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `LANG-066` | 244-252 | `button` | CONTENT | STABLE (data-*) | ( ⏎ ×) | — | MEDIUM | B4-content-migration |
+| `LANG-016` | 258-272 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `LANG-067` | 262 | `span` | NUMERIC CLAIM | nth-child | 영어 기준 (1.00×) ⏎ English baseline (1.00×) | — | HIGH | B1-numeric-freeze |
+| `LANG-054` | 266-268 | `span` | CONTENT | style | ( ⏎ ×) | — | MEDIUM | B4-content-migration |
+| `LANG-068` | 271 | `span` | CONTENT | STABLE (data-*) | 데이터: Petrov et al. 2023 ⏎ Data: Petrov et al. 2023 | — | MEDIUM | B4-content-migration |
+| `LANG-035` | 275-279 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `LANG-069` | 282-296 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `LANG-070` | 283-285 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `LANG-071` | 286-288 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `LANG-022` | 290-295 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `LANG-072` | 291-294 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## KoreaAIContextSection
 
-_S5 Korea AI Infrastructure · src/components/KoreaAIContextSection.tsx · 35 tracked nodes_
+_S5 Korea AI Infrastructure · src/components/KoreaAIContextSection.tsx · 20 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `INFRA-001` | 22-182 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `INFRA-028` | 23-181 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
-| `INFRA-029` | 25-39 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
-| `INFRA-002` | 30 | `span` | CONTENT | STABLE (data-*) | 확장되는 토큰 스케일 | — | MEDIUM | B4-content-migration |
-| `INFRA-003` | 36 | `span` | CONTENT | STABLE (data-*) | Scaling Token Demands | — | MEDIUM | B4-content-migration |
-| `INFRA-030` | 42-54 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `INFRA-031` | 43-45 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
-| `INFRA-005` | 49 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `INFRA-006` | 52 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `INFRA-032` | 57-164 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `INFRA-033` | 60-65 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `INFRA-008` | 61-63 | `dt` | CONTENT | STABLE (data-*) | MACRO ADOPTION CAUSAL CHAIN | — | MEDIUM | B4-content-migration |
-| `INFRA-009` | 64 | `dd` | CONTENT | STABLE (data-*) | Scale Dynamics | — | MEDIUM | B4-content-migration |
-| `INFRA-034` | 67-93 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `INFRA-035` | 69-91 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `INFRA-044` | 100 | `span` | CONTENT | style | ↓ | — | MEDIUM | B4-content-migration |
-| `INFRA-036` | 107-112 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `INFRA-012` | 108-110 | `dt` | CONTENT | STABLE (data-*) | 검증된 정책 및 대규모 투자 데이터 슬롯 (Data Slots): ⏎ Verified Policy & Investment… | — | MEDIUM | B4-content-migration |
-| `INFRA-013` | 111 | `dd` | CONTENT | STABLE (data-*) | Strict Data Verification Rule | — | MEDIUM | B4-content-migration |
-| `INFRA-037` | 114-155 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `INFRA-038` | 116-153 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `INFRA-039` | 122-127 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
-| `INFRA-027` | 129-131 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `INFRA-017` | 138-140 | `p` | CONTENT | STABLE (data-*) | 검증된 정부 고시 및 기업 공시 데이터 확인 후 정밀 연동 대기 상태 | — | MEDIUM | B4-content-migration |
-| `INFRA-040` | 144-147 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
-| `INFRA-019` | 145 | `dt` | CONTENT | STABLE (data-*) | Scope: | — | MEDIUM | B4-content-migration |
-| `INFRA-020` | 146 | `dd` | CONTENT | STABLE (data-*) | [NATIONAL COMPUTE INFRA] | — | MEDIUM | B4-content-migration |
-| `INFRA-041` | 148-151 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
-| `INFRA-022` | 149 | `dt` | CONTENT | STABLE (data-*) | Period: | — | MEDIUM | B4-content-migration |
-| `INFRA-023` | 150 | `dd` | CONTENT | style | [2024–2030] | — | MEDIUM | B4-content-migration |
-| `INFRA-024` | 159-163 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `INFRA-042` | 167-180 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `INFRA-025` | 170 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `INFRA-026` | 173 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `INFRA-043` | 176-179 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `INFRA-001` | 20-118 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `INFRA-028` | 21-117 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `INFRA-029` | 23-37 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `INFRA-002` | 28 | `span` | CONTENT | STABLE (data-*) | 확장되는 토큰 스케일 | — | MEDIUM | B4-content-migration |
+| `INFRA-003` | 34 | `span` | CONTENT | STABLE (data-*) | Scaling Token Demands | — | MEDIUM | B4-content-migration |
+| `INFRA-030` | 40-52 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `INFRA-031` | 41-43 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `INFRA-005` | 47 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `INFRA-006` | 50 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `INFRA-032` | 55-100 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `INFRA-033` | 58-63 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `INFRA-045` | 59-61 | `dt` | CONTENT | STABLE (data-*) | AI 확산의 흐름 ⏎ AI ADOPTION TIMELINE | — | MEDIUM | B4-content-migration |
+| `INFRA-046` | 62 | `dd` | CONTENT | STABLE (data-*) | 규모 변화 ⏎ Scale Dynamics | — | MEDIUM | B4-content-migration |
+| `INFRA-034` | 65-91 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `INFRA-035` | 67-89 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `INFRA-024` | 95-99 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `INFRA-042` | 103-116 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `INFRA-025` | 106 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `INFRA-026` | 109 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `INFRA-043` | 112-115 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## ImpactSection
 
@@ -413,8 +417,8 @@ _S5.2 Socioeconomic Implications · src/components/ImpactSection.tsx · 25 track
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `IMPACT-001` | 22-149 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `IMPACT-019` | 23-148 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `IMPACT-001` | 22-153 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `IMPACT-019` | 23-152 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `IMPACT-020` | 25-39 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `IMPACT-002` | 30 | `span` | CONTENT | STABLE (data-*) | 비용의 문제를 넘어 | — | MEDIUM | B4-content-migration |
 | `IMPACT-003` | 36 | `span` | CONTENT | STABLE (data-*) | Systemic Architecture Impact | — | MEDIUM | B4-content-migration |
@@ -423,21 +427,21 @@ _S5.2 Socioeconomic Implications · src/components/ImpactSection.tsx · 25 track
 | `IMPACT-004` | 47-49 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(ArticleSubheading)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
 | `IMPACT-005` | 53 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `IMPACT-006` | 56 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-023` | 61-131 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `IMPACT-024` | 63-94 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `IMPACT-025` | 65-92 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-026` | 71-78 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-009` | 80-82 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
-| `IMPACT-010` | 99-101 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `IMPACT-011` | 100 | `div` | CONTENT | STABLE (data-*) | FINAL CONCEPTUAL CAUSAL CHAIN | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
-| `IMPACT-013` | 103-122 | `ol` | CONTENT | STABLE (data-*) | Token Premium ⏎ Potential Digital Friction | — | MEDIUM | B4-content-migration |
-| `IMPACT-015` | 108 | `span` | CONTENT | style | → | — | MEDIUM | B4-content-migration |
-| `IMPACT-027` | 109-118 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-016` | 126-130 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-028` | 134-147 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `IMPACT-017` | 137 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-018` | 140 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `IMPACT-029` | 143-146 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+| `IMPACT-023` | 61-135 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `IMPACT-024` | 63-91 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `IMPACT-025` | 65-89 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-009` | 77-79 | `h3` | DOM STRUCTURE | STABLE (data-*) | _(h3)_ | HEADING_LEVEL | LOW | B3-semantic-dom |
+| `IMPACT-010` | 98-105 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `IMPACT-030` | 99 | `div` | CONTENT | STABLE (data-*) | 가능한 확장 경로 ⏎ POSSIBLE EXPANSION PATHWAY | LABEL_ORPHAN | MEDIUM | B3-semantic-dom |
+| `IMPACT-031` | 100-104 | `p` | CONTENT | style | 실증된 인과관계가 아니라, 개념적으로 연결될 수 있는 경로입니다. ⏎ A conceptual pathway, not a … | — | MEDIUM | B4-content-migration |
+| `IMPACT-013` | 107-126 | `ol` | CONTENT | STABLE (data-*) | Token Premium ⏎ Potential Digital Friction | — | MEDIUM | B4-content-migration |
+| `IMPACT-015` | 112 | `span` | CONTENT | style | → | — | MEDIUM | B4-content-migration |
+| `IMPACT-027` | 113-122 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-016` | 130-134 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-028` | 138-151 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `IMPACT-017` | 141 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-018` | 144 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `IMPACT-029` | 147-150 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
 
 ## MethodSection
 
@@ -445,8 +449,8 @@ _S6 Methodology & Limits · src/components/MethodSection.tsx · 27 tracked nodes
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `METH-001` | 30-167 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `METH-019` | 31-166 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `METH-001` | 30-171 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `METH-019` | 31-170 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `METH-020` | 33-47 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `METH-002` | 38 | `span` | CONTENT | STABLE (data-*) | 학술적 한계와 경계 | — | MEDIUM | B4-content-migration |
 | `METH-003` | 44 | `span` | CONTENT | STABLE (data-*) | Scientific Boundaries | — | MEDIUM | B4-content-migration |
@@ -454,43 +458,42 @@ _S6 Methodology & Limits · src/components/MethodSection.tsx · 27 tracked nodes
 | `METH-022` | 51-53 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
 | `METH-004` | 57 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `METH-005` | 60 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `METH-023` | 65-140 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `METH-024` | 68-73 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `METH-007` | 69-71 | `dt` | CONTENT | STABLE (data-*) | CRITICAL BOUNDARY / 본 분석이 주장하지 않는 것 (What We Do NOT Claim) | — | MEDIUM | B4-content-migration |
-| `METH-008` | 72 | `dd` | NUMERIC CLAIM | style | 6 Key Principles | — | HIGH | B1-numeric-freeze |
-| `METH-025` | 75-86 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `METH-026` | 77-84 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `METH-027` | 83 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
-| `METH-028` | 91-96 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `METH-011` | 92-94 | `dt` | CONTENT | STABLE (data-*) | 세부 분석 방법론 (Methodological Pillars): ⏎ Detailed Methodological Pilla… | — | MEDIUM | B4-content-migration |
-| `METH-012` | 95 | `dd` | CONTENT | STABLE (data-*) | Click to expand | — | MEDIUM | B4-content-migration |
-| `METH-029` | 98-138 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
-| `METH-030` | 102-135 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
-| `METH-014` | 107-125 | `button` | DOM STRUCTURE | STABLE (data-*) | _(button)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `METH-031` | 143-165 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
-| `METH-015` | 146 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `METH-016` | 149 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `METH-017` | 155-157 | `div` | CONTENT | STABLE (data-*) | 연구 주석 (Research Footnotes): ⏎ Research Footnotes: | — | MEDIUM | B4-content-migration |
-| `METH-018` | 159-161 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B2-stable-hooks |
+| `METH-023` | 65-144 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `METH-024` | 68-77 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `METH-032` | 69-71 | `dt` | CONTENT | STABLE (data-*) | 이 분석으로 말할 수 없는 것 ⏎ What This Analysis Does Not Claim | — | MEDIUM | B4-content-migration |
+| `METH-033` | 74-76 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B5-design-roles |
+| `METH-025` | 79-90 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `METH-026` | 81-88 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `METH-027` | 87 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `METH-028` | 95-100 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `METH-034` | 96-98 | `dt` | CONTENT | STABLE (data-*) | 세부 분석 방법론 ⏎ Detailed Methodological Pillars: | — | MEDIUM | B4-content-migration |
+| `METH-035` | 99 | `dd` | CONTENT | STABLE (data-*) | 클릭하여 펼치기 ⏎ Click to expand | — | MEDIUM | B4-content-migration |
+| `METH-029` | 102-142 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `METH-030` | 106-139 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `METH-014` | 111-129 | `button` | DOM STRUCTURE | STABLE (data-*) | _(button)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `METH-031` | 147-169 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `METH-015` | 150 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `METH-016` | 153 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `METH-036` | 159-161 | `div` | CONTENT | STABLE (data-*) | 연구 주석: ⏎ Research Footnotes: | — | MEDIUM | B4-content-migration |
+| `METH-018` | 163-165 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B2-stable-hooks |
 
 ## EditorialConclusionSection
 
-_RESULT Editorial Conclusion · src/components/EditorialConclusionSection.tsx · 12 tracked nodes_
+_RESULT Editorial Conclusion · src/components/EditorialConclusionSection.tsx · 11 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
-| `CONC-001` | 22-93 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
-| `CONC-009` | 28-92 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `CONC-001` | 22-77 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `CONC-009` | 28-76 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 | `CONC-010` | 29-46 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
 | `CONC-002` | 37 | `span` | CONTENT | STABLE (data-*) | 같은 비용으로 표현하고 있는가? | — | MEDIUM | B4-content-migration |
 | `CONC-003` | 43 | `span` | CONTENT | STABLE (data-*) | At the Same Computational Cost? | — | MEDIUM | B4-content-migration |
-| `CONC-011` | 49-75 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `CONC-011` | 49-61 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
 | `CONC-012` | 50-52 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
 | `CONC-004` | 56 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `CONC-005` | 59 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
-| `CONC-006` | 78-91 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `CONC-007` | 79-81 | `div` | CONTENT | STABLE (data-*) | TOKEN PREMIUM INTERACTIVE DATA STORY / 2026 | — | MEDIUM | B4-content-migration |
-| `CONC-008` | 88 | `span` | CONTENT | STABLE (data-*) | 처음부터 다시 보기 ⏎ Back to Top | — | MEDIUM | B4-content-migration |
+| `CONC-006` | 66-75 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `CONC-008` | 72 | `span` | CONTENT | STABLE (data-*) | 처음부터 다시 보기 ⏎ Back to Top | — | MEDIUM | B4-content-migration |
 
 ## Footer
 
@@ -520,7 +523,7 @@ _Footer · src/components/Footer.tsx · 19 tracked nodes_
 
 ## ArticleElements
 
-_Editorial typography layer · src/components/ArticleElements.tsx · 17 tracked nodes_
+_Editorial typography layer · src/components/ArticleElements.tsx · 18 tracked nodes_
 
 | Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
 |---|---|---|---|---|---|---|---|---|
@@ -534,13 +537,14 @@ _Editorial typography layer · src/components/ArticleElements.tsx · 17 tracked 
 | `ART-003` | 111 | `div` | DOM STRUCTURE | STABLE (data-*) | _(SectionEyebrow)_ | LABEL_ORPHAN | LOW | B3-semantic-dom |
 | `ART-012` | 135-145 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 | `ART-004` | 137 | `div` | DOM STRUCTURE | STABLE (data-*) | _(SectionEyebrow)_ | LABEL_ORPHAN | LOW | B3-semantic-dom |
-| `ART-013` | 160-166 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(figcaption)_ | — | LOW | B5-design-roles |
-| `ART-005` | 162 | `span` | CONTENT | style | · | — | MEDIUM | B4-content-migration |
-| `ART-014` | 178-180 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `ART-015` | 193-204 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
-| `ART-006` | 194-196 | `div` | CONTENT | STABLE (data-*) | NOTES &amp; REFERENCES | — | MEDIUM | B4-content-migration |
-| `ART-016` | 226-231 | `figure` | DESIGN APPLICATION | STABLE (data-*) | _(figure)_ | — | LOW | B5-design-roles |
-| `ART-017` | 235-237 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `ART-018` | 163 | `span` | CONTENT | style | ▸ | — | MEDIUM | B4-content-migration |
+| `ART-013` | 184-190 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(figcaption)_ | — | LOW | B5-design-roles |
+| `ART-005` | 186 | `span` | CONTENT | style | · | — | MEDIUM | B4-content-migration |
+| `ART-014` | 202-204 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `ART-015` | 217-228 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
+| `ART-006` | 218-220 | `div` | CONTENT | STABLE (data-*) | NOTES &amp; REFERENCES | — | MEDIUM | B4-content-migration |
+| `ART-016` | 250-255 | `figure` | DESIGN APPLICATION | STABLE (data-*) | _(figure)_ | — | LOW | B5-design-roles |
+| `ART-017` | 259-261 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
 
 ## LanguageSwitch
 
@@ -604,6 +608,72 @@ _shared/ui primitives · src/shared/ui/Divider.tsx · 1 tracked nodes_
 |---|---|---|---|---|---|---|---|---|
 | `UI-005` | 14 | `hr` | DESIGN APPLICATION | STABLE (data-*) | _(hr)_ | — | LOW | B5-design-roles |
 
-## MultilingualSection.tsx — dead file
+## DecompositionSection
 
-Not imported anywhere, never rendered. Tracked so it is not silently forgotten, excluded from every live count. 57 nodes. Deletion is batch **B6** and requires an explicit decision.
+_S2.5 Why the Ratio Exceeds 1 · src/components/DecompositionSection.tsx · 59 tracked nodes_
+
+| Trace ID | Lines | DOM | Cat | Addr | Literal / role | Gap | Risk | Batch |
+|---|---|---|---|---|---|---|---|---|
+| `DECOMP-001` | 77-402 | `section` | DESIGN APPLICATION | id | _(section)_ | — | LOW | B5-design-roles |
+| `DECOMP-002` | 83-401 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(Container)_ | — | LOW | B5-design-roles |
+| `DECOMP-003` | 84-98 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(SectionHeading)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-004` | 89 | `span` | CONTENT | STABLE (data-*) | 토큰은 더 많다 | — | MEDIUM | B4-content-migration |
+| `DECOMP-005` | 95 | `span` | CONTENT | STABLE (data-*) | More Tokens | — | MEDIUM | B4-content-migration |
+| `DECOMP-006` | 100-105 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `DECOMP-007` | 101 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleLead)_ | — | LOW | B5-design-roles |
+| `DECOMP-008` | 103 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-009` | 108-286 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `DECOMP-010` | 112-122 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `DECOMP-011` | 113-118 | `dt` | CONTENT | STABLE (data-*) | 같은 문장을 세 가지 방법으로 재면 ⏎ THE SAME SENTENCE, MEASURED THREE WAYS | — | MEDIUM | B4-content-migration |
+| `DECOMP-012` | 119-121 | `dd` | NUMERIC CLAIM | STABLE (data-*) | 영어를 1.00배로 뒀을 때의 한국어 중앙값 ⏎ Korean median, with English at 1.00x | — | LOW | B1-numeric-freeze |
+| `DECOMP-013` | 124-175 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `DECOMP-014` | 128-172 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-015` | 129-151 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `DECOMP-016` | 138-143 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-017` | 144-149 | `span` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
+| `DECOMP-018` | 166-171 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-019` | 178-189 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `DECOMP-020` | 183-185 | `span` | CONTENT | style | 최종 토큰 수로 재면 ⏎ Counting final tokens | — | MEDIUM | B4-content-migration |
+| `DECOMP-021` | 186-188 | `span` | CONTENT | STABLE (data-*) | × | — | MEDIUM | B4-content-migration |
+| `DECOMP-022` | 190-194 | `p` | NUMERIC CLAIM | STABLE (data-*) | 위 세 값은 각각 따로 구한 중앙값이다. 서로 곱해서 이 1.33배가 나오는 것이 아니다. ⏎ Each of the th… | — | LOW | B1-numeric-freeze |
+| `DECOMP-023` | 202-206 | `p` | NUMERIC CLAIM | style | 분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다. 중앙 토큰 비율 1.33배와 달리 확정 수… | — | LOW | B1-numeric-freeze |
+| `DECOMP-024` | 207-209 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `DECOMP-025` | 217-224 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `DECOMP-026` | 218-223 | `dt` | NUMERIC CLAIM | STABLE (data-*) | 383만 쌍 가운데 ⏎ OUT OF 3.84 MILLION PAIRS | — | LOW | B1-numeric-freeze |
+| `DECOMP-027` | 226-252 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
+| `DECOMP-028` | 228-250 | `li` | DESIGN APPLICATION | STABLE (data-*) | _(li)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-029` | 229-240 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `DECOMP-030` | 237-239 | `span` | CONTENT | STABLE (data-*) | % | — | MEDIUM | B4-content-migration |
+| `DECOMP-031` | 247-249 | `span` | CONTENT | STABLE (data-*) | 쌍 ⏎ pairs | — | MEDIUM | B4-content-migration |
+| `DECOMP-032` | 255-266 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
+| `DECOMP-033` | 260-262 | `span` | CONTENT | style | 용량 부담과 분절 경향의 상관 ⏎ Correlation: weight vs. splitting | — | MEDIUM | B4-content-migration |
+| `DECOMP-034` | 263-265 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B5-design-roles |
+| `DECOMP-035` | 267-271 | `p` | NUMERIC CLAIM | STABLE (data-*) | 0에 가깝다. 두 가지는 사실상 따로 움직이는 별개의 힘이다. ⏎ Close to zero. The two behave … | — | HIGH | B1-numeric-freeze |
+| `DECOMP-036` | 274-276 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `DECOMP-037` | 281-285 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-038` | 288-291 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `DECOMP-039` | 289 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `DECOMP-040` | 290 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `DECOMP-041` | 294-389 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
+| `DECOMP-042` | 296-308 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
+| `DECOMP-043` | 297-302 | `dt` | CONTENT | STABLE (data-*) | 토크나이저 안에서 벌어지는 일 ⏎ INSIDE THE TOKENIZER | — | MEDIUM | B4-content-migration |
+| `DECOMP-044` | 303-307 | `dd` | CONTENT | STABLE (data-*) | 문장을 먼저 덩어리로 자르고, 각 덩어리를 다시 토큰으로 쪼갠다 ⏎ A sentence is cut into chunks… | — | MEDIUM | B4-content-migration |
+| `DECOMP-045` | 310-368 | `div` | CONTENT | style | chunks ⏎ ① 먼저 나뉜 덩어리 수 ⏎ ① Chunks after the first cut ⏎ 한국어가 더 적다 ⏎… | — | MEDIUM | B4-content-migration |
+| `DECOMP-046` | 337-366 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | LIST | MEDIUM | B3-semantic-dom |
+| `DECOMP-047` | 338-343 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-048` | 344-359 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-049` | 346 | `dt` | CONTENT | style | 한국어 ⏎ Korean | — | MEDIUM | B4-content-migration |
+| `DECOMP-050` | 347-350 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-051` | 353 | `dt` | CONTENT | style | 영어 ⏎ English | — | MEDIUM | B4-content-migration |
+| `DECOMP-052` | 354-357 | `dd` | DESIGN APPLICATION | STABLE (data-*) | _(dd)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-053` | 360-365 | `span` | DESIGN APPLICATION | STABLE (data-*) | _(span)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-054` | 370-374 | `p` | CONTENT | STABLE (data-*) | ①과 ③의 값은 중앙값이고, ②는 평균이다. 세 열을 곱해서 맞춰 읽는 수치가 아니다. ⏎ Columns ① and ③ … | — | MEDIUM | B4-content-migration |
+| `DECOMP-055` | 375-377 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(p)_ | — | LOW | B5-design-roles |
+| `DECOMP-056` | 380-388 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
+| `DECOMP-057` | 391-400 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
+| `DECOMP-058` | 392 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B5-design-roles |
+| `DECOMP-059` | 394-399 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFinding)_ | — | LOW | B5-design-roles |
+
+## Dead files
+
+None. `MultilingualSection.tsx` was the last one and was deleted on 2026-08-19 (execution-map Step A).

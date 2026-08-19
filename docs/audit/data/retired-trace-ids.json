@@ -1,0 +1,24 @@
+{
+  "//": "Trace IDs whose node no longer exists on the page, and which prose may still cite.",
+  "//why": "A decision record has to be able to name the figure it withdrew. Deleting the citation would erase the record; leaving it uncatalogued makes check-citations report a dangling reference on every run, which trains everyone to ignore the guard. A row here says: this id is gone ON PURPOSE, here is what happened to it. An id NOT in this file and NOT in the ledger is still a real error — a typo, or a doc written against a stale run.",
+  "retired": {
+    "PREM-002": "S3 corpus size 69,432 (KO heading). Node rebuilt; replaced by 3,835,988 from COHORT_N. D1 ruling 2026-08-19.",
+    "PREM-003": "S3 corpus size 69,432 (EN heading). Same disposition as PREM-002.",
+    "PREM-011": "S3 headline range 1.29x~1.83x. Replaced by the canonical median 1.33x. D1 ruling 2026-08-19.",
+    "PREM-016": "S3 formula annotation panel. Node rebuilt in the canonical replacement.",
+    "PREM-017": "S3 Average Token Premium 1.68x (+68%). Removed, no replacement — no reading of the artifact yields 1.68. D1 ruling 2026-08-19.",
+    "PREM-020": "S3 English baseline row 1.00x (Standard). Removed. D1 ruling 2026-08-19.",
+    "PREM-023": "S3 Domain Range Business (1.44x) ~ Daily (1.83x). Removed; those domains do not exist in the research cohort. D1 ruling 2026-08-19.",
+    "PREM-032": "S3 '7 Benchmark Domains'. Removed with the six-row array it miscounted. D1 ruling 2026-08-19.",
+    "PREM-034": "S3 domain distribution list container. Removed with DOMAIN_DISTRIBUTION_DATA.",
+    "PREM-038": "S3 second English baseline row, under the chart. Removed. D1 ruling 2026-08-19.",
+    "PREM-039": "S3 Max Observed 1.83x. Removed; canonical max is 38.0, an outlier that misleads as a headline. D1 ruling 2026-08-19.",
+    "METH-008": "S6 hardcoded '6 Key Principles'. Node now interpolates WHAT_WE_DO_NOT_CLAIM.length. Closed 2026-08-19.",
+    "HERO-019": "S0 stat-ribbon '+78% Hangul Token Burden'. Orphaned when the S4.5 legacy dashboard was removed (PR #32).",
+    "LANG-031": "S4.5 legend Latin baseline row. Orphaned by the S4.5 legacy dashboard removal (PR #32).",
+    "LANG-051": "S4.5 legacy dashboard node. Removed in PR #32.",
+    "LANG-053": "S4.5 legacy dashboard node. Removed in PR #32.",
+    "BURD-017": "S4 'team' repetition preset label. Node rebuilt during the S4 copy pass.",
+    "BURD-018": "S4 'org' repetition preset label. Node rebuilt during the S4 copy pass."
+  }
+}
