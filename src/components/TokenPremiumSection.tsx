@@ -8,7 +8,6 @@ import {
   COHORT_N,
   DIRECTION_SPLIT,
   DOMAIN_COMPOSITION,
-  IDENTIFIABILITY,
   LATTICE_FACTS,
   LATTICE_MODES,
   MEASUREMENT_FRAME,
@@ -17,7 +16,6 @@ import {
   PROVENANCE,
   SHARE_KO_MORE,
   SOURCE_STRATA,
-  SOURCE_STRATA_PROVENANCE,
   TP_PERCENTILES,
 } from '../entities/rq1-canonical';
 import { Container, SectionHeading, HeadingAccent } from '../shared/ui';
@@ -302,7 +300,6 @@ export const TokenPremiumSection: React.FC = () => {
           <ArticleFigureCaption
             figNum={articleData.figureNumber}
             caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
-            source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
           />
         </ArticleFullWidthBreak>
 
@@ -389,9 +386,6 @@ export const TokenPremiumSection: React.FC = () => {
                     {isKo
                       ? '중앙값 양옆의 순서통계량이 모두 이 두꺼운 층 안에 들어 있고, 층의 가장자리까지 양쪽으로 약 76,000개의 여유가 있다. 그래서 표본을 다시 뽑아도 중앙값이 다른 값으로 넘어가지 않는다.'
                       : 'The order statistics on either side of the median both fall inside that thick layer, with roughly 76,000 observations of margin on each side. Resampling therefore never pushes the median onto a different value.'}
-                  </p>
-                  <p data-source="entity" className="text-[10px] font-mono text-ink-subtle pt-1">
-                    {PROVENANCE.lattice}
                   </p>
                 </ArticleDisclosure>
               </div>
@@ -590,9 +584,6 @@ export const TokenPremiumSection: React.FC = () => {
                     ? '두 출처를 따로 두고 다시 계산한 신뢰구간은 전체와 같았고, 결론의 방향은 뒤집히지 않았다.'
                     : 'Recomputed with the two sources held separate, the interval was identical to the pooled one and the direction did not reverse.'}
                 </p>
-                <p data-source="entity" className="text-[10px] font-mono text-ink-subtle break-keep">
-                  {SOURCE_STRATA_PROVENANCE}
-                </p>
               </div>
             </div>
 
@@ -653,9 +644,6 @@ export const TokenPremiumSection: React.FC = () => {
                   })}
                 </ul>
 
-                <p data-source="entity" className="text-[10px] font-mono text-ink-subtle pt-3 border-t border-rule break-keep">
-                  {PROVENANCE.identifiability} · {IDENTIFIABILITY.verdict}
-                </p>
               </div>
             </div>
           </div>
@@ -666,11 +654,6 @@ export const TokenPremiumSection: React.FC = () => {
               isKo
                 ? '두 출처의 중앙값과 분야별 문장쌍 수. 분야와 출처가 서로 엇갈려 있어 분야별 비율은 싣지 않았다.'
                 : 'Median by source, and pair counts by subject area. Subject and source do not cross cleanly, so no per-subject ratio is published.'
-            }
-            source={
-              isKo
-                ? `자료: ${SOURCE_STRATA_PROVENANCE} · ${PROVENANCE.identifiability}`
-                : `Source: ${SOURCE_STRATA_PROVENANCE} · ${PROVENANCE.identifiability}`
             }
           />
         </ArticleFullWidthBreak>

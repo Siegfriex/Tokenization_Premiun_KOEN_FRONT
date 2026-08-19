@@ -1092,10 +1092,10 @@
   "The more AI becomes everyday infrastructure, the less this stays a purely technical question.": [
    "src/entities/article-content/content/article-content.ts:577"
   ],
-  "10 / 방법론 · 무엇을 어떻게 쟀나": [
+  "11 / 방법론 · 무엇을 어떻게 쟀나": [
    "src/entities/article-content/content/article-content.ts:586"
   ],
-  "10 / METHODOLOGY · WHAT WE MEASURED, AND HOW": [
+  "11 / METHODOLOGY · WHAT WE MEASURED, AND HOW": [
    "src/entities/article-content/content/article-content.ts:587"
   ],
   "연구 방법론 및 6대 경계 원칙": [
@@ -1162,10 +1162,10 @@
    "src/entities/article-content/content/article-content.ts:635",
    "src/entities/article-content/model/types.ts:3"
   ],
-  "11 / 결론": [
+  "10 / 결론": [
    "src/entities/article-content/content/article-content.ts:637"
   ],
-  "11 / CONCLUSION": [
+  "10 / CONCLUSION": [
    "src/entities/article-content/content/article-content.ts:638"
   ],
   "같은 의미는,\n같은 길이가 아니었다": [
@@ -1301,11 +1301,11 @@
   "AI Adoption at Scale": [
    "src/entities/article-content/content/impact-scale-levels.ts:74"
   ],
-  "잠재적 디지털 마찰": [
-   "src/entities/article-content/content/impact-scale-levels.ts:75"
+  "같은 한도, 다른 사용량": [
+   "src/entities/article-content/content/impact-scale-levels.ts:81"
   ],
-  "Potential Digital Friction": [
-   "src/entities/article-content/content/impact-scale-levels.ts:75"
+  "Same Limit, Less Room": [
+   "src/entities/article-content/content/impact-scale-levels.ts:81"
   ],
   "ai-investment": [
    "src/entities/article-content/content/macro-adoption-phases.ts:17"
@@ -1807,26 +1807,26 @@
   "Society": [
    "src/entities/navigation/content/navigation.ts:18"
   ],
-  "method": [
-   "src/entities/navigation/content/navigation.ts:19"
-  ],
-  "방법론·한계": [
-   "src/entities/navigation/content/navigation.ts:19"
-  ],
-  "Method": [
-   "src/entities/navigation/content/navigation.ts:19"
-  ],
   "result": [
-   "src/entities/navigation/content/navigation.ts:20"
+   "src/entities/navigation/content/navigation.ts:25"
   ],
   "Result": [
-   "src/entities/navigation/content/navigation.ts:20"
+   "src/entities/navigation/content/navigation.ts:25"
+  ],
+  "method": [
+   "src/entities/navigation/content/navigation.ts:26"
+  ],
+  "방법론·한계": [
+   "src/entities/navigation/content/navigation.ts:26"
+  ],
+  "Method": [
+   "src/entities/navigation/content/navigation.ts:26"
   ],
   "섹션 바로가기": [
-   "src/entities/navigation/content/navigation.ts:37"
+   "src/entities/navigation/content/navigation.ts:43"
   ],
   "Story sections": [
-   "src/entities/navigation/content/navigation.ts:38"
+   "src/entities/navigation/content/navigation.ts:44"
   ],
   "./content/navigation": [
    "src/entities/navigation/index.ts:1"

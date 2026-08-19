@@ -38,7 +38,7 @@ const SECTION_OF = {
   PREM: 'S3 Token Premium & Cohort Structure',
   BURD: 'S4 Occupations & Accumulated Burden', LANG: 'S4.5 Global Multilingual Efficiency',
   INFRA: 'S5 Korea AI Infrastructure', IMPACT: 'S5.2 Socioeconomic Implications',
-  METH: 'S6 Methodology & Limits', CONC: 'RESULT Editorial Conclusion', FOOT: 'Footer',
+  CONC: 'S6 Editorial Conclusion', METH: 'S7 Methodology & Limits (now last)', FOOT: 'Footer',
   ART: 'Editorial typography layer', APP: 'Composition shell', DEAD: '(dead file, not rendered)',
   UI: 'shared/ui primitives', LSW: 'Language switch feature',
 };

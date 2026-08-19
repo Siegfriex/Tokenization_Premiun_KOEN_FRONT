@@ -6,7 +6,6 @@ import {
   BDR_CP_SPEARMAN,
   CHUNK_REVERSAL,
   DECOMPOSITION,
-  DECOMPOSITION_PROVENANCE,
   MEDIAN_TP,
   REPRESENTATION_OFFSET,
   REVERSAL_FACTS,
@@ -203,9 +202,6 @@ export const DecompositionSection: React.FC = () => {
                     {isKo
                       ? '분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다. 중앙 토큰 비율 1.33배와 달리 확정 수치로 읽어서는 안 된다. 다만 같은 문서에 실린 토큰 비율 백분위는 확정 결과표와 정확히 일치해, 문서 자체의 신뢰도를 가늠할 근거는 된다.'
                       : 'The percentiles for the decomposition components appear only in a preliminary diagnostics document, not the confirmed results table, and should not be read at the same level as the 1.33x median. That said, the token-ratio percentiles in that same document match the confirmed table exactly, which is a useful check on the document itself.'}
-                  </p>
-                  <p data-source="entity" className="text-[10px] font-mono text-ink-subtle pt-1 break-keep">
-                    {DECOMPOSITION_PROVENANCE}
                   </p>
                 </ArticleDisclosure>
               </div>

@@ -583,8 +583,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   methodologyBoundaries: {
     status: 'verified',
     eyebrow: {
-      ko: '10 / 방법론 · 무엇을 어떻게 쟀나',
-      en: '10 / METHODOLOGY · WHAT WE MEASURED, AND HOW',
+      ko: '11 / 방법론 · 무엇을 어떻게 쟀나',
+      en: '11 / METHODOLOGY · WHAT WE MEASURED, AND HOW',
     },
     headline: {
       ko: '연구 방법론 및 6대 경계 원칙',
@@ -634,8 +634,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
   conclusionSynthesis: {
     status: 'draft',
     eyebrow: {
-      ko: '11 / 결론',
-      en: '11 / CONCLUSION',
+      ko: '10 / 결론',
+      en: '10 / CONCLUSION',
     },
     headline: {
       ko: '같은 의미는,\n같은 길이가 아니었다',

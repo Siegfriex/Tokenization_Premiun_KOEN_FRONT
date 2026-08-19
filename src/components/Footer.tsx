@@ -30,9 +30,6 @@ export const Footer: React.FC = () => {
             <span data-source="widget" className="px-3 py-1 bg-surface-alt border border-rule rounded-xs text-ink-body">
               Tokenizer: o200k_base
             </span>
-            <span data-source="widget" className="px-3 py-1 bg-accent border border-accent rounded-xs text-on-accent font-bold">
-              Status: Public Research Release
-            </span>
           </div>
         </div>
 
@@ -66,16 +63,6 @@ export const Footer: React.FC = () => {
             <p data-source="widget" className="text-ink-muted leading-relaxed text-xs">
               모든 분석 수치는 제시된 토크나이저 및 표본 문장군에 국한되며, 모델 고도화 및 어휘집 개편에 따라 결과는 갱신될 수 있습니다.
             </p>
-          </div>
-        </div>
-
-        {/* Bottom Copyright */}
-        <div data-role="stat" data-semantic-target="dl" className="border-t border-rule pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-ink-muted font-mono">
-          <div data-source="widget">
-            © 2026 Token Premium Research Project. White Editorial Data Journalism Design.
-          </div>
-          <div data-source="widget">
-            Scrollytelling Editorial Architecture
           </div>
         </div>
       </Container>

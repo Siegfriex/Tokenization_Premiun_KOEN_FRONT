@@ -106,7 +106,11 @@ export const ImpactSection: React.FC = () => {
 
             <ol data-collection="impact-causal-chain" className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               {IMPACT_CAUSAL_CHAIN.map((step, idx) => {
-                const isEmphasis = step.en === 'Token Premium' || step.en === 'Potential Digital Friction';
+                // First and last emphasised: what this article measured, and
+                // where it says that leads. Matched by position rather than by
+                // English string, which silently stopped matching when the
+                // final step was reworded.
+                const isEmphasis = step.en === 'Token Premium' || idx === IMPACT_CAUSAL_CHAIN.length - 1;
                 return (
                   <React.Fragment key={step.en}>
                     {idx > 0 && <span aria-hidden="true" className="text-ink-muted">→</span>}

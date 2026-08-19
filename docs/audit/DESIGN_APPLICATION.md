@@ -12,8 +12,8 @@ The design system names a small set of roles. This ledger measures how many
 consolidated the system really is.
 
 - distinct typography signatures in use: **81**
-- distinct colour utilities in use: **34**
-- distinct layout/shape utilities in use: **144**
+- distinct colour utilities in use: **33**
+- distinct layout/shape utilities in use: **143**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -25,20 +25,20 @@ type scale.
 | # | Uses | Signature | Example Trace IDs |
 |---|---|---|---|
 | 1 | 33 | `font-mono text-xs` | `ART-013` `ART-014` `ART-015` `DECOMP-032` … |
-| 2 | 16 | `font-bold` | `DECOMP-034` `FOOT-005` `IMPACT-027` `LANG-015` … |
+| 2 | 15 | `font-bold` | `DECOMP-034` `IMPACT-027` `LANG-015` `LANG-054` … |
 | 3 | 10 | `font-bold font-mono text-xs tracking-wider uppercase` | `DECOMP-011` `DECOMP-043` `INFRA-045` `LANG-060` … |
 | 4 | 8 | `break-keep font-sans leading-relaxed text-[11px]` | `DECOMP-018` `DECOMP-022` `DECOMP-035` `DECOMP-054` … |
 | 5 | 6 | `break-keep font-mono text-[11px]` | `DECOMP-012` `DECOMP-044` `PREM-075` `PREM-105` … |
-| 6 | 6 | `break-keep font-mono text-[10px]` | `DECOMP-024` `DECOMP-036` `DECOMP-055` `PREM-050` … |
-| 7 | 6 | `font-mono text-[11px]` | `FOOT-015` `LANG-062` `HERO-056` `BURD-008` … |
-| 8 | 5 | `font-bold text-sm` | `LANG-064` `HERO-025` `HERO-029` `HERO-033` … |
-| 9 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
-| 10 | 4 | `font-mono text-[10px]` | `DECOMP-031` `PREM-070` `PREM-103` `PREM-127` |
-| 11 | 4 | `font-mono text-xs uppercase` | `BURD-094` `BURD-095` `CMP-021` `CMP-033` |
-| 12 | 3 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PREM-062` `PREM-090` |
-| 13 | 3 | `font-mono text-[10px] tracking-widest uppercase` | `DECOMP-016` `CMP-016` `CMP-028` |
-| 14 | 3 | `break-keep font-sans leading-relaxed text-[13px]` | `DECOMP-023` `PREM-101` `PREM-102` |
-| 15 | 3 | `break-keep font-sans` | `DECOMP-033` `PREM-082` `PREM-113` |
+| 6 | 5 | `font-mono text-[11px]` | `LANG-062` `HERO-056` `BURD-008` `NAV-006` … |
+| 7 | 5 | `font-bold text-sm` | `LANG-064` `HERO-025` `HERO-029` `HERO-033` … |
+| 8 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
+| 9 | 4 | `font-mono text-xs uppercase` | `BURD-094` `BURD-095` `CMP-021` `CMP-033` |
+| 10 | 3 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PREM-062` `PREM-090` |
+| 11 | 3 | `font-mono text-[10px] tracking-widest uppercase` | `DECOMP-016` `CMP-016` `CMP-028` |
+| 12 | 3 | `break-keep font-sans leading-relaxed text-[13px]` | `DECOMP-023` `PREM-101` `PREM-102` |
+| 13 | 3 | `font-mono text-[10px]` | `DECOMP-031` `PREM-070` `PREM-127` |
+| 14 | 3 | `break-keep font-sans` | `DECOMP-033` `PREM-082` `PREM-113` |
+| 15 | 3 | `break-keep font-mono text-[10px]` | `DECOMP-024` `DECOMP-036` `PREM-050` |
 | 16 | 3 | `font-sans text-xs` | `DECOMP-049` `DECOMP-051` `FOOT-021` |
 | 17 | 3 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-018` `FOOT-019` `FOOT-020` |
 | 18 | 3 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` |
@@ -111,28 +111,27 @@ type scale.
 | Utility | Uses |
 |---|---|
 | `text-ink` | 77 |
-| `border-rule` | 60 |
-| `text-ink-muted` | 60 |
+| `text-ink-muted` | 59 |
+| `border-rule` | 58 |
 | `text-ink-body` | 34 |
 | `border-b` | 30 |
-| `text-ink-subtle` | 24 |
-| `border-t` | 17 |
+| `text-ink-subtle` | 20 |
 | `bg-surface` | 16 |
+| `border-t` | 15 |
 | `bg-surface-alt` | 11 |
 | `text-left` | 5 |
-| `text-on-accent` | 5 |
 | `focus-visible:outline-2` | 5 |
 | `focus-visible:outline-offset-2` | 5 |
 | `focus-visible:outline-rule-strong` | 5 |
-| `bg-accent` | 4 |
 | `border-rule-strong` | 4 |
+| `text-on-accent` | 4 |
 | `border-y` | 3 |
 | `border-2` | 3 |
 | `text-rule-neutral` | 3 |
+| `bg-accent` | 3 |
 | `hover:text-ink` | 3 |
 | `text-ink-strong` | 2 |
 | `hover:bg-surface-alt` | 2 |
-| `border-accent` | 1 |
 | `md:border-l` | 1 |
 | `md:border-rule` | 1 |
 | `border-dashed` | 1 |
@@ -149,54 +148,53 @@ type scale.
 
 | Utility | Uses |
 |---|---|
-| `flex` | 66 |
-| `justify-between` | 48 |
-| `items-center` | 34 |
-| `gap-3` | 19 |
-| `rounded-xs` | 18 |
+| `flex` | 65 |
+| `justify-between` | 47 |
+| `items-center` | 33 |
+| `gap-3` | 18 |
 | `block` | 17 |
+| `rounded-xs` | 17 |
 | `my-8` | 14 |
 | `shrink-0` | 14 |
 | `pb-3` | 14 |
 | `items-baseline` | 14 |
-| `border` | 14 |
+| `border` | 13 |
 | `space-y-12` | 11 |
-| `flex-col` | 11 |
 | `space-y-6` | 10 |
+| `flex-col` | 10 |
 | `gap-4` | 10 |
 | `space-y-1` | 9 |
 | `py-20` | 9 |
 | `sm:py-28` | 9 |
 | `scroll-mt-16` | 9 |
 | `gap-2` | 9 |
-| `pt-3` | 8 |
 | `grid` | 8 |
+| `pt-3` | 7 |
 | `grid-cols-1` | 7 |
 | `items-start` | 7 |
 | `flex-wrap` | 7 |
 | `space-y-4` | 6 |
 | `space-y-2` | 6 |
 | `w-full` | 6 |
-| `py-1` | 6 |
 | `p-4` | 6 |
 | `space-y-1.5` | 5 |
+| `py-1` | 5 |
 | `gap-1.5` | 5 |
 | `transition-all` | 5 |
 | `ml-1.5` | 5 |
 | `space-y-3` | 4 |
 | `pt-2` | 4 |
-| `pt-1` | 4 |
 | `gap-6` | 4 |
 | `px-4` | 4 |
 | `sm:px-6` | 4 |
 | `space-y-10` | 4 |
-| `px-3` | 4 |
-| `sm:flex-row` | 4 |
 | `cursor-pointer` | 4 |
 | `lg:px-12` | 3 |
+| `px-3` | 3 |
 | `relative` | 3 |
 | `p-5` | 3 |
 | `transition-colors` | 3 |
+| `sm:flex-row` | 3 |
 | `gap-1` | 3 |
 | `hidden` | 3 |
 | `pt-4` | 3 |
@@ -209,5 +207,6 @@ type scale.
 | `my-auto` | 2 |
 | `py-16` | 2 |
 | `p-6` | 2 |
+| `sm:p-8` | 2 |
 
-_(top 60 of 144; full data in `data/trace-ledger.json`)_
+_(top 60 of 143; full data in `data/trace-ledger.json`)_
