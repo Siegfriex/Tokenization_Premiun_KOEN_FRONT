@@ -32,15 +32,15 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 
 | Status | Count | Meaning |
 |---|---|---|
-| CANONICAL | 16 | resolves to an entity that names its artifact + hash |
+| CANONICAL | 13 | resolves to an entity that names its artifact + hash |
 | BELOW CANONICAL | 1 | sourced, but not to a canonical artifact — must render with a visible qualifier |
-| CONTRADICTED — FROZEN | 3 | markup and entity data do not agree, or the markup asserts something the data cannot support |
+| CONTRADICTED — FROZEN | 0 | markup and entity data do not agree, or the markup asserts something the data cannot support |
 | DUPLICATED | 0 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
-| UNLINKED | 3 | no entity anywhere holds this value; the number exists only in markup |
+| UNLINKED | 4 | no entity anywhere holds this value; the number exists only in markup |
 | VALUE_PRESENT | 6 | an entity does hold this value, but the markup hardcodes it rather than reading it |
 | UNLINKED (count coincidence) | 0 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
 
-## CANONICAL — provenance recorded (16)
+## CANONICAL — provenance recorded (13)
 
 | Trace ID | Widget | Lines | Rendered | Entity | Artifact @ hash |
 |---|---|---|---|---|---|
@@ -48,18 +48,15 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | `DECOMP-022` | DecompositionSection | 189-193 | 위 세 값은 각각 따로 구한 중앙값이다. 서로 곱해서 이 1.33배가 나오는 … | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
 | `DECOMP-023` | DecompositionSection | 201-205 | 분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다.… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
 | `DECOMP-026` | DecompositionSection | 214-219 | 383만 쌍 가운데 ⏎ OUT OF 3.84 MILLION PAIRS | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-057` | TokenPremiumSection | 83 | 3,835,988쌍 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-058` | TokenPremiumSection | 89 | 3,835,988 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-063` | TokenPremiumSection | 132-136 | 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 값이다. 전체 토큰 수… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-073` | TokenPremiumSection | 201-205 | 같은 뜻을 담은 문장쌍 하나마다 이 값을 구한 뒤, 383만 개의 값을 모아 … | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-075` | TokenPremiumSection | 220-224 | 383만 쌍을 비율 순으로 줄 세웠을 때의 경계값 ⏎ Boundary valu… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-077` | TokenPremiumSection | 231-264 | p50 | `TP_PERCENTILES` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-090` | TokenPremiumSection | 317-322 | 중앙값의 95% 신뢰구간 ⏎ 95% CONFIDENCE INTERVAL | `BOOTSTRAP_CI` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-101` | TokenPremiumSection | 380-384 | 정밀도가 높아서가 아니다. 토큰 수는 정수이므로 두 정수의 비율은 몇 개의 단… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-102` | TokenPremiumSection | 385-389 | 중앙값 양옆의 순서통계량이 모두 이 두꺼운 층 안에 들어 있고, 층의 가장자리… | `LATTICE_FACTS` | `NB08_RQ1_CI_DEGENERACY_NOTE @ 6ff51aaa167ad59e` |
-| `PREM-115` | TokenPremiumSection | 474-478 | 383만 쌍 가운데 다섯 쌍에 한 쌍꼴이다. 나머지 여덟 쌍은 이 여덟 개 바… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-122` | TokenPremiumSection | 517-521 | 전체 중앙값 1.33배는 두 출처 어느 쪽과도 일치하지 않는다 ⏎ The po… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
-| `PREM-139` | TokenPremiumSection | 605-645 | 025에만 ⏎ 025 only ⏎ 026에만 ⏎ 026 only ⏎ 두 출처 … | `DOMAIN_COMPOSITION` | `G5_IDENTIFIABILITY_v001 @ 1069b46ed032ed28` |
+| `PREM-057` | TokenPremiumSection | 82 | 3,835,988쌍 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-058` | TokenPremiumSection | 88 | 3,835,988 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-063` | TokenPremiumSection | 131-135 | 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 값이다. 전체 토큰 수… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-073` | TokenPremiumSection | 200-204 | 같은 뜻을 담은 문장쌍 하나마다 이 값을 구한 뒤, 383만 개의 값을 모아 … | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-075` | TokenPremiumSection | 219-223 | 383만 쌍을 비율 순으로 줄 세웠을 때의 경계값 ⏎ Boundary valu… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-077` | TokenPremiumSection | 230-263 | p50 | `TP_PERCENTILES` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-115` | TokenPremiumSection | 388-392 | 383만 쌍 가운데 다섯 쌍에 한 쌍꼴이다. 나머지 여덟 쌍은 이 여덟 개 바… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-122` | TokenPremiumSection | 426-430 | 전체 중앙값 1.33배는 두 출처 어느 쪽과도 일치하지 않는다 ⏎ The po… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-139` | TokenPremiumSection | 514-554 | 025에만 ⏎ 025 only ⏎ 026에만 ⏎ 026 only ⏎ 두 출처 … | `DOMAIN_COMPOSITION` | `G5_IDENTIFIABILITY_v001 @ 1069b46ed032ed28` |
 
 ## BELOW CANONICAL — sourced, but not canonical (1)
 
@@ -67,25 +64,22 @@ Each of these must render with a visible qualifier on the page saying so. The `n
 
 | Trace ID | Widget | Lines | Rendered | Tier | Source |
 |---|---|---|---|---|---|
-| `PREM-082` | TokenPremiumSection | 274-276 | 95백분위 (참고 수치) ⏎ 95th pct (reference onl… | `PRE_G5_DESCRIPTIVE` | KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL] |
+| `PREM-082` | TokenPremiumSection | 273-275 | 95백분위 (참고 수치) ⏎ 95th pct (reference onl… | `PRE_G5_DESCRIPTIVE` | KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL] |
 
-## CONTRADICTED — frozen pending Director decision (3)
+## CONTRADICTED — frozen pending Director decision (0)
 
-| Trace ID | Widget | Lines | Rendered | Observation |
-|---|---|---|---|---|
-| `HERO-025` | NewsHeroSection | 97 | 31 TOKENS `31 TOKENS` | **observed:** markup renders "31 TOKENS" for the Korean exhibit row<br>**entity:** no CURATED_PAIRED_SENTENCES entry has hangulCount 31; TOKEN_BASELINE_SIMULATION.baseKoPerPrompt is 31 |
-| `HERO-029` | NewsHeroSection | 114 | 18 TOKENS `18 TOKENS` | **observed:** markup renders "18 TOKENS" for the English exhibit row<br>**entity:** no paired-sentence entry pairs 31 with 18; TOKEN_BASELINE_SIMULATION.baseEnPerPrompt is 24 |
-| `HERO-033` | NewsHeroSection | 127 | 1.72× (+72% Difference) `+72%` | **observed:** markup renders "1.72× (+72% Difference)" as the hero exhibit ratio<br>**entity:** derived from the 31/18 pair above, which is itself unlinked |
+_none_
 
 ## DUPLICATED — value agrees today, but markup owns its own copy (0)
 
 _none_
 
-## UNLINKED — value exists only in markup (3)
+## UNLINKED — value exists only in markup (4)
 
 | Trace ID | Widget | Lines | Rendered | Note |
 |---|---|---|---|---|
 | `LANG-067` | MultilingualTokenEfficiencySection | 262 | 영어 기준 (1.00×) ⏎ English baseline (1.00×) `1.00` | _no entity holds this value_ |
+| `HERO-058` | NewsHeroSection | 92-94 | 문장쌍 383만 ⏎ 3.84M pairs `383` `3.84` | _no entity holds this value_ |
 | `BURD-092` | OccupationSection | 113 | 1,000 ⏎ 회 ⏎ x `1,000` | _no entity holds this value_ |
 | `CMP-055` | TokenCompareSection | 209-213 | 이 네 문장쌍에서는 한국어 쪽 조각이 더 많다. 383만 쌍 전체로 넓히면 열에 아홉 꼴이고, 나머지는 더… `383` `3.84` | _no entity holds this value_ |
 
@@ -95,10 +89,10 @@ _none_
 |---|---|---|---|---|
 | `DECOMP-035` | DecompositionSection | 263-267 | 0에 가깝다. 두 가지는 사실상 따로 움직이는 별개의 힘이다. ⏎ Close to zero. The two… `0` | 0 also at src/entities/multilingual-token/content/multilingual-token.ts:15, src/entities/rq1-canonical/content/rq1-canonical.ts:260, src/entities/rq1-canonical/content/rq1-canonical.ts:332 |
 | `LANG-062` | MultilingualTokenEfficiencySection | 145-147 | 영어=1 기준 정규화 비율 ⏎ Normalized ratio, English = 1 `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |
+| `HERO-062` | NewsHeroSection | 120 | 100 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
 | `BURD-091` | OccupationSection | 112 | 1 ⏎ 회 ⏎ x `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |
 | `BURD-093` | OccupationSection | 114 | 2,000 ⏎ 회 ⏎ x `2,000` | 2,000 also at src/entities/rq1-canonical/content/rq1-canonical.ts:207 |
-| `PREM-092` | TokenPremiumSection | 329-331 | 구간의 폭이 0이다. ⏎ The interval has zero width. `0` | 0 also at src/entities/multilingual-token/content/multilingual-token.ts:15, src/entities/rq1-canonical/content/rq1-canonical.ts:260, src/entities/rq1-canonical/content/rq1-canonical.ts:332 |
-| `PREM-107` | TokenPremiumSection | 416-459 | 4/3 `4` `3` | 4 also at src/entities/rq1-canonical/content/rq1-canonical.ts:356 |
+| `PREM-107` | TokenPremiumSection | 330-373 | 4/3 `4` `3` | 4 also at src/entities/rq1-canonical/content/rq1-canonical.ts:356 |
 
 ## UNLINKED — count coincides with an array length but is not read from it (0)
 

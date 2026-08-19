@@ -275,7 +275,6 @@ export const MultilingualTokenEfficiencySection: React.FC = () => {
           <ArticleFigureCaption
             figNum={FLORES_CITATION_NOTE.figureNumber}
             caption={isKo ? FLORES_CITATION_NOTE.figureCaption.ko : FLORES_CITATION_NOTE.figureCaption.en}
-            source={isKo ? FLORES_CITATION_NOTE.figureSource.ko : FLORES_CITATION_NOTE.figureSource.en}
           />
         </ArticleFullWidthBreak>
 

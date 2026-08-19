@@ -175,7 +175,6 @@ export const OccupationSection: React.FC = () => {
           <ArticleFigureCaption
             figNum={articleData.figureNumber}
             caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
-            source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
           />
         </ArticleFullWidthBreak>
 

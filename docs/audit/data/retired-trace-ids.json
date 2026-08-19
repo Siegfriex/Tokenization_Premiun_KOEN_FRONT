@@ -19,6 +19,11 @@
     "LANG-051": "S4.5 legacy dashboard node. Removed in PR #32.",
     "LANG-053": "S4.5 legacy dashboard node. Removed in PR #32.",
     "BURD-017": "S4 'team' repetition preset label. Node rebuilt during the S4 copy pass.",
-    "BURD-018": "S4 'org' repetition preset label. Node rebuilt during the S4 copy pass."
+    "BURD-018": "S4 'org' repetition preset label. Node rebuilt during the S4 copy pass.",
+    "HERO-025": "S0 hero exhibit '31 TOKENS'. Node replaced by the canonical median exhibit. D2 ruling 2026-08-19.",
+    "HERO-026": "S0 hero exhibit truncated Korean sentence. Removed — no entity held it. D2 ruling 2026-08-19.",
+    "HERO-029": "S0 hero exhibit '18 TOKENS'. Same disposition as HERO-025.",
+    "HERO-030": "S0 hero exhibit truncated English sentence. Removed. D2 ruling 2026-08-19.",
+    "HERO-033": "S0 hero exhibit '1.72x (+72% Difference)'. Replaced by the canonical median 1.33x. D2 ruling 2026-08-19."
   }
 }

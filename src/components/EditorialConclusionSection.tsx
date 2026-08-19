@@ -51,13 +51,14 @@ export const EditorialConclusionSection: React.FC = () => {
             {isKo ? articleData.lead?.ko : articleData.lead?.en}
           </ArticleLead>
 
-          {isKo
-            ? articleData.preFigureParagraphs?.ko.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))
-            : articleData.preFigureParagraphs?.en.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))}
+          {/* Director 2026-08-19: third paragraph cut. The first two carry the
+              finding and the boundary; the third restated the boundary again
+              and slowed the close. */}
+          {(isKo ? articleData.preFigureParagraphs?.ko : articleData.preFigureParagraphs?.en)
+            ?.slice(0, 2)
+            .map((p, idx) => (
+              <ArticleParagraph key={idx}>{p}</ArticleParagraph>
+            ))}
         </ArticleReadingColumn>
 
         {/* Exit device, not a CTA (Director redline, S07): epilogue navigation, not the slide's protagonist.

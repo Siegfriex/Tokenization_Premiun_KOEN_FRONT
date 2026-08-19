@@ -92,9 +92,23 @@ with a ratio, presented as a real measurement.
 The exhibit also renders two truncated Korean/English sentences
 (`HERO-026`, `HERO-030`) that appear in no entity.
 
-**Decision needed:** is this exhibit a real measured pair that must be added to
-`CURATED_PAIRED_SENTENCES` with its provenance, or an illustrative mock that
-must be labelled as such?
+**RULED 2026-08-19 — neither. Replaced with the canonical median.**
+
+The exhibit was neither a measured pair nor a labelled mock: it presented
+`31 / 18 / 1.72×` and two truncated sentences as a real measurement, and no
+entity held any of it. Labelling it as illustrative would have left the cover
+opening on 1.72× while S3 closed on a median of 1.33×, which is the conflict
+the directive's §8 exists to prevent — exactly one primary metric renders, and
+it is the median.
+
+The exhibit now shows that median, indexed to English at 100 (Korean 133),
+reading `MEDIAN_TP` and `SHARE_KO_MORE` from `entities/rq1-canonical`. The two
+truncated sentences are gone rather than replaced; illustrating the median with
+one hand-picked pair would misrepresent a distribution in which 6.9% of pairs
+ran the other way.
+
+`HERO-025`, `HERO-026`, `HERO-029`, `HERO-030` and `HERO-033` are recorded in
+`data/retired-trace-ids.json`.
 
 ---
 

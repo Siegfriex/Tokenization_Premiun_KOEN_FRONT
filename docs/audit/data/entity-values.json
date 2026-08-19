@@ -527,10 +527,10 @@
   "AI does not read a sentence letter by letter. It cuts the sentence into pieces called tokens and reads those. The more pieces, the longer the sequence the model has to work through.": [
    "src/entities/article-content/content/article-content.ts:101"
   ],
-  "문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계": [
+  "문장이 토큰이 되기까지": [
    "src/entities/article-content/content/article-content.ts:104"
   ],
-  "From Text to Token Vector: The 4-Stage Input Pipeline": [
+  "How a sentence becomes tokens": [
    "src/entities/article-content/content/article-content.ts:105"
   ],
   "같은 뜻을 담아도 언어에 따라 조각 수가 달라진다는 것이 문제다. 개발자용 API를 비롯한 여러 서비스가 이 조각 수를 기준으로 사용량과 요금을 매긴다. 차이는 모델이 답을 만들기 전, 문장을 자르는 단계에서 이미 생긴다.": [
@@ -878,10 +878,10 @@
   "FIG. 05": [
    "src/entities/article-content/content/article-content.ts:380"
   ],
-  "반복 사용 횟수에 따른 한·영 누적 토큰 청구서 (Monochrome Token Receipt)": [
+  "같은 작업을 반복했을 때 쌓이는 한국어·영어 토큰 수": [
    "src/entities/article-content/content/article-content.ts:382"
   ],
-  "Cumulative Token Receipt by Workflow Repetition Count (Korean vs. English)": [
+  "Tokens accumulated by Korean and English as the same task repeats": [
    "src/entities/article-content/content/article-content.ts:383"
   ],
   "자료: 큐레이션된 병렬 문장쌍 기준 누적 연산 시뮬레이션 모델 (2026)": [

@@ -3,6 +3,7 @@ import { ChevronDown, ArrowDownRight } from 'lucide-react';
 import { useUILanguage } from '../features/change-language';
 import { getLocalizedText } from '../shared/i18n';
 import { ARTICLE_CONTENT } from '../entities/article-content';
+import { MEDIAN_TP, SHARE_KO_MORE } from '../entities/rq1-canonical';
 import { Container, SectionEyebrow, HeadingAccent } from '../shared/ui';
 import {
   ArticleReadingColumn,
@@ -40,8 +41,6 @@ export const NewsHeroSection: React.FC = () => {
             </span>
             <span className="text-rule-neutral">/</span>
             <span data-source="widget">{isKo ? '데이터 저널리즘' : 'Data Journalism'}</span>
-            <span className="text-rule-neutral">/</span>
-            <span className="text-ink font-bold">2026</span>
           </div>
         </div>
 
@@ -78,53 +77,73 @@ export const NewsHeroSection: React.FC = () => {
 
           {/* Right 40% (5 cols on lg): Minimal Editorial Data Exhibit — deliberately quiet (docs/qa/DESIGN_LAW.md): supports the H1's claim, must not compete with it */}
           <div className="lg:col-span-5 space-y-6 lg:pl-4">
-            {/* Minimal Token Contrast Visual */}
+            {/* Token contrast, drawn from the canonical median.
+                Replaced 2026-08-19 under the D2 ruling. It previously showed
+                "31 TOKENS / 18 TOKENS / 1.72x" over two truncated sentences,
+                none of which any entity held — and 1.72x sat on the cover
+                while S3 reported a median of 1.33x, so the deck opened and
+                closed on different numbers. It now shows the one primary
+                metric, indexed to English at 100. */}
             <div className="bg-surface-alt rounded-xs p-6 space-y-6">
-              <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3">
-                <dt data-source="widget" className="text-xs font-mono text-ink-body font-semibold uppercase tracking-wider">
-                  FIG. 01 · {isKo ? '실제 토큰 분절 비교' : 'Real Token Split Exhibit'}
+              <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-rule pb-3 gap-3">
+                <dt data-source="widget" className="text-xs font-mono text-ink-body font-semibold uppercase tracking-wider break-keep">
+                  {isKo ? '같은 뜻, 다른 토큰 수' : 'Same meaning, different token count'}
                 </dt>
-                <dd data-source="widget" className="text-[11px] font-mono text-ink-subtle">{isKo ? '문장쌍 비교' : 'Pair Benchmark'}</dd>
+                <dd data-source="entity" className="text-[11px] font-mono text-ink-subtle shrink-0 tabular-nums">
+                  {isKo ? '문장쌍 383만' : '3.84M pairs'}
+                </dd>
               </dl>
 
-              {/* Korean Row */}
+              {/* Korean — the median ratio, indexed to English at 100 */}
               <div className="space-y-2">
-                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono gap-3">
                   <dt data-source="widget" className="text-ink font-bold flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
-                    Korean (한국어)
+                    {isKo ? '한국어' : 'Korean'}
                   </dt>
-                  <dd className="text-ink font-bold text-sm">31 TOKENS</dd>
+                  <dd data-source="entity" className="text-ink font-bold text-sm tabular-nums">
+                    {Math.round(MEDIAN_TP.value * 100)}
+                  </dd>
                 </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
-                  <div className="h-full bg-mark rounded-xs w-[100%] transition-all"></div>
+                  <div className="h-full bg-mark rounded-xs w-full"></div>
                 </div>
-                <p data-source="widget" className="text-[11px] text-ink-body font-mono italic">
-                  "인공지능 모델의 다국어 토큰화 처리 효율성..."
-                </p>
               </div>
 
-              {/* English Row */}
+              {/* English — the baseline the ratio is defined against */}
               <div className="space-y-2 pt-2 border-t border-rule">
-                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono">
+                <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between text-xs font-mono gap-3">
                   <dt data-source="widget" className="text-ink-body font-medium flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-ink-muted"></span>
-                    English (영어)
+                    {isKo ? '영어' : 'English'}
                   </dt>
-                  <dd className="text-ink-body font-bold text-sm">18 TOKENS</dd>
+                  <dd data-source="widget" className="text-ink-body font-bold text-sm tabular-nums">100</dd>
                 </dl>
                 <div className="h-3 w-full bg-mark-track rounded-xs overflow-hidden border border-rule">
-                  <div className="h-full bg-ink-muted rounded-xs w-[58%] transition-all"></div>
+                  <div
+                    className="h-full bg-ink-muted rounded-xs"
+                    style={{ width: `${(1 / MEDIAN_TP.value) * 100}%` }}
+                  ></div>
                 </div>
-                <p data-source="widget" className="text-[11px] text-ink-subtle font-mono italic">
-                  "Multilingual tokenization processing efficiency..."
-                </p>
               </div>
 
-              {/* Takeaway line */}
-              <dl data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule flex items-center justify-between text-xs font-mono">
-                <dt data-source="widget" className="text-ink-subtle">Relative Ratio:</dt>
-                <dd className="text-ink font-bold text-sm">1.72× (+72% Difference)</dd>
+              <dl data-role="stat" data-semantic-target="dl" className="pt-3 border-t border-rule space-y-1.5 text-xs font-mono">
+                <div className="flex items-center justify-between gap-3">
+                  <dt data-source="widget" className="text-ink-subtle break-keep">
+                    {isKo ? '토큰 비율 중앙값' : 'Median token ratio'}
+                  </dt>
+                  <dd data-source="entity" className="text-ink font-bold text-sm tabular-nums">
+                    {MEDIAN_TP.value.toFixed(2)}×
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <dt data-source="widget" className="text-ink-subtle break-keep">
+                    {isKo ? '한국어가 더 많았던 문장쌍' : 'Pairs where Korean used more'}
+                  </dt>
+                  <dd data-source="entity" className="text-ink-body tabular-nums">
+                    {getLocalizedText(SHARE_KO_MORE.display, language)}
+                  </dd>
+                </div>
               </dl>
             </div>
             {/* Human Preview 01 iteration 11 (HP01-S0-R05): removed the

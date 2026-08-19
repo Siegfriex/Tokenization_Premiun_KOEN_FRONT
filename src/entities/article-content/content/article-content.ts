@@ -101,8 +101,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'AI does not read a sentence letter by letter. It cuts the sentence into pieces called tokens and reads those. The more pieces, the longer the sequence the model has to work through.',
     },
     subheading: {
-      ko: '문자열에서 토큰 ID 벡터로: AI 입력 파이프라인의 4단계',
-      en: 'From Text to Token Vector: The 4-Stage Input Pipeline',
+      ko: '문장이 토큰이 되기까지',
+      en: 'How a sentence becomes tokens',
     },
     // Director redline (S02, 2026-08-17): "상단 설명은 한 단 줄이고" — merged
     // into one paragraph (identical sentences, no wording change) so the
@@ -379,8 +379,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     },
     figureNumber: 'FIG. 05',
     figureCaption: {
-      ko: '반복 사용 횟수에 따른 한·영 누적 토큰 청구서 (Monochrome Token Receipt)',
-      en: 'Cumulative Token Receipt by Workflow Repetition Count (Korean vs. English)',
+      ko: '같은 작업을 반복했을 때 쌓이는 한국어·영어 토큰 수',
+      en: 'Tokens accumulated by Korean and English as the same task repeats',
     },
     figureSource: {
       ko: '자료: 큐레이션된 병렬 문장쌍 기준 누적 연산 시뮬레이션 모델 (2026)',

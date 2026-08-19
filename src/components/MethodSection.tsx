@@ -145,14 +145,6 @@ export const MethodSection: React.FC = () => {
 
         {/* READING COLUMN: Post-Figure Analytical Prose & Footnotes */}
         <ArticleReadingColumn>
-          {isKo
-            ? articleData.postFigureParagraphs?.ko.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))
-            : articleData.postFigureParagraphs?.en.map((p, idx) => (
-                <ArticleParagraph key={idx}>{p}</ArticleParagraph>
-              ))}
-
           {/* Footnotes */}
           {articleData.footnotes && (
             <div className="pt-8 border-t border-rule space-y-2 text-xs font-mono text-ink-muted">

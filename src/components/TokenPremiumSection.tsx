@@ -13,7 +13,6 @@ import {
   MEASUREMENT_FRAME,
   MEDIAN_TP,
   PRE_G5_P95,
-  PROVENANCE,
   SHARE_KO_MORE,
   SOURCE_STRATA,
   TP_PERCENTILES,
@@ -285,14 +284,6 @@ export const TokenPremiumSection: React.FC = () => {
                   </p>
                 </div>
 
-                <dl
-                  data-role="stat"
-                  data-semantic-target="dl"
-                  className="pt-3 text-[10px] font-mono text-ink-subtle border-t border-rule break-keep"
-                >
-                  <dt className="sr-only">{isKo ? '자료 출처' : 'Provenance'}</dt>
-                  <dd data-source="entity">{PROVENANCE.rq1}</dd>
-                </dl>
               </div>
             </div>
           </div>
@@ -311,88 +302,11 @@ export const TokenPremiumSection: React.FC = () => {
 
         {/* FIG. 04-1 — the lattice, and the mandatory degeneracy disclosure */}
         <ArticleFullWidthBreak figure className="my-8 space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-surface border-2 border-rule-strong rounded-xs p-6 sm:p-8 space-y-5 shadow-sm">
-                <span
-                  data-source="widget"
-                  className="text-xs font-mono text-ink-muted uppercase tracking-wider block"
-                >
-                  {isKo ? '중앙값의 95% 신뢰구간' : '95% CONFIDENCE INTERVAL'}
-                </span>
-                <div
-                  data-source="entity"
-                  className="text-2xl sm:text-3xl md:text-4xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
-                >
-                  [ {Math.exp(BOOTSTRAP_CI.lower).toFixed(4)} , {Math.exp(BOOTSTRAP_CI.upper).toFixed(4)} ]
-                </div>
-                <p data-source="widget" className="text-sm font-sans text-ink font-semibold break-keep">
-                  {isKo ? '구간의 폭이 0이다.' : 'The interval has zero width.'}
-                </p>
-
-                <dl
-                  data-role="stat"
-                  data-semantic-target="dl"
-                  className="space-y-1.5 pt-3 border-t border-rule text-xs font-mono"
-                >
-                  <div className="flex justify-between gap-3 py-0.5">
-                    <dt className="text-ink-muted">{isKo ? '재표본 횟수' : 'Resamples'}</dt>
-                    <dd data-source="entity" className="text-ink font-bold tabular-nums">
-                      {intl(BOOTSTRAP_CI.replicates)}
-                    </dd>
-                  </div>
-                  <div className="flex justify-between gap-3 py-0.5">
-                    <dt className="text-ink-muted">{isKo ? '난수 시드' : 'Seed'}</dt>
-                    <dd data-source="entity" className="text-ink-body tabular-nums">
-                      {intl(BOOTSTRAP_CI.seed)}
-                    </dd>
-                  </div>
-                </dl>
-
-                <div className="pt-3 border-t border-rule space-y-2">
-                  <span
-                    data-source="widget"
-                    className="text-[10px] font-mono text-ink uppercase font-bold tracking-widest block break-keep"
-                  >
-                    {isKo ? '서로 다른 세 가지 방법이 같은 값에 도달했다' : 'THREE INDEPENDENT PROCEDURES AGREE'}
-                  </span>
-                  <ul data-collection="confirming-procedures" className="space-y-1">
-                    {CONFIRMING_PROCEDURES.map((proc) => (
-                      <li
-                        key={proc.id}
-                        data-item-id={proc.id}
-                        data-source="entity"
-                        className="text-[11px] font-sans text-ink-body flex items-start gap-2 break-keep"
-                      >
-                        <span className="text-ink-muted shrink-0">·</span>
-                        {getLocalizedText(proc.label, language)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Mandatory under NB08_RQ1_CI_DEGENERACY_NOTE: the interval may
-                    not be reported without this explanation. */}
-                <ArticleDisclosure
-                  summary={isKo ? '폭이 0인 이유' : 'WHY THE WIDTH IS ZERO'}
-                  className="mt-2"
-                >
-                  <p className="text-[13px] font-sans leading-relaxed break-keep">
-                    {isKo
-                      ? '정밀도가 높아서가 아니다. 토큰 수는 정수이므로 두 정수의 비율은 몇 개의 단순한 분수 위에만 놓인다. 383만 쌍이 만들어낸 서로 다른 값은 3,725개뿐이고, 정확히 4/3인 문장쌍만 123,040개다.'
-                      : 'This is not high precision. Token counts are integers, so their ratio can only land on a lattice of simple fractions. Across 3.84 million pairs there are only 3,725 distinct values, and 123,040 pairs sit exactly on 4/3.'}
-                  </p>
-                  <p className="text-[13px] font-sans leading-relaxed break-keep">
-                    {isKo
-                      ? '중앙값 양옆의 순서통계량이 모두 이 두꺼운 층 안에 들어 있고, 층의 가장자리까지 양쪽으로 약 76,000개의 여유가 있다. 그래서 표본을 다시 뽑아도 중앙값이 다른 값으로 넘어가지 않는다.'
-                      : 'The order statistics on either side of the median both fall inside that thick layer, with roughly 76,000 observations of margin on each side. Resampling therefore never pushes the median onto a different value.'}
-                  </p>
-                </ArticleDisclosure>
-              </div>
-            </div>
-
-            {/* The lattice itself */}
-            <div className="lg:col-span-7 space-y-6">
+          {/* The lattice — the CI/methodology panel that stood beside it was
+              removed 2026-08-19 (Director): a general reader does not need the
+              bootstrap procedure to read the exhibit. */}
+          <div>
+            <div>
               <div className="bg-surface border border-rule rounded-xs p-6 space-y-5 shadow-xs">
                 <div className="flex items-start justify-between gap-4 border-b border-rule pb-3">
                   <dl data-role="stat" data-semantic-target="dl">
@@ -487,11 +401,6 @@ export const TokenPremiumSection: React.FC = () => {
               isKo
                 ? '토큰 비율이 놓이는 분수 격자. 신뢰구간의 폭이 0인 것은 정밀도가 아니라 이 격자 구조 때문이다.'
                 : 'The fraction lattice token ratios land on. The zero-width interval reflects this structure, not precision.'
-            }
-            source={
-              isKo
-                ? `자료: ${PROVENANCE.lattice}`
-                : `Source: ${PROVENANCE.lattice}`
             }
           />
         </ArticleFullWidthBreak>
