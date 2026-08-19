@@ -97,8 +97,8 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
       en: 'Tokens: The New Unit of Measurement in the AI Era',
     },
     lead: {
-      ko: 'AI는 문장을 글자 하나하나로 읽지 않는다. 토큰이라는 조각으로 잘라서 읽는다. 조각이 많아질수록 모델이 훑어야 하는 줄도 길어진다.',
-      en: 'AI does not read a sentence letter by letter. It cuts the sentence into pieces called tokens and reads those. The more pieces, the longer the sequence the model has to work through.',
+      ko: 'AI는 문장을 글자 하나하나로 읽지 않는다. 조각으로 잘라서 읽는다. 그 조각을 토큰이라고 부르는데, 정확히 무엇을 가리키는 말일까.',
+      en: 'AI does not read a sentence letter by letter. It cuts the sentence into pieces and reads those. The pieces are called tokens — but what exactly is one?',
     },
     subheading: {
       ko: '문장이 토큰이 되기까지',
@@ -109,14 +109,14 @@ export const ARTICLE_CONTENT: ArticleContentRegistry = {
     // section reads as didactic/instructional rather than editorial.
     preFigureParagraphs: {
       ko: [
-        '이 둘은 대략 같은 정보를 전달한다. 그런데 컴퓨터에는 이 문장이 그대로 들어가지 않는다. 토크나이저라는 장치를 거쳐 여러 조각으로, 즉 토큰으로 잘린 다음에 들어간다.',
-        '그렇다면 토큰이란 정확히 무엇인가. 우선 글자가 아니다. 그리고 우리가 흔히 아는 단어도 아니다. 토크나이저가 자기 사전에 따라 나눈 단위일 뿐이어서, 영어의 흔한 단어는 통째로 한 조각이 되기도 하고 길거나 드문 단어는 여러 조각으로 쪼개지기도 한다. 한국어도 한 음절이나 한 형태소가 한 조각과 그대로 맞아떨어지지 않는다.',
-        '같은 뜻을 담아도 언어에 따라 조각 수가 달라진다는 것이 문제다. 개발자용 API를 비롯한 여러 서비스가 이 조각 수를 기준으로 사용량과 요금을 매긴다. 차이는 모델이 답을 만들기 전, 문장을 자르는 단계에서 이미 생긴다.',
+        '이 둘은 대략 같은 정보를 전달한다. 그런데 컴퓨터는 문장을 쓰인 그대로 받지 않는다. 토크나이저라는 장치가 먼저 조각을 내고, 모델에는 그 조각들이 들어간다.',
+        '토큰은 글자가 아니다. 우리가 흔히 아는 단어도 아니다. 토크나이저가 자기 사전에 따라 나눈 단위일 뿐이어서, 영어의 흔한 단어는 통째로 한 조각이 되기도 하고 길거나 드문 단어는 여러 조각으로 쪼개지기도 한다. 한국어도 한 음절이나 한 형태소가 한 조각과 그대로 맞아떨어지지 않는다.',
+        '조각이 많아질수록 모델이 훑어야 하는 줄이 길어진다. 게다가 같은 뜻을 담아도 언어에 따라 조각 수가 달라진다. 개발자용 API를 비롯한 여러 서비스가 이 조각 수를 기준으로 사용량과 요금을 매긴다. 차이는 모델이 답을 만들기 전, 문장을 자르는 단계에서 이미 생긴다.',
       ],
       en: [
-        'The two carry roughly the same information. But neither sentence reaches the computer as written. Each passes through a tokenizer first, which cuts it into pieces — tokens — and those are what go in.',
-        'So what exactly is a token? Not a letter. Not a word in the ordinary sense either. It is whatever unit the tokenizer’s own dictionary produces: a common English word may survive whole as one piece, while a long or unusual one breaks into several. Korean is the same — a syllable or a grammatical ending does not map neatly onto one piece.',
-        'The problem is that the same meaning yields a different number of pieces depending on the language. Developer APIs and several consumer services meter usage and billing by that count. The gap opens before the model writes a single word of its answer, at the step where the sentence is cut up.',
+        'The two carry roughly the same information. But neither reaches the computer as written. A tokenizer cuts each one up first, and what the model receives is the pieces.',
+        'A token is not a letter. It is not a word in the ordinary sense either. It is whatever unit the tokenizer’s own dictionary produces: a common English word may survive whole as one piece, while a long or unusual one breaks into several. Korean is the same — a syllable or a grammatical ending does not map neatly onto one piece.',
+        'The more pieces, the longer the sequence the model has to work through. And the same meaning yields a different number of pieces depending on the language. Developer APIs and several consumer services meter usage and billing by that count. The gap opens before the model writes a single word of its answer, at the step where the sentence is cut up.',
       ],
     },
     figureNumber: 'FIG. 02',
