@@ -36,7 +36,7 @@ Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 | BELOW CANONICAL | 1 | sourced, but not to a canonical artifact — must render with a visible qualifier |
 | CONTRADICTED — FROZEN | 3 | markup and entity data do not agree, or the markup asserts something the data cannot support |
 | DUPLICATED | 0 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
-| UNLINKED | 2 | no entity anywhere holds this value; the number exists only in markup |
+| UNLINKED | 3 | no entity anywhere holds this value; the number exists only in markup |
 | VALUE_PRESENT | 6 | an entity does hold this value, but the markup hardcodes it rather than reading it |
 | UNLINKED (count coincidence) | 0 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
 
@@ -81,12 +81,13 @@ Each of these must render with a visible qualifier on the page saying so. The `n
 
 _none_
 
-## UNLINKED — value exists only in markup (2)
+## UNLINKED — value exists only in markup (3)
 
 | Trace ID | Widget | Lines | Rendered | Note |
 |---|---|---|---|---|
 | `LANG-067` | MultilingualTokenEfficiencySection | 262 | 영어 기준 (1.00×) ⏎ English baseline (1.00×) `1.00` | _no entity holds this value_ |
 | `BURD-092` | OccupationSection | 113 | 1,000 ⏎ 회 ⏎ x `1,000` | _no entity holds this value_ |
+| `CMP-055` | TokenCompareSection | 210-214 | 이 네 문장쌍에서는 한국어 쪽 조각이 더 많다. 383만 쌍 전체로 넓히면 열에 아홉 꼴이고, 나머지는 더… `383` `3.84` | _no entity holds this value_ |
 
 ## VALUE_PRESENT in an entity, but hardcoded in markup (6)
 

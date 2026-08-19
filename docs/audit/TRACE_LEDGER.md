@@ -93,7 +93,7 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-004` | 59 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `CMP-005` | 62 | `p` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleParagraph)_ | — | LOW | B2-stable-hooks |
 | `CMP-045` | 67-229 | `figure|div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFullWidthBreak)_ | — | LOW | B5-design-roles |
-| `CMP-006` | 70-72 | `div` | CONTENT | STABLE (data-*) | 검증된 대역 문장쌍 선택: ⏎ Select Verified Sentence Pair: | — | MEDIUM | B4-content-migration |
+| `CMP-054` | 70-72 | `div` | CONTENT | STABLE (data-*) | 의미가 대응되는 문장쌍 고르기 ⏎ Pick a meaning-matched pair | — | MEDIUM | B4-content-migration |
 | `CMP-046` | 74-105 | `ul` | DESIGN APPLICATION | STABLE (data-*) | _(ul)_ | — | LOW | B5-design-roles |
 | `CMP-007` | 79-101 | `button` | DESIGN APPLICATION | STABLE (data-*) | _(SelectableCard)_ | — | LOW | B2-stable-hooks |
 | `CMP-008` | 86-93 | `span` | DOM STRUCTURE | STABLE (data-*) | _(span)_ | DL_PAIR | LOW | B3-semantic-dom |
@@ -126,7 +126,7 @@ _S1 Quick Compare Lab · src/components/TokenCompareSection.tsx · 50 tracked no
 | `CMP-033` | 199 | `span` | CONTENT | STABLE (data-*) | English Token Count | — | MEDIUM | B4-content-migration |
 | `CMP-034` | 202 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
 | `CMP-035` | 209-220 | `div` | DOM STRUCTURE | STABLE (data-*) | _(div)_ | DL_PAIR | LOW | B3-semantic-dom |
-| `CMP-036` | 210-214 | `div` | CONTENT | STABLE (data-*) | 동일 의미 표현 시 한글 문장이 더 많은 토큰 조각으로 분절되는 현상이 명확히 관측됩니다. ⏎ Hangul consist… | — | MEDIUM | B4-content-migration |
+| `CMP-055` | 210-214 | `div` | NUMERIC CLAIM | STABLE (data-*) | 이 네 문장쌍에서는 한국어 쪽 조각이 더 많다. 383만 쌍 전체로 넓히면 열에 아홉 꼴이고, 나머지는 더 적거나 같았다… | — | HIGH | B1-numeric-freeze |
 | `CMP-053` | 215-219 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(div)_ | — | LOW | B5-design-roles |
 | `CMP-038` | 223-227 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
 | `CMP-049` | 232-245 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |
@@ -319,7 +319,7 @@ _S4 Occupations & Accumulated Burden · src/components/OccupationSection.tsx · 
 | `BURD-025` | 141-144 | `div` | CONTENT | style | + | — | MEDIUM | B4-content-migration |
 | `BURD-026` | 143 | `span` | CONTENT | STABLE (data-*) | tokens | — | MEDIUM | B4-content-migration |
 | `BURD-075` | 150-155 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-097` | 151-153 | `dt` | CONTENT | STABLE (data-*) | 토큰 사용 명세서 ⏎ TOKEN RECEIPT | — | MEDIUM | B4-content-migration |
+| `BURD-105` | 151-153 | `dt` | CONTENT | STABLE (data-*) | 누적 토큰 계산서 ⏎ TOKEN RECEIPT | — | MEDIUM | B4-content-migration |
 | `BURD-098` | 154 | `dd` | CONTENT | STABLE (data-*) | 회 반복 ⏎ ITERATIONS | — | MEDIUM | B4-content-migration |
 | `BURD-076` | 157-160 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
 | `BURD-099` | 158 | `dt` | DESIGN APPLICATION | STABLE (data-*) | _(dt)_ | — | LOW | B5-design-roles |
@@ -328,7 +328,7 @@ _S4 Occupations & Accumulated Burden · src/components/OccupationSection.tsx · 
 | `BURD-101` | 162 | `dt` | DESIGN APPLICATION | STABLE (data-*) | _(dt)_ | — | LOW | B5-design-roles |
 | `BURD-102` | 163 | `dd` | CONTENT | STABLE (data-*) | 개 토큰 ⏎ TOKENS | — | MEDIUM | B4-content-migration |
 | `BURD-078` | 166-169 | `dl` | DESIGN APPLICATION | STABLE (data-*) | _(dl)_ | — | LOW | B5-design-roles |
-| `BURD-103` | 167 | `dt` | CONTENT | STABLE (data-*) | 순수 격차 ⏎ ABSOLUTE GAP | — | MEDIUM | B4-content-migration |
+| `BURD-106` | 167 | `dt` | CONTENT | STABLE (data-*) | 토큰 차이 ⏎ ABSOLUTE GAP | — | MEDIUM | B4-content-migration |
 | `BURD-104` | 168 | `dd` | CONTENT | STABLE (data-*) | + ⏎ 개 토큰 ⏎ TOKENS | — | MEDIUM | B4-content-migration |
 | `BURD-064` | 175-179 | `figcaption` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleFigureCaption)_ | — | LOW | B2-stable-hooks |
 | `BURD-088` | 183-196 | `div` | DESIGN APPLICATION | STABLE (data-*) | _(ArticleReadingColumn)_ | — | LOW | B5-design-roles |

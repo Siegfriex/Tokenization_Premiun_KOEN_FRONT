@@ -42,7 +42,7 @@ type scale.
 | 16 | 3 | `font-sans text-xs` | `DECOMP-049` `DECOMP-051` `FOOT-021` |
 | 17 | 3 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-018` `FOOT-019` `FOOT-020` |
 | 18 | 3 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` |
-| 19 | 3 | `font-mono font-semibold text-xs tracking-wider uppercase` | `METH-034` `HERO-055` `CMP-006` |
+| 19 | 3 | `font-mono font-semibold text-xs tracking-wider uppercase` | `METH-034` `HERO-055` `CMP-054` |
 | 20 | 2 | `font-bold whitespace-nowrap` | `ART-005` `NAV-007` |
 | 21 | 2 | `font-bold font-mono text-lg` | `DECOMP-030` `PREM-126` |
 | 22 | 2 | `font-bold font-mono text-2xl` | `DECOMP-050` `DECOMP-052` |
@@ -76,8 +76,8 @@ type scale.
 | 50 | 1 | `font-bold font-mono text-sm` | `BURD-014` |
 | 51 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
 | 52 | 1 | `text-[11px]` | `BURD-075` |
-| 53 | 1 | `break-keep font-bold tracking-wider uppercase` | `BURD-097` |
-| 54 | 1 | `break-keep` | `BURD-103` |
+| 53 | 1 | `break-keep font-bold tracking-wider uppercase` | `BURD-105` |
+| 54 | 1 | `break-keep` | `BURD-106` |
 | 55 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
 | 56 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
 | 57 | 1 | `font-mono font-semibold text-xs` | `CMP-014` |

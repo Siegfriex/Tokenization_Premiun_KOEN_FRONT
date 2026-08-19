@@ -26,8 +26,8 @@ the styling, and every design change silently invalidates it.
 
 | Hook | Applies to | Count |
 |---|---|---|
-| `data-role="…"` | CONTENT nodes | 136 |
-| `data-metric="…"` | NUMERIC_CLAIM nodes | 28 |
+| `data-role="…"` | CONTENT nodes | 135 |
+| `data-metric="…"` | NUMERIC_CLAIM nodes | 29 |
 | `data-role="section-heading"` | DOM_STRUCTURE nodes | 19 |
 | `data-role="figure-caption"` | DESIGN_APPLICATION nodes | 11 |
 | `data-collection="source_strata"` | DESIGN_APPLICATION nodes | 10 |
@@ -234,11 +234,11 @@ the styling, and every design change silently invalidates it.
 | `BURD-096` | OccupationSection | 138-140 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink.uppercase.font-bold.trackin…` | `data-role="…"` |
 | `BURD-025` | OccupationSection | 141-144 | `div` | STYLE_SIGNATURE | `div.text-4xl.sm\:text-5xl.font-mono.font-black.text-ink` | `data-role="…"` |
 | `BURD-026` | OccupationSection | 143 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-muted.ml-1\.5.font-sans` | `data-role="…"` |
-| `BURD-097` | OccupationSection | 151-153 | `dt` | STABLE (data-*) | `dt.font-bold.text-ink.tracking-wider.uppercase.break-keep` | `data-role="…"` |
+| `BURD-105` | OccupationSection | 151-153 | `dt` | STABLE (data-*) | `dt.font-bold.text-ink.tracking-wider.uppercase.break-keep` | `data-role="…"` |
 | `BURD-098` | OccupationSection | 154 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
 | `BURD-100` | OccupationSection | 159 | `dd` | STABLE (data-*) | `dd.font-bold.text-ink` | `data-role="…"` |
 | `BURD-102` | OccupationSection | 163 | `dd` | STABLE (data-*) | `dd.text-ink-muted` | `data-role="…"` |
-| `BURD-103` | OccupationSection | 167 | `dt` | STABLE (data-*) | `dt.break-keep` | `data-role="…"` |
+| `BURD-106` | OccupationSection | 167 | `dt` | STABLE (data-*) | `dt.break-keep` | `data-role="…"` |
 | `BURD-104` | OccupationSection | 168 | `dd` | STABLE (data-*) | `dd` | `data-role="…"` |
 | `BURD-064` | OccupationSection | 175-179 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
 | `BURD-065` | OccupationSection | 186 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
@@ -265,7 +265,7 @@ the styling, and every design change silently invalidates it.
 | `CMP-003` | TokenCompareSection | 46 | `span` | STABLE (data-*) | `span` | `data-role="…"` |
 | `CMP-004` | TokenCompareSection | 59 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-ko" data-item-id="{item.id}"` |
 | `CMP-005` | TokenCompareSection | 62 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-prefigureparagraphs-en" data-item-id="{item.id}"` |
-| `CMP-006` | TokenCompareSection | 70-72 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-muted.uppercase.tracking-wid…` | `data-role="…"` |
+| `CMP-054` | TokenCompareSection | 70-72 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-muted.uppercase.tracking-wid…` | `data-role="…"` |
 | `CMP-007` | TokenCompareSection | 79-101 | `button` | STABLE (data-*) | `button.p-4.text-left.w-full.h-full` | `data-collection="curated_paired_sentences" data-item-id="{item.id}"` |
 | `CMP-008` | TokenCompareSection | 86-93 | `span` | STABLE (data-*) | `span.flex.items-center.justify-between.text-\[11px\].font-m…` | `data-collection="curated_paired_sentences" data-item-id="{item.id}"` |
 | `CMP-009` | TokenCompareSection | 87-89 | `span` | STABLE (data-*) | `span.text-on-accent.font-bold.text-ink-muted` | `data-collection="curated_paired_sentences" data-item-id="{item.id}"` |
@@ -286,7 +286,7 @@ the styling, and every design change silently invalidates it.
 | `CMP-031` | TokenCompareSection | 190 | `span` | STABLE (data-*) | `span` | `data-collection="selectedpair-alphabettokens" data-item-id="{item.id}"` |
 | `CMP-033` | TokenCompareSection | 199 | `span` | STABLE (data-*) | `span.text-xs.font-mono.text-ink-muted.uppercase` | `data-role="…"` |
 | `CMP-034` | TokenCompareSection | 202 | `span` | STABLE (data-*) | `span.text-xs.font-normal.text-ink-subtle.ml-1\.5.font-sans` | `data-role="…"` |
-| `CMP-036` | TokenCompareSection | 210-214 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-body` | `data-role="…"` |
+| `CMP-055` | TokenCompareSection | 210-214 | `div` | STABLE (data-*) | `div.text-xs.font-mono.text-ink-body` | `data-metric="…"  (+ data-source="entity\|widget")` |
 | `CMP-038` | TokenCompareSection | 223-227 | `figcaption` | STABLE (data-*) | `figcaption` | `data-role="figure-caption" data-figure="{figNum}"` |
 | `CMP-039` | TokenCompareSection | 235 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-ko" data-item-id="{item.id}"` |
 | `CMP-040` | TokenCompareSection | 238 | `p` | STABLE (data-*) | `p` | `data-collection="articledata-postfigureparagraphs-en" data-item-id="{item.id}"` |

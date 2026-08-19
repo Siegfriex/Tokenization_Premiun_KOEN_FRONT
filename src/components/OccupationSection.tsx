@@ -149,7 +149,7 @@ export const OccupationSection: React.FC = () => {
               <div className="p-5 bg-surface border border-rule rounded-xs font-mono text-xs max-w-lg mx-auto md:mx-0 space-y-3">
                 <dl data-role="stat" data-semantic-target="dl" className="flex items-center justify-between border-b border-dashed border-rule pb-2 text-[11px]">
                   <dt data-source="widget" className="font-bold text-ink tracking-wider uppercase break-keep">
-                    {isKo ? '토큰 사용 명세서' : 'TOKEN RECEIPT'}
+                    {isKo ? '누적 토큰 계산서' : 'TOKEN RECEIPT'}
                   </dt>
                   <dd data-source="widget" className="text-ink-muted">{promptCount.toLocaleString()}{isKo ? '회 반복' : ' ITERATIONS'}</dd>
                 </dl>
@@ -164,7 +164,7 @@ export const OccupationSection: React.FC = () => {
                   </dl>
                 </div>
                 <dl data-role="stat" data-semantic-target="dl" className="border-t border-rule-strong pt-2 flex justify-between font-bold text-sm text-ink">
-                  <dt data-source="widget" className="break-keep">{isKo ? '순수 격차' : 'ABSOLUTE GAP'}</dt>
+                  <dt data-source="widget" className="break-keep">{isKo ? '토큰 차이' : 'ABSOLUTE GAP'}</dt>
                   <dd data-source="widget">+{totalGap.toLocaleString()}{isKo ? '개 토큰' : ' TOKENS'}</dd>
                 </dl>
               </div>
