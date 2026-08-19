@@ -12,30 +12,29 @@ None of this is changed in this phase. This ledger defines batch **B3**.
 
 | Gap | Count |
 |---|---|
-| HEADING_LEVEL | 12 |
-| LABEL_ORPHAN | 9 |
-| DL_PAIR | 32 |
+| HEADING_LEVEL | 10 |
+| LABEL_ORPHAN | 11 |
+| DL_PAIR | 34 |
+| LIST | 1 |
 
-## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (12)
+## HEADING_LEVEL — Headings whose level is set per widget with no document-wide outline (10)
 
 _heading level is set per widget with no document-wide outline check_
 
 | Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
 |---|---|---|---|---|---|
 | `ART-001` | ArticleElements | 66-71 | `h3` |  | verify level continuity within its section |
-| `FOOT-018` | Footer | 42-45 | `h2` |  | verify level continuity within its section |
-| `FOOT-019` | Footer | 52-55 | `h2` |  | verify level continuity within its section |
-| `FOOT-020` | Footer | 62-65 | `h2` |  | verify level continuity within its section |
+| `FOOT-018` | Footer | 39-42 | `h2` |  | verify level continuity within its section |
+| `FOOT-019` | Footer | 49-52 | `h2` |  | verify level continuity within its section |
+| `FOOT-020` | Footer | 59-62 | `h2` |  | verify level continuity within its section |
 | `IMPACT-004` | ImpactSection | 47-49 | `h3` |  | verify level continuity within its section |
-| `IMPACT-009` | ImpactSection | 80-82 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
-| `INFRA-027` | KoreaAIContextSection | 129-131 | `h3` | VERIFIED_POLICY_SLOTS | verify level continuity within its section |
-| `HERO-010` | NewsHeroSection | 61-69 | `h1` |  | verify level continuity within its section |
-| `BURD-043` | OccupationSection | 195-197 | `h3` |  | verify level continuity within its section |
-| `BURD-054` | OccupationSection | 252-254 | `h3` |  | verify level continuity within its section |
-| `PIPE-004` | PipelineSection | 49-51 | `h3` |  | verify level continuity within its section |
+| `IMPACT-009` | ImpactSection | 77-79 | `h3` | IMPACT_SCALE_LEVELS | verify level continuity within its section |
+| `LANG-004` | MultilingualTokenEfficiencySection | 124-126 | `h3` |  | verify level continuity within its section |
+| `HERO-010` | NewsHeroSection | 57-65 | `h1` |  | verify level continuity within its section |
+| `PIPE-004` | PipelineSection | 83-85 | `h3` |  | verify level continuity within its section |
 | `UI-003` | SectionHeading | 81-83 | `h2` |  | verify level continuity within its section |
 
-## LABEL_ORPHAN — Labels with no programmatic relationship to what they label (9)
+## LABEL_ORPHAN — Labels with no programmatic relationship to what they label (11)
 
 _a label with no programmatic relationship to the content it labels_
 
@@ -43,49 +42,61 @@ _a label with no programmatic relationship to the content it labels_
 |---|---|---|---|---|---|
 | `ART-003` | ArticleElements | 111 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 | `ART-004` | ArticleElements | 137 | `div` |  | id + aria-labelledby, or move inside the labelled region |
-| `IMPACT-011` | ImpactSection | 100 | `div` | FINAL CONCEPTUAL CAUSAL CHAIN | id + aria-labelledby, or move inside the labelled region |
-| `HERO-036` | NewsHeroSection | 170-172 | `div` |  | id + aria-labelledby, or move inside the labelled region |
+| `IMPACT-030` | ImpactSection | 99 | `div` | 가능한 확장 경로 ⏎ POSSIBLE EXPANSION PATHWAY | id + aria-labelledby, or move inside the labelled region |
+| `HERO-036` | NewsHeroSection | 164-166 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 | `NAV-003` | StoryProgress | 24-26 | `span` | DATA JOURNALISM | id + aria-labelledby, or move inside the labelled region |
-| `CMP-016` | TokenCompareSection | 125-127 | `span` | INPUT SENTENCE | id + aria-labelledby, or move inside the labelled region |
-| `CMP-028` | TokenCompareSection | 173-175 | `span` | EQUIVALENT SENTENCE | id + aria-labelledby, or move inside the labelled region |
-| `PREM-025` | TokenPremiumSection | 100-102 | `span` | MATHEMATICAL FORMULA | id + aria-labelledby, or move inside the labelled region |
+| `CMP-016` | TokenCompareSection | 124-126 | `span` | INPUT SENTENCE | id + aria-labelledby, or move inside the labelled region |
+| `CMP-028` | TokenCompareSection | 172-174 | `span` | EQUIVALENT SENTENCE | id + aria-labelledby, or move inside the labelled region |
+| `PREM-066` | TokenPremiumSection | 149-154 | `span` | 어느 쪽 토큰이 더 많았나 ⏎ WHICH SIDE USED MORE | id + aria-labelledby, or move inside the labelled region |
+| `PREM-071` | TokenPremiumSection | 189-194 | `span` | 계산 방법 ⏎ HOW IT IS CALCULATED | id + aria-labelledby, or move inside the labelled region |
+| `PREM-111` | TokenPremiumSection | 352-357 | `span` | LATTICE_MODES | id + aria-labelledby, or move inside the labelled region |
 | `UI-002` | SectionHeading | 80 | `div` |  | id + aria-labelledby, or move inside the labelled region |
 
-## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (32)
+## DL_PAIR — Term/value pairs rendered as anonymous boxes — need `<dl>` / `<dt>` / `<dd>` (34)
 
 _a term/value row whose halves are nested wrappers — no node in the chain carries an address_
 
 | Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
 |---|---|---|---|---|---|
-| `CONC-006` | EditorialConclusionSection | 78-91 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `FOOT-001` | Footer | 14-37 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `FOOT-015` | Footer | 73-80 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `METH-014` | MethodSection | 107-125 | `button` | METHODOLOGY_ITEMS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-007` | MultilingualTokenEfficiencySection | 172-184 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `LANG-010` | MultilingualTokenEfficiencySection | 272-290 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-001` | NewsHeroSection | 28-211 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-002` | NewsHeroSection | 36-49 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `HERO-003` | NewsHeroSection | 37-45 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-007` | OccupationSection | 72-97 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-012` | OccupationSection | 142-150 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-015` | OccupationSection | 190-244 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `BURD-023` | OccupationSection | 247-301 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PIPE-010` | PipelineSection | 76-125 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PIPE-011` | PipelineSection | 86-99 | `span` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-015` | DecompositionSection | 129-151 | `span` | stages | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-019` | DecompositionSection | 178-189 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-029` | DecompositionSection | 226-237 | `span` | REVERSAL_FACTS | <dl><dt>label</dt><dd>value</dd></dl> |
+| `DECOMP-032` | DecompositionSection | 252-263 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `FOOT-001` | Footer | 14-34 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `METH-014` | MethodSection | 111-129 | `button` | METHODOLOGY_ITEMS | <dl><dt>label</dt><dd>value</dd></dl> |
+| `LANG-010` | MultilingualTokenEfficiencySection | 138-143 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `LANG-013` | MultilingualTokenEfficiencySection | 144-155 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `LANG-016` | MultilingualTokenEfficiencySection | 258-272 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `HERO-001` | NewsHeroSection | 29-209 | `section` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `HERO-003` | NewsHeroSection | 38-44 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `BURD-007` | OccupationSection | 67-92 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PIPE-010` | PipelineSection | 105-149 | `button` | PIPELINE_STEPS | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-001` | StoryProgress | 19-73 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
 | `NAV-002` | StoryProgress | 23-31 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-008` | TokenCompareSection | 86-93 | `span` | CURATED_PAIRED_SENTENCES | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-011` | TokenCompareSection | 112-157 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-012` | TokenCompareSection | 114-122 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-015` | TokenCompareSection | 124-131 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-020` | TokenCompareSection | 150-156 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-023` | TokenCompareSection | 160-205 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-024` | TokenCompareSection | 162-170 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-027` | TokenCompareSection | 172-179 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-032` | TokenCompareSection | 198-204 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `CMP-035` | TokenCompareSection | 209-218 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-006` | TokenPremiumSection | 69-80 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-009` | TokenPremiumSection | 99-109 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-015` | TokenPremiumSection | 115-125 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
-| `PREM-034` | TokenPremiumSection | 140-165 | `span` | DOMAIN_DISTRIBUTION_DATA | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-008` | TokenCompareSection | 85-92 | `span` | CURATED_PAIRED_SENTENCES | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-011` | TokenCompareSection | 111-156 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-012` | TokenCompareSection | 113-121 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-015` | TokenCompareSection | 123-130 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-020` | TokenCompareSection | 149-155 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-023` | TokenCompareSection | 159-204 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-024` | TokenCompareSection | 161-169 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-027` | TokenCompareSection | 171-178 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-032` | TokenCompareSection | 197-203 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `CMP-035` | TokenCompareSection | 208-219 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-068` | TokenPremiumSection | 158-167 | `span` | direction | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-018` | TokenPremiumSection | 211-228 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-079` | TokenPremiumSection | 235-253 | `span` | TP_PERCENTILES | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-081` | TokenPremiumSection | 272-279 | `span` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-024` | TokenPremiumSection | 311-328 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-109` | TokenPremiumSection | 335-363 | `span` | LATTICE_MODES | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-125` | TokenPremiumSection | 436-447 | `span` | SOURCE_STRATA | <dl><dt>label</dt><dd>value</dd></dl> |
+| `PREM-141` | TokenPremiumSection | 525-544 | `span` | DOMAIN_COMPOSITION | <dl><dt>label</dt><dd>value</dd></dl> |
 | `LSW-001` | LanguageSwitch | 10-33 | `div` |  | <dl><dt>label</dt><dd>value</dd></dl> |
+
+## LIST — Collections rendered as anonymous siblings — need `<ul>` / `<li>` (1)
+
+_renders one item of a collection ([ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① Chunks after the first cut', ko: CHUN) but neither it nor its parent is a list_
+
+| Trace ID | Widget | Lines | Current DOM | Collection / literal | Recommended structure |
+|---|---|---|---|---|---|
+| `DECOMP-046` | DecompositionSection | 333-362 | `div` | [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① … | <ul>/<li> (or <ol>) around the [ { id: 'chunks', label: isKo ? '① 먼저 나뉜 덩어리 수' : '① Chunks after the first cut', ko: CHUN collection |

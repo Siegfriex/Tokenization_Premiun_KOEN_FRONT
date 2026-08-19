@@ -7,64 +7,94 @@
 Every number the site renders as a claim about the research: ratios, token
 counts, percentages, corpus sizes, benchmark counts, ranges.
 
-**Nothing here is resolved.** Every disputed value is FROZEN pending a
-Director decision. No replacement value has been derived, and no explanation
-for a mismatch has been invented — each row states only what the markup
-renders and what the entity data holds.
+**The S3 primary result is resolved.** Under the D1 ruling of 2026-08-19 the
+section was rebuilt against `entities/rq1-canonical`, where every value
+carries a non-optional `provenance` naming an artifact path and SHA-256
+prefix in the research repo at `925697c`. Those rows appear under CANONICAL
+below, with their artifact.
+
+A CANONICAL row is not "verified by this tool" — the tool cannot open the
+research repo. It records that the rendering site resolves to an entity that
+names its source, which is the property D1 was blocked on.
+
+**Everything else is unchanged.** Disputed values outside S3 are still FROZEN
+pending a Director decision; no replacement has been derived and no
+explanation for a mismatch has been invented.
+
+Figures withdrawn by a ruling keep their record in
+[`DIRECTOR_DECISIONS.md`](DIRECTOR_DECISIONS.md) and
+`src/shared/trace/claims.ts`, and their Trace IDs in
+[`data/retired-trace-ids.json`](data/retired-trace-ids.json), so a withdrawn
+number stays auditable after its node is gone.
 
 Tokenizer names (`o200k_base`), corpus names (`Flores-200`), figure numbers
 (`FIG. 01`) and years are traced separately as identifiers, not claims.
 
 | Status | Count | Meaning |
 |---|---|---|
-| CONTRADICTED — FROZEN | 10 | markup and entity data do not agree, or the markup asserts something the data cannot support |
-| DUPLICATED | 2 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
+| CANONICAL | 13 | resolves to an entity that names its artifact + hash |
+| BELOW CANONICAL | 1 | sourced, but not to a canonical artifact — must render with a visible qualifier |
+| CONTRADICTED — FROZEN | 0 | markup and entity data do not agree, or the markup asserts something the data cannot support |
+| DUPLICATED | 0 | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
 | UNLINKED | 5 | no entity anywhere holds this value; the number exists only in markup |
-| VALUE_PRESENT | 3 | an entity does hold this value, but the markup hardcodes it rather than reading it |
-| UNLINKED (count coincidence) | 1 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
+| VALUE_PRESENT | 6 | an entity does hold this value, but the markup hardcodes it rather than reading it |
+| UNLINKED (count coincidence) | 0 | a rendered count happens to equal the array length today, but is not read from it — free to drift silently |
 
-## CONTRADICTED — frozen pending Director decision (10)
+## CANONICAL — provenance recorded (13)
 
-| Trace ID | Widget | Lines | Rendered | Observation |
-|---|---|---|---|---|
-| `HERO-025` | NewsHeroSection | 119 | 31 TOKENS `31 TOKENS` | **observed:** markup renders "31 TOKENS" for the Korean exhibit row<br>**entity:** no CURATED_PAIRED_SENTENCES entry has hangulCount 31; TOKEN_BASELINE_SIMULATION.baseKoPerPrompt is 31 |
-| `HERO-029` | NewsHeroSection | 136 | 18 TOKENS `18 TOKENS` | **observed:** markup renders "18 TOKENS" for the English exhibit row<br>**entity:** no paired-sentence entry pairs 31 with 18; TOKEN_BASELINE_SIMULATION.baseEnPerPrompt is 24 |
-| `HERO-033` | NewsHeroSection | 149 | 1.72× (+72% Difference) `+72%` | **observed:** markup renders "1.72× (+72% Difference)" as the hero exhibit ratio<br>**entity:** derived from the 31/18 pair above, which is itself unlinked |
-| `PREM-011` | TokenPremiumSection | 73-79 | 1.29 ⏎ 1.83 `1.29` `1.83` | **observed:** markup renders the headline range "1.29× ~ 1.83×"<br>**entity:** entity ratio range is 1.13 – 1.75 |
-| `PREM-017` | TokenPremiumSection | 85 | 1.68× (+68%) `+68%` | **observed:** markup renders "Average Token Premium: 1.68× (+68%)"<br>**entity:** arithmetic mean of the 6 entity ratios is 1.513; no entity holds 1.68 |
-| `PREM-020` | TokenPremiumSection | 89 | 1.00× (Standard) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-023` | TokenPremiumSection | 93 | Business (1.44×) ~ Daily (1.83×) `1.44` `1.83` | **observed:** markup renders "Domain Range: Business (1.44×) ~ Daily (1.83×)"<br>**entity:** no domain with id/label "Business" exists; "Colloquial / Daily" has ratio 1.38 |
-| `PREM-032` | TokenPremiumSection | 124 | 7 Benchmark Domains `7 Benchmark` | **observed:** markup renders "7 Benchmark Domains"<br>**entity:** DOMAIN_DISTRIBUTION_DATA has 6 entries (domain-distribution.ts:10-53) |
-| `PREM-038` | TokenPremiumSection | 183 | Baseline: 1.00× (English) `1.00` | **observed:** markup renders "Baseline: 1.00× (English)" and "1.00× (Standard)"<br>**entity:** no baseline row exists in DOMAIN_DISTRIBUTION_DATA |
-| `PREM-039` | TokenPremiumSection | 184 | Max Observed: 1.83× `1.83` | **observed:** markup renders "Max Observed: 1.83×" directly under the chart<br>**entity:** highest ratio in DOMAIN_DISTRIBUTION_DATA is 1.75 (public-municipal-web) |
+| Trace ID | Widget | Lines | Rendered | Entity | Artifact @ hash |
+|---|---|---|---|---|---|
+| `DECOMP-012` | DecompositionSection | 119-121 | 영어를 1.00배로 뒀을 때의 한국어 중앙값 ⏎ Korean median, w… | `MEASUREMENT_FRAME` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-022` | DecompositionSection | 190-194 | 위 세 값은 각각 따로 구한 중앙값이다. 서로 곱해서 이 1.33배가 나오는 … | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-023` | DecompositionSection | 202-206 | 분해 성분의 백분위 값은 확정 결과표가 아니라 사전 진단 문서에만 실려 있다.… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `DECOMP-026` | DecompositionSection | 215-220 | 383만 쌍 가운데 ⏎ OUT OF 3.84 MILLION PAIRS | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-057` | TokenPremiumSection | 82 | 3,835,988쌍 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-058` | TokenPremiumSection | 88 | 3,835,988 | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-063` | TokenPremiumSection | 131-135 | 383만 쌍을 비율 순으로 줄 세웠을 때 한가운데 있는 값이다. 전체 토큰 수… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-073` | TokenPremiumSection | 200-204 | 같은 뜻을 담은 문장쌍 하나마다 이 값을 구한 뒤, 383만 개의 값을 모아 … | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-075` | TokenPremiumSection | 219-223 | 383만 쌍을 비율 순으로 줄 세웠을 때의 경계값 ⏎ Boundary valu… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-077` | TokenPremiumSection | 230-263 | p50 | `TP_PERCENTILES` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-115` | TokenPremiumSection | 388-392 | 383만 쌍 가운데 다섯 쌍에 한 쌍꼴이다. 나머지 여덟 쌍은 이 여덟 개 바… | `COHORT_N` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-122` | TokenPremiumSection | 426-430 | 전체 중앙값 1.33배는 두 출처 어느 쪽과도 일치하지 않는다 ⏎ The po… | `MEDIAN_TP` | `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-139` | TokenPremiumSection | 514-554 | 025에만 ⏎ 025 only ⏎ 026에만 ⏎ 026 only ⏎ 두 출처 … | `DOMAIN_COMPOSITION` | `G5_IDENTIFIABILITY_v001 @ 1069b46ed032ed28` |
 
-## DUPLICATED — value agrees today, but markup owns its own copy (2)
+## BELOW CANONICAL — sourced, but not canonical (1)
 
-| Trace ID | Widget | Lines | Rendered | Observation |
-|---|---|---|---|---|
-| `LANG-051` | MultilingualTokenEfficiencySection | 138-142 | ★ 한국어는 라틴 알파벳(영어/스페인어) 대비 1.78배의 토큰이 소비됩니다. ⏎ ★ Korean cons… `1.78` | **observed:** markup hardcodes "1.78배" and "한국어 한글 (1.78×)"<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.relativeRatio is 1.78 — value agrees, ownership does not |
-| `HERO-019` | NewsHeroSection | 96 | +78% Hangul Token Burden `+78%` | **observed:** markup renders "+78% Hangul Token Burden" in the stat ribbon<br>**entity:** MULTILINGUAL_COMPARISON_DATA ko.differencePercent is 78 — value agrees, ownership does not |
+Each of these must render with a visible qualifier on the page saying so. The `note` records what that qualifier is for.
+
+| Trace ID | Widget | Lines | Rendered | Tier | Source |
+|---|---|---|---|---|---|
+| `PREM-082` | TokenPremiumSection | 273-275 | 95백분위 (참고 수치) ⏎ 95th pct (reference onl… | `PRE_G5_DESCRIPTIVE` | KOEN_EDA_V2_PRE_G5 @ 236b979b5900fd4a [NON-CANONICAL] |
+
+## CONTRADICTED — frozen pending Director decision (0)
+
+_none_
+
+## DUPLICATED — value agrees today, but markup owns its own copy (0)
+
+_none_
 
 ## UNLINKED — value exists only in markup (5)
 
 | Trace ID | Widget | Lines | Rendered | Note |
 |---|---|---|---|---|
-| `LANG-053` | MultilingualTokenEfficiencySection | 276 | 라틴 알파벳 기준 (1.00×) ⏎ Latin-alphabet baseline (1.00×) `1.00` | _no entity holds this value_ |
-| `BURD-017` | OccupationSection | 118 | 1,000회 (팀 일간 워크플로우) `1,000` | _no entity holds this value_ |
-| `BURD-018` | OccupationSection | 119 | 2,000회 (전사 에이전트 루틴) `2,000` | _no entity holds this value_ |
-| `PREM-002` | TokenPremiumSection | 31 | 69,432건 정밀 분석 `69,432` | _no entity holds this value_ |
-| `PREM-003` | TokenPremiumSection | 37 | 69,432 Verified KO-EN Pairs `69,432` | _no entity holds this value_ |
+| `DECOMP-061` | DecompositionSection | 413-420 | 한국어 사용자가 실제로 25%를 덜 쓴다는 뜻은 아니다. 토큰 비율이 그대로 유지된다고 가정했을 때, 정해… `25%` | _no entity holds this value_ |
+| `LANG-067` | MultilingualTokenEfficiencySection | 262 | 영어 기준 (1.00×) ⏎ English baseline (1.00×) `1.00` | _no entity holds this value_ |
+| `HERO-058` | NewsHeroSection | 92-94 | 문장쌍 383만 ⏎ 3.84M pairs `383` `3.84` | _no entity holds this value_ |
+| `BURD-092` | OccupationSection | 113 | 1,000 ⏎ 회 ⏎ x `1,000` | _no entity holds this value_ |
+| `CMP-055` | TokenCompareSection | 209-213 | 이 네 문장쌍에서는 한국어 쪽 조각이 더 많다. 383만 쌍 전체로 넓히면 열에 아홉 꼴이고, 나머지는 더… `383` `3.84` | _no entity holds this value_ |
 
-## VALUE_PRESENT in an entity, but hardcoded in markup (3)
+## VALUE_PRESENT in an entity, but hardcoded in markup (6)
 
 | Trace ID | Widget | Lines | Rendered | Entity location |
 |---|---|---|---|---|
-| `LANG-018` | MultilingualTokenEfficiencySection | 125-133 | Baseline (0%) `0%` | 0% also at src/entities/multilingual-token/content/multilingual-token.ts:15 |
-| `LANG-052` | MultilingualTokenEfficiencySection | 177-181 | 기준 영문 100 토큰 대비 정규화 소모량 ⏎ Normalized consumption relative t… `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
-| `BURD-016` | OccupationSection | 117 | 1회 (단일 프롬프트) `1` | 1 also at src/entities/multilingual-token/content/multilingual-token.ts:14 |
+| `DECOMP-035` | DecompositionSection | 264-268 | 0에 가깝다. 두 가지는 사실상 따로 움직이는 별개의 힘이다. ⏎ Close to zero. The two… `0` | 0 also at src/entities/multilingual-token/content/multilingual-token.ts:15, src/entities/rq1-canonical/content/rq1-canonical.ts:260, src/entities/rq1-canonical/content/rq1-canonical.ts:332 |
+| `LANG-062` | MultilingualTokenEfficiencySection | 145-147 | 영어=1 기준 정규화 비율 ⏎ Normalized ratio, English = 1 `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |
+| `HERO-062` | NewsHeroSection | 120 | 100 `100` | 100 also at src/entities/multilingual-token/content/multilingual-token.ts:13 |
+| `BURD-091` | OccupationSection | 112 | 1 ⏎ 회 ⏎ x `1` | 1 also at src/entities/flores-citation/content/flores-citation.ts:27, src/entities/multilingual-token/content/multilingual-token.ts:14, src/entities/rq1-canonical/content/rq1-canonical.ts:260 |
+| `BURD-093` | OccupationSection | 114 | 2,000 ⏎ 회 ⏎ x `2,000` | 2,000 also at src/entities/rq1-canonical/content/rq1-canonical.ts:207 |
+| `PREM-107` | TokenPremiumSection | 330-373 | 4/3 `4` `3` | 4 also at src/entities/rq1-canonical/content/rq1-canonical.ts:356 |
 
-## UNLINKED — count coincides with an array length but is not read from it (1)
+## UNLINKED — count coincides with an array length but is not read from it (0)
 
-| Trace ID | Widget | Lines | Rendered | Check |
-|---|---|---|---|---|
-| `METH-008` | MethodSection | 72 | 6 Key Principles `6 Key` | 6 Key also at src/entities/sentence-pair/content/sentence-pair.ts:23 |
+_none_

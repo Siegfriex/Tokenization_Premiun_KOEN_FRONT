@@ -7,7 +7,6 @@ import {
   ArticleLead,
   ArticleParagraph,
   ArticleFigureCaption,
-  ArticleFinding,
   ArticleFullWidthBreak,
 } from './ArticleElements';
 
@@ -95,7 +94,6 @@ export const KoreaAIContextSection: React.FC = () => {
           <ArticleFigureCaption
             figNum={articleData.figureNumber}
             caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
-            source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
           />
         </ArticleFullWidthBreak>
 
@@ -108,11 +106,6 @@ export const KoreaAIContextSection: React.FC = () => {
             : articleData.postFigureParagraphs?.en.map((p, idx) => (
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
               ))}
-
-          <ArticleFinding
-            label={isKo ? articleData.keyFinding?.label?.ko : articleData.keyFinding?.label?.en}
-            statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
-          />
         </ArticleReadingColumn>
       </Container>
     </section>

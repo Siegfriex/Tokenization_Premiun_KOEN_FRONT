@@ -59,13 +59,19 @@ group this belongs to (see \`REMEDIATION_BATCHES.md\`).`);
     }
   }
 
-  md += `\n## MultilingualSection.tsx — dead file\n\nNot imported anywhere, never rendered. Tracked so it is not silently forgotten, excluded from every live count. ${dead.length} nodes. Deletion is batch **B6** and requires an explicit decision.\n`;
+  if (dead.length) {
+    md += `\n## Dead file — not imported anywhere\n\nNever rendered. Tracked so it is not silently forgotten, excluded from every live count. ${dead.length} nodes. Deletion is batch **B6** and requires an explicit decision.\n`;
+  } else {
+    md += `\n## Dead files\n\nNone. \`MultilingualSection.tsx\` was the last one and was deleted on 2026-08-19 (execution-map Step A).\n`;
+  }
   fs.writeFileSync(path.join(DOCS, 'TRACE_LEDGER.md'), md);
 }
 
 /* ========================== NUMERIC CLAIMS ========================== */
 {
-  const nc = live.filter((i) => i.numericClaims.length);
+  const nc = live.filter((i) => i.numericClaims.length || i.canonical);
+  const canonical = nc.filter((i) => i.canonical?.tier === 'CANONICAL');
+  const lowerTier = nc.filter((i) => i.canonical && i.canonical.tier !== 'CANONICAL');
   const disputed = nc.filter((i) => i.mismatchStatus.startsWith('CONTRADICTED'));
   const duplicated = nc.filter((i) => i.mismatchStatus.startsWith('DUPLICATED'));
   const unlinked = nc.filter((i) => i.mismatchStatus.startsWith('UNLINKED') && !i.mismatchStatus.includes('coincides'));
@@ -76,16 +82,33 @@ group this belongs to (see \`REMEDIATION_BATCHES.md\`).`);
 `Every number the site renders as a claim about the research: ratios, token
 counts, percentages, corpus sizes, benchmark counts, ranges.
 
-**Nothing here is resolved.** Every disputed value is FROZEN pending a
-Director decision. No replacement value has been derived, and no explanation
-for a mismatch has been invented — each row states only what the markup
-renders and what the entity data holds.
+**The S3 primary result is resolved.** Under the D1 ruling of 2026-08-19 the
+section was rebuilt against \`entities/rq1-canonical\`, where every value
+carries a non-optional \`provenance\` naming an artifact path and SHA-256
+prefix in the research repo at \`925697c\`. Those rows appear under CANONICAL
+below, with their artifact.
+
+A CANONICAL row is not "verified by this tool" — the tool cannot open the
+research repo. It records that the rendering site resolves to an entity that
+names its source, which is the property D1 was blocked on.
+
+**Everything else is unchanged.** Disputed values outside S3 are still FROZEN
+pending a Director decision; no replacement has been derived and no
+explanation for a mismatch has been invented.
+
+Figures withdrawn by a ruling keep their record in
+[\`DIRECTOR_DECISIONS.md\`](DIRECTOR_DECISIONS.md) and
+\`src/shared/trace/claims.ts\`, and their Trace IDs in
+[\`data/retired-trace-ids.json\`](data/retired-trace-ids.json), so a withdrawn
+number stays auditable after its node is gone.
 
 Tokenizer names (\`o200k_base\`), corpus names (\`Flores-200\`), figure numbers
 (\`FIG. 01\`) and years are traced separately as identifiers, not claims.
 
 | Status | Count | Meaning |
 |---|---|---|
+| CANONICAL | ${canonical.length} | resolves to an entity that names its artifact + hash |
+| BELOW CANONICAL | ${lowerTier.length} | sourced, but not to a canonical artifact — must render with a visible qualifier |
 | CONTRADICTED — FROZEN | ${disputed.length} | markup and entity data do not agree, or the markup asserts something the data cannot support |
 | DUPLICATED | ${duplicated.length} | the value agrees with an entity, but the markup hardcodes its own copy — free to drift |
 | UNLINKED | ${unlinked.length} | no entity anywhere holds this value; the number exists only in markup |
@@ -107,6 +130,27 @@ Tokenizer names (\`o200k_base\`), corpus names (\`Flores-200\`), figure numbers
       md += `| \`${i.traceId}\` | ${i.widget} | ${i.lines} | ${esc(trunc(i.literal, 60))} ${vals} | ${note} |\n`;
     }
   };
+  {
+    md += `\n## CANONICAL — provenance recorded (${canonical.length})\n\n`;
+    if (!canonical.length) md += '_none_\n';
+    else {
+      md += '| Trace ID | Widget | Lines | Rendered | Entity | Artifact @ hash |\n|---|---|---|---|---|---|\n';
+      for (const i of canonical) {
+        md += `| \`${i.traceId}\` | ${i.widget} | ${i.lines} | ${esc(trunc(i.literal, 44))} | \`${i.canonical.entity}\` | \`${i.canonical.artifact}\` |\n`;
+      }
+    }
+  }
+  {
+    md += `\n## BELOW CANONICAL — sourced, but not canonical (${lowerTier.length})\n\n`;
+    md += 'Each of these must render with a visible qualifier on the page saying so. The `note` records what that qualifier is for.\n\n';
+    if (!lowerTier.length) md += '_none_\n';
+    else {
+      md += '| Trace ID | Widget | Lines | Rendered | Tier | Source |\n|---|---|---|---|---|---|\n';
+      for (const i of lowerTier) {
+        md += `| \`${i.traceId}\` | ${i.widget} | ${i.lines} | ${esc(trunc(i.literal, 40))} | \`${i.canonical.tier}\` | ${esc(i.canonical.artifact)} |\n`;
+      }
+    }
+  }
   sec('CONTRADICTED — frozen pending Director decision', disputed, 'Observation');
   sec('DUPLICATED — value agrees today, but markup owns its own copy', duplicated, 'Observation');
   sec('UNLINKED — value exists only in markup', unlinked, 'Note');

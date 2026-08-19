@@ -41,10 +41,38 @@ domain rows, and `1.68` could be legitimate for the former. The defect being
 reported is that **nothing in the codebase can tell a reader which**, and one
 row (`7` vs `6`) is falsifiable by counting the cards on screen.
 
-**Decision needed:** for each row — (a) the markup figure is correct and comes
-from a source that must be recorded as an entity with its provenance; (b) the
-markup figure should be derived from `DOMAIN_DISTRIBUTION_DATA`, accepting a
-visible change to the published numbers; or (c) the figure should be removed.
+**RULED 2026-08-19 — option (a) for the primary result, option (c) for the
+rest.** The Director transmitted KOEN-FRONT-S3-CANON-IMPL-v1.0 together with
+KOEN-FRONT-CANON-LEDGER-v1.0 and instructed implementation. The ledger closes
+the gap that made this row unanswerable: every primary-result value is now
+pinned to an artifact path and SHA-256 prefix in the research repo at `925697c`,
+with the arithmetic independently re-derived.
+
+Disposition of the eight rows:
+
+| Trace ID | Ruling |
+|---|---|
+| `PREM-002` `PREM-003` | (a) — `69,432` replaced by `3,835,988`, worded 문장쌍, from `NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081` |
+| `PREM-011` | (a) — the range `1.29× ~ 1.83×` replaced by the single canonical median `1.33×` = exp(median(log TP)) |
+| `PREM-017` | (c) — `1.68× (+68%)` removed. Canonical mean log TP is `0.28518`, ratio scale `1.33`. No reading of the artifact yields 1.68 |
+| `PREM-020` `PREM-038` | (c) — both English `1.00×` baseline rows removed. The ratio is defined against English, so the rows restated their own denominator |
+| `PREM-023` | (c) — removed. "Business"/"Daily" name no domain in the research cohort, whose domains are dialogue / general / other / technology. Per-domain medians are BLOCKED_NO_ARTIFACT at `925697c` |
+| `PREM-032` | (a) — `7 Benchmark Domains` replaced by the 4 cohort domains, read from `DOMAIN_COMPOSITION` rather than hardcoded |
+| `PREM-039` | (c) — `Max Observed: 1.83×` removed. Canonical max is exp(3.6376) = 38.0, an outlier that misleads as a headline |
+
+`DOMAIN_DISTRIBUTION_DATA` was deleted rather than corrected: its six labels and
+per-sentence token counts have no counterpart in the research cohort, so there
+was nothing to reconcile them against. Option (b) was therefore unavailable.
+
+**Implemented in** `src/entities/rq1-canonical/` (new; every field carries a
+non-optional `provenance`), `src/components/TokenPremiumSection.tsx` (rebuilt),
+and `src/components/DecompositionSection.tsx` (new S2.5).
+
+**Still open after this ruling.** Per-domain median TP and the 99.2%
+technical-document figure remain `BLOCKED_NO_ARTIFACT` — they require a new
+notebook cell and artifact, which is a research request, not a front-end task.
+Absolute token-difference percentiles (+5 / +10 / +20 / +28), which the desk
+manuscript states, are likewise unsourced in both the ledger and the EDA report.
 
 ---
 
@@ -64,9 +92,23 @@ with a ratio, presented as a real measurement.
 The exhibit also renders two truncated Korean/English sentences
 (`HERO-026`, `HERO-030`) that appear in no entity.
 
-**Decision needed:** is this exhibit a real measured pair that must be added to
-`CURATED_PAIRED_SENTENCES` with its provenance, or an illustrative mock that
-must be labelled as such?
+**RULED 2026-08-19 — neither. Replaced with the canonical median.**
+
+The exhibit was neither a measured pair nor a labelled mock: it presented
+`31 / 18 / 1.72×` and two truncated sentences as a real measurement, and no
+entity held any of it. Labelling it as illustrative would have left the cover
+opening on 1.72× while S3 closed on a median of 1.33×, which is the conflict
+the directive's §8 exists to prevent — exactly one primary metric renders, and
+it is the median.
+
+The exhibit now shows that median, indexed to English at 100 (Korean 133),
+reading `MEDIAN_TP` and `SHARE_KO_MORE` from `entities/rq1-canonical`. The two
+truncated sentences are gone rather than replaced; illustrating the median with
+one hand-picked pair would misrepresent a distribution in which 6.9% of pairs
+ran the other way.
+
+`HERO-025`, `HERO-026`, `HERO-029`, `HERO-030` and `HERO-033` are recorded in
+`data/retired-trace-ids.json`.
 
 ---
 
@@ -117,6 +159,24 @@ should be entity-owned copy) or research quantities (need provenance)?
 
 ---
 
+### METH-008 — closed 2026-08-19 (partial answer to D4)
+
+`MethodSection` rendered a literal "6가지 경계" beside a `WHAT_WE_DO_NOT_CLAIM`
+array that happened to hold six entries. It now reads
+`WHAT_WE_DO_NOT_CLAIM.length`, so the two cannot drift apart.
+
+The array is no longer six. KOEN-FRONT-S3-CANON-IMPL-v1.0 §7 directs that the
+site's boundary section mirror the RQ1 artifact's own prohibited list rather
+than restate it editorially, and three boundaries on that list had no
+counterpart on the site: Korean being intrinsically inefficient, morphology as
+a cause, and any domain-effect claim. The third was not hypothetical — S3
+previously published per-domain ratios, which the cohort's structure cannot
+support. All nine now render.
+
+The remaining D4 rows (`LANG-031`, `BURD-017`, `BURD-018`) are untouched.
+
+---
+
 ## D5 — Structural claim: the header advertises 9 sections, the page has 10
 
 **1 item · MEDIUM · pre-existing, previously logged in `HANDOFF.md` §6.6**
@@ -133,6 +193,19 @@ label: { ko: 'S5. AI 인프라', en: 'S5. Infra' } }` between `languages` and
 `S5.2. Socioeconomic Implications`) — not invented, just made consistent with
 what the codebase already asserted elsewhere. `NAV_SECTION_IDS` (derived) now
 has 10 entries, matching the 10 rendered sections.
+
+**Follow-up (2026-08-19).** The count moved again — S2.5 `DecompositionSection`
+was added between S2 and S3, and registered in `NAV_SECTIONS` in the same
+change. Nav and sections are 11/11.
+
+The ruling above fixed one instance; it could not stop the next one. The
+build-ledger rule that watched for this hardcoded "9 nav entries, 10 sections",
+so it went stale the moment either number changed and would have reported a
+contradiction that no longer existed. It now counts both sets at build time and
+names which ids are unpaired, so a section added without a nav entry surfaces
+on the next pipeline run rather than waiting to be noticed:
+
+    nav coverage: 11 nav / 11 sections (match)
 
 ---
 

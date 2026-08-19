@@ -4,6 +4,7 @@ import { StoryProgress } from './components/StoryProgress';
 import { NewsHeroSection } from './components/NewsHeroSection';
 import { TokenCompareSection } from './components/TokenCompareSection';
 import { PipelineSection } from './components/PipelineSection';
+import { DecompositionSection } from './components/DecompositionSection';
 import { TokenPremiumSection } from './components/TokenPremiumSection';
 import { OccupationSection } from './components/OccupationSection';
 import { MultilingualTokenEfficiencySection } from './components/MultilingualTokenEfficiencySection';
@@ -31,6 +32,9 @@ export default function App() {
           {/* S2. Generative AI Processing Pipeline */}
           <PipelineSection />
 
+          {/* S2.5. Why the ratio exceeds 1 — the exact decomposition */}
+          <DecompositionSection />
+
           {/* S3. Token Premium & Domain Patterns */}
           <TokenPremiumSection />
 
@@ -46,11 +50,16 @@ export default function App() {
           {/* S5.2. Socioeconomic Implications (From Me to Society) */}
           <ImpactSection />
 
-          {/* S6. Methodology / Research Limitations / Sources */}
-          <MethodSection />
-
           {/* RESULT. Editorial Conclusion Slide */}
           <EditorialConclusionSection />
+
+          {/* Methodology / limits / sources.
+              Moved after the conclusion on 2026-08-19 (Director instruction).
+              It answers "how do you know this", which is a question a reader
+              has after the argument lands, not before it. Standing between
+              the last exhibit and the conclusion, it interrupted the piece at
+              the point it was closing. */}
+          <MethodSection />
         </main>
 
         {/* Source & Research Disclaimer Footer */}

@@ -72,5 +72,11 @@ export const IMPACT_CAUSAL_CHAIN = [
   { ko: 'Token Premium', en: 'Token Premium' },
   { ko: '업무 부담', en: 'Occupational Burden' },
   { ko: 'AI 확산 규모', en: 'AI Adoption at Scale' },
-  { ko: '잠재적 디지털 마찰', en: 'Potential Digital Friction' },
+  // Reworded 2026-08-19 (Director list, #impact li:nth-child(11)). The step
+  // read "잠재적 디지털 마찰 / Potential Digital Friction" — an abstraction a
+  // first-time reader cannot picture, and the only vague link in a chain whose
+  // other five steps are concrete. It now names the endpoint the article
+  // actually argues for and the desk manuscript closes on: a fixed token
+  // budget holds less when the same meaning costs more tokens.
+  { ko: '같은 한도, 다른 사용량', en: 'Same Limit, Less Room' },
 ];

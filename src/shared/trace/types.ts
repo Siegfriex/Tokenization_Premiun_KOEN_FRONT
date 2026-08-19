@@ -34,7 +34,7 @@
  *
  * `data-claim-id`      the key of a visible research claim in the claim
  *                      catalogue (shared/trace/claims.ts).
- * `data-claim-status`  "resolved" | "frozen" | "decision-required".
+ * `data-claim-status`  "resolved" | "frozen" | "decision-required" | "retired".
  *                      Lets anyone count unresolved claims from the rendered
  *                      page: `document.querySelectorAll('[data-claim-status="decision-required"]')`.
  * `data-trace-id`      cross-reference into docs/audit/TRACE_LEDGER.md, so a
@@ -78,8 +78,15 @@
  * Verify after any vocabulary change: the compiled CSS hash must not move.
  */
 
-/** Whether a visible research claim can be changed yet. */
-export type ClaimStatus = 'resolved' | 'frozen' | 'decision-required';
+/**
+ * Whether a visible research claim can be changed yet.
+ *
+ * `retired` was added for the S3 canonical replacement: a claim whose node no
+ * longer exists on the page. Deleting the row instead would lose the record
+ * that the figure was once published, which is the one thing this register is
+ * for. A retired row names what replaced it in its `note`.
+ */
+export type ClaimStatus = 'resolved' | 'frozen' | 'decision-required' | 'retired';
 
 /** Who owns the string a node renders, right now. */
 export type ContentSource = 'entity' | 'registry' | 'widget' | 'unknown';

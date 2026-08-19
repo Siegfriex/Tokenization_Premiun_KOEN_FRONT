@@ -10,13 +10,20 @@ export const NAV_SECTIONS: NavSection[] = [
   { id: 'hero', code: { ko: 'S0', en: 'S0' }, name: { ko: '커버', en: 'Cover' } },
   { id: 'compare', code: { ko: 'S1', en: 'S1' }, name: { ko: '분절 비교', en: 'Compare' } },
   { id: 'pipeline', code: { ko: 'S2', en: 'S2' }, name: { ko: '파이프라인', en: 'Pipeline' } },
+  { id: 'mechanism', code: { ko: 'S2.5', en: 'S2.5' }, name: { ko: '원인 분해', en: 'Mechanism' } },
   { id: 'patterns', code: { ko: 'S3', en: 'S3' }, name: { ko: 'Token Premium', en: 'Premium' } },
   { id: 'burden', code: { ko: 'S4', en: 'S4' }, name: { ko: '누적 부담', en: 'Burden' } },
   { id: 'languages', code: { ko: 'S4.5', en: 'S4.5' }, name: { ko: '글로벌 다국어', en: 'Global' } },
   { id: 'infrastructure', code: { ko: 'S5', en: 'S5' }, name: { ko: 'AI 인프라', en: 'Infra' } },
   { id: 'impact', code: { ko: 'S5.2', en: 'S5.2' }, name: { ko: '사회적 확장', en: 'Society' } },
-  { id: 'method', code: { ko: 'S6', en: 'S6' }, name: { ko: '방법론·한계', en: 'Method' } },
-  { id: 'result', code: { ko: 'S7', en: 'S7' }, name: { ko: '결론', en: 'Result' } },
+  // Order follows the page: the conclusion closes the argument, methodology
+  // sits after it as the "how do you know this" appendix (Director
+  // instruction, 2026-08-19). Codes follow position so a chip cannot read
+  // S7 above S6. Audit metric IDs (S45-M02 and so on) key to the historical
+  // slide codes and are unaffected — they name a past observation, not a
+  // current position.
+  { id: 'result', code: { ko: 'S6', en: 'S6' }, name: { ko: '결론', en: 'Result' } },
+  { id: 'method', code: { ko: 'S7', en: 'S7' }, name: { ko: '방법론·한계', en: 'Method' } },
 ];
 
 /**

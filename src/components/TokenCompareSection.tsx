@@ -15,7 +15,6 @@ import {
   ArticleLead,
   ArticleParagraph,
   ArticleFigureCaption,
-  ArticleFinding,
   ArticleFullWidthBreak,
 } from './ArticleElements';
 
@@ -68,7 +67,7 @@ export const TokenCompareSection: React.FC = () => {
           {/* Minimal Paired Sentence Selector Bar */}
           <div className="space-y-3">
             <div data-source="widget" className="text-xs font-mono text-ink-muted uppercase tracking-wider font-semibold">
-              {isKo ? '검증된 대역 문장쌍 선택:' : 'Select Verified Sentence Pair:'}
+              {isKo ? '의미가 대응되는 문장쌍 고르기' : 'Pick a meaning-matched pair'}
             </div>
 
             <ul data-collection="sentence-pairs" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -209,8 +208,8 @@ export const TokenCompareSection: React.FC = () => {
             <div data-role="stat" data-semantic-target="dl" className="mt-10 p-5 bg-surface border border-rule rounded-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div data-source="widget" className="text-xs font-mono text-ink-body">
                 {isKo
-                  ? '동일 의미 표현 시 한글 문장이 더 많은 토큰 조각으로 분절되는 현상이 명확히 관측됩니다.'
-                  : 'Hangul consistently segments into more subword tokens for equivalent semantic information.'}
+                  ? '이 네 문장쌍에서는 한국어 쪽 조각이 더 많다. 383만 쌍 전체로 넓히면 열에 아홉 꼴이고, 나머지는 더 적거나 같았다.'
+                  : 'In these four pairs the Korean side has more pieces. Across all 3.84 million, it is about nine in ten — the rest used fewer or came out even.'}
               </div>
               <div data-source="widget" className="text-xs font-mono text-ink font-bold shrink-0">
                 {isKo
@@ -223,7 +222,6 @@ export const TokenCompareSection: React.FC = () => {
             <ArticleFigureCaption
               figNum={articleData.figureNumber}
               caption={isKo ? articleData.figureCaption?.ko : articleData.figureCaption?.en}
-              source={isKo ? articleData.figureSource?.ko : articleData.figureSource?.en}
             />
           </div>
         </ArticleFullWidthBreak>
@@ -237,11 +235,6 @@ export const TokenCompareSection: React.FC = () => {
             : articleData.postFigureParagraphs?.en.map((p, idx) => (
                 <ArticleParagraph key={idx}>{p}</ArticleParagraph>
               ))}
-
-          <ArticleFinding
-            label={isKo ? articleData.keyFinding?.label?.ko : articleData.keyFinding?.label?.en}
-            statement={isKo ? articleData.keyFinding?.statement.ko : articleData.keyFinding?.statement.en}
-          />
         </ArticleReadingColumn>
       </Container>
     </section>

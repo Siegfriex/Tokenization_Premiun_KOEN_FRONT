@@ -11,9 +11,9 @@ The design system names a small set of roles. This ledger measures how many
 *actual* combinations are in use, which is the honest measure of how
 consolidated the system really is.
 
-- distinct typography signatures in use: **59**
-- distinct colour utilities in use: **35**
-- distinct layout/shape utilities in use: **137**
+- distinct typography signatures in use: **79**
+- distinct colour utilities in use: **34**
+- distinct layout/shape utilities in use: **146**
 
 A typography signature is the full set of font/size/tracking/leading/case
 utilities on one node. Signatures used once are candidates for either a named
@@ -24,100 +24,119 @@ type scale.
 
 | # | Uses | Signature | Example Trace IDs |
 |---|---|---|---|
-| 1 | 33 | `font-mono text-xs` | `ART-013` `ART-014` `ART-015` `CONC-007` … |
-| 2 | 19 | `font-bold` | `FOOT-005` `IMPACT-027` `LANG-012` `LANG-018` … |
-| 3 | 8 | `font-bold font-mono text-xs tracking-wider uppercase` | `INFRA-008` `LANG-008` `LANG-024` `HERO-021` … |
-| 4 | 7 | `font-mono text-[11px]` | `FOOT-015` `LANG-052` `HERO-022` `BURD-008` … |
-| 5 | 6 | `font-bold text-sm` | `LANG-015` `LANG-027` `HERO-025` `HERO-029` … |
-| 6 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
-| 7 | 4 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-018` `FOOT-019` `FOOT-020` `HERO-034` |
-| 8 | 4 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` `HERO-035` |
-| 9 | 4 | `font-mono text-xs uppercase` | `BURD-019` `BURD-021` `CMP-021` `CMP-033` |
-| 10 | 3 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PIPE-021` `PREM-010` |
-| 11 | 3 | `text-xs` | `FOOT-003` `BURD-083` `BURD-087` |
-| 12 | 3 | `font-mono font-semibold text-xs tracking-wider uppercase` | `INFRA-012` `METH-011` `CMP-006` |
-| 13 | 3 | `font-semibold` | `INFRA-020` `INFRA-023` `BURD-013` |
-| 14 | 3 | `font-mono text-[11px] tracking-wider uppercase` | `LANG-020` `BURD-048` `BURD-060` |
-| 15 | 3 | `text-[10px] uppercase` | `HERO-012` `HERO-015` `HERO-018` |
-| 16 | 2 | `font-bold whitespace-nowrap` | `ART-005` `NAV-007` |
-| 17 | 2 | `font-bold font-mono text-xs` | `INFRA-013` `CMP-037` |
-| 18 | 2 | `font-sans text-[11px]` | `INFRA-017` `PREM-027` |
-| 19 | 2 | `font-bold tracking-wider uppercase` | `METH-017` `BURD-028` |
-| 20 | 2 | `font-mono italic text-[11px]` | `HERO-026` `HERO-030` |
-| 21 | 2 | `font-bold font-mono text-sm` | `BURD-014` `PREM-036` |
-| 22 | 2 | `text-[11px]` | `BURD-075` `PREM-035` |
-| 23 | 2 | `font-bold text-lg` | `BURD-043` `BURD-054` |
-| 24 | 2 | `font-mono text-[10px]` | `BURD-050` `BURD-062` |
-| 25 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-013` `CMP-025` |
-| 26 | 2 | `font-mono text-[10px] tracking-widest uppercase` | `CMP-016` `CMP-028` |
-| 27 | 2 | `font-sans sm:text-3xl text-2xl` | `PREM-012` `PREM-014` |
-| 28 | 1 | `font-medium font-sans leading-[1.6] sm:text-2xl text-xl tracking-tight` | `ART-008` |
-| 29 | 1 | `antialiased break-keep font-normal font-sans leading-[1.85] sm:text-[18px] text-[17px]` | `ART-009` |
-| 30 | 1 | `break-keep font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-…` | `ART-001` |
-| 31 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
-| 32 | 1 | `font-sans text-xs` | `FOOT-021` |
-| 33 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
-| 34 | 1 | `font-bold text-xl` | `IMPACT-009` |
-| 35 | 1 | `font-mono leading-none text-lg` | `INFRA-044` |
-| 36 | 1 | `font-bold leading-snug text-sm` | `INFRA-027` |
-| 37 | 1 | `font-bold font-mono sm:text-base text-sm tracking-wider uppercase` | `METH-007` |
-| 38 | 1 | `sm:text-sm text-xs` | `METH-026` |
-| 39 | 1 | `leading-snug` | `METH-027` |
-| 40 | 1 | `leading-relaxed` | `METH-018` |
-| 41 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
-| 42 | 1 | `font-medium` | `HERO-028` |
-| 43 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
-| 44 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
-| 45 | 1 | `font-bold font-mono text-[10px] uppercase` | `PIPE-012` |
-| 46 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
-| 47 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
-| 48 | 1 | `font-mono font-semibold text-xs` | `CMP-014` |
-| 49 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
-| 50 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
-| 51 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
-| 52 | 1 | `font-black font-mono lg:text-7xl sm:text-6xl text-5xl tracking-tight whitespace-nowrap` | `PREM-011` |
-| 53 | 1 | `font-light sm:text-3xl text-2xl` | `PREM-013` |
-| 54 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-025` |
-| 55 | 1 | `font-semibold text-sm` | `PREM-026` |
-| 56 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
-| 57 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
-| 58 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
-| 59 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
+| 1 | 32 | `font-mono text-xs` | `ART-013` `ART-014` `ART-015` `DECOMP-032` … |
+| 2 | 13 | `font-bold` | `DECOMP-034` `IMPACT-027` `LANG-015` `LANG-054` … |
+| 3 | 10 | `font-bold font-mono text-xs tracking-wider uppercase` | `DECOMP-011` `DECOMP-043` `INFRA-045` `LANG-060` … |
+| 4 | 8 | `break-keep font-sans leading-relaxed text-[11px]` | `DECOMP-018` `DECOMP-022` `DECOMP-035` `DECOMP-054` … |
+| 5 | 6 | `break-keep font-mono text-[11px]` | `DECOMP-012` `DECOMP-044` `PREM-075` `PREM-105` … |
+| 6 | 5 | `font-mono text-[11px]` | `LANG-062` `HERO-058` `BURD-008` `NAV-006` … |
+| 7 | 5 | `font-bold text-sm` | `LANG-064` `HERO-060` `HERO-062` `HERO-064` … |
+| 8 | 5 | `font-normal font-sans text-xs` | `BURD-020` `BURD-022` `BURD-026` `CMP-022` … |
+| 9 | 4 | `font-mono text-xs uppercase` | `BURD-094` `BURD-095` `CMP-021` `CMP-033` |
+| 10 | 3 | `font-mono text-[10px] tracking-widest uppercase` | `DECOMP-016` `CMP-016` `CMP-028` |
+| 11 | 3 | `font-mono text-[10px]` | `DECOMP-031` `PREM-070` `PREM-127` |
+| 12 | 3 | `break-keep font-sans` | `DECOMP-033` `PREM-082` `PREM-113` |
+| 13 | 3 | `font-sans text-xs` | `DECOMP-049` `DECOMP-051` `FOOT-021` |
+| 14 | 3 | `font-bold font-mono text-[11px] tracking-wider uppercase` | `FOOT-018` `FOOT-019` `FOOT-020` |
+| 15 | 3 | `leading-relaxed text-xs` | `FOOT-008` `FOOT-011` `FOOT-014` |
+| 16 | 3 | `font-mono text-[11px] tracking-wider uppercase` | `LANG-020` `PIPE-026` `PIPE-028` |
+| 17 | 3 | `break-keep` | `HERO-063` `HERO-065` `BURD-106` |
+| 18 | 2 | `font-mono text-xs tracking-wider uppercase` | `ART-002` `PREM-062` |
+| 19 | 2 | `font-bold whitespace-nowrap` | `ART-005` `NAV-007` |
+| 20 | 2 | `break-keep font-sans leading-relaxed text-[13px]` | `DECOMP-023` `DECOMP-061` |
+| 21 | 2 | `font-bold font-mono text-lg` | `DECOMP-030` `PREM-126` |
+| 22 | 2 | `break-keep font-mono text-[10px]` | `DECOMP-024` `DECOMP-036` |
+| 23 | 2 | `font-bold font-mono text-2xl` | `DECOMP-050` `DECOMP-052` |
+| 24 | 2 | `font-mono font-semibold text-xs tracking-wider uppercase` | `METH-034` `CMP-054` |
+| 25 | 2 | `font-semibold` | `BURD-013` `PREM-083` |
+| 26 | 2 | `break-keep font-medium font-sans sm:text-lg text-base` | `PIPE-027` `PIPE-029` |
+| 27 | 2 | `font-bold font-mono text-sm tracking-wider uppercase` | `CMP-051` `CMP-052` |
+| 28 | 2 | `tracking-wide uppercase` | `PREM-128` `PREM-130` |
+| 29 | 1 | `font-medium font-sans leading-[1.6] sm:text-2xl text-xl tracking-tight` | `ART-008` |
+| 30 | 1 | `antialiased break-keep font-normal font-sans leading-[1.85] sm:text-[18px] text-[17px]` | `ART-009` |
+| 31 | 1 | `break-keep font-bold font-sans leading-snug lg:text-[32px] sm:text-3xl text-2xl tracking-…` | `ART-001` |
+| 32 | 1 | `font-bold text-[11px] tracking-wider uppercase` | `ART-006` |
+| 33 | 1 | `font-bold font-mono text-xl` | `DECOMP-017` |
+| 34 | 1 | `break-keep font-bold font-sans text-sm` | `DECOMP-020` |
+| 35 | 1 | `font-black font-mono text-2xl` | `DECOMP-021` |
+| 36 | 1 | `break-keep font-bold font-mono text-xs tracking-wider uppercase` | `DECOMP-026` |
+| 37 | 1 | `break-keep font-bold font-mono text-[11px] tracking-wide uppercase` | `DECOMP-047` |
+| 38 | 1 | `break-keep font-mono text-[10px] tracking-widest uppercase` | `DECOMP-053` |
+| 39 | 1 | `font-bold text-lg tracking-tight` | `FOOT-002` |
+| 40 | 1 | `text-xs` | `FOOT-003` |
+| 41 | 1 | `font-bold text-xl` | `IMPACT-009` |
+| 42 | 1 | `font-sans text-[11px]` | `IMPACT-031` |
+| 43 | 1 | `font-bold font-mono sm:text-base text-sm tracking-wider uppercase` | `METH-032` |
+| 44 | 1 | `sm:text-sm text-xs` | `METH-026` |
+| 45 | 1 | `break-keep leading-snug` | `METH-027` |
+| 46 | 1 | `font-bold tracking-wider uppercase` | `METH-036` |
+| 47 | 1 | `break-keep leading-relaxed` | `METH-018` |
+| 48 | 1 | `font-extrabold leading-[1.1] lg:text-7xl sm:text-6xl text-4xl tracking-tight` | `HERO-010` |
+| 49 | 1 | `break-keep font-mono font-semibold text-xs tracking-wider uppercase` | `HERO-057` |
+| 50 | 1 | `font-medium` | `HERO-061` |
+| 51 | 1 | `font-semibold tracking-wider uppercase` | `HERO-039` |
+| 52 | 1 | `font-bold font-mono text-sm` | `BURD-014` |
+| 53 | 1 | `font-black font-mono sm:text-5xl text-4xl` | `BURD-025` |
+| 54 | 1 | `text-[11px]` | `BURD-075` |
+| 55 | 1 | `break-keep font-bold tracking-wider uppercase` | `BURD-105` |
+| 56 | 1 | `break-keep font-sans text-sm` | `PIPE-025` |
+| 57 | 1 | `font-bold font-mono text-[11px] tracking-widest uppercase` | `NAV-003` |
+| 58 | 1 | `font-semibold text-sm tracking-tight` | `NAV-005` |
+| 59 | 1 | `font-mono font-semibold text-xs` | `CMP-014` |
+| 60 | 1 | `font-bold leading-snug sm:text-2xl text-xl` | `CMP-017` |
+| 61 | 1 | `font-medium leading-snug sm:text-2xl text-xl` | `CMP-029` |
+| 62 | 1 | `font-bold font-mono text-xs` | `CMP-053` |
+| 63 | 1 | `font-mono text-xs tracking-widest uppercase` | `PREM-048` |
+| 64 | 1 | `font-black font-mono lg:text-7xl sm:text-6xl text-5xl tracking-tight whitespace-nowrap` | `PREM-009` |
+| 65 | 1 | `font-sans sm:text-3xl text-2xl` | `PREM-012` |
+| 66 | 1 | `break-keep font-mono text-xs` | `PREM-064` |
+| 67 | 1 | `font-sans` | `PREM-065` |
+| 68 | 1 | `font-bold font-mono text-[10px] tracking-widest uppercase` | `PREM-066` |
+| 69 | 1 | `font-bold text-[10px] tracking-widest uppercase` | `PREM-071` |
+| 70 | 1 | `break-keep font-semibold text-sm` | `PREM-072` |
+| 71 | 1 | `font-bold font-semibold text-base` | `PREM-080` |
+| 72 | 1 | `break-keep font-sans leading-relaxed text-[10px]` | `PREM-084` |
+| 73 | 1 | `font-bold text-[9px] tracking-widest uppercase` | `PREM-111` |
+| 74 | 1 | `break-keep tracking-wide uppercase` | `PREM-132` |
+| 75 | 1 | `text-[9px] tracking-widest uppercase` | `PREM-142` |
+| 76 | 1 | `font-bold font-mono text-xs tracking-widest uppercase` | `UI-006` |
+| 77 | 1 | `decoration-2 underline underline-offset-8` | `UI-007` |
+| 78 | 1 | `font-bold leading-tight tracking-tight` | `UI-003` |
+| 79 | 1 | `font-medium font-mono font-semibold text-xs` | `UI-010` |
 
 ## Colour-role application
 
 | Utility | Uses |
 |---|---|
-| `text-ink` | 72 |
-| `border-rule` | 65 |
-| `text-ink-muted` | 61 |
-| `border-b` | 38 |
-| `text-ink-body` | 26 |
-| `bg-surface` | 21 |
-| `bg-surface-alt` | 15 |
-| `text-ink-subtle` | 14 |
-| `border-t` | 12 |
-| `border-rule/60` | 8 |
-| `text-left` | 6 |
-| `text-on-accent` | 6 |
+| `text-ink` | 74 |
+| `text-ink-muted` | 58 |
+| `border-rule` | 56 |
+| `text-ink-body` | 33 |
+| `border-b` | 30 |
+| `text-ink-subtle` | 19 |
+| `bg-surface` | 16 |
+| `border-t` | 13 |
+| `bg-surface-alt` | 11 |
+| `text-left` | 5 |
+| `border-rule-strong` | 5 |
 | `focus-visible:outline-2` | 5 |
 | `focus-visible:outline-offset-2` | 5 |
 | `focus-visible:outline-rule-strong` | 5 |
-| `bg-accent` | 4 |
+| `text-on-accent` | 4 |
 | `border-y` | 3 |
-| `border-rule-strong` | 3 |
-| `text-rule-neutral` | 3 |
+| `border-2` | 3 |
+| `bg-accent` | 3 |
 | `hover:text-ink` | 3 |
 | `text-ink-strong` | 2 |
-| `border-2` | 2 |
 | `hover:bg-surface-alt` | 2 |
-| `text-on-accent-muted` | 2 |
-| `border-accent` | 1 |
+| `text-rule-neutral` | 2 |
 | `md:border-l` | 1 |
 | `md:border-rule` | 1 |
 | `border-dashed` | 1 |
+| `border-l-2` | 1 |
 | `bg-surface/95` | 1 |
 | `bg-mark-track` | 1 |
+| `text-on-accent-muted` | 1 |
 | `lg:border-l` | 1 |
 | `lg:border-rule` | 1 |
 | `decoration-accent` | 1 |
@@ -128,65 +147,65 @@ type scale.
 
 | Utility | Uses |
 |---|---|
-| `flex` | 79 |
-| `justify-between` | 61 |
-| `items-center` | 46 |
-| `rounded-xs` | 28 |
-| `border` | 24 |
-| `py-1` | 16 |
-| `flex-col` | 15 |
+| `flex` | 63 |
+| `justify-between` | 46 |
+| `items-center` | 32 |
+| `gap-3` | 21 |
+| `rounded-xs` | 17 |
+| `my-8` | 15 |
+| `block` | 15 |
+| `shrink-0` | 14 |
 | `pb-3` | 14 |
-| `block` | 12 |
-| `my-8` | 10 |
-| `space-y-12` | 10 |
-| `py-20` | 8 |
-| `sm:py-28` | 8 |
-| `scroll-mt-16` | 8 |
-| `w-full` | 7 |
-| `gap-3` | 7 |
-| `grid` | 7 |
+| `items-baseline` | 14 |
+| `border` | 13 |
+| `space-y-12` | 11 |
+| `space-y-6` | 10 |
+| `flex-col` | 10 |
+| `gap-4` | 10 |
+| `py-20` | 9 |
+| `sm:py-28` | 9 |
+| `scroll-mt-16` | 9 |
+| `space-y-1` | 8 |
+| `grid` | 8 |
+| `gap-2` | 8 |
+| `space-y-4` | 7 |
 | `grid-cols-1` | 7 |
-| `space-y-6` | 7 |
 | `flex-wrap` | 7 |
-| `gap-4` | 7 |
-| `space-y-1` | 6 |
-| `gap-2` | 6 |
+| `space-y-2` | 6 |
+| `w-full` | 6 |
+| `items-start` | 6 |
 | `p-4` | 6 |
-| `space-y-4` | 5 |
-| `pt-2` | 5 |
-| `items-start` | 5 |
+| `space-y-3` | 5 |
+| `pt-3` | 5 |
+| `space-y-1.5` | 5 |
+| `py-1` | 5 |
 | `gap-1.5` | 5 |
-| `sm:flex-row` | 5 |
 | `transition-all` | 5 |
 | `ml-1.5` | 5 |
-| `py-0.5` | 5 |
-| `space-y-2` | 4 |
+| `pt-2` | 4 |
+| `gap-6` | 4 |
 | `px-4` | 4 |
 | `sm:px-6` | 4 |
 | `space-y-10` | 4 |
-| `gap-6` | 4 |
-| `px-3` | 4 |
-| `p-6` | 4 |
-| `shadow-xs` | 4 |
-| `p-3` | 4 |
-| `gap-1` | 4 |
 | `cursor-pointer` | 4 |
-| `px-2` | 4 |
-| `space-y-3` | 3 |
-| `pt-3` | 3 |
-| `shrink-0` | 3 |
 | `lg:px-12` | 3 |
-| `sm:p-8` | 3 |
+| `px-3` | 3 |
 | `relative` | 3 |
 | `p-5` | 3 |
-| `sm:items-center` | 3 |
 | `transition-colors` | 3 |
-| `pt-4` | 3 |
+| `sm:flex-row` | 3 |
+| `gap-1` | 3 |
 | `hidden` | 3 |
+| `pt-4` | 3 |
 | `px-2.5` | 3 |
 | `mb-6` | 2 |
 | `mt-10` | 2 |
 | `mx-auto` | 2 |
 | `my-12` | 2 |
+| `sm:my-16` | 2 |
+| `mb-2` | 2 |
+| `my-auto` | 2 |
+| `py-16` | 2 |
+| `p-6` | 2 |
 
-_(top 60 of 137; full data in `data/trace-ledger.json`)_
+_(top 60 of 146; full data in `data/trace-ledger.json`)_

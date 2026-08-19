@@ -177,16 +177,14 @@ export const ArticleDisclosure: React.FC<{
 export const ArticleFigureCaption: React.FC<{
   figNum?: string;
   caption: React.ReactNode;
-  source?: string;
   className?: string;
-}> = ({ figNum, caption, source, className = '' }) => {
+}> = ({ figNum, caption, className = '' }) => {
   return (
     <figcaption data-role="figure-caption" className={`pt-3 space-y-1 text-xs font-mono ${className}`}>
       <div className="text-ink font-semibold flex items-start gap-2">
         {figNum && <span className="text-ink font-bold shrink-0 whitespace-nowrap">{figNum} ·</span>}
         <span className="text-ink-body font-normal break-keep">{caption}</span>
       </div>
-      {source && <div className="text-ink-subtle text-[11px] break-keep">{source}</div>}
     </figcaption>
   );
 };

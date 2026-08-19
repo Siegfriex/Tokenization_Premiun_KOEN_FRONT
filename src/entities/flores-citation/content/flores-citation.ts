@@ -63,13 +63,19 @@ export const FLORES_CITATION_DATA: FloresCitationItem[] = [
  * source/tokenizer stays structurally separate from this project's own
  * measurement, per the note above.
  *
- * cautionText names this project's own figures as "우리 연구의 1.33배" /
- * "약 384만 한-영 대응쌍" (our study's 1.33x median / ~3.84M Korean-English
- * pairs) — this is DIFFERENT from the site's currently-displayed S3
- * headline (69,432 pairs / 1.29x-1.83x range, frozen by
- * docs/audit/DIRECTOR_DECISIONS.md D1). Used here exactly as dictated,
- * scoped to this one new paragraph only; D1/S3 were not changed as a
- * side effect. See D8 in DIRECTOR_DECISIONS.md.
+ * RECONCILED 2026-08-19. cautionText names this project's own figures as
+ * "우리 연구의 1.33배" / "약 384만 한-영 대응쌍". When it was written those
+ * disagreed with the S3 headline the site was actually showing (69,432 pairs
+ * / 1.29x-1.83x, then frozen by D1), and this comment recorded the conflict.
+ *
+ * The D1 ruling of 2026-08-19 resolved it in cautionText's favour: S3 now
+ * renders 3,835,988 pairs and a median of 1.33x, from
+ * NB08_RQ1_RESULTS_v001 @ 768a3bccc7d5d081. The Director's dictated text and
+ * the page agree, and no wording here had to change for that to happen.
+ *
+ * The comparison caution itself still stands and must not be softened: the
+ * Petrov figures are FLORES-200 + cl100k_base, ours are the AI-Hub cohort +
+ * o200k_base. Different corpus, different tokenizer, not the same scale.
  */
 export const FLORES_CITATION_NOTE = {
   headline: {
@@ -99,7 +105,16 @@ export const FLORES_CITATION_NOTE = {
       en: "A tokenizer-driven, per-language gap that stays invisible from an English-centric view was observed again in Korean. The size of the gap changes with the tokenizer and dataset. But the phenomenon itself — that the length used to count identical meaning varies by language — has been observed repeatedly, across multiple tokenizer conditions.",
     },
   },
-  figureNumber: 'FIG. 06-1',
+  /**
+   * Promoted from 'FIG. 06-1' on 2026-08-19.
+   *
+   * It was a sub-figure of FIG. 06, the project's own 12-language chart. That
+   * chart was removed in PR #32 (it rendered a second, differently-sourced
+   * Korean ratio in the same section), which left a sub-figure numbered
+   * against a parent the reader could not find. This is now the section's
+   * only exhibit, so it takes the parent number.
+   */
+  figureNumber: 'FIG. 06',
   figureCaption: {
     ko: '영어=1로 본 선행연구 언어별 tokenization length',
     en: "Prior-Research Tokenization Length by Language, Normalized to English=1",
