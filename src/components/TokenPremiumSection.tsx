@@ -322,7 +322,7 @@ export const TokenPremiumSection: React.FC = () => {
                 </span>
                 <div
                   data-source="entity"
-                  className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
+                  className="text-2xl sm:text-3xl md:text-4xl font-black font-mono tracking-tight text-ink whitespace-nowrap"
                 >
                   [ {Math.exp(BOOTSTRAP_CI.lower).toFixed(4)} , {Math.exp(BOOTSTRAP_CI.upper).toFixed(4)} ]
                 </div>
@@ -545,7 +545,7 @@ export const TokenPremiumSection: React.FC = () => {
                       <dl
                         data-role="stat"
                         data-semantic-target="dl"
-                        className="grid grid-cols-3 gap-2 text-[10px] font-mono pt-0.5"
+                        className="grid grid-cols-3 gap-2 text-[10px] font-mono pt-0.5 min-w-0"
                       >
                         <div>
                           <dt className="text-ink-subtle uppercase tracking-wide">
